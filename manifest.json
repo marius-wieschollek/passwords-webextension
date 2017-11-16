@@ -1,0 +1,36 @@
+{
+    "manifest_version": 2,
+    "name"            : "Nextcloud Passwords",
+    "version"         : "1.0",
+    "description"     : "A client for the Nextcloud passwords app",
+    "icons"           : {
+        "16": "img/passwords.svg",
+        "32": "img/passwords.svg",
+        "48": "img/passwords.svg"
+    },
+    "browser_action"  : {
+        "default_icon" : "img/passwords.svg",
+        "default_title": "Nextcloud Passwords",
+        "default_popup": "/html/manager/index.html",
+        "browser_style": true
+    },
+    "applications"    : {
+        "gecko": {
+            "id": "ncpasswords@mdns.eu"
+        }
+    },
+    "background"      : {
+        "scripts": [ "js/manager.js" ]
+    },
+
+    "permissions": [
+        "*://*/*",
+        "notifications",
+        "tabs",
+        "clipboardWrite",
+        "storage",
+        "contextMenus",
+        "webRequest",
+        "webRequestBlocking"
+    ]
+}
