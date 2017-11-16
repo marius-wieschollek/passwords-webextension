@@ -4,18 +4,17 @@
 
 <script>
     export default {
-
         props: {
             url: {
                 type: String
             }
         },
 
-        components: {},
-
         methods: {
             openPage() {
-                browser.tabs.create({url: this.url});
+                browser.storage.sync.get(['url']).then((data) => {
+                    browser.tabs.create({url: data.url + '/index.php/apps/passwords/'});
+                });
             }
         }
     }
@@ -27,5 +26,6 @@
         height     : 125px;
         width      : 250px;
         display    : block;
+        cursor     : pointer;
     }
 </style>

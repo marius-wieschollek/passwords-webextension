@@ -21,6 +21,8 @@
         "sass-resources-loader": "^1.3.1",
         "simplemde": "^1.11.2",
         "url-loader": "^0.5.9",
+        "uglifyjs-webpack-plugin": "^1.0.1",
+        "uglify-es": "^3.1.9",
         "vue": "^2.4.4",
         "vue-loader": "^13.0.5",
         "vue-markdown": "^2.2.4",
@@ -32,7 +34,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "ssh://git@git.mdns.eu:2024/nextcloud/passwords.git"
+        "url": "ssh://git@git.mdns.eu:2024/nextcloud/passwords-webextension.git"
     },
     "keywords": [
         "passwords",
@@ -40,5 +42,5 @@
         "security"
     ],
     "author": "Marius Wieschollek",
-    "license": "SEE LICENSE IN LICENSE"
+    "license": "GPL"
 }

@@ -2,17 +2,14 @@
     <form id="settings" class="settings" v-on:submit="saveSettings($event)">
         <div>
             <label for="settings-url">URL</label>
-            <br>
             <input id="settings-url" type="text" :value="url">
         </div>
         <div>
             <label for="settings-user">User</label>
-            <br>
             <input id="settings-user" type="text" :value="user">
         </div>
         <div>
             <label for="settings-password">Password</label>
-            <br>
             <input id="settings-password" type="password" :value="password">
         </div>
         <br>
@@ -26,7 +23,6 @@
     import $ from "jquery";
 
     export default {
-
         data() {
             return {
                 url     : 'https://nextcloud.example.com/',
@@ -34,8 +30,6 @@
                 password: '',
             }
         },
-
-        components: {},
 
         created() {
             browser.storage.sync.get(
@@ -62,11 +56,11 @@
                 );
                 browser.storage.local.set(
                     {
-                        password: $('#settings-password').val(),
+                        password   : $('#settings-password').val(),
                         initialized: true
                     }
                 );
-                vm.parent.page = 'accounts';
+                vm.parent.page = 'logins';
                 vm.parent.apiLogin();
             }
         }
@@ -77,9 +71,23 @@
     form.settings {
         padding : 5px;
 
+        label {
+            display: block;
+            padding: 10px 0 5px;
+        }
+
         input {
             width      : 240px;
             box-sizing : border-box;
+        }
+
+        input[type=submit] {
+
+            &:hover {
+                background-color: #0082c9;
+                color: #fff;
+                cursor: pointer;
+            }
         }
     }
 </style>

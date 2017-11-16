@@ -1,22 +1,22 @@
 let path = require('path');
 let webpack = require('webpack');
+let UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 let ExtractTextPlugin = require("extract-text-webpack-plugin");
 let OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
-    entry  : "./js/main.js",
+    entry  : "./src/js/main.js",
     output : {
         path    : __dirname,
-        filename: "./js/passwords.js"
+        filename: "./dist/js/passwords.js"
     },
     resolve: {
         modules   : ['node_modules', 'src'],
         extensions: ['.js', '.vue', '.json'],
         alias     : {
             'vue$': 'vue/dist/vue.esm.js',
-            '@vue': path.join(__dirname, 'vue'),
-            '@js' : path.join(__dirname, 'js'),
-            '@vc' : path.join(__dirname, 'js/Components')
+            '@vue': path.join(__dirname, 'src/vue'),
+            '@js' : path.join(__dirname, 'src/js')
         }
     },
     module : {
@@ -38,7 +38,7 @@ module.exports = {
                                         options: {minimize: true, sourceMap: false}
                                     }, {
                                         loader : 'sass-resources-loader',
-                                        options: {resources: path.resolve(__dirname, './css/_variables.scss')}
+                                        options: {resources: path.resolve(__dirname, './src/scss/_variables.scss')}
                                     }
                                 ],
                                 fallback: 'vue-style-loader'
@@ -52,20 +52,32 @@ module.exports = {
                 loader : 'url-loader',
                 options: {
                     limit          : 2048,
-                    outputPath     : 'css/static/',
-                    publicPath     : '../../',
-                    useRelativePath: false
+                    outputPath     : 'dist/css/',
+                    publicPath     : './',
+                    useRelativePath: true
                 }
             }
         ]
     },
     plugins: [
-        new ExtractTextPlugin('./css/passwords.css'),
+        new ExtractTextPlugin('./dist/css/passwords.css'),
         new OptimizeCSSPlugin(
             {
                 cssProcessorOptions: {
                     safe: true
                 }
+            }
+        ),
+        new UglifyJSPlugin(
+            {
+                uglifyOptions: {
+                    beautify: false,
+                    ecma    : 6,
+                    compress: true,
+                    comments: false
+                },
+                cache: true,
+                parallel: true
             }
         )
     ]
