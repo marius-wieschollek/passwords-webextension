@@ -52,9 +52,9 @@ module.exports = {
                 loader : 'url-loader',
                 options: {
                     limit          : 2048,
-                    outputPath     : 'css/static/a/',
-                    publicPath     : '../css/static/',
-                    useRelativePath: true
+                    outputPath     : 'css/static/',
+                    publicPath     : '../../',
+                    useRelativePath: false
                 }
             }
         ]

@@ -67,13 +67,14 @@
                     }
                 );
                 vm.parent.page = 'accounts';
+                vm.parent.apiLogin();
             }
         }
     }
 </script>
 
 <style lang="scss">
-    .settings {
+    form.settings {
         padding : 5px;
 
         input {
