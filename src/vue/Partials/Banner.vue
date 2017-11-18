@@ -1,5 +1,5 @@
 <template>
-    <div class="banner" @click="openPage"></div>
+    <div class="banner theme" @click="openPage"></div>
 </template>
 
 <script>
@@ -22,9 +22,9 @@
 
 <style lang="scss">
     .banner {
-        background : #0082c9 url('../img/nextcloud.svg') no-repeat center;
+        background : url('../../img/nextcloud.svg') no-repeat center;
         height     : 125px;
-        width      : 250px;
+        width      : 100%;
         display    : block;
         cursor     : pointer;
     }

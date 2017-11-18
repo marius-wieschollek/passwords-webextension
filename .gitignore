@@ -1,7 +1,6 @@
 .idea
 node_modules
 dist/fonts/
-dist/js/passwords.js
 dist/css/
-dist/img/
-!dist/img/passwords*
+dist/js
+dist/img/444caf91437bdf1c6b22c61f8f3259d5.svg

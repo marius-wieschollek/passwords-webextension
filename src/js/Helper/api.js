@@ -18,21 +18,22 @@ class Api {
 
                 let passwords = [];
                 for (let i in data) {
-                    if(!data.hasOwnProperty(i)) continue;
+                    if (!data.hasOwnProperty(i)) continue;
                     let p = data[i],
                         d = JSON.parse('{' + p.properties + '}');
 
-                    let website = p.website;
-                    if(d.address && d.address !== 'undefined') {
-                        let el = document.createElement ('a');
+                    let host = p.website;
+                    if (d.address && d.address !== 'undefined') {
+                        let el = document.createElement('a');
                         el.href = d.address;
-                        website = el.hostname;
+                        host = el.hostname;
                     }
 
 
                     passwords.push(
                         {
-                            'website' : website,
+                            'title'   : d.loginname,
+                            'host'    : host,
                             'user'    : d.loginname,
                             'password': p.pass
                         }
@@ -42,7 +43,19 @@ class Api {
                 browser.storage.local.set({'database': passwords})
                     .then(() => {resolve(passwords)})
                     .catch((e) => {reject(e)});
-            }).catch((e) => {reject(e)});
+            }).catch((e) => {
+                if (e.readyState !== 0) {
+                    browser.notifications.create(
+                        'api-request-failed',
+                        {
+                            type   : 'basic',
+                            title  : 'Nextcloud Password Request Failed',
+                            message: "The password list could not be retrieved.\nError: " + e.message
+                        }
+                    );
+                }
+                reject(e)
+            });
         });
     }
 

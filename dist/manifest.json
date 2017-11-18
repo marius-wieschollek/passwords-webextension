@@ -1,8 +1,10 @@
 {
     "manifest_version": 2,
-    "name"            : "Nextcloud Passwords",
-    "version"         : "1.0.0",
-    "description"     : "A simple client for the Nextcloud Passwords app",
+    "name"            : "__MSG_extensionName__",
+    "version"         : "1.1.0",
+    "description"     : "__MSG_extensionDescription__",
+    "author": "Marius Wieschollek",
+    "default_locale": "en",
     "icons"           : {
         "16": "img/passwords-16.png",
         "32": "img/passwords-32.png",
@@ -11,34 +13,55 @@
     },
     "browser_action"  : {
         "default_icon" : "img/passwords.svg",
-        "default_title": "Nextcloud Passwords",
+        "default_title": "__MSG_browserActionTitle__",
         "default_popup": "/html/manager.html",
-        "browser_style": true
+        "browser_style": true,
+        "theme_icons"  : [
+            {
+                "light": "img/passwords-light.svg",
+                "dark" : "img/passwords-dark.svg",
+                "size" : 12
+            },
+            {
+                "light": "img/passwords-light.svg",
+                "dark" : "img/passwords-dark.svg",
+                "size" : 16
+            },
+            {
+                "light": "img/passwords-light.svg",
+                "dark" : "img/passwords-dark.svg",
+                "size" : 32
+            },
+            {
+                "light": "img/passwords-light.svg",
+                "dark" : "img/passwords-dark.svg",
+                "size" : 64
+            }
+        ]
     },
     "applications"    : {
         "gecko": {
             "id": "ncpasswords@mdns.eu"
         }
     },
-
-    "content_scripts": [
+    "background": {
+        "scripts": ["js/background.js"]
+    },
+    "content_scripts" : [
         {
             "matches": [
                 "http://*/*",
                 "https://*/*"
             ],
-            "js": ["js/client.js"]
+            "js"     : [ "js/client.js" ]
         }
     ],
-
-    "permissions": [
+    "permissions"     : [
         "*://*/*",
-        "notifications",
         "tabs",
-        "clipboardWrite",
         "storage",
         "contextMenus",
-        "webRequest",
-        "webRequestBlocking"
+        "notifications",
+        "clipboardWrite"
     ]
 }

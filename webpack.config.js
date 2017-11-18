@@ -5,10 +5,14 @@ let ExtractTextPlugin = require("extract-text-webpack-plugin");
 let OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
-    entry  : "./src/js/main.js",
+    entry  : {
+        app       : "./src/js/app.js",
+        client    : "./src/js/client.js",
+        background: "./src/js/background.js"
+    },
     output : {
         path    : __dirname,
-        filename: "./dist/js/passwords.js"
+        filename: "./dist/js/[name].js"
     },
     resolve: {
         modules   : ['node_modules', 'src'],
@@ -38,7 +42,7 @@ module.exports = {
                                         options: {minimize: true, sourceMap: false}
                                     }, {
                                         loader : 'sass-resources-loader',
-                                        options: {resources: path.resolve(__dirname, './src/scss/_variables.scss')}
+                                        options: {resources: path.resolve(__dirname, './src/scss/includes.scss')}
                                     }
                                 ],
                                 fallback: 'vue-style-loader'
@@ -60,6 +64,13 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.DefinePlugin(
+            {
+                'process.env': {
+                    NODE_ENV: '"production"'
+                }
+            }
+        ),
         new ExtractTextPlugin('./dist/css/passwords.css'),
         new OptimizeCSSPlugin(
             {
@@ -71,13 +82,14 @@ module.exports = {
         new UglifyJSPlugin(
             {
                 uglifyOptions: {
-                    beautify: false,
-                    ecma    : 6,
-                    compress: true,
-                    comments: false
+                    beautify   : false,
+                    ecma       : 6,
+                    compress   : true,
+                    comments   : false,
+                    ascii      : true
                 },
-                cache: true,
-                parallel: true
+                cache        : true,
+                parallel     : true
             }
         )
     ]

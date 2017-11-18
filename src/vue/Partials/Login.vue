@@ -1,7 +1,7 @@
 <template>
-    <div class="login" @click="insertPassword">
-        {{login.user}}
-        <div class="options">
+    <div class="login theme-hover-invert" @click="insertPassword">
+        {{login.title}}
+        <div class="options theme-bg-background">
             <i class="fa fa-user"
                @click="copyUser"
                @mouseover="switchIcon($event, 'user')"
@@ -56,31 +56,28 @@
 <style lang="scss">
     .login {
         display       : block;
-        padding       : 5px;
+        padding       : 10px;
         text-align    : center;
         cursor        : pointer;
-        max-width     : 250px;
+        max-width     : 100%;
         text-overflow : ellipsis;
         box-sizing    : border-box;
         overflow      : hidden;
         position      : relative;
 
         .options {
-            background-color : #0082c9;
-            position         : absolute;
-            right            : 0;
-            top              : 0;
-            display          : none;
+            position : absolute;
+            right    : 0;
+            top      : 0;
+            display  : none;
 
             .fa {
                 display : inline-block;
-                padding : 5px;
+                padding : 10px;
             }
         }
 
         &:hover {
-            background-color : #0082c9;
-            color            : #fff;
 
             .options {
                 display : block;

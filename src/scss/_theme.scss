@@ -1,0 +1,60 @@
+.theme,
+.theme-hover,
+.theme-on-hover:hover,
+.theme-hover-invert:hover {
+    background-color : $color-bg;
+    outline-color    : $color-bg !important;
+    border-color     : $color-bg !important;
+    color            : $color-fg;
+}
+
+.theme-invert,
+.theme-hover:hover,
+.theme-hover-invert,
+.theme-on-hover-invert:hover {
+    background-color : $color-fg;
+    outline-color    : $color-fg !important;
+    border-color     : $color-fg !important;
+    color            : $color-bg;
+}
+
+.theme-bg-background { background-color : $color-bg !important; }
+
+.theme-fg-background { background-color : $color-fg !important; }
+
+.theme-bg-text { color : $color-bg !important; }
+
+.theme-fg-text { color : $color-fg !important; }
+
+.theme-bg-border { border-color : $color-bg !important; }
+
+.theme-fg-border { border-color : $color-fg !important; }
+
+.theme-bg-outline { outline-color : $color-bg !important; }
+
+.theme-fg-outline { outline-color : $color-fg !important; }
+
+.theme-button,
+.theme-button-invert {
+    padding          : 10px;
+    cursor           : pointer;
+    border           : 1px solid $color-bg !important;
+    border-radius    : 3px;
+    background-color : $color-fg;
+    color            : $color-bg;
+
+    &:hover {
+        background-color : $color-bg;
+        color            : $color-fg;
+    }
+}
+
+.theme-button-invert {
+    background-color : $color-bg;
+    border-color     : $color-bg !important;
+    color            : $color-fg;
+    &:hover {
+        background-color : $color-fg;
+        color            : $color-bg;
+    }
+}

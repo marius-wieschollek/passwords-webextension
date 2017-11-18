@@ -9,11 +9,7 @@ export default class Utility {
      * @returns {string}
      */
     static translate(text, variables = {}) {
-        if (OC !== undefined) {
-            return t('passwords', text, variables);
-        }
-
-        return '';
+        return text;
     }
 
     /**

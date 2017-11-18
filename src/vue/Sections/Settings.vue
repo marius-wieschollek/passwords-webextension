@@ -2,11 +2,11 @@
     <form id="settings" class="settings" v-on:submit="saveSettings($event)">
         <div>
             <label for="settings-url">URL</label>
-            <input id="settings-url" type="text" :value="url">
+            <input id="settings-url" type="text" :value="url" placeholder="https://nextcloud.example.com">
         </div>
         <div>
             <label for="settings-user">User</label>
-            <input id="settings-user" type="text" :value="user">
+            <input id="settings-user" type="text" :value="user" placeholder="user">
         </div>
         <div>
             <label for="settings-password">Password</label>
@@ -14,7 +14,7 @@
         </div>
         <br>
         <div>
-            <input type="submit" value="Save">
+            <input class="theme-button-invert" type="submit" value="Save">
         </div>
     </form>
 </template>
@@ -25,7 +25,7 @@
     export default {
         data() {
             return {
-                url     : 'https://nextcloud.example.com/',
+                url     : '',
                 user    : '',
                 password: '',
             }
@@ -56,12 +56,12 @@
                 );
                 browser.storage.local.set(
                     {
+                        database   : {},
                         password   : $('#settings-password').val(),
                         initialized: true
                     }
                 );
-                vm.parent.page = 'logins';
-                vm.parent.apiLogin();
+
             }
         }
     }
@@ -70,23 +70,22 @@
 <style lang="scss">
     form.settings {
         padding : 5px;
+        margin: 0;
 
         label {
-            display: block;
-            padding: 10px 0 5px;
+            display : block;
+            padding : 0 0 5px;
         }
 
         input {
-            width      : 240px;
+            width      : 100%;
             box-sizing : border-box;
-        }
+            padding    : 5px;
+            font-size  : 12pt;
+            margin-bottom: 15px;
 
-        input[type=submit] {
-
-            &:hover {
-                background-color: #0082c9;
-                color: #fff;
-                cursor: pointer;
+            &[type=submit] {
+                margin-bottom: 0;
             }
         }
     }

@@ -1,0 +1,16 @@
+{
+    "extensionName": {
+        "message": "Nextcloud Passwords",
+        "description": "Name of the extension."
+    },
+
+    "extensionDescription": {
+        "message": "Ein einfacher client für die Nextcloud Passwords App",
+        "description": "Description of the extension."
+    },
+
+    "browserActionTitle": {
+        "message": "Passwörter",
+        "description": "Title of the button in the browser bar"
+    }
+}
