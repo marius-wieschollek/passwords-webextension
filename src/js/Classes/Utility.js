@@ -4,12 +4,16 @@ export default class Utility {
 
     /**
      *
-     * @param text
+     * @param key
      * @param variables
      * @returns {string}
      */
-    static translate(text, variables = {}) {
-        return text;
+    static translate(key, variables = []) {
+        Array.isArray(variables) ? variables.unshift(key):variables = [key];
+
+        let translation = browser.i18n.getMessage.apply(this, variables);
+
+        return translation ? translation:key;
     }
 
     /**

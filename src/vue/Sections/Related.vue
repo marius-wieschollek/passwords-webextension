@@ -6,7 +6,7 @@
                 :login="login"
         ></login>
         <div v-if="accounts.length == 0" class="no-accounts theme-invert">
-            <translate>No logins for this tab</translate>
+            <translate>No logins found</translate>
         </div>
     </div>
 </template>

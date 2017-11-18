@@ -1,26 +1,35 @@
 <template>
     <form id="settings" class="settings" v-on:submit="saveSettings($event)">
         <div>
-            <label for="settings-url">URL</label>
+            <label for="settings-url">
+                <translate>Url</translate>
+            </label>
             <input id="settings-url" type="text" :value="url" placeholder="https://nextcloud.example.com">
         </div>
         <div>
-            <label for="settings-user">User</label>
+            <label for="settings-user">
+                <translate>User</translate>
+            </label>
             <input id="settings-user" type="text" :value="user" placeholder="user">
         </div>
         <div>
-            <label for="settings-password">Password</label>
+            <label for="settings-password">
+                <translate>Password</translate>
+            </label>
             <input id="settings-password" type="password" :value="password">
         </div>
         <br>
         <div>
-            <input class="theme-button-invert" type="submit" value="Save">
+            <button class="theme-button-invert" type="submit">
+                <translate>Save</translate>
+            </button>
         </div>
     </form>
 </template>
 
 <script>
     import $ from "jquery";
+    import Translate from '@vue/Partials/Translate.vue';
 
     export default {
         data() {
@@ -29,6 +38,9 @@
                 user    : '',
                 password: '',
             }
+        },
+        components: {
+            Translate
         },
 
         created() {
@@ -70,23 +82,25 @@
 <style lang="scss">
     form.settings {
         padding : 5px;
-        margin: 0;
+        margin  : 0;
 
         label {
             display : block;
             padding : 0 0 5px;
         }
 
-        input {
-            width      : 100%;
-            box-sizing : border-box;
-            padding    : 5px;
-            font-size  : 12pt;
-            margin-bottom: 15px;
+        input,
+        button {
+            width         : 100%;
+            box-sizing    : border-box;
+            padding       : 5px;
+            font-size     : 12pt;
+            margin-bottom : 15px;
+        }
 
-            &[type=submit] {
-                margin-bottom: 0;
-            }
+        button {
+            margin-bottom : 0;
+            padding       : 10px;
         }
     }
 </style>

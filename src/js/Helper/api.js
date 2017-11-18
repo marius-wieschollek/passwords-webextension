@@ -1,4 +1,5 @@
 import BaseApi from '@js/Classes/LegacyApi';
+import Utility from "@js/Classes/Utility"
 
 class Api {
 
@@ -44,12 +45,13 @@ class Api {
                     .then(() => {resolve(passwords)})
                     .catch((e) => {reject(e)});
             }).catch((e) => {
+                let message = e.message ? e.message:e.statusText;
                 browser.notifications.create(
                     'api-request-failed',
                     {
                         type   : 'basic',
-                        title  : 'Nextcloud Password Request Failed',
-                        message: "The password list could not be retrieved.\nError: " + (e.message ? e.message:e.statusText)
+                        title  : Utility.translate('Password request failed'),
+                        message: Utility.translate('Failed to get password list', [message])
                     }
                 );
 

@@ -1,16 +1,40 @@
 {
-    "extensionName": {
-        "message": "Nextcloud Passwords",
+    "extensionName"              : {
+        "message"    : "Nextcloud Passwords",
         "description": "Name of the extension."
     },
-
-    "extensionDescription": {
-        "message": "A simple client for the Nextcloud Passwords app",
+    "extensionDescription"       : {
+        "message"    : "A simple client for the Nextcloud Passwords app",
         "description": "Description of the extension."
     },
-
-    "browserActionTitle": {
-        "message": "Passwords",
+    "browserActionTitle"         : {
+        "message"    : "Passwords",
         "description": "Title of the button in the browser bar"
-    }
+    },
+    "No logins found"            : {
+        "message"    : "No logins found",
+        "description": "Shown when the related page did not find any results"
+    },
+    "No matches"                 : {
+        "message"    : "No matches",
+        "description": "Shown when the search did not find any results"
+    },
+    "Password request failed"    : {
+        "message"    : "Nextcloud password request failed",
+        "description": "Notification title when the password request fails"
+    },
+    "Failed to get password list": {
+        "message"     : "The password list could not be retrieved.\nError: $ERROR$",
+        "description" : "Notification text when the password request fails",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "Unknown Error"
+            }
+        }
+    },
+    "Url"                        : { "message": "Url" },
+    "Password"                   : { "message": "Password" },
+    "User"                       : { "message": "User" },
+    "Save"                       : { "message": "Save" }
 }

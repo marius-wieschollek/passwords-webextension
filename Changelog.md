@@ -7,6 +7,7 @@ Version 1.1.0 / 18.11.2017
 - Mobile design improved
 - Error handling improved
 
-Version 1.1.1 / 19.11.2017
+Version 1.2.0 / 19.11.2017
+- Added german localisation
 - Fixed Nextcloud Logout
 - Fixed Request Loop
