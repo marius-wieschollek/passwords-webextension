@@ -37,7 +37,8 @@
 
         data() {
             return {
-                currentTab: 'related'
+                currentTab: 'related',
+                updating : false,
             }
         },
 
@@ -56,13 +57,16 @@
 
         methods: {
             apiLogin: function () {
+                if(this.updating) return;
+                this.updating = true;
+
                 let $reload = $('.btn.reload');
                 $reload.addClass('fa-spin');
                 browser.storage.sync.get(['url', 'user']).then((sync) => {
                     browser.storage.local.get(['password']).then((local) => {
                         API.login(sync.url, sync.user, local.password)
-                            .then(() => {$reload.removeClass('fa-spin');})
-                            .catch(() => {$reload.removeClass('fa-spin');})
+                            .then(() => {this.updating = false; $reload.removeClass('fa-spin');})
+                            .catch(() => {this.updating = false; $reload.removeClass('fa-spin');})
                     })
                 });
             }

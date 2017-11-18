@@ -3,8 +3,8 @@
     "name"            : "__MSG_extensionName__",
     "version"         : "1.1.0",
     "description"     : "__MSG_extensionDescription__",
-    "author": "Marius Wieschollek",
-    "default_locale": "en",
+    "author"          : "Marius Wieschollek",
+    "default_locale"  : "en",
     "icons"           : {
         "16": "img/passwords-16.png",
         "32": "img/passwords-32.png",
@@ -14,7 +14,7 @@
     "browser_action"  : {
         "default_icon" : "img/passwords.svg",
         "default_title": "__MSG_browserActionTitle__",
-        "default_popup": "/html/manager.html",
+        "default_popup": "html/manager.html",
         "browser_style": true,
         "theme_icons"  : [
             {
@@ -44,8 +44,8 @@
             "id": "ncpasswords@mdns.eu"
         }
     },
-    "background": {
-        "scripts": ["js/background.js"]
+    "background"      : {
+        "scripts": [ "js/background.js" ]
     },
     "content_scripts" : [
         {

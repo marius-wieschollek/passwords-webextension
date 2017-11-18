@@ -1,5 +1,3 @@
-import $ from "jquery";
-
 export default class LegacyApi {
 
     get headers() {
@@ -15,7 +13,7 @@ export default class LegacyApi {
     }
 
     constructor(endpoint, user = null, password = null, token = null, debug = false) {
-        this._debug = false;
+        this._debug = debug;
 
         this._paths = {
             'password.list': 'passwords',
@@ -58,31 +56,41 @@ export default class LegacyApi {
      * @returns {Promise}
      * @private
      */
-    _createRequest(path, data = null, method = null, dataType = 'json') {
-
-        if (method === null) {
-            method = data === null ? 'GET':'POST';
+    _createRequest(path, data = null, method = 'GET', dataType = 'json') {
+        let headers = new Headers();
+        for (let header in this._headers) {
+            if (!this._headers.hasOwnProperty(header)) continue;
+            headers.append(header, this._headers[header]);
         }
+        headers.append('Accept', 'application/' + dataType + ', text/plain, */*');
+
+        let request = new Request(
+            this._endpoint + this._paths[path],
+            {
+                method : data ? POST:method,
+                headers: headers
+            }
+        );
+        if (data) request.body = JSON.stringify(data);
 
         return new Promise((resolve, reject) => {
-            $.ajax({
-                       type    : method,
-                       dataType: dataType,
-                       headers : this._headers,
-                       url     : this._endpoint + this._paths[path],
-                       data    : data,
-                       success : (data) => { resolve(data); },
-                       error   : (data) => {
-                           try {
-                               let response = JSON.parse(data.responseText);
-                               data.message = response.message;
-                           } catch (e) {
-                               data.message = data.status + ': ' + data.statusText;
-                           }
-                           if (this._debug) console.error(data);
-                           reject(data);
-                       }
-                   });
+            fetch(request)
+                .then((response) => {
+                    if (!response.ok) {
+                        if (this._debug) console.error('Request failed', request, response);
+                        reject(response)
+                    }
+                    response.json()
+                        .then((d) => {resolve(d);})
+                        .catch((response) => {
+                            if (this._debug) console.error('Encoding response failed', request, response);
+                            reject(response)
+                        })
+                })
+                .catch((response) => {
+                    if (this._debug) console.error('Request failed', request, response);
+                    reject(response)
+                });
         });
     }
 }

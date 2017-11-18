@@ -44,16 +44,15 @@ class Api {
                     .then(() => {resolve(passwords)})
                     .catch((e) => {reject(e)});
             }).catch((e) => {
-                if (e.readyState !== 0) {
-                    browser.notifications.create(
-                        'api-request-failed',
-                        {
-                            type   : 'basic',
-                            title  : 'Nextcloud Password Request Failed',
-                            message: "The password list could not be retrieved.\nError: " + e.message
-                        }
-                    );
-                }
+                browser.notifications.create(
+                    'api-request-failed',
+                    {
+                        type   : 'basic',
+                        title  : 'Nextcloud Password Request Failed',
+                        message: "The password list could not be retrieved.\nError: " + (e.message ? e.message:e.statusText)
+                    }
+                );
+
                 reject(e)
             });
         });
