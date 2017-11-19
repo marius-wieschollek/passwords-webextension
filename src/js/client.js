@@ -47,8 +47,12 @@ const NcPasswordClient = new function () {
                         pair.user = field;
                     } else if (!pair.submit && field.type === 'submit') {
                         pair.submit = field;
+                    } else if (!pair.user && field.type === 'tel') {
+                        pair.tel = field;
                     }
                 }
+
+                if(!pair.user && pair.tel) pair.user = pair.tel;
 
                 fieldPairs.push(pair);
             }

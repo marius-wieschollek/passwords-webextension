@@ -1,6 +1,6 @@
 <template>
     <div class="login theme-hover-invert" @click="insertPassword">
-        {{login.title}}
+        {{login.title}}someverylongshit
         <div class="options">
             <i class="fa fa-user"
                @click="copyUser"
@@ -31,29 +31,37 @@
                 browser.tabs.query({currentWindow: true, active: true})
                     .then((tabs) => {
                         browser.tabs.sendMessage(tabs[0].id, this.login);
-
-                        let $target = $($e.target);
-                        $target.addClass('success').on(
-                            'animationend',
-                            () => {
-                                $target.removeClass('success');
-                                window.close();
-                            }
-                        );
+                        this.playAnimation($e).then(() => {
+                            window.close();
+                        });
                     });
             },
             copyPassword($e) {
                 $e.stopPropagation();
                 Utility.copyToClipboard(this.login.password);
+                this.playAnimation($e);
             },
             copyUser($e) {
                 $e.stopPropagation();
                 Utility.copyToClipboard(this.login.user);
+                this.playAnimation($e);
             },
             switchIcon($e, cName) {
                 $($e.target)
                     .toggleClass('fa-clipboard')
                     .toggleClass('fa-' + cName)
+            },
+            playAnimation($e) {
+                return new Promise((resolve, reject) => {
+                    let $target = $($e.target);
+                    $target.addClass('success').on(
+                        'animationend',
+                        () => {
+                            $target.removeClass('success');
+                            resolve();
+                        }
+                    );
+                })
             }
         }
     }
@@ -70,17 +78,26 @@
         box-sizing    : border-box;
         overflow      : hidden;
         position      : relative;
-        transition    : padding 0.25s ease-in-out;
+        transition    : padding 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 
         .options {
-            position : absolute;
-            right    : 0;
-            top      : 0;
-            display  : none;
+            position   : absolute;
+            right      : 0;
+            top        : 0;
+            opacity    : 0;
+            font-size  : 0;
+            transition : opacity 0.2s ease-in-out;
 
             .fa {
-                display : inline-block;
-                padding : 11px;
+                font-size  : 12pt;
+                display    : inline-block;
+                padding    : 11px;
+                min-width  : 38px;
+                text-align : center;
+
+                &.success {
+                    animation : blink-success 1s 3;
+                }
             }
         }
 
@@ -88,7 +105,7 @@
             padding-right : 80px;
 
             .options {
-                display : block;
+                opacity : 1;
             }
         }
 
@@ -102,7 +119,7 @@
             padding-right : 80px;
 
             .options {
-                display : block;
+                opacity : 1;
             }
         }
     }
