@@ -16,3 +16,4 @@ Version 1.2.0 / 19.11.2017
 
 Version 1.3.0 / 26.11.2017
 - Improved UI animation
+- Improved related passwords

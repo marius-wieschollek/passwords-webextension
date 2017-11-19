@@ -56,6 +56,7 @@
                         return;
                     }
 
+                    host = host.replace(/(^www\.|^login\.|^signin\.)/, '');
                     for (let i = 0; i < database.length; i++) {
                         let entry = database[i];
 
