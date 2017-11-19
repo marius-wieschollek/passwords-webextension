@@ -1,6 +1,6 @@
 <template>
     <div class="login theme-hover-invert" @click="insertPassword">
-        {{login.title}}someverylongshit
+        {{login.title}}
         <div class="options">
             <i class="fa fa-user"
                @click="copyUser"

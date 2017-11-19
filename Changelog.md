@@ -13,3 +13,6 @@ Version 1.2.0 / 19.11.2017
 - Improved mobile ui
 - Fixed Nextcloud Logout
 - Fixed Request Loop
+
+Version 1.3.0 / 26.11.2017
+- Improved UI animation
