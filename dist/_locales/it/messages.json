@@ -4,45 +4,45 @@
         "description": "Name of the extension."
     },
     "extensionDescription"        : {
-        "message"    : "A simple client for the Nextcloud Passwords app",
+        "message"    : "Un semplice client per Nextcloud Passwords",
         "description": "Description of the extension."
     },
     "browserActionTitle"          : {
-        "message"    : "Passwords",
+        "message"    : "Parola d'ordine",
         "description": "Title of the button in the browser bar"
     },
     "No logins found"             : {
-        "message"    : "No logins found",
+        "message"    : "Nessun accesso trovato",
         "description": "Shown when the related page did not find any results"
     },
     "No matches"                  : {
-        "message"    : "No matches",
+        "message"    : "Nessuna partita",
         "description": "Shown when the search did not find any results"
     },
     "Type to search"              : {
-        "message"    : "Type more than two characters",
+        "message"    : "Digitare più di due caratteri",
         "description": "Shown when the search query is empty"
     },
     "Password request failed"     : {
-        "message"    : "Nextcloud password request failed",
+        "message"    : "Richiesta password Nextcloud fallita",
         "description": "Notification title when the password request fails"
     },
     "Failed to get password list" : {
-        "message"     : "The password list could not be retrieved.\nError: $ERROR$",
+        "message"     : "Non è stato possibile recuperare l' elenco password. Errore: $ERROR$",
         "description" : "Notification text when the password request fails",
         "placeholders": {
             "error": {
                 "content": "$1",
-                "example": "Unknown Error"
+                "example": "Errore sconosciuto"
             }
         }
     },
     "New login detected"          : {
-        "message"    : "New login found",
+        "message"    : "Nuovo login trovato",
         "description": "Notification title when a new login is detected"
     },
     "Click to save password"      : {
-        "message"     : "Click here to save the password for \"$USER$\"",
+        "message"     : "Clicca qui per salvare la password per \"$USER$\"",
         "description" : "Notification text when a new login is detected",
         "placeholders": {
             "user": {
@@ -52,27 +52,27 @@
         }
     },
     "Password saved"              : {
-        "message"    : "Password saved",
+        "message"    : "Password salvata",
         "description": "Notification title when a password was saved"
     },
     "Password stored sucessfully" : {
-        "message"    : "The password was stored sucessfully",
+        "message"    : "La password è stata memorizzata con successo",
         "description": "Notification text when a password was saved"
     },
     "Save password failed"        : {
-        "message"    : "Save password failed",
+        "message"    : "Salva password non riuscita",
         "description": "Notification title when saving a password failed"
     },
     "Unable to save password"     : {
-        "message"    : "The password could not be saved",
+        "message"    : "Non è stato possibile salvare la password",
         "description": "Notification text when saving a password failed"
     },
     "Updated login detected"      : {
-        "message"    : "Updated login found",
+        "message"    : "Accesso aggiornato trovato",
         "description": "Notification title when an updated login is detected"
     },
     "Click to update password"    : {
-        "message"     : "Click here to update the password for \"$USER$\"",
+        "message"     : "Clicca qui per aggiornare la password per \"$USER$\"",
         "description" : "Notification text when an updated login is detected",
         "placeholders": {
             "user": {
@@ -82,23 +82,23 @@
         }
     },
     "Password updated"            : {
-        "message"    : "Password updated",
+        "message"    : "Password aggiornata",
         "description": "Notification title when a password was updated"
     },
     "Password updated sucessfully": {
-        "message"    : "The password was updated sucessfully",
+        "message"    : "La password è stata aggiornata con successo",
         "description": "Notification text when a password was updated"
     },
     "Update password failed"      : {
-        "message"    : "Update password failed",
+        "message"    : "Aggiorna password non riuscita",
         "description": "Notification title when updating a password failed"
     },
     "Unable to update password"   : {
-        "message"    : "The password could not be updated",
+        "message"    : "La password non può essere aggiornata",
         "description": "Notification text when updating a password failed"
     },
     "Url"                         : { "message": "Url" },
-    "Password"                    : { "message": "Password" },
-    "User"                        : { "message": "User" },
-    "Save"                        : { "message": "Save" }
+    "Password"                    : { "message": "Parola d'ordine" },
+    "User"                        : { "message": "Utente" },
+    "Save"                        : { "message": "Memorizzare" }
 }

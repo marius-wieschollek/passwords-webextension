@@ -25,8 +25,6 @@
             }
         },
 
-        components: {},
-
         methods: {
             insertPassword($e) {
                 $e.stopPropagation();

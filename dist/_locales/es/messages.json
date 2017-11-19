@@ -4,45 +4,45 @@
         "description": "Name of the extension."
     },
     "extensionDescription"        : {
-        "message"    : "A simple client for the Nextcloud Passwords app",
+        "message"    : "Un cliente simple para Nextcloud Passwords",
         "description": "Description of the extension."
     },
     "browserActionTitle"          : {
-        "message"    : "Passwords",
+        "message"    : "Contraseñas",
         "description": "Title of the button in the browser bar"
     },
     "No logins found"             : {
-        "message"    : "No logins found",
+        "message"    : "No se han encontrado logins",
         "description": "Shown when the related page did not find any results"
     },
     "No matches"                  : {
-        "message"    : "No matches",
+        "message"    : "No hay coincidencias",
         "description": "Shown when the search did not find any results"
     },
     "Type to search"              : {
-        "message"    : "Type more than two characters",
+        "message"    : "Escribe más de dos caracteres",
         "description": "Shown when the search query is empty"
     },
     "Password request failed"     : {
-        "message"    : "Nextcloud password request failed",
+        "message"    : "Falló la solicitud de contraseña Nextcloud",
         "description": "Notification title when the password request fails"
     },
     "Failed to get password list" : {
-        "message"     : "The password list could not be retrieved.\nError: $ERROR$",
+        "message"     : "La lista de contraseñas no se pudo recuperar. Error:  $ERROR$",
         "description" : "Notification text when the password request fails",
         "placeholders": {
             "error": {
                 "content": "$1",
-                "example": "Unknown Error"
+                "example": "Error desconocido"
             }
         }
     },
     "New login detected"          : {
-        "message"    : "New login found",
+        "message"    : "Nuevo login encontrado",
         "description": "Notification title when a new login is detected"
     },
     "Click to save password"      : {
-        "message"     : "Click here to save the password for \"$USER$\"",
+        "message"     : "Haga clic aquí para guardar la contraseña de \"$USER$\"",
         "description" : "Notification text when a new login is detected",
         "placeholders": {
             "user": {
@@ -52,23 +52,23 @@
         }
     },
     "Password saved"              : {
-        "message"    : "Password saved",
+        "message"    : "Contraseña guardada",
         "description": "Notification title when a password was saved"
     },
     "Password stored sucessfully" : {
-        "message"    : "The password was stored sucessfully",
+        "message"    : "La contraseña se ha guardado correctamente",
         "description": "Notification text when a password was saved"
     },
     "Save password failed"        : {
-        "message"    : "Save password failed",
+        "message"    : "Guardar contraseña fallida",
         "description": "Notification title when saving a password failed"
     },
     "Unable to save password"     : {
-        "message"    : "The password could not be saved",
+        "message"    : "La contraseña no se ha podido guardar",
         "description": "Notification text when saving a password failed"
     },
     "Updated login detected"      : {
-        "message"    : "Updated login found",
+        "message"    : "Inicio de sesión actualizado encontrado",
         "description": "Notification title when an updated login is detected"
     },
     "Click to update password"    : {
@@ -82,23 +82,23 @@
         }
     },
     "Password updated"            : {
-        "message"    : "Password updated",
+        "message"    : "Contraseña actualizada",
         "description": "Notification title when a password was updated"
     },
     "Password updated sucessfully": {
-        "message"    : "The password was updated sucessfully",
+        "message"    : "La contraseña se ha actualizado correctamente",
         "description": "Notification text when a password was updated"
     },
     "Update password failed"      : {
-        "message"    : "Update password failed",
+        "message"    : "Actualizar contraseña fallida",
         "description": "Notification title when updating a password failed"
     },
     "Unable to update password"   : {
-        "message"    : "The password could not be updated",
+        "message"    : "La contraseña no se ha podido actualizar",
         "description": "Notification text when updating a password failed"
     },
     "Url"                         : { "message": "Url" },
-    "Password"                    : { "message": "Password" },
-    "User"                        : { "message": "User" },
-    "Save"                        : { "message": "Save" }
+    "Password"                    : { "message": "Contraseña" },
+    "User"                        : { "message": "Usuario" },
+    "Save"                        : { "message": "Sava" }
 }

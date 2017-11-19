@@ -1,52 +1,107 @@
-function getLoginFields() {
-    let fieldPairs    = [],
-        // All password fields
-        passwords     = (function () {
-            let fields  = document.getElementsByTagName("input"),
-                results = [],
-                i       = fields.length;
-            while (i--) {
-                if (fields[i].type === "password") {
-                    results.push(fields[i]);
-                }
-            }
-            return results;
-        }()),
-        // Get parent form function
-        getParentForm = function (el) {
-            while (el.parentNode) {
-                if (el.parentNode.nodeName.toLowerCase() === "form") {
-                    return el.parentNode;
-                }
-                el = el.parentNode;
-            }
-        },
-        j             = passwords.length;
+const NcPasswordClient = new function () {
 
-    while (j--) {
-        let current = passwords[j],
-            form    = getParentForm(current);
-        if (form) {
-            let fields = form.getElementsByTagName("input");
-            for (let i = 0; i < fields.length; i++) {
-                if (fields[i] !== current && (fields[i].type === "text" || fields[i].type === "email")) {
-                    fieldPairs[fieldPairs.length] = [fields[i], current];
-                    break;
+    function getPasswordFields() {
+        let fields  = document.getElementsByTagName('input'),
+            results = [],
+            i       = fields.length;
+        while (i--) {
+            if (fields[i].type === 'password') {
+                results.push(fields[i]);
+            }
+        }
+        return results;
+    }
+
+    function getParentForm(el) {
+        while (el.parentNode) {
+            if (el.parentNode.nodeName.toLowerCase() === 'form') {
+                return el.parentNode;
+            }
+            el = el.parentNode;
+        }
+    }
+
+    function checkIfFormVisible(form) {
+        let style = window.getComputedStyle(form);
+
+        return style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== 0;
+    }
+
+    function getLoginFields() {
+        let fieldPairs = [],
+            // All password fields
+            passwords  = getPasswordFields(),
+            // Get parent form function
+            i          = passwords.length;
+
+        while (i--) {
+            let current = passwords[i],
+                form    = getParentForm(current);
+            if (form && checkIfFormVisible(form)) {
+                let fields = form.getElementsByTagName('input'),
+                    pair   = {form: form, pass: current};
+
+                for (let i = 0; i < fields.length; i++) {
+                    let field = fields[i];
+                    if (!pair.user && (field.type === 'text' || field.type === 'email')) {
+                        pair.user = field;
+                    } else if (!pair.submit && field.type === 'submit') {
+                        pair.submit = field;
+                    }
                 }
+
+                fieldPairs.push(pair);
+            }
+        }
+        return fieldPairs;
+    }
+
+    function fillPassword(user, password) {
+        let forms = getLoginFields();
+        for (let i = 0; i < forms.length; i++) {
+            let form = forms[i];
+            if (form.user) form.user.value = user;
+            form.pass.value = password;
+
+            if (forms.length !== 1) continue;
+            if (form.submit) {
+                form.submit.click();
+            } else {
+                form.form.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
             }
         }
     }
-    return fieldPairs;
-}
 
-function fillPassword(user, password) {
-    let fields = getLoginFields();
-    for (let i = 0; i < fields.length; i++) {
-        fields[i][0].value = user;
-        fields[i][1].value = password;
+    function minePassword(form) {
+        let pass = form.pass.value;
+        let user = '';
+        if (form.user) user = form.user.value;
+
+        if (user !== '' && pass !== '') {
+            browser.runtime.sendMessage(
+                'ncpasswords@mdns.eu',
+                {
+                    type    : 'mine-password',
+                    url     : location.href,
+                    user    : user,
+                    password: pass
+                }
+            )
+        }
     }
-}
 
-browser.runtime.onMessage.addListener(
-    function (data) { fillPassword(data.user, data.password) }
-);
+    function init() {
+        browser.runtime.onMessage.addListener(
+            function (data) { fillPassword(data.user, data.password) }
+        );
+
+        let forms = getLoginFields();
+        for (let i = 0; i < forms.length; i++) {
+            let current = forms[i];
+            current.form.addEventListener('submit', () => { minePassword(current);});
+        }
+    }
+
+    init();
+};
+

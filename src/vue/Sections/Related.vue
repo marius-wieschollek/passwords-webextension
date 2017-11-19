@@ -14,6 +14,7 @@
 <script>
     import $ from "jquery";
     import API from '@js/Helper/api';
+    import Utility from "@js/Classes/Utility";
     import Login from '@vue/Partials/Login.vue';
     import Translate from '@vue/Partials/Translate.vue';
 
@@ -48,17 +49,11 @@
                 browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
 
                     let accounts = [];
-                    let a = document.createElement('a');
-                    a.href = tabs[0].url;
-                    let host = a.hostname;
+                    let host = Utility.analyzeUrl(tabs[0].url, 'hostname');
 
                     if (host.length === 0) {
                         this.accounts = [];
                         return;
-                    }
-
-                    if ((host.match(/\./g) || []).length > 1) {
-                        //host = host.substring(host.indexOf('.')+1);
                     }
 
                     for (let i = 0; i < database.length; i++) {

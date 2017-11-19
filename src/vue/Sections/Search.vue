@@ -8,9 +8,8 @@
                    v-on:keyup="updateQuery($event)">
         </div>
         <login v-for="(match, i) in matches" :key="i" :login="match"></login>
-        <div v-if="matches.length == 0" class="no-accounts theme-invert">
-            <translate>No matches</translate>
-        </div>
+        <translate tag="div" v-if="matches.length == 0 && query" class="no-accounts theme-invert">No matches</translate>
+        <translate tag="div" v-if="matches.length == 0 && !query" class="no-accounts theme-invert">Type to search</translate>
     </div>
 </template>
 
@@ -53,7 +52,7 @@
             search       : function () {
                 let matches = [];
 
-                if(this.query.length < 3) {
+                if (this.query.length < 3) {
                     this.matches = [];
                     return;
                 }
@@ -61,8 +60,7 @@
                 for (let i = 0; i < this.database.length; i++) {
                     let entry = $.extend({}, this.database[i]);
 
-                    if (
-                        entry.user.indexOf(this.query) !== -1 ||
+                    if (entry.user.indexOf(this.query) !== -1 ||
                         entry.host.indexOf(this.query) !== -1 ||
                         entry.password.indexOf(this.query) !== -1
                     ) {

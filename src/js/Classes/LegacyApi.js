@@ -15,15 +15,11 @@ export default class LegacyApi {
     constructor(endpoint, user = null, password = null, token = null, debug = false) {
         this._debug = debug;
 
-        this._paths = {
-            'password.list': 'passwords',
-        };
-
         this.login(endpoint, user, password);
     }
 
     login(endpoint, user = null, password = null) {
-        this._endpoint = endpoint + '/index.php/apps/passwords/api/0.1/';
+        this._endpoint = endpoint + '/index.php/apps/passwords/api/0.1/passwords';
 
         this._headers = {};
         if (user !== null && password !== null) {
@@ -38,7 +34,27 @@ export default class LegacyApi {
      * @returns {Promise}
      */
     listPasswords() {
-        return this._createRequest('password.list');
+        return this._createRequest();
+    }
+
+    /**
+     * Saves a new password
+     *
+     * @param data
+     * @returns {Promise}
+     */
+    createPassword(data = {}) {
+        return this._createRequest(data);
+    }
+
+    /**
+     * Updates a password
+     *
+     * @param data
+     * @returns {Promise}
+     */
+    updatePassword(data = {}) {
+        return this._createRequest(data, '/' + data.id, 'PUT');
     }
 
 
@@ -49,14 +65,14 @@ export default class LegacyApi {
     /**
      * Creates an api request
      *
-     * @param path
      * @param data
+     * @param path
      * @param method
      * @param dataType
      * @returns {Promise}
      * @private
      */
-    _createRequest(path, data = null, method = 'GET', dataType = 'json') {
+    _createRequest(data = null, path = '', method = 'GET', dataType = 'json') {
         let headers = new Headers();
         for (let header in this._headers) {
             if (!this._headers.hasOwnProperty(header)) continue;
@@ -64,14 +80,16 @@ export default class LegacyApi {
         }
         headers.append('Accept', 'application/' + dataType + ', text/plain, */*');
 
+        if (data && method === 'GET') method = 'POST';
+        let options = {
+            method : method,
+            headers: headers
+        };
+        if (data) options.body = JSON.stringify(data);
         let request = new Request(
-            this._endpoint + this._paths[path],
-            {
-                method : data ? POST:method,
-                headers: headers
-            }
+            this._endpoint + path,
+            options
         );
-        if (data) request.body = JSON.stringify(data);
 
         return new Promise((resolve, reject) => {
             fetch(request)

@@ -55,13 +55,13 @@
                 return (this.isCurrentTab(name) ? 'active theme-invert ':'theme-on-hover-invert ') + 'fa-' + tab
             },
             updateCurrentAttribute() {
-                if(this.current) {
+                if (this.current) {
                     this.tab = this.current
                 }
             }
         },
         watch  : {
-            uuid: function () {
+            uuid   : function () {
                 this.updateCurrentAttribute();
             },
             current: function () {
