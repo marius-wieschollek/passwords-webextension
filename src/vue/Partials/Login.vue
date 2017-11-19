@@ -1,7 +1,7 @@
 <template>
     <div class="login theme-hover-invert" @click="insertPassword">
         {{login.title}}
-        <div class="options theme-bg-background">
+        <div class="options">
             <i class="fa fa-user"
                @click="copyUser"
                @mouseover="switchIcon($event, 'user')"
@@ -70,6 +70,7 @@
         box-sizing    : border-box;
         overflow      : hidden;
         position      : relative;
+        transition    : padding 0.25s ease-in-out;
 
         .options {
             position : absolute;
@@ -84,6 +85,8 @@
         }
 
         &:hover {
+            padding-right : 80px;
+
             .options {
                 display : block;
             }
@@ -91,8 +94,15 @@
 
         &.success {
             animation : blink-success 1s 3;
+        }
+    }
+
+    body.mobile {
+        .login {
+            padding-right : 80px;
+
             .options {
-                background-color : transparent !important;
+                display : block;
             }
         }
     }

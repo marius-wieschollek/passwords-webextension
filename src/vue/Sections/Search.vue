@@ -8,8 +8,8 @@
                    v-on:keyup="updateQuery($event)">
         </div>
         <login v-for="(match, i) in matches" :key="i" :login="match"></login>
-        <translate tag="div" v-if="matches.length == 0 && query" class="no-accounts theme-invert">No matches</translate>
-        <translate tag="div" v-if="matches.length == 0 && !query" class="no-accounts theme-invert">Type to search</translate>
+        <translate tag="div" v-if="matches.length == 0 && query" class="no-matches theme-invert">No matches</translate>
+        <translate tag="div" v-if="matches.length == 0 && !query" class="no-matches theme-invert">Type to search</translate>
     </div>
 </template>
 
@@ -62,6 +62,7 @@
 
                     if (entry.user.indexOf(this.query) !== -1 ||
                         entry.host.indexOf(this.query) !== -1 ||
+                        entry.notes.indexOf(this.query) !== -1 ||
                         entry.password.indexOf(this.query) !== -1
                     ) {
                         entry.title += '@' + entry.host;
@@ -78,20 +79,20 @@
 <style lang="scss">
     .searchbox-container {
         display : flex;
+
+        #searchbox {
+            flex-grow           : 1;
+            padding             : 5px;
+            display             : block;
+            outline             : 5px solid transparent;
+            margin              : 5px;
+            border              : 0 solid transparent;
+            border-bottom-width : 1px;
+            font-size           : 12pt;
+        }
     }
 
-    #searchbox {
-        flex-grow           : 1;
-        padding             : 5px;
-        display             : block;
-        outline             : 5px solid transparent;
-        margin              : 5px;
-        border              : 0 solid transparent;
-        border-bottom-width : 1px;
-        font-size           : 12pt;
-    }
-
-    .no-accounts {
+    .no-matches {
         padding    : 10px;
         text-align : center;
     }

@@ -43,6 +43,11 @@
         },
 
         created() {
+            browser.runtime.getPlatformInfo().then(
+                (data) => {
+                    if (data.os === 'android') $('body').addClass('mobile');
+                });
+
             browser.storage.local.get(
                 ['initialized']
             ).then((data) => {
@@ -86,8 +91,7 @@
     body {
         margin    : 0;
         font-size : 12pt;
-        min-width : 300px;
-        width     : 100%;
+        width     : 300px;
     }
 
     .btn {
@@ -97,5 +101,9 @@
         right    : 5px;
         z-index  : 2;
         color    : #fff;
+    }
+
+    body.mobile {
+        width : 100%;
     }
 </style>

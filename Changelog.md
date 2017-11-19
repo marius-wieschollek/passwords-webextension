@@ -8,6 +8,8 @@ Version 1.1.0 / 18.11.2017
 - Error handling improved
 
 Version 1.2.0 / 19.11.2017
-- Added german localisation
+- Added localisations
+- Added password miner
+- Improved mobile ui
 - Fixed Nextcloud Logout
 - Fixed Request Loop
