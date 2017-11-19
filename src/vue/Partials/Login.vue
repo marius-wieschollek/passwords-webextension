@@ -40,12 +40,6 @@
                                 window.close();
                             }
                         );
-                        browser.runtime.getPlatformInfo().then(
-                            (data) => {
-                                if (data.os === 'android') {
-
-                                }
-                            })
                     });
             },
             copyPassword($e) {
