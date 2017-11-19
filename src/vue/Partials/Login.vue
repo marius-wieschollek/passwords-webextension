@@ -30,8 +30,22 @@
                 $e.stopPropagation();
                 browser.tabs.query({currentWindow: true, active: true})
                     .then((tabs) => {
-                        //let port = browser.tabs.connect(tabs[0].id, {name: 'password-inject'});
                         browser.tabs.sendMessage(tabs[0].id, this.login);
+
+                        let $target = $($e.target);
+                        $target.addClass('success').on(
+                            'animationend',
+                            () => {
+                                $target.removeClass('success');
+                                window.close();
+                            }
+                        );
+                        browser.runtime.getPlatformInfo().then(
+                            (data) => {
+                                if (data.os === 'android') {
+
+                                }
+                            })
                     });
             },
             copyPassword($e) {
@@ -71,14 +85,20 @@
 
             .fa {
                 display : inline-block;
-                padding : 10px;
+                padding : 11px;
             }
         }
 
         &:hover {
-
             .options {
                 display : block;
+            }
+        }
+
+        &.success {
+            animation : blink-success 1s 3;
+            .options {
+                background-color : transparent !important;
             }
         }
     }
