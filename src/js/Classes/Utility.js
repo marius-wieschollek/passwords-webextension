@@ -43,4 +43,19 @@ export default class Utility {
         el.href = url;
         return property ? el[property]:el;
     }
+
+    /**
+     *
+     * @param host
+     * @param compare
+     * @returns {boolean}
+     */
+    static hostCompare(host, compare) {
+        let keys  = ['www', 'login', 'signin', navigator.language],
+            regex = new RegExp('^' + keys.join('\\.|^') + '\\.', 'i'),
+            a     = host.replace(regex, ''),
+            b     = compare.replace(regex, '');
+
+        return a.indexOf(b) !== -1;
+    }
 }

@@ -40,7 +40,7 @@ function checkMinedPassword(password) {
             for (let i = 0; i < data.database.length; i++) {
                 let entry = data.database[i];
 
-                if (entry.user === password.user && entry.host === password.host) {
+                if (entry.user === password.user && Utility.hostCompare(entry.host, password.host)) {
                     if (entry.password !== password.password) {
                         minedPassword.id = entry.id;
                         minedPassword.notes = entry.notes;

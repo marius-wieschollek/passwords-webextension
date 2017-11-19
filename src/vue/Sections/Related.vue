@@ -56,11 +56,10 @@
                         return;
                     }
 
-                    host = host.replace(/(^www\.|^login\.|^signin\.)/, '');
                     for (let i = 0; i < database.length; i++) {
                         let entry = database[i];
 
-                        if (entry.host.indexOf(host) !== -1) {
+                        if (Utility.hostCompare(entry.host, host)) {
                             accounts.push(entry);
                         }
 
