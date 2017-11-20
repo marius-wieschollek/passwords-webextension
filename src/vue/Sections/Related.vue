@@ -39,6 +39,10 @@
                 }
             });
             browser.storage.onChanged.addListener(this.loadPasswords);
+            browser.tabs.onActivated.addListener(this.loadPasswords);
+            browser.tabs.onCreated.addListener(this.loadPasswords);
+            browser.tabs.onUpdated.addListener(this.loadPasswords);
+            browser.tabs.onReplaced.addListener(this.loadPasswords);
         },
 
         methods: {

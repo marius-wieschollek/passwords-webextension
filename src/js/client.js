@@ -31,9 +31,7 @@ const NcPasswordClient = new function () {
 
     function getLoginFields() {
         let fieldPairs = [],
-            // All password fields
             passwords  = getPasswordFields(),
-            // Get parent form function
             i          = passwords.length;
 
         while (i--) {
