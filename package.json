@@ -4,11 +4,14 @@
     "description"    : "Easy to use yet feature-rich and secure password manager for Nextcloud",
     "private"        : true,
     "scripts"        : {
-        "watch": "webpack --env.production=0 --progress --colors --watch",
-        "build": "webpack --env.production --progress"
+        "watch"       : "webpack --env.production=0 --progress --colors --watch",
+        "watch-chrome": "build=chrome webpack --env.production=0 --progress --colors --watch",
+        "build"       : "webpack --env.production --progress",
+        "build-chrome": "build=chrome webpack --env.production --progress"
     },
     "dependencies"   : { },
     "devDependencies": {
+        "copy-webpack-plugin"               : "^4.2.1",
         "css-loader"                        : "^0.28.7",
         "extract-text-webpack-plugin"       : "^3.0.0",
         "file-loader"                       : "^1.1.4",

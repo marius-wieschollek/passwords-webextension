@@ -1,20 +1,25 @@
 let path = require('path');
 let webpack = require('webpack');
+let CopyWebpackPlugin = require('copy-webpack-plugin');
 let UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 let ExtractTextPlugin = require("extract-text-webpack-plugin");
 let OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = env => {
-    console.log('Production: ', env.production);
+    let production = env.production===true,
+        platform = process.env.build ? process.env.build:'firefox';
+    console.log('Production: ', production);
+    console.log('Platform  : ', platform);
 
     let plugins = [
         new webpack.DefinePlugin(
             {
                 'process.env': {
-                    NODE_ENV: env.production ? '"production"':'"development"'
+                    NODE_ENV: production ? '"production"':'"development"'
                 }
             }
         ),
+        new CopyWebpackPlugin(['src/platform/'+platform]),
         new ExtractTextPlugin('css/passwords.css'),
         new OptimizeCSSPlugin(
             {

@@ -11,23 +11,27 @@
         "message"    : "Passwörter",
         "description": "Title of the button in the browser bar"
     },
-    "No logins found"             : {
+    "contextMenuTitle"          : {
+        "message"    : "Passwörter",
+        "description": "Title of the context menu item"
+    },
+    "NoRelatedMatches"             : {
         "message"    : "Keine Logindaten gefunden",
         "description": "Text shown when the related page did not find any results"
     },
-    "No matches"                  : {
+    "NoSearchMatches"                  : {
         "message"    : "Keine Treffer",
         "description": "Text shown when the search did not find any results"
     },
-    "Type to search"              : {
+    "NoSearchQuery"              : {
         "message"    : "Mindestens zwei Zeichen eingeben",
         "description": "Shown when the search query is empty"
     },
-    "Password request failed"     : {
+    "PasswordRequestFailedTitle"     : {
         "message"    : "Nextcloud Password Abfrage fehlgeschlagen",
         "description": "Notification title when the password request fails"
     },
-    "Failed to get password list" : {
+    "PasswordRequestFailedText" : {
         "message"     : "Die Passwortliste konnte nicht abgerufen werden. Fehler: $ERROR$",
         "description" : "Notification text when the password request fails",
         "placeholders": {
@@ -37,11 +41,11 @@
             }
         }
     },
-    "New login detected"          : {
+    "NewLoginDetectedTitle"          : {
         "message"    : "Neue Logindaten erkannt",
         "description": "Notification title when a new login is detected"
     },
-    "Click to save password"      : {
+    "NewLoginDetectedText"      : {
         "message"     : "Klicken Sie hier, um das Passwort für \"$USER$\" zu speichern",
         "description" : "Notification text when a new login is detected",
         "placeholders": {
@@ -51,27 +55,27 @@
             }
         }
     },
-    "Password saved"              : {
+    "PasswordCreatedTitle"              : {
         "message"    : "Passwort gespeichert",
         "description": "Notification title when a password was saved"
     },
-    "Password stored sucessfully" : {
+    "PasswordCreatedText" : {
         "message"    : "Das Passwort wurde erfolgreich gespeichert",
         "description": "Notification text when a password was saved"
     },
-    "Save password failed"        : {
+    "CreatePasswordFailedTitle"        : {
         "message"    : "Speichern fehlgeschlagen",
         "description": "Notification title when saving a password failed"
     },
-    "Unable to save password"     : {
+    "CreatePasswordFailedText"     : {
         "message"    : "Das Passwort konnte nicht gespeichert werden",
         "description": "Notification text when saving a password failed"
     },
-    "Updated login detected"      : {
+    "UpdatedLoginDetectedTitle"      : {
         "message"    : "Aktualisierte Logindaten erkannt",
         "description": "Notification title when an updated login is detected"
     },
-    "Click to update password"    : {
+    "UpdatedLoginDetectedText"    : {
         "message"     : "Klicken Sie hier, um das Passwort für \"$USER$\" zu aktualisieren",
         "description" : "Notification text when an updated login is detected",
         "placeholders": {
@@ -81,19 +85,19 @@
             }
         }
     },
-    "Password updated"            : {
+    "PasswordUpdatedTitle"            : {
         "message"    : "Passwort aktualisiert",
         "description": "Notification title when a password was updated"
     },
-    "Password updated sucessfully": {
+    "PasswordUpdatedText": {
         "message"    : "Das Passwort wurde erfolgreich aktualisiert",
         "description": "Notification text when a password was updated"
     },
-    "Update password failed"      : {
+    "UpdatePasswordFailedTitle"      : {
         "message"    : "Aktualisieren fehlgeschlagen",
         "description": "Notification title when updating a password failed"
     },
-    "Unable to update password"   : {
+    "UpdatePasswordFailedText"   : {
         "message"    : "Das Passwort konnte nicht aktualisiert werden",
         "description": "Notification text when updating a password failed"
     },

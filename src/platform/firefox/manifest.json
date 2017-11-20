@@ -12,7 +12,7 @@
         "96": "img/passwords-96.png"
     },
     "browser_action"  : {
-        "default_icon" : "img/passwords-16.png",
+        "default_icon" : "img/passwords.svg",
         "default_title": "__MSG_browserActionTitle__",
         "default_popup": "html/manager.html",
         "browser_style": true,
@@ -39,11 +39,13 @@
             }
         ]
     },
+    "applications"    : {
+        "gecko": {
+            "id": "ncpasswords@mdns.eu"
+        }
+    },
     "background"      : {
-        "scripts": [
-            "js/chrome-polyfill.js",
-            "js/background.js"
-        ]
+        "scripts": [ "js/background.js" ]
     },
     "content_scripts" : [
         {
@@ -51,17 +53,15 @@
                 "http://*/*",
                 "https://*/*"
             ],
-            "js"     : [
-                "js/chrome-polyfill.js",
-                "js/client.js"
-            ]
+            "js"     : [ "js/client.js" ]
         }
     ],
     "permissions"     : [
         "*://*/*",
         "tabs",
+        "menus",
         "storage",
-        "contextMenus",
-        "notifications"
+        "notifications",
+        "clipboardWrite"
     ]
 }

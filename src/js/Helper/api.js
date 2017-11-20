@@ -87,8 +87,8 @@ class Api {
                     'api-request-failed',
                     {
                         type   : 'basic',
-                        title  : Utility.translate('Password request failed'),
-                        message: Utility.translate('Failed to get password list', [message])
+                        title  : Utility.translate('PasswordRequestFailedTitle'),
+                        message: Utility.translate('PasswordRequestFailedText', [message])
                     }
                 );
 

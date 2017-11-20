@@ -1,14 +1,17 @@
 import API from '@js/Helper/api';
 import Utility from "@js/Classes/Utility"
 
-browser.runtime.getBrowserInfo()
-    .then((data) => {
-        if (data.version === '56.0.2') {
-            browser.browserAction.setIcon(
-                {path: "/img/passwords-dark.svg"}
-            );
-        }
-    });
+if (browser.runtime.getBrowserInfo) {
+    browser.runtime.getBrowserInfo()
+        .then((data) => {
+            let majorVersion = data.version.substr(0, 2);
+            if (data.name === 'Firefox' && (majorVersion === '56' || majorVersion === '52')) {
+                browser.browserAction.setIcon(
+                    {path: "/img/passwords-dark.svg"}
+                );
+            }
+        });
+}
 
 browser.storage.local.get(['initialized'])
     .then((data) => {
@@ -62,8 +65,8 @@ function notifyNewPassword() {
         'ncp-pwd-create',
         {
             type   : 'basic',
-            title  : Utility.translate('New login detected'),
-            message: Utility.translate('Click to save password', [minedPassword.user])
+            title  : Utility.translate('NewLoginDetectedTitle'),
+            message: Utility.translate('NewLoginDetectedText', [minedPassword.user])
         }
     );
 
@@ -85,8 +88,8 @@ function saveNewPassword(notification) {
                 'ncp-pwd-saved',
                 {
                     type   : 'basic',
-                    title  : Utility.translate('Password saved'),
-                    message: Utility.translate('Password stored sucessfully')
+                    title  : Utility.translate('PasswordCreatedTitle'),
+                    message: Utility.translate('PasswordCreatedText')
                 }
             );
             minedPassword = null;
@@ -96,8 +99,8 @@ function saveNewPassword(notification) {
                 'ncp-pwd-failed',
                 {
                     type   : 'basic',
-                    title  : Utility.translate('Save password failed'),
-                    message: Utility.translate('Unable to save password')
+                    title  : Utility.translate('CreatePasswordFailedTitle'),
+                    message: Utility.translate('CreatePasswordFailedText')
                 }
             );
             minedPassword = null;
@@ -112,8 +115,8 @@ function notifyUpdatedPassword() {
         'ncp-pwd-update',
         {
             type   : 'basic',
-            title  : Utility.translate('Updated login detected'),
-            message: Utility.translate('Click to update password', [minedPassword.user])
+            title  : Utility.translate('UpdatedLoginDetectedTitle'),
+            message: Utility.translate('UpdatedLoginDetectedText', [minedPassword.user])
         }
     );
 
@@ -142,8 +145,8 @@ function saveUpdatedPassword(notification) {
             'ncp-pwd-updated',
             {
                 type   : 'basic',
-                title  : Utility.translate('Password updated'),
-                message: Utility.translate('Password updated sucessfully')
+                title  : Utility.translate('PasswordUpdatedTitle'),
+                message: Utility.translate('PasswordUpdatedText')
             }
         );
         minedPassword = null;
@@ -152,8 +155,8 @@ function saveUpdatedPassword(notification) {
             'ncp-pwd-failed',
             {
                 type   : 'basic',
-                title  : Utility.translate('Update password failed'),
-                message: Utility.translate('Unable to update password')
+                title  : Utility.translate('UpdatePasswordFailedTitle'),
+                message: Utility.translate('UpdatePasswordFailedText')
             }
         );
         minedPassword = null;
@@ -174,4 +177,83 @@ browser.runtime.onMessage.addListener(processMessage);
 
 function processMessage(msg) {
     if (msg.type === 'mine-password') checkMinedPassword(msg);
+}
+
+browser.tabs.onActivated.addListener(updatePasswordMenu);
+browser.tabs.onCreated.addListener(updatePasswordMenu);
+browser.tabs.onUpdated.addListener(updatePasswordMenu);
+browser.tabs.onReplaced.addListener(updatePasswordMenu);
+
+let contextMenuAccounts = [];
+
+function updatePasswordMenu() {
+    if (browser.runtime.getBrowserInfo) {
+        browser.menus.removeAll();
+    } else {
+        browser.contextMenus.removeAll();
+    }
+    contextMenuAccounts = [];
+
+    browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
+        let host = Utility.analyzeUrl(tabs[0].url, 'hostname');
+        if (host.length === 0) return;
+
+        API.getPasswords().then((database) => {
+            if (!database) return;
+
+            for (let i = 0; i < database.length; i++) {
+                let entry = database[i];
+
+                if (Utility.hostCompare(entry.host, host)) {
+                    contextMenuAccounts.push(entry);
+                }
+            }
+
+            if (contextMenuAccounts.length === 0) {
+                browser.menus.create(
+                    {
+                        id      : 'open-browser-action',
+                        icons   : {16: 'img/passwords-dark.svg'},
+                        title   : Utility.translate('contextMenuTitle'),
+                        contexts: ['page', 'password'],
+                        command : "_execute_browser_action"
+                    }
+                );
+
+                return;
+            }
+
+            browser.menus.create(
+                {
+                    id      : 'context-menu',
+                    icons   : {16: 'img/passwords-dark.svg'},
+                    title   : Utility.translate('contextMenuTitle'),
+                    contexts: ['page', 'browser_action', 'password'],
+                }
+            );
+
+            for (let i = 0; i < contextMenuAccounts.length; i++) {
+                let entry = contextMenuAccounts[i];
+
+                browser.menus.create(
+                    {
+                        parentId: 'context-menu',
+                        id      : 'ncp-pwd-' + Math.round(Math.random() * 10000) + '_' + i,
+                        icons   : {16: 'https://icons.duckduckgo.com/ip2/' + entry.host + '.ico'},
+                        title   : entry.user,
+                        contexts: ['page', 'browser_action', 'password'],
+                        onclick : insertContextMenuPassword
+                    }
+                );
+            }
+        });
+    });
+}
+
+function insertContextMenuPassword(e) {
+    let [, id] = e.menuItemId.split('_');
+    browser.tabs.query({currentWindow: true, active: true})
+        .then((tabs) => {
+            browser.tabs.sendMessage(tabs[0].id, contextMenuAccounts[id]);
+        });
 }
