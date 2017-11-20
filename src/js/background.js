@@ -190,6 +190,7 @@ browser.tabs.onActivated.addListener(updatePasswordMenu);
 browser.tabs.onCreated.addListener(updatePasswordMenu);
 browser.tabs.onUpdated.addListener(updatePasswordMenu);
 browser.tabs.onReplaced.addListener(updatePasswordMenu);
+browser.storage.onChanged.addListener(updatePasswordMenu);
 
 let contextMenuAccounts = [];
 
