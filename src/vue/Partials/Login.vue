@@ -30,34 +30,33 @@
                 $e.stopPropagation();
                 browser.tabs.query({currentWindow: true, active: true})
                     .then((tabs) => {
-                        browser.tabs.sendMessage(tabs[0].id, this.login);
-                        this.playAnimation($e).then(() => {
-                            window.close();
-                        });
+                        browser.tabs.sendMessage(tabs[0].id, this.login)
+                            .then(() => {this.playAnimation($e, 'success').then(() => {window.close();});})
+                            .catch((e) => {this.playAnimation($e, 'error');});
                     });
             },
             copyPassword($e) {
                 $e.stopPropagation();
                 Utility.copyToClipboard(this.login.password);
-                this.playAnimation($e);
+                this.playAnimation($e, 'success');
             },
             copyUser($e) {
                 $e.stopPropagation();
                 Utility.copyToClipboard(this.login.user);
-                this.playAnimation($e);
+                this.playAnimation($e, 'success');
             },
             switchIcon($e, cName) {
                 $($e.target)
                     .toggleClass('fa-clipboard')
                     .toggleClass('fa-' + cName)
             },
-            playAnimation($e) {
+            playAnimation($e, type) {
                 return new Promise((resolve, reject) => {
                     let $target = $($e.target);
-                    $target.addClass('success').on(
+                    $target.addClass(type).on(
                         'animationend',
                         () => {
-                            $target.removeClass('success');
+                            $target.removeClass(type);
                             resolve();
                         }
                     );
@@ -94,9 +93,14 @@
                 padding    : 11px;
                 min-width  : 38px;
                 text-align : center;
+                box-sizing : border-box;
 
                 &.success {
                     animation : blink-success 1s 3;
+                }
+
+                &.error {
+                    animation : blink-error 1s 3;
                 }
             }
         }
@@ -111,6 +115,10 @@
 
         &.success {
             animation : blink-success 1s 3;
+        }
+
+        &.error {
+            animation : blink-error 1s 3;
         }
     }
 

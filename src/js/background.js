@@ -1,7 +1,8 @@
 import API from '@js/Helper/api';
 import Utility from "@js/Classes/Utility"
 
-if (browser.runtime.getBrowserInfo) {
+let isChrome = !browser.runtime.getBrowserInfo;
+if (!isChrome) {
     browser.runtime.getBrowserInfo()
         .then((data) => {
             let majorVersion = data.version.substr(0, 2);
@@ -65,6 +66,7 @@ function notifyNewPassword() {
         'ncp-pwd-create',
         {
             type   : 'basic',
+            iconUrl: 'img/passwords-48.png',
             title  : Utility.translate('NewLoginDetectedTitle'),
             message: Utility.translate('NewLoginDetectedText', [minedPassword.user])
         }
@@ -88,6 +90,7 @@ function saveNewPassword(notification) {
                 'ncp-pwd-saved',
                 {
                     type   : 'basic',
+                    iconUrl: 'img/passwords-48.png',
                     title  : Utility.translate('PasswordCreatedTitle'),
                     message: Utility.translate('PasswordCreatedText')
                 }
@@ -99,6 +102,7 @@ function saveNewPassword(notification) {
                 'ncp-pwd-failed',
                 {
                     type   : 'basic',
+                    iconUrl: 'img/passwords-48.png',
                     title  : Utility.translate('CreatePasswordFailedTitle'),
                     message: Utility.translate('CreatePasswordFailedText')
                 }
@@ -115,6 +119,7 @@ function notifyUpdatedPassword() {
         'ncp-pwd-update',
         {
             type   : 'basic',
+            iconUrl: 'img/passwords-48.png',
             title  : Utility.translate('UpdatedLoginDetectedTitle'),
             message: Utility.translate('UpdatedLoginDetectedText', [minedPassword.user])
         }
@@ -145,6 +150,7 @@ function saveUpdatedPassword(notification) {
             'ncp-pwd-updated',
             {
                 type   : 'basic',
+                iconUrl: 'img/passwords-48.png',
                 title  : Utility.translate('PasswordUpdatedTitle'),
                 message: Utility.translate('PasswordUpdatedText')
             }
@@ -155,6 +161,7 @@ function saveUpdatedPassword(notification) {
             'ncp-pwd-failed',
             {
                 type   : 'basic',
+                iconUrl: 'img/passwords-48.png',
                 title  : Utility.translate('UpdatePasswordFailedTitle'),
                 message: Utility.translate('UpdatePasswordFailedText')
             }
@@ -187,11 +194,7 @@ browser.tabs.onReplaced.addListener(updatePasswordMenu);
 let contextMenuAccounts = [];
 
 function updatePasswordMenu() {
-    if (browser.runtime.getBrowserInfo) {
-        browser.menus.removeAll();
-    } else {
-        browser.contextMenus.removeAll();
-    }
+    isChrome ? browser.contextMenus.removeAll():browser.menus.removeAll();
     contextMenuAccounts = [];
 
     browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
@@ -200,6 +203,8 @@ function updatePasswordMenu() {
 
         API.getPasswords().then((database) => {
             if (!database) return;
+            let isChrome = !browser.runtime.getBrowserInfo,
+                menus    = isChrome ? browser.contextMenus:browser.menus;
 
             for (let i = 0; i < database.length; i++) {
                 let entry = database[i];
@@ -210,41 +215,68 @@ function updatePasswordMenu() {
             }
 
             if (contextMenuAccounts.length === 0) {
-                browser.menus.create(
-                    {
-                        id      : 'open-browser-action',
-                        icons   : {16: 'img/passwords-dark.svg'},
-                        title   : Utility.translate('contextMenuTitle'),
-                        contexts: ['page', 'password'],
-                        command : "_execute_browser_action"
-                    }
-                );
+                if (!isChrome) {
+                    menus.create(
+                        {
+                            id      : 'open-browser-action',
+                            icons   : {16: 'img/passwords-dark.svg'},
+                            title   : Utility.translate('contextMenuTitle'),
+                            contexts: ['page', 'password'],
+                            command : "_execute_browser_action"
+                        }
+                    );
+                }
 
                 return;
             }
 
-            browser.menus.create(
-                {
-                    id      : 'context-menu',
-                    icons   : {16: 'img/passwords-dark.svg'},
-                    title   : Utility.translate('contextMenuTitle'),
-                    contexts: ['page', 'browser_action', 'password'],
-                }
-            );
-
-            for (let i = 0; i < contextMenuAccounts.length; i++) {
-                let entry = contextMenuAccounts[i];
-
-                browser.menus.create(
+            let menuId = 'context-menu-' + Math.round(Math.random() * 10000);
+            if (isChrome) {
+                menus.create(
                     {
-                        parentId: 'context-menu',
-                        id      : 'ncp-pwd-' + Math.round(Math.random() * 10000) + '_' + i,
-                        icons   : {16: 'https://icons.duckduckgo.com/ip2/' + entry.host + '.ico'},
-                        title   : entry.user,
-                        contexts: ['page', 'browser_action', 'password'],
-                        onclick : insertContextMenuPassword
+                        id      : menuId,
+                        title   : Utility.translate('contextMenuTitle'),
+                        contexts: ['page', 'browser_action'],
                     }
                 );
+            } else {
+                menus.create(
+                    {
+                        id      : menuId,
+                        icons   : {16: 'img/passwords-dark.svg'},
+                        title   : Utility.translate('contextMenuTitle'),
+                        contexts: ['page', 'browser_action', 'password'],
+                        command : "_execute_browser_action"
+                    }
+                );
+            }
+
+            for (let i = 0; i < contextMenuAccounts.length; i++) {
+                let entry = contextMenuAccounts[i],
+                    id    = 'ncp-pwd-' + Math.round(Math.random() * 10000) + '_' + i;
+
+                if (isChrome) {
+                    menus.create(
+                        {
+                            parentId: menuId,
+                            id      : id,
+                            title   : entry.user,
+                            contexts: ['page', 'browser_action'],
+                            onclick : insertContextMenuPassword
+                        }
+                    );
+                } else {
+                    menus.create(
+                        {
+                            parentId: menuId,
+                            id      : id,
+                            icons   : {16: 'https://icons.duckduckgo.com/ip2/' + entry.host + '.ico'},
+                            title   : entry.user,
+                            contexts: ['page', 'browser_action', 'password'],
+                            onclick : insertContextMenuPassword
+                        }
+                    );
+                }
             }
         });
     });
@@ -254,6 +286,7 @@ function insertContextMenuPassword(e) {
     let [, id] = e.menuItemId.split('_');
     browser.tabs.query({currentWindow: true, active: true})
         .then((tabs) => {
-            browser.tabs.sendMessage(tabs[0].id, contextMenuAccounts[id]);
+            browser.tabs.sendMessage(tabs[0].id, contextMenuAccounts[id])
+                .catch((e) => {console.log(e);});
         });
 }

@@ -87,6 +87,7 @@ class Api {
                     'api-request-failed',
                     {
                         type   : 'basic',
+                        iconUrl: 'img/passwords-48.png',
                         title  : Utility.translate('PasswordRequestFailedTitle'),
                         message: Utility.translate('PasswordRequestFailedText', [message])
                     }
@@ -105,7 +106,6 @@ class Api {
         });
     }
 }
-
 
 const api = new Api(null, null, null);
 

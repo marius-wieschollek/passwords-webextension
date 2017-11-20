@@ -60,9 +60,20 @@
     }
 }
 
-@-webkit-keyframes blink-success {
+@keyframes blink-success {
     0%, 49% {
         background-color : $color-green;
+        color            : $color-fg;
+    }
+    50%, 100% {
+        background-color : $color-bg;
+        color            : $color-fg;
+    }
+}
+
+@keyframes blink-error {
+    0%, 49% {
+        background-color : $color-red;
         color            : $color-fg;
     }
     50%, 100% {

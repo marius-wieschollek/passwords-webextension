@@ -1,4 +1,6 @@
 const NcPasswordClient = new function () {
+    let isChrome = navigator.userAgent.indexOf('Chrome') !== -1;
+    const extensionId = 'iekefncfcnkpjkldggojdaaeeempljfa';
 
     function getPasswordFields() {
         let fields  = document.getElementsByTagName('input'),
@@ -52,7 +54,7 @@ const NcPasswordClient = new function () {
                     }
                 }
 
-                if(!pair.user && pair.tel) pair.user = pair.tel;
+                if (!pair.user && pair.tel) pair.user = pair.tel;
 
                 fieldPairs.push(pair);
             }
@@ -82,27 +84,48 @@ const NcPasswordClient = new function () {
         if (form.user) user = form.user.value;
 
         if (user !== '' && pass !== '') {
-            browser.runtime.sendMessage(
-                'ncpasswords@mdns.eu',
-                {
-                    type    : 'mine-password',
-                    url     : location.href,
-                    user    : user,
-                    password: pass
-                }
-            )
+            if (isChrome) {
+                chrome.runtime.sendMessage(
+                    extensionId,
+                    {
+                        type    : 'mine-password',
+                        url     : location.href,
+                        user    : user,
+                        password: pass
+                    }
+                );
+            } else {
+                browser.runtime.sendMessage(
+                    'ncpasswords@mdns.eu',
+                    {
+                        type    : 'mine-password',
+                        url     : location.href,
+                        user    : user,
+                        password: pass
+                    }
+                )
+            }
         }
     }
 
     function init() {
-        browser.runtime.onMessage.addListener(
-            function (data) { fillPassword(data.user, data.password) }
-        );
+        if (isChrome) {
+            chrome.runtime.onMessage.addListener(
+                function (data, sender, response) {
+                    response({ok: true});
+                    fillPassword(data.user, data.password);
+                }
+            );
+        } else {
+            browser.runtime.onMessage.addListener(
+                function (data) {fillPassword(data.user, data.password)}
+            );
+        }
 
         let forms = getLoginFields();
         for (let i = 0; i < forms.length; i++) {
             let current = forms[i];
-            current.form.addEventListener('submit', () => { minePassword(current);});
+            current.form.addEventListener('submit', () => { minePassword(current); });
         }
     }
 
