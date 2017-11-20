@@ -69,7 +69,8 @@
 <style lang="scss">
     .login {
         display       : block;
-        padding       : 10px;
+        padding       : 0 10px;
+        line-height   : 38px;
         text-align    : center;
         cursor        : pointer;
         max-width     : 100%;
@@ -88,19 +89,20 @@
             transition : opacity 0.2s ease-in-out;
 
             .fa {
-                font-size  : 12pt;
-                display    : inline-block;
-                padding    : 11px;
-                min-width  : 38px;
-                text-align : center;
-                box-sizing : border-box;
+                font-size   : 12pt;
+                display     : inline-block;
+                padding     : 0 10px;
+                min-width   : 38px;
+                line-height : 38px;
+                text-align  : center;
+                box-sizing  : border-box;
 
                 &.success {
-                    animation : blink-success 1s 3;
+                    animation : blink-success 0.75s 2;
                 }
 
                 &.error {
-                    animation : blink-error 1s 3;
+                    animation : blink-error 0.75s 2;
                 }
             }
         }
@@ -114,11 +116,11 @@
         }
 
         &.success {
-            animation : blink-success 1s 3;
+            animation : blink-success 1s 2;
         }
 
         &.error {
-            animation : blink-error 1s 3;
+            animation : blink-error 1s 2;
         }
     }
 
