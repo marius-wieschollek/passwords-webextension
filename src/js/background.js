@@ -195,9 +195,8 @@ let contextMenuAccounts = [];
 
 function updatePasswordMenu() {
     isChrome ? browser.contextMenus.removeAll():browser.menus.removeAll();
-    contextMenuAccounts = [];
-
     browser.browserAction.setBadgeText({text:''});
+    contextMenuAccounts = [];
 
     browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
         let host = Utility.analyzeUrl(tabs[0].url, 'hostname');
@@ -208,6 +207,7 @@ function updatePasswordMenu() {
             let isChrome = !browser.runtime.getBrowserInfo,
                 menus    = isChrome ? browser.contextMenus:browser.menus;
 
+            contextMenuAccounts = [];
             for (let i = 0; i < database.length; i++) {
                 let entry = database[i];
 

@@ -14,6 +14,9 @@ Version 1.2.0 / 19.11.2017
 - Fixed Nextcloud Logout
 - Fixed Request Loop
 
-Version 1.3.0 / 26.11.2017
+Version 1.3.0 / 20.11.2017
+- Added Chromium compatibility
+- Added context menu
+- Added related password counter
 - Improved UI animation
-- Improved related passwords
+- Improved related passwords detection
