@@ -2,15 +2,18 @@
     <div class="tab-container" :data-tab-uuid="uuid">
         <ul class="tab-titles theme">
             <li
-                    class="fa tab-title"
-                    v-for="(tab, name) in tabs"
-                    :key="name"
-                    :class="tabClass(name, tab)"
-                    @click="setCurrentTab(name)"
+                class="fa tab-title"
+                v-for="(tab, name) in tabs"
+                :key="name"
+                :class="tabClass(name, tab)"
+                @click="setCurrentTab(name)"
             ></li>
         </ul>
         <div class="tab-contents">
-            <div v-for="(tab, name) in tabs" :data-tab="name" class="tab-content" v-bind:class="{ active: isCurrentTab(name) }">
+            <div v-for="(tab, name) in tabs"
+                 :data-tab="name"
+                 class="tab-content"
+                 v-bind:class="{ active: isCurrentTab(name) }">
                 <slot :name="name"></slot>
             </div>
         </div>

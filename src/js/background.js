@@ -195,7 +195,7 @@ let contextMenuAccounts = [];
 
 function updatePasswordMenu() {
     isChrome ? browser.contextMenus.removeAll():browser.menus.removeAll();
-    browser.browserAction.setBadgeText({text:''});
+    browser.browserAction.setBadgeText({text: ''});
     contextMenuAccounts = [];
 
     browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
@@ -233,8 +233,8 @@ function updatePasswordMenu() {
                 return;
             }
 
-            browser.browserAction.setBadgeText({text:size.toString(),tabId:tabs[0].id});
-            browser.browserAction.setBadgeBackgroundColor({color:'#0082c9'});
+            browser.browserAction.setBadgeText({text: size.toString(), tabId: tabs[0].id});
+            browser.browserAction.setBadgeBackgroundColor({color: '#0082c9'});
             let menuId = 'context-menu-' + Math.round(Math.random() * 10000);
             if (isChrome) {
                 menus.create(

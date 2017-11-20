@@ -1,9 +1,9 @@
 <template>
     <div class="logins">
         <login
-                v-for="(login, i) in accounts"
-                :key="i"
-                :login="login"
+            v-for="(login, i) in accounts"
+            :key="i"
+            :login="login"
         ></login>
         <div v-if="accounts.length == 0" class="no-accounts theme-invert">
             <translate>NoRelatedMatches</translate>

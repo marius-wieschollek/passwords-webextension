@@ -1,4 +1,4 @@
-This WebExtension is a client for the [Passwords app for Nextcloud](https://github.com/marius-wieschollek/passwords-legacy).
+This WebExtension is a client for the [Passwords app for Nextcloud](https://github.com/marius-wieschollek/passwords-legacy) fore Firefox and Chromium based browsers.
 
 #### Passwords always at hand
 By clicking on the "Passwords"-icon, you will be presented with the login data that matches the current website. The desired user account can easily be inserted into existing login forms with one click. Alternatively, you can also copy the password to the clipboard.
