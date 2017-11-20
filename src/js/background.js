@@ -199,6 +199,7 @@ function updatePasswordMenu() {
     contextMenuAccounts = [];
 
     browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
+        if (!tabs[0]) return;
         let host = Utility.analyzeUrl(tabs[0].url, 'hostname');
         if (host.length === 0) return;
 
@@ -224,7 +225,7 @@ function updatePasswordMenu() {
                             id      : 'open-browser-action',
                             icons   : {16: 'img/passwords-dark.svg'},
                             title   : Utility.translate('contextMenuTitle'),
-                            contexts: ['page', 'password'],
+                            contexts: ['page', 'password', 'editable'],
                             command : "_execute_browser_action"
                         }
                     );
@@ -241,7 +242,7 @@ function updatePasswordMenu() {
                     {
                         id      : menuId,
                         title   : Utility.translate('contextMenuTitle'),
-                        contexts: ['page', 'browser_action'],
+                        contexts: ['page', 'browser_action', 'editable'],
                     }
                 );
             } else {
@@ -266,7 +267,7 @@ function updatePasswordMenu() {
                             parentId: menuId,
                             id      : id,
                             title   : entry.user,
-                            contexts: ['page', 'browser_action'],
+                            contexts: ['page', 'browser_action', 'editable'],
                             onclick : insertContextMenuPassword
                         }
                     );

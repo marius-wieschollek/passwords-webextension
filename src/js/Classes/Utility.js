@@ -22,7 +22,7 @@ export default class Utility {
      */
     static copyToClipboard(text) {
         let id       = 'ctc-' + Math.random(),
-            $element = $('<textarea id="' + id + '">' + text + '</textarea>');
+            $element = $('<textarea id="' + id + '" style="position:absolute">' + text + '</textarea>');
 
         $('body').append($element);
         $element.select();

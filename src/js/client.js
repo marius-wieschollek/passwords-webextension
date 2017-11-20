@@ -1,6 +1,5 @@
 const NcPasswordClient = new function () {
     let isChrome = navigator.userAgent.indexOf('Chrome') !== -1;
-    const extensionId = 'iekefncfcnkpjkldggojdaaeeempljfa';
 
     function getPasswordFields() {
         let fields  = document.getElementsByTagName('input'),
@@ -82,27 +81,17 @@ const NcPasswordClient = new function () {
         if (form.user) user = form.user.value;
 
         if (user !== '' && pass !== '') {
-            if (isChrome) {
-                chrome.runtime.sendMessage(
-                    extensionId,
-                    {
-                        type    : 'mine-password',
-                        url     : location.href,
-                        user    : user,
-                        password: pass
-                    }
-                );
-            } else {
-                browser.runtime.sendMessage(
-                    'ncpasswords@mdns.eu',
-                    {
-                        type    : 'mine-password',
-                        url     : location.href,
-                        user    : user,
-                        password: pass
-                    }
-                )
-            }
+            let runtime = isChrome ? chrome.runtime:browser.runtime;
+
+            runtime.sendMessage(
+                runtime.id,
+                {
+                    type    : 'mine-password',
+                    url     : location.href,
+                    user    : user,
+                    password: pass
+                }
+            );
         }
     }
 
