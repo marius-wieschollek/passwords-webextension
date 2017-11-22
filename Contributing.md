@@ -24,7 +24,7 @@ _Using a test account is recommended_
 
 
 
-#### Debugging
+### Debugging
 ##### In Firefox
 1. Open "about:debugging"
 2. Scroll to "Nextcloud Passwords" and click on "Debug"
@@ -54,7 +54,7 @@ _Using a test account is recommended_
 
 
 ### Debug API/Connection issues
-1. Follow the steps in [Debugging](#Debugging) for your browser
+1. Follow the steps in [Debugging](#debugging) for your browser
 2. Execute the synchronisation action in the extension interface
 3. Network activity should appear in the "Network" tab
 4. Failed requests should be logged in the "Console"
