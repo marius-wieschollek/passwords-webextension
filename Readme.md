@@ -14,7 +14,7 @@ The client for Nextcloud Passwords is optimized for mobile devices and also work
 
 ### Downloads
 * [Firefox Extension on AMO](https://addons.mozilla.org/de/firefox/addon/nextcloud-passwords/)
-* [Chromium Builds Page](https://github.com/marius-wieschollek/passwords-webextension/wiki/chromium-builds).
+* [Chromium Builds Page](https://github.com/marius-wieschollek/passwords-webextension/wiki/chromium-builds)
 
 ### Development
 See [contributing](Contributing.md).
