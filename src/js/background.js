@@ -196,11 +196,11 @@ let contextMenuAccounts = [];
 
 function updatePasswordMenu() {
     isChrome ? browser.contextMenus.removeAll():browser.menus.removeAll();
-    browser.browserAction.setBadgeText({text: ''});
     contextMenuAccounts = [];
 
     browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
         if (!tabs[0]) return;
+        browser.browserAction.setBadgeText({text: '', tabId: tabs[0].id});
         let host = Utility.analyzeUrl(tabs[0].url, 'hostname');
         if (host.length === 0) return;
 
