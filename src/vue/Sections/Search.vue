@@ -8,9 +8,9 @@
                    v-on:keyup="updateQuery($event)">
         </div>
         <login v-for="(match, i) in matches" :key="i" :login="match"></login>
-        <translate tag="div" v-if="matches.length == 0 && query" class="no-matches theme-invert">NoSearchMatches
+        <translate tag="div" v-if="this.matches.length === 0 && this.query.length > 2" class="no-matches theme-invert" key="NoSearchMatches">NoSearchMatches
         </translate>
-        <translate tag="div" v-if="matches.length == 0 && !query" class="no-matches theme-invert">NoSearchQuery
+        <translate tag="div" v-if="this.matches.length === 0 && this.query.length < 3" class="no-matches theme-invert" key="NoSearchQuery">NoSearchQuery
         </translate>
     </div>
 </template>
