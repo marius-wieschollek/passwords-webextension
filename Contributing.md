@@ -27,8 +27,9 @@ _Using a test account is recommended_
 ### Debugging
 ##### In Firefox
 1. Open "about:debugging"
-2. Scroll to "Nextcloud Passwords" and click on "Debug"
-3. Confirm the debugging request
+2. Enable "Activate debugging of extensions"
+3. Scroll to "Nextcloud Passwords" and click on "Debug"
+4. Confirm the debugging request
 
 ##### In Chromium
 1. Open "chrome://extensions/"

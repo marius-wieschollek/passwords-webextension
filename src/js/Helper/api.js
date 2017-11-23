@@ -64,7 +64,7 @@ class Api {
                     try {
                         d = JSON.parse(prop);
                     } catch (e) {
-                        console.error('Parse Properties Failed', p, prop);
+                        console.error('Parse Properties Failed', e, p, prop);
                         Api.passwordEncodingFailedNotification(p.id);
                         continue;
                     }
