@@ -20,17 +20,13 @@ module.exports = env => {
             }
         ),
         new CopyWebpackPlugin(['src/platform/'+platform]),
-        new ExtractTextPlugin('css/passwords.css'),
-        new OptimizeCSSPlugin(
-            {
-                cssProcessorOptions: {
-                    safe: true
-                }
-            }
-        )
+        new ExtractTextPlugin('css/passwords.css')
     ];
 
     if (env.production) {
+        plugins.push(
+            new OptimizeCSSPlugin({cssProcessorOptions: {safe: true}})
+        );
         plugins.push(
             new UglifyJSPlugin(
                 {
@@ -51,21 +47,21 @@ module.exports = env => {
 
     return {
         entry  : {
-            app       : "./src/js/app.js",
-            client    : "./src/js/client.js",
-            background: "./src/js/background.js"
+            app       : __dirname + '/src/js/app.js',
+            client    : __dirname + '/src/js/client.js',
+            background: __dirname + '/src/js/background.js'
         },
         output : {
             path    : __dirname + '/dist/',
-            filename: "./js/[name].js"
+            filename: "js/[name].js"
         },
         resolve: {
             modules   : ['node_modules', 'src'],
             extensions: ['.js', '.vue', '.json'],
             alias     : {
                 'vue$': 'vue/dist/vue.esm.js',
-                '@vue': path.join(__dirname, 'src/vue'),
-                '@js' : path.join(__dirname, 'src/js')
+                '@vue': __dirname + '/src/vue',
+                '@js' : __dirname + '/src/js'
             }
         },
         module : {
@@ -81,13 +77,13 @@ module.exports = env => {
                                     use     : [
                                         {
                                             loader : 'css-loader',
-                                            options: {minimize: true, sourceMap: false}
+                                            options: {minimize: production}
                                         }, {
                                             loader : 'sass-loader',
-                                            options: {minimize: true, sourceMap: false}
+                                            options: {minimize: production}
                                         }, {
                                             loader : 'sass-resources-loader',
-                                            options: {resources: path.resolve(__dirname, './src/scss/includes.scss')}
+                                            options: {resources: __dirname + '/src/scss/includes.scss'}
                                         }
                                     ],
                                     fallback: 'vue-style-loader'
