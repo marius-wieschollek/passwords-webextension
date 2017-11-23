@@ -294,6 +294,6 @@ function insertContextMenuPassword(e) {
     browser.tabs.query({currentWindow: true, active: true})
         .then((tabs) => {
             browser.tabs.sendMessage(tabs[0].id, contextMenuAccounts[id])
-                .catch((e) => {console.log(e);});
+                .catch((e) => {console.error(e);});
         });
 }

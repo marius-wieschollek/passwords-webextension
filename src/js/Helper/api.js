@@ -57,8 +57,17 @@ class Api {
                 let passwords = [];
                 for (let i in data) {
                     if (!data.hasOwnProperty(i) || data[i].deleted) continue;
-                    let p = data[i],
-                        d = JSON.parse('{' + p.properties + '}');
+                    let d = null,
+                        p = data[i],
+                        prop = '{' + p.properties + '}';
+
+                    try {
+                        d = JSON.parse(prop);
+                    } catch (e) {
+                        console.error('Parse Properties Failed', p, prop);
+                        Api.passwordEncodingFailedNotification(p.id);
+                        continue;
+                    }
 
                     let host = p.website;
                     if (d.address && d.address !== 'undefined') {
@@ -96,6 +105,18 @@ class Api {
                 reject(e)
             });
         });
+    }
+
+    static passwordEncodingFailedNotification(id) {
+        browser.notifications.create(
+            'api-request-failed-'+id,
+            {
+                type   : 'basic',
+                iconUrl: 'img/passwords-48.png',
+                title  : Utility.translate('PasswordEncodingFailedTitle'),
+                message: Utility.translate('PasswordEncodingFailedText', [id])
+            }
+        );
     }
 
     getPasswords() {
