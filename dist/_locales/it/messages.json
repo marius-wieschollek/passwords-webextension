@@ -1,108 +1,95 @@
 {
-    "extensionName"               : {
-        "message"    : "Nextcloud Passwords",
-        "description": "Name of the extension."
+    "extensionName"              : {
+        "message": "Nextcloud Passwords"
     },
-    "extensionDescription"        : {
-        "message"    : "Un semplice client per Nextcloud Passwords",
-        "description": "Description of the extension."
+    "extensionDescription"       : {
+        "message": "Un semplice client per Nextcloud Passwords"
     },
-    "browserActionTitle"          : {
-        "message"    : "Parola d'ordine",
-        "description": "Title of the button in the browser bar"
+    "browserActionTitle"         : {
+        "message": "Parola d'ordine"
     },
-    "contextMenuTitle"          : {
-        "message"    : "Parola d'ordine",
-        "description": "Title of the context menu item"
+    "contextMenuTitle"           : {
+        "message": "Parola d'ordine"
     },
-    "NoRelatedMatches"             : {
-        "message"    : "Nessun accesso trovato",
-        "description": "Shown when the related page did not find any results"
+    "NoRelatedMatches"           : {
+        "message": "Nessun accesso trovato"
     },
-    "NoSearchMatches"                  : {
-        "message"    : "Nessuna partita",
-        "description": "Shown when the search did not find any results"
+    "NoSearchMatches"            : {
+        "message": "Nessuna partita"
     },
     "NoSearchQuery"              : {
-        "message"    : "Digitare più di due caratteri",
-        "description": "Shown when the search query is empty"
+        "message": "Digitare più di due caratteri"
     },
-    "PasswordRequestFailedTitle"     : {
-        "message"    : "Richiesta password Nextcloud fallita",
-        "description": "Notification title when the password request fails"
+    "PasswordRequestFailedTitle" : {
+        "message": "Richiesta password Nextcloud fallita"
     },
-    "PasswordRequestFailedText" : {
+    "PasswordRequestFailedText"  : {
         "message"     : "Non è stato possibile recuperare l' elenco password. Errore: $ERROR$",
-        "description" : "Notification text when the password request fails",
         "placeholders": {
             "error": {
-                "content": "$1",
-                "example": "Errore sconosciuto"
+                "content": "$1"
             }
         }
     },
-    "NewLoginDetectedTitle"          : {
-        "message"    : "Nuovo login trovato",
-        "description": "Notification title when a new login is detected"
+    "PasswordEncodingFailedTitle": {
+        "message": "Non è stato possibile analizzare le proprietà della password"
     },
-    "NewLoginDetectedText"      : {
+    "PasswordEncodingFailedText" : {
+        "message"     : "The properties of password #$ID$ do not contain valid JSON data and could not be processed",
+        "placeholders": {
+            "id": {
+                "content": "$1"
+            }
+        }
+    },
+    "NewLoginDetectedTitle"      : {
+        "message": "Nuovo login trovato"
+    },
+    "NewLoginDetectedText"       : {
         "message"     : "Clicca qui per salvare la password per \"$USER$\"",
-        "description" : "Notification text when a new login is detected",
         "placeholders": {
             "user": {
-                "content": "$1",
-                "example": "username"
+                "content": "$1"
             }
         }
     },
-    "PasswordCreatedTitle"              : {
-        "message"    : "Password salvata",
-        "description": "Notification title when a password was saved"
+    "PasswordCreatedTitle"       : {
+        "message": "Password salvata"
     },
-    "PasswordCreatedText" : {
-        "message"    : "La password è stata memorizzata con successo",
-        "description": "Notification text when a password was saved"
+    "PasswordCreatedText"        : {
+        "message": "La password è stata memorizzata con successo"
     },
-    "CreatePasswordFailedTitle"        : {
-        "message"    : "Salva password non riuscita",
-        "description": "Notification title when saving a password failed"
+    "CreatePasswordFailedTitle"  : {
+        "message": "Salva password non riuscita"
     },
-    "CreatePasswordFailedText"     : {
-        "message"    : "Non è stato possibile salvare la password",
-        "description": "Notification text when saving a password failed"
+    "CreatePasswordFailedText"   : {
+        "message": "Non è stato possibile salvare la password"
     },
-    "UpdatedLoginDetectedTitle"      : {
-        "message"    : "Accesso aggiornato trovato",
-        "description": "Notification title when an updated login is detected"
+    "UpdatedLoginDetectedTitle"  : {
+        "message": "Accesso aggiornato trovato"
     },
-    "UpdatedLoginDetectedText"    : {
+    "UpdatedLoginDetectedText"   : {
         "message"     : "Clicca qui per aggiornare la password per \"$USER$\"",
-        "description" : "Notification text when an updated login is detected",
         "placeholders": {
             "user": {
-                "content": "$1",
-                "example": "username"
+                "content": "$1"
             }
         }
     },
-    "PasswordUpdatedTitle"            : {
-        "message"    : "Password aggiornata",
-        "description": "Notification title when a password was updated"
+    "PasswordUpdatedTitle"       : {
+        "message": "Password aggiornata"
     },
-    "PasswordUpdatedText": {
-        "message"    : "La password è stata aggiornata con successo",
-        "description": "Notification text when a password was updated"
+    "PasswordUpdatedText"        : {
+        "message": "La password è stata aggiornata con successo"
     },
-    "UpdatePasswordFailedTitle"      : {
-        "message"    : "Aggiorna password non riuscita",
-        "description": "Notification title when updating a password failed"
+    "UpdatePasswordFailedTitle"  : {
+        "message": "Aggiorna password non riuscita"
     },
     "UpdatePasswordFailedText"   : {
-        "message"    : "La password non può essere aggiornata",
-        "description": "Notification text when updating a password failed"
+        "message": "La password non può essere aggiornata"
     },
-    "Url"                         : { "message": "Url" },
-    "Password"                    : { "message": "Parola d'ordine" },
-    "User"                        : { "message": "Utente" },
-    "Save"                        : { "message": "Memorizzare" }
+    "Url"                        : { "message": "Url" },
+    "Password"                   : { "message": "Parola d'ordine" },
+    "User"                       : { "message": "Utente" },
+    "Save"                       : { "message": "Memorizzare" }
 }

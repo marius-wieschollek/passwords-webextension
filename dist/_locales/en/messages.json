@@ -1,25 +1,25 @@
 {
-    "extensionName"               : {
+    "extensionName"              : {
         "message"    : "Nextcloud Passwords",
         "description": "Name of the extension."
     },
-    "extensionDescription"        : {
+    "extensionDescription"       : {
         "message"    : "A simple client for the Nextcloud Passwords app",
         "description": "Description of the extension."
     },
-    "browserActionTitle"          : {
+    "browserActionTitle"         : {
         "message"    : "Passwords",
         "description": "Title of the button in the browser bar"
     },
-    "contextMenuTitle"          : {
+    "contextMenuTitle"           : {
         "message"    : "Passwords",
         "description": "Title of the context menu item"
     },
-    "NoRelatedMatches"             : {
+    "NoRelatedMatches"           : {
         "message"    : "No logins found",
         "description": "Shown when the related page did not find any results"
     },
-    "NoSearchMatches"                  : {
+    "NoSearchMatches"            : {
         "message"    : "No matches",
         "description": "Shown when the search did not find any results"
     },
@@ -27,11 +27,11 @@
         "message"    : "Type more than two characters",
         "description": "Shown when the search query is empty"
     },
-    "PasswordRequestFailedTitle"     : {
+    "PasswordRequestFailedTitle" : {
         "message"    : "Nextcloud password request failed",
         "description": "Notification title when the password request fails"
     },
-    "PasswordRequestFailedText" : {
+    "PasswordRequestFailedText"  : {
         "message"     : "The password list could not be retrieved.\nError: $ERROR$",
         "description" : "Notification text when the password request fails",
         "placeholders": {
@@ -41,11 +41,25 @@
             }
         }
     },
-    "NewLoginDetectedTitle"          : {
+    "PasswordEncodingFailedTitle": {
+        "message"    : "Could not parse password properties",
+        "description": "Notification title when the password properties can not be parsed"
+    },
+    "PasswordEncodingFailedText" : {
+        "message"     : "The properties of password #$ID$ do not contain valid JSON data and could not be processed",
+        "description" : "Notification text when the password properties can not be parsed",
+        "placeholders": {
+            "id": {
+                "content": "$1",
+                "example": "0"
+            }
+        }
+    },
+    "NewLoginDetectedTitle"      : {
         "message"    : "New login found",
         "description": "Notification title when a new login is detected"
     },
-    "NewLoginDetectedText"      : {
+    "NewLoginDetectedText"       : {
         "message"     : "Click here to save the password for \"$USER$\"",
         "description" : "Notification text when a new login is detected",
         "placeholders": {
@@ -55,27 +69,27 @@
             }
         }
     },
-    "PasswordCreatedTitle"              : {
+    "PasswordCreatedTitle"       : {
         "message"    : "Password saved",
         "description": "Notification title when a password was saved"
     },
-    "PasswordCreatedText" : {
+    "PasswordCreatedText"        : {
         "message"    : "The password was stored sucessfully",
         "description": "Notification text when a password was saved"
     },
-    "CreatePasswordFailedTitle"        : {
+    "CreatePasswordFailedTitle"  : {
         "message"    : "Save password failed",
         "description": "Notification title when saving a password failed"
     },
-    "CreatePasswordFailedText"     : {
+    "CreatePasswordFailedText"   : {
         "message"    : "The password could not be saved",
         "description": "Notification text when saving a password failed"
     },
-    "UpdatedLoginDetectedTitle"      : {
+    "UpdatedLoginDetectedTitle"  : {
         "message"    : "Updated login found",
         "description": "Notification title when an updated login is detected"
     },
-    "UpdatedLoginDetectedText"    : {
+    "UpdatedLoginDetectedText"   : {
         "message"     : "Click here to update the password for \"$USER$\"",
         "description" : "Notification text when an updated login is detected",
         "placeholders": {
@@ -85,15 +99,15 @@
             }
         }
     },
-    "PasswordUpdatedTitle"            : {
+    "PasswordUpdatedTitle"       : {
         "message"    : "Password updated",
         "description": "Notification title when a password was updated"
     },
-    "PasswordUpdatedText": {
+    "PasswordUpdatedText"        : {
         "message"    : "The password was updated sucessfully",
         "description": "Notification text when a password was updated"
     },
-    "UpdatePasswordFailedTitle"      : {
+    "UpdatePasswordFailedTitle"  : {
         "message"    : "Update password failed",
         "description": "Notification title when updating a password failed"
     },
@@ -101,8 +115,8 @@
         "message"    : "The password could not be updated",
         "description": "Notification text when updating a password failed"
     },
-    "Url"                         : { "message": "Url" },
-    "Password"                    : { "message": "Password" },
-    "User"                        : { "message": "User" },
-    "Save"                        : { "message": "Save" }
+    "Url"                        : { "message": "Url" },
+    "Password"                   : { "message": "Password" },
+    "User"                       : { "message": "User" },
+    "Save"                       : { "message": "Save" }
 }

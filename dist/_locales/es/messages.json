@@ -1,108 +1,95 @@
 {
-    "extensionName"               : {
-        "message"    : "Nextcloud Passwords",
-        "description": "Name of the extension."
+    "extensionName"              : {
+        "message": "Nextcloud Passwords"
     },
-    "extensionDescription"        : {
-        "message"    : "Un cliente simple para Nextcloud Passwords",
-        "description": "Description of the extension."
+    "extensionDescription"       : {
+        "message": "Un cliente simple para Nextcloud Passwords"
     },
-    "browserActionTitle"          : {
-        "message"    : "Contraseñas",
-        "description": "Title of the button in the browser bar"
+    "browserActionTitle"         : {
+        "message": "Contraseñas"
     },
-    "contextMenuTitle"          : {
-        "message"    : "Contraseñas",
-        "description": "Title of the context menu item"
+    "contextMenuTitle"           : {
+        "message": "Contraseñas"
     },
-    "NoRelatedMatches"             : {
-        "message"    : "No se han encontrado logins",
-        "description": "Shown when the related page did not find any results"
+    "NoRelatedMatches"           : {
+        "message": "No se han encontrado logins"
     },
-    "NoSearchMatches"                  : {
-        "message"    : "No hay coincidencias",
-        "description": "Shown when the search did not find any results"
+    "NoSearchMatches"            : {
+        "message": "No hay coincidencias"
     },
     "NoSearchQuery"              : {
-        "message"    : "Escribe más de dos caracteres",
-        "description": "Shown when the search query is empty"
+        "message": "Escribe más de dos caracteres"
     },
-    "PasswordRequestFailedTitle"     : {
-        "message"    : "Falló la solicitud de contraseña Nextcloud",
-        "description": "Notification title when the password request fails"
+    "PasswordRequestFailedTitle" : {
+        "message": "Falló la solicitud de contraseña Nextcloud"
     },
-    "PasswordRequestFailedText" : {
-        "message"     : "La lista de contraseñas no se pudo recuperar. Error:  $ERROR$",
-        "description" : "Notification text when the password request fails",
+    "PasswordRequestFailedText"  : {
+        "message"     : "La lista de contraseñas no se pudo recuperar. Error: $ERROR$",
         "placeholders": {
             "error": {
-                "content": "$1",
-                "example": "Error desconocido"
+                "content": "$1"
             }
         }
     },
-    "NewLoginDetectedTitle"          : {
-        "message"    : "Nuevo login encontrado",
-        "description": "Notification title when a new login is detected"
+    "PasswordEncodingFailedTitle": {
+        "message": "No pudo analizar las propiedades de la contraseña"
     },
-    "NewLoginDetectedText"      : {
+    "PasswordEncodingFailedText" : {
+        "message"     : "Las propiedades de la contraseña #$ID$ no contienen datos JSON válidos y no pueden ser procesados",
+        "placeholders": {
+            "id": {
+                "content": "$1"
+            }
+        }
+    },
+    "NewLoginDetectedTitle"      : {
+        "message": "Nuevo login encontrado"
+    },
+    "NewLoginDetectedText"       : {
         "message"     : "Haga clic aquí para guardar la contraseña de \"$USER$\"",
-        "description" : "Notification text when a new login is detected",
         "placeholders": {
             "user": {
-                "content": "$1",
-                "example": "username"
+                "content": "$1"
             }
         }
     },
-    "PasswordCreatedTitle"              : {
-        "message"    : "Contraseña guardada",
-        "description": "Notification title when a password was saved"
+    "PasswordCreatedTitle"       : {
+        "message": "Contraseña guardada"
     },
-    "PasswordCreatedText" : {
-        "message"    : "La contraseña se ha guardado correctamente",
-        "description": "Notification text when a password was saved"
+    "PasswordCreatedText"        : {
+        "message": "La contraseña se ha guardado correctamente"
     },
-    "CreatePasswordFailedTitle"        : {
-        "message"    : "Guardar contraseña fallida",
-        "description": "Notification title when saving a password failed"
+    "CreatePasswordFailedTitle"  : {
+        "message": "Guardar contraseña fallida"
     },
-    "CreatePasswordFailedText"     : {
-        "message"    : "La contraseña no se ha podido guardar",
-        "description": "Notification text when saving a password failed"
+    "CreatePasswordFailedText"   : {
+        "message": "La contraseña no se ha podido guardar"
     },
-    "UpdatedLoginDetectedTitle"      : {
-        "message"    : "Inicio de sesión actualizado encontrado",
-        "description": "Notification title when an updated login is detected"
+    "UpdatedLoginDetectedTitle"  : {
+        "message": "Inicio de sesión actualizado encontrado"
     },
-    "UpdatedLoginDetectedText"    : {
+    "UpdatedLoginDetectedText"   : {
         "message"     : "Click here to update the password for \"$USER$\"",
-        "description" : "Notification text when an updated login is detected",
         "placeholders": {
             "user": {
-                "content": "$1",
-                "example": "username"
+                "content": "$1"
             }
         }
     },
-    "PasswordUpdatedTitle"            : {
-        "message"    : "Contraseña actualizada",
-        "description": "Notification title when a password was updated"
+    "PasswordUpdatedTitle"       : {
+        "message": "Contraseña actualizada"
     },
-    "PasswordUpdatedText": {
-        "message"    : "La contraseña se ha actualizado correctamente",
-        "description": "Notification text when a password was updated"
+    "PasswordUpdatedText"        : {
+        "message": "La contraseña se ha actualizado correctamente"
     },
-    "UpdatePasswordFailedTitle"      : {
-        "message"    : "Actualizar contraseña fallida",
-        "description": "Notification title when updating a password failed"
+    "UpdatePasswordFailedTitle"  : {
+        "message": "Actualizar contraseña fallida"
     },
     "UpdatePasswordFailedText"   : {
-        "message"    : "La contraseña no se ha podido actualizar",
-        "description": "Notification text when updating a password failed"
+        "message": "La contraseña no se ha podido actualizar"
     },
-    "Url"                         : { "message": "Url" },
-    "Password"                    : { "message": "Contraseña" },
-    "User"                        : { "message": "Usuario" },
-    "Save"                        : { "message": "Sava" }
+    "Url"                        : { "message": "Url" },
+    "Password"                   : { "message": "Contraseña" },
+    "User"                       : { "message": "Usuario" },
+    "Save"                       : { "message": "Sava" }
 }
