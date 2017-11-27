@@ -59,7 +59,7 @@ class Api {
                     if (!data.hasOwnProperty(i) || data[i].deleted) continue;
                     let d = null,
                         p = data[i],
-                        prop = '{' + p.properties + '}';
+                        prop = '{' + Api.escapeJson(p.properties) + '}';
 
                     try {
                         d = JSON.parse(prop);
@@ -105,6 +105,14 @@ class Api {
                 reject(e)
             });
         });
+    }
+
+    static escapeJson(p) {
+        return p
+            .replace(/\n/g, '\\n')
+            .replace(/\t/g, '\\t')
+            .replace(/\\/g, '\\\\')
+            .replace(/\", ,/g, '\",');
     }
 
     static passwordEncodingFailedNotification(id) {

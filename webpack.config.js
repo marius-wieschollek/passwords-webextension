@@ -19,7 +19,7 @@ module.exports = env => {
                 }
             }
         ),
-        new CopyWebpackPlugin(['src/platform/'+platform]),
+        new CopyWebpackPlugin(['src/platform/generic', 'src/platform/'+platform]),
         new ExtractTextPlugin('css/passwords.css')
     ];
 
