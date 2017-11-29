@@ -38,7 +38,7 @@ class Api {
                     pass       : password,
                     website    : title,
                     address    : website,
-                    notes      : notes,
+                    notes      : notes.replace(/&quot;/g, '"'),
                     category   : category,
                     datechanged: date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate()
 
@@ -57,16 +57,21 @@ class Api {
                 let passwords = [];
                 for (let i in data) {
                     if (!data.hasOwnProperty(i) || data[i].deleted) continue;
-                    let d = null,
-                        p = data[i],
+                    let d    = null,
+                        p    = data[i],
                         prop = '{' + Api.escapeJson(p.properties) + '}';
 
                     try {
                         d = JSON.parse(prop);
                     } catch (e) {
-                        console.error('Parse Properties Failed', e, p, prop);
-                        Api.passwordEncodingFailedNotification(p.id);
-                        continue;
+                        try {
+                            prop = Api.advancedEscapeJson(prop);
+                            d = JSON.parse(prop);
+                        } catch (e) {
+                            console.error('Parse Properties Failed', e, p, prop);
+                            Api.passwordEncodingFailedNotification(p.id);
+                            continue;
+                        }
                     }
 
                     let host = p.website;
@@ -107,6 +112,12 @@ class Api {
         });
     }
 
+    /**
+     * this method tries to fix common encoding issues in the legacy app json
+     *
+     * @param p
+     * @returns {XML|string}
+     */
     static escapeJson(p) {
         return p
             .replace(/\n/g, '\\n')
@@ -115,9 +126,29 @@ class Api {
             .replace(/\", ,/g, '\",');
     }
 
+    /**
+     * the legacy api might return json with quotes in values
+     * this method tries to fix that
+     *
+     * @param p
+     * @returns {string}
+     */
+    static advancedEscapeJson(p) {
+        let quot = '#Q#U#O#T#';
+
+        return '{"' + p
+            .replace(/^../, '')
+            .replace(/..$/, '')
+            .replace(/", "/g, quot + ',' + quot)
+            .replace(/" : "/g, quot + ':' + quot)
+            .replace(/\": \"/g, quot + ':' + quot)
+            .replace(/\"/g, '\\"')
+            .replace(/#Q#U#O#T#/g, '"') + '"}';
+    }
+
     static passwordEncodingFailedNotification(id) {
         browser.notifications.create(
-            'api-request-failed-'+id,
+            'api-request-failed-' + id,
             {
                 type   : 'basic',
                 iconUrl: 'img/passwords-48.png',

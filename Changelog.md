@@ -21,8 +21,8 @@
 - Improved UI animation
 - Improved related passwords detection
 
-#### Version 1.3.1 / 28.11.2017
+#### Version 1.3.1 / 30.11.2017
 - Improved API error handling
-- Fixed misleading search texts
 - Fixed JSON parsing issues
 - Fixed incorrect badge counter
+- Fixed misleading search texts
