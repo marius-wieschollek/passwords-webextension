@@ -1,16 +1,17 @@
 {
-    "name": "passwords",
-    "version": "1.0.0",
-    "description": "Easy to use yet feature-rich and secure password manager for Nextcloud",
+    "name": "passwords-webextension",
+    "version": "1.3.1",
+    "description": "A simple client for the Nextcloud Passwords app",
     "private": true,
     "scripts": {
         "watch": "webpack --env.production=0 --progress --colors --watch",
         "watch-chrome": "build=chrome webpack --env.production=0 --progress --colors --watch",
-        "build": "webpack --env.production --progress",
-        "build-chrome": "build=chrome webpack --env.production --progress"
+        "build": "webpack --env.production",
+        "build-chrome": "build=chrome webpack --env.production"
     },
     "dependencies": {},
     "devDependencies": {
+        "clean-webpack-plugin": "^0.1.17",
         "copy-webpack-plugin": "^4.2.3",
         "css-loader": "^0.28.7",
         "extract-text-webpack-plugin": "^3.0.0",
@@ -19,6 +20,7 @@
         "jquery": "^3.2.1",
         "node-sass": "^4.7.2",
         "optimize-css-assets-webpack-plugin": "^3.2.0",
+        "progress-bar-webpack-plugin": "^1.10.0",
         "sass-loader": "^5.0.1",
         "sass-resources-loader": "^1.3.1",
         "simplemde": "^1.11.2",

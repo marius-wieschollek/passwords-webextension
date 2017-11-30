@@ -64,5 +64,5 @@ _Using a test account is recommended_
 
 ### Tasks for starters
 You can always help translating the app.
-The translation files can be found in `dist/_locales/<language>`.
+The translation files can be found in `src/platform/generic/_locales/<language>`.
 Use the english language for reference.

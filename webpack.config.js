@@ -2,8 +2,10 @@ let path = require('path');
 let webpack = require('webpack');
 let CopyWebpackPlugin = require('copy-webpack-plugin');
 let UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+let CleanWebpackPlugin = require('clean-webpack-plugin');
 let ExtractTextPlugin = require("extract-text-webpack-plugin");
 let OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
+let ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 module.exports = env => {
     let production = env.production===true,
@@ -42,6 +44,8 @@ module.exports = env => {
                 }
             )
         );
+        plugins.push(new CleanWebpackPlugin(['dist']));
+        plugins.push(new ProgressBarPlugin());
     }
 
 
