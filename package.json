@@ -22,17 +22,17 @@
         "sass-loader": "^5.0.1",
         "sass-resources-loader": "^1.3.1",
         "simplemde": "^1.11.2",
-        "uglify-es": "^3.1.10",
-        "uglifyjs-webpack-plugin": "^1.1.1",
+        "uglify-es": "^3.2.0",
+        "uglifyjs-webpack-plugin": "^1.1.2",
         "url-loader": "^0.5.9",
-        "vue": "^2.5.8",
+        "vue": "^2.5.9",
         "vue-loader": "^13.0.5",
         "vue-markdown": "^2.2.4",
         "vue-qrcode-component": "^2.1.1",
         "vue-router": "^2.7.0",
         "vue-style-loader": "^3.0.3",
-        "vue-template-compiler": "^2.5.8",
-        "webpack": "^3.6.0"
+        "vue-template-compiler": "^2.5.9",
+        "webpack": "^3.9.0"
     },
     "repository": {
         "type": "git",
