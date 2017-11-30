@@ -22,6 +22,7 @@
 - Improved related passwords detection
 
 #### Version 1.3.1 / 30.11.2017
+- Do not automatically close search
 - Improved API error handling
 - Fixed JSON parsing issues
 - Fixed incorrect badge counter
