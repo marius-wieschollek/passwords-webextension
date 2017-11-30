@@ -4,6 +4,7 @@
             v-for="(login, i) in accounts"
             :key="i"
             :login="login"
+            :autoclose="true"
         ></login>
         <div v-if="accounts.length == 0" class="no-accounts theme-invert">
             <translate>NoRelatedMatches</translate>

@@ -20,18 +20,26 @@
 
     export default {
         props: {
-            login: {
+            login    : {
                 type: Object
+            },
+            autoclose: {
+                type     : Boolean,
+                'default': false
             }
         },
 
         methods: {
             insertPassword($e) {
                 $e.stopPropagation();
+
                 browser.tabs.query({currentWindow: true, active: true})
                     .then((tabs) => {
                         browser.tabs.sendMessage(tabs[0].id, this.login)
-                            .then(() => {this.playAnimation($e, 'success').then(() => {window.close();});})
+                            .then(() => {
+                                this.playAnimation($e, 'success')
+                                    .then(() => { if (this.autoclose) window.close(); });
+                            })
                             .catch((e) => {this.playAnimation($e, 'error');});
                     });
             },
