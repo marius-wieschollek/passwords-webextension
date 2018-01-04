@@ -116,14 +116,14 @@ class Api {
      * this method tries to fix common encoding issues in the legacy app json
      *
      * @param p
-     * @returns {XML|string}
+     * @returns {string}
      */
     static escapeJson(p) {
         return p
             .replace(/\n/g, '\\n')
             .replace(/\t/g, '\\t')
             .replace(/\\/g, '\\\\')
-            .replace(/\", ,/g, '\",');
+            .replace(/", ,/g, '\",');
     }
 
     /**
@@ -141,8 +141,8 @@ class Api {
             .replace(/..$/, '')
             .replace(/", "/g, quot + ',' + quot)
             .replace(/" : "/g, quot + ':' + quot)
-            .replace(/\": \"/g, quot + ':' + quot)
-            .replace(/\"/g, '\\"')
+            .replace(/": "/g, quot + ':' + quot)
+            .replace(/"/g, '\\"')
             .replace(/#Q#U#O#T#/g, '"') + '"}';
     }
 
