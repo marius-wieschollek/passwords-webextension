@@ -47,6 +47,13 @@
     "background"      : {
         "scripts": [ "js/background.js" ]
     },
+    "protocol_handlers": [
+        {
+            "protocol"   : "ext+passlink",
+            "name"       : "__MSG_protocolHandler__",
+            "uriTemplate": "html/passlink.html#data=%s"
+        }
+    ],
     "content_scripts" : [
         {
             "matches": [
