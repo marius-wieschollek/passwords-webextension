@@ -1,0 +1,95 @@
+{
+    "extensionName"              : {
+        "message": "Nextcloud Passwords"
+    },
+    "extensionDescription"       : {
+        "message": "Prosty klient dla aplikacji Hasła Nextcloud."
+    },
+    "browserActionTitle"         : {
+        "message": "Hasła"
+    },
+    "contextMenuTitle"           : {
+        "message": "Hasła"
+    },
+    "NoRelatedMatches"           : {
+        "message": "Nie znaleziono logowań"
+    },
+    "NoSearchMatches"            : {
+        "message": "Brak meczów"
+    },
+    "NoSearchQuery"              : {
+        "message": "Rodzaj powyżej dwóch znaków"
+    },
+    "PasswordRequestFailedTitle" : {
+        "message": "Zapytanie o hasło w usłudze Nextoud nie powiodło się"
+    },
+    "PasswordRequestFailedText"  : {
+        "message"     : "Lista haseł nie mogła zostać wyszukana.\nBłąd: $ERROR$",
+        "placeholders": {
+            "error": {
+                "content": "$1"
+            }
+        }
+    },
+    "PasswordEncodingFailedTitle": {
+        "message": "Właściwości hasła nie mogą się nie sprawdzać."
+    },
+    "PasswordEncodingFailedText" : {
+        "message"     : "Właściwości hasła #$ID$ nie zawierają ważnych danych JSON i nie mogą być przetwarzane.",
+        "placeholders": {
+            "id": {
+                "content": "$1"
+            }
+        }
+    },
+    "NewLoginDetectedTitle"      : {
+        "message": "Nowy identyfikator"
+    },
+    "NewLoginDetectedText"       : {
+        "message"     : "Kliknij tutaj, aby zapisać hasło dla \"$USER$\"",
+        "placeholders": {
+            "user": {
+                "content": "$1"
+            }
+        }
+    },
+    "PasswordCreatedTitle"       : {
+        "message": "Hasło zapisane"
+    },
+    "PasswordCreatedText"        : {
+        "message": "Hasło zostało zapisane z powodzeniem."
+    },
+    "CreatePasswordFailedTitle"  : {
+        "message": "Zapisz hasło nie powiodło się"
+    },
+    "CreatePasswordFailedText"   : {
+        "message": "Hasło nie mogło zostać zapisane."
+    },
+    "UpdatedLoginDetectedTitle"  : {
+        "message": "Uaktualnione znalezione logowanie"
+    },
+    "UpdatedLoginDetectedText"   : {
+        "message"     : "Kliknij tutaj, aby zaktualizować hasło dla \"$USER$\"",
+        "placeholders": {
+            "user": {
+                "content": "$1"
+            }
+        }
+    },
+    "PasswordUpdatedTitle"       : {
+        "message": "Zaktualizowane hasło"
+    },
+    "PasswordUpdatedText"        : {
+        "message": "Hasło zostało uaktualnione z powodzeniem."
+    },
+    "UpdatePasswordFailedTitle"  : {
+        "message": "Nie powiodło się hasło aktualizacji"
+    },
+    "UpdatePasswordFailedText"   : {
+        "message": "Hasło nie mogło być zaktualizowane."
+    },
+    "Url"                        : { "message": "Url" },
+    "Password"                   : { "message": "Hasło" },
+    "User"                       : { "message": "Użytkownik" },
+    "Save"                       : { "message": "Zapisz" }
+}
