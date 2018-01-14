@@ -55,27 +55,31 @@ class Api {
             this._api.listPasswords().then((data) => {
 
                 let passwords = [];
-                for (let i in data) {
-                    if (!data.hasOwnProperty(i) || data[i].deleted) continue;
+                for(let i in data) {
+                    if(!data.hasOwnProperty(i) || data[i].deleted) continue;
                     let d    = null,
                         p    = data[i],
-                        prop = '{' + Api.escapeJson(p.properties) + '}';
+                        prop = null;
 
                     try {
-                        d = JSON.parse(prop);
-                    } catch (e) {
+                        d = JSON.parse(p.properties);
+                    } catch(e) {
                         try {
-                            prop = Api.advancedEscapeJson(prop);
-                            d = JSON.parse(prop);
-                        } catch (e) {
-                            console.error('Parse Properties Failed', e, p, prop);
-                            Api.passwordEncodingFailedNotification(p.id);
-                            continue;
+                            d = JSON.parse('{' + Api.escapeJson(p.properties) + '}');
+                        } catch(e) {
+                            try {
+                                prop = Api.advancedEscapeJson('{' + Api.escapeJson(p.properties) + '}');
+                                d = JSON.parse(prop);
+                            } catch(e) {
+                                console.error('Parse Properties Failed', e, p, prop);
+                                Api.passwordEncodingFailedNotification(p.id);
+                                continue;
+                            }
                         }
                     }
 
                     let host = p.website;
-                    if (d.address && d.address !== 'undefined') {
+                    if(d.address && d.address !== 'undefined') {
                         host = Utility.analyzeUrl(d.address, 'hostname');
                     }
 
