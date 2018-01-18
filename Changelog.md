@@ -1,6 +1,7 @@
 #### Version 1.4.0 / 18.01.2018
 - Support API level 21 
 - Added polish translation
+- Fixed duplicate on update bug
 
 #### Version 1.3.1 / 30.11.2017
 - Do not automatically close search
@@ -21,7 +22,7 @@
 - Added password miner
 - Improved mobile ui
 - Fixed Nextcloud Logout
-- Fixed Request Loop
+- Fixed request Loop
 
 #### Version 1.1.0 / 18.11.2017
 - Search tab added
