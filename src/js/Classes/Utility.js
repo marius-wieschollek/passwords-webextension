@@ -51,6 +51,9 @@ export default class Utility {
      * @returns {boolean}
      */
     static hostCompare(host, compare) {
+        if(host === undefined || compare === undefined) return false;
+        if(host === null || compare === null) return false;
+
         let keys  = ['www', 'login', 'signin', navigator.language],
             regex = new RegExp('^' + keys.join('\\.|^') + '\\.', 'i'),
             a     = host.replace(regex, ''),
