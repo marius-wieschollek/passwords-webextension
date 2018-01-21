@@ -3,7 +3,7 @@
         "message": "Nextcloud Passwords"
     },
     "extensionDescription"       : {
-        "message": "Prosty klient dla aplikacji Hasła Nextcloud."
+        "message": "Klient aplikacji Nextcloud Passwords."
     },
     "browserActionTitle"         : {
         "message": "Hasła"
@@ -12,16 +12,16 @@
         "message": "Hasła"
     },
     "NoRelatedMatches"           : {
-        "message": "Nie znaleziono logowań"
+        "message": "Nie znaleziono wyników"
     },
     "NoSearchMatches"            : {
-        "message": "Brak meczów"
+        "message": "Nie znaleziono wyników"
     },
     "NoSearchQuery"              : {
-        "message": "Rodzaj powyżej dwóch znaków"
+        "message": "Wpisz więcej niż dwa znaki"
     },
     "PasswordRequestFailedTitle" : {
-        "message": "Zapytanie o hasło w usłudze Nextoud nie powiodło się"
+        "message": "Zapytanie o hasło w usłudze Nextcloud nie powiodło się"
     },
     "PasswordRequestFailedText"  : {
         "message"     : "Lista haseł nie mogła zostać wyszukana.\nBłąd: $ERROR$",
@@ -32,10 +32,10 @@
         }
     },
     "PasswordEncodingFailedTitle": {
-        "message": "Właściwości hasła nie mogą się nie sprawdzać."
+        "message": "Właściwości hasła nie mogły zostać odczytane"
     },
     "PasswordEncodingFailedText" : {
-        "message"     : "Właściwości hasła #$ID$ nie zawierają ważnych danych JSON i nie mogą być przetwarzane.",
+        "message"     : "Właściwości hasła #$ID$ nie zawierają ważnych danych JSON i nie mogą zostać przetworzone.",
         "placeholders": {
             "id": {
                 "content": "$1"
@@ -43,7 +43,7 @@
         }
     },
     "NewLoginDetectedTitle"      : {
-        "message": "Nowy identyfikator"
+        "message": "Znaleziono nowy identyfikator"
     },
     "NewLoginDetectedText"       : {
         "message"     : "Kliknij tutaj, aby zapisać hasło dla \"$USER$\"",
@@ -57,16 +57,16 @@
         "message": "Hasło zapisane"
     },
     "PasswordCreatedText"        : {
-        "message": "Hasło zostało zapisane z powodzeniem."
+        "message": "Hasło zostało zapisane"
     },
     "CreatePasswordFailedTitle"  : {
-        "message": "Zapisz hasło nie powiodło się"
+        "message": "Zapisanie hasła nie powiodło się"
     },
     "CreatePasswordFailedText"   : {
-        "message": "Hasło nie mogło zostać zapisane."
+        "message": "Hasło nie mogło zostać zapisane"
     },
     "UpdatedLoginDetectedTitle"  : {
-        "message": "Uaktualnione znalezione logowanie"
+        "message": "Znaleziono uaktualniony identyfikator"
     },
     "UpdatedLoginDetectedText"   : {
         "message"     : "Kliknij tutaj, aby zaktualizować hasło dla \"$USER$\"",
@@ -77,16 +77,16 @@
         }
     },
     "PasswordUpdatedTitle"       : {
-        "message": "Zaktualizowane hasło"
+        "message": "Hasło zaktualizowane"
     },
     "PasswordUpdatedText"        : {
-        "message": "Hasło zostało uaktualnione z powodzeniem."
+        "message": "Hasło zaktualizowane z powodzeniem"
     },
     "UpdatePasswordFailedTitle"  : {
-        "message": "Nie powiodło się hasło aktualizacji"
+        "message": "Aktualizacja hasła nie powiodła się"
     },
     "UpdatePasswordFailedText"   : {
-        "message": "Hasło nie mogło być zaktualizowane."
+        "message": "Hasło nie mogło zostać zaktualizowane"
     },
     "Url"                        : { "message": "Url" },
     "Password"                   : { "message": "Hasło" },
