@@ -63,7 +63,7 @@
                     let entry = $.extend({}, this.database[i]);
 
                     if (entry.user.indexOf(this.query) !== -1 ||
-                        entry.host.indexOf(this.query) !== -1 ||
+                        (entry.host !== null && entry.host.indexOf(this.query) !== -1) ||
                         entry.notes.indexOf(this.query) !== -1 ||
                         entry.password.indexOf(this.query) !== -1
                     ) {
