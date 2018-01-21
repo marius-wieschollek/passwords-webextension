@@ -1,3 +1,7 @@
+#### Version 1.4.1 / 21.01.2018
+- Improved polish translation (thanks to [Pafcioooo](https://github.com/pafcioooo))
+- Fixed account suggestion not working if no url specified
+
 #### Version 1.4.0 / 18.01.2018
 - Support API level 21 
 - Added polish translation
