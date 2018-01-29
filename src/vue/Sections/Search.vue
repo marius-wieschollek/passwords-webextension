@@ -7,11 +7,9 @@
                    placeholder="..."
                    v-on:keyup="updateQuery($event)">
         </div>
-        <login v-for="(match, i) in matches" :key="i" :login="match"></login>
-        <translate tag="div" v-if="this.matches.length === 0 && this.query.length > 2" class="no-matches theme-invert" key="NoSearchMatches">NoSearchMatches
-        </translate>
-        <translate tag="div" v-if="this.matches.length === 0 && this.query.length < 3" class="no-matches theme-invert" key="NoSearchQuery">NoSearchQuery
-        </translate>
+        <login v-for="(match, i) in matches" :key="i" :login="match"/>
+        <translate tag="div" v-if="this.matches.length === 0 && this.query.length > 2" class="no-matches theme-invert" say="NoSearchMatches"/>
+        <translate tag="div" v-if="this.matches.length === 0 && this.query.length < 3" class="no-matches theme-invert" say="NoSearchQuery"/>
     </div>
 </template>
 
