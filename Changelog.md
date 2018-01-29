@@ -1,3 +1,6 @@
+#### Version 1.4.2 / 29.01.2018
+- Fixed issue in search and autodetection
+
 #### Version 1.4.1 / 21.01.2018
 - Improved polish translation (thanks to [Pafcioooo](https://github.com/pafcioooo))
 - Fixed account suggestion not working if no url specified
