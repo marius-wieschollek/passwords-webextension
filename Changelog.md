@@ -1,3 +1,6 @@
+#### Version 1.4.3 / 22.02.2018
+- Fixed login settings issues
+
 #### Version 1.4.2 / 29.01.2018
 - Fixed issue in search and autodetection
 
