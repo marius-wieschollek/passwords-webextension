@@ -74,6 +74,8 @@
                     }
                 );
 
+                let runtime = browser.runtime.getBrowserInfo ? browser.runtime:chrome.runtime;
+                runtime.sendMessage(runtime.id, {type: 'reload'});
             }
         }
     }

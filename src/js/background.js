@@ -25,7 +25,7 @@ function apiLogin() {
     browser.storage.sync.get(['url', 'user']).then((sync) => {
         browser.storage.local.get(['password'])
             .then((local) => {
-                API.login(sync.url, sync.user, local.password)
+                API.login(sync.url, sync.user, local.password);
             })
     });
 }
@@ -184,6 +184,7 @@ browser.runtime.onMessage.addListener(processMessage);
 
 function processMessage(msg) {
     if (msg.type === 'mine-password') checkMinedPassword(msg);
+    if (msg.type === 'reload') apiLogin();
 }
 
 browser.tabs.onActivated.addListener(updatePasswordMenu);
