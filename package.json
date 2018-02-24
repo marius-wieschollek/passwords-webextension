@@ -5,9 +5,11 @@
     "private": true,
     "scripts": {
         "watch": "webpack --env.production=0 --progress --colors --watch",
+        "watch-edge": "build=edge webpack --env.production=0 --progress --colors --watch",
         "watch-opera": "build=opera webpack --env.production=0 --progress --colors --watch",
         "watch-chrome": "build=chrome webpack --env.production=0 --progress --colors --watch",
         "build": "webpack --env.production",
+        "build-edge": "build=edge webpack --env.production",
         "build-opera": "build=opera webpack --env.production",
         "build-chrome": "build=chrome webpack --env.production"
     },

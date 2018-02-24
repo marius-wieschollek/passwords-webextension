@@ -92,6 +92,7 @@
         margin    : 0;
         font-size : 12pt;
         width     : 300px;
+        font-family: sans-serif;
     }
 
     .btn {
