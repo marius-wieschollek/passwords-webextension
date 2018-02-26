@@ -8,14 +8,19 @@
                    v-on:keyup="updateQuery($event)">
         </div>
         <login v-for="(match, i) in matches" :key="i" :login="match"/>
-        <translate tag="div" v-if="this.matches.length === 0 && this.query.length > 2" class="no-matches theme-invert" say="NoSearchMatches"/>
-        <translate tag="div" v-if="this.matches.length === 0 && this.query.length < 3" class="no-matches theme-invert" say="NoSearchQuery"/>
+        <translate tag="div"
+                   v-if="this.matches.length === 0 && this.query.length > 2"
+                   class="no-matches theme-invert"
+                   say="NoSearchMatches"/>
+        <translate tag="div"
+                   v-if="this.matches.length === 0 && this.query.length < 3"
+                   class="no-matches theme-invert"
+                   say="NoSearchQuery"/>
     </div>
 </template>
 
 <script>
     import $ from "jquery";
-    import API from '@js/Helper/api';
     import Login from '@vue/Partials/Login.vue';
     import Translate from '@vue/Partials/Translate.vue';
 
@@ -27,9 +32,9 @@
 
         data() {
             return {
-                database: [],
-                matches : [],
-                query   : ''
+                passwords: [],
+                matches  : [],
+                query    : ''
             }
         },
 
@@ -40,10 +45,14 @@
 
         methods: {
             loadPasswords: function () {
-                API.getPasswords().then((d) => {
-                    this.database = d;
-                    this.search();
-                })
+                let runtime = browser.runtime.getBrowserInfo ? browser.runtime:chrome.runtime;
+                runtime
+                    .sendMessage(runtime.id, {type: 'passwords'})
+                    .then((d) => {
+                        if(!d) return;
+                        this.passwords = d;
+                        this.search();
+                    })
             },
             updateQuery($event) {
                 this.query = $($event.target).val();
@@ -57,8 +66,8 @@
                     return;
                 }
 
-                for (let i = 0; i < this.database.length; i++) {
-                    let entry = $.extend({}, this.database[i]);
+                for (let i = 0; i < this.passwords.length; i++) {
+                    let entry = $.extend({}, this.passwords[i]);
 
                     if (entry.user.indexOf(this.query) !== -1 ||
                         (entry.host !== null && entry.host.indexOf(this.query) !== -1) ||

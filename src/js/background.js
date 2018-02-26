@@ -16,33 +16,36 @@ if (!isChrome) {
 
 browser.storage.local.get(['initialized'])
     .then((data) => {
-        if (data.initialized) {
-            apiLogin()
-        }
+        if (data.initialized) apiLogin()
     });
 
-function apiLogin() {
-    browser.storage.sync.get(['url', 'user']).then((sync) => {
-        browser.storage.local.get(['password'])
-            .then((local) => {
-                API.login(sync.url, sync.user, local.password);
-            })
-    });
+async function apiLogin() {
+    let sync = await browser.storage.sync.get(['url', 'user']);
+    let local = await browser.storage.local.get(['password']);
+    await API.login(sync.url, sync.user, local.password);
 }
+
+
+browser.storage.local.get(['database'])
+    .then((data) => {
+        if (data.database) browser.storage.local.remove(['database']);
+    });
 
 let minedPassword = null;
 
 function checkMinedPassword(password) {
-    browser.storage.local.get(['database', 'initialized'])
+    browser.storage.local.get(['initialized'])
         .then((data) => {
             if (!data.initialized) return;
+
             password.host = Utility.analyzeUrl(password.url, 'hostname');
 
             minedPassword = password;
             notificationCleanup();
 
-            for (let i = 0; i < data.database.length; i++) {
-                let entry = data.database[i];
+            let passwords = API.getPasswords();
+            for (let i = 0; i < passwords.length; i++) {
+                let entry = passwords[i];
 
                 if (entry.user === password.user && Utility.hostCompare(entry.host, password.host)) {
                     if (entry.password !== password.password) {
@@ -182,8 +185,9 @@ function notificationCleanup() {
 
 browser.runtime.onMessage.addListener(processMessage);
 
-function processMessage(msg) {
+function processMessage(msg, sender, sendResponse) {
     if (msg.type === 'mine-password') checkMinedPassword(msg);
+    if (msg.type === 'passwords') sendResponse(API.getPasswords());
     if (msg.type === 'reload') apiLogin();
 }
 
@@ -205,88 +209,87 @@ function updatePasswordMenu() {
         let host = Utility.analyzeUrl(tabs[0].url, 'hostname');
         if (host.length === 0) return;
 
-        API.getPasswords().then((database) => {
-            if (!database) return;
-            let isChrome = !browser.runtime.getBrowserInfo,
-                menus    = isChrome ? browser.contextMenus:browser.menus;
+        let passwords = API.getPasswords();
+        if (!passwords) return;
+        let isChrome = !browser.runtime.getBrowserInfo,
+            menus    = isChrome ? browser.contextMenus:browser.menus;
 
-            contextMenuAccounts = [];
-            for (let i = 0; i < database.length; i++) {
-                let entry = database[i];
+        contextMenuAccounts = [];
+        for (let i = 0; i < passwords.length; i++) {
+            let entry = passwords[i];
 
-                if (Utility.hostCompare(entry.host, host)) {
-                    contextMenuAccounts.push(entry);
-                }
+            if (Utility.hostCompare(entry.host, host)) {
+                contextMenuAccounts.push(entry);
             }
+        }
 
-            let size = contextMenuAccounts.length;
-            if (size === 0) {
-                if (!isChrome) {
-                    menus.create(
-                        {
-                            id      : 'open-browser-action',
-                            icons   : {16: 'img/passwords-dark.svg'},
-                            title   : Utility.translate('contextMenuTitle'),
-                            contexts: ['page', 'password', 'editable'],
-                            command : "_execute_browser_action"
-                        }
-                    );
-                }
-
-                return;
-            }
-
-            browser.browserAction.setBadgeText({text: size.toString(), tabId: tabs[0].id});
-            browser.browserAction.setBadgeBackgroundColor({color: '#0082c9'});
-            let menuId = 'context-menu-' + Math.round(Math.random() * 10000);
-            if (isChrome) {
+        let size = contextMenuAccounts.length;
+        if (size === 0) {
+            if (!isChrome) {
                 menus.create(
                     {
-                        id      : menuId,
-                        title   : Utility.translate('contextMenuTitle'),
-                        contexts: ['page', 'browser_action', 'editable'],
-                    }
-                );
-            } else {
-                menus.create(
-                    {
-                        id      : menuId,
+                        id      : 'open-browser-action',
                         icons   : {16: 'img/passwords-dark.svg'},
                         title   : Utility.translate('contextMenuTitle'),
-                        contexts: ['page', 'browser_action', 'password'],
+                        contexts: ['page', 'password', 'editable'],
                         command : "_execute_browser_action"
                     }
                 );
             }
 
-            for (let i = 0; i < contextMenuAccounts.length; i++) {
-                let entry = contextMenuAccounts[i],
-                    id    = 'ncp-pwd-' + Math.round(Math.random() * 10000) + '_' + i;
+            return;
+        }
 
-                if (isChrome) {
-                    menus.create(
-                        {
-                            parentId: menuId,
-                            id      : id,
-                            title   : entry.user,
-                            contexts: ['page', 'browser_action', 'editable'],
-                            onclick : insertContextMenuPassword
-                        }
-                    );
-                } else {
-                    menus.create(
-                        {
-                            parentId: menuId,
-                            id      : id,
-                            icons   : {16: 'https://icons.duckduckgo.com/ip2/' + entry.host + '.ico'},
-                            title   : entry.user,
-                            contexts: ['page', 'browser_action', 'password'],
-                            onclick : insertContextMenuPassword
-                        }
-                    );
+        browser.browserAction.setBadgeText({text: size.toString(), tabId: tabs[0].id});
+        browser.browserAction.setBadgeBackgroundColor({color: '#0082c9'});
+        let menuId = 'context-menu-' + Math.round(Math.random() * 10000);
+        if (isChrome) {
+            menus.create(
+                {
+                    id      : menuId,
+                    title   : Utility.translate('contextMenuTitle'),
+                    contexts: ['page', 'browser_action', 'editable'],
                 }
+            );
+        } else {
+            menus.create(
+                {
+                    id      : menuId,
+                    icons   : {16: 'img/passwords-dark.svg'},
+                    title   : Utility.translate('contextMenuTitle'),
+                    contexts: ['page', 'browser_action', 'password'],
+                    command : "_execute_browser_action"
+                }
+            );
+        }
+
+        for (let i = 0; i < contextMenuAccounts.length; i++) {
+            let entry = contextMenuAccounts[i],
+                id    = 'ncp-pwd-' + Math.round(Math.random() * 10000) + '_' + i;
+
+            if (isChrome) {
+                menus.create(
+                    {
+                        parentId: menuId,
+                        id      : id,
+                        title   : entry.user,
+                        contexts: ['page', 'browser_action', 'editable'],
+                        onclick : insertContextMenuPassword
+                    }
+                );
+            } else {
+                menus.create(
+                    {
+                        parentId: menuId,
+                        id      : id,
+                        icons   : {16: 'https://icons.duckduckgo.com/ip2/' + entry.host + '.ico'},
+                        title   : entry.user,
+                        contexts: ['page', 'browser_action', 'password'],
+                        onclick : insertContextMenuPassword
+                    }
+                );
             }
-        });
+        }
     });
 }
 

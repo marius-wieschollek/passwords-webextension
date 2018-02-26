@@ -5,6 +5,7 @@ class Api {
 
     constructor(endpoint, user, password) {
         this._api = new BaseApi(endpoint, user, password, null, true);
+        this.passwords = [];
     }
 
     async login(endpoint, user, password) {
@@ -96,7 +97,8 @@ class Api {
                     );
                 }
 
-                browser.storage.local.set({'database': passwords})
+                this.passwords = passwords;
+                browser.storage.local.set({'updated': new Date().getTime()})
                     .then(() => {resolve(passwords)})
                     .catch((e) => {reject(e)});
             }).catch((e) => {
@@ -163,11 +165,7 @@ class Api {
     }
 
     getPasswords() {
-        return new Promise((resolve, reject) => {
-            browser.storage.local.get(['database'])
-                .then((data) => { resolve(data.database); })
-                .catch((data) => { reject(data); })
-        });
+        return this.passwords;
     }
 }
 

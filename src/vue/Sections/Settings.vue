@@ -68,7 +68,6 @@
                 );
                 browser.storage.local.set(
                     {
-                        database   : {},
                         password   : $('#settings-password').val(),
                         initialized: true
                     }

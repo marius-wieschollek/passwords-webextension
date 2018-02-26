@@ -1,16 +1,16 @@
 <template>
     <div id="manager">
         <i class="fa fa-refresh btn reload fa-fw" @click="apiLogin"></i>
-        <banner></banner>
+        <banner/>
         <tabs :tabs="{related: 'key', search:'search', settings: 'gear'}" uuid="main-tabs" :current="currentTab">
             <div slot="related">
-                <related></related>
+                <related/>
             </div>
             <div slot="search">
-                <search></search>
+                <search/>
             </div>
             <div slot="settings">
-                <settings></settings>
+                <settings/>
             </div>
         </tabs>
     </div>
@@ -18,7 +18,6 @@
 
 <script>
     import $ from "jquery";
-    import API from '@js/Helper/api';
     import Tabs from '@vue/Partials/Tabs.vue';
     import Banner from '@vue/Partials/Banner.vue';
     import Search from '@vue/Sections/Search.vue';
@@ -53,11 +52,8 @@
             ).then((data) => {
                 if (!data.initialized) {
                     this.currentTab = 'settings';
-                } else {
-                    this.apiLogin();
                 }
             });
-            browser.storage.onChanged.addListener(this.apiLogin);
         },
 
         methods: {
@@ -67,19 +63,13 @@
 
                 let $reload = $('.btn.reload');
                 $reload.addClass('fa-spin');
-                browser.storage.sync.get(['url', 'user']).then((sync) => {
-                    browser.storage.local.get(['password']).then((local) => {
-                        API.login(sync.url, sync.user, local.password)
-                            .then(() => {
-                                this.updating = false;
-                                $reload.removeClass('fa-spin');
-                            })
-                            .catch(() => {
-                                this.updating = false;
-                                $reload.removeClass('fa-spin');
-                            })
-                    })
-                });
+                let runtime = browser.runtime.getBrowserInfo ? browser.runtime:chrome.runtime;
+                runtime.sendMessage(runtime.id, {type: 'reload'});
+
+                setTimeout(() => {
+                    this.updating = false;
+                    $reload.removeClass('fa-spin');
+                }, 2000)
             }
         }
     }
@@ -89,10 +79,10 @@
     @import "~font-awesome/css/font-awesome.min.css";
 
     body {
-        margin    : 0;
-        font-size : 12pt;
-        width     : 300px;
-        font-family: sans-serif;
+        margin      : 0;
+        font-size   : 12pt;
+        width       : 300px;
+        font-family : sans-serif;
     }
 
     .btn {

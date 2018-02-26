@@ -1,3 +1,6 @@
+#### Version 1.4.3 / 27.02.2018
+- Remove local password storage
+
 #### Version 1.4.3 / 22.02.2018
 - Fixed login settings issues
 
