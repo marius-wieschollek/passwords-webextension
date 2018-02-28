@@ -45,14 +45,16 @@
 
         methods: {
             loadPasswords: function () {
-                let runtime = browser.runtime.getBrowserInfo ? browser.runtime:chrome.runtime;
-                runtime
-                    .sendMessage(runtime.id, {type: 'passwords'})
-                    .then((d) => {
-                        if(!d) return;
-                        this.passwords = d;
-                        this.search();
-                    })
+                if(browser.runtime.getBrowserInfo) {
+                    browser.runtime.sendMessage(browser.runtime.id, {type: 'passwords'}).then(this.updateDb);
+                } else {
+                    chrome.runtime.sendMessage(chrome.runtime.id, {type: 'passwords'}, {}, this.updateDb);
+                }
+            },
+            updateDb(d) {
+                if(!d) return;
+                this.passwords = d;
+                this.search();
             },
             updateQuery($event) {
                 this.query = $($event.target).val();

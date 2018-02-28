@@ -50,9 +50,7 @@
             browser.storage.local.get(
                 ['initialized']
             ).then((data) => {
-                if (!data.initialized) {
-                    this.currentTab = 'settings';
-                }
+                if (!data.initialized) this.currentTab = 'settings';
             });
         },
 
@@ -61,15 +59,16 @@
                 if (this.updating) return;
                 this.updating = true;
 
-                let $reload = $('.btn.reload');
-                $reload.addClass('fa-spin');
-                let runtime = browser.runtime.getBrowserInfo ? browser.runtime:chrome.runtime;
-                runtime.sendMessage(runtime.id, {type: 'reload'});
-
-                setTimeout(() => {
-                    this.updating = false;
-                    $reload.removeClass('fa-spin');
-                }, 2000)
+                $('.btn.reload').addClass('fa-spin');
+                if(browser.runtime.getBrowserInfo) {
+                    browser.runtime.sendMessage(browser.runtime.id, {type: 'reload'}).then(this.resetApiLogin);
+                } else {
+                    chrome.runtime.sendMessage(chrome.runtime.id, {type: 'reload'}, {}, this.resetApiLogin);
+                }
+            },
+            resetApiLogin() {
+                this.updating = false;
+                $('.btn.reload').removeClass('fa-spin');
             }
         }
     }

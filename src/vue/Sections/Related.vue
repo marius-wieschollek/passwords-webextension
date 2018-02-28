@@ -41,12 +41,14 @@
 
         methods: {
             loadPasswords   : function () {
-                let runtime = browser.runtime.getBrowserInfo ? browser.runtime:chrome.runtime;
-                runtime
-                    .sendMessage(runtime.id, {type: 'passwords'})
-                    .then(this.processPasswords);
+                if(browser.runtime.getBrowserInfo) {
+                    browser.runtime.sendMessage(browser.runtime.id, {type: 'passwords'}).then(this.processPasswords);
+                } else {
+                    chrome.runtime.sendMessage(chrome.runtime.id, {type: 'passwords'}, {}, this.processPasswords);
+                }
             },
             processPasswords: function (passwords) {
+                console.log(passwords);
                 if(!passwords) return;
                 browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
                     let accounts = [];

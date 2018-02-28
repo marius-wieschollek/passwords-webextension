@@ -19,6 +19,10 @@ browser.storage.local.get(['initialized'])
         if (data.initialized) apiLogin()
     });
 
+
+browser.storage.sync.set({version: 10500});
+browser.storage.local.set({version: 10500});
+
 async function apiLogin() {
     let sync = await browser.storage.sync.get(['url', 'user']);
     let local = await browser.storage.local.get(['password']);
@@ -183,12 +187,23 @@ function notificationCleanup() {
     browser.notifications.onClosed.removeListener(notificationCleanup);
 }
 
-browser.runtime.onMessage.addListener(processMessage);
+if(isChrome) {
+    chrome.runtime.onMessage.addListener(processMessage);
+} else {
+    browser.runtime.onMessage.addListener(processMessage);
+}
 
 function processMessage(msg, sender, sendResponse) {
+    console.log(msg.type);
     if (msg.type === 'mine-password') checkMinedPassword(msg);
-    if (msg.type === 'passwords') sendResponse(API.getPasswords());
-    if (msg.type === 'reload') apiLogin();
+    if (msg.type === 'passwords') {
+        console.log(API.getPasswords());
+        sendResponse(API.getPasswords());
+    }
+    if (msg.type === 'reload') {
+        apiLogin().then(() => { sendResponse(true); });
+        return true;
+    }
 }
 
 browser.tabs.onActivated.addListener(updatePasswordMenu);
