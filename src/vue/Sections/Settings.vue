@@ -36,8 +36,8 @@
             return {
                 url     : '',
                 user    : '',
-                password: '',
-            }
+                password: ''
+            };
         },
         components: {
             Translate
@@ -60,9 +60,12 @@
         methods: {
             saveSettings($e) {
                 $e.stopPropagation();
+                let url = $('#settings-url').val();
+                url = url.replace(/([\/]*)$/g, '');
+
                 browser.storage.sync.set(
                     {
-                        url : $('#settings-url').val(),
+                        url : url,
                         user: $('#settings-user').val()
                     }
                 );
@@ -77,7 +80,7 @@
                 runtime.sendMessage(runtime.id, {type: 'reload'});
             }
         }
-    }
+    };
 </script>
 
 <style lang="scss">
