@@ -54,7 +54,7 @@ export default class LegacyApi {
      * @returns {Promise}
      */
     updatePassword(data = {}) {
-        return this._createRequest(data, '/' + data.id, 'PATCH');
+        return this._createRequest(data, '/' + data.id, 'PUT');
     }
 
 
