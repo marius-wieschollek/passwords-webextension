@@ -48,7 +48,6 @@
                 }
             },
             processPasswords: function (passwords) {
-                console.log(passwords);
                 if(!passwords) return;
                 browser.tabs.query({currentWindow: true, active: true}).then((tabs) => {
                     let accounts = [];

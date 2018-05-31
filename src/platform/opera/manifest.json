@@ -62,8 +62,6 @@
         "tabs",
         "storage",
         "contextMenus",
-        "clipboardRead",
-        "clipboardWrite",
         "notifications"
     ]
 }

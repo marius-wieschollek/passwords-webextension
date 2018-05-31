@@ -194,12 +194,8 @@ if(isChrome) {
 }
 
 function processMessage(msg, sender, sendResponse) {
-    console.log(msg.type);
     if (msg.type === 'mine-password') checkMinedPassword(msg);
-    if (msg.type === 'passwords') {
-        console.log(API.getPasswords());
-        sendResponse(API.getPasswords());
-    }
+    if (msg.type === 'passwords') sendResponse(API.getPasswords());
     if (msg.type === 'reload') {
         apiLogin().then(() => { sendResponse(true); });
         return true;
