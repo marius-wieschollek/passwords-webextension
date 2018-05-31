@@ -1,3 +1,6 @@
+#### Version 1.5.1 / 31.05.2018
+- Fix error in password update
+
 #### Version 1.5.0 / 01.03.2018
 - Remove local password storage
 
