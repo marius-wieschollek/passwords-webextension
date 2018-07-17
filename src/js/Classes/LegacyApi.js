@@ -81,10 +81,7 @@ export default class LegacyApi {
         headers.append('Accept', 'application/' + dataType + ', text/plain, */*');
 
         if (data && method === 'GET') method = 'POST';
-        let options = {
-            method : method,
-            headers: headers
-        };
+        let options = {method, headers, credentials: 'omit'};
         if (data) options.body = JSON.stringify(data);
         let request = new Request(
             this._endpoint + path,
