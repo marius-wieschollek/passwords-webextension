@@ -1,0 +1,24 @@
+stages:
+  - ff-compile
+  - ff-publish
+  - ch-compile
+  - ch-publish
+
+CompileFireFox:
+  stage: ff-compile
+  script:
+    - npm install
+    - npm run build
+    - cd dist && zip -9 -r passwords-webextension.zip ./*
+  artifacts:
+    paths:
+      - ./dist/passwords-webextension.zip
+
+PublishFireFox
+  stage: ff-publish
+  script:
+    - 'curl "https://addons.mozilla.org/api/v4/addons/" -g -XPOST -F "upload=@dist/passwords-webextension.zip" -F "version=1.0" -H "Authorization: JWT <jwt-token>"'
+  environment:
+    name: Stable
+  only:
+    - tags
