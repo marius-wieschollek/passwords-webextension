@@ -19,7 +19,7 @@ The Passwords App can be downloaded for free from the [Github Repository](https:
 
 ### Downloads
 * [Firefox Extension on AMO](https://addons.mozilla.org/de/firefox/addon/nextcloud-passwords/)
-* [Chromium Builds Page](https://github.com/marius-wieschollek/passwords-webextension/wiki/chromium-builds)
+* [Chrome Extension in the Chrome Webs Store](https://chrome.google.com/webstore/detail/nextcloud-passwords/mhajlicjhgoofheldnmollgbgjheenbi)
 
 ### Development
 See [contributing](Contributing.md).
