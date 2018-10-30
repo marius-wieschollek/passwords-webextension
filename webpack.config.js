@@ -17,7 +17,8 @@ module.exports = env => {
         new webpack.DefinePlugin(
             {
                 'process.env': {
-                    NODE_ENV: production ? '"production"':'"development"'
+                    NODE_ENV: production ? '"production"':'"development"',
+                    BUILD_TARGET: `"${platform}"`
                 }
             }
         ),
