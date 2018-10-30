@@ -53,6 +53,7 @@ const NcPasswordClient = new function () {
 
                 if (!pair.user && pair.tel) pair.user = pair.tel;
 
+                pair.secure = form.method !== 'get';
                 fieldPairs.push(pair);
             }
         }
@@ -69,7 +70,7 @@ const NcPasswordClient = new function () {
             if (forms.length !== 1) continue;
             if (form.submit) {
                 form.submit.click();
-            } else {
+            } else if(form.secure) {
                 form.form.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
             }
         }
