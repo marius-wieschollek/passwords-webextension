@@ -16,7 +16,8 @@
             <label for="settings-password">
                 <translate>Password</translate>
             </label>
-            <input id="settings-password" type="password" :value="password">
+            <firefox-input id="settings-password" v-model="password" autocomplete="off" v-if="firefoxHack"/>
+            <input id="settings-password" type="password" v-model="password" v-else>
         </div>
         <br>
         <div>
@@ -30,17 +31,20 @@
 <script>
     import $ from "jquery";
     import Translate from '@vue/Partials/Translate.vue';
+    import FirefoxInput from '@vue/Partials/FirefoxInput.vue';
 
     export default {
         data() {
             return {
-                url     : '',
-                user    : '',
-                password: ''
+                url        : '',
+                user       : '',
+                password   : '',
+                firefoxHack: process.env.BUILD_TARGET === 'firefox'
             };
         },
         components: {
-            Translate
+            Translate,
+            FirefoxInput
         },
 
         created() {
@@ -69,9 +73,10 @@
                         user: $('#settings-user').val()
                     }
                 );
+
                 browser.storage.local.set(
                     {
-                        password   : $('#settings-password').val(),
+                        password   : this.password,
                         initialized: true
                     }
                 );
