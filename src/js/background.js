@@ -252,6 +252,7 @@ function updatePasswordMenu() {
         }
 
         browser.browserAction.setBadgeText({text: size.toString(), tabId: tabs[0].id});
+        browser.browserAction.setBadgeTextColor({color: '#ffffff'});
         browser.browserAction.setBadgeBackgroundColor({color: '#0082c9'});
         let menuId = 'context-menu-' + Math.round(Math.random() * 10000);
         if (isChrome) {
