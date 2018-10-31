@@ -1,16 +1,17 @@
 {
     "manifest_version": 2,
     "name"            : "__MSG_extensionName__",
-    "version"         : "1.6.0.3",
+    "version"         : "1.6.0.4",
     "version_name"    : "1.6.0",
     "description"     : "__MSG_extensionDescription__",
     "author"          : "Marius Wieschollek",
     "default_locale"  : "en",
     "icons"           : {
-        "16": "img/passwords-16.png",
-        "32": "img/passwords-32.png",
-        "48": "img/passwords-48.png",
-        "96": "img/passwords-96.png"
+        "16" : "img/passwords-16.png",
+        "32" : "img/passwords-32.png",
+        "48" : "img/passwords-48.png",
+        "96" : "img/passwords-96.png",
+        "128": "img/passwords-128.png"
     },
     "browser_action"  : {
         "default_icon" : "img/passwords-16.png",
@@ -37,6 +38,16 @@
                 "light": "img/passwords-light.svg",
                 "dark" : "img/passwords-dark.svg",
                 "size" : 64
+            },
+            {
+                "light": "img/passwords-light.svg",
+                "dark" : "img/passwords-dark.svg",
+                "size" : 96
+            },
+            {
+                "light": "img/passwords-light.svg",
+                "dark" : "img/passwords-dark.svg",
+                "size" : 128
             }
         ]
     },

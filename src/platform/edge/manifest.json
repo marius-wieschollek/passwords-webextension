@@ -6,10 +6,11 @@
     "author"          : "Marius Wieschollek",
     "default_locale"  : "en",
     "icons"           : {
-        "16": "img/passwords-16.png",
-        "32": "img/passwords-32.png",
-        "48": "img/passwords-48.png",
-        "96": "img/passwords-96.png"
+        "16" : "img/passwords-16.png",
+        "32" : "img/passwords-32.png",
+        "48" : "img/passwords-48.png",
+        "96" : "img/passwords-96.png",
+        "128": "img/passwords-128.png"
     },
     "browser_action"  : {
         "default_icon" : "img/passwords-16.png",
