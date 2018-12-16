@@ -24,14 +24,12 @@ browser.storage.sync.set({version: 10500});
 browser.storage.local.set({version: 10500});
 
 async function apiLogin() {
-    let sync = await browser.storage.sync.get(['url', 'user', 'theme']);
-    let local = await browser.storage.local.get(['password']);
+    let sync = await browser.storage.sync.get(['url', 'user', 'theme']),
+        local = await browser.storage.local.get(['password']),
+        path = isChrome ? '/img/passwords-32.png':'/img/passwords-dark.svg';
 
-    if(sync.theme === 'dark') {
-        browser.browserAction.setIcon(
-            {path: isChrome ? '/img/passwords-light-32.png':'/img/passwords-light.svg'}
-        );
-    }
+    if(sync.theme === 'dark') path = isChrome ? '/img/passwords-light-32.png':'/img/passwords-light.svg';
+    browser.browserAction.setIcon({path});
 
     await API.login(sync.url, sync.user, local.password);
 }
@@ -204,7 +202,7 @@ function processMessage(msg, sender, sendResponse) {
     if (msg.type === 'mine-password') checkMinedPassword(msg);
     if (msg.type === 'passwords') sendResponse(API.getPasswords());
     if (msg.type === 'reload') {
-        apiLogin().then(() => { sendResponse(true); });
+        apiLogin().then(() => { if(!isChrome) sendResponse(true); });
         return true;
     }
 }
