@@ -1,16 +1,22 @@
 <template>
     <form id="settings" class="settings" v-on:submit="saveSettings($event)">
         <div>
+            <label for="settings-theme">
+                <translate>DarkMode</translate>
+            </label>
+            <input id="settings-theme" type="checkbox" v-model="theme">
+        </div>
+        <div>
             <label for="settings-url">
                 <translate>Url</translate>
             </label>
-            <input id="settings-url" type="text" :value="url" placeholder="https://nextcloud.example.com">
+            <input id="settings-url" type="text" v-model="url" placeholder="https://nextcloud.example.com">
         </div>
         <div>
             <label for="settings-user">
                 <translate>User</translate>
             </label>
-            <input id="settings-user" type="text" :value="user" placeholder="user">
+            <input id="settings-user" type="text" v-model="user" placeholder="user">
         </div>
         <div>
             <label for="settings-password">
@@ -29,7 +35,6 @@
 </template>
 
 <script>
-    import $ from "jquery";
     import Translate from '@vue/Partials/Translate.vue';
     import FirefoxInput from '@vue/Partials/FirefoxInput.vue';
 
@@ -38,8 +43,9 @@
             return {
                 url        : '',
                 user       : '',
+                theme      : false,
                 password   : '',
-                firefoxHack: process.env.BUILD_TARGET === 'firefox'
+                firefoxHack: process.env.BUILD_TARGET === 'firefox' && navigator.platform.indexOf('Linux') !== -1
             };
         },
         components: {
@@ -49,10 +55,11 @@
 
         created() {
             browser.storage.sync.get(
-                ['url', 'user']
+                ['url', 'user', 'theme']
             ).then((data) => {
                 this.url = data.url;
                 this.user = data.user;
+                this.theme = data.theme === 'dark';
             });
             browser.storage.local.get(
                 ['password']
@@ -64,13 +71,15 @@
         methods: {
             saveSettings($e) {
                 $e.stopPropagation();
-                let url = $('#settings-url').val();
+                let url   = this.url,
+                    theme = this.theme ? 'dark':'auto';
                 url = url.replace(/([\/]*)$/g, '');
 
                 browser.storage.sync.set(
                     {
-                        url : url,
-                        user: $('#settings-user').val()
+                        url  : url,
+                        theme: theme,
+                        user : this.user
                     }
                 );
 
@@ -90,21 +99,43 @@
 
 <style lang="scss">
     form.settings {
-        padding : 5px;
-        margin  : 0;
+        padding          : 5px;
+        margin           : 0;
+        background-color : var(--color-fg);
+        color            : var(--color-bg);
+
+        > div {
+            position : relative;
+        }
 
         label {
             display : block;
             padding : 0 0 5px;
+
+            &[for=settings-theme] {
+                cursor : pointer;
+            }
         }
 
         input,
         button {
-            width         : 100%;
-            box-sizing    : border-box;
-            padding       : 5px;
-            font-size     : 12pt;
-            margin-bottom : 15px;
+            width            : 100%;
+            box-sizing       : border-box;
+            padding          : 5px;
+            font-size        : 12pt;
+            margin-bottom    : 15px;
+            background-color : var(--color-fg);
+            color            : var(--color-bg);
+            border           : 1px solid var(--color-bg);
+            border-radius    : 3px;
+
+            &#settings-theme {
+                width    : auto;
+                position : absolute;
+                top      : 0;
+                right    : 0;
+                cursor   : pointer;
+            }
         }
 
         button {

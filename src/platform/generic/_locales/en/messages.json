@@ -115,6 +115,10 @@
         "message"    : "The password could not be updated",
         "description": "Notification text when updating a password failed"
     },
+    "DarkMode"                   : {
+        "message"    : "Dark Mode",
+        "description": "Lable of the Dark Mode setting"
+    },
     "Url"                        : { "message": "Url" },
     "Password"                   : { "message": "Password" },
     "User"                       : { "message": "User" },

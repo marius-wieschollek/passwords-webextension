@@ -1,5 +1,5 @@
 <template>
-    <div id="manager">
+    <div id="manager" :class="{'dark':dark}">
         <i class="fa fa-refresh btn reload fa-fw" @click="apiLogin"></i>
         <banner/>
         <tabs :tabs="{related: 'key', search:'search', settings: 'gear'}" uuid="main-tabs" :current="currentTab">
@@ -38,25 +38,34 @@
             return {
                 currentTab: 'related',
                 updating  : false,
-            }
+                dark      : false
+            };
         },
 
         created() {
             browser.runtime.getPlatformInfo().then(
                 (data) => {
-                    if (data.os === 'android') $('body').addClass('mobile');
+                    if(data.os === 'android') $('body').addClass('mobile');
                 });
 
             browser.storage.local.get(
                 ['initialized']
             ).then((data) => {
-                if (!data.initialized) this.currentTab = 'settings';
+                if(!data.initialized) this.currentTab = 'settings';
+            });
+
+            browser.storage.sync.get(
+                ['theme']
+            ).then((data) => {
+                console.log(data);
+                this.dark = data.theme === 'dark';
+                $('body').toggleClass('dark', data.theme === 'dark');
             });
         },
 
         methods: {
-            apiLogin: function () {
-                if (this.updating) return;
+            apiLogin: function() {
+                if(this.updating) return;
                 this.updating = true;
 
                 $('.btn.reload').addClass('fa-spin');
@@ -71,17 +80,18 @@
                 $('.btn.reload').removeClass('fa-spin');
             }
         }
-    }
+    };
 </script>
 
 <style lang="scss">
     @import "~font-awesome/css/font-awesome.min.css";
 
     body {
-        margin      : 0;
-        font-size   : 12pt;
-        width       : 300px;
-        font-family : sans-serif;
+        margin           : 0;
+        font-size        : 12pt;
+        width            : 300px;
+        font-family      : sans-serif;
+        background-color : var(--color-fg);
     }
 
     .btn {
@@ -90,7 +100,7 @@
         top      : 5px;
         right    : 5px;
         z-index  : 2;
-        color    : #fff;
+        color    : var(--color-fg);
     }
 
     body.mobile {

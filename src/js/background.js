@@ -24,8 +24,15 @@ browser.storage.sync.set({version: 10500});
 browser.storage.local.set({version: 10500});
 
 async function apiLogin() {
-    let sync = await browser.storage.sync.get(['url', 'user']);
+    let sync = await browser.storage.sync.get(['url', 'user', 'theme']);
     let local = await browser.storage.local.get(['password']);
+
+    if(sync.theme === 'dark') {
+        browser.browserAction.setIcon(
+            {path: isChrome ? '/img/passwords-light-32.png':'/img/passwords-light.svg'}
+        );
+    }
+
     await API.login(sync.url, sync.user, local.password);
 }
 
