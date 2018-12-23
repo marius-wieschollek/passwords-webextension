@@ -190,6 +190,7 @@ function notificationCleanup() {
     browser.notifications.clear('ncp-pwd-updated');
     browser.notifications.onClicked.removeListener(saveNewPassword);
     browser.notifications.onClosed.removeListener(notificationCleanup);
+    browser.notifications.onClicked.removeListener(saveUpdatedPassword);
 }
 
 if(isChrome) {
