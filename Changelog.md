@@ -1,6 +1,7 @@
 #### Version 1.7.0 / 22.12.2018
 - Added dark mode
 - Fixed settings reset bug
+- Fixed autofill not working on some pages
 
 #### Version 1.6.0 / 31.10.2018
 - Only submit forms with POST

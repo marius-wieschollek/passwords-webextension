@@ -64,8 +64,15 @@ const NcPasswordClient = new function () {
         let forms = getLoginFields();
         for (let i = 0; i < forms.length; i++) {
             let form = forms[i];
-            if (form.user) form.user.value = user;
+            if (form.user) {
+                form.user.value = user;
+                form.user.dispatchEvent(new Event('change', {bubbles: true, cancelable: true}));
+                form.user.dispatchEvent(new Event('blur', {bubbles: true, cancelable: true}));
+            }
+
             form.pass.value = password;
+            form.pass.dispatchEvent(new Event('change', {bubbles: true, cancelable: true}));
+            form.pass.dispatchEvent(new Event('blur', {bubbles: true, cancelable: true}));
 
             if (forms.length !== 1) continue;
             if (form.submit) {
