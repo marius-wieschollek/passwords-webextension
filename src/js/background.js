@@ -289,7 +289,7 @@ function updatePasswordMenu() {
                     {
                         parentId: menuId,
                         id      : id,
-                        title   : entry.user,
+                        title   : entry.user ? entry.user:'no username',
                         contexts: ['page', 'browser_action', 'editable'],
                         onclick : insertContextMenuPassword
                     }

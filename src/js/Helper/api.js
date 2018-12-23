@@ -87,7 +87,7 @@ class Api {
                     passwords.push(
                         {
                             id      : p.id,
-                            title   : d.loginname,
+                            title   : d.loginname ? d.loginname:'no username',
                             host    : host,
                             user    : d.loginname,
                             password: p.pass,
