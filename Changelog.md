@@ -1,7 +1,11 @@
+#### Version 1.7.1 / 24.12.2018
+- Fixed autofill not working on some pages
+- Fixed passwords without user names
+- Fixed double password update
+
 #### Version 1.7.0 / 22.12.2018
 - Added dark mode
 - Fixed settings reset bug
-- Fixed autofill not working on some pages
 
 #### Version 1.6.0 / 31.10.2018
 - Only submit forms with POST
