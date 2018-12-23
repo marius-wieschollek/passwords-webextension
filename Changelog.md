@@ -1,3 +1,12 @@
+#### Version 1.7.0 / 22.12.2018
+- Added dark mode
+- Fixed settings reset bug
+
+#### Version 1.6.0 / 31.10.2018
+- Only submit forms with POST
+- Fixed password field in Firefox
+- Fixed badge text color
+
 #### Version 1.5.1 / 31.05.2018
 - Fix error in password update
 
