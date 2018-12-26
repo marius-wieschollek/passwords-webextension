@@ -1,4 +1,5 @@
-#### Version 1.7.1 / 24.12.2018
+#### Version 1.7.1 / 26.12.2018
+- Fixed database refresh not working on Android
 - Fixed autofill not working on some pages
 - Fixed passwords without user names
 - Fixed double password update
