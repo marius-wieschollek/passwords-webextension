@@ -29,7 +29,7 @@ async function apiLogin() {
         path = isChrome ? '/img/passwords-32.png':'/img/passwords-dark.svg';
 
     if(sync.theme === 'dark') path = isChrome ? '/img/passwords-light-32.png':'/img/passwords-light.svg';
-    browser.browserAction.setIcon({path});
+    if(browser.browserAction.hasOwnProperty('setIcon')) browser.browserAction.setIcon({path});
 
     await API.login(sync.url, sync.user, local.password);
 }
@@ -217,6 +217,7 @@ browser.storage.onChanged.addListener(updatePasswordMenu);
 let contextMenuAccounts = [];
 
 function updatePasswordMenu() {
+    if(isChrome && !browser.hasOwnProperty('contextMenus') || !isChrome && !browser.hasOwnProperty('menus')) return;
     isChrome ? browser.contextMenus.removeAll():browser.menus.removeAll();
     contextMenuAccounts = [];
 

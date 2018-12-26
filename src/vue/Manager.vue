@@ -57,7 +57,6 @@
             browser.storage.sync.get(
                 ['theme']
             ).then((data) => {
-                console.log(data);
                 this.dark = data.theme === 'dark';
                 $('body').toggleClass('dark', data.theme === 'dark');
             });
