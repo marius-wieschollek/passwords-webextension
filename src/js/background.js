@@ -217,6 +217,7 @@ browser.storage.onChanged.addListener(updatePasswordMenu);
 let contextMenuAccounts = [];
 
 function updatePasswordMenu() {
+    if(isChrome && !browser.contextMenus || !isChrome && !browser.hasOwnProperty('menus')) return;
     isChrome ? browser.contextMenus.removeAll():browser.menus.removeAll();
     contextMenuAccounts = [];
 
