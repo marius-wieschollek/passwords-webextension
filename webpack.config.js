@@ -1,15 +1,14 @@
-let path = require('path');
-let webpack = require('webpack');
-let CopyWebpackPlugin = require('copy-webpack-plugin');
-let UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-let CleanWebpackPlugin = require('clean-webpack-plugin');
-let ExtractTextPlugin = require("extract-text-webpack-plugin");
-let OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
-let ProgressBarPlugin = require('progress-bar-webpack-plugin');
+let webpack            = require('webpack'),
+    CopyWebpackPlugin  = require('copy-webpack-plugin'),
+    UglifyJSPlugin     = require('uglifyjs-webpack-plugin'),
+    CleanWebpackPlugin = require('clean-webpack-plugin'),
+    ExtractTextPlugin  = require("extract-text-webpack-plugin"),
+    OptimizeCSSPlugin  = require('optimize-css-assets-webpack-plugin'),
+    ProgressBarPlugin  = require('progress-bar-webpack-plugin');
 
 module.exports = env => {
-    let production = env.production===true,
-        platform = process.env.build ? process.env.build:'firefox';
+    let production = env.production === true,
+        platform   = env.platform ? env.platform:'firefox';
     console.log('Production: ', production);
     console.log('Platform  : ', platform);
 
@@ -17,16 +16,16 @@ module.exports = env => {
         new webpack.DefinePlugin(
             {
                 'process.env': {
-                    NODE_ENV: production ? '"production"':'"development"',
+                    NODE_ENV    : production ? '"production"':'"development"',
                     BUILD_TARGET: `"${platform}"`
                 }
             }
         ),
-        new CopyWebpackPlugin(['src/platform/generic', 'src/platform/'+platform]),
+        new CopyWebpackPlugin(['src/platform/generic', 'src/platform/' + platform]),
         new ExtractTextPlugin('css/passwords.css')
     ];
 
-    if (env.production) {
+    if(env.production) {
         plugins.push(
             new OptimizeCSSPlugin({cssProcessorOptions: {safe: true}})
         );

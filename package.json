@@ -5,9 +5,9 @@
     "private": true,
     "scripts": {
         "watch:firefox": "webpack --env.production=0 --progress --colors --watch",
-        "watch:chrome": "build=chrome webpack --env.production=0 --progress --colors --watch",
+        "watch:chrome": "webpack --env.production=0 --progress --colors --watch --env.platform=chrome",
         "build:firefox": "webpack --env.production",
-        "build:chrome": "build=chrome webpack --env.production"
+        "build:chrome": "webpack --env.production --env.platform=chrome"
     },
     "dependencies": {},
     "devDependencies": {
