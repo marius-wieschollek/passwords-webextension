@@ -1,3 +1,7 @@
+#### Version 1.8.0
+- Added turkish translation
+- Fixed context menu in chrome
+
 #### Version 1.7.1 / 26.12.2018
 - Fixed database refresh not working on Android
 - Fixed autofill not working on some pages
