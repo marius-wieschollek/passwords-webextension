@@ -1,0 +1,98 @@
+{
+    "extensionName"              : {
+        "message"    : "Пароли Nextcloud"
+    },
+    "extensionDescription"       : {
+        "message"    : "Простой клиент для приложения Пароли в Nextcloud"
+    },
+    "browserActionTitle"         : {
+        "message"    : "Пароли"
+    },
+    "contextMenuTitle"           : {
+        "message"    : "Пароли"
+    },
+    "NoRelatedMatches"           : {
+        "message"    : "Логинов не найдено"
+    },
+    "NoSearchMatches"            : {
+        "message"    : "Ничего не найдено"
+    },
+    "NoSearchQuery"              : {
+        "message"    : "Введите больше 2-х символов"
+    },
+    "PasswordRequestFailedTitle" : {
+        "message"    : "Неудалось запросить пароль из Nextcloud"
+    },
+    "PasswordRequestFailedText"  : {
+        "message"     : "Невозможно получить список паролей.\nОшибка: $ERROR$"
+        "placeholders": {
+            "error": {
+                "content": "$1"
+            }
+        }
+    },
+    "PasswordEncodingFailedTitle": {
+        "message"    : "Невозможно распознать пароль"
+    },
+    "PasswordEncodingFailedText" : {
+        "message"     : "Пароль #$ID$ не может быть обработан, поскольку имеет неправильный JSON формат",
+        "placeholders": {
+            "id": {
+                "content": "$1"
+            }
+        }
+    },
+    "NewLoginDetectedTitle"      : {
+        "message"    : "Обнаружен новый логин"
+    },
+    "NewLoginDetectedText"       : {
+        "message"     : "Нажмите здесь чтобы сохранить пароль для \"$USER$\"",
+        "placeholders": {
+            "user": {
+                "content": "$1"
+            }
+        }
+    },
+    "PasswordCreatedTitle"       : {
+        "message"    : "Пароль сохранен"
+    },
+    "PasswordCreatedText"        : {
+        "message"    : "Пароль был успешно сохранен"
+    },
+    "CreatePasswordFailedTitle"  : {
+        "message"    : "Ошибка при сохранении"
+    },
+    "CreatePasswordFailedText"   : {
+        "message"    : "Пароль не может быть сохранен"
+    },
+    "UpdatedLoginDetectedTitle"  : {
+        "message"    : "Обнаружено обновление логина"
+    },
+    "UpdatedLoginDetectedText"   : {
+        "message"     : "Нажмите здесь чтобы обновить пароль для \"$USER$\""
+        "placeholders": {
+            "user": {
+                "content": "$1"
+            }
+        }
+    },
+    "PasswordUpdatedTitle"       : {
+        "message"    : "Пароль обновлен"
+    },
+    "PasswordUpdatedText"        : {
+        "message"    : "Пароль успешно обновлен"
+    },
+    "UpdatePasswordFailedTitle"  : {
+        "message"    : "Ошибка при обновлении"
+    },
+    "UpdatePasswordFailedText"   : {
+        "message"    : "Пароль не может быть обновлен"
+    },
+    "DarkMode"                   : {
+        "message"    : "Темная тема"
+    },
+    "Url"                        : { "message": "Url" },
+    "Password"                   : { "message": "Пароль" },
+    "User"                       : { "message": "Логин" },
+    "Save"                       : { "message": "Сохранить" }
+}
