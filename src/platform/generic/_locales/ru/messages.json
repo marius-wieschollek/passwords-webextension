@@ -24,7 +24,7 @@
         "message"    : "Неудалось запросить пароль из Nextcloud"
     },
     "PasswordRequestFailedText"  : {
-        "message"     : "Невозможно получить список паролей.\nОшибка: $ERROR$"
+        "message"     : "Невозможно получить список паролей.\nОшибка: $ERROR$",
         "placeholders": {
             "error": {
                 "content": "$1"
@@ -69,7 +69,7 @@
         "message"    : "Обнаружено обновление логина"
     },
     "UpdatedLoginDetectedText"   : {
-        "message"     : "Нажмите здесь чтобы обновить пароль для \"$USER$\""
+        "message"     : "Нажмите здесь чтобы обновить пароль для \"$USER$\"",
         "placeholders": {
             "user": {
                 "content": "$1"
