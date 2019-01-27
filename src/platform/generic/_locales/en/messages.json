@@ -115,6 +115,50 @@
         "message"    : "The password could not be updated",
         "description": "Notification text when updating a password failed"
     },
+    "ApiLogin200"   : {
+        "message"    : "URL invalid or API disabled",
+        "description": "Error text when an api request could not be decoded"
+    },
+    "ApiLogin401"   : {
+        "message"    : "Invalid user credentials",
+        "description": "Error text when an api request got a 401 Unauthorized response"
+    },
+    "ApiLogin403"   : {
+        "message"    : "Access denied",
+        "description": "Error text when an api request got a 403 Forbidden response"
+    },
+    "ApiLogin404"   : {
+        "message"    : "URL is invalid",
+        "description": "Error text when an api request got a 404 Not Found response"
+    },
+    "ApiLogin500"   : {
+        "message"    : "Server crashed during request",
+        "description": "Error text when an api request got a 50x Internal Server Error response"
+    },
+    "ApiLoginGeneric"   : {
+        "message"    : "Http Error $STATUS$: $MESSAGE$",
+        "description": "Generic error message for failed requests",
+        "placeholders": {
+            "status": {
+                "content": "$1",
+                "example": "HTTP status code"
+            },
+            "message": {
+                "content": "$2",
+                "example": "HTTP status text"
+            }
+        }
+    },
+    "SettingsInvalidUrl"   : {
+        "message"    : "The url $URL$ seems to be invalid.\n\n If the url of the app is\nhttps://example.com/index.php/apps/passwords\nyou need to enter\nhttps://localhost\n\nIf the url of the app is\nhttps://example.com/nextcloud/index.php/apps/passwords\nyou need to enter\nhttps://localhost/nextcloud",
+        "description": "Generic error message for failed requests",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "The user input"
+            }
+        }
+    },
     "DarkMode"                   : {
         "message"    : "Dark Mode",
         "description": "Lable of the Dark Mode setting"

@@ -35,6 +35,7 @@
 </template>
 
 <script>
+    import Utility from '@js/Classes/Utility';
     import Translate from '@vue/Partials/Translate.vue';
     import FirefoxInput from '@vue/Partials/FirefoxInput.vue';
 
@@ -75,6 +76,14 @@
                     theme = this.theme ? 'dark':'auto';
                 url = url.replace(/([\/]*)$/g, '');
 
+                if(!this.isValidURL(url)) {
+                    if(confirm(Utility.translate('SettingsInvalidUrl', [this.url]))) {
+                        this.url = '';
+                        browser.storage.local.set({initialized: false});
+                        return;
+                    }
+                }
+
                 browser.storage.sync.set(
                     {
                         url  : url,
@@ -92,6 +101,14 @@
 
                 let runtime = browser.runtime.getBrowserInfo ? browser.runtime:chrome.runtime;
                 runtime.sendMessage(runtime.id, {type: 'reload'});
+            },
+            isValidURL(str) {
+                let a = document.createElement('a');
+                a.href = str;
+                return (a.host && a.host !== window.location.host) &&
+                       str.indexOf('index.php') === -1 &&
+                       str.indexOf('passwords') === -1 &&
+                       str.indexOf('apps') === -1;
             }
         }
     };

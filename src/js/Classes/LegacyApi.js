@@ -1,3 +1,5 @@
+import Utility from "@js/Classes/Utility";
+
 export default class LegacyApi {
 
     get headers() {
@@ -93,19 +95,38 @@ export default class LegacyApi {
                 .then((response) => {
                     if (!response.ok) {
                         if (this._debug) console.error('Request failed', request, response);
-                        reject(response)
+                        LegacyApi.handleHttpErrors(response, reject);
                     }
                     response.json()
                         .then((d) => {resolve(d);})
-                        .catch((response) => {
-                            if (this._debug) console.error('Encoding response failed', request, response);
-                            reject(response)
+                        .catch((error) => {
+                            if (this._debug) console.error('Encoding response failed', request, response, error);
+                            LegacyApi.handleHttpErrors(response, reject, error);
                         })
                 })
                 .catch((response) => {
                     if (this._debug) console.error('Request failed', request, response);
-                    reject(response)
+                    LegacyApi.handleHttpErrors(response, reject);
                 });
         });
+    }
+
+    static handleHttpErrors(response, reject, error = null) {
+        if(response.status === 200 && error !== null) {
+            reject({message: Utility.translate('ApiLogin200')});
+        } else if(response.status === 401) {
+            reject({message: Utility.translate('ApiLogin401')});
+        } else if(response.status === 403) {
+            reject({message: Utility.translate('ApiLogin403')});
+        } else if(response.status === 404) {
+            reject({message: Utility.translate('ApiLogin404')});
+        } else if([500, 501, 502, 503, 504].indexOf(response.status) !== -1) {
+            reject({message: Utility.translate('ApiLogin500')});
+        } else if(response.status && response.statusText) {
+            let message = Utility.translate('ApiLoginGeneric', [[response.status.toString(), response.statusText]]);
+            reject({message});
+        } else {
+            reject(response);
+        }
     }
 }
