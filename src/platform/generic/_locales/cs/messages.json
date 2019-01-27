@@ -1,0 +1,98 @@
+{
+    "extensionName"              : {
+        "message": "Nextcloud Passwords"
+    },
+    "extensionDescription"       : {
+        "message": "Klient pro aplikaci Nextcloud Passwords."
+    },
+    "browserActionTitle"         : {
+        "message": "Hesla"
+    },
+    "contextMenuTitle"           : {
+        "message": "Hesla"
+    },
+    "NoRelatedMatches"           : {
+        "message": "Nenalezeny žádné údaje"
+    },
+    "NoSearchMatches"            : {
+        "message": "Žádná shoda"
+    },
+    "NoSearchQuery"              : {
+        "message": "Napište alespoň 3 znaky"
+    },
+    "PasswordRequestFailedTitle" : {
+        "message": "Požadavek selhal"
+    },
+    "PasswordRequestFailedText"  : {
+        "message"     : "Seznam údajů se nepodařilo stáhnout.\nChyba: $ERROR$",
+        "placeholders": {
+            "error": {
+                "content": "$1"
+            }
+        }
+    },
+    "PasswordEncodingFailedTitle": {
+        "message": "Nepodařilo se zpracovat údaje"
+    },
+    "PasswordEncodingFailedText" : {
+        "message"     : "Údaje #$ID$ neobsahují validní JSON data a proto nemohly být zpracovány.",
+        "placeholders": {
+            "id": {
+                "content": "$1"
+            }
+        }
+    },
+    "NewLoginDetectedTitle"      : {
+        "message": "Nové přihlášení detekováno"
+    },
+    "NewLoginDetectedText"       : {
+        "message"     : "Klikni zde pro uložení hesla pro \"$USER$\"",
+        "placeholders": {
+            "user": {
+                "content": "$1"
+            }
+        }
+    },
+    "PasswordCreatedTitle"       : {
+        "message": "Heslo uloženo"
+    },
+    "PasswordCreatedText"        : {
+        "message": "Heslo bylo uloženo úspěšně"
+    },
+    "CreatePasswordFailedTitle"  : {
+        "message": "Heslo se neuložilo"
+    },
+    "CreatePasswordFailedText"   : {
+        "message": "Nepodařilo se uložit heslo"
+    },
+    "UpdatedLoginDetectedTitle"  : {
+        "message": "Aktualizované údaje byly detekovány"
+    },
+    "UpdatedLoginDetectedText"   : {
+        "message"     : "Klikni zde pro aktualizaci hesla pro \"$USER$\"",
+        "placeholders": {
+            "user": {
+                "content": "$1"
+            }
+        }
+    },
+    "PasswordUpdatedTitle"       : {
+        "message": "Heslo aktualizováno"
+    },
+    "PasswordUpdatedText"        : {
+        "message": "Heslo bylo aktualizováno úspěšně"
+    },
+    "UpdatePasswordFailedTitle"  : {
+        "message": "Heslo nezměněno"
+    },
+    "UpdatePasswordFailedText"   : {
+        "message": "Nepodařilo se uložit heslo"
+    },
+    "DarkMode"                   : {
+        "message"    : "Tmavý režim"
+    },
+    "Url"                        : { "message": "Url" },
+    "Password"                   : { "message": "Heslo" },
+    "User"                       : { "message": "Uživatel" },
+    "Save"                       : { "message": "Uložit" }
+}
