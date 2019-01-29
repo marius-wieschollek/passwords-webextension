@@ -1,4 +1,5 @@
 import Utility from "@js/Classes/Utility";
+import {Base64} from "js-base64";
 
 export default class LegacyApi {
 
@@ -25,7 +26,7 @@ export default class LegacyApi {
 
         this._headers = {};
         if (user !== null && password !== null) {
-            this._headers['Authorization'] = 'Basic ' + btoa(user + ':' + password);
+            this._headers['Authorization'] = 'Basic ' + Base64.encode(user + ':' + password);
             this._headers['Content-Type'] = 'application/json';
         }
     }
