@@ -1,6 +1,9 @@
-#### Version 1.8.0
+#### Version 1.8.0 / 03.02.2019
 - Added turkish translation
+- Added russian translation
+- Added more detailed error messages for connection issues
 - Fixed context menu in chrome
+- Fixed Base64 encoding for UTF-8 passwords
 
 #### Version 1.7.1 / 26.12.2018
 - Fixed database refresh not working on Android
