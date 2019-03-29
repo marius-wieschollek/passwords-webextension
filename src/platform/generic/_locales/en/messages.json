@@ -150,7 +150,7 @@
         }
     },
     "SettingsInvalidUrl"   : {
-        "message"    : "The url $URL$ seems to be invalid.\n\n If the url of the app is\nhttps://example.com/index.php/apps/passwords\nyou need to enter\nhttps://localhost\n\nIf the url of the app is\nhttps://example.com/nextcloud/index.php/apps/passwords\nyou need to enter\nhttps://localhost/nextcloud",
+        "message"    : "The url $URL$ seems to be invalid.\n\n If the url of the app is\nhttps://example.com/index.php/apps/passwords\nyou need to enter\nhttps://example.com\n\nIf the url of the app is\nhttps://example.com/nextcloud/index.php/apps/passwords\nyou need to enter\nhttps://example.com/nextcloud",
         "description": "Generic error message for failed requests",
         "placeholders": {
             "url": {
