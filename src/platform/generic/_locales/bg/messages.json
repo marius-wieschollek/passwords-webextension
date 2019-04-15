@@ -1,0 +1,170 @@
+{
+    "extensionName"              : {
+        "message"    : "Пароли за Nextcloud (Nextcloud Passwords)",
+        "description": "Name of the extension."
+    },
+    "extensionDescription"       : {
+        "message"    : "Лек клиент за приложението Nextcloud Passwords",
+        "description": "Description of the extension."
+    },
+    "browserActionTitle"         : {
+        "message"    : "Пароли за Nextcloud",
+        "description": "Title of the button in the browser bar"
+    },
+    "contextMenuTitle"           : {
+        "message"    : "Пароли за Nextcloud",
+        "description": "Title of the context menu item"
+    },
+    "NoRelatedMatches"           : {
+        "message"    : "Няма намерени регистрации",
+        "description": "Shown when the related page did not find any results"
+    },
+    "NoSearchMatches"            : {
+        "message"    : "Няма съвпадения",
+        "description": "Shown when the search did not find any results"
+    },
+    "NoSearchQuery"              : {
+        "message"    : "Въведете поне два символа",
+        "description": "Shown when the search query is empty"
+    },
+    "PasswordRequestFailedTitle" : {
+        "message"    : "Грешка при получаване на пароли от Nextcloud",
+        "description": "Notification title when the password request fails"
+    },
+    "PasswordRequestFailedText"  : {
+        "message"     : "Списъкът с пароли не може да бъде получен.\nГрешка: $ERROR$",
+        "description" : "Notification text when the password request fails",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "Unknown Error"
+            }
+        }
+    },
+    "PasswordEncodingFailedTitle": {
+        "message"    : "Грешка при разбора на пароли",
+        "description": "Notification title when the password properties can not be parsed"
+    },
+    "PasswordEncodingFailedText" : {
+        "message"     : "Атрибутите на парола #$ID$ не съдържат валиден JSON и не може да бъде обработена",
+        "description" : "Notification text when the password properties can not be parsed",
+        "placeholders": {
+            "id": {
+                "content": "$1",
+                "example": "0"
+            }
+        }
+    },
+    "NewLoginDetectedTitle"      : {
+        "message"    : "Нова регистрация",
+        "description": "Notification title when a new login is detected"
+    },
+    "NewLoginDetectedText"       : {
+        "message"     : "Щракнете тук за запазване на парола за \"$USER$\"",
+        "description" : "Notification text when a new login is detected",
+        "placeholders": {
+            "user": {
+                "content": "$1",
+                "example": "username"
+            }
+        }
+    },
+    "PasswordCreatedTitle"       : {
+        "message"    : "Запазена парола",
+        "description": "Notification title when a password was saved"
+    },
+    "PasswordCreatedText"        : {
+        "message"    : "Паролата е запазена успешно",
+        "description": "Notification text when a password was saved"
+    },
+    "CreatePasswordFailedTitle"  : {
+        "message"    : "Грешка при запазване на парола",
+        "description": "Notification title when saving a password failed"
+    },
+    "CreatePasswordFailedText"   : {
+        "message"    : "Паролата не е запазена поради грешка",
+        "description": "Notification text when saving a password failed"
+    },
+    "UpdatedLoginDetectedTitle"  : {
+        "message"    : "Обновена регистрация",
+        "description": "Notification title when an updated login is detected"
+    },
+    "UpdatedLoginDetectedText"   : {
+        "message"     : "Щракнете тук за обновяване на парола за \"$USER$\"",
+        "description" : "Notification text when an updated login is detected",
+        "placeholders": {
+            "user": {
+                "content": "$1",
+                "example": "username"
+            }
+        }
+    },
+    "PasswordUpdatedTitle"       : {
+        "message"    : "Обновена парола",
+        "description": "Notification title when a password was updated"
+    },
+    "PasswordUpdatedText"        : {
+        "message"    : "Паролата е обновена успешно",
+        "description": "Notification text when a password was updated"
+    },
+    "UpdatePasswordFailedTitle"  : {
+        "message"    : "Грешка при обновяване на парола",
+        "description": "Notification title when updating a password failed"
+    },
+    "UpdatePasswordFailedText"   : {
+        "message"    : "Паролата не е обновена поради грешка",
+        "description": "Notification text when updating a password failed"
+    },
+    "ApiLogin200"   : {
+        "message"    : "Недействителен адрес на URL или изключен ППИ",
+        "description": "Error text when an api request could not be decoded"
+    },
+    "ApiLogin401"   : {
+        "message"    : "Грешка при удостоверяване",
+        "description": "Error text when an api request got a 401 Unauthorized response"
+    },
+    "ApiLogin403"   : {
+        "message"    : "Достъпът отказан",
+        "description": "Error text when an api request got a 403 Forbidden response"
+    },
+    "ApiLogin404"   : {
+        "message"    : "Недействителен адрес на URL",
+        "description": "Error text when an api request got a 404 Not Found response"
+    },
+    "ApiLogin500"   : {
+        "message"    : "Сървърът се срина при заявката",
+        "description": "Error text when an api request got a 50x Internal Server Error response"
+    },
+    "ApiLoginGeneric"   : {
+        "message"    : "Http Error $STATUS$: $MESSAGE$",
+        "description": "Generic error message for failed requests",
+        "placeholders": {
+            "status": {
+                "content": "$1",
+                "example": "HTTP status code"
+            },
+            "message": {
+                "content": "$2",
+                "example": "HTTP status text"
+            }
+        }
+    },
+    "SettingsInvalidUrl"   : {
+        "message"    : "Адресът $URL$ изглежда е недействителен.\n\nАко приложението се намира на\nhttps://example.com/index.php/apps/passwords\nвъведете\nhttps://localhost\n\nАко приложението се намира на\nhttps://example.com/nextcloud/index.php/apps/passwords\nвъведете\nhttps://localhost/nextcloud,
+        "description": "Generic error message for failed requests",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "The user input"
+            }
+        }
+    },
+    "DarkMode"                   : {
+        "message"    : "Тъмна тема",
+        "description": "Lable of the Dark Mode setting"
+    },
+    "Url"                        : { "message": "Адрес" },
+    "Password"                   : { "message": "Парола" },
+    "User"                       : { "message": "Потребител" },
+    "Save"                       : { "message": "Запазване" }
+}
