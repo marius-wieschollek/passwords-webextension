@@ -84,10 +84,19 @@ class Api {
                         host = Utility.analyzeUrl(d.address, 'hostname');
                     }
 
+                    let title = d.loginname ? d.loginname:'no username';
+                    if(p.hasOwnProperty('name')) {
+                        if(d.loginname && p.name.indexOf(d.loginname) === -1) {
+                            title = `${p.name} – ${d.loginname}`;
+                        } else {
+                            title = p.name;
+                        }
+                    }
+
                     passwords.push(
                         {
                             id      : p.id,
-                            title   : d.loginname ? d.loginname:'no username',
+                            title   : title,
                             host    : host,
                             user    : d.loginname,
                             password: p.pass,
