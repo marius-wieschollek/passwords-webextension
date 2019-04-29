@@ -1,3 +1,7 @@
+#### Version 1.9.0 
+ - Added password names support
+ - Improved search
+
 #### Version 1.8.0 / 03.02.2019
 - Added turkish translation
 - Added russian translation
