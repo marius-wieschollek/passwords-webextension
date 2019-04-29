@@ -57,7 +57,7 @@
                 this.search();
             },
             updateQuery($event) {
-                this.query = $($event.target).val();
+                this.query = $($event.target).val().toLowerCase();
                 this.search();
             },
             search       : function () {
@@ -71,12 +71,16 @@
                 for (let i = 0; i < this.passwords.length; i++) {
                     let entry = $.extend({}, this.passwords[i]);
 
-                    if (entry.user.indexOf(this.query) !== -1 ||
-                        (entry.host !== null && entry.host.indexOf(this.query) !== -1) ||
-                        entry.notes.indexOf(this.query) !== -1 ||
-                        entry.password.indexOf(this.query) !== -1
+                    if (entry.user.toLowerCase().indexOf(this.query) !== -1 ||
+                        (entry.host !== null && entry.host.toLowerCase().indexOf(this.query) !== -1) ||
+                        entry.title.toLowerCase().indexOf(this.query) !== -1 ||
+                        entry.notes.toLowerCase().indexOf(this.query) !== -1 ||
+                        entry.password.toLowerCase().indexOf(this.query) !== -1
                     ) {
-                        entry.title += '@' + entry.host;
+                        if(entry.host !== null && entry.title.toLowerCase().indexOf(entry.host.toLowerCase()) === -1) {
+                            entry.title += '@' + entry.host;
+                        }
+
                         matches.push(entry);
                     }
 
