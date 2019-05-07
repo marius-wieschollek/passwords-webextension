@@ -150,7 +150,7 @@
         }
     },
     "SettingsInvalidUrl"   : {
-        "message"    : "Адресът $URL$ изглежда е недействителен.\n\nАко приложението се намира на\nhttps://example.com/index.php/apps/passwords\nвъведете\nhttps://localhost\n\nАко приложението се намира на\nhttps://example.com/nextcloud/index.php/apps/passwords\nвъведете\nhttps://localhost/nextcloud,
+        "message"    : "Адресът $URL$ изглежда е недействителен.\n\nАко приложението се намира на\nhttps://example.com/index.php/apps/passwords\nвъведете\nhttps://localhost\n\nАко приложението се намира на\nhttps://example.com/nextcloud/index.php/apps/passwords\nвъведете\nhttps://localhost/nextcloud",
         "description": "Generic error message for failed requests",
         "placeholders": {
             "url": {
