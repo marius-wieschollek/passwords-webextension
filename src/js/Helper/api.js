@@ -9,7 +9,7 @@ class Api {
     }
 
     async login(endpoint, user, password) {
-        this._api.login(endpoint, user, password);
+        await this._api.login(endpoint, user, password);
         await this.reloadPasswords();
     }
 

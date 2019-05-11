@@ -1,6 +1,13 @@
 import Utility from "@js/Classes/Utility";
 import {Base64} from "js-base64";
 
+/**
+ * @returns {string}
+ */
+String.prototype.capitalize = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+};
+
 export default class LegacyApi {
 
     get headers() {
@@ -21,13 +28,24 @@ export default class LegacyApi {
         this.login(endpoint, user, password);
     }
 
-    login(endpoint, user = null, password = null) {
+    async login(endpoint, user = null, password = null) {
         this._endpoint = endpoint + '/index.php/apps/passwords/api/0.1/passwords';
 
         this._headers = {};
         if (user !== null && password !== null) {
             this._headers['Authorization'] = 'Basic ' + Base64.encode(user + ':' + password);
             this._headers['Content-Type'] = 'application/json';
+        }
+
+        if(!browser.runtime.getBrowserInfo) {
+            this._headers['User-Agent'] = 'Official Browser Client for Chrome';
+            let osInfo = await browser.runtime.getPlatformInfo();
+            this._headers['User-Agent'] = `Official Browser Client for Chrome on ${osInfo.os.capitalize()}`;
+        } else {
+            this._headers['User-Agent'] = 'Official Browser Client';
+            let info = await browser.runtime.getBrowserInfo(),
+                osInfo = await browser.runtime.getPlatformInfo();
+            this._headers['User-Agent'] = `Official Browser Client for ${info.vendor} ${info.name} ${info.version} on ${osInfo.os.capitalize()}`;
         }
     }
 
