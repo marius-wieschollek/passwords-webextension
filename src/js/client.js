@@ -1,5 +1,6 @@
 const NcPasswordClient = new function () {
-    let isChrome = navigator.userAgent.indexOf('Chrome') !== -1;
+    let isChrome = navigator.userAgent.indexOf('Chrome') !== -1,
+        userNameFields = ['user', 'username', 'login', 'email'];
 
     function getPasswordFields() {
         let fields  = document.getElementsByTagName('input'),
@@ -42,8 +43,15 @@ const NcPasswordClient = new function () {
 
                 for (let i = 0; i < fields.length; i++) {
                     let field = fields[i];
-                    if (!pair.user && (field.type === 'text' || field.type === 'email')) {
+
+                    if(field.readOnly || field.disabled) continue;
+
+                    if (!pair.user && (userNameFields.indexOf(field.id.toLowerCase()) !== -1 || userNameFields.indexOf(field.name.toLowerCase()) !== -1 || field.type === 'email')) {
                         pair.user = field;
+                    } else if (!pair.firstGuess && field.type === 'text' && (field.autofocus || field.required)) {
+                        pair.firstGuess = field;
+                    } else if (!pair.secondGuess && field.type === 'text') {
+                        pair.secondGuess = field;
                     } else if (!pair.submit && field.type === 'submit') {
                         pair.submit = field;
                     } else if (!pair.user && field.type === 'tel') {
@@ -52,6 +60,8 @@ const NcPasswordClient = new function () {
                 }
 
                 if (!pair.user && pair.tel) pair.user = pair.tel;
+                if (!pair.user && pair.firstGuess) pair.user = pair.firstGuess;
+                if (!pair.user && pair.secondGuess) pair.user = pair.secondGuess;
 
                 pair.secure = form.method !== 'get';
                 fieldPairs.push(pair);
