@@ -1,5 +1,7 @@
 #### Version 1.9.0 
  - Added password names support
+ - Added bulgarian translation
+ - Improved autofill
  - Improved search
 
 #### Version 1.8.0 / 03.02.2019

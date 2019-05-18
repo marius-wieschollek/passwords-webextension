@@ -1,13 +1,12 @@
-const NcPasswordClient = new function () {
-    let isChrome = navigator.userAgent.indexOf('Chrome') !== -1,
-        userNameFields = ['user', 'username', 'login', 'email'];
+const NcPasswordClient = new function() {
+    let isChrome = navigator.userAgent.indexOf('Chrome') !== -1;
 
     function getPasswordFields() {
         let fields  = document.getElementsByTagName('input'),
             results = [],
             i       = fields.length;
-        while (i--) {
-            if (fields[i].type === 'password') {
+        while(i--) {
+            if(fields[i].type === 'password') {
                 results.push(fields[i]);
             }
         }
@@ -15,8 +14,8 @@ const NcPasswordClient = new function () {
     }
 
     function getParentForm(el) {
-        while (el.parentNode) {
-            if (el.parentNode.nodeName.toLowerCase() === 'form') {
+        while(el.parentNode) {
+            if(el.parentNode.nodeName.toLowerCase() === 'form') {
                 return el.parentNode;
             }
             el = el.parentNode;
@@ -34,34 +33,34 @@ const NcPasswordClient = new function () {
             passwords  = getPasswordFields(),
             i          = passwords.length;
 
-        while (i--) {
+        while(i--) {
             let current = passwords[i],
                 form    = getParentForm(current);
-            if (form && checkIfFormVisible(form)) {
+            if(form && checkIfFormVisible(form)) {
                 let fields = form.getElementsByTagName('input'),
                     pair   = {form: form, pass: current};
 
-                for (let i = 0; i < fields.length; i++) {
+                for(let i = 0; i < fields.length; i++) {
                     let field = fields[i];
 
                     if(field.readOnly || field.disabled) continue;
 
-                    if (!pair.user && (userNameFields.indexOf(field.id.toLowerCase()) !== -1 || userNameFields.indexOf(field.name.toLowerCase()) !== -1 || field.type === 'email')) {
+                    if(!pair.user && isUserNameField(field)) {
                         pair.user = field;
-                    } else if (!pair.firstGuess && field.type === 'text' && (field.autofocus || field.required)) {
+                    } else if(!pair.firstGuess && field.type === 'text' && (field.autofocus || field.required)) {
                         pair.firstGuess = field;
-                    } else if (!pair.secondGuess && field.type === 'text') {
+                    } else if(!pair.secondGuess && field.type === 'text') {
                         pair.secondGuess = field;
-                    } else if (!pair.submit && field.type === 'submit') {
+                    } else if(!pair.submit && field.type === 'submit') {
                         pair.submit = field;
-                    } else if (!pair.user && field.type === 'tel') {
+                    } else if(!pair.user && field.type === 'tel') {
                         pair.tel = field;
                     }
                 }
 
-                if (!pair.user && pair.tel) pair.user = pair.tel;
-                if (!pair.user && pair.firstGuess) pair.user = pair.firstGuess;
-                if (!pair.user && pair.secondGuess) pair.user = pair.secondGuess;
+                if(!pair.user && pair.tel) pair.user = pair.tel;
+                if(!pair.user && pair.firstGuess) pair.user = pair.firstGuess;
+                if(!pair.user && pair.secondGuess) pair.user = pair.secondGuess;
 
                 pair.secure = form.method !== 'get';
                 fieldPairs.push(pair);
@@ -70,11 +69,25 @@ const NcPasswordClient = new function () {
         return fieldPairs;
     }
 
+    function isUserNameField(field) {
+        if(field.type === 'email') return true;
+
+        let search = ['user', 'login', 'email'],
+            name   = field.name.toLowerCase(),
+            id     = field.id.toLowerCase();
+
+        for(let i=0; i<search.length; i++) {
+            if(name.indexOf(search[i]) !== -1 || id.indexOf(search[i]) !== -1) return true;
+        }
+
+        return false;
+    }
+
     function fillPassword(user, password) {
         let forms = getLoginFields();
-        for (let i = 0; i < forms.length; i++) {
+        for(let i = 0; i < forms.length; i++) {
             let form = forms[i];
-            if (form.user) {
+            if(form.user) {
                 form.user.value = user;
                 form.user.dispatchEvent(new Event('change', {bubbles: true, cancelable: true}));
                 form.user.dispatchEvent(new Event('blur', {bubbles: true, cancelable: true}));
@@ -84,8 +97,8 @@ const NcPasswordClient = new function () {
             form.pass.dispatchEvent(new Event('change', {bubbles: true, cancelable: true}));
             form.pass.dispatchEvent(new Event('blur', {bubbles: true, cancelable: true}));
 
-            if (forms.length !== 1) continue;
-            if (form.submit) {
+            if(forms.length !== 1) continue;
+            if(form.submit) {
                 form.submit.click();
             } else if(form.secure) {
                 form.form.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
@@ -96,9 +109,9 @@ const NcPasswordClient = new function () {
     function minePassword(form) {
         let pass = form.pass.value;
         let user = '';
-        if (form.user) user = form.user.value;
+        if(form.user) user = form.user.value;
 
-        if (user !== '' && pass !== '') {
+        if(user !== '' && pass !== '') {
             let runtime = isChrome ? chrome.runtime:browser.runtime;
 
             runtime.sendMessage(
@@ -114,21 +127,21 @@ const NcPasswordClient = new function () {
     }
 
     function init() {
-        if (isChrome) {
+        if(isChrome) {
             chrome.runtime.onMessage.addListener(
-                function (data, sender, response) {
+                function(data, sender, response) {
                     response({ok: true});
                     fillPassword(data.user, data.password);
                 }
             );
         } else {
             browser.runtime.onMessage.addListener(
-                function (data) {fillPassword(data.user, data.password)}
+                function(data) {fillPassword(data.user, data.password)}
             );
         }
 
         let forms = getLoginFields();
-        for (let i = 0; i < forms.length; i++) {
+        for(let i = 0; i < forms.length; i++) {
             let current = forms[i];
             current.form.addEventListener('submit', () => { minePassword(current); });
         }
