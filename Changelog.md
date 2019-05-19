@@ -1,4 +1,4 @@
-#### Version 1.9.0 
+#### Version 1.9.0 / 19.05.2019
  - Added password names support
  - Added bulgarian translation
  - Improved autofill
