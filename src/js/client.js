@@ -43,7 +43,7 @@ const NcPasswordClient = new function() {
                 for(let i = 0; i < fields.length; i++) {
                     let field = fields[i];
 
-                    if(field.readOnly || field.disabled) continue;
+                    if(field.readOnly || field.disabled || field.type === 'hidden' || field.type === 'password') continue;
 
                     if(!pair.user && isUserNameField(field)) {
                         pair.user = field;
