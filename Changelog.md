@@ -1,3 +1,7 @@
+#### Version 1.9.1
+ - Fixed improper autofill field selection
+ - Fixed issues title overflow
+
 #### Version 1.9.0 / 19.05.2019
  - Added password names support
  - Added bulgarian translation
