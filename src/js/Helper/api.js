@@ -86,7 +86,7 @@ class Api {
 
                     let title = d.loginname ? d.loginname:'no username';
                     if(p.hasOwnProperty('name')) {
-                        if(d.loginname && p.name.indexOf(d.loginname) === -1) {
+                        if(d.loginname && p.name.toLowerCase().indexOf(d.loginname) === -1) {
                             title = `${p.name} – ${d.loginname}`;
                         } else {
                             title = p.name;
