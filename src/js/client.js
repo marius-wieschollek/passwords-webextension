@@ -27,7 +27,6 @@ const NcPasswordClient = new function() {
 
         return style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== 0;
     }
-
     function getLoginFields() {
         let fieldPairs = [],
             passwords  = getPasswordFields(),
@@ -43,7 +42,7 @@ const NcPasswordClient = new function() {
                 for(let i = 0; i < fields.length; i++) {
                     let field = fields[i];
 
-                    if(field.readOnly || field.disabled || field.type === 'hidden' || field.type === 'password') continue;
+                    if(!isQualifiedField(field)) continue;
 
                     if(!pair.user && isUserNameField(field)) {
                         pair.user = field;
@@ -67,6 +66,10 @@ const NcPasswordClient = new function() {
             }
         }
         return fieldPairs;
+    }
+
+    function isQualifiedField(field) {
+        return !field.readOnly && !field.disabled && ['text', 'email', 'tel', 'submit'].indexOf(field.type) !== -1;
     }
 
     function isUserNameField(field) {
