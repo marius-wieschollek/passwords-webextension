@@ -65,6 +65,7 @@ const NcPasswordClient = new function() {
                 fieldPairs.push(pair);
             }
         }
+
         return fieldPairs;
     }
 

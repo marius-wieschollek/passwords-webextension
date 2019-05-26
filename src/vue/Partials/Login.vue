@@ -1,14 +1,14 @@
 <template>
-    <div class="login theme-hover-invert" @click="insertPassword">
+    <div class="login theme-hover-invert target" @click="insertPassword">
         <div class="title" :title="login.title">
             <span :class="{overflow: overflow}">{{login.title}}</span>
         </div>
         <div class="options">
-            <i class="fa fa-user"
+            <i class="fa fa-user target"
                @click="copyUser"
                @mouseover="switchIcon($event, 'user')"
                @mouseout="switchIcon($event, 'user')" v-if="login.user"></i>
-            <i class="fa fa-key"
+            <i class="fa fa-key target"
                @click="copyPassword"
                @mouseover="switchIcon($event, 'key')"
                @mouseout="switchIcon($event, 'key')"></i>
@@ -77,6 +77,11 @@
             playAnimation($e, type) {
                 return new Promise((resolve, reject) => {
                     let $target = $($e.target);
+
+                    if(!$target.hasClass('target')) {
+                        $target = $target.parents('.target').eq(0);
+                    }
+
                     $target.addClass(type).on(
                         'animationend',
                         () => {
