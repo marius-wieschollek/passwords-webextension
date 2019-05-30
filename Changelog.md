@@ -1,4 +1,4 @@
-#### Version 1.9.1
+#### Version 1.9.1 / 26.05.2019
  - Fixed improper autofill field selection
  - Fixed issues title overflow
 
