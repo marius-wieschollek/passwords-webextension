@@ -24,7 +24,7 @@
         "message": "La requête Nextcloud a échoué"
     },
     "PasswordRequestFailedText"  : {
-        "message"     : "La liste des mots de passe n' a pas pu être récupérée. Erreur: $ERROR$",
+        "message"     : "La liste des mots de passe n'a pas pu être récupérée. Erreur: $ERROR$",
         "placeholders": {
             "error": {
                 "content": "$1"
@@ -63,7 +63,7 @@
         "message": "Échec de la sauvegarde"
     },
     "CreatePasswordFailedText"   : {
-        "message": "Le mot de passe n' a pas pu être sauvegardé"
+        "message": "Le mot de passe n'a pas pu être sauvegardé"
     },
     "UpdatedLoginDetectedTitle"  : {
         "message": "Mise à jour du login trouvé"
@@ -86,10 +86,10 @@
         "message": "Mise à jour du mot de passe échouée"
     },
     "UpdatePasswordFailedText"   : {
-        "message": "Le mot de passe n' a pas pu être mis à jour"
+        "message": "Le mot de passe n'a pas pu être mis à jour"
     },
     "Url"                        : { "message": "Url" },
     "Password"                   : { "message": "Mot de passe" },
-    "User"                       : { "message": "Usager" },
-    "Save"                       : { "message": "sauvegarder" }
+    "User"                       : { "message": "Utilisateur·ice" },
+    "Save"                       : { "message": "Sauvegarder" }
 }
