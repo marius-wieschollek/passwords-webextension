@@ -49,7 +49,7 @@ module.exports = env => {
             modules   : ['node_modules', 'src'],
             extensions: ['.js', '.vue', '.json'],
             alias     : {
-                'vue$': 'vue/build/vue.esm.js',
+                'vue$': 'vue/dist/vue.esm.js',
                 '@vue': `${__dirname}/src/vue`,
                 '@js' : `${__dirname}/src/js`
             }
