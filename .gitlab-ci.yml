@@ -4,21 +4,35 @@ stages:
   - ch-compile
   - ch-publish
 
-CompileFireFox:
+CompileFirefox:
   stage: ff-compile
   script:
     - npm install
-    - npm run build
+    - npm run build:firefox
+    - if [ "${CI_COMMIT_REF_NAME}" == "stable" ] ; then sed -i -e "s/-BUILD//g" ./dist/manifest.json ; fi
+    - if [ "${CI_COMMIT_REF_NAME}" != "stable" ] ; then sed -i -e "s/-BUILD/-build${CI_PIPELINE_ID}/g" ./dist/manifest.json ; fi
     - cd dist && zip -9 -r passwords-webextension.zip ./*
   artifacts:
     paths:
       - ./dist/passwords-webextension.zip
 
-PublishFireFox
+PublishFirefox:
   stage: ff-publish
   script:
-    - 'curl "https://addons.mozilla.org/api/v4/addons/" -g -XPOST -F "upload=@dist/passwords-webextension.zip" -F "version=1.0" -H "Authorization: JWT <jwt-token>"'
+    - 'curl "https://addons.mozilla.org/api/v4/addons/" -g -XPOST -F "upload=@dist/passwords-webextension.zip" -F "version=1.0" -F "channel=unlisted" -H "Authorization: JWT ${AMO_TOKEN}"'
   environment:
     name: Stable
   only:
     - tags
+
+CompileChrome:
+  stage: ch-compile
+  script:
+  - npm install
+  - npm run build:chrome
+  - if [ "${CI_COMMIT_REF_NAME}" == "stable" ] ; then sed -i -e "s/-BUILD//g" ./dist/manifest.json ; fi
+  - if [ "${CI_COMMIT_REF_NAME}" != "stable" ] ; then sed -i -e "s/-BUILD/-build${CI_PIPELINE_ID}/g" ./dist/manifest.json ; fi
+  - cd dist && zip -9 -r passwords-webextension.zip ./*
+  artifacts:
+    paths:
+    - ./dist/passwords-webextension.zip

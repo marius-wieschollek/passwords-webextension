@@ -37,12 +37,12 @@ module.exports = env => {
         mode   : production ? 'production':'development',
         devtool: 'none',
         entry  : {
-            app       : __dirname + '/src/js/app.js',
-            client    : __dirname + '/src/js/client.js',
-            background: __dirname + '/src/js/background.js'
+            app       : `${__dirname}/src/js/app.js`,
+            client    : `${__dirname}/src/js/client.js`,
+            background: `${__dirname}/src/js/background.js`
         },
         output : {
-            path    : __dirname + '/dist/',
+            path    : `${__dirname}/dist/`,
             filename: "js/[name].js"
         },
         resolve: {
@@ -50,8 +50,8 @@ module.exports = env => {
             extensions: ['.js', '.vue', '.json'],
             alias     : {
                 'vue$': 'vue/dist/vue.esm.js',
-                '@vue': __dirname + '/src/vue',
-                '@js' : __dirname + '/src/js'
+                '@vue': `${__dirname}/src/vue`,
+                '@js' : `${__dirname}/src/js`
             }
         },
         module : {
@@ -75,10 +75,7 @@ module.exports = env => {
                     use : [
                         {loader: 'vue-style-loader'},
                         {
-                            loader : MiniCssExtractPlugin.loader,
-                            options: {
-                                hmr: process.env.NODE_ENV === 'development',
-                            },
+                            loader : MiniCssExtractPlugin.loader
                         },
                         {
                             loader: 'css-loader'
@@ -92,7 +89,7 @@ module.exports = env => {
                             options: {
                                 sourceMap: true,
                                 resources: [
-                                    __dirname + '/src/scss/includes.scss'
+                                    `${__dirname}/src/scss/includes.scss`
                                 ]
                             }
                         }
