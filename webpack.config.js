@@ -1,10 +1,9 @@
-let webpack            = require('webpack'),
-    CopyWebpackPlugin  = require('copy-webpack-plugin'),
-    UglifyJSPlugin     = require('uglifyjs-webpack-plugin'),
-    CleanWebpackPlugin = require('clean-webpack-plugin'),
-    ExtractTextPlugin  = require("extract-text-webpack-plugin"),
-    OptimizeCSSPlugin  = require('optimize-css-assets-webpack-plugin'),
-    ProgressBarPlugin  = require('progress-bar-webpack-plugin');
+let webpack              = require('webpack'),
+    CopyWebpackPlugin    = require('copy-webpack-plugin'),
+    {CleanWebpackPlugin} = require('clean-webpack-plugin'),
+    VueLoaderPlugin      = require('vue-loader/lib/plugin'),
+    MiniCssExtractPlugin = require('mini-css-extract-plugin'),
+    OptimizeCSSPlugin    = require('optimize-css-assets-webpack-plugin');
 
 module.exports = env => {
     let production = env.production === true,
@@ -21,35 +20,22 @@ module.exports = env => {
                 }
             }
         ),
+        new VueLoaderPlugin(),
         new CopyWebpackPlugin(['src/platform/generic', 'src/platform/' + platform]),
-        new ExtractTextPlugin('css/passwords.css')
+        new MiniCssExtractPlugin({filename: 'css/passwords.css'})
     ];
 
     if(env.production) {
         plugins.push(
             new OptimizeCSSPlugin({cssProcessorOptions: {safe: true}})
         );
-        plugins.push(
-            new UglifyJSPlugin(
-                {
-                    uglifyOptions: {
-                        beautify: false,
-                        ecma    : 6,
-                        compress: true,
-                        comments: false,
-                        ascii   : true
-                    },
-                    cache        : true,
-                    parallel     : true
-                }
-            )
-        );
-        plugins.push(new CleanWebpackPlugin(['dist']));
-        plugins.push(new ProgressBarPlugin());
+        plugins.push(new CleanWebpackPlugin());
     }
 
 
     return {
+        mode   : production ? 'production':'development',
+        devtool: 'none',
         entry  : {
             app       : __dirname + '/src/js/app.js',
             client    : __dirname + '/src/js/client.js',
@@ -69,32 +55,10 @@ module.exports = env => {
             }
         },
         module : {
-            loaders: [
+            rules: [
                 {
-                    test   : /\.vue$/,
-                    loader : 'vue-loader',
-                    options: {
-                        extractCSS: true,
-                        loaders   : {
-                            scss: ExtractTextPlugin.extract(
-                                {
-                                    use     : [
-                                        {
-                                            loader : 'css-loader',
-                                            options: {minimize: production}
-                                        }, {
-                                            loader : 'sass-loader',
-                                            options: {minimize: production}
-                                        }, {
-                                            loader : 'sass-resources-loader',
-                                            options: {resources: __dirname + '/src/scss/includes.scss'}
-                                        }
-                                    ],
-                                    fallback: 'vue-style-loader'
-                                }
-                            )
-                        }
-                    }
+                    test  : /\.vue$/,
+                    loader: 'vue-loader'
                 },
                 {
                     test   : /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
@@ -102,12 +66,40 @@ module.exports = env => {
                     options: {
                         limit          : 2048,
                         outputPath     : 'css/',
-                        publicPath     : './',
+                        publicPath     : '/css/',
                         useRelativePath: false
                     }
+                },
+                {
+                    test: /\.scss$/,
+                    use : [
+                        {loader: 'vue-style-loader'},
+                        {
+                            loader : MiniCssExtractPlugin.loader,
+                            options: {
+                                hmr: process.env.NODE_ENV === 'development',
+                            },
+                        },
+                        {
+                            loader: 'css-loader'
+                        },
+                        {
+                            loader : 'sass-loader',
+                            options: {outputStyle: 'compressed'}
+                        },
+                        {
+                            loader : 'sass-resources-loader',
+                            options: {
+                                sourceMap: true,
+                                resources: [
+                                    __dirname + '/src/scss/includes.scss'
+                                ]
+                            }
+                        }
+                    ]
                 }
             ]
         },
-        plugins: plugins
+        plugins
     };
 };
