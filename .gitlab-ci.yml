@@ -6,11 +6,10 @@ stages:
 Install:
   stage: prepare
   script:
-  - npm install
   - mkdir dist
   artifacts:
     paths:
-    - ./node_modules
+    - ./dist
 
 Compile Firefox:
   stage: compiling
@@ -22,12 +21,12 @@ Compile Firefox:
   - mv build dist/firefox-extension
   artifacts:
     paths:
-    - ./node_modules
     - ./dist
 
 Compile Chrome:
   stage: compiling
   script:
+  - npm install
   - npm run build:chrome
   - if [ "${CI_COMMIT_REF_NAME}" == "stable" ] ; then sed -i -e "s/-BUILD//g" ./build/manifest.json ; fi
   - if [ "${CI_COMMIT_REF_NAME}" != "stable" ] ; then sed -i -e "s/-BUILD/-build${CI_PIPELINE_ID}/g" ./build/manifest.json ; fi
