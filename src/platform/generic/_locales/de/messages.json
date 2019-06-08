@@ -24,7 +24,7 @@
         "message": "Nextcloud Password Abfrage fehlgeschlagen"
     },
     "PasswordRequestFailedText"  : {
-        "message": "Die Passwortliste konnte nicht abgerufen werden. Fehler: $ERROR$",
+        "message"     : "Die Passwortliste konnte nicht abgerufen werden. Fehler: $ERROR$",
         "placeholders": {
             "error": {
                 "content": "$1"
@@ -35,7 +35,7 @@
         "message": "Invalide Passwortattribute gefunden"
     },
     "PasswordEncodingFailedText" : {
-        "message": "Die Attribute des Passworts mit der ID #$ID$ sind kein valides JSON und können daher nicht verarbeitet werden",
+        "message"     : "Die Attribute des Passworts mit der ID #$ID$ sind kein valides JSON und können daher nicht verarbeitet werden",
         "placeholders": {
             "id": {
                 "content": "$1"
@@ -46,7 +46,7 @@
         "message": "Neue Logindaten erkannt"
     },
     "NewLoginDetectedText"       : {
-        "message": "Klicken Sie hier, um das Passwort für \"$USER$\" zu speichern",
+        "message"     : "Klicken Sie hier, um das Passwort für \"$USER$\" zu speichern",
         "placeholders": {
             "user": {
                 "content": "$1"
@@ -69,7 +69,7 @@
         "message": "Aktualisierte Logindaten erkannt"
     },
     "UpdatedLoginDetectedText"   : {
-        "message": "Klicken Sie hier, um das Passwort für \"$USER$\" zu aktualisieren",
+        "message"     : "Klicken Sie hier, um das Passwort für \"$USER$\" zu aktualisieren",
         "placeholders": {
             "user": {
                 "content": "$1"
@@ -87,6 +87,9 @@
     },
     "UpdatePasswordFailedText"   : {
         "message": "Das Passwort konnte nicht aktualisiert werden"
+    },
+    "DarkMode"                   : {
+        "message": "Dunkler Modus"
     },
     "Url"                        : { "message": "Url" },
     "Password"                   : { "message": "Passwort" },

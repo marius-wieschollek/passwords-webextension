@@ -3,28 +3,28 @@
         "message": "Nextcloud Passwords"
     },
     "extensionDescription"       : {
-        "message": "Klient aplikacji Nextcloud Passwords."
+        "message": "Klient pro aplikaci Nextcloud Passwords."
     },
     "browserActionTitle"         : {
-        "message": "Hasła"
+        "message": "Hesla"
     },
     "contextMenuTitle"           : {
-        "message": "Hasła"
+        "message": "Hesla"
     },
     "NoRelatedMatches"           : {
-        "message": "Nie znaleziono wyników"
+        "message": "Nenalezeny žádné údaje"
     },
     "NoSearchMatches"            : {
-        "message": "Nie znaleziono wyników"
+        "message": "Žádná shoda"
     },
     "NoSearchQuery"              : {
-        "message": "Wpisz więcej niż dwa znaki"
+        "message": "Napište alespoň 3 znaky"
     },
     "PasswordRequestFailedTitle" : {
-        "message": "Zapytanie o hasło w usłudze Nextcloud nie powiodło się"
+        "message": "Požadavek selhal"
     },
     "PasswordRequestFailedText"  : {
-        "message"     : "Lista haseł nie mogła zostać wyszukana.\nBłąd: $ERROR$",
+        "message"     : "Seznam údajů se nepodařilo stáhnout.\nChyba: $ERROR$",
         "placeholders": {
             "error": {
                 "content": "$1"
@@ -32,10 +32,10 @@
         }
     },
     "PasswordEncodingFailedTitle": {
-        "message": "Właściwości hasła nie mogły zostać odczytane"
+        "message": "Nepodařilo se zpracovat údaje"
     },
     "PasswordEncodingFailedText" : {
-        "message"     : "Właściwości hasła #$ID$ nie zawierają ważnych danych JSON i nie mogą zostać przetworzone.",
+        "message"     : "Údaje #$ID$ neobsahují validní JSON data a proto nemohly být zpracovány.",
         "placeholders": {
             "id": {
                 "content": "$1"
@@ -43,10 +43,10 @@
         }
     },
     "NewLoginDetectedTitle"      : {
-        "message": "Znaleziono nowy identyfikator"
+        "message": "Nové přihlášení detekováno"
     },
     "NewLoginDetectedText"       : {
-        "message"     : "Kliknij tutaj, aby zapisać hasło dla \"$USER$\"",
+        "message"     : "Klikni zde pro uložení hesla pro \"$USER$\"",
         "placeholders": {
             "user": {
                 "content": "$1"
@@ -54,22 +54,22 @@
         }
     },
     "PasswordCreatedTitle"       : {
-        "message": "Hasło zapisane"
+        "message": "Heslo uloženo"
     },
     "PasswordCreatedText"        : {
-        "message": "Hasło zostało zapisane"
+        "message": "Heslo bylo uloženo úspěšně"
     },
     "CreatePasswordFailedTitle"  : {
-        "message": "Zapisanie hasła nie powiodło się"
+        "message": "Heslo se neuložilo"
     },
     "CreatePasswordFailedText"   : {
-        "message": "Hasło nie mogło zostać zapisane"
+        "message": "Nepodařilo se uložit heslo"
     },
     "UpdatedLoginDetectedTitle"  : {
-        "message": "Znaleziono uaktualniony identyfikator"
+        "message": "Aktualizované údaje byly detekovány"
     },
     "UpdatedLoginDetectedText"   : {
-        "message"     : "Kliknij tutaj, aby zaktualizować hasło dla \"$USER$\"",
+        "message"     : "Klikni zde pro aktualizaci hesla pro \"$USER$\"",
         "placeholders": {
             "user": {
                 "content": "$1"
@@ -77,19 +77,22 @@
         }
     },
     "PasswordUpdatedTitle"       : {
-        "message": "Hasło zaktualizowane"
+        "message": "Heslo aktualizováno"
     },
     "PasswordUpdatedText"        : {
-        "message": "Hasło zaktualizowane z powodzeniem"
+        "message": "Heslo bylo aktualizováno úspěšně"
     },
     "UpdatePasswordFailedTitle"  : {
-        "message": "Aktualizacja hasła nie powiodła się"
+        "message": "Heslo nezměněno"
     },
     "UpdatePasswordFailedText"   : {
-        "message": "Hasło nie mogło zostać zaktualizowane"
+        "message": "Nepodařilo se uložit heslo"
+    },
+    "DarkMode"                   : {
+        "message"    : "Tmavý režim"
     },
     "Url"                        : { "message": "Url" },
-    "Password"                   : { "message": "Hasło" },
-    "User"                       : { "message": "Użytkownik" },
-    "Save"                       : { "message": "Zapisz" }
+    "Password"                   : { "message": "Heslo" },
+    "User"                       : { "message": "Uživatel" },
+    "Save"                       : { "message": "Uložit" }
 }

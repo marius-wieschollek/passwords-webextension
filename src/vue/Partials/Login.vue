@@ -1,12 +1,14 @@
 <template>
-    <div class="login theme-hover-invert" @click="insertPassword">
-        {{login.title}}
+    <div class="login theme-hover-invert target" @click="insertPassword">
+        <div class="title" :title="login.title">
+            <span :class="{overflow: overflow}">{{login.title}}</span>
+        </div>
         <div class="options">
-            <i class="fa fa-user"
+            <i class="fa fa-user target"
                @click="copyUser"
                @mouseover="switchIcon($event, 'user')"
-               @mouseout="switchIcon($event, 'user')"></i>
-            <i class="fa fa-key"
+               @mouseout="switchIcon($event, 'user')" v-if="login.user"></i>
+            <i class="fa fa-key target"
                @click="copyPassword"
                @mouseover="switchIcon($event, 'key')"
                @mouseout="switchIcon($event, 'key')"></i>
@@ -29,9 +31,23 @@
             }
         },
 
+        data() {
+            return {
+                overflow: false
+            }
+        },
+
+        mounted() {
+            this.overflow = this.$el.querySelector('.title > span').offsetWidth > document.body.offsetWidth
+        },
+        updated() {
+            this.overflow = this.$el.querySelector('.title > span').offsetWidth > document.body.offsetWidth
+        },
+
         methods: {
             insertPassword($e) {
                 $e.stopPropagation();
+                $e.preventDefault();
 
                 browser.tabs.query({currentWindow: true, active: true})
                     .then((tabs) => {
@@ -61,6 +77,11 @@
             playAnimation($e, type) {
                 return new Promise((resolve, reject) => {
                     let $target = $($e.target);
+
+                    if(!$target.hasClass('target')) {
+                        $target = $target.parents('.target').eq(0);
+                    }
+
                     $target.addClass(type).on(
                         'animationend',
                         () => {
@@ -79,6 +100,7 @@
         display       : block;
         padding       : 0 10px;
         line-height   : 38px;
+        height: 38px;
         text-align    : center;
         cursor        : pointer;
         max-width     : 100%;
@@ -87,6 +109,19 @@
         overflow      : hidden;
         position      : relative;
         transition    : padding 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
+        .title {
+            display: inline;
+
+            span {
+                white-space: nowrap;
+                position: relative;
+
+                &.overflow:hover {
+                    animation: horizontally 5s linear infinite alternate;
+                }
+            }
+        }
 
         .options {
             position   : absolute;
@@ -139,6 +174,15 @@
             .options {
                 opacity : 1;
             }
+        }
+    }
+
+    @keyframes horizontally {
+        0%   {
+            left: 0;
+        }
+        100% {
+            left: -110%;
         }
     }
 </style>

@@ -5,10 +5,11 @@ class Api {
 
     constructor(endpoint, user, password) {
         this._api = new BaseApi(endpoint, user, password, null, true);
+        this.passwords = [];
     }
 
     async login(endpoint, user, password) {
-        this._api.login(endpoint, user, password);
+        await this._api.login(endpoint, user, password);
         await this.reloadPasswords();
     }
 
@@ -55,34 +56,47 @@ class Api {
             this._api.listPasswords().then((data) => {
 
                 let passwords = [];
-                for (let i in data) {
-                    if (!data.hasOwnProperty(i) || data[i].deleted) continue;
+                for(let i in data) {
+                    if(!data.hasOwnProperty(i) || data[i].deleted) continue;
                     let d    = null,
                         p    = data[i],
-                        prop = '{' + Api.escapeJson(p.properties) + '}';
+                        prop = null;
 
                     try {
-                        d = JSON.parse(prop);
-                    } catch (e) {
+                        d = JSON.parse(p.properties);
+                    } catch(e) {
                         try {
-                            prop = Api.advancedEscapeJson(prop);
-                            d = JSON.parse(prop);
-                        } catch (e) {
-                            console.error('Parse Properties Failed', e, p, prop);
-                            Api.passwordEncodingFailedNotification(p.id);
-                            continue;
+                            d = JSON.parse('{' + Api.escapeJson(p.properties) + '}');
+                        } catch(e) {
+                            try {
+                                prop = Api.advancedEscapeJson('{' + Api.escapeJson(p.properties) + '}');
+                                d = JSON.parse(prop);
+                            } catch(e) {
+                                console.error('Parse Properties Failed', e, p, prop);
+                                Api.passwordEncodingFailedNotification(p.id);
+                                continue;
+                            }
                         }
                     }
 
                     let host = p.website;
-                    if (d.address && d.address !== 'undefined') {
+                    if(d.address && d.address !== 'undefined') {
                         host = Utility.analyzeUrl(d.address, 'hostname');
+                    }
+
+                    let title = d.loginname ? d.loginname:'no username';
+                    if(p.hasOwnProperty('name')) {
+                        if(d.loginname && p.name.toLowerCase().indexOf(d.loginname) === -1) {
+                            title = `${p.name} – ${d.loginname}`;
+                        } else {
+                            title = p.name;
+                        }
                     }
 
                     passwords.push(
                         {
                             id      : p.id,
-                            title   : d.loginname,
+                            title   : title,
                             host    : host,
                             user    : d.loginname,
                             password: p.pass,
@@ -92,7 +106,8 @@ class Api {
                     );
                 }
 
-                browser.storage.local.set({'database': passwords})
+                this.passwords = passwords;
+                browser.storage.local.set({'updated': new Date().getTime()})
                     .then(() => {resolve(passwords)})
                     .catch((e) => {reject(e)});
             }).catch((e) => {
@@ -159,11 +174,7 @@ class Api {
     }
 
     getPasswords() {
-        return new Promise((resolve, reject) => {
-            browser.storage.local.get(['database'])
-                .then((data) => { resolve(data.database); })
-                .catch((data) => { reject(data); })
-        });
+        return this.passwords;
     }
 }
 

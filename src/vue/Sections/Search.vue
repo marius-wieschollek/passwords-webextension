@@ -7,17 +7,20 @@
                    placeholder="..."
                    v-on:keyup="updateQuery($event)">
         </div>
-        <login v-for="(match, i) in matches" :key="i" :login="match"></login>
-        <translate tag="div" v-if="this.matches.length === 0 && this.query.length > 2" class="no-matches theme-invert" key="NoSearchMatches">NoSearchMatches
-        </translate>
-        <translate tag="div" v-if="this.matches.length === 0 && this.query.length < 3" class="no-matches theme-invert" key="NoSearchQuery">NoSearchQuery
-        </translate>
+        <login v-for="(match, i) in matches" :key="i" :login="match"/>
+        <translate tag="div"
+                   v-if="this.matches.length === 0 && this.query.length > 2"
+                   class="no-matches theme-invert"
+                   say="NoSearchMatches"/>
+        <translate tag="div"
+                   v-if="this.matches.length === 0 && this.query.length < 3"
+                   class="no-matches theme-invert"
+                   say="NoSearchQuery"/>
     </div>
 </template>
 
 <script>
     import $ from "jquery";
-    import API from '@js/Helper/api';
     import Login from '@vue/Partials/Login.vue';
     import Translate from '@vue/Partials/Translate.vue';
 
@@ -29,9 +32,9 @@
 
         data() {
             return {
-                database: [],
-                matches : [],
-                query   : ''
+                passwords: [],
+                matches  : [],
+                query    : ''
             }
         },
 
@@ -42,13 +45,19 @@
 
         methods: {
             loadPasswords: function () {
-                API.getPasswords().then((d) => {
-                    this.database = d;
-                    this.search();
-                })
+                if(browser.runtime.getBrowserInfo) {
+                    browser.runtime.sendMessage(browser.runtime.id, {type: 'passwords'}).then(this.updateDb);
+                } else {
+                    chrome.runtime.sendMessage(chrome.runtime.id, {type: 'passwords'}, {}, this.updateDb);
+                }
+            },
+            updateDb(d) {
+                if(!d) return;
+                this.passwords = d;
+                this.search();
             },
             updateQuery($event) {
-                this.query = $($event.target).val();
+                this.query = $($event.target).val().toLowerCase();
                 this.search();
             },
             search       : function () {
@@ -59,15 +68,19 @@
                     return;
                 }
 
-                for (let i = 0; i < this.database.length; i++) {
-                    let entry = $.extend({}, this.database[i]);
+                for (let i = 0; i < this.passwords.length; i++) {
+                    let entry = $.extend({}, this.passwords[i]);
 
-                    if (entry.user.indexOf(this.query) !== -1 ||
-                        entry.host.indexOf(this.query) !== -1 ||
-                        entry.notes.indexOf(this.query) !== -1 ||
-                        entry.password.indexOf(this.query) !== -1
+                    if (entry.user.toLowerCase().indexOf(this.query) !== -1 ||
+                        (entry.host !== null && entry.host.toLowerCase().indexOf(this.query) !== -1) ||
+                        entry.title.toLowerCase().indexOf(this.query) !== -1 ||
+                        entry.notes.toLowerCase().indexOf(this.query) !== -1 ||
+                        entry.password.toLowerCase().indexOf(this.query) !== -1
                     ) {
-                        entry.title += '@' + entry.host;
+                        if(entry.host !== null && entry.title.toLowerCase().indexOf(entry.host.toLowerCase()) === -1) {
+                            entry.title += '@' + entry.host;
+                        }
+
                         matches.push(entry);
                     }
 

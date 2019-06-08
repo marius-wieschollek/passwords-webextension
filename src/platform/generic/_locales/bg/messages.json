@@ -1,42 +1,38 @@
 {
-    "extensionName"               : {
-        "message"    : "Passwords for Nextcloud Client",
+    "extensionName"              : {
+        "message"    : "Пароли за Nextcloud (Nextcloud Passwords)",
         "description": "Name of the extension."
     },
-    "extensionDescription"        : {
-        "message"    : "The official Passwords for Nextcloud browser client. Manage your password collection everywhere.",
+    "extensionDescription"       : {
+        "message"    : "Лек клиент за приложението Nextcloud Passwords",
         "description": "Description of the extension."
     },
     "browserActionTitle"         : {
-        "message"    : "Passwords",
+        "message"    : "Пароли за Nextcloud",
         "description": "Title of the button in the browser bar"
     },
     "contextMenuTitle"           : {
-        "message"    : "Passwords",
+        "message"    : "Пароли за Nextcloud",
         "description": "Title of the context menu item"
     },
-    "protocolHandler"          : {
-        "message"    : "PassLink Client",
-        "description": "Title of the custom protocol handler"
-    },
     "NoRelatedMatches"           : {
-        "message"    : "No logins found",
+        "message"    : "Няма намерени регистрации",
         "description": "Shown when the related page did not find any results"
     },
     "NoSearchMatches"            : {
-        "message"    : "No matches",
+        "message"    : "Няма съвпадения",
         "description": "Shown when the search did not find any results"
     },
     "NoSearchQuery"              : {
-        "message"    : "Type more than two characters",
+        "message"    : "Въведете поне два символа",
         "description": "Shown when the search query is empty"
     },
     "PasswordRequestFailedTitle" : {
-        "message"    : "Nextcloud password request failed",
+        "message"    : "Грешка при получаване на пароли от Nextcloud",
         "description": "Notification title when the password request fails"
     },
     "PasswordRequestFailedText"  : {
-        "message"     : "The password list could not be retrieved.\nError: $ERROR$",
+        "message"     : "Списъкът с пароли не може да бъде получен.\nГрешка: $ERROR$",
         "description" : "Notification text when the password request fails",
         "placeholders": {
             "error": {
@@ -46,11 +42,11 @@
         }
     },
     "PasswordEncodingFailedTitle": {
-        "message"    : "Could not parse password properties",
+        "message"    : "Грешка при разбора на пароли",
         "description": "Notification title when the password properties can not be parsed"
     },
     "PasswordEncodingFailedText" : {
-        "message"     : "The properties of password #$ID$ do not contain valid JSON data and could not be processed",
+        "message"     : "Атрибутите на парола #$ID$ не съдържат валиден JSON и не може да бъде обработена",
         "description" : "Notification text when the password properties can not be parsed",
         "placeholders": {
             "id": {
@@ -60,11 +56,11 @@
         }
     },
     "NewLoginDetectedTitle"      : {
-        "message"    : "New login found",
+        "message"    : "Нова регистрация",
         "description": "Notification title when a new login is detected"
     },
     "NewLoginDetectedText"       : {
-        "message"     : "Click here to save the password for \"$USER$\"",
+        "message"     : "Щракнете тук за запазване на парола за \"$USER$\"",
         "description" : "Notification text when a new login is detected",
         "placeholders": {
             "user": {
@@ -74,27 +70,27 @@
         }
     },
     "PasswordCreatedTitle"       : {
-        "message"    : "Password saved",
+        "message"    : "Запазена парола",
         "description": "Notification title when a password was saved"
     },
     "PasswordCreatedText"        : {
-        "message"    : "The password was stored sucessfully",
+        "message"    : "Паролата е запазена успешно",
         "description": "Notification text when a password was saved"
     },
     "CreatePasswordFailedTitle"  : {
-        "message"    : "Save password failed",
+        "message"    : "Грешка при запазване на парола",
         "description": "Notification title when saving a password failed"
     },
     "CreatePasswordFailedText"   : {
-        "message"    : "The password could not be saved",
+        "message"    : "Паролата не е запазена поради грешка",
         "description": "Notification text when saving a password failed"
     },
     "UpdatedLoginDetectedTitle"  : {
-        "message"    : "Updated login found",
+        "message"    : "Обновена регистрация",
         "description": "Notification title when an updated login is detected"
     },
     "UpdatedLoginDetectedText"   : {
-        "message"     : "Click here to update the password for \"$USER$\"",
+        "message"     : "Щракнете тук за обновяване на парола за \"$USER$\"",
         "description" : "Notification text when an updated login is detected",
         "placeholders": {
             "user": {
@@ -104,39 +100,39 @@
         }
     },
     "PasswordUpdatedTitle"       : {
-        "message"    : "Password updated",
+        "message"    : "Обновена парола",
         "description": "Notification title when a password was updated"
     },
     "PasswordUpdatedText"        : {
-        "message"    : "The password was updated sucessfully",
+        "message"    : "Паролата е обновена успешно",
         "description": "Notification text when a password was updated"
     },
     "UpdatePasswordFailedTitle"  : {
-        "message"    : "Update password failed",
+        "message"    : "Грешка при обновяване на парола",
         "description": "Notification title when updating a password failed"
     },
     "UpdatePasswordFailedText"   : {
-        "message"    : "The password could not be updated",
+        "message"    : "Паролата не е обновена поради грешка",
         "description": "Notification text when updating a password failed"
     },
     "ApiLogin200"   : {
-        "message"    : "URL invalid or API disabled",
+        "message"    : "Недействителен адрес на URL или изключен ППИ",
         "description": "Error text when an api request could not be decoded"
     },
     "ApiLogin401"   : {
-        "message"    : "Invalid user credentials",
+        "message"    : "Грешка при удостоверяване",
         "description": "Error text when an api request got a 401 Unauthorized response"
     },
     "ApiLogin403"   : {
-        "message"    : "Access denied",
+        "message"    : "Достъпът отказан",
         "description": "Error text when an api request got a 403 Forbidden response"
     },
     "ApiLogin404"   : {
-        "message"    : "URL is invalid",
+        "message"    : "Недействителен адрес на URL",
         "description": "Error text when an api request got a 404 Not Found response"
     },
     "ApiLogin500"   : {
-        "message"    : "Server crashed during request",
+        "message"    : "Сървърът се срина при заявката",
         "description": "Error text when an api request got a 50x Internal Server Error response"
     },
     "ApiLoginGeneric"   : {
@@ -154,7 +150,7 @@
         }
     },
     "SettingsInvalidUrl"   : {
-        "message"    : "The url $URL$ seems to be invalid.\n\n If the url of the app is\nhttps://example.com/index.php/apps/passwords\nyou need to enter\nhttps://example.com\n\nIf the url of the app is\nhttps://example.com/nextcloud/index.php/apps/passwords\nyou need to enter\nhttps://example.com/nextcloud",
+        "message"    : "Адресът $URL$ изглежда е недействителен.\n\nАко приложението се намира на\nhttps://example.com/index.php/apps/passwords\nвъведете\nhttps://localhost\n\nАко приложението се намира на\nhttps://example.com/nextcloud/index.php/apps/passwords\nвъведете\nhttps://localhost/nextcloud",
         "description": "Generic error message for failed requests",
         "placeholders": {
             "url": {
@@ -164,11 +160,11 @@
         }
     },
     "DarkMode"                   : {
-        "message"    : "Dark Mode",
+        "message"    : "Тъмна тема",
         "description": "Lable of the Dark Mode setting"
     },
-    "Url"                        : { "message": "Url" },
-    "Password"                   : { "message": "Password" },
-    "User"                       : { "message": "User" },
-    "Save"                       : { "message": "Save" }
+    "Url"                        : { "message": "Адрес" },
+    "Password"                   : { "message": "Парола" },
+    "User"                       : { "message": "Потребител" },
+    "Save"                       : { "message": "Запазване" }
 }
