@@ -42,14 +42,14 @@ module.exports = env => {
             background: `${__dirname}/src/js/background.js`
         },
         output : {
-            path    : `${__dirname}/dist/`,
+            path    : `${__dirname}/build/`,
             filename: "js/[name].js"
         },
         resolve: {
             modules   : ['node_modules', 'src'],
             extensions: ['.js', '.vue', '.json'],
             alias     : {
-                'vue$': 'vue/dist/vue.esm.js',
+                'vue$': 'vue/build/vue.esm.js',
                 '@vue': `${__dirname}/src/vue`,
                 '@js' : `${__dirname}/src/js`
             }

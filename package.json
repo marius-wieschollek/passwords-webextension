@@ -41,5 +41,8 @@
         "security"
     ],
     "author": "Marius Wieschollek",
-    "license": "GPL"
+    "license": "GPL",
+    "dependencies": {
+        "@wext/shipit": "^0.2.0"
+    }
 }
