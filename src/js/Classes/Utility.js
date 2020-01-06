@@ -1,35 +1,17 @@
-import $ from "jquery";
-
 export default class Utility {
 
     /**
      *
-     * @param key
-     * @param variables
-     * @returns {string}
+     * @param object
+     * @returns {Array}
      */
-    static translate(key, variables = []) {
-        Array.isArray(variables) ? variables.unshift(key):variables = [key];
-
-        let translation = browser.i18n.getMessage.apply(this, variables);
-
-        return translation ? translation:key;
-    }
-
-    /**
-     *
-     * @param text
-     */
-    static copyToClipboard(text) {
-        let id       = 'ctc-' + Math.random(),
-            $element = $('<textarea id="' + id + '" style="position:absolute">' + text + '</textarea>');
-
-        $('body').append($element);
-        $element.select();
-
-        document.execCommand('copy');
-
-        $element.remove();
+    static objectToArray(object) {
+        let array = [];
+        for(let key in object) {
+            if(!object.hasOwnProperty(key)) continue;
+            array.push(object[key]);
+        }
+        return array;
     }
 
     /**
