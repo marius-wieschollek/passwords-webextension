@@ -1,9 +1,9 @@
 {
-    "extensionName"               : {
+    "extensionName"              : {
         "message"    : "Passwords for Nextcloud Client",
         "description": "Name of the extension."
     },
-    "extensionDescription"        : {
+    "extensionDescription"       : {
         "message"    : "The official Passwords for Nextcloud browser client. Manage your password collection everywhere.",
         "description": "Description of the extension."
     },
@@ -15,10 +15,125 @@
         "message"    : "Passwords",
         "description": "Title of the context menu item"
     },
-    "protocolHandler"          : {
+    "protocolHandler"            : {
         "message"    : "PassLink Client",
         "description": "Title of the custom protocol handler"
     },
+    "MigrationAccountName"       : {
+        "message"    : "Nextcloud Account",
+        "description": "Label assigned to the account used by the v1.x migration"
+    },
+    "SettingsTabAccounts"        : {
+        "message"    : "Accounts",
+        "description": ""
+    },
+    "SettingsTabTheming"         : {
+        "message"    : "Theming",
+        "description": ""
+    },
+    "SettingsTabOther"           : {
+        "message"    : "Other Settings",
+        "description": ""
+    },
+    "SettingsAccountsMain"       : {
+        "message"    : "Default account for new passwords",
+        "description": ""
+    },
+    "TabRelated"                 : {
+        "message"    : "Suggestions",
+        "description": ""
+    },
+    "TabSearch"                  : {
+        "message"    : "Search",
+        "description": ""
+    },
+    "TabBrowse"                  : {
+        "message"    : "Browse",
+        "description": ""
+    },
+    "TabCollected"               : {
+        "message"    : "Collected",
+        "description": ""
+    },
+    "TabServers"                 : {
+        "message"    : "Server Info",
+        "description": ""
+    },
+    "TabTools"                   : {
+        "message"    : "Tools",
+        "description": ""
+    },
+    "ValidationLabel"            : {
+        "message"    : "label",
+        "description": ""
+    },
+    "ValidationUser"             : {
+        "message"    : "user",
+        "description": ""
+    },
+    "ValidationToken"            : {
+        "message"    : "token",
+        "description": ""
+    },
+    "ValidationBaseUrl"          : {
+        "message"    : "base url",
+        "description": ""
+    },
+    "ValidationNotEmpty"         : {
+        "message"     : "The $FIELD$ can not be emtpy",
+        "description" : "",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "token"
+            }
+        }
+    },
+    "ValidationMinLength"        : {
+        "message"     : "The $FIELD$ must be at least $MIN$ characters long",
+        "description" : "",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "token"
+            },
+            "min"  : {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationMaxLength"        : {
+        "message"     : "The $FIELD$ must be shorter than $MAX$ characters",
+        "description" : "",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "token"
+            },
+            "max"  : {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationNotAnUrl"         : {
+        "message"    : "The base url must be a valid url",
+        "description": ""
+    },
+    "ValidationNotAToken"        : {
+        "message"    : "The token must be a valid Nextcloud token",
+        "description": ""
+    },
+    "ValidationDuplicate"        : {
+        "message"    : "There is already an account for this user on this Nextcloud.",
+        "description": ""
+    },
+
+
+
+
+
     "NoRelatedMatches"           : {
         "message"    : "No logins found",
         "description": "Shown when the related page did not find any results"
@@ -119,31 +234,31 @@
         "message"    : "The password could not be updated",
         "description": "Notification text when updating a password failed"
     },
-    "ApiLogin200"   : {
+    "ApiLogin200"                : {
         "message"    : "URL invalid or API disabled",
         "description": "Error text when an api request could not be decoded"
     },
-    "ApiLogin401"   : {
+    "ApiLogin401"                : {
         "message"    : "Invalid user credentials",
         "description": "Error text when an api request got a 401 Unauthorized response"
     },
-    "ApiLogin403"   : {
+    "ApiLogin403"                : {
         "message"    : "Access denied",
         "description": "Error text when an api request got a 403 Forbidden response"
     },
-    "ApiLogin404"   : {
+    "ApiLogin404"                : {
         "message"    : "URL is invalid",
         "description": "Error text when an api request got a 404 Not Found response"
     },
-    "ApiLogin500"   : {
+    "ApiLogin500"                : {
         "message"    : "Server crashed during request",
         "description": "Error text when an api request got a 50x Internal Server Error response"
     },
-    "ApiLoginGeneric"   : {
-        "message"    : "Http Error $STATUS$: $MESSAGE$",
-        "description": "Generic error message for failed requests",
+    "ApiLoginGeneric"            : {
+        "message"     : "Http Error $STATUS$: $MESSAGE$",
+        "description" : "Generic error message for failed requests",
         "placeholders": {
-            "status": {
+            "status" : {
                 "content": "$1",
                 "example": "HTTP status code"
             },
@@ -153,9 +268,9 @@
             }
         }
     },
-    "SettingsInvalidUrl"   : {
-        "message"    : "The url $URL$ seems to be invalid.\n\n If the url of the app is\nhttps://example.com/index.php/apps/passwords\nyou need to enter\nhttps://example.com\n\nIf the url of the app is\nhttps://example.com/nextcloud/index.php/apps/passwords\nyou need to enter\nhttps://example.com/nextcloud",
-        "description": "Generic error message for failed requests",
+    "SettingsInvalidUrl"         : {
+        "message"     : "The url $URL$ seems to be invalid.\n\n If the url of the app is\nhttps://example.com/index.php/apps/passwords\nyou need to enter\nhttps://example.com\n\nIf the url of the app is\nhttps://example.com/nextcloud/index.php/apps/passwords\nyou need to enter\nhttps://example.com/nextcloud",
+        "description" : "Generic error message for failed requests",
         "placeholders": {
             "url": {
                 "content": "$1",

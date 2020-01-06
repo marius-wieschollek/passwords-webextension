@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name"            : "__MSG_extensionName__",
-    "version"         : "2.0.0-BUILD",
+    "version"         : "2.0.0.12345",
     "description"     : "__MSG_extensionDescription__",
     "author"          : "Marius Wieschollek",
     "default_locale"  : "en",
@@ -15,7 +15,7 @@
     "browser_action"  : {
         "default_icon" : "img/passwords-16.png",
         "default_title": "__MSG_browserActionTitle__",
-        "default_popup": "html/manager.html",
+        "default_popup": "html/popup.html",
         "browser_style": true,
         "theme_icons"  : [
             {
@@ -52,10 +52,13 @@
     },
     "background"      : {
         "scripts": [
-            "js/chrome-polyfill.js",
             "js/background.js"
         ]
     },
+    "options_ui": {
+        "page": "html/options.html"
+    },
+    "content_security_policy": "script-src 'self' 'wasm-eval'; object-src 'self'",
     "content_scripts" : [
         {
             "matches": [
@@ -63,7 +66,6 @@
                 "https://*/*"
             ],
             "js"     : [
-                "js/chrome-polyfill.js",
                 "js/client.js"
             ]
         }
@@ -72,6 +74,7 @@
         "*://*/*",
         "tabs",
         "storage",
+        "activeTab",
         "contextMenus",
         "notifications"
     ]

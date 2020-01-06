@@ -1,0 +1,16 @@
+.panel-section-tabs-button.browser-style {
+    height: 100%;
+    cursor: pointer;
+}
+
+.foldout-container .panel-section-tabs-button.browser-style  {
+    text-align: left;
+}
+
+body {
+    width: calc(100vw - 1px);
+}
+
+body #options {
+    min-height: 400px;
+}

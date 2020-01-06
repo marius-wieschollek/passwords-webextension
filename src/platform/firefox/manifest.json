@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name"            : "__MSG_extensionName__",
-    "version"         : "2.0.0-BUILD",
+    "version"         : "2.0.0.BUILD",
     "description"     : "__MSG_extensionDescription__",
     "author"          : "Marius Wieschollek",
     "default_locale"  : "en",
@@ -15,7 +15,7 @@
     "browser_action"  : {
         "default_icon" : "img/passwords.svg",
         "default_title": "__MSG_browserActionTitle__",
-        "default_popup": "html/manager.html",
+        "default_popup": "html/popup.html",
         "browser_style": true,
         "theme_icons"  : [
             {
@@ -50,9 +50,22 @@
             }
         ]
     },
+    "omnibox"    : {
+        "keyword": "pwd"
+    },
+    "options_ui": {
+        "page": "html/options.html",
+        "browser_style": true
+    },
     "applications"    : {
         "gecko": {
             "id": "ncpasswords@mdns.eu"
+        }
+    },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "ncpasswords@mdns.eu",
+            "strict_min_version": "52.0"
         }
     },
     "background"      : {
