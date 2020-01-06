@@ -1,0 +1,17 @@
+{
+    "id": {
+        "type": "string"
+    },
+    "label": {
+        "type": "string"
+    },
+    "rootFolder": {
+        "type": "string"
+    },
+    "inboxFolder": {
+        "type": "string"
+    },
+    "inboxTag": {
+        "type": "string"
+    }
+}
