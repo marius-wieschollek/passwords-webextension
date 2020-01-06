@@ -1,4 +1,5 @@
 let webpack              = require('webpack'),
+    config               = require('./package.json'),
     CopyWebpackPlugin    = require('copy-webpack-plugin'),
     {CleanWebpackPlugin} = require('clean-webpack-plugin'),
     VueLoaderPlugin      = require('vue-loader/lib/plugin'),
@@ -16,13 +17,16 @@ module.exports = env => {
             {
                 'process.env': {
                     NODE_ENV    : production ? '"production"':'"development"',
+                    APP_VERSION : `"${config.version}"`,
+                    APP_NAME    : '"extension"',
+                    APP_PLATFORM: `"${platform}"`,
                     BUILD_TARGET: `"${platform}"`
                 }
             }
         ),
         new VueLoaderPlugin(),
         new CopyWebpackPlugin(['src/platform/generic', 'src/platform/' + platform]),
-        new MiniCssExtractPlugin({filename: 'css/passwords.css'})
+        new MiniCssExtractPlugin({filename: 'css/[name].css'})
     ];
 
     if(env.production) {
@@ -37,13 +41,15 @@ module.exports = env => {
         mode   : production ? 'production':'development',
         devtool: 'none',
         entry  : {
-            app       : `${__dirname}/src/js/app.js`,
             client    : `${__dirname}/src/js/client.js`,
+            popup     : `${__dirname}/src/js/popup.js`,
+            options   : `${__dirname}/src/js/options.js`,
             background: `${__dirname}/src/js/background.js`
         },
         output : {
             path    : `${__dirname}/build/`,
-            filename: "js/[name].js"
+            filename: "js/[name].js",
+            chunkFilename: 'js/[name].[hash].js'
         },
         resolve: {
             modules   : ['node_modules', 'src'],
@@ -75,7 +81,7 @@ module.exports = env => {
                     use : [
                         {loader: 'vue-style-loader'},
                         {
-                            loader : MiniCssExtractPlugin.loader
+                            loader: MiniCssExtractPlugin.loader
                         },
                         {
                             loader: 'css-loader'
@@ -89,7 +95,8 @@ module.exports = env => {
                             options: {
                                 sourceMap: true,
                                 resources: [
-                                    `${__dirname}/src/scss/includes.scss`
+                                    `${__dirname}/src/scss/includes.scss`,
+                                    `${__dirname}/src/platform/${platform}/scss/browser.scss`
                                 ]
                             }
                         }

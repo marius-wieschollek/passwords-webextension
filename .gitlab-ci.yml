@@ -16,8 +16,7 @@ Compile Firefox:
   script:
   - npm install
   - npm run build:firefox
-  - if [ "${CI_COMMIT_REF_NAME}" == "stable" ] ; then sed -i -e "s/-BUILD//g" ./build/manifest.json ; fi
-  - if [ "${CI_COMMIT_REF_NAME}" != "stable" ] ; then sed -i -e "s/-BUILD/-build${CI_PIPELINE_ID}/g" ./build/manifest.json ; fi
+  - sed -i -e "s/BUILD/${CI_PIPELINE_ID}/g" ./build/manifest.json
   - mv build dist/firefox-extension
   artifacts:
     paths:
@@ -28,8 +27,7 @@ Compile Chrome:
   script:
   - npm install
   - npm run build:chrome
-  - if [ "${CI_COMMIT_REF_NAME}" == "stable" ] ; then sed -i -e "s/-BUILD//g" ./build/manifest.json ; fi
-  - if [ "${CI_COMMIT_REF_NAME}" != "stable" ] ; then sed -i -e "s/-BUILD/-build${CI_PIPELINE_ID}/g" ./build/manifest.json ; fi
+  - sed -i -e "s/BUILD/${CI_PIPELINE_ID}/g" ./build/manifest.json
   - mv build dist/chrome-extension
   artifacts:
     paths:
