@@ -18,7 +18,7 @@
         "mini-css-extract-plugin": "^0.7.0",
         "node-sass": "^4.13.0",
         "optimize-css-assets-webpack-plugin": "^5.0.3",
-        "passwords-client": "0.0.2",
+        "passwords-client": "https://git.mdns.eu/nextcloud/passwords-client/-/archive/v1/passwords-client-v1.tar.gz",
         "sass-loader": "^7.3.1",
         "sass-resources-loader": "^2.0.1",
         "search-query-parser": "^1.5.4",
