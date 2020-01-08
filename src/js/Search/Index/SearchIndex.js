@@ -14,29 +14,6 @@ class SearchIndex {
     }
 
     /**
-     * @deprecated
-     * @param query
-     * @returns {[]}
-     */
-    search(query) {
-        let results = [];
-
-        for(let index of this._indexers) {
-            let items = index.getItems();
-
-            for(let item of items) {
-                let matcher = this._matchers[item.type];
-
-                if(matcher.matchItem(item, query)) {
-                    results.push(index.getObject(item.id));
-                }
-            }
-        }
-
-        return results;
-    }
-
-    /**
      *
      * @param {(string|string[]|null)} [indexes=[]]
      * @return {Object[]}
@@ -71,6 +48,11 @@ class SearchIndex {
         return items;
     }
 
+    /**
+     *
+     * @param id
+     * @returns {null|Password}
+     */
     getItem(id) {
         if(this._items.hasOwnProperty(id)) {
             return this._items[id];

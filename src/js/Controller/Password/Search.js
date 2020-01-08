@@ -53,6 +53,5 @@ export default class Search {
         }
 
         search.where(condition);
-        return value;
     }
 }
