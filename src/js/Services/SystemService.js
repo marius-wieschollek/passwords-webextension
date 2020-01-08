@@ -28,7 +28,7 @@ class SystemService {
      * @returns {SystemService}
      */
     setArea(value) {
-        if(['background', 'popup', 'options', 'content'].indexOf(value) !== -1) {
+        if(['background', 'popup', 'options', 'client'].indexOf(value) !== -1) {
             this._area = value;
         }
 

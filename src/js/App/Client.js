@@ -1,36 +1,27 @@
-import Vue from 'vue';
-import App from '@vue/App/Popup.vue';
-import ErrorManager from '@js/Manager/ErrorManager';
 import SystemService from '@js/Services/SystemService';
+import ErrorManager from '@js/Manager/ErrorManager';
 import MessageService from '@js/Services/MessageService';
 import ConverterManager from '@js/Manager/ConverterManager';
-import AuthorisationClient from '@js/Queue/Client/AuthorisationClient';
+import ClientControllerManager from '@js/Manager/ClientControllerManager';
 
-class Popup {
-
-    get app() {
-        return this._app;
-    }
-
-    constructor() {
-        this._app = null;
-    }
-
+class Client {
     async init() {
-        SystemService.setArea('popup');
+        console.log('client init');
+        SystemService.setArea('client');
         ErrorManager.init();
         try {
             await SystemService.waitReady();
             SystemService.connect();
             MessageService.init(true, 'background');
             ConverterManager.init();
-            let acWorker = AuthorisationClient;
+            ClientControllerManager.init();
 
-            this._app = new Vue(App);
+            console.log('client ready');
         } catch(e) {
+            console.log('client dead');
             ErrorManager.logError(e);
         }
     }
 }
 
-export default new Popup();
+export default new Client();

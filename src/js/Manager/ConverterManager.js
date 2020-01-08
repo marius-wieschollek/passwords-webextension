@@ -1,26 +1,31 @@
 import MessageService from '@js/Services/MessageService';
+import ServerConverter from '@js/Converter/ServerConverter';
+import PasswordConverter from '@js/Converter/PasswordConverter';
+import ErrorManager from '@js/Manager/ErrorManager';
 
 class ConverterManager {
     init() {
         MessageService.convert(
             'password.items',
             async (message) => {
-                let module = await import('@js/Converter/PasswordConverter');
-                await this._executeConverter(module, message);
+                await this._executeConverter(PasswordConverter, message);
             }
         );
         MessageService.convert(
             ['server.items', 'server.item'],
             async (message) => {
-                let module = await import('@js/Converter/ServerConverter');
-                await this._executeConverter(module, message);
+                await this._executeConverter(ServerConverter, message);
             }
         );
     }
 
     async _executeConverter(module, message) {
-        let controller = new module.default();
-        await controller.convert(message);
+        try {
+            let controller = new module();
+            await controller.convert(message);
+        } catch(e) {
+            ErrorManager.logError(e);
+        }
     }
 }
 

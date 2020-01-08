@@ -21,9 +21,7 @@ class Options {
         try {
             await SystemService.waitReady();
             SystemService.connect();
-            MessageService
-                .setDefaultReceiver('background')
-                .enable();
+            MessageService.init(true, 'background');
             ConverterManager.init();
 
             this._app = new Vue(App);

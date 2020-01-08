@@ -4,6 +4,11 @@ import SearchQuery from '@js/Search/Query/SearchQuery';
 import Url from 'url-parse';
 
 class RecommendationManager {
+
+    constructor() {
+        this._enabled = false;
+    }
+
     init() {
         this._api = SystemService.getBrowserApi();
         this._currentUrl = null;
@@ -20,6 +25,8 @@ class RecommendationManager {
         this._api.tabs.onUpdated.addListener(this._tabEvent);
         this._api.tabs.onReplaced.addListener(this._tabEvent);
         this._api.tabs.onHighlighted.addListener(this._tabEvent);
+        this._enabled = true;
+
     }
 
     /**
@@ -27,13 +34,15 @@ class RecommendationManager {
      * @returns {Password[]}
      */
     async getRecommendations() {
+        if(!this._enabled) return [];
+
         await this._updateRecommendations();
         return this._recommendations;
     }
 
     async _updateRecommendations() {
         let start = new Date().getTime();
-        let tabs = await this._api.tabs.query({active: true});
+        let tabs = await this._api.tabs.query({currentWindow: true, active: true});
         if(tabs.length !== 1) return;
 
         let tab = tabs.pop();

@@ -1,6 +1,6 @@
 <template>
     <li class="item password-item">
-        <div class="label">
+        <div class="label" @click="sendPassword()">
             {{password.getLabel()}}
         </div>
         <div class="options">
@@ -12,6 +12,7 @@
 <script>
     import Password from 'passwords-client/src/Model/Password';
     import Icon from '@vue/Components/Icon';
+    import MessageService from '@js/Services/MessageService';
 
     export default {
         components: {Icon},
@@ -19,6 +20,16 @@
             password: {
                 type   : Password,
                 default: null
+            }
+        },
+        methods   : {
+            sendPassword() {
+                MessageService.send(
+                    {
+                        type   : 'password.fill',
+                        payload: this.password.getId()
+                    }
+                );
             }
         }
     };
@@ -41,7 +52,7 @@
 
         .options {
             background-color : var(--element-primary-background-color);
-            color                 : var(--element-primary-hover-text-color);
+            color            : var(--element-primary-hover-text-color);
 
             .icon {
                 text-align : center;

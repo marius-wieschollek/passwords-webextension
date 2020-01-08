@@ -8,10 +8,11 @@ export default class Message {
      */
     constructor(data = {}) {
         this._id = data.hasOwnProperty('id') ? data.id:uuid();
+        this._tab = data.hasOwnProperty('tab') ? data.tab:null;
         this._type = data.hasOwnProperty('type') ? data.type:null;
         this._reply = data.hasOwnProperty('reply') ? data.reply:null;
         this._sender = data.hasOwnProperty('sender') ? data.sender:null;
-        this._channel = data.hasOwnProperty('channel') ? data.channel:null;
+        this._channel = data.hasOwnProperty('channel') ? data.channel:'runtime';
         this._payload = data.hasOwnProperty('payload') ? data.payload:null;
         this._receiver = data.hasOwnProperty('receiver') ? data.receiver:null;
     }
@@ -50,6 +51,25 @@ export default class Message {
      */
     setType(value) {
         this._type = value;
+
+        return this;
+    }
+
+    /**
+     *
+     * @returns {(number|null)}
+     */
+    getTab() {
+        return this._tab;
+    }
+
+    /**
+     *
+     * @param {(number|null)} value
+     * @returns {Message}
+     */
+    setTab(value) {
+        this._tab = value;
 
         return this;
     }
@@ -156,6 +176,7 @@ export default class Message {
     export() {
         return {
             id      : this._id,
+            tab    : this._tab,
             type    : this._type,
             reply   : this._reply,
             sender  : this._sender,

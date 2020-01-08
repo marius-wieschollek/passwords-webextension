@@ -7,6 +7,7 @@ class MessageService {
     constructor() {
         this._api = SystemService.getBrowserApi();
         this._enabled = false;
+        this._sender = null;
         this._messages = {};
         this._listeners = {};
         this._converters = {};
@@ -23,9 +24,22 @@ class MessageService {
                 .catch(ErrorManager.catch());
         };
 
+    }
+
+    init(enabled = false, defaultReceiver = null) {
+        this._sender = SystemService.getArea();
+
+        if(defaultReceiver) this._defaultReceiver = defaultReceiver;
+
         this._api.runtime.onMessage.addListener(this._messageListener);
-        this._api.runtime.onConnect.addListener(this._messageEnabler);
-        this._api.browserAction.onClicked.addListener(this._messageEnabler);
+        if(SystemService.getArea() === 'background') {
+            this._api.runtime.onConnect.addListener(this._messageEnabler);
+            this._api.browserAction.onClicked.addListener(this._messageEnabler);
+        }
+
+        if(enabled) this.enable();
+
+        return this;
     }
 
     /**
@@ -120,7 +134,7 @@ class MessageService {
      */
     async _sendMessage(id) {
         let {message, resolve, reject} = this._messages[id];
-        message.setSender(SystemService.getArea());
+        message.setSender(this._sender);
         if(this._defaultReceiver !== null && message.getReceiver() === null) {
             message.setReceiver(this._defaultReceiver);
         }
@@ -129,7 +143,13 @@ class MessageService {
             console.debug('message.send', message);
             this._messages[id].sent = true;
             let data = JSON.stringify(message),
+                response;
+
+            if(message.getChannel() === 'tabs') {
+                response = await this._api.tabs.sendMessage(message.getTab(), data);
+            } else {
                 response = await this._api.runtime.sendMessage(data);
+            }
 
             if(response) {
                 let reply = this._createMessageFromJSON(response);
@@ -203,8 +223,8 @@ class MessageService {
     _createMessageFromJSON(data) {
         let message = new Message(JSON.parse(data));
 
-        if(message.getReceiver() !== null && message.getReceiver() !== SystemService.getArea()) {
-            console.debug('message.dismissed', message.getReceiver(), SystemService.getArea());
+        if(message.getReceiver() !== null && message.getReceiver() !== this._sender) {
+            console.debug('message.dismissed', message.getReceiver(), this._sender);
             return;
         }
 
@@ -259,7 +279,7 @@ class MessageService {
         let listeners = this._listeners[message.getType()],
             reply     = new Message()
                 .setReply(message.getId())
-                .setSender(SystemService.getArea())
+                .setSender(this._sender)
                 .setReceiver(message.getSender());
 
         for(let i = 0; i < listeners.length; i++) {
