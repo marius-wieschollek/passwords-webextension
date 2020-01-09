@@ -1,9 +1,9 @@
 <template>
     <div id="manager">
-        <tabs :tabs="tabs" v-if="isAuthorized">
+        <tabs :tabs="tabs" :initial-tab="currentTab" v-if="isAuthorized">
             <related slot="related"/>
+            <search slot="search" :initial-query="search.query" :initial-passwords="search.results"/>
             <servers slot="servers"/>
-            <search slot="search"/>
         </tabs>
         <authorisation v-if="!isAuthorized"></authorisation>
     </div>
@@ -31,6 +31,19 @@
             isAuthorized: {
                 type   : Boolean,
                 default: true
+            },
+            currentTab  : {
+                type   : String,
+                default: 'related'
+            },
+            search      : {
+                type   : Object,
+                default: () => {
+                    return {
+                        query  : '',
+                        results: []
+                    };
+                }
             }
         },
 

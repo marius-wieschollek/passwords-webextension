@@ -6,7 +6,7 @@ import ErrorManager from '@js/Manager/ErrorManager';
 class ConverterManager {
     init() {
         MessageService.convert(
-            'password.items',
+            ['password.items', 'popup.data'],
             async (message) => {
                 await this._executeConverter(PasswordConverter, message);
             }

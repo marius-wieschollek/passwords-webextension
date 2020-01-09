@@ -26,12 +26,18 @@
         props: {
             tabs: {
                 type: Object
+            },
+            initialTab: {
+                type: String,
+                default: null
             }
         },
 
         data() {
+            let tab = this.initialTab === null ? Object.keys(this.tabs)[0]:this.initialTab;
+
             return {
-                tab: Object.keys(this.tabs)[0]
+                tab
             }
         },
 

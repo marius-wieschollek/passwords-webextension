@@ -22,14 +22,21 @@ class Popup {
         try {
             await SystemService.waitReady();
             SystemService.connect();
-            MessageService.init(true, 'background');
+            await MessageService.init(true, 'background');
             ConverterManager.init();
             let acWorker = AuthorisationClient;
 
-            this._app = new Vue(App);
+            this._initVue();
         } catch(e) {
             ErrorManager.logError(e);
         }
+    }
+
+    async _initVue() {
+        let reply  = await MessageService.send({type: 'popup.status'}),
+            status = reply.getPayload();
+
+        this._app = new Vue({propsData: status, ...App});
     }
 }
 

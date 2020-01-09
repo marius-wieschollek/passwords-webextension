@@ -35,6 +35,15 @@ class QueueService {
 
         return this._queues[name];
     }
+
+    /**
+     *
+     * @param {string} name
+     * @return {boolean}
+     */
+    hasQueue(name) {
+        return this._queues.hasOwnProperty(name);
+    }
 }
 
 export default new QueueService();

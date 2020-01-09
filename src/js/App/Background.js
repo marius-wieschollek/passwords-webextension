@@ -7,6 +7,7 @@ import ConverterManager from '@js/Manager/ConverterManager';
 import ControllerManager from '@js/Manager/ControllerManager';
 import RecommendationManager from '@js/Manager/RecommendationManager';
 import MessageService from '@js/Services/MessageService';
+import TabManager from '@js/Manager/TabManager';
 
 class Background {
     async init() {
@@ -15,12 +16,13 @@ class Background {
         try {
             await SystemService.waitReady();
             await UpgradeManager.run();
-            MessageService.init();
+            await MessageService.init();
             ControllerManager.init();
             ConverterManager.init();
             SearchManager.init();
-            await ServerManager.init();
+            TabManager.init();
             RecommendationManager.init();
+            await ServerManager.init();
         } catch(e) {
             ErrorManager.logError(e);
         }

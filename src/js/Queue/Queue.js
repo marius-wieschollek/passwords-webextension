@@ -13,6 +13,7 @@ export default class Queue {
     constructor(name, area = null, type = QueueItem) {
         this._name = name;
         this._items = {};
+        this._count = 0;
         this._type = type;
         this._area = area;
 
@@ -29,6 +30,14 @@ export default class Queue {
 
     /**
      *
+     * @return {boolean}
+     */
+    hasItems() {
+        return this._count !== 0;
+    }
+
+    /**
+     *
      * @param {QueueItem|{}} item
      * @returns {Promise<QueueItem>}
      */
@@ -37,6 +46,7 @@ export default class Queue {
 
         console.debug('queue.push', item);
 
+        this._count++;
         return new Promise((resolve, reject) => {
             this._items[item.getId()] = {
                 item,
@@ -119,6 +129,7 @@ export default class Queue {
                 reject(item);
             }
 
+            this._count--;
             delete this._items[data.id];
         }
     }

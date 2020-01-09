@@ -34,6 +34,13 @@ class ControllerManager {
             }
         );
         MessageService.listen(
+            'popup.status',
+            async (message, reply) => {
+                let module = await import('@js/Controller/Popup/Status');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
             'server.list',
             async (message, reply) => {
                 let module = await import('@js/Controller/Server/List');

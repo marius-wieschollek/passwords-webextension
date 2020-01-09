@@ -1,6 +1,6 @@
 <template>
     <li class="item password-item">
-        <div class="label" @click="sendPassword()">
+        <div class="label" @click="sendPassword()" :title="password.getId()">
             {{password.getLabel()}}
         </div>
         <div class="options">

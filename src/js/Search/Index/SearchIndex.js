@@ -1,7 +1,15 @@
 import PasswordIndexer from '@js/Search/Indexer/PasswordIndexer';
 import Password from 'passwords-client/src/Model/Password';
+import Server from '@js/Models/Server/Server';
+import Folder from 'passwords-client/src/Model/Folder';
+import Tag from 'passwords-client/src/Model/Tag';
+import EventQueue from '@js/Event/EventQueue';
 
 class SearchIndex {
+
+    get listen() {
+        return this._onUpdate;
+    }
 
     constructor() {
         this._indexers = {
@@ -11,6 +19,7 @@ class SearchIndex {
             password: []
         };
         this._items = {};
+        this._onUpdate = new EventQueue();
     }
 
     /**
@@ -35,9 +44,12 @@ class SearchIndex {
         return items;
     }
 
+    /**
+     *
+     * @param {string[]} ids
+     * @return {AbstractModel[]}
+     */
     getItems(ids) {
-        if(!Array.isArray(ids)) ids = [ids];
-
         let items = [];
         for(let id of ids) {
             if(this._items.hasOwnProperty(id)) {
@@ -50,8 +62,8 @@ class SearchIndex {
 
     /**
      *
-     * @param id
-     * @returns {null|Password}
+     * @param {string} id
+     * @returns {null|AbstractModel}
      */
     getItem(id) {
         if(this._items.hasOwnProperty(id)) {
@@ -63,27 +75,81 @@ class SearchIndex {
 
     /**
      *
-     * @param {Array} items
+     * @param {AbstractModel[]} items
      */
     addItems(items) {
-        if(!Array.isArray(items)) items = [items];
-
         for(let item of items) {
-            this.addItem(item);
+            this.addItem(item, false);
         }
+        this._onUpdate.emit(this._items);
     }
 
-    addItem(item) {
+    /**
+     *
+     * @param {AbstractModel} item
+     * @param {boolean} [update=true]
+     */
+    addItem(item, update = true) {
+        if(this._items.hasOwnProperty(item.getId())) return;
+
         let type = this._getItemType(item);
 
         let index = this._indexers[type].indexItem(item);
         this._indexes[type].push(index);
         this._items[item.getId()] = item;
+
+        if(update) this._onUpdate.emit(this._items);
     }
 
+    /**
+     *
+     * @param {AbstractModel[]} items
+     */
+    removeItems(items) {
+        for(let item of items) {
+            this.removeItem(item, false);
+        }
+        this._onUpdate.emit(this._items);
+    }
+
+    /**
+     *
+     * @param {AbstractModel} item
+     * @param {boolean} [update=true]
+     */
+    removeItem(item, update = true) {
+        if(!this._items.hasOwnProperty(item.getId())) return;
+        let type = this._getItemType(item);
+
+        for(let i = 0; i < this._indexes[type].length; i++) {
+            if(this._indexes[type][i].id === item.getId()) {
+                this._indexes[type].splice(i, 1);
+                break;
+            }
+        }
+
+        delete this._items[item.getId()];
+        if(update) this._onUpdate.emit(this._items);
+    }
+
+    /**
+     *
+     * @param {AbstractModel} item
+     * @return {string}
+     * @private
+     */
     _getItemType(item) {
         if(item instanceof Password) {
             return 'password';
+        }
+        if(item instanceof Folder) {
+            return 'folder';
+        }
+        if(item instanceof Tag) {
+            return 'tag';
+        }
+        if(item instanceof Server) {
+            return 'server';
         }
     }
 }

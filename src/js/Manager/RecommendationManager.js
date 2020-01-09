@@ -2,57 +2,66 @@ import SystemService from '@js/Services/SystemService';
 import ErrorManager from '@js/Manager/ErrorManager';
 import SearchQuery from '@js/Search/Query/SearchQuery';
 import Url from 'url-parse';
+import TabManager from '@js/Manager/TabManager';
+import SearchIndex from '@js/Search/Index/SearchIndex';
 
 class RecommendationManager {
 
     constructor() {
-        this._enabled = false;
+        this._api = null;
+        this._recommendations = [];
+
+        this._tabEvent = (tab) => {
+            if(!tab.hasOwnProperty('recommended') || tab.lastUrl !== tab.url) {
+                this._updateRecommended(tab);
+            }
+        };
+
+        this._searchEvent = () => {
+            this._clearRecommended(TabManager.getAll());
+            let tab = TabManager.get();
+            if(tab) {
+                this._updateRecommended(tab);
+            }
+        };
     }
 
     init() {
         this._api = SystemService.getBrowserApi();
-        this._currentUrl = null;
-        this._recommendations = [];
-
-        this._tabEvent = () => {
-            this._updateRecommendations()
-                .catch(ErrorManager.catch());
-        };
-
-
-        this._api.tabs.onActivated.addListener(this._tabEvent);
-        this._api.tabs.onCreated.addListener(this._tabEvent);
-        this._api.tabs.onUpdated.addListener(this._tabEvent);
-        this._api.tabs.onReplaced.addListener(this._tabEvent);
-        this._api.tabs.onHighlighted.addListener(this._tabEvent);
-        this._enabled = true;
-
+        TabManager.tabChanged.on(this._tabEvent);
+        SearchIndex.listen.on(this._searchEvent);
     }
 
     /**
      *
      * @returns {Password[]}
      */
-    async getRecommendations() {
-        if(!this._enabled) return [];
+    getRecommendations() {
+        if(!TabManager.has('recommended')) return [];
 
-        await this._updateRecommendations();
-        return this._recommendations;
+        return TabManager.get('recommended');
     }
 
-    async _updateRecommendations() {
+    /**
+     *
+     * @return {boolean}
+     */
+    hasRecommendations() {
+        return TabManager.has('recommended');
+    }
+
+    /**
+     *
+     * @param {Object} tab
+     * @private
+     */
+    _updateRecommended(tab) {
         let start = new Date().getTime();
-        let tabs = await this._api.tabs.query({currentWindow: true, active: true});
-        if(tabs.length !== 1) return;
-
-        let tab = tabs.pop();
-        if(this._currentUrl === tab.url) return;
-
-        this._currentUrl = tab.url;
         let url = Url(tab.url);
 
+        delete tab.recommended;
         if(url.host.length === 0) {
-            this._recommendations = [];
+            this._updateBadge(tab);
             return;
         }
 
@@ -69,16 +78,41 @@ class RecommendationManager {
             .sortBy('score')
             .sortBy('label');
 
-        this._recommendations = query.execute();
+        let recommendations = query.execute();
+        if(recommendations.length !== 0) {
+            tab.recommended = recommendations;
+        }
+        this._updateBadge(tab);
 
-        this._api.browserAction.setBadgeText({text: this._recommendations.length.toString(), tabId: tab.id});
+        let time = new Date().getTime() - start;
+        console.log(`Found ${tab.recommended ? tab.recommended.length:0} recommendations for ${url.host} in ${time}ms`, url);
+    }
+
+    /**
+     *
+     * @param {Object} tab
+     * @private
+     */
+    _updateBadge(tab) {
+        if(tab.hasOwnProperty('recommended')) {
+            this._api.browserAction.setBadgeText({text: tab.recommended.length.toString(), tabId: tab.id});
+        } else {
+            this._api.browserAction.setBadgeText({text: '', tabId: tab.id});
+        }
+
         if(SystemService.getBrowserPlatform() === 'firefox') {
             this._api.browserAction.setBadgeTextColor({color: '#fff'});
         }
-        this._api.browserAction.setBadgeBackgroundColor({color: '#0082c9'});
 
-        let time = new Date().getTime() - start;
-        console.log(`Found ${this._recommendations.length} recommendations for ${url.host} in ${time}ms`, url);
+        this._api.browserAction.setBadgeBackgroundColor({color: '#0082c9'});
+    }
+
+    _clearRecommended(tabs) {
+        for(let tab of tabs) {
+            if(tab && tab.hasOwnProperty('recommended')) {
+                delete tab.recommended;
+            }
+        }
     }
 }
 
