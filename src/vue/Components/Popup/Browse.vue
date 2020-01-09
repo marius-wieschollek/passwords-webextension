@@ -1,6 +1,6 @@
 <template>
     <foldout :tabs="serverNames">
-        <icon v-for="server in servers" :key="server.getId()" :slot="`${server.getId()}-tab`" icon="sync"/>
+        <icon v-for="server in servers" :key="server.getId()" :slot="`${server.getId()}-tab`" icon="sync" font="solid"/>
         <div v-for="server in servers" :key="server.getId()" :slot="server.getId()" class="account-settings">
             Label: {{server.getLabel()}}<br>
             Url: {{server.getBaseUrl()}}<br>

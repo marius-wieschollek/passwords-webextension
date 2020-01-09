@@ -3,7 +3,7 @@
         <tabs :tabs="tabs" :initial-tab="currentTab" v-if="isAuthorized">
             <related slot="related"/>
             <search slot="search" :initial-query="search.query" :initial-passwords="search.results"/>
-            <servers slot="servers"/>
+            <browse slot="browse"/>
         </tabs>
         <authorisation v-if="!isAuthorized"></authorisation>
     </div>
@@ -12,7 +12,7 @@
 <script>
     import Tabs from '@vue/Components/Tabs';
     import SystemService from '@js/Services/SystemService';
-    import Servers from '@vue/Components/Popup/Servers';
+    import Browse from '@vue/Components/Popup/Browse';
     import Search from '@vue/Components/Popup/Search';
     import Related from '@vue/Components/Popup/Related';
     import Authorisation from '@vue/Components/Popup/Authorisation';
@@ -23,7 +23,7 @@
             Authorisation,
             Related,
             Search,
-            Servers,
+            Browse,
             Tabs
         },
 
@@ -58,17 +58,13 @@
                         icon : 'search',
                         label: 'TabSearch'
                     },
-                    browse  : {
-                        icon : 'folder',
+                    browse : {
+                        icon : 'server',
                         label: 'TabBrowse'
                     },
                     collect : {
                         icon : 'history',
                         label: 'TabCollected'
-                    },
-                    servers : {
-                        icon : 'server',
-                        label: 'TabServers'
                     },
                     settings: {
                         icon  : 'tools',

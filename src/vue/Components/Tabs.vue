@@ -11,24 +11,28 @@
             </div>
         </div>
         <div class="tab-content">
-            <slot :name="tab"/>
+            <div v-for="(meta, name) in tabs" :key="name">
+                <keep-alive>
+                    <slot :name="name" v-if="name===tab"/>
+                </keep-alive>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-    import Icon from "@vue/Components/Icon";
-    import Translate from "@vue/Components/Translate";
+    import Icon from '@vue/Components/Icon';
+    import Translate from '@vue/Components/Translate';
 
     export default {
         components: {Icon, Translate},
 
         props: {
-            tabs: {
+            tabs      : {
                 type: Object
             },
             initialTab: {
-                type: String,
+                type   : String,
                 default: null
             }
         },
@@ -38,15 +42,15 @@
 
             return {
                 tab
-            }
+            };
         },
 
         methods: {
             isActive(tab) {
-                return tab === this.tab
+                return tab === this.tab;
             },
             setActive(tab) {
-                if(typeof this.tabs[tab] !== "string" && this.tabs[tab].action) {
+                if(typeof this.tabs[tab] !== 'string' && this.tabs[tab].action) {
                     this.tabs[tab].action();
                     return;
                 }
@@ -62,11 +66,11 @@
                     if(!this.tabs.hasOwnProperty(key)) continue;
                     let tab = this.tabs[key];
 
-                    if(typeof tab === "string") {
+                    if(typeof tab === 'string') {
                         tabs[key] = {
                             icon : null,
                             label: tab
-                        }
+                        };
                     } else {
                         tabs[key] = {
                             icon : tab.icon ? tab.icon:null,
@@ -82,11 +86,11 @@
         watch: {
             tabs(value) {
                 if(!value.hasOwnProperty(this.tab)) {
-                    this.tab = Object.keys(value)[0]
+                    this.tab = Object.keys(value)[0];
                 }
             }
         }
-    }
+    };
 </script>
 
 <style lang="scss">
@@ -104,7 +108,7 @@
             background-color : var(--content-secondary-background-color);
             color            : var(--content-secondary-text-color);
             box-shadow       : 0 -1px 0 var(--content-secondary-border-color) inset;
-            white-space: nowrap;
+            white-space      : nowrap;
 
             &:hover {
                 background-color : var(--content-secondary-hover-background-color);
