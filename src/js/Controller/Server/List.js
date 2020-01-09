@@ -9,7 +9,7 @@ export default class List extends AbstractController {
      * @param {Message} reply
      */
     async execute(message, reply) {
-        let servers = await ServerRepository.list();
+        let servers = await ServerRepository.findAll();
         let results = [];
         for(let server of servers) {
             results.push(server);

@@ -107,6 +107,7 @@
                 min-width   : 50vw;
             }
 
+            .option,
             .icon {
                 transition: color .15s ease-in-out, background-color .15s ease-in-out;
 

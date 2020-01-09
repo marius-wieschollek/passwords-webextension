@@ -1,6 +1,12 @@
 <template>
     <foldout :tabs="serverNames">
-        <icon v-for="server in servers" :key="server.getId()" :slot="`${server.getId()}-tab`" icon="sync" font="solid"/>
+        <div v-for="server in servers"
+             :key="server.getId()"
+             :slot="`${server.getId()}-tab`"
+             @click="reloadServer(server)"
+             class="option">
+            <icon icon="sync" font="solid" :spin="reloading[server.getId()]"/>
+        </div>
         <div v-for="server in servers" :key="server.getId()" :slot="server.getId()" class="account-settings">
             Label: {{server.getLabel()}}<br>
             Url: {{server.getBaseUrl()}}<br>
@@ -18,7 +24,8 @@
         components: {Icon, Foldout},
         data() {
             return {
-                servers: []
+                servers  : [],
+                reloading: {}
             };
         },
 
@@ -32,6 +39,7 @@
 
                 for(let server of this.servers) {
                     names[server.getId()] = server.getLabel();
+                    this.reloading[server.getId()] = false;
                 }
 
                 return names;
@@ -40,16 +48,22 @@
 
         methods: {
             async loadServers() {
-                MessageService
-                    .send({type: 'server.list'})
-                    .then((r) => {
-                        this.servers = r.getPayload();
-                    });
+                let message = await MessageService.send({type: 'server.list'});
+                this.servers = message.getPayload();
+            },
+            async reloadServer(server) {
+                this.reloading[server.getId()] = true;
+                this.$forceUpdate();
+                await MessageService.send({type: 'server.reload', payload: server.getId()});
+                this.reloading[server.getId()] = false;
+                this.$forceUpdate();
             }
         }
     };
 </script>
 
-<style scoped>
-
+<style lang="scss">
+    .option .icon {
+        display : block;
+    }
 </style>

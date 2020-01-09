@@ -82,6 +82,15 @@ class ServerManager {
     /**
      *
      * @param {Server} server
+     * @returns {Promise<void>}
+     */
+    async reloadServer(server) {
+        await this._reloadPasswords(server);
+    }
+
+    /**
+     *
+     * @param {Server} server
      */
     _keepalive(server) {
         server
@@ -94,12 +103,16 @@ class ServerManager {
     /**
      *
      * @param {Server} server
+     * @return {Promise<void>}
      * @private
      */
-    _reloadPasswords(server) {
-        this._removeItemsFromSearch(server);
-        this._addItemsToSearch(server)
-            .catch(ErrorManager.catch());
+    async _reloadPasswords(server) {
+        try {
+            this._removeItemsFromSearch(server);
+            await this._addItemsToSearch(server);
+        } catch(e) {
+            ErrorManager.logError(e);
+        }
     }
 
     /**

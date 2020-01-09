@@ -48,6 +48,13 @@ class ControllerManager {
             }
         );
         MessageService.listen(
+            'server.reload',
+            async (message, reply) => {
+                let module = await import('@js/Controller/Server/Reload');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
             'server.create',
             async (message, reply) => {
                 let module = await import('@js/Controller/Server/Create');

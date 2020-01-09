@@ -12,12 +12,20 @@
             font: {
                 type: String,
                 default: 'regular'
+            },
+            spin: {
+                type: Boolean,
+                default: false
             }
         },
 
         computed: {
             iconName() {
                 let style = this.font === 'solid' ? 'fas':'far';
+
+                if(this.spin) {
+                    style += ' fa-spin'
+                }
 
                 return `icon ${style} fa-${this.icon}`
             }
@@ -36,4 +44,5 @@
     @import "~@fortawesome/fontawesome-free/scss/regular";
     @import "~@fortawesome/fontawesome-free/scss/solid";
     @import "~@fortawesome/fontawesome-free/scss/icons";
+    @import "~@fortawesome/fontawesome-free/scss/animated";
 </style>
