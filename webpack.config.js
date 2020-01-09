@@ -29,6 +29,7 @@ module.exports = env => {
         new MiniCssExtractPlugin({filename: 'css/[name].css'}),
         new CleanWebpackPlugin(
             {
+                cleanStaleWebpackAssets: false,
                 cleanOnceBeforeBuildPatterns: ['**/*'],
                 cleanAfterEveryBuildPatterns: ['js/Platform', 'scss']
             }
@@ -94,7 +95,11 @@ module.exports = env => {
                         },
                         {
                             loader : 'sass-loader',
-                            options: {outputStyle: 'compressed'}
+                            options: {
+                                sassOptions: {
+                                    outputStyle: 'compressed'
+                                }
+                            }
                         },
                         {
                             loader : 'sass-resources-loader',
