@@ -1,5 +1,5 @@
 <template>
-    <span :class="iconName" @click="fireEvent($event)">
+    <span :class="iconName" @click="fireEvent($event)" @dblclick="fireEvent($event)">
     </span>
 </template>
 

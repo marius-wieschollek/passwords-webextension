@@ -4,7 +4,7 @@
             {{password.getLabel()}}
         </div>
         <div class="options">
-            <icon icon="clipboard"/>
+            <icon icon="clipboard" @click="copy('password')" @dblclick="copy('username')"/>
         </div>
     </li>
 </template>
@@ -30,6 +30,10 @@
                         payload: this.password.getId()
                     }
                 );
+            },
+            copy(property, $event) {
+                let data = this.password._getProperty(property);
+                navigator.clipboard.writeText(data);
             }
         }
     };
