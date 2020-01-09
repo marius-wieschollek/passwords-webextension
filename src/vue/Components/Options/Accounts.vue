@@ -64,6 +64,7 @@
     import Foldout from '@vue/Components/Foldout';
     import Icon from '@vue/Components/Icon';
     import MessageService from '@js/Services/MessageService';
+    import SystemService from '@js/Services/SystemService';
 
     export default {
         components: {Foldout, Translate, Icon},
@@ -125,7 +126,7 @@
              * @param {Server} server
              */
             async deleteServer(server) {
-                if(confirm(`Do you really want to delete ${server.getLabel()}?`)) {
+                if(SystemService.getBrowserPlatform() === 'chrome' ||confirm(`Do you really want to delete ${server.getLabel()}?`)) {
                     let message = await MessageService.send({type: 'server.delete', payload: {server: server.getId()}});
                     if(message.getType() === 'delete.success') {
                         this.loadData();

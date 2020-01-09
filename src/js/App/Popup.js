@@ -11,9 +11,13 @@ class Popup {
     get app() {
         return this._app;
     }
+    get AuthorisationClient() {
+        return this._authClient;
+    }
 
     constructor() {
         this._app = null;
+        this._authClient = null;
     }
 
     async init() {
@@ -24,9 +28,9 @@ class Popup {
             SystemService.connect();
             await MessageService.init(true, 'background');
             ConverterManager.init();
-            let acWorker = AuthorisationClient;
+            this._authClient = new AuthorisationClient();
 
-            this._initVue();
+            await this._initVue();
         } catch(e) {
             ErrorManager.logError(e);
         }

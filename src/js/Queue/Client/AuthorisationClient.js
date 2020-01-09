@@ -2,7 +2,7 @@ import Popup from '@js/App/Popup';
 import AuthorisationItem from '@js/Models/Queue/AuthorisationItem';
 import FeedbackClient from '@js/Queue/Client/FeedbackClient';
 
-class AuthorisationClient extends FeedbackClient {
+export default class AuthorisationClient extends FeedbackClient {
 
     constructor() {
         let worker = (i) => { return this._worker(i); };
@@ -60,7 +60,7 @@ class AuthorisationClient extends FeedbackClient {
                 reject
             };
 
-            Popup.app.isAuthorized = false;
+            if(Popup.app) Popup.app.isAuthorized = false;
         });
     }
 
@@ -86,7 +86,7 @@ class AuthorisationClient extends FeedbackClient {
                 resolve();
 
                 if(Object.keys(this._items).length === 0) {
-                    Popup.app.isAuthorized = true;
+                    if(Popup.app) Popup.app.isAuthorized = true;
                 }
 
                 return;
@@ -99,9 +99,7 @@ class AuthorisationClient extends FeedbackClient {
                 reject
             };
 
-            Popup.app.isAuthorized = false;
+            if(Popup.app) Popup.app.isAuthorized = false;
         });
     }
 }
-
-export default new AuthorisationClient();
