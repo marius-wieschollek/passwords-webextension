@@ -24,6 +24,7 @@
         "sass-resources-loader": "^2.0.1",
         "search-query-parser": "^1.5.4",
         "url-loader": "^2.3.0",
+        "url-parse": "^1.4.7",
         "uuidv4": "^4.0.0",
         "vue": "^2.6.11",
         "vue-loader": "^15.8.3",
@@ -45,8 +46,5 @@
     ],
     "author": "Marius Wieschollek",
     "license": "GPL",
-    "dependencies": {
-        "@wext/shipit": "^0.2.1",
-        "url-parse": "^1.4.7"
-    }
+    "dependencies": {}
 }

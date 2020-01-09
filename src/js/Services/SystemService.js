@@ -1,5 +1,5 @@
 import BooleanState from 'passwords-client/src/State/BooleanState';
-import polyfill from 'webextension-polyfill';
+import BrowserApi from '@js/Platform/BrowserApi';
 
 class SystemService {
 
@@ -61,11 +61,7 @@ class SystemService {
      * @private
      */
     async _loadBrowserApi() {
-        if(process.env.APP_PLATFORM === 'chrome') {
-            this._api = polyfill;
-        } else {
-            this._api = browser;
-        }
+        this._api = BrowserApi.getBrowserApi();
         this._ready.set(true);
     }
 }

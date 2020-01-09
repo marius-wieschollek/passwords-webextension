@@ -26,17 +26,22 @@ module.exports = env => {
         ),
         new VueLoaderPlugin(),
         new CopyWebpackPlugin(['src/platform/generic', 'src/platform/' + platform]),
-        new MiniCssExtractPlugin({filename: 'css/[name].css'})
+        new MiniCssExtractPlugin({filename: 'css/[name].css'}),
+        new CleanWebpackPlugin(
+            {
+                cleanOnceBeforeBuildPatterns: ['**/*'],
+                cleanAfterEveryBuildPatterns: ['js/Platform', 'scss']
+            }
+        )
     ];
 
     if(env.production) {
         plugins.push(
             new OptimizeCSSPlugin({cssProcessorOptions: {safe: true}})
         );
-        plugins.push(new CleanWebpackPlugin());
     }
 
-
+    let platformDir = platform === 'firefox' ? `${__dirname}/src/js/Platform`:`${__dirname}/src/platform/${platform}/js/Platform`;
     return {
         mode   : production ? 'production':'development',
         devtool: 'none',
@@ -47,17 +52,18 @@ module.exports = env => {
             background: `${__dirname}/src/js/background.js`
         },
         output : {
-            path    : `${__dirname}/build/`,
-            filename: "js/[name].js",
+            path         : `${__dirname}/build/`,
+            filename     : 'js/[name].js',
             chunkFilename: 'js/[name].[hash].js'
         },
         resolve: {
             modules   : ['node_modules', 'src'],
             extensions: ['.js', '.vue', '.json'],
             alias     : {
-                'vue$': 'vue/dist/vue.esm.js',
-                '@vue': `${__dirname}/src/vue`,
-                '@js' : `${__dirname}/src/js`
+                'vue$'        : 'vue/dist/vue.esm.js',
+                '@vue'        : `${__dirname}/src/vue`,
+                '@js/Platform': platformDir,
+                '@js'         : `${__dirname}/src/js`
             }
         },
         module : {
@@ -70,7 +76,7 @@ module.exports = env => {
                     test   : /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
                     loader : 'url-loader',
                     options: {
-                        limit          : 2048,
+                        limit          : 256,
                         outputPath     : 'css/',
                         publicPath     : '/css/',
                         useRelativePath: false
