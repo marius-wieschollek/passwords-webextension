@@ -9,10 +9,10 @@ export default class PasswordConverter {
      */
     convert(message) {
         if(message.getType() === 'password.items') {
-            this._processPasswordItems(message)
+            this._processPasswordItems(message);
         }
         if(message.getType() === 'popup.data') {
-            this._processPopopData(message)
+            this._processPopopData(message);
         }
 
         return message;
@@ -23,7 +23,7 @@ export default class PasswordConverter {
      * @param {Message} message
      */
     _processPopopData(message) {
-        let payload   = message.getPayload();
+        let payload = message.getPayload();
 
         if(payload.hasOwnProperty('suggested')) {
             payload.suggested = this._convertPasswords(payload.suggested);

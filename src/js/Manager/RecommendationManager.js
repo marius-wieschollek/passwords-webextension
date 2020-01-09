@@ -1,5 +1,4 @@
 import SystemService from '@js/Services/SystemService';
-import ErrorManager from '@js/Manager/ErrorManager';
 import SearchQuery from '@js/Search/Query/SearchQuery';
 import Url from 'url-parse';
 import TabManager from '@js/Manager/TabManager';
@@ -107,6 +106,11 @@ class RecommendationManager {
         this._api.browserAction.setBadgeBackgroundColor({color: '#0082c9'});
     }
 
+    /**
+     *
+     * @param {Object[]} tabs
+     * @private
+     */
     _clearRecommended(tabs) {
         for(let tab of tabs) {
             if(tab && tab.hasOwnProperty('recommended')) {
