@@ -12,6 +12,7 @@ class MessageService {
         this._listeners = {};
         this._converters = {};
         this._defaultReceiver = null;
+        this._connector = null;
 
         this._messageListener = (m, s) => {
             return this._receiveMessage(m, s);
@@ -26,7 +27,7 @@ class MessageService {
 
     }
 
-    init(enabled = false, defaultReceiver = null) {
+    async init(enabled = false, defaultReceiver = null) {
         this._sender = SystemService.getArea();
 
         if(defaultReceiver) this._defaultReceiver = defaultReceiver;
@@ -35,6 +36,12 @@ class MessageService {
         if(SystemService.getArea() === 'background') {
             this._api.runtime.onConnect.addListener(this._messageEnabler);
             this._api.browserAction.onClicked.addListener(this._messageEnabler);
+
+            window.inboxMessage = (m) => {
+                return this._receiveMessage(m);
+            };
+        } else if(SystemService.getArea() !== 'client') {
+            this._connector = await this._api.runtime.getBackgroundPage();
         }
 
         if(enabled) this.enable();
@@ -148,7 +155,11 @@ class MessageService {
             if(message.getChannel() === 'tabs') {
                 response = await this._api.tabs.sendMessage(message.getTab(), data);
             } else {
-                response = await this._api.runtime.sendMessage(data);
+                if(this._connector !== null && message.getReceiver() === 'background') {
+                    response = await this._connector.inboxMessage(data);
+                } else {
+                    response = await this._api.runtime.sendMessage(data);
+                }
             }
 
             if(response) {
@@ -190,7 +201,7 @@ class MessageService {
      * @returns {Promise<Message>}
      * @private
      */
-    _receiveMessage(data, sender) {
+    _receiveMessage(data, sender = null) {
         let message = this._createMessageFromJSON(data);
         if(!message) return;
 
