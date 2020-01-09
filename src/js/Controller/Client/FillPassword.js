@@ -1,6 +1,7 @@
 import FormService from '@js/Services/FormService';
+import AbstractController from '@js/Controller/AbstractController';
 
-export default class FillPassword {
+export default class FillPassword extends AbstractController {
 
     /**
      *

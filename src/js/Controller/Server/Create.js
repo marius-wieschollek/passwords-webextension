@@ -1,8 +1,11 @@
 import LocalisationService from '@js/Services/LocalisationService';
 import Server from '@js/Models/Server/Server';
 import ServerRepository from '@js/Repositories/ServerRepository';
+import ServerManager from '@js/Manager/ServerManager';
+import ErrorManager from '@js/Manager/ErrorManager';
+import AbstractController from '@js/Controller/AbstractController';
 
-export default class List {
+export default class List extends AbstractController {
 
     /**
      *
@@ -25,6 +28,8 @@ export default class List {
            await this._checkConnection(server, response) &&
            await this._createServer(server, response)
         ) {
+            ServerManager.addServer(server)
+                .catch(ErrorManager.catch());
             reply.setType('server.item').setPayload(server);
         } else {
             reply.setType('validation.error').setPayload(response);

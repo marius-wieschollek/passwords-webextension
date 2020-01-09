@@ -1,6 +1,7 @@
 import ServerRepository from '@js/Repositories/ServerRepository';
+import AbstractController from '@js/Controller/AbstractController';
 
-export default class Update {
+export default class Update extends AbstractController {
 
     /**
      *
@@ -11,6 +12,6 @@ export default class Update {
 
 
         reply.setType('validation.error')
-            .setPayload({message: 'YOU SUCK'});
+            .setPayload({message: 'Not implemented'});
     }
 }

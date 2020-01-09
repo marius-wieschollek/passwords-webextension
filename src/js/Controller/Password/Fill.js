@@ -1,8 +1,9 @@
 import SearchIndex from '@js/Search/Index/SearchIndex';
 import MessageService from '@js/Services/MessageService';
 import SystemService from '@js/Services/SystemService';
+import AbstractController from '@js/Controller/AbstractController';
 
-export default class Fill {
+export default class Fill extends AbstractController {
 
     /**
      *

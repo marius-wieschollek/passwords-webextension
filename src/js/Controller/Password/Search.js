@@ -1,7 +1,9 @@
 import QueryParser from 'search-query-parser';
 import SearchQuery from '@js/Search/Query/SearchQuery';
+import AbstractController from '@js/Controller/AbstractController';
+import TabManager from '@js/Manager/TabManager';
 
-export default class Search {
+export default class Search extends AbstractController {
 
     /**
      *
@@ -27,8 +29,18 @@ export default class Search {
 
         reply.setType('password.items')
             .setPayload(search.execute());
+
+        TabManager.set('search.query', input);
+        TabManager.set('search.results', search)
     }
 
+    /**
+     *
+     * @param {Object} query
+     * @param {string} key
+     * @param {SearchQuery} search
+     * @private
+     */
     _addFieldCondition(query, key, search) {
         let value = query[key];
 
@@ -43,6 +55,12 @@ export default class Search {
         }
     }
 
+    /**
+     *
+     * @param {Object} query
+     * @param {SearchQuery} search
+     * @private
+     */
     _addTextCondition(search, query) {
         let condition = search.and();
 

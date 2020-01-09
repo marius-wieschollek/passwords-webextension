@@ -1,6 +1,7 @@
 import ServerRepository from '@js/Repositories/ServerRepository';
+import AbstractController from '@js/Controller/AbstractController';
 
-export default class List {
+export default class List extends AbstractController {
 
     /**
      *

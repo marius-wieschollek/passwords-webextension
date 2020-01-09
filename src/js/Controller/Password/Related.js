@@ -1,6 +1,7 @@
 import RecommendationManager from '@js/Manager/RecommendationManager';
+import AbstractController from '@js/Controller/AbstractController';
 
-export default class Related {
+export default class Related extends AbstractController {
 
     /**
      *
@@ -9,6 +10,6 @@ export default class Related {
      */
     async execute(message, reply) {
         reply.setType('password.items')
-            .setPayload(await RecommendationManager.getRecommendations());
+            .setPayload(RecommendationManager.getRecommendations());
     }
 }
