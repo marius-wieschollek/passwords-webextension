@@ -11,6 +11,9 @@
             Label: {{server.getLabel()}}<br>
             Url: {{server.getBaseUrl()}}<br>
             User: {{server.getUser()}}<br>
+            <div v-for="(value, key) in getServerInfo(server)" :key="key">
+                {{key}}: {{value}}
+            </div>
         </div>
     </foldout>
 </template>
@@ -25,7 +28,8 @@
         data() {
             return {
                 servers  : [],
-                reloading: {}
+                reloading: {},
+                info     : {}
             };
         },
 
@@ -47,14 +51,29 @@
         },
 
         methods: {
+            getServerInfo(server) {
+                if(this.info.hasOwnProperty(server.getId())) {
+                    return this.info[server.getId()];
+                }
+
+                MessageService
+                    .send({type: 'server.info', payload: server.getId()})
+                    .then((message) => {
+                        this.info[server.getId()] = message.getPayload();
+                        this.$forceUpdate();
+                    });
+            },
+
             async loadServers() {
                 let message = await MessageService.send({type: 'server.list'});
                 this.servers = message.getPayload();
             },
+
             async reloadServer(server) {
                 this.reloading[server.getId()] = true;
                 this.$forceUpdate();
                 await MessageService.send({type: 'server.reload', payload: server.getId()});
+                delete this.info[server.getId()];
                 this.reloading[server.getId()] = false;
                 this.$forceUpdate();
             }

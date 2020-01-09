@@ -16,7 +16,9 @@ class SearchIndex {
             password: new PasswordIndexer()
         };
         this._indexes = {
-            password: []
+            password: [],
+            folder: [],
+            tag: []
         };
         this._items = {};
         this._onUpdate = new EventQueue();
