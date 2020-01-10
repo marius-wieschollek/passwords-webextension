@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <input type="text" id="query" v-model="query">
+    <div class="search-container">
+        <input type="text" id="query" v-model="query" placeholder="Type to search">
         <password-list :passwords="passwords"/>
     </div>
 </template>
@@ -52,6 +52,11 @@
     };
 </script>
 
-<style scoped>
-
+<style lang="scss">
+    .search-container {
+        input {
+            width: 100%;
+            line-height: 2rem;
+        }
+    }
 </style>

@@ -58,7 +58,7 @@
                         icon : 'search',
                         label: 'TabSearch'
                     },
-                    browse : {
+                    browse  : {
                         icon : 'server',
                         label: 'TabBrowse'
                     },
@@ -97,6 +97,7 @@
             overflow   : hidden;
             max-width  : 15rem;
             transition : max-width .25s ease-in-out;
+            box-sizing : border-box;
 
             .label {
                 opacity    : 1;
