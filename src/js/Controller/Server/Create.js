@@ -4,6 +4,7 @@ import ServerRepository from '@js/Repositories/ServerRepository';
 import ServerManager from '@js/Manager/ServerManager';
 import ErrorManager from '@js/Manager/ErrorManager';
 import AbstractController from '@js/Controller/AbstractController';
+import Api from 'passwords-client';
 
 export default class List extends AbstractController {
 
@@ -203,7 +204,8 @@ export default class List extends AbstractController {
      */
     async _checkConnection(server, response) {
         try {
-            let sessionAuth = server.getSessionAuthorisation();
+            let api = new Api(server, {}, {model: {server: Server}});
+            let sessionAuth = api.getSessionAuthorisation();
             await sessionAuth.load();
             return true;
         } catch(e) {
@@ -221,7 +223,7 @@ export default class List extends AbstractController {
      * @private
      */
     async _duplicateCheck(server, response) {
-        let servers = await ServerRepository.list();
+        let servers = await ServerRepository.findAll();
 
         for(let current of servers) {
             if(server.getBaseUrl() === current.getBaseUrl() && server.getUser() === current.getUser()) {

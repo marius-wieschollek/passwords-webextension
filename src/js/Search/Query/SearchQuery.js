@@ -6,6 +6,7 @@ import AbstractField from '@js/Search/Query/Field/AbstractField';
 import SearchIndex from '@js/Search/Index/SearchIndex';
 import SortAscending from '@js/Search/Query/Sort/SortAscending';
 import SortDescending from '@js/Search/Query/Sort/SortDescending';
+import ObjectMerger from 'passwords-client/src/Utility/ObjectMerger';
 
 export default class SearchQuery {
 
@@ -123,7 +124,7 @@ export default class SearchQuery {
                 let score = result.matches / result.checks;
                 console.log(item, result, score);
                 if(score >= this._score) {
-                    let match = Object.assign({score}, item);
+                    let match = ObjectMerger.merge({score}, item);
                     matches.push(match);
                 }
             }

@@ -4,6 +4,7 @@ import AuthorisationItem from '@js/Models/Queue/AuthorisationItem';
 import ErrorManager from '@js/Manager/ErrorManager';
 import SearchIndex from '@js/Search/Index/SearchIndex';
 import SearchQuery from '@js/Search/Query/SearchQuery';
+import ApiRepository from '@js/Repositories/ApiRepository';
 
 class ServerManager {
 
@@ -28,11 +29,11 @@ class ServerManager {
      * @private
      */
     async _loadServers() {
-        let servers  = await ServerRepository.findAll(),
+        let apis     = await ServerRepository.findAll(),
             promises = [];
 
-        for(let server of servers) {
-            promises.push(this.addServer(server));
+        for(let api of apis) {
+            promises.push(this.addServer(api));
         }
 
         await Promise.all(promises);
@@ -45,7 +46,8 @@ class ServerManager {
      */
     async addServer(server) {
         let serverId    = server.getId(),
-            authRequest = server.getSessionAuthorisation();
+            api         = await ApiRepository.findById(serverId),
+            authRequest = api.getSessionAuthorisation();
         await authRequest.load();
         if(authRequest.hasChallenge()) {
             await this._getAuth(authRequest, {
@@ -55,10 +57,10 @@ class ServerManager {
             });
         }
 
-        this._keepaliveTimer[serverId] = setInterval(() => { this._keepalive(server); }, 59000);
-        this._refreshTimer[serverId] = setInterval(() => { this._reloadPasswords(server); }, 900000);
+        this._keepaliveTimer[serverId] = setInterval(() => { this._keepalive(api); }, 59000);
+        this._refreshTimer[serverId] = setInterval(() => { this._reloadPasswords(api); }, 900000);
 
-        await this._addItemsToSearch(server);
+        await this._addItemsToSearch(api);
     }
 
     /**
@@ -67,7 +69,8 @@ class ServerManager {
      * @returns {Promise<void>}
      */
     async deleteServer(server) {
-        this._removeItemsFromSearch(server);
+        let api = await ApiRepository.findById(server.getId());
+        this._removeItemsFromSearch(api);
 
 
         let serverId = server.getId();
@@ -76,6 +79,7 @@ class ServerManager {
         clearInterval(this._refreshTimer[serverId]);
         delete this._refreshTimer[serverId];
 
+        await ApiRepository.delete(api);
         await ServerRepository.delete(server);
     }
 
@@ -85,16 +89,17 @@ class ServerManager {
      * @returns {Promise<void>}
      */
     async reloadServer(server) {
-        await this._reloadPasswords(server);
+        let api = await ApiRepository.findById(server.getId());
+        await this._reloadPasswords(api);
     }
 
     /**
      *
-     * @param {Server} server
+     * @param {Api} api
      */
-    _keepalive(server) {
-        server
-            .createRequest()
+    _keepalive(api) {
+        api
+            .getRequest()
             .setPath('api/1.0/session/keepalive')
             .send()
             .catch(ErrorManager.catch());
@@ -102,14 +107,14 @@ class ServerManager {
 
     /**
      *
-     * @param {Server} server
+     * @param {Api} api
      * @return {Promise<void>}
      * @private
      */
-    async _reloadPasswords(server) {
+    async _reloadPasswords(api) {
         try {
-            this._removeItemsFromSearch(server);
-            await this._addItemsToSearch(server);
+            this._removeItemsFromSearch(api);
+            await this._addItemsToSearch(api);
         } catch(e) {
             ErrorManager.logError(e);
         }
@@ -146,12 +151,12 @@ class ServerManager {
 
     /**
      *
-     * @param {Server} server
+     * @param {Api} api
      * @returns {Promise<void>}
      * @private
      */
-    async _addItemsToSearch(server) {
-        let passwords = await server
+    async _addItemsToSearch(api) {
+        let passwords = await api
             .getPasswordRepository()
             .clearCache()
             .findAll();
@@ -161,13 +166,13 @@ class ServerManager {
 
     /**
      *
-     * @param {Server} server
+     * @param {Api} api
      * @private
      */
-    _removeItemsFromSearch(server) {
+    _removeItemsFromSearch(api) {
         let query = new SearchQuery(),
             items = query
-                .where(query.field('server').equals(server.getId()))
+                .where(query.field('server').equals(api.getServer().getId()))
                 .execute();
 
         SearchIndex.removeItems(items);
