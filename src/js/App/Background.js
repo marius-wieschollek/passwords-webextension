@@ -8,6 +8,7 @@ import ControllerManager from '@js/Manager/ControllerManager';
 import RecommendationManager from '@js/Manager/RecommendationManager';
 import MessageService from '@js/Services/MessageService';
 import TabManager from '@js/Manager/TabManager';
+import BadgeManager from '@js/Manager/BadgeManager';
 
 class Background {
     async init() {
@@ -22,6 +23,7 @@ class Background {
             SearchManager.init();
             TabManager.init();
             RecommendationManager.init();
+            BadgeManager.init();
             await ServerManager.init();
         } catch(e) {
             ErrorManager.logError(e);

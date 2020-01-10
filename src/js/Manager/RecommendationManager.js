@@ -3,16 +3,23 @@ import SearchQuery from '@js/Search/Query/SearchQuery';
 import Url from 'url-parse';
 import TabManager from '@js/Manager/TabManager';
 import SearchIndex from '@js/Search/Index/SearchIndex';
+import EventQueue from '@js/Event/EventQueue';
 
 class RecommendationManager {
 
+    get listen() {
+        return this._change;
+    }
+
     constructor() {
         this._api = null;
-        this._recommendations = [];
+        this._change = new EventQueue();
 
         this._tabEvent = (tab) => {
             if(!tab.hasOwnProperty('recommended') || tab.lastUrl !== tab.url) {
                 this._updateRecommended(tab);
+            } else {
+                this._change.emit(tab.recommended);
             }
         };
 
@@ -55,12 +62,11 @@ class RecommendationManager {
      * @private
      */
     _updateRecommended(tab) {
-        let start = new Date().getTime();
         let url = Url(tab.url);
 
         delete tab.recommended;
         if(url.host.length === 0) {
-            this._updateBadge(tab);
+            this._change.emit([]);
             return;
         }
 
@@ -72,6 +78,7 @@ class RecommendationManager {
             )
             .type('password')
             .score(0.4)
+            .limit(8)
             .sortBy('favorite')
             .sortBy('shared')
             .sortBy('score')
@@ -81,29 +88,7 @@ class RecommendationManager {
         if(recommendations.length !== 0) {
             tab.recommended = recommendations;
         }
-        this._updateBadge(tab);
-
-        let time = new Date().getTime() - start;
-        console.log(`Found ${tab.recommended ? tab.recommended.length:0} recommendations for ${url.host} in ${time}ms`, url);
-    }
-
-    /**
-     *
-     * @param {Object} tab
-     * @private
-     */
-    _updateBadge(tab) {
-        if(tab.hasOwnProperty('recommended')) {
-            this._api.browserAction.setBadgeText({text: tab.recommended.length.toString(), tabId: tab.id});
-        } else {
-            this._api.browserAction.setBadgeText({text: '', tabId: tab.id});
-        }
-
-        if(SystemService.getBrowserPlatform() === 'firefox') {
-            this._api.browserAction.setBadgeTextColor({color: '#fff'});
-        }
-
-        this._api.browserAction.setBadgeBackgroundColor({color: '#0082c9'});
+        this._change.emit(recommendations);
     }
 
     /**

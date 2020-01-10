@@ -12,6 +12,10 @@ class TabManager {
         return this._urlChange;
     }
 
+    get currentTabId() {
+        return this._currentTab;
+    }
+
     constructor() {
         this._api = null;
         this._tabs = [];
