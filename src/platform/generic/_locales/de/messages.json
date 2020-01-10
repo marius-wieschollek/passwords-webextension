@@ -1,9 +1,9 @@
 {
     "extensionName"              : {
-        "message": "Nextcloud Passwords"
+        "message": "Passwörter für Nextcloud Client"
     },
     "extensionDescription"       : {
-        "message": "Ein einfacher Client für die Nextcloud Passwords App"
+        "message": "Die offizielle Extension für die Passwörter App für Nextcloud"
     },
     "browserActionTitle"         : {
         "message": "Passwörter"
