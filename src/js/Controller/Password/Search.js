@@ -15,7 +15,8 @@ export default class Search extends AbstractController {
         let query = QueryParser.parse(input, {keywords: ['tag', 'folder', 'host', 'url'], tokenize: true});
         let search = new SearchQuery()
             .type('password')
-            .score(0.2);
+            .score(0.2)
+            .limit(15);
 
         for(let key in query) {
             if(!query.hasOwnProperty(key) || key === 'offsets' || key === 'exclude') continue;
