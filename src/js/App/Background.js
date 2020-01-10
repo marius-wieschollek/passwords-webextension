@@ -9,6 +9,7 @@ import RecommendationManager from '@js/Manager/RecommendationManager';
 import MessageService from '@js/Services/MessageService';
 import TabManager from '@js/Manager/TabManager';
 import BadgeManager from '@js/Manager/BadgeManager';
+import ContextMenuManager from '@js/Manager/ContextMenuManager';
 
 class Background {
     async init() {
@@ -24,6 +25,7 @@ class Background {
             TabManager.init();
             RecommendationManager.init();
             BadgeManager.init();
+            ContextMenuManager.init();
             await ServerManager.init();
         } catch(e) {
             ErrorManager.logError(e);

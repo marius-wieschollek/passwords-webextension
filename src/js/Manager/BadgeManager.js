@@ -19,7 +19,7 @@ class BadgeManager {
 
     /**
      *
-     * @param {Array} recommended
+     * @param {Password[]} recommended
      * @private
      */
     _updateBadge(recommended) {

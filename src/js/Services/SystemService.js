@@ -51,6 +51,25 @@ class SystemService {
         return this._api;
     }
 
+    /**
+     *
+     * @returns {browser.contextMenus}
+     */
+    getContextMenu() {
+        return BrowserApi.getContextMenu();
+    }
+
+    /**
+     *
+     * @returns {boolean}
+     */
+    hasContextMenu() {
+        return BrowserApi.hasContextMenu();
+    }
+
+    /**
+     *
+     */
     connect() {
         this._api.runtime.connect();
     }
