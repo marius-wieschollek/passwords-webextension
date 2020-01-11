@@ -44,15 +44,15 @@ Publish Nightly Firefox:
   only:
     - testing
 
-Publish Nightly Chrome:
-  stage: publishing
-  script:
-    - 'export WEXT_SHIPIT_CHROME_EXTENSION_ID=${CHROME_EXTENSION_ID_TESTING}'
-    - 'npx @wext/shipit chrome dist/chrome-extension'
-  environment:
-    name: Testing
-  only:
-    - testing
+#Publish Nightly Chrome:
+#  stage: publishing
+#  script:
+#    - 'export WEXT_SHIPIT_CHROME_EXTENSION_ID=${CHROME_EXTENSION_ID_TESTING}'
+#    - 'npx @wext/shipit chrome dist/chrome-extension'
+#  environment:
+#    name: Testing
+#  only:
+#    - testing
 
 Publish Stable Firefox:
   stage: publishing
