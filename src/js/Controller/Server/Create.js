@@ -90,9 +90,12 @@ export default class List extends AbstractController {
             return false;
         }
 
-        let index = data.baseUrl.indexOf('apps/passwords');
+        let index = data.baseUrl.indexOf('index.php');
         if(index !== -1) {
             data.baseUrl = data.baseUrl.substr(0, index);
+        } else {
+            let index = data.baseUrl.indexOf('apps/passwords');
+            if(index !== -1) data.baseUrl = data.baseUrl.substr(0, index);
         }
 
         if(data.baseUrl.substr(-1) !== '/') {

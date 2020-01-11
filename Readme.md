@@ -1,4 +1,4 @@
-This WebExtension is a client for the [Passwords app for Nextcloud](https://github.com/marius-wieschollek/passwords) for Firefox and Chromium based browsers.
+This WebExtension is the official client for the [Passwords app for Nextcloud](https://github.com/marius-wieschollek/passwords) for Firefox and Chromium based browsers.
 
 #### Passwords always at hand
 By clicking on the "Passwords"-icon, you will be presented with the login data that matches the current website. The desired user account can easily be inserted into existing login forms with one click. Alternatively, you can also copy the password to the clipboard.
@@ -15,7 +15,7 @@ The client for Nextcloud Passwords is optimized for mobile devices and also work
 ### Requirements
 This extension requires a server on which Nextcloud with the Passwords App is installed.
 Nextcloud can be downloaded for free from the [Nextcloud website](https://nextcloud.com/).
-The Passwords App can be downloaded for free from the [Github Repository](https://github.com/marius-wieschollek/passwords/releases).
+The Passwords App can be downloaded for free from the [Nextcloud app store](https://apps.nextcloud.com/apps/passwords).
 
 ### Downloads
 * [Firefox Extension on AMO](https://addons.mozilla.org/de/firefox/addon/nextcloud-passwords/)
@@ -26,4 +26,5 @@ See [contributing](Contributing.md).
 
 ##### Notes for AMO reviewers
 1. This extension uses Vue.js, jQuery, UglifyJS and webpack
+2. This extension requires a Nextcloud 17 server with the Passwords app 2020.1.0 or later
 2. This extension and all required software is available for free

@@ -11,13 +11,13 @@ _Using a test account is recommended_
 1. Run `npm install` from the command line
 
 ##### For Firefox
-1. Run `npm run watch`
+1. Run `npm run watch:firefox`
 2. Open "about:debugging" in Firefox
 3. Click "Load Temporary Add-on"
 4. Select the manifest.json in the "dist" folder in the file popup.
 
 ##### For Chromium
-1. Run `npm run watch-chrome`
+1. Run `npm run watch:chrome`
 2. Open "chrome://extensions/" in Chromium
 3. Enable "Developer Mode"
 4. Click "Load unpacked extension"
@@ -29,12 +29,12 @@ _Using a test account is recommended_
 ##### In Firefox
 1. Open "about:debugging"
 2. Enable "Activate debugging of extensions"
-3. Scroll to "Nextcloud Passwords" and click on "Debug"
+3. Scroll to "Passwords for Nextcloud Client" and click on "Debug"
 4. Confirm the debugging request
 
 ##### In Chromium
 1. Open "chrome://extensions/"
-2. Scroll to "Nextcloud Passwords" and click on "Background Page" or "Errors"
+2. Scroll to "Passwords for Nextcloud Client" and click on "Background Page" or "Errors"
 
 
 
