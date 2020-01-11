@@ -12,6 +12,14 @@ export default class AuthorisationItem extends FeedbackItem {
 
     /**
      *
+     * @returns {string}
+     */
+    getLabel() {
+        return this.getTask().label;
+    }
+
+    /**
+     *
      * @returns {boolean}
      */
     requiresPassword() {
@@ -24,6 +32,14 @@ export default class AuthorisationItem extends FeedbackItem {
      */
     requiresToken() {
         return this.getTask().token;
+    }
+
+    /**
+     *
+     * @returns {Object[]}
+     */
+    getProviders() {
+        return this.getTask().providers;
     }
 
     /**
@@ -70,5 +86,28 @@ export default class AuthorisationItem extends FeedbackItem {
         let result = this.getResult();
 
         return result.token;
+    }
+
+    /**
+     *
+     * @param value
+     * @returns {AuthorisationItem}
+     */
+    setProvider(value) {
+        let result = this.getResult();
+        result.provider = value;
+        this.setResult(result);
+
+        return this;
+    }
+
+    /**
+     *
+     * @returns {*}
+     */
+    getProvider() {
+        let result = this.getResult();
+
+        return result.provider;
     }
 }

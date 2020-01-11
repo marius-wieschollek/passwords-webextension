@@ -5,13 +5,19 @@ import ErrorManager from '@js/Manager/ErrorManager';
 import SearchIndex from '@js/Search/Index/SearchIndex';
 import SearchQuery from '@js/Search/Query/SearchQuery';
 import ApiRepository from '@js/Repositories/ApiRepository';
+import BooleanState from 'passwords-client/src/State/BooleanState';
 
 class ServerManager {
+
+    get isAuthorized() {
+        return this._authState;
+    }
 
     constructor() {
         this._authQueue = null;
         this._keepaliveTimer = {};
         this._refreshTimer = {};
+        this._authState = new BooleanState(false);
     }
 
     /**
@@ -47,13 +53,15 @@ class ServerManager {
     async addServer(server) {
         let serverId    = server.getId(),
             api         = await ApiRepository.findById(serverId),
-            authRequest = api.getSessionAuthorisation();
+            authRequest = api.getSessionAuthorization();
         await authRequest.load();
-        if(authRequest.hasChallenge()) {
+        if(authRequest.requiresChallenge() || authRequest.requiresToken()) {
             await this._getAuth(authRequest, {
-                server  : server.getId(),
-                password: authRequest.hasChallenge(),
-                token   : authRequest.hasToken()
+                server   : server.getId(),
+                label    : server.getLabel(),
+                password : authRequest.requiresChallenge(),
+                token    : authRequest.requiresToken(),
+                providers: this._getProviderArray(authRequest.getTokens())
             });
         }
 
@@ -122,25 +130,30 @@ class ServerManager {
 
     /**
      *
-     * @param {SessionAuthorisation} authRequest
+     * @param {SessionAuthorization} authRequest
      * @param {AuthorisationItem} item
      * @returns {Promise<*>}
      * @private
      */
     async _getAuth(authRequest, item) {
         try {
+            this._authState.set(false);
             item = await this._authQueue.push(item);
 
-            if(authRequest.hasChallenge()) {
+            if(authRequest.requiresChallenge()) {
                 authRequest.getChallenge().setPassword(item.getPassword());
             }
 
-            if(authRequest.hasToken()) {
-                authRequest.getToken().setToken(item.getToken());
+            if(authRequest.requiresToken()) {
+                authRequest.setActiveToken(item.getProvider());
+                if(item.getToken()) {
+                    authRequest.getActiveToken().setToken(item.getToken());
+                }
             }
 
             await authRequest.authorize();
             await this._authQueue.push(item.setAccepted(true));
+            this._authState.set(!this._authQueue.hasItems());
         } catch(e) {
             ErrorManager.logError(e);
             item.setAccepted(false).setFeedback(e);
@@ -176,6 +189,29 @@ class ServerManager {
                 .execute();
 
         SearchIndex.removeItems(items);
+    }
+
+    /**
+     *
+     * @param {AbstractToken[]} tokens
+     * @return {Object[]}
+     * @private
+     */
+    _getProviderArray(tokens) {
+        let providers = [];
+        for(let token of tokens) {
+            providers.push(
+                {
+                    id         : token.getId(),
+                    label      : token.getLabel(),
+                    description: token.getDescription(),
+                    hasRequest : token.requiresRequest(),
+                    hasInput   : token.getType() === 'user-token'
+                }
+            );
+        }
+
+        return providers;
     }
 }
 

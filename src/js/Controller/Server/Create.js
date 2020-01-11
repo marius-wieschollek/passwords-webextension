@@ -190,6 +190,7 @@ export default class List extends AbstractController {
         try {
             return new Server(data);
         } catch(e) {
+            ErrorManager.logError(e);
             response.message = e.message;
             return false;
         }
@@ -205,10 +206,11 @@ export default class List extends AbstractController {
     async _checkConnection(server, response) {
         try {
             let api = new Api(server, {}, {model: {server: Server}});
-            let sessionAuth = api.getSessionAuthorisation();
+            let sessionAuth = api.getSessionAuthorization();
             await sessionAuth.load();
             return true;
         } catch(e) {
+            ErrorManager.logError(e);
             response.message = e.message;
             return false;
         }

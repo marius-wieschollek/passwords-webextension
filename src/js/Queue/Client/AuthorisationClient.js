@@ -71,11 +71,11 @@ export default class AuthorisationClient extends FeedbackClient {
      * @private
      */
     _feedbackWorker(item) {
-        return new Promise((resolve, reject) => {
-            if(!this._solvedItems.hasOwnProperty(item.getId())) {
-                resolve(item);
-            }
+        if(!this._solvedItems.hasOwnProperty(item.getId())) {
+            return this._worker(item);
+        }
 
+        return new Promise((resolve, reject) => {
             let queue = this._solvedItems[item.getId()];
             delete this._solvedItems[item.getId()];
 

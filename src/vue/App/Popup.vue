@@ -92,6 +92,7 @@
         width   : 360px;
         height  : 360px;
         display : block;
+        overflow: hidden;
 
         > .tab-container > .tabs .tab {
             overflow   : hidden;

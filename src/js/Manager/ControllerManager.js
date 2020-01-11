@@ -1,5 +1,4 @@
 import MessageService from '@js/Services/MessageService';
-import SystemService from '@js/Services/SystemService';
 import ErrorManager from '@js/Manager/ErrorManager';
 
 class ControllerManager {
@@ -72,6 +71,13 @@ class ControllerManager {
             'server.delete',
             async (message, reply) => {
                 let module = await import('@js/Controller/Server/Delete');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
+            'token.request',
+            async (message, reply) => {
+                let module = await import('@js/Controller/Token/Request');
                 await this._executeController(module, message, reply);
             }
         );
