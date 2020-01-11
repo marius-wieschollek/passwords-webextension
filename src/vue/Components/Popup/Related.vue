@@ -1,13 +1,17 @@
 <template>
-    <password-list :passwords="passwords" />
+    <div class="related-container">
+        <password-list :passwords="passwords" />
+        <translate tag="div" class="no-results" say="NoRelatedPasswords" v-if="passwords.length === 0"/>
+    </div>
 </template>
 
 <script>
     import MessageService from '@js/Services/MessageService';
     import PasswordList from '@vue/Components/List/PasswordList';
+    import Translate from '@vue/Components/Translate';
 
     export default {
-        components: {PasswordList},
+        components: {Translate, PasswordList},
         data() {
             return {
                 passwords: []
@@ -21,6 +25,14 @@
                     this.passwords = r.getPayload();
                 });
         }
-
     };
 </script>
+
+<style lang="scss">
+    .related-container {
+        .no-results {
+            line-height : 3rem;
+            text-align  : center;
+        }
+    }
+</style>

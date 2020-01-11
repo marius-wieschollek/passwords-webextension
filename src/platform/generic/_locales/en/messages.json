@@ -129,6 +129,14 @@
         "message"    : "There is already an account for this user on this Nextcloud.",
         "description": ""
     },
+    "NoRelatedPasswords"        : {
+        "message"    : "Did not find any related passwords",
+        "description": ""
+    },
+    "NoSearchResults"        : {
+        "message"    : "Did not find any passwords for your search",
+        "description": ""
+    },
 
 
 
