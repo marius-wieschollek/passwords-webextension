@@ -8,6 +8,8 @@ Compile Firefox:
     - mkdir dist
     - npm install
     - npm run build:firefox
+    - if [ "${CI_COMMIT_REF_NAME}" == "stable" ] ; then sed -i -e "s|BUILD||g" ./dist/manifest.json ; fi
+    - if [ "${CI_COMMIT_REF_NAME}" != "stable" ] ; then sed -i -e "s|BUILD|${CI_PIPELINE_ID}|g" ./dist/manifest.json ; fi
     - mv build dist/firefox-extension
   artifacts:
     paths:
@@ -19,6 +21,8 @@ Compile Chrome:
     - mkdir dist
     - npm install
     - npm run build:chrome
+    - if [ "${CI_COMMIT_REF_NAME}" == "stable" ] ; then sed -i -e "s|99999||g" ./dist/manifest.json ; fi
+    - if [ "${CI_COMMIT_REF_NAME}" != "stable" ] ; then sed -i -e "s|99999|${CI_PIPELINE_ID}|g" ./dist/manifest.json ; fi
     - mv build dist/chrome-extension
   artifacts:
     paths:
@@ -29,7 +33,6 @@ Publish Nightly Firefox:
   script:
     - 'export ARTIFACT_URL=${CI_PROJECT_URL}/-/jobs/artifacts/${CI_COMMIT_BRANCH}/raw/dist/firefox-extension/FILE?job=Compile+Firefox'
     - 'sed -i -e "s|\"gecko\": {|\"gecko\":{\"update_url\":\"ARTIFACT_URL\",|g" ./dist/firefox-extension/manifest.json'
-    - 'sed -i -e "s|BUILD|${CI_PIPELINE_ID}|g" ./dist/firefox-extension/manifest.json'
     - 'sed -i -e "s|ARTIFACT_URL|${ARTIFACT_URL}|g" ./dist/firefox-extension/manifest.json'
     - 'sed -i -e "s|FILE|updates.json|g" ./dist/firefox-extension/manifest.json'
     - 'sed -i -e "s|BUILD|${CI_PIPELINE_ID}|g" ./dist/firefox-extension/updates.json'
@@ -45,7 +48,6 @@ Publish Nightly Chrome:
   stage: publishing
   script:
     - 'export WEXT_SHIPIT_CHROME_EXTENSION_ID=${CHROME_EXTENSION_ID_TESTING}'
-    - 'sed -i -e "s|99999|${CI_PIPELINE_ID}|g" ./dist/chrome-extension/manifest.json'
     - 'npx @wext/shipit chrome dist/chrome-extension'
   environment:
     name: Testing
@@ -56,7 +58,6 @@ Publish Stable Firefox:
   stage: publishing
   script:
     - 'rm dist/firefox-extension/updates.json'
-    - 'sed -i -e "s|BUILD||g" ./dist/firefox-extension/manifest.json'
     - 'npx @wext/shipit firefox dist/firefox-extension'
   environment:
     name: Stable
@@ -67,7 +68,6 @@ Publish Stable Chrome:
   stage: publishing
   script:
     - 'export WEXT_SHIPIT_CHROME_EXTENSION_ID=${CHROME_EXTENSION_ID_STABLE}'
-    - 'sed -i -e "s|99999||g" ./dist/chrome-extension/manifest.json'
     - 'npx @wext/shipit chrome dist/chrome-extension'
   environment:
     name: Stable
