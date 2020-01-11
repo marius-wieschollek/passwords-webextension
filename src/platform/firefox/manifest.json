@@ -57,11 +57,6 @@
         "page": "html/options.html",
         "browser_style": true
     },
-    "applications"    : {
-        "gecko": {
-            "id": "ncpasswords@mdns.eu"
-        }
-    },
     "browser_specific_settings": {
         "gecko": {
             "id": "ncpasswords@mdns.eu",

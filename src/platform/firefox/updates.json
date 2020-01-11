@@ -1,0 +1,15 @@
+{
+    "addons": {
+        "ncpasswords@mdns.eu": {
+            "updates": [
+                {
+                    "version": "2.0.0.BUILD",
+                    "update_link": "ARTIFACT_URL",
+                    "browser_specific_settings": {
+                        "gecko": { "strict_min_version": "57" }
+                    }
+                }
+            ]
+        }
+    }
+}
