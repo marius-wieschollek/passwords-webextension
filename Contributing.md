@@ -6,6 +6,25 @@ _Using a test account is recommended_
 
 
 
+### Building from source
+##### Project Setup
+1. Run `npm install` from the command line
+
+##### For Firefox
+1. Run `npm run build:firefox`
+2. Open "about:debugging" in Firefox
+3. Click "Load Temporary Add-on"
+4. Select the manifest.json in the "dist" folder in the file popup.
+
+##### For Chromium
+1. Run `npm run build:chrome`
+2. Open "chrome://extensions/" in Chromium
+3. Enable "Developer Mode"
+4. Click "Load unpacked extension"
+5. Select the "dist" folder in the file popup
+
+
+
 ### Installing from source
 ##### Project Setup
 1. Run `npm install` from the command line
