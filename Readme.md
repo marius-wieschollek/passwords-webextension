@@ -25,7 +25,7 @@ The Passwords App can be downloaded for free from the [Nextcloud app store](http
 See [contributing](Contributing.md).
 
 ##### Notes for AMO reviewers
-1. This extension uses Vue.js, jQuery, UglifyJS and webpack
-2. This extension requires a Nextcloud 17 server with the Passwords app 2020.1.0 or later
+1. This extension uses Vue.js and webpack
+2. This extension requires a Nextcloud 17+ server with Passwords 2020.1.0+
 3. This extension and all required software is available for free
 4. See [contributing](Contributing.md).

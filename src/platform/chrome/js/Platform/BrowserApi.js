@@ -6,11 +6,11 @@ class BrowserApi {
     }
 
     getContextMenu() {
-        return browser.contextMenus;
+        return this.getBrowserApi().contextMenus;
     }
 
     hasContextMenu() {
-        return browser.hasOwnProperty('contextMenus');
+        return this.getBrowserApi().hasOwnProperty('contextMenus');
     }
 }
 

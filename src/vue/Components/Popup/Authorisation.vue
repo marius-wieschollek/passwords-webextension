@@ -1,5 +1,5 @@
 <template>
-    <form id="authorisation" @submit.prevent="submit">
+    <form id="authorisation" @submit.prevent="submit" autocomplete="off">
         <h2>{{authRequest.getLabel()}}</h2>
         <div v-if="authRequest.requiresPassword()" class="password-container">
             <input type="password" id="password" v-model="password" placeholder="Password">
@@ -85,7 +85,7 @@
                     }
                 );
 
-                this.state = result.getPayload().success ? 'token request failed':'ready';
+                this.state = result.getPayload().success ? 'ready':'token request failed';
             }
         },
 
@@ -95,10 +95,12 @@
                     if(provider.id === value) {
                         this.tokenField = provider.hasInput;
                         this.tokenRequest = provider.hasRequest;
+                        break;
                     }
                 }
                 this.token = null;
                 this.authRequest.setProvider(value);
+                if(this.tokenRequest) this.requestToken();
             },
             token(value) {
                 this.authRequest.setToken(value);

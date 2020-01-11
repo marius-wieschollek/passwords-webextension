@@ -4,6 +4,7 @@ import Server from '@js/Models/Server/Server';
 import Folder from 'passwords-client/src/Model/Folder';
 import Tag from 'passwords-client/src/Model/Tag';
 import EventQueue from '@js/Event/EventQueue';
+import ErrorManager from '@js/Manager/ErrorManager';
 
 class SearchIndex {
 
@@ -17,8 +18,8 @@ class SearchIndex {
         };
         this._indexes = {
             password: [],
-            folder: [],
-            tag: []
+            folder  : [],
+            tag     : []
         };
         this._items = {};
         this._onUpdate = new EventQueue();
@@ -96,11 +97,15 @@ class SearchIndex {
 
         let type = this._getItemType(item);
 
-        let index = this._indexers[type].indexItem(item);
-        this._indexes[type].push(index);
-        this._items[item.getId()] = item;
+        try {
+            let index = this._indexers[type].indexItem(item);
+            this._indexes[type].push(index);
+            this._items[item.getId()] = item;
 
-        if(update) this._onUpdate.emit(this._items);
+            if(update) this._onUpdate.emit(this._items);
+        } catch(e) {
+            ErrorManager.logError(e);
+        }
     }
 
     /**
