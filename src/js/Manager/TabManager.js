@@ -12,6 +12,10 @@ class TabManager {
         return this._urlChange;
     }
 
+    get tabUpdated() {
+        return this._tabUpdate;
+    }
+
     get currentTabId() {
         return this._currentTab;
     }
@@ -22,8 +26,17 @@ class TabManager {
         this._currentTab = 0;
         this._tabChange = new EventQueue();
         this._urlChange = new EventQueue();
+        this._tabUpdate = new EventQueue();
 
-        this._tabEvent = () => {
+        this._updatedEvent = (tabId, changeInfo, tab) => {
+            this._updateTabInfo(tab)
+                .catch(ErrorManager.catch());
+        };
+        this._createdEvent = (tab) => {
+            this._updateTabInfo(tab)
+                .catch(ErrorManager.catch());
+        };
+        this._refreshEvent = () => {
             this._updateTabInfo()
                 .catch(ErrorManager.catch());
         };
@@ -35,11 +48,12 @@ class TabManager {
     init() {
         this._api = SystemService.getBrowserApi();
 
-        this._api.tabs.onActivated.addListener(this._tabEvent);
-        this._api.tabs.onCreated.addListener(this._tabEvent);
-        this._api.tabs.onUpdated.addListener(this._tabEvent);
-        this._api.tabs.onReplaced.addListener(this._tabEvent);
-        this._api.tabs.onHighlighted.addListener(this._tabEvent);
+        this._api.tabs.onActivated.addListener(this._refreshEvent);
+        this._api.tabs.onAttached.addListener(this._refreshEvent);
+        this._api.tabs.onCreated.addListener(this._createdEvent);
+        this._api.tabs.onUpdated.addListener(this._updatedEvent);
+        this._api.tabs.onReplaced.addListener(this._refreshEvent);
+        this._api.tabs.onHighlighted.addListener(this._refreshEvent);
     }
 
     /**
@@ -105,17 +119,14 @@ class TabManager {
 
     /**
      *
+     * @param {browser.tabs.Tab} tab
      * @return {Promise<void>}
      * @private
      */
-    async _updateTabInfo() {
-        let tabs = await this._api.tabs.query({currentWindow: true, active: true});
-        if(tabs.length !== 1) {
-            this._currentTab = null;
-        }
-
-        let tab   = tabs.pop(),
-            tabId = tab.id;
+    async _updateTabInfo(tab) {
+        if(!tab) tab = await this._getCurrentTab();
+        if(!tab || !tab.active) return;
+        let tabId = tab.id;
 
         if(!this._tabs.hasOwnProperty(tabId)) {
             this._tabs[tabId] = {
@@ -136,12 +147,14 @@ class TabManager {
             await this._urlChange.emit(this._tabs[tabId]);
             this._tabs[tabId].lastUrl = tab.url;
         }
+
+        await this._tabUpdate.emit(this._tabs[tabId]);
     }
 
     /**
      *
      * @param {Array} callbacks
-     * @param {Tab} tab
+     * @param {browser.tabs.Tab} tab
      * @return {Promise<void>}
      * @private
      */
@@ -153,6 +166,20 @@ class TabManager {
                 ErrorManager.logError(e);
             }
         }
+    }
+
+    /**
+     *
+     * @return {Promise<void|browser.tabs.Tab>}
+     * @private
+     */
+    async _getCurrentTab() {
+        let tabs = await this._api.tabs.query({currentWindow: true, active: true});
+        if(tabs.length !== 1) {
+            this._currentTab = null;
+        }
+
+        return tabs.pop();
     }
 }
 

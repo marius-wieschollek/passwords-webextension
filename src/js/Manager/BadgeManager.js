@@ -17,6 +17,12 @@ class BadgeManager {
                 await this._updateBadge(r);
             }
         );
+        TabManager.tabUpdated.on(
+            async () => {
+                let r = RecommendationManager.getRecommendations();
+                await this._updateBadge(r);
+            }
+        );
         ServerManager.isAuthorized.onChange(
             () => {
                 let r = RecommendationManager.getRecommendations();

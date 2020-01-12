@@ -1,4 +1,3 @@
-import SystemService from '@js/Services/SystemService';
 import SearchQuery from '@js/Search/Query/SearchQuery';
 import Url from 'url-parse';
 import TabManager from '@js/Manager/TabManager';
@@ -12,7 +11,6 @@ class RecommendationManager {
     }
 
     constructor() {
-        this._api = null;
         this._change = new EventQueue();
 
         this._tabEvent = (tab) => {
@@ -33,8 +31,8 @@ class RecommendationManager {
     }
 
     init() {
-        this._api = SystemService.getBrowserApi();
         TabManager.tabChanged.on(this._tabEvent);
+        TabManager.urlChanged.on(this._tabEvent);
         SearchIndex.listen.on(this._searchEvent);
     }
 

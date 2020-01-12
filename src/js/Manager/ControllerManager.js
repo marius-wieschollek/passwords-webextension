@@ -33,6 +33,13 @@ class ControllerManager {
             }
         );
         MessageService.listen(
+            'password.mine',
+            async (message, reply) => {
+                let module = await import('@js/Controller/Password/Mine');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
             'popup.status',
             async (message, reply) => {
                 let module = await import('@js/Controller/Popup/Status');
