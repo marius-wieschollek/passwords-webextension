@@ -2,7 +2,8 @@
     <div class="foldout-container">
         <div :key="name" v-for="(tab, name) in tabs">
             <div class="foldout-tab" :class="{ active: isActive(name) }">
-                <translate :say="tab" class="label" @click="setActive(name)" />
+                <translate :say="tab" class="label" @click="setActive(name)" v-if="translate"/>
+                <span class="label" @click="setActive(name)" v-else>{{tab}}</span>
                 <slot :name="`${name}-tab-open`" v-if="isActive(name)"/>
                 <slot :name="`${name}-tab-closed`" v-if="!isActive(name)"/>
                 <slot :name="`${name}-tab`"/>
@@ -23,6 +24,10 @@
         props: {
             tabs       : {
                 type: Object
+            },
+            translate: {
+                type   : Boolean,
+                default: true
             },
             initialOpen: {
                 type   : Boolean,
