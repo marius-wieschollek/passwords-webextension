@@ -4,6 +4,7 @@
             <related slot="related"/>
             <search slot="search" :initial-query="search.query" :initial-passwords="search.results"/>
             <browse slot="browse"/>
+            <collected slot="collected" />
         </tabs>
         <authorisation v-if="!isAuthorized"></authorisation>
     </div>
@@ -16,10 +17,12 @@
     import Search from '@vue/Components/Popup/Search';
     import Related from '@vue/Components/Popup/Related';
     import Authorisation from '@vue/Components/Popup/Authorisation';
+    import Collected from '@vue/Components/Popup/Collected';
 
     export default {
         el        : '#app',
         components: {
+            Collected,
             Authorisation,
             Related,
             Search,
@@ -62,7 +65,7 @@
                         icon : 'server',
                         label: 'TabBrowse'
                     },
-                    collect : {
+                    collected : {
                         icon : 'history',
                         label: 'TabCollected'
                     },
