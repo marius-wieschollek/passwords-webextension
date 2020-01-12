@@ -17,7 +17,7 @@ class ServerManager {
         this._authQueue = null;
         this._keepaliveTimer = {};
         this._refreshTimer = {};
-        this._authState = new BooleanState(false);
+        this._authState = new BooleanState(true);
     }
 
     /**
@@ -66,7 +66,7 @@ class ServerManager {
         }
 
         this._keepaliveTimer[serverId] = setInterval(() => { this._keepalive(api); }, 59000);
-        this._refreshTimer[serverId] = setInterval(() => { this._reloadPasswords(api); }, 900000);
+        this._refreshTimer[serverId] = setInterval(() => { this._reloadSearchItems(api); }, 900000);
 
         await this._addItemsToSearch(api);
     }
@@ -98,7 +98,7 @@ class ServerManager {
      */
     async reloadServer(server) {
         let api = await ApiRepository.findById(server.getId());
-        await this._reloadPasswords(api);
+        await this._reloadSearchItems(api);
     }
 
     /**
@@ -119,7 +119,7 @@ class ServerManager {
      * @return {Promise<void>}
      * @private
      */
-    async _reloadPasswords(api) {
+    async _reloadSearchItems(api) {
         try {
             this._removeItemsFromSearch(api);
             await this._addItemsToSearch(api);
@@ -169,12 +169,25 @@ class ServerManager {
      * @private
      */
     async _addItemsToSearch(api) {
-        let passwords = await api
-            .getPasswordRepository()
-            .clearCache()
-            .findAll();
+        await Promise.all(
+            [
+                this._addRepositoryToSearch(api.getPasswordRepository()),
+                this._addRepositoryToSearch(api.getFolderRepository()),
+                this._addRepositoryToSearch(api.getTagRepository())
+            ]
+        );
+    }
 
-        SearchIndex.addItems(passwords);
+    /**
+     *
+     * @param {(PasswordRepository|FolderRepository|TagRepository)} repository
+     * @return {Promise<void>}
+     * @private
+     */
+    async _addRepositoryToSearch(repository) {
+        let tags = await repository.clearCache().findAll();
+
+        SearchIndex.addItems(tags);
     }
 
     /**

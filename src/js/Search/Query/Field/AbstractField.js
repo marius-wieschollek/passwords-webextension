@@ -39,7 +39,7 @@ export default class AbstractField {
      *
      * @param {Object} item
      * @return {(boolean|string[])}
-     * @private
+     * @protected
      */
     _getFieldValues(item) {
         if(item.hasOwnProperty(this._name)) {

@@ -12,7 +12,7 @@ export default class Search extends AbstractController {
      */
     async execute(message, reply) {
         let input = message.getPayload().query;
-        let query = QueryParser.parse(input, {keywords: ['tag', 'folder', 'host', 'url'], tokenize: true});
+        let query = QueryParser.parse(input, {keywords: ['id', 'tag', 'folder', 'host', 'url', 'server'], tokenize: true});
         let search = new SearchQuery()
             .type('password')
             .score(0.2)

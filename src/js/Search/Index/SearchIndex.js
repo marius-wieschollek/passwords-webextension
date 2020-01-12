@@ -5,6 +5,8 @@ import Folder from 'passwords-client/src/Model/Folder';
 import Tag from 'passwords-client/src/Model/Tag';
 import EventQueue from '@js/Event/EventQueue';
 import ErrorManager from '@js/Manager/ErrorManager';
+import FolderIndexer from '@js/Search/Indexer/FolderIndexer';
+import TagIndexer from '@js/Search/Indexer/TagIndexer';
 
 class SearchIndex {
 
@@ -14,7 +16,9 @@ class SearchIndex {
 
     constructor() {
         this._indexers = {
-            password: new PasswordIndexer()
+            password: new PasswordIndexer(),
+            folder  : new FolderIndexer(),
+            tag     : new TagIndexer()
         };
         this._indexes = {
             password: [],
