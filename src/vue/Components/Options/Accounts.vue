@@ -8,19 +8,19 @@
                 </option>
             </select>
         </div>
-        <foldout :tabs="serverNames">
+        <foldout :tabs="serverNames" :translate="false">
             <form v-for="server in servers"
                   :key="server.getId()"
                   :slot="server.getId()"
                   class="account-settings"
                   v-on:submit.prevent="saveServer(server)">
-                <translate tag="label" :for="`${server.getId()}-name`" say="AccountLabel"/>
+                <translate tag="label" :for="`${server.getId()}-name`" say="ServerLabel"/>
                 <input type="text" :id="`${server.getId()}-name`" v-model="server.getLabel()"/>
-                <translate tag="label" :for="`${server.getId()}-url`" say="AccountBaseUrl"/>
+                <translate tag="label" :for="`${server.getId()}-url`" say="ServerBaseUrl"/>
                 <input type="text" :id="`${server.getId()}-url`" v-model="server.getBaseUrl()"/>
-                <translate tag="label" :for="`${server.getId()}-user`" say="AccountUser"/>
+                <translate tag="label" :for="`${server.getId()}-user`" say="ServerUser"/>
                 <input type="text" :id="`${server.getId()}-user`" v-model="server.getUser()"/>
-                <translate tag="label" :for="`${server.getId()}-token`" say="AccountToken"/>
+                <translate tag="label" :for="`${server.getId()}-token`" say="ServerToken"/>
                 <input type="button" value="Change" :id="`${server.getId()}-token`"/>
             </form>
             <icon v-for="server in servers"
@@ -38,13 +38,13 @@
                   slot="addserver"
                   class="account-settings"
                   v-on:submit.prevent="createServer($event)">
-                <translate tag="label" for="new-name" say="AccountLabel"/>
+                <translate tag="label" for="new-name" say="ServerLabel"/>
                 <input type="text" id="new-name" v-model="newServer.label" required/>
-                <translate tag="label" for="new-url" say="AccountBaseUrl"/>
+                <translate tag="label" for="new-url" say="ServerBaseUrl"/>
                 <input type="text" id="new-url" v-model="newServer.baseUrl" required/>
-                <translate tag="label" for="new-user" say="AccountUser"/>
+                <translate tag="label" for="new-user" say="ServerUser"/>
                 <input type="text" id="new-user" v-model="newServer.user" required/>
-                <translate tag="label" for="new-token" say="AccountToken"/>
+                <translate tag="label" for="new-token" say="ServerToken"/>
                 <input type="text"
                        value="Change"
                        id="new-token"
@@ -55,7 +55,7 @@
                 <input type="submit"/>
             </form>
         </foldout>
-        <translate tag="button" say="Add a server" @click="addServer" v-if="!showNewForm"/>
+        <translate tag="button" say="NewServerTitle" @click="addServer" v-if="!showNewForm"/>
     </div>
 </template>
 
@@ -126,7 +126,7 @@
              * @param {Server} server
              */
             async deleteServer(server) {
-                if(SystemService.getBrowserPlatform() === 'chrome' ||confirm(`Do you really want to delete ${server.getLabel()}?`)) {
+                if(SystemService.getBrowserPlatform() === 'chrome' || confirm(`Do you really want to delete ${server.getLabel()}?`)) {
                     let message = await MessageService.send({type: 'server.delete', payload: {server: server.getId()}});
                     if(message.getType() === 'delete.success') {
                         this.loadData();

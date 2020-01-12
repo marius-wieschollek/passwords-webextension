@@ -1,16 +1,88 @@
 {
     "extensionName"              : {
-        "message": "Passwörter für Nextcloud Client"
+        "message": "Passwörter für Nextcloud Client",
+        "description": "Name of the extension."
     },
     "extensionDescription"       : {
-        "message": "Die offizielle Extension für die Passwörter App für Nextcloud"
+        "message": "Die offizielle Extension für die Passwörter App für Nextcloud",
+        "description": "Description of the extension."
     },
     "browserActionTitle"         : {
-        "message": "Passwörter"
+        "message": "Passwörter",
+        "description": "Title of the button in the browser bar"
     },
     "contextMenuTitle"           : {
-        "message": "Passwörter"
+        "message": "Passwörter",
+        "description": "Title of the context menu item"
     },
+    "protocolHandler"            : {
+        "message"    : "PassLink Client",
+        "description": "Title of the custom protocol handler"
+    },
+    "MigrationAccountName"       : {
+        "message"    : "Nextcloud Konto",
+        "description": "Label assigned to the account used by the v1.x migration"
+    },
+    "SettingsTabAccounts"        : {
+        "message"    : "Konten",
+        "description": ""
+    },
+    "SettingsTabTheming"         : {
+        "message"    : "Design",
+        "description": ""
+    },
+    "SettingsTabOther"           : {
+        "message"    : "Weitere Einstellungen",
+        "description": ""
+    },
+    "SettingsAccountsMain"       : {
+        "message"    : "Standardkonto für neue Passwörter",
+        "description": ""
+    },
+    "ServerLabel"                : {
+        "message"    : "Name",
+        "description": ""
+    },
+    "ServerBaseUrl"              : {
+        "message"    : "Url",
+        "description": ""
+    },
+    "ServerUser"                 : {
+        "message"    : "Benutzer",
+        "description": ""
+    },
+    "ServerToken"                : {
+        "message"    : "Token",
+        "description": ""
+    },
+    "NewServerTitle"             : {
+        "message"    : "Server hinzufügen",
+        "description": ""
+    },
+    "TabRelated"                 : {
+        "message"    : "Vorschläge",
+        "description": ""
+    },
+    "TabSearch"                  : {
+        "message"    : "Suche",
+        "description": ""
+    },
+    "TabBrowse"                  : {
+        "message"    : "Durchsuchen",
+        "description": ""
+    },
+    "TabCollected"               : {
+        "message"    : "Gesammelt",
+        "description": ""
+    },
+    "TabTools"                   : {
+        "message"    : "Werkzeuge",
+        "description": ""
+    },
+
+
+
+
     "NoRelatedMatches"           : {
         "message": "Keine Logindaten gefunden"
     },

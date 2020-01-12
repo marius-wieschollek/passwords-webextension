@@ -39,6 +39,26 @@
         "message"    : "Default account for new passwords",
         "description": ""
     },
+    "ServerLabel"                : {
+        "message"    : "Name",
+        "description": ""
+    },
+    "ServerBaseUrl"              : {
+        "message"    : "Url",
+        "description": ""
+    },
+    "ServerUser"                 : {
+        "message"    : "User",
+        "description": ""
+    },
+    "ServerToken"                : {
+        "message"    : "Token",
+        "description": ""
+    },
+    "NewServerTitle"             : {
+        "message"    : "Add a server",
+        "description": ""
+    },
     "TabRelated"                 : {
         "message"    : "Suggestions",
         "description": ""
@@ -53,10 +73,6 @@
     },
     "TabCollected"               : {
         "message"    : "Collected",
-        "description": ""
-    },
-    "TabServers"                 : {
-        "message"    : "Server Info",
         "description": ""
     },
     "TabTools"                   : {
@@ -129,19 +145,18 @@
         "message"    : "There is already an account for this user on this Nextcloud.",
         "description": ""
     },
-    "NoRelatedPasswords"        : {
+    "NoRelatedPasswords"         : {
         "message"    : "Did not find any related passwords",
         "description": ""
     },
-    "NoSearchResults"        : {
+    "NoSearchResults"            : {
         "message"    : "Did not find any passwords for your search",
         "description": ""
     },
-
-
-
-
-
+    "NoCollectedPasswords"       : {
+        "message"    : "No new passwords found",
+        "description": ""
+    },
     "NoRelatedMatches"           : {
         "message"    : "No logins found",
         "description": "Shown when the related page did not find any results"

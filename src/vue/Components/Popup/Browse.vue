@@ -1,5 +1,5 @@
 <template>
-    <foldout :tabs="serverNames">
+    <foldout :tabs="serverNames" :translate="false">
         <div v-for="server in servers"
              :key="server.getId()"
              :slot="`${server.getId()}-tab`"
