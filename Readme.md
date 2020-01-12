@@ -18,8 +18,9 @@ Nextcloud can be downloaded for free from the [Nextcloud website](https://nextcl
 The Passwords App can be downloaded for free from the [Nextcloud app store](https://apps.nextcloud.com/apps/passwords).
 
 ### Downloads
-* [Firefox Extension on AMO](https://addons.mozilla.org/de/firefox/addon/nextcloud-passwords/)
-* [Chrome Extension in the Chrome Webs Store](https://chrome.google.com/webstore/detail/nextcloud-passwords/mhajlicjhgoofheldnmollgbgjheenbi)
+* [Firefox Extension](https://addons.mozilla.org/de/firefox/addon/nextcloud-passwords/)
+* [Chrome Extension](https://chrome.google.com/webstore/detail/nextcloud-passwords/mhajlicjhgoofheldnmollgbgjheenbi)
+* [Firefox Extension Development Build](https://git.mdns.eu/nextcloud/passwords-webextension/-/jobs/artifacts/testing/browse/dist/firefox-extension?job=Publish+Nightly+Firefox)
 
 ### Development
 See [contributing](Contributing.md).
