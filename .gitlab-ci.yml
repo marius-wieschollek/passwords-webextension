@@ -33,18 +33,23 @@ Compile Chrome:
 Publish Nightly Firefox:
   stage: publishing
   script:
-    - 'export ARTIFACT_URL=${CI_PROJECT_URL}/-/jobs/artifacts/${CI_COMMIT_BRANCH}/raw/dist/firefox-extension/FILE?job=Compile+Firefox'
+    - 'export ARTIFACT_URL=${CI_PROJECT_URL}/-/jobs/artifacts/${CI_COMMIT_BRANCH}/raw/dist/firefox-extension/FILE?job=Publish+Nightly+Firefox'
     - 'sed -i -e "s|\"gecko\": {|\"gecko\":{\"update_url\":\"ARTIFACT_URL\",|g" ./dist/firefox-extension/manifest.json'
     - 'sed -i -e "s|ARTIFACT_URL|${ARTIFACT_URL}|g" ./dist/firefox-extension/manifest.json'
     - 'sed -i -e "s|FILE|updates.json|g" ./dist/firefox-extension/manifest.json'
+    - 'web-ext sign --channel unlisted --id ${FIREFOX_EXTENSION_ID}'
+    - 'export EXT_FILENAME=$(cd ./dist/firefox-extension/ && ls nextcloud_passwords_client*)'
     - 'sed -i -e "s|BUILD|${CI_PIPELINE_ID}|g" ./dist/firefox-extension/updates.json'
     - 'sed -i -e "s|ARTIFACT_URL|${ARTIFACT_URL}|g" ./dist/firefox-extension/updates.json'
-    - 'sed -i -e "s|FILE|extension.xpi|g" ./dist/firefox-extension/updates.json'
-    - 'web-ext sign --channel unlisted'
+    - 'sed -i -e "s|FILE|${EXT_FILENAME}|g" ./dist/firefox-extension/updates.json'
   environment:
     name: Testing
   only:
     - testing
+  artifacts:
+    paths:
+      - ./dist/firefox-extension/updates.json
+      - ./dist/firefox-extension/*.xpi
 
 #Publish Nightly Chrome:
 #  stage: publishing
