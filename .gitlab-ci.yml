@@ -2,6 +2,8 @@ stages:
   - compiling
   - publishing
 
+image: passwords-webextension-builder
+
 Compile Firefox:
   stage: compiling
   script:
@@ -38,7 +40,7 @@ Publish Nightly Firefox:
     - 'sed -i -e "s|BUILD|${CI_PIPELINE_ID}|g" ./dist/firefox-extension/updates.json'
     - 'sed -i -e "s|ARTIFACT_URL|${ARTIFACT_URL}|g" ./dist/firefox-extension/updates.json'
     - 'sed -i -e "s|FILE|extension.xpi|g" ./dist/firefox-extension/updates.json'
-    - 'npx web-ext sign --channel unlisted'
+    - 'web-ext sign --channel unlisted'
   environment:
     name: Testing
   only:
@@ -48,7 +50,7 @@ Publish Nightly Firefox:
 #  stage: publishing
 #  script:
 #    - 'export WEXT_SHIPIT_CHROME_EXTENSION_ID=${CHROME_EXTENSION_ID_TESTING}'
-#    - 'npx @wext/shipit chrome dist/chrome-extension'
+#    - 'shipit chrome dist/chrome-extension'
 #  environment:
 #    name: Testing
 #  only:
@@ -58,7 +60,7 @@ Publish Stable Firefox:
   stage: publishing
   script:
     - 'rm dist/firefox-extension/updates.json'
-    - 'npx @wext/shipit firefox dist/firefox-extension'
+    - 'shipit firefox dist/firefox-extension'
   environment:
     name: Stable
   only:
@@ -68,7 +70,7 @@ Publish Stable Chrome:
   stage: publishing
   script:
     - 'export WEXT_SHIPIT_CHROME_EXTENSION_ID=${CHROME_EXTENSION_ID_STABLE}'
-    - 'npx @wext/shipit chrome dist/chrome-extension'
+    - 'shipit chrome dist/chrome-extension'
   environment:
     name: Stable
   only:
