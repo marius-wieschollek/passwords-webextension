@@ -1,7 +1,7 @@
-import StorageService from "@js/Services/StorageService";
-import Server from "@js/Models/Server/Server";
+import StorageService from '@js/Services/StorageService';
+import Server from '@js/Models/Server/Server';
 import uuid from 'uuidv4';
-import LocalisationService from "@js/Services/LocalisationService";
+import LocalisationService from '@js/Services/LocalisationService';
 import ServerRepository from '@js/Repositories/ServerRepository';
 
 class UpgradeManager {
@@ -37,9 +37,7 @@ class UpgradeManager {
             theme    = await StorageService.get('theme', StorageService.STORAGE_SYNC),
             password = await StorageService.get('password', StorageService.STORAGE_LOCAL);
 
-        if(url.substr(-1, 1) !== '/') {
-            url += '/';
-        }
+        if(url.substr(-1, 1) !== '/') url += '/';
 
         let server = new Server(
             {
@@ -55,7 +53,6 @@ class UpgradeManager {
         );
 
         await StorageService.set('servers', '{}', StorageService.STORAGE_SYNC);
-
         await ServerRepository.create(server);
     }
 }

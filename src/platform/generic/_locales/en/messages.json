@@ -153,10 +153,18 @@
         "message"    : "Did not find any passwords for your search",
         "description": ""
     },
+    "SearchPlaceholder"            : {
+        "message"    : "Search for passwords",
+        "description": ""
+    },
     "NoCollectedPasswords"       : {
         "message"    : "No new passwords found",
         "description": ""
     },
+
+
+
+
     "NoRelatedMatches"           : {
         "message"    : "No logins found",
         "description": "Shown when the related page did not find any results"

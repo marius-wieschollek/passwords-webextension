@@ -79,6 +79,22 @@
         "message"    : "Werkzeuge",
         "description": ""
     },
+    "NoRelatedPasswords"         : {
+        "message"    : "Keine Vorschläge vorhanden",
+        "description": ""
+    },
+    "SearchPlaceholder"            : {
+        "message"    : "Suche nach Passwörtern",
+        "description": ""
+    },
+    "NoSearchResults"            : {
+        "message"    : "Keine passenden Passwörter gefunden",
+        "description": ""
+    },
+    "NoCollectedPasswords"       : {
+        "message"    : "Keine neuen Passwörter gefunden",
+        "description": ""
+    },
 
 
 

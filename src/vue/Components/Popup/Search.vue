@@ -1,6 +1,6 @@
 <template>
     <div class="search-container">
-        <input type="text" id="query" v-model="query" placeholder="Type to search">
+        <input type="text" id="query" v-model="query" :placeholder="placeholder">
         <password-list :passwords="passwords"/>
         <translate tag="div" class="no-results" say="NoSearchResults" v-if="query.length !== 0 && passwords.length === 0"/>
     </div>
@@ -10,6 +10,7 @@
     import MessageService from '@js/Services/MessageService';
     import PasswordList from '@vue/Components/List/PasswordList';
     import Translate from '@vue/Components/Translate';
+    import LocalisationService from '@js/Services/LocalisationService';
 
     export default {
         components: {Translate, PasswordList},
@@ -28,7 +29,8 @@
         data() {
             return {
                 query    : this.initialQuery,
-                passwords: this.initialPasswords
+                passwords: this.initialPasswords,
+                placeholder: LocalisationService.translate('SearchPlaceholder')
             };
         },
 
@@ -58,7 +60,7 @@
     .search-container {
         input {
             width       : 100%;
-            line-height : 2rem;
+            line-height : 3rem;
         }
 
         .no-results {
