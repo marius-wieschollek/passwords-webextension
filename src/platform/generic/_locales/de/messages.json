@@ -19,20 +19,6 @@
         "message"    : "PassLink Client",
         "description": "Title of the custom protocol handler"
     },
-    "UserAgent"       : {
-        "message"    : "Offizieller Passwörter Client für $BROWSER$ auf $OS$",
-        "description": "The user agent used for api requests",
-        "placeholders": {
-            "browser": {
-                "content": "$1",
-                "example": "Firefox"
-            },
-            "os": {
-                "content": "$2",
-                "example": "Linux"
-            }
-        }
-    },
     "MigrationAccountName"       : {
         "message"    : "Nextcloud Konto",
         "description": "Label assigned to the account used by the v1.x migration"
