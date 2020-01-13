@@ -10,6 +10,19 @@ class BrowserApi {
 
     /**
      *
+     * @return {Promise<{name: string, version: string}>}
+     */
+    async getBrowserInfo() {
+        let info = await browser.runtime.getBrowserInfo();
+
+        return {
+            name   : info.name,
+            version: info.version
+        };
+    }
+
+    /**
+     *
      * @return {browser.contextMenus}
      */
     getContextMenu() {

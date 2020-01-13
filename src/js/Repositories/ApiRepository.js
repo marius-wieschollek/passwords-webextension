@@ -1,6 +1,8 @@
 import Server from '@js/Models/Server/Server';
 import ServerRepository from '@js/Repositories/ServerRepository';
 import Api from 'passwords-client';
+import SystemService from '@js/Services/SystemService';
+import LocalisationService from '@js/Services/LocalisationService';
 
 class ApiRepository {
 
@@ -58,15 +60,32 @@ class ApiRepository {
      * @private
      */
     async _loadApis() {
-        let servers = await ServerRepository.findAll();
+        let servers = await ServerRepository.findAll(),
+            classes = {model: {server: Server}},
+            config  = await this._getApiConfig();
 
         for(let server of servers) {
             if(!this._api.hasOwnProperty(server.getId())) {
-                this._api[server.getId()] = new Api(server, {}, {model: {server: Server}});
+                this._api[server.getId()] = new Api(server, config, classes);
             }
         }
 
         return this._api;
+    }
+
+    /**
+     *
+     * @return {Promise<{userAgent: string}>}
+     * @private
+     */
+    async _getApiConfig() {
+        let bwInfo = await SystemService.getBrowserInfo(),
+            osInfo = await SystemService.getBrowserApi().runtime.getPlatformInfo(),
+            os     = osInfo.os ? `${osInfo.os[0].toUpperCase()}${osInfo.os.substr(1)}`:'';
+
+        return {
+            userAgent: LocalisationService.translate('UserAgent', [bwInfo.name, os])
+        };
     }
 }
 
