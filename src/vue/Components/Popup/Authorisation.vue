@@ -59,6 +59,14 @@
             this.state = 'ready';
         },
 
+        mounted() {
+            if(this.authRequest.requiresPassword()) {
+                document.getElementById('password').focus();
+            } else if(this.authRequest.requiresToken() && this.tokenField) {
+                document.getElementById('token').focus();
+            }
+        },
+
         methods: {
             async submit() {
                 if(this.authRequest.requiresPassword() && !this.password || this.authRequest.requiresToken() && !this.token) {

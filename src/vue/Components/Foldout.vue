@@ -16,7 +16,7 @@
 </template>
 
 <script>
-    import Translate from "@vue/Components/Translate";
+    import Translate from '@vue/Components/Translate';
 
     export default {
         components: {Translate},
@@ -25,7 +25,7 @@
             tabs       : {
                 type: Object
             },
-            translate: {
+            translate  : {
                 type   : Boolean,
                 default: true
             },
@@ -39,12 +39,12 @@
             let tab = null;
             if(this.initialOpen) tab = Object.keys(this.tabs)[0];
 
-            return {tab}
+            return {tab};
         },
 
         methods: {
             isActive(tab) {
-                return tab === this.tab
+                return tab === this.tab;
             },
             setActive(tab) {
                 if(!this.initialOpen && this.tab === tab) {
@@ -59,11 +59,11 @@
         watch: {
             tabs(value) {
                 if(!value.hasOwnProperty(this.tab)) {
-                    if(this.initialOpen) this.tab = Object.keys(value)[0]
+                    if(this.initialOpen) this.tab = Object.keys(value)[0];
                 }
             }
         }
-    }
+    };
 </script>
 
 <style lang="scss">
@@ -97,7 +97,7 @@
             > * {
                 flex-grow   : 0;
                 flex-shrink : 0;
-                padding          : 1rem;
+                padding     : 1rem;
             }
 
             > .label {
@@ -114,7 +114,7 @@
 
             .option,
             .icon {
-                transition: color .15s ease-in-out, background-color .15s ease-in-out;
+                transition : color .15s ease-in-out, background-color .15s ease-in-out;
 
                 &:hover {
                     background-color : var(--element-primary-background-color);
@@ -129,6 +129,31 @@
 
             &.active {
                 display : block;
+            }
+        }
+    }
+
+    body.mobile {
+        .foldout-container .foldout-tab {
+            > .label {
+                flex-shrink : 1;
+                min-width   : 50vw;
+            }
+
+            .options {
+                opacity          : 1;
+                transition       : none;
+                background-color : transparent;
+                color            : var(--content-primary-text-color);
+            }
+
+            &:hover {
+                .options {
+                    opacity          : 1;
+                    transition       : none;
+                    background-color : transparent;
+                    color            : var(--element-primary-hover-text-color);
+                }
             }
         }
     }

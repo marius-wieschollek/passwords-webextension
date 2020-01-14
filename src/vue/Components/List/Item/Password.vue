@@ -41,22 +41,30 @@
 
 <style lang="scss">
     .item.password-item {
-        line-height           : 3rem;
-        font-size             : 1rem;
-        color                 : var(--main-text-color);
-        cursor                : pointer;
-        display               : grid;
-        grid-template-columns : 100vw 3rem;
-        overflow              : hidden;
-        transition            : grid-template-columns 0.25s ease-in-out;
+        line-height : 3rem;
+        font-size   : 1rem;
+        color       : var(--main-text-color);
+        cursor      : pointer;
+        display     : flex;
+        overflow    : hidden;
 
-        .label {
-            padding : 0 0.5rem;
+        > * {
+            flex-grow   : 0;
+            flex-shrink : 0;
+        }
+
+        > .label {
+            flex-grow  : 1;
+            padding    : 0 .5rem;
+            min-width  : 100vw;
+            transition : min-width .25s ease-in-out;
         }
 
         .options {
+            opacity          : 0;
             background-color : var(--element-primary-background-color);
             color            : var(--element-primary-hover-text-color);
+            transition       : opacity 0s linear .25s;
 
             .icon {
                 text-align : center;
@@ -66,9 +74,43 @@
         }
 
         &:hover {
-            background-color      : var(--element-primary-hover-background-color);
-            color                 : var(--element-primary-hover-text-color);
-            grid-template-columns : calc(100% - 3rem) 3rem;
+            background-color : var(--element-primary-hover-background-color);
+            color            : var(--element-primary-hover-text-color);
+
+            > .label {
+                flex-shrink : 1;
+                min-width   : 50vw;
+            }
+
+            .options {
+                opacity    : 1;
+                transition : none;
+            }
+        }
+    }
+
+    body.mobile {
+        .item.password-item {
+            > .label {
+                flex-shrink : 1;
+                min-width   : 50vw;
+            }
+
+            .options {
+                opacity          : 1;
+                transition       : none;
+                background-color : transparent;
+                color            : var(--content-primary-text-color);
+            }
+
+            &:hover {
+                .options {
+                    opacity          : 1;
+                    transition       : none;
+                    background-color : transparent;
+                    color            : var(--element-primary-hover-text-color);
+                }
+            }
         }
     }
 </style>

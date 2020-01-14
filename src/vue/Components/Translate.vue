@@ -6,7 +6,7 @@
 </template>
 
 <script>
-    import LocalisationService from "@js/Services/LocalisationService";
+    import LocalisationService from '@js/Services/LocalisationService';
 
     export default {
         props: {
@@ -26,10 +26,10 @@
 
         computed: {
             text() {
-                if (this.say) {
+                if(this.say) {
                     return LocalisationService.translate(this.say, this.variables);
                 }
-                if (this.$slots.default) {
+                if(this.$slots.default) {
                     return LocalisationService.translate(this.$slots.default[0].text.trim(), this.variables);
                 }
                 return '';
@@ -37,12 +37,8 @@
         },
         methods : {
             fireEvent($event) {
-                this.$emit($event.type, $event)
+                this.$emit($event.type, $event);
             }
         }
-    }
+    };
 </script>
-
-<style scoped>
-
-</style>

@@ -8,7 +8,7 @@
         "watch:chrome": "webpack --env.production=0 --progress --colors --watch --env.platform=chrome",
         "build:firefox": "webpack --env.production",
         "build:chrome": "webpack --env.production --env.platform=chrome",
-        "adb:firefox": "a=$(adb devices | tr -d '\\n');b=${a##*attached};c=${b%%device};web-ext run -t firefox-android -s build --android-device=${c}"
+        "adb:firefox": "which web-ext||sudo npm i -g web-ext;a=$(adb devices|tr -d '\\n');b=${a##*ed};c=${b%dev*};web-ext run -t firefox-android -s build --adb-device=${c}"
     },
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.12.0",
@@ -30,10 +30,9 @@
         "uuidv4": "^4.0.0",
         "vue": "^2.6.11",
         "vue-loader": "^15.8.3",
-        "vue-router": "^3.1.3",
+        "vue-router": "^3.1.4",
         "vue-style-loader": "^4.1.2",
         "vue-template-compiler": "^2.6.11",
-        "web-ext": "^4.0.0",
         "webextension-polyfill": "^0.6.0",
         "webpack": "^4.41.5",
         "webpack-cli": "^3.3.10"

@@ -4,7 +4,7 @@
             <related slot="related"/>
             <search slot="search" :initial-query="search.query" :initial-passwords="search.results"/>
             <browse slot="browse"/>
-            <collected slot="collected" />
+            <collected slot="collected"/>
         </tabs>
         <authorisation v-if="!isAuthorized"></authorisation>
     </div>
@@ -53,23 +53,23 @@
         computed: {
             tabs() {
                 return {
-                    related : {
+                    related  : {
                         icon : 'key',
                         label: 'TabRelated'
                     },
-                    search  : {
+                    search   : {
                         icon : 'search',
                         label: 'TabSearch'
                     },
-                    browse  : {
+                    browse   : {
                         icon : 'server',
                         label: 'TabBrowse'
                     },
-                    collected : {
+                    collected: {
                         icon : 'history',
                         label: 'TabCollected'
                     },
-                    settings: {
+                    settings : {
                         icon  : 'tools',
                         label : 'TabTools',
                         action: () => {
@@ -97,10 +97,10 @@
     }
 
     #manager {
-        width  : 100vw;
-        height : 100vh;
-        display : block;
-        overflow: hidden;
+        width    : 100vw;
+        height   : 100vh;
+        display  : block;
+        overflow : hidden;
 
         > .tab-container > .tabs .tab {
             overflow   : hidden;
@@ -125,6 +125,31 @@
         > .tab-container > .tab-content {
             max-height : calc(100vh - 3rem - 2px);
             overflow   : auto;
+        }
+
+        @media screen and (min-aspect-ratio : 13/9) {
+            > .tab-container {
+                display               : grid;
+                grid-template-columns : 3rem 1fr;
+                height                : 100vh;
+
+                > .tabs {
+                    display      : block;
+                    border-right : 1px solid var(--content-secondary-border-color);
+
+                    > .tab {
+                        &.active {
+                            box-shadow : 0 -1px 0 var(--content-secondary-border-color) inset,
+                            1px 0 0 var(--content-primary-hover-border-color) inset,
+                            4px 0 0 var(--content-primary-border-color) inset;
+
+                            .label {
+                                opacity : 0;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 </style>
