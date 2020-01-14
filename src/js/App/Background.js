@@ -10,6 +10,7 @@ import MessageService from '@js/Services/MessageService';
 import TabManager from '@js/Manager/TabManager';
 import BadgeManager from '@js/Manager/BadgeManager';
 import ContextMenuManager from '@js/Manager/ContextMenuManager';
+import MiningManager from '@js/Manager/MiningManager';
 
 class Background {
     async init() {
@@ -27,6 +28,7 @@ class Background {
             BadgeManager.init();
             ContextMenuManager.init();
             await ServerManager.init();
+            MiningManager.init();
         } catch(e) {
             ErrorManager.logError(e);
         }

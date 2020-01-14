@@ -1,18 +1,26 @@
 <template>
     <div class="collected-container">
-        <translate tag="div" class="no-results" say="NoCollectedPasswords" v-if="passwords.length === 0"/>
+        <password v-for="item of items" :key="item.getId()" :password="item.getPassword()"></password>
+        <translate tag="div" class="no-results" say="NoCollectedPasswords" v-if="items.length === 0"/>
     </div>
 </template>
 
 <script>
     import Translate from '@vue/Components/Translate';
+    import MiningClient from '@js/Queue/Client/MiningClient';
+    import Password from '@vue/Components/List/Item/Password';
 
     export default {
-        components: {Translate},
+        components: {Password, Translate},
         data() {
+            console.log(MiningClient.getItems());
+
             return {
-                passwords: []
+                items: MiningClient.getItems()
             };
+        },
+        mounted() {
+            console.log(this.items);
         }
     };
 </script>
