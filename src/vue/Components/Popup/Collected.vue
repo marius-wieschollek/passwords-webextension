@@ -13,14 +13,9 @@
     export default {
         components: {Password, Translate},
         data() {
-            console.log(MiningClient.getItems());
-
             return {
                 items: MiningClient.getItems()
             };
-        },
-        mounted() {
-            console.log(this.items);
         }
     };
 </script>
