@@ -8,11 +8,17 @@ class BrowserApi {
 
     async getBrowserInfo() {
         let parser = new UaParser(navigator.userAgent),
-            info   = parser.getBrowser();
+            app   = parser.getBrowser(),
+            os = await browser.runtime.getPlatformInfo(),
+            device = os.os === 'android' ? 'mobile':'desktop';
 
         return {
-            name   : info.name,
-            version: info.version
+            device,
+            os     : os.os,
+            arch   : os.arch,
+            name   : app.name,
+            vendor : 'Google',
+            version: app.version
         };
     }
 

@@ -8,9 +8,19 @@ import AuthorisationClient from '@js/Queue/Client/AuthorisationClient';
 
 class Popup {
 
+    /**
+     *
+     * @return {(Vue|null)}
+     */
     get app() {
         return this._app;
     }
+
+    /**
+     *
+     * @return {(AuthorisationClient|null)}
+     * @constructor
+     */
     get AuthorisationClient() {
         return this._authClient;
     }
@@ -39,6 +49,7 @@ class Popup {
     async _initVue() {
         let reply  = await MessageService.send({type: 'popup.status'}),
             status = reply.getPayload();
+        document.body.classList.add(status.device);
 
         this._app = new Vue({propsData: status, ...App});
     }

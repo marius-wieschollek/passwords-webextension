@@ -31,6 +31,7 @@
         components: {Translate},
         data() {
             let current = Popup.AuthorisationClient.getCurrent();
+
             return {
                 authRequest : current,
                 password    : null,
@@ -136,10 +137,9 @@
 
             select,
             input {
-                width : 80vh;
+                width : 80vw;
             }
         }
-
 
         .login-container {
             margin : 1rem 0;

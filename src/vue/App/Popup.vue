@@ -85,15 +85,20 @@
 
 <style lang="scss">
     body {
-        width      : 360px;
-        height     : 360px;
-        display    : block;
-        box-sizing : border-box;
+        &.mobile {
+            width  : 100vw;
+            height : 100vh;
+        }
+
+        &.desktop {
+            width  : 360px;
+            height : 360px;
+        }
     }
 
     #manager {
-        width   : 360px;
-        height  : 360px;
+        width  : 100vw;
+        height : 100vh;
         display : block;
         overflow: hidden;
 

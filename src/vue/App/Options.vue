@@ -40,6 +40,8 @@
 
 <style lang="scss">
     body {
+        min-height : 400px;
+
         select,
         input[type=text] {
             background-color : var(--main-background-color);

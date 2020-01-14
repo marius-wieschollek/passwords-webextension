@@ -40,13 +40,6 @@ class ControllerManager {
             }
         );
         MessageService.listen(
-            'popup.status',
-            async (message, reply) => {
-                let module = await import('@js/Controller/Popup/Status');
-                await this._executeController(module, message, reply);
-            }
-        );
-        MessageService.listen(
             'server.list',
             async (message, reply) => {
                 let module = await import('@js/Controller/Server/List');
@@ -85,6 +78,20 @@ class ControllerManager {
             'token.request',
             async (message, reply) => {
                 let module = await import('@js/Controller/Token/Request');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
+            'popup.status',
+            async (message, reply) => {
+                let module = await import('@js/Controller/Popup/Status');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
+            'options.status',
+            async (message, reply) => {
+                let module = await import('@js/Controller/Options/Status');
                 await this._executeController(module, message, reply);
             }
         );

@@ -13,11 +13,17 @@ class BrowserApi {
      * @return {Promise<{name: string, version: string}>}
      */
     async getBrowserInfo() {
-        let info = await browser.runtime.getBrowserInfo();
+        let app    = await browser.runtime.getBrowserInfo(),
+            os     = await browser.runtime.getPlatformInfo(),
+            device = os.os === 'android' ? 'mobile':'desktop';
 
         return {
-            name   : info.name,
-            version: info.version
+            device,
+            os     : os.os,
+            arch   : os.arch,
+            name   : app.name,
+            vendor : app.vendor,
+            version: app.version
         };
     }
 

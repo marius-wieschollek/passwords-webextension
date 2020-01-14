@@ -1,11 +1,8 @@
-body #options {
-    min-height: 400px;
-    max-width: 400px;
-    width: 400px;
-}
-
 body {
-    margin: 0;
-    font-size: 11pt;
-    box-sizing: border-box;
+    font-size : 11pt;
+
+    &.options {
+        max-width : 400px;
+        width     : 400px;
+    }
 }

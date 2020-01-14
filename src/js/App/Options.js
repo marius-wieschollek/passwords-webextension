@@ -7,6 +7,10 @@ import ConverterManager from '@js/Manager/ConverterManager';
 
 class Options {
 
+    /**
+     *
+     * @return {(Vue|null)}
+     */
     get app() {
         return this._app;
     }
@@ -21,13 +25,21 @@ class Options {
         try {
             await SystemService.waitReady();
             SystemService.connect();
-            MessageService.init(true, 'background');
+            await MessageService.init(true, 'background');
             ConverterManager.init();
 
-            this._app = new Vue(App);
+            await this._initVue();
         } catch(e) {
             ErrorManager.logError(e);
         }
+    }
+
+    async _initVue() {
+        let reply  = await MessageService.send({type: 'options.status'}),
+            status = reply.getPayload();
+        document.body.classList.add(status.device);
+
+        this._app = new Vue({propsData: status, ...App});
     }
 }
 
