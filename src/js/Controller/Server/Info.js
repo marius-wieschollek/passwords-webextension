@@ -16,8 +16,6 @@ export default class Info extends AbstractController {
         info.folders = query.type('folder').execute().length;
         info.tags = query.type('tag').execute().length;
 
-        console.log(info);
-
         reply.setPayload(info);
     }
 }

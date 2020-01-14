@@ -134,7 +134,6 @@ export default class SearchQuery {
 
             if(result.passed) {
                 let score = result.matches / result.checks;
-                console.log(item, result, score);
                 if(score >= this._score) {
                     let match = ObjectMerger.merge({score}, item);
                     matches.push(match);
