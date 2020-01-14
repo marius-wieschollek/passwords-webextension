@@ -19,6 +19,16 @@
         "message"    : "PassLink Client",
         "description": "Title of the custom protocol handler"
     },
+    "BrowserActionTitleCounter"  : {
+        "message"     : "Passwörter ($COUNTER$)",
+        "description" : "Title of the button in the browser bar with suggestion counter",
+        "placeholders": {
+            "counter": {
+                "content": "$1",
+                "example": "2"
+            }
+        }
+    },
     "MigrationAccountName"       : {
         "message"    : "Nextcloud Konto",
         "description": "Label assigned to the account used by the v1.x migration"

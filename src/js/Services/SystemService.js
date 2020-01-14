@@ -77,6 +77,14 @@ class SystemService {
 
     /**
      *
+     * @returns {boolean}
+     */
+    hasBadge() {
+        return BrowserApi.hasBadgeText();
+    }
+
+    /**
+     *
      */
     connect() {
         this._api.runtime.connect();

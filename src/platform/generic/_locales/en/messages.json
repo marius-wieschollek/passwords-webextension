@@ -19,15 +19,25 @@
         "message"    : "PassLink Client",
         "description": "Title of the custom protocol handler"
     },
-    "UserAgent"       : {
-        "message"    : "Official Passwords Client for $BROWSER$ on $OS$",
-        "description": "The user agent used for api requests. Only ASCII characters allowed",
+    "BrowserActionTitleCounter"  : {
+        "message"     : "Passwords ($COUNTER$)",
+        "description" : "Title of the button in the browser bar with suggestion counter",
+        "placeholders": {
+            "counter": {
+                "content": "$1",
+                "example": "2"
+            }
+        }
+    },
+    "UserAgent"                  : {
+        "message"     : "Official Passwords Client for $BROWSER$ on $OS$",
+        "description" : "The user agent used for api requests. Only ASCII characters allowed",
         "placeholders": {
             "browser": {
                 "content": "$1",
                 "example": "Firefox"
             },
-            "os": {
+            "os"     : {
                 "content": "$2",
                 "example": "Linux"
             }
@@ -167,7 +177,7 @@
         "message"    : "Did not find any passwords for your search",
         "description": ""
     },
-    "SearchPlaceholder"            : {
+    "SearchPlaceholder"          : {
         "message"    : "Search for passwords",
         "description": ""
     },

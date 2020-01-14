@@ -11,6 +11,7 @@ class ContextMenuManager {
      *
      */
     init() {
+        if(!SystemService.hasContextMenu()) return;
         RecommendationManager.listen.on(
             (r) => {
                 this._updateContextMenu(r);
@@ -24,7 +25,6 @@ class ContextMenuManager {
      * @private
      */
     _updateContextMenu(recommended) {
-        if(!SystemService.hasContextMenu()) return;
         SystemService.getContextMenu().removeAll();
 
         if(recommended.length === 0) {

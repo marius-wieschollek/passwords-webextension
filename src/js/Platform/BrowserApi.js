@@ -42,6 +42,14 @@ class BrowserApi {
     hasContextMenu() {
         return browser.hasOwnProperty('menus');
     }
+
+    /**
+     *
+     * @return {boolean}
+     */
+    hasBadgeText() {
+        return browser.browserAction.hasOwnProperty('getBadgeText');
+    }
 }
 
 export default new BrowserApi();
