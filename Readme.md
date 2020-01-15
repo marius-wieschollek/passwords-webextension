@@ -21,12 +21,13 @@ The Passwords App can be downloaded for free from the [Nextcloud app store](http
 * [Firefox Extension](https://addons.mozilla.org/de/firefox/addon/nextcloud-passwords/)
 * [Chrome Extension](https://chrome.google.com/webstore/detail/nextcloud-passwords/mhajlicjhgoofheldnmollgbgjheenbi)
 * [Firefox Extension Development Build](https://git.mdns.eu/nextcloud/passwords-webextension/-/jobs/artifacts/testing/browse/dist/firefox-extension?job=Publish+Nightly+Firefox)
+* [Chrome Extension Development Build](https://chrome.google.com/webstore/detail/aipncmjoigmhooiiclcailmhiopachih)
 
 ### Development
 See [contributing](Contributing.md).
 
 ##### Notes for AMO reviewers
 1. This extension uses Vue.js and webpack
-2. This extension requires a Nextcloud 17+ server with Passwords 2020.1.0+
+2. This extension requires a Nextcloud 17+ server with Passwords 2020.2.0+
 3. This extension and all required software is available for free
 4. See [contributing](Contributing.md).
