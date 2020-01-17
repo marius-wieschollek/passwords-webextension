@@ -8,9 +8,9 @@ class LocalisationService {
 
     /**
      *
-     * @param {string} key
-     * @param {string[]} [variables=[]]
-     * @returns {string}
+     * @param {String} key
+     * @param {String[]} [variables=[]]
+     * @returns {String}
      */
     translate(key, variables = []) {
         let translation = this._browser.i18n.getMessage(key, variables);

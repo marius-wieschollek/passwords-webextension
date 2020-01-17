@@ -30,7 +30,7 @@ export default class Utility {
      *
      * @param host
      * @param compare
-     * @returns {boolean}
+     * @returns {Boolean}
      */
     static hostCompare(host, compare) {
         if(host === undefined || compare === undefined) return false;

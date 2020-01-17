@@ -11,7 +11,7 @@ class ErrorManager {
 
     /**
      *
-     * @param {string} [mode=client] The mode decides if errors are logged or sent to the backend
+     * @param {String} [mode=client] The mode decides if errors are logged or sent to the backend
      */
     init(mode = 'client') {
         this._mode = mode;
@@ -60,10 +60,10 @@ class ErrorManager {
     /**
      *
      * @param {Error} error
-     * @param {string} message
-     * @param {number} file
-     * @param {number} line
-     * @param {number} col
+     * @param {String} [message]
+     * @param {String} [file]
+     * @param {Number} [line]
+     * @param {Number} [col]
      * @private
      */
     _addError(error, message, file, line, col) {
@@ -118,11 +118,11 @@ class ErrorManager {
             .then(() => {
                 MessageService.listen(
                     'queue.items.error',
-                    (message, sender) => {
+                    (message) => {
                         return this._processQueueItems(message);
                     }
                 );
-            })
+            });
     }
 
     /**
@@ -132,6 +132,7 @@ class ErrorManager {
      */
     _processQueueItems(message) {
         let payload = message.getPayload();
+        this._saveError(payload);
     }
 }
 

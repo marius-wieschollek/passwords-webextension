@@ -58,9 +58,9 @@ class TabManager {
 
     /**
      *
-     * @param {string} key
+     * @param {String} key
      * @param {*} value
-     * @param {(number|null)} [tab=null]
+     * @param {(Number|null)} [tab=null]
      */
     set(key, value, tab = null) {
         if(tab === null) tab = this._currentTab;
@@ -74,8 +74,8 @@ class TabManager {
 
     /**
      *
-     * @param {(string|null)} [key=null]
-     * @param {(number|null)} [tab=null]
+     * @param {(String|null)} [key=null]
+     * @param {(Number|null)} [tab=null]
      * @return {*}
      */
     get(key = null, tab = null) {
@@ -99,9 +99,9 @@ class TabManager {
 
     /**
      *
-     * @param {string} key
-     * @param {(number|null)} [tab=null]
-     * @return {boolean}
+     * @param {String} key
+     * @param {(Number|null)} [tab=null]
+     * @return {Boolean}
      */
     has(key, tab = null) {
         if(tab === null) tab = this._currentTab;
@@ -119,7 +119,7 @@ class TabManager {
 
     /**
      *
-     * @param {browser.tabs.Tab} tab
+     * @param {browser.tabs.Tab} [tab]
      * @return {Promise<void>}
      * @private
      */
@@ -149,23 +149,6 @@ class TabManager {
         }
 
         await this._tabUpdate.emit(this._tabs[tabId]);
-    }
-
-    /**
-     *
-     * @param {Array} callbacks
-     * @param {browser.tabs.Tab} tab
-     * @return {Promise<void>}
-     * @private
-     */
-    async _notifyListeners(callbacks, tab) {
-        for(let callback of callbacks) {
-            try {
-                await callback(tab);
-            } catch(e) {
-                ErrorManager.logError(e);
-            }
-        }
     }
 
     /**

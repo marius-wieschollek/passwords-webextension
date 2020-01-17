@@ -6,7 +6,7 @@ export default class QueueClient {
 
     /**
      *
-     * @param {string} name
+     * @param {String} name
      * @param {Function} callback
      * @param {QueueItem} type
      */
@@ -55,7 +55,7 @@ export default class QueueClient {
     /**
      *
      * @param {Message} message
-     * @param {Message|null} reply
+     * @param {(Message|null)} reply
      * @private
      */
     _processItems(message, reply = null) {
@@ -75,7 +75,7 @@ export default class QueueClient {
     /**
      *
      * @param {QueueItem} item
-     * @param {(string|null)} receiver
+     * @param {(String|null)} [receiver]
      * @private
      */
     async _processItem(item, receiver) {
@@ -98,7 +98,7 @@ export default class QueueClient {
      * @param {QueueItem} item
      * @param {Function} callback
      * @returns {Promise<void>}
-     * @private
+     * @protected
      */
     async _executeCallback(item, callback) {
         try {

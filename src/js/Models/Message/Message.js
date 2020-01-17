@@ -19,7 +19,7 @@ export default class Message {
 
     /**
      *
-     * @returns {string}
+     * @returns {String}
      */
     getId() {
         return this._id;
@@ -27,7 +27,7 @@ export default class Message {
 
     /**
      *
-     * @param {string} value
+     * @param {String} value
      * @returns {Message}
      */
     setId(value) {
@@ -38,7 +38,7 @@ export default class Message {
 
     /**
      *
-     * @returns {(string|null)}
+     * @returns {(String|null)}
      */
     getType() {
         return this._type;
@@ -46,7 +46,7 @@ export default class Message {
 
     /**
      *
-     * @param {(string|null)} value
+     * @param {(String|null)} value
      * @returns {Message}
      */
     setType(value) {
@@ -57,7 +57,7 @@ export default class Message {
 
     /**
      *
-     * @returns {(number|null)}
+     * @returns {(Number|null)}
      */
     getTab() {
         return this._tab;
@@ -65,7 +65,7 @@ export default class Message {
 
     /**
      *
-     * @param {(number|null)} value
+     * @param {(Number|null)} value
      * @returns {Message}
      */
     setTab(value) {
@@ -76,7 +76,7 @@ export default class Message {
 
     /**
      *
-     * @returns {(string|null)}
+     * @returns {(String|null)}
      */
     getReceiver() {
         return this._receiver;
@@ -84,7 +84,7 @@ export default class Message {
 
     /**
      *
-     * @param {(string|null)} value
+     * @param {(String|null)} value
      * @returns {Message}
      */
     setReceiver(value) {
@@ -95,7 +95,7 @@ export default class Message {
 
     /**
      *
-     * @returns {(string|null)}
+     * @returns {(String|null)}
      */
     getSender() {
         return this._sender;
@@ -103,7 +103,7 @@ export default class Message {
 
     /**
      *
-     * @param {(string|null)} value
+     * @param {(String|null)} value
      * @returns {Message}
      */
     setSender(value) {
@@ -114,7 +114,7 @@ export default class Message {
 
     /**
      *
-     * @returns {(string|null)}
+     * @returns {(String|null)}
      */
     getReply() {
         return this._reply;
@@ -122,7 +122,7 @@ export default class Message {
 
     /**
      *
-     * @param {(string|null)} value
+     * @param {(String|null)} value
      * @returns {Message}
      */
     setReply(value) {
@@ -133,7 +133,7 @@ export default class Message {
 
     /**
      *
-     * @returns {(string|null)}
+     * @returns {(String|null)}
      */
     getChannel() {
         return this._channel;
@@ -141,7 +141,7 @@ export default class Message {
 
     /**
      *
-     * @param {(string|null)} value
+     * @param {(String|null)} value
      * @returns {Message}
      */
     setChannel(value) {
@@ -152,7 +152,7 @@ export default class Message {
 
     /**
      *
-     * @returns {(Object|null)}
+     * @returns {(Object|*|null)}
      */
     getPayload() {
         return this._payload;
@@ -160,7 +160,7 @@ export default class Message {
 
     /**
      *
-     * @param {(Object|null)} value
+     * @param {(Object|*|null)} value
      * @returns {Message}
      */
     setPayload(value) {

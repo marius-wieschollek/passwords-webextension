@@ -4,7 +4,7 @@ export default class AuthorisationItem extends FeedbackItem {
 
     /**
      *
-     * @returns {string}
+     * @returns {String}
      */
     getServerId() {
         return this.getTask().server;
@@ -12,7 +12,7 @@ export default class AuthorisationItem extends FeedbackItem {
 
     /**
      *
-     * @returns {string}
+     * @returns {String}
      */
     getLabel() {
         return this.getTask().label;
@@ -20,7 +20,7 @@ export default class AuthorisationItem extends FeedbackItem {
 
     /**
      *
-     * @returns {boolean}
+     * @returns {Boolean}
      */
     requiresPassword() {
         return this.getTask().password;
@@ -28,7 +28,7 @@ export default class AuthorisationItem extends FeedbackItem {
 
     /**
      *
-     * @returns {boolean}
+     * @returns {Boolean}
      */
     requiresToken() {
         return this.getTask().token;

@@ -5,7 +5,7 @@ export default class FeedbackClient extends QueueClient {
 
     /**
      *
-     * @param {string} name
+     * @param {String} name
      * @param {Function} callback
      * @param {Function} feedback
      * @param {FeedbackItem} type

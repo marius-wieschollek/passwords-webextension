@@ -12,7 +12,7 @@ export default class SearchQuery {
 
     /**
      *
-     * @param {string} [condition=and]
+     * @param {String} [condition=and]
      */
     constructor(condition = 'and') {
         if(['and', 'or', 'xor'].indexOf(condition) === -1) {
@@ -28,7 +28,7 @@ export default class SearchQuery {
 
     /**
      *
-     * @param {number} value
+     * @param {Number} value
      * @return {SearchQuery}
      */
     limit(value) {
@@ -39,7 +39,7 @@ export default class SearchQuery {
 
     /**
      *
-     * @param {number} value
+     * @param {Number} value
      * @return {SearchQuery}
      */
     score(value) {
@@ -50,7 +50,7 @@ export default class SearchQuery {
 
     /**
      *
-     * @param {(string|string[])} value
+     * @param {(String|String[])} value
      * @return {SearchQuery}
      */
     type(value) {
@@ -61,8 +61,8 @@ export default class SearchQuery {
 
     /**
      *
-     * @param {string} field
-     * @param {boolean} ascending
+     * @param {String} field
+     * @param {Boolean} ascending
      * @return {SearchQuery}
      */
     sortBy(field, ascending = false) {
@@ -165,7 +165,7 @@ export default class SearchQuery {
      *
      * @param {Object} a
      * @param {Object} b
-     * @return {number}
+     * @return {Number}
      * @private
      */
     _sortFunction(a, b) {

@@ -6,8 +6,8 @@ export default class FeedbackQueue extends Queue {
 
     /**
      *
-     * @param {string}      name
-     * @param {string|null} [area=null]
+     * @param {String}      name
+     * @param {(String|null)} [area=null]
      * @param {QueueItem}   [type=FeedbackItem]
      */
     constructor(name, area, type = FeedbackItem) {

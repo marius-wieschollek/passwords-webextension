@@ -37,7 +37,7 @@ class BrowserApi {
 
     /**
      *
-     * @return {boolean}
+     * @return {Boolean}
      */
     hasContextMenu() {
         return browser.hasOwnProperty('menus');
@@ -45,7 +45,7 @@ class BrowserApi {
 
     /**
      *
-     * @return {boolean}
+     * @return {Boolean}
      */
     hasBadgeText() {
         return browser.browserAction.hasOwnProperty('getBadgeText');

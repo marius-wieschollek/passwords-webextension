@@ -10,7 +10,7 @@ import FieldNotContains from '@js/Search/Query/Field/FieldNotContains';
 export default class FieldFactory {
 
     /**
-     * @param {string} name
+     * @param {String} name
      */
     constructor(name) {
         this._name = name;
@@ -18,8 +18,8 @@ export default class FieldFactory {
 
     /**
      *
-     * @param {string} value
-     * @param {string} [name=null]
+     * @param {String} value
+     * @param {String} [name=null]
      * @return {FieldEquals}
      */
     equals(value, name = null) {
@@ -32,8 +32,8 @@ export default class FieldFactory {
 
     /**
      *
-     * @param {string} value
-     * @param {string} [name=null]
+     * @param {String} value
+     * @param {String} [name=null]
      * @return {FieldContains}
      */
     contains(value, name = null) {
@@ -46,8 +46,8 @@ export default class FieldFactory {
 
     /**
      *
-     * @param {string} value
-     * @param {string} [name=null]
+     * @param {String} value
+     * @param {String} [name=null]
      * @return {FieldMatches}
      */
     matches(value, name = null) {
@@ -60,8 +60,8 @@ export default class FieldFactory {
 
     /**
      *
-     * @param {string[]} value
-     * @param {string} [name=null]
+     * @param {String[]} value
+     * @param {String} [name=null]
      * @return {FieldIn}
      */
     in(value, name = null) {
@@ -74,8 +74,8 @@ export default class FieldFactory {
 
     /**
      *
-     * @param {string} value
-     * @param {string} [name=null]
+     * @param {String} value
+     * @param {String} [name=null]
      * @return {FieldNotEquals}
      */
     notEquals(value, name = null) {
@@ -88,8 +88,8 @@ export default class FieldFactory {
 
     /**
      *
-     * @param {string} value
-     * @param {string} [name=null]
+     * @param {String} value
+     * @param {String} [name=null]
      * @return {FieldNotContains}
      */
     notContains(value, name = null) {
@@ -102,8 +102,8 @@ export default class FieldFactory {
 
     /**
      *
-     * @param {string} value
-     * @param {string} [name=null]
+     * @param {String} value
+     * @param {String} [name=null]
      * @return {FieldNotMatches}
      */
     notMatches(value, name = null) {
@@ -116,8 +116,8 @@ export default class FieldFactory {
 
     /**
      *
-     * @param {string[]} value
-     * @param {string} [name=null]
+     * @param {String[]} value
+     * @param {String} [name=null]
      * @return {FieldNotIn}
      */
     notIn(value, name = null) {

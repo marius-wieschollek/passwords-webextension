@@ -4,7 +4,7 @@ export default class QueueItem {
 
     /**
      *
-     * @param {{}} data
+     * @param {Object} data
      */
     constructor(data = {}) {
         this._id = data.hasOwnProperty('id') ? data.id:uuid();
@@ -15,7 +15,7 @@ export default class QueueItem {
 
     /**
      *
-     * @returns {string}
+     * @returns {String}
      */
     getId() {
         return this._id;
@@ -23,7 +23,7 @@ export default class QueueItem {
 
     /**
      *
-     * @param {string} value
+     * @param {String} value
      * @returns {QueueItem}
      */
     setId(value) {
@@ -34,7 +34,7 @@ export default class QueueItem {
 
     /**
      *
-     * @returns {{}|*}
+     * @returns {(Object|*)}
      */
     getTask() {
         return this._task;
@@ -42,7 +42,7 @@ export default class QueueItem {
 
     /**
      *
-     * @param {{}|*} value
+     * @param {(Object|*)} value
      * @returns {QueueItem}
      */
     setTask(value) {
@@ -53,7 +53,7 @@ export default class QueueItem {
 
     /**
      *
-     * @returns {{}|*}
+     * @returns {(Object|*)}
      */
     getResult() {
         return this._result;
@@ -61,8 +61,8 @@ export default class QueueItem {
 
     /**
      *
-     * @param {{}|*} value
-     * @returns {QueueItem}
+     * @param {(Object|*)} value
+     * @return {QueueItem}
      */
     setResult(value) {
         this._result = value;
@@ -72,7 +72,7 @@ export default class QueueItem {
 
     /**
      *
-     * @returns {boolean|null}
+     * @returns {(Boolean|null)}
      */
     getSuccess() {
         return this._success;
@@ -80,7 +80,7 @@ export default class QueueItem {
 
     /**
      *
-     * @param {boolean} value
+     * @param {Boolean} value
      * @returns {QueueItem}
      */
     setSuccess(value) {
@@ -91,7 +91,7 @@ export default class QueueItem {
 
     /**
      *
-     * @returns {{result: ({}|*), task: ({}|*), success: (null|boolean), id: (string)}}
+     * @return {{result: *, task: *, success: Boolean, id: String}}
      */
     toJSON() {
         return {

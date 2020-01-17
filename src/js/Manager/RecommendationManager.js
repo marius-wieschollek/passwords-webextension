@@ -48,7 +48,7 @@ class RecommendationManager {
 
     /**
      *
-     * @return {boolean}
+     * @return {Boolean}
      */
     hasRecommendations() {
         return TabManager.has('recommended');

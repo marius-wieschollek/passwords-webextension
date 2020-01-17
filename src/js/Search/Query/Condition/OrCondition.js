@@ -1,6 +1,10 @@
 import AbstractCondition from '@js/Search/Query/Condition/AbstractCondition';
 
 export default class OrCondition extends AbstractCondition {
+
+    /**
+     * @inheritDoc
+     */
     evaluate(item) {
         let result = {matches: 0, checks: 0, passed: false};
 

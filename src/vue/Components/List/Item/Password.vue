@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import Password from 'passwords-client/src/Model/Password';
+    import Password from 'passwords-client/src/Model/Password/Password';
     import Icon from '@vue/Components/Icon';
     import MessageService from '@js/Services/MessageService';
 
@@ -31,8 +31,8 @@
                     }
                 );
             },
-            copy(property, $event) {
-                let data = this.password._getProperty(property);
+            copy(property) {
+                let data = this.password.getProperty(property);
                 navigator.clipboard.writeText(data);
             }
         }

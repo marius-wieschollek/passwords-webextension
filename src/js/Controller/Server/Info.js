@@ -3,6 +3,9 @@ import SearchQuery from '@js/Search/Query/SearchQuery';
 
 export default class Info extends AbstractController {
 
+    /**
+     * @inheritDoc
+     */
     async execute(message, reply) {
         let serverId = message.getPayload(),
             info     = {};
