@@ -75,7 +75,7 @@ class ErrorManager {
         };
 
         let errorObject = {details, error};
-        console.error(errorObject);
+        console.error(details.message, errorObject);
 
         if(this._mode === 'server') {
             this._saveError(errorObject);

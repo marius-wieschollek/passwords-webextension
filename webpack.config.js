@@ -45,6 +45,7 @@ module.exports = env => {
     let platformDir = platform === 'firefox' ? `${__dirname}/src/js/Platform`:`${__dirname}/src/platform/${platform}/js/Platform`;
     return {
         mode   : production ? 'production':'development',
+        devtool: 'none',
         entry  : {
             client    : `${__dirname}/src/js/client.js`,
             popup     : `${__dirname}/src/js/popup.js`,
