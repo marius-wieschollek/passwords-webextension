@@ -3,6 +3,9 @@ import ServerRepository from '@js/Repositories/ServerRepository';
 import Api from 'passwords-client';
 import SystemService from '@js/Services/SystemService';
 import LocalisationService from '@js/Services/LocalisationService';
+import EnhancedPassword from 'passwords-client/src/Model/Password/EnhancedPassword';
+import EnhancedFolder from 'passwords-client/src/Model/Folder/EnhancedFolder';
+import EnhancedTag from 'passwords-client/src/Model/Tag/EnhancedTag';
 
 class ApiRepository {
 
@@ -61,7 +64,7 @@ class ApiRepository {
      */
     async _loadApis() {
         let servers = await ServerRepository.findAll(),
-            classes = {model: {server: Server}},
+            classes = {model: {server: Server, password: EnhancedPassword, folder: EnhancedFolder, tag: EnhancedTag}},
             config  = await this._getApiConfig();
 
         for(let server of servers) {

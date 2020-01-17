@@ -108,7 +108,7 @@ class ServerManager {
     _keepalive(api) {
         api
             .getRequest()
-            .setPath('api/1.0/session/keepalive')
+            .setPath('1.0/session/keepalive')
             .send()
             .catch(ErrorManager.catch());
     }
@@ -185,9 +185,9 @@ class ServerManager {
      * @private
      */
     async _addRepositoryToSearch(repository) {
-        let tags = await repository.clearCache().findAll();
+        let models = await repository.clearCache().findAll();
 
-        SearchIndex.addItems(tags);
+        SearchIndex.addItems(models);
     }
 
     /**

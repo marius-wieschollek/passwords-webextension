@@ -155,7 +155,7 @@ class MessageService {
             if(message.getChannel() === 'tabs') {
                 response = await this._api.tabs.sendMessage(message.getTab(), data);
             } else {
-                if(this._connector !== null && message.getReceiver() === 'background') {
+                if(message.getReceiver() === 'background' && this._connector !== null && this._connector.inboxMessage) {
                     response = await this._connector.inboxMessage(data);
                 } else {
                     response = await this._api.runtime.sendMessage(data);
