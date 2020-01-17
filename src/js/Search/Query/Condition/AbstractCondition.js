@@ -20,7 +20,7 @@ export default class AbstractCondition {
     /**
      *
      * @param {Object} item
-     * @return {{checks: number, passed: boolean, matches: number}}
+     * @return {({checks: number, passed: boolean, matches: number}|{passed: false})}
      */
     evaluate(item) {
         return {matches: 0, checks: 0, passed: false}

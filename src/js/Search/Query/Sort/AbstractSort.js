@@ -2,7 +2,7 @@ export default class AbstractSort {
 
     /**
      *
-     * @param {string} field
+     * @param {String} field
      */
     constructor(field) {
         this._field = field;
@@ -12,7 +12,7 @@ export default class AbstractSort {
      *
      * @param {Object} a
      * @param {Object} b
-     * @return {number}
+     * @return {Number}
      */
     compare(a, b) {
         let valueA = this._getFieldValue(a),
@@ -25,7 +25,7 @@ export default class AbstractSort {
      *
      * @param {*} a
      * @param {*} b
-     * @return {number}
+     * @return {Number}
      * @private
      */
     _compareValues(a, b) {

@@ -2,6 +2,9 @@ import AbstractField from '@js/Search/Query/Field/AbstractField';
 
 export default class FieldNotMatches extends AbstractField {
 
+    /**
+     * @inheritDoc
+     */
     evaluate(item) {
         let values = this._getFieldValues(item);
 

@@ -38,7 +38,7 @@ export default class Search extends AbstractController {
     /**
      *
      * @param {Object} query
-     * @param {string} key
+     * @param {String} key
      * @param {SearchQuery} search
      * @private
      */

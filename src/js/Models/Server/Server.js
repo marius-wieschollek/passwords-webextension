@@ -1,4 +1,4 @@
-import ServerModel from 'passwords-client/src/Model/Server';
+import ServerModel from 'passwords-client/src/Model/Server/Server';
 import Properties from '../../Definition/Server';
 
 export default class Server extends ServerModel {
@@ -7,42 +7,42 @@ export default class Server extends ServerModel {
     }
 
     getId() {
-        return this._getProperty('id');
+        return this.getProperty('id');
     }
 
     setId(value) {
-        return this._setProperty('id', value);
+        return this.setProperty('id', value);
     }
 
     getLabel() {
-        return this._getProperty('label');
+        return this.getProperty('label');
     }
 
     setLabel(value) {
-        return this._setProperty('label', value);
+        return this.setProperty('label', value);
     }
 
     getRootFolder() {
-        return this._getProperty('rootFolder');
+        return this.getProperty('rootFolder');
     }
 
     setRootFolder(value) {
-        return this._setProperty('rootFolder', value);
+        return this.setProperty('rootFolder', value);
     }
 
     getInboxFolder() {
-        return this._getProperty('inboxFolder');
+        return this.getProperty('inboxFolder');
     }
 
     setInboxFolder(value) {
-        return this._setProperty('inboxFolder', value);
+        return this.setProperty('inboxFolder', value);
     }
 
     getInboxTag() {
-        return this._getProperty('inboxTag');
+        return this.getProperty('inboxTag');
     }
 
     setInboxTag(value) {
-        return this._setProperty('inboxTag', value);
+        return this.setProperty('inboxTag', value);
     }
 }

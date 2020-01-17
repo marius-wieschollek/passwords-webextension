@@ -86,7 +86,7 @@ class ContextMenuManager {
 
     /**
      *
-     * @return {string[]}
+     * @return {String[]}
      * @private
      */
     _getContexts() {

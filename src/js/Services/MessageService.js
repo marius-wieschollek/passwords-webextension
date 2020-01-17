@@ -18,7 +18,7 @@ class MessageService {
             return this._receiveMessage(m, s);
         };
 
-        this._messageEnabler = (m, s) => {
+        this._messageEnabler = () => {
             console.log('messages.enabled', 'event');
             this._enabled = true;
             this._sendMessages()
@@ -51,7 +51,7 @@ class MessageService {
 
     /**
      *
-     * @param {(string|null)} value
+     * @param {(String|null)} value
      */
     setDefaultReceiver(value) {
         this._defaultReceiver = value;
@@ -72,7 +72,7 @@ class MessageService {
 
     /**
      *
-     * @param {(string|array)} types
+     * @param {(String|array)} types
      * @param {Function} callback
      */
     listen(types, callback) {
@@ -91,7 +91,7 @@ class MessageService {
 
     /**
      *
-     * @param {(string|array)} types
+     * @param {(String|array)} types
      * @param {Function} callback
      */
     convert(types, callback) {
@@ -110,7 +110,7 @@ class MessageService {
 
     /**
      *
-     * @param {Message|Object} message The message to be sent
+     * @param {(Message|Object)} message The message to be sent
      * @returns {Promise<Message>}
      */
     send(message) {
@@ -135,7 +135,7 @@ class MessageService {
 
     /**
      *
-     * @param {string} id
+     * @param {String} id
      * @returns {Promise<void>}
      * @private
      */
@@ -196,9 +196,9 @@ class MessageService {
 
     /**
      *
-     * @param {string} data
+     * @param {String} data
      * @param {MessageSender} sender
-     * @returns {Promise<Message>}
+     * @returns {(Promise<Message>|void)}
      * @private
      */
     _receiveMessage(data, sender = null) {
@@ -227,7 +227,7 @@ class MessageService {
 
     /**
      *
-     * @param {string} data
+     * @param {String} data
      * @returns {(Message|void)}
      * @private
      */

@@ -1,4 +1,4 @@
-import Password from 'passwords-client/src/Model/Password';
+import Password from 'passwords-client/src/Model/Password/Password';
 
 export default class PasswordConverter {
 
@@ -56,7 +56,7 @@ export default class PasswordConverter {
 
         if(items !== null) {
             for(let data of items) {
-                passwords.push(new Password(null, data));
+                passwords.push(new Password(data));
             }
         }
 

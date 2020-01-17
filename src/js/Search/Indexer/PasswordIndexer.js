@@ -1,4 +1,3 @@
-import Password from 'passwords-client/src/Model/Password';
 import Url from 'url-parse';
 import AbstractIndexer from '@js/Search/Indexer/AbstractIndexer';
 
@@ -36,7 +35,6 @@ export default class PasswordIndexer extends AbstractIndexer{
             fields: []
         };
 
-
         this._indexServer(password, index);
         this._indexTextFields(password, index);
 
@@ -50,7 +48,7 @@ export default class PasswordIndexer extends AbstractIndexer{
         }
 
         for(let field of ['shared', 'favorite', 'password', 'status', 'statusCode']) {
-            index.fields[field] = [password._getProperty(field)];
+            index.fields[field] = [password.getProperty(field)];
         }
 
         let customFields = password.getCustomFields();

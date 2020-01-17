@@ -31,7 +31,7 @@ class BrowserApi {
     }
     /**
      *
-     * @return {boolean}
+     * @return {Boolean}
      */
     hasBadgeText() {
         return this.getBrowserApi().browserAction.hasOwnProperty('getBadgeText');

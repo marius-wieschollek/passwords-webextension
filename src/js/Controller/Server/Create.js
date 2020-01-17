@@ -57,7 +57,7 @@ export default class List extends AbstractController {
      *
      * @param {Object} data
      * @param {Object} errors
-     * @returns {boolean}
+     * @returns {Boolean}
      * @private
      */
     _validateLabel(data, errors) {
@@ -69,7 +69,7 @@ export default class List extends AbstractController {
      *
      * @param {Object} data
      * @param {Object} errors
-     * @returns {boolean}
+     * @returns {Boolean}
      * @private
      */
     _validateUser(data, errors) {
@@ -81,7 +81,7 @@ export default class List extends AbstractController {
      *
      * @param {Object} data
      * @param {Object} errors
-     * @returns {boolean}
+     * @returns {Boolean}
      * @private
      */
     _validateBaseUrl(data, errors) {
@@ -115,7 +115,7 @@ export default class List extends AbstractController {
      *
      * @param {Object} data
      * @param {Object} errors
-     * @returns {boolean}
+     * @returns {Boolean}
      * @private
      */
     _validateToken(data, errors) {
@@ -135,10 +135,10 @@ export default class List extends AbstractController {
 
     /**
      *
-     * @param {string} field
+     * @param {String} field
      * @param {Object} data
      * @param {Object} errors
-     * @returns {boolean}
+     * @returns {Boolean}
      * @private
      */
     _validateEmpty(field, data, errors) {
@@ -160,12 +160,12 @@ export default class List extends AbstractController {
 
     /**
      *
-     * @param {string} field
-     * @param {number} min
-     * @param {number} max
+     * @param {String} field
+     * @param {Number} min
+     * @param {Number} max
      * @param {Object} data
      * @param {Object} errors
-     * @returns {boolean}
+     * @returns {Boolean}
      * @private
      */
     _validateLength(field, min, max, data, errors) {
@@ -186,7 +186,7 @@ export default class List extends AbstractController {
      *
      * @param {Object} data
      * @param {Object} response
-     * @returns {Server|boolean}
+     * @returns {(Server|Boolean)}
      * @private
      */
     _createModel(data, response) {
@@ -262,7 +262,7 @@ export default class List extends AbstractController {
      * @param field
      * @param message
      * @param variables
-     * @returns {string}
+     * @returns {String}
      * @private
      */
     _createErrorMessage(field, message, variables = []) {

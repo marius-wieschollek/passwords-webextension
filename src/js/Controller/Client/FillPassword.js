@@ -14,8 +14,8 @@ export default class FillPassword extends AbstractController {
 
     /**
      *
-     * @param {string} user
-     * @param {string} password
+     * @param {String} user
+     * @param {String} password
      */
     _fillPassword(user, password) {
         let forms = new FormService().getLoginFields();

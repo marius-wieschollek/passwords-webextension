@@ -16,7 +16,7 @@ class SystemService {
 
     /**
      *
-     * @returns {string|null}
+     * @returns {(String|null)}
      */
     getArea() {
         return this._area;
@@ -24,7 +24,7 @@ class SystemService {
 
     /**
      *
-     * @param {string} value
+     * @param {String} value
      * @returns {SystemService}
      */
     setArea(value) {
@@ -37,7 +37,7 @@ class SystemService {
 
     /**
      *
-     * @returns {string}
+     * @returns {String}
      */
     getBrowserPlatform() {
         return process.env.APP_PLATFORM;
@@ -69,7 +69,7 @@ class SystemService {
 
     /**
      *
-     * @returns {boolean}
+     * @returns {Boolean}
      */
     hasContextMenu() {
         return BrowserApi.hasContextMenu();
@@ -77,7 +77,7 @@ class SystemService {
 
     /**
      *
-     * @returns {boolean}
+     * @returns {Boolean}
      */
     hasBadge() {
         return BrowserApi.hasBadgeText();

@@ -1,8 +1,8 @@
 import PasswordIndexer from '@js/Search/Indexer/PasswordIndexer';
-import Password from 'passwords-client/src/Model/Password';
+import Password from 'passwords-client/src/Model/Password/Password';
 import Server from '@js/Models/Server/Server';
-import Folder from 'passwords-client/src/Model/Folder';
-import Tag from 'passwords-client/src/Model/Tag';
+import Folder from 'passwords-client/src/Model/Folder/Folder';
+import Tag from 'passwords-client/src/Model/Tag/Tag';
 import EventQueue from '@js/Event/EventQueue';
 import ErrorManager from '@js/Manager/ErrorManager';
 import FolderIndexer from '@js/Search/Indexer/FolderIndexer';
@@ -31,7 +31,7 @@ class SearchIndex {
 
     /**
      *
-     * @param {(string|string[]|null)} [indexes=[]]
+     * @param {(String|String[]|null)} [indexes=[]]
      * @return {Object[]}
      */
     getIndexItems(indexes) {
@@ -53,7 +53,7 @@ class SearchIndex {
 
     /**
      *
-     * @param {string[]} ids
+     * @param {String[]} ids
      * @return {AbstractModel[]}
      */
     getItems(ids) {
@@ -69,8 +69,8 @@ class SearchIndex {
 
     /**
      *
-     * @param {string} id
-     * @returns {null|AbstractModel}
+     * @param {String} id
+     * @returns {(null|AbstractModel)}
      */
     getItem(id) {
         if(this._items.hasOwnProperty(id)) {
@@ -94,7 +94,7 @@ class SearchIndex {
     /**
      *
      * @param {AbstractModel} item
-     * @param {boolean} [update=true]
+     * @param {Boolean} [update=true]
      */
     addItem(item, update = true) {
         if(this._items.hasOwnProperty(item.getId())) return;
@@ -126,7 +126,7 @@ class SearchIndex {
     /**
      *
      * @param {AbstractModel} item
-     * @param {boolean} [update=true]
+     * @param {Boolean} [update=true]
      */
     removeItem(item, update = true) {
         if(!this._items.hasOwnProperty(item.getId())) return;
@@ -146,7 +146,7 @@ class SearchIndex {
     /**
      *
      * @param {AbstractModel} item
-     * @return {string}
+     * @return {String}
      * @private
      */
     _getItemType(item) {

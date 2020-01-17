@@ -6,8 +6,8 @@ export default class Queue {
 
     /**
      *
-     * @param {string}      name
-     * @param {string|null} [area=null]
+     * @param {String}      name
+     * @param {(String|null)} [area=null]
      * @param {QueueItem}   [type=QueueItem]
      */
     constructor(name, area = null, type = QueueItem) {
@@ -30,7 +30,7 @@ export default class Queue {
 
     /**
      *
-     * @return {boolean}
+     * @return {Boolean}
      */
     hasItems() {
         return this._count !== 0;
@@ -138,7 +138,7 @@ export default class Queue {
      *
      * @param {QueueItem|{}} item
      * @returns {QueueItem}
-     * @private
+     * @protected
      */
     _validateItem(item) {
         if(item instanceof this._type) {

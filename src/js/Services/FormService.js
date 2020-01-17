@@ -21,10 +21,15 @@ export default class FormService {
         }
     }
 
+    /**
+     *
+     * @param form
+     * @return {Boolean}
+     */
     checkIfFormVisible(form) {
         let style = window.getComputedStyle(form);
 
-        return style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== 0;
+        return style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0';
     }
 
     getLoginFields() {

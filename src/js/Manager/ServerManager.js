@@ -131,7 +131,7 @@ class ServerManager {
     /**
      *
      * @param {SessionAuthorization} authRequest
-     * @param {AuthorisationItem} item
+     * @param {Object} item
      * @returns {Promise<*>}
      * @private
      */

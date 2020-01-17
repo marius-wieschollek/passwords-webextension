@@ -29,7 +29,7 @@ export default class AbstractField {
     /**
      *
      * @param {Object} item
-     * @return {{checks: number, passed: boolean, matches: number}}
+     * @return {({checks: number, passed: boolean, matches: number}|{passed: false})}
      */
     evaluate(item) {
         return {matches: 0, checks: 0, passed: false};
@@ -38,7 +38,7 @@ export default class AbstractField {
     /**
      *
      * @param {Object} item
-     * @return {(boolean|string[])}
+     * @return {(Boolean|String[])}
      * @protected
      */
     _getFieldValues(item) {

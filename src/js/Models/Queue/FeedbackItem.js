@@ -33,7 +33,7 @@ export default class FeedbackItem extends QueueItem {
 
     /**
      * 
-     * @returns {boolean}
+     * @returns {Boolean}
      */
     getAccepted() {
         return this._accepted;
@@ -41,7 +41,7 @@ export default class FeedbackItem extends QueueItem {
 
     /**
      * 
-     * @param {boolean} value
+     * @param {Boolean} value
      * @returns {FeedbackItem}
      */
     setAccepted(value) {

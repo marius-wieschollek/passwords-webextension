@@ -9,8 +9,8 @@ class QueueService {
 
     /**
      *
-     * @param {string} name
-     * @param {(string|null)} [area=null]
+     * @param {String} name
+     * @param {(String|null)} [area=null]
      * @returns {Queue}
      */
     getQueue(name, area = null) {
@@ -23,8 +23,8 @@ class QueueService {
 
     /**
      *
-     * @param {string} name
-     * @param {(string|null)} [area=null]
+     * @param {String} name
+     * @param {(String|null)} [area=null]
      * @param {FeedbackItem} [type=FeedbackItem]
      * @returns {FeedbackQueue}
      */
@@ -38,8 +38,8 @@ class QueueService {
 
     /**
      *
-     * @param {string} name
-     * @return {boolean}
+     * @param {String} name
+     * @return {Boolean}
      */
     hasQueue(name) {
         return this._queues.hasOwnProperty(name);

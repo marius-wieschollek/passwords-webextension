@@ -21,7 +21,7 @@ class StorageService {
             set[key] = value;
             await this._api.storage[storage].set(set)
         } catch(e) {
-            ErrorManager.logException(e);
+            ErrorManager.logError(e);
         }
     }
 
@@ -60,7 +60,7 @@ class StorageService {
             let result = await this._api.storage[storage].get(key);
             if(result.hasOwnProperty(key)) return result[key];
         } catch(e) {
-            ErrorManager.logException(e);
+            ErrorManager.logError(e);
         }
         return null;
     }
@@ -71,7 +71,7 @@ class StorageService {
                 let result = await this._api.storage[storage].get(key);
                 if(result.hasOwnProperty(key)) return result[key];
             } catch(e) {
-                ErrorManager.logException(e);
+                ErrorManager.logError(e);
             }
         }
 
@@ -84,7 +84,7 @@ class StorageService {
 
             return result.hasOwnProperty(key);
         } catch(e) {
-            ErrorManager.logException(e);
+            ErrorManager.logError(e);
         }
         return false;
     }

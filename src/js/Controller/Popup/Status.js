@@ -42,7 +42,7 @@ export default class Status extends AbstractController {
 
     /**
      *
-     * @return {boolean}
+     * @return {Boolean}
      * @private
      */
     _isAuthorized() {

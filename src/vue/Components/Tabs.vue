@@ -58,31 +58,6 @@
             }
         },
 
-        computed: {
-            tabList() {
-                let tabs = {};
-
-                for(let key in this.tabs) {
-                    if(!this.tabs.hasOwnProperty(key)) continue;
-                    let tab = this.tabs[key];
-
-                    if(typeof tab === 'string') {
-                        tabs[key] = {
-                            icon : null,
-                            label: tab
-                        };
-                    } else {
-                        tabs[key] = {
-                            icon : tab.icon ? tab.icon:null,
-                            label: tab.label ? tab.label:null
-                        };
-                    }
-                }
-
-                return tabs;
-            }
-        },
-
         watch: {
             tabs(value) {
                 if(!value.hasOwnProperty(this.tab)) {

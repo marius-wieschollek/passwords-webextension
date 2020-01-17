@@ -44,7 +44,7 @@ export default class DomMiner {
 
     /**
      *
-     * @return {string}
+     * @return {String}
      * @private
      */
     _getUrl() {
@@ -61,7 +61,7 @@ export default class DomMiner {
 
     /**
      *
-     * @return {string}
+     * @return {String}
      * @private
      */
     _getTitle() {
@@ -93,8 +93,8 @@ export default class DomMiner {
 
     /**
      *
-     * @param {string} selector
-     * @return {(string|null)}
+     * @param {String} selector
+     * @return {(String|null)}
      * @private
      */
     _checkMetaAttribute(selector) {
@@ -110,7 +110,7 @@ export default class DomMiner {
     /**
      *
      * @param {HTMLInputElement} field
-     * @return {(string|null)}
+     * @return {(String|null)}
      * @private
      */
     _getFieldSelector(field) {
