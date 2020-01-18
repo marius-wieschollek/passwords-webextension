@@ -169,6 +169,44 @@
         "message"    : "There is already an account for this user on this Nextcloud.",
         "description": ""
     },
+    "ValidationNoConnection"     : {
+        "message"     : "Unable to connect to $URL$",
+        "description" : "",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationHttpError"        : {
+        "message"     : "Trying to connect to $URL$ resulted in $ERROR$",
+        "description" : "",
+        "placeholders": {
+            "url"  : {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "HTTP 401 - Forbidden"
+            }
+        }
+    },
+    "ValidationConnectionError"  : {
+        "message"     : "Trying to connect to $URL$ resulted in $ERROR$",
+        "description" : "",
+        "placeholders": {
+            "url"  : {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "Undefined variable example in file"
+            }
+        }
+    },
     "NoRelatedPasswords"         : {
         "message"    : "Did not find any related passwords",
         "description": ""
@@ -185,6 +223,14 @@
         "message"    : "No new passwords found",
         "description": ""
     },
+
+
+
+
+
+
+
+
 
 
 

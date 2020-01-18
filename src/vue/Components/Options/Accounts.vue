@@ -52,7 +52,8 @@
                        required
                        pattern="([A-Za-z0-9]{5}-?){5}"
                        placeholder="xxxxx-xxxxx-xxxxx-xxxxx-xxxxx"/>
-                <input type="submit"/>
+                <div>{{error}}</div>
+                <input type="submit" :disabled="submitting"/>
             </form>
         </foldout>
         <translate tag="button" say="NewServerTitle" @click="addServer" v-if="!showNewForm"/>
@@ -72,6 +73,8 @@
             return {
                 servers    : [],
                 showNewForm: false,
+                submitting : false,
+                error: '',
                 newServer  : {
                     label  : '',
                     baseUrl: '',
@@ -107,7 +110,7 @@
                     let message = await MessageService.send({type: 'server.list'});
                     this.servers = message.getPayload();
                 } catch(e) {
-
+                    console.error(e);
                 }
             },
             addServer() {
@@ -142,12 +145,14 @@
              * @param {Event} event
              */
             async createServer(event) {
+                this.submitting = true;
                 let message = await MessageService.send({type: 'server.create', payload: this.newServer});
+                this.submitting = false;
                 if(message.getType() === 'server.item') {
                     this.servers.push(message.getPayload());
                     this.showNewForm = false;
                 } else {
-                    alert(message.getPayload().message);
+                    this.error = message.getPayload().message;
                 }
             }
         }
