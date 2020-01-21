@@ -54,10 +54,11 @@
         }
 
         > .label {
-            flex-grow  : 1;
-            padding    : 0 .5rem;
-            min-width  : 100vw;
-            transition : min-width .25s ease-in-out;
+            flex-grow   : 1;
+            padding     : 0 .5rem;
+            min-width   : 100vw;
+            white-space : nowrap;
+            transition  : min-width .25s ease-in-out;
         }
 
         .options {
