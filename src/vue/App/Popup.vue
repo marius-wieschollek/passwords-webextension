@@ -103,10 +103,11 @@
         overflow : hidden;
 
         > .tab-container > .tabs .tab {
-            overflow   : hidden;
-            max-width  : 15rem;
-            transition : max-width .25s ease-in-out;
-            box-sizing : border-box;
+            overflow    : hidden;
+            width       : calc(100vw - 12rem);
+            transition  : width .25s ease-in-out;
+            box-sizing  : border-box;
+            flex-shrink : 0;
 
             .label {
                 opacity    : 1;
@@ -114,7 +115,8 @@
             }
 
             &:not(.active) {
-                max-width : 3rem;
+                width     : 3rem;
+                flex-grow : 0;
 
                 .label {
                     opacity : 0;

@@ -6,8 +6,10 @@
                  @click="setActive(name)"
                  :class="{ active: isActive(name) }"
                  class="tab">
-                <icon :icon="tab.icon" class="icon" v-if="tab.icon" font="solid"/>
-                <translate :say="tab.label" class="label" v-if="tab.label"/>
+                <div>
+                    <icon :icon="tab.icon" class="icon" v-if="tab.icon" font="solid"/>
+                    <translate :say="tab.label" class="label" v-if="tab.label"/>
+                </div>
             </div>
         </div>
         <div class="tab-content">
@@ -40,9 +42,7 @@
         data() {
             let tab = this.initialTab === null ? Object.keys(this.tabs)[0]:this.initialTab;
 
-            return {
-                tab
-            };
+            return {tab};
         },
 
         methods: {
@@ -71,7 +71,8 @@
 <style lang="scss">
     .tab-container {
         .tabs {
-            display : flex;
+            display  : flex;
+            overflow : hidden;
         }
 
         .tab {

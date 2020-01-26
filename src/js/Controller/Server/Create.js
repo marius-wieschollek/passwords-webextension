@@ -5,8 +5,9 @@ import ServerManager from '@js/Manager/ServerManager';
 import ErrorManager from '@js/Manager/ErrorManager';
 import AbstractController from '@js/Controller/AbstractController';
 import Api from 'passwords-client';
+import HttpError from 'passwords-client/src/Exception/Http/HttpError';
 
-export default class List extends AbstractController {
+export default class Create extends AbstractController {
 
     /**
      *
@@ -214,7 +215,13 @@ export default class List extends AbstractController {
             return true;
         } catch(e) {
             ErrorManager.logError(e);
-            response.message = e.message;
+            if(e.message === 'Failed to fetch') {
+                response.message = LocalisationService.translate('ValidationNoConnection', server.getBaseUrl());
+            } else if(e instanceof HttpError) {
+                response.message = LocalisationService.translate('ValidationHttpError', server.getBaseUrl(), e.message);
+            } else {
+                response.message = LocalisationService.translate('ValidationConnectionError', server.getBaseUrl(), e.message);
+            }
             return false;
         }
     }
