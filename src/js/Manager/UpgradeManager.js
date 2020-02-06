@@ -17,12 +17,14 @@ class UpgradeManager {
             await StorageService.set('version', this._version, StorageService.STORAGE_SYNC);
             return;
         } else if(version === this._version) {
+            await this._removeOldVariables();
             return;
         }
 
         if(version === 10500) {
             this._upgrade150();
         }
+
 
         await Promise.all(
             [
@@ -52,8 +54,17 @@ class UpgradeManager {
             }
         );
 
-        await StorageService.set('servers', '{}', StorageService.STORAGE_SYNC);
+        await StorageService.delete('servers', StorageService.STORAGE_SYNC);
         await ServerRepository.create(server);
+        await this._removeOldVariables();
+    }
+
+    async _removeOldVariables() {
+        await StorageService.remove('initialized', StorageService.STORAGE_LOCAL);
+        await StorageService.remove('password', StorageService.STORAGE_LOCAL);
+        await StorageService.remove('updated', StorageService.STORAGE_LOCAL);
+        await StorageService.remove('url', StorageService.STORAGE_SYNC);
+        await StorageService.remove('user', StorageService.STORAGE_SYNC);
     }
 }
 
