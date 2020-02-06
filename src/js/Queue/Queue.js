@@ -69,6 +69,22 @@ export default class Queue {
 
     /**
      *
+     * @param {(String|QueueItem)} id
+     */
+    remove(id) {
+        let itemId = typeof id === 'string' ? id:id.getId();
+        if(!this._items.hasOwnProperty(itemId)) return;
+        let [item, resolve, reject] = this._items[itemId];
+        delete this._items[itemId];
+        this._count--;
+
+        item.setResult({cancelled: true});
+        item.setSuccess(false);
+        reject(item);
+    }
+
+    /**
+     *
      * @param {{}} data
      * @returns {QueueItem}
      */
