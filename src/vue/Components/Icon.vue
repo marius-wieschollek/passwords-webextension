@@ -1,42 +1,66 @@
 <template>
-    <span :class="iconName" @click="fireEvent($event)" @dblclick="fireEvent($event)">
+    <span :class="iconName"
+          @click="fireEvent($event)"
+          @dblclick="fireEvent($event)"
+          v-on:mouseenter="hoverOn()"
+          v-on:mouseleave="hoverOff()">
     </span>
 </template>
 
 <script>
     export default {
         props: {
-            icon: {
+            icon     : {
                 type: String
             },
-            font: {
-                type: String,
+            font     : {
+                type   : String,
                 default: 'regular'
             },
-            spin: {
-                type: Boolean,
+            hoverIcon: {
+                type   : String,
+                default: null
+            },
+            hoverFont: {
+                type   : String,
+                default: null
+            },
+            spin     : {
+                type   : Boolean,
                 default: false
             }
         },
 
+        data() {
+            return {
+                hover: false
+            };
+        },
+
         computed: {
             iconName() {
-                let style = this.font === 'solid' ? 'fas':'far';
+                let icon  = this.hover && this.hoverIcon !== null ? this.hoverIcon:this.icon,
+                    font  = this.hover && this.hoverFont !== null ? this.hoverFont:this.font,
+                    style = font === 'solid' ? 'fas':'far';
 
-                if(this.spin) {
-                    style += ' fa-spin'
-                }
+                if(this.spin) style += ' fa-spin';
 
-                return `icon ${style} fa-${this.icon}`
+                return `icon ${style} fa-${icon}`;
             }
         },
 
         methods: {
+            hoverOn() {
+                this.hover = true;
+            },
+            hoverOff() {
+                this.hover = false;
+            },
             fireEvent($event) {
-                this.$emit($event.type, $event)
+                this.$emit($event.type, $event);
             }
         }
-    }
+    };
 </script>
 
 <style lang="scss">

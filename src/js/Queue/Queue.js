@@ -6,9 +6,9 @@ export default class Queue {
 
     /**
      *
-     * @param {String}      name
+     * @param {String} name
      * @param {(String|null)} [area=null]
-     * @param {QueueItem}   [type=QueueItem]
+     * @param {QueueItem} [type=QueueItem]
      */
     constructor(name, area = null, type = QueueItem) {
         this._name = name;

@@ -4,7 +4,8 @@
             {{password.getLabel()}}
         </div>
         <div class="options">
-            <icon icon="clipboard" @click="copy('password')" @dblclick="copy('username')"/>
+            <icon icon="user" hover-icon="clipboard" @click="copy('username')"/>
+            <icon icon="key" font="solid" hover-icon="clipboard" hover-font="regular" @click="copy('password')"/>
         </div>
     </li>
 </template>
@@ -70,12 +71,17 @@
             .icon {
                 text-align : center;
                 width      : 3rem;
-                display    : block;
+                display    : inline-block;
+
+                &:hover {
+                    background-color : var(--element-primary-hover-background-color);
+                    color            : var(--element-primary-hover-text-color);
+                }
             }
         }
 
         &:hover {
-            background-color : var(--element-primary-hover-background-color);
+            background-color : var(--element-primary-background-color);
             color            : var(--element-primary-hover-text-color);
 
             > .label {
