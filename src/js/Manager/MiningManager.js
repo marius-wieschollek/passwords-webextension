@@ -14,14 +14,17 @@ class MiningManager {
 
 
     /**
-     *
      * @returns {void}
      */
     init() {
         this._miningQueue = QueueService.getFeedbackQueue('mining', null, MiningItem);
     }
 
-    addNewPassword(data) {
+    /**
+     * @param {Object} data
+     */
+    addPassword(data) {
+        this.validateData(data);
         if(this.checkIfDuplicate(data)) return;
 
         let task = new MiningItem()
@@ -35,7 +38,6 @@ class MiningManager {
     }
 
     /**
-     *
      * @param {MiningItem} task
      */
     async processTask(task) {
@@ -57,7 +59,6 @@ class MiningManager {
     }
 
     /**
-     *
      * @param {MiningItem} task
      * @return {Promise<void>}
      */
@@ -78,6 +79,10 @@ class MiningManager {
             .setFeedback('MiningPasswordCreated');
     }
 
+    /**
+     * @param {Object} data
+     * @return {Boolean}
+     */
     checkIfDuplicate(data) {
         let ids   = TabManager.get('autofill.ids', []),
             query = new SearchQuery(),
@@ -104,6 +109,15 @@ class MiningManager {
             .execute();
 
         return items.length > 0;
+    }
+
+    /**
+     * @param {Object} data
+     */
+    validateData(data) {
+        if(!data.hasOwnProperty('user')) {
+            data.user = {value: '', selector: null}
+        }
     }
 }
 
