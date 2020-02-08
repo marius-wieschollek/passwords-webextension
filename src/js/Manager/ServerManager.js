@@ -103,6 +103,17 @@ class ServerManager {
 
     /**
      *
+     * @return {Promise<Api>}
+     */
+    async getDefaultApi() {
+        // @TODO acutally implement default server setting
+        let all = await ApiRepository.findAll();
+
+        return all.pop();
+    }
+
+    /**
+     *
      * @param {Api} api
      */
     _keepalive(api) {
