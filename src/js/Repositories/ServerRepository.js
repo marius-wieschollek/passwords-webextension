@@ -1,6 +1,7 @@
 import StorageService from '@js/Services/StorageService';
 import Server from '@js/Models/Server/Server';
 import uuid from 'uuidv4';
+import ServerNotFoundError from '@js/Exception/ServerNotFoundError';
 
 class ServerRepository {
 
@@ -31,7 +32,7 @@ class ServerRepository {
 
     /**
      *
-     * @returns {Promise<Server|null>}
+     * @returns {Promise<Server>}
      */
     async findById(id) {
         let servers = await this._loadServers();
@@ -42,8 +43,7 @@ class ServerRepository {
             }
         }
 
-        // @TODO: Use custom NotFoundError here
-        throw new Error('Server not found');
+        throw new ServerNotFoundError(id);
     }
 
     /**
@@ -67,7 +67,7 @@ class ServerRepository {
 
         for(let i = 0; i < servers.length; i++) {
             if(servers[i].getId() === server.getId()) {
-                servers.splice(i,1);
+                servers.splice(i, 1);
                 await StorageService.set(this.STORAGE_KEY, JSON.stringify(servers));
                 return;
             }
@@ -88,9 +88,35 @@ class ServerRepository {
         if(await StorageService.has(this.STORAGE_KEY)) {
             let data = JSON.parse(await StorageService.get(this.STORAGE_KEY));
 
-            for(let key in data) {
-                if(!data.hasOwnProperty(key)) continue;
-                servers.push(new Server(data[key]));
+            for(let element of data) {
+                servers.push(new Server(element));
+            }
+        }
+
+        this._servers = servers;
+        return servers;
+    }
+
+    /**
+     *
+     * @returns {Promise<Server[]>}
+     * @private
+     */
+    async _refreshServers() {
+        let servers = [];
+        if(await StorageService.has(this.STORAGE_KEY)) {
+            let data = JSON.parse(await StorageService.get(this.STORAGE_KEY));
+
+            for(let element of data) {
+                try {
+                    let server = await this.findById(element.id);
+
+                    for(let key of element) {
+                        if(element.hasOwnProperty(key)) server.setProperty(key, element[key]);
+                    }
+                } catch(e) {
+                    servers.push(new Server(element));
+                }
             }
         }
 

@@ -202,7 +202,8 @@ class MessageService {
      * @private
      */
     _receiveMessage(data, sender = null) {
-        let message = this._createMessageFromJSON(data);
+        let isFromTab = sender !== null && sender.hasOwnProperty('tab'),
+            message   = this._createMessageFromJSON(data, isFromTab);
         if(!message) return;
 
         return new Promise(
@@ -228,10 +229,11 @@ class MessageService {
     /**
      *
      * @param {String} data
+     * @param {Boolean} fromTab
      * @returns {(Message|void)}
      * @private
      */
-    _createMessageFromJSON(data) {
+    _createMessageFromJSON(data, fromTab = false) {
         let message = new Message(JSON.parse(data));
 
         if(message.getReceiver() !== null && message.getReceiver() !== this._sender) {
@@ -239,7 +241,24 @@ class MessageService {
             return;
         }
 
+        if(fromTab && this._checkClientRestrictions(message)) {
+            console.debug('message.rejected', message);
+            return;
+        }
+
         return message;
+    }
+
+    /**
+     *
+     * @param {Message} message
+     * @returns {Boolean}
+     * @private
+     */
+    _checkClientRestrictions(message) {
+        return message.getSender() !== 'client' ||
+               (message.getType() !== 'password.mine' && message.getType() !== 'queue.items') ||
+               (message.getType() === 'queue.items' && message.getPayload().name !== 'error');
     }
 
     /**

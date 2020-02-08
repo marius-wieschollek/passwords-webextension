@@ -1,30 +1,56 @@
-import SystemService from "@js/Services/SystemService";
-import ErrorManager from "@js/Manager/ErrorManager";
+import SystemService from '@js/Services/SystemService';
+import ErrorManager from '@js/Manager/ErrorManager';
+import EventQueue from '@js/Event/EventQueue';
 
 class StorageService {
 
     get STORAGE_SYNC() {
-        return 'sync'
+        return 'sync';
     }
 
     get STORAGE_LOCAL() {
-        return 'local'
+        return 'local';
+    }
+
+    get sync() {
+        return this._onSync;
     }
 
     constructor() {
         this._api = SystemService.getBrowserApi();
+        this._onSync = new EventQueue();
+        this._syncChanges = 0;
+        this._api.storage.onChanged.addListener(
+            (d,a) => { this._onChangeListener(d,a); }
+        );
+        this._api.storage.sync.get().then(console.log);
     }
 
+    /**
+     *
+     * @param {String} key
+     * @param {*} value
+     * @param {String} storage
+     * @returns {Promise<void>}
+     */
     async set(key, value, storage = 'sync') {
         try {
             let set = {};
             set[key] = value;
-            await this._api.storage[storage].set(set)
+            if(storage === this.STORAGE_SYNC) this._syncChanges++;
+            await this._api.storage[storage].set(set);
         } catch(e) {
             ErrorManager.logError(e);
         }
+        if(storage === this.STORAGE_SYNC) this._syncChanges--;
     }
 
+    /**
+     *
+     * @param {String} key
+     * @param {(String|null)} storage
+     * @returns {Promise<*>}
+     */
     async get(key, storage = null) {
         if(storage !== null) {
             return await this._getFromStorage(key, storage);
@@ -33,6 +59,12 @@ class StorageService {
         }
     }
 
+    /**
+     *
+     * @param {String} key
+     * @param {(String|null)} storage
+     * @returns {Promise<Boolean>}
+     */
     async has(key, storage = null) {
         if(storage !== null) {
             return await this._storageHas(key, storage);
@@ -45,13 +77,22 @@ class StorageService {
         }
     }
 
+    /**
+     *
+     * @param {String} key
+     * @param {(String|null)} storage
+     * @returns {Promise<Boolean>}
+     */
     async remove(key, storage = null) {
         if(storage !== null) {
-            return this._api.storage[storage].remove(key);
+            return await this._storageRemove(key, storage);
         } else {
+            let result = true;
             for(let storage of ['local', 'sync']) {
-                this._api.storage[storage].remove(key);
+                result = await this._storageRemove(key, storage) && result;
             }
+
+            return result;
         }
     }
 
@@ -87,6 +128,32 @@ class StorageService {
             ErrorManager.logError(e);
         }
         return false;
+    }
+
+    async _storageRemove(key, storage) {
+        try {
+            if(storage === this.STORAGE_SYNC) this._syncChanges++;
+            await this._api.storage[storage].remove(key);
+            if(storage === this.STORAGE_SYNC) this._syncChanges--;
+
+            return true;
+        } catch(e) {
+            if(storage === this.STORAGE_SYNC) this._syncChanges--;
+            ErrorManager.logError(e);
+        }
+        return false;
+    }
+
+    /**
+     * @param {Object} changes
+     * @param {String} area
+     *
+     * @private
+     */
+    _onChangeListener(changes, area) {
+        if(this._syncChanges < 1 && area === 'sync') {
+            this._onSync.emit(changes);
+        }
     }
 }
 

@@ -6,9 +6,9 @@ export default class Queue {
 
     /**
      *
-     * @param {String}      name
+     * @param {String} name
      * @param {(String|null)} [area=null]
-     * @param {QueueItem}   [type=QueueItem]
+     * @param {QueueItem} [type=QueueItem]
      */
     constructor(name, area = null, type = QueueItem) {
         this._name = name;
@@ -65,6 +65,22 @@ export default class Queue {
                 }
             );
         });
+    }
+
+    /**
+     *
+     * @param {(String|QueueItem)} id
+     */
+    remove(id) {
+        let itemId = typeof id === 'string' ? id:id.getId();
+        if(!this._items.hasOwnProperty(itemId)) return;
+        let [item, resolve, reject] = this._items[itemId];
+        delete this._items[itemId];
+        this._count--;
+
+        item.setResult({cancelled: true});
+        item.setSuccess(false);
+        reject(item);
     }
 
     /**
