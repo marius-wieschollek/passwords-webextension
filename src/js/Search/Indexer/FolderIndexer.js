@@ -28,6 +28,7 @@ export default class FolderIndexer extends AbstractIndexer {
 
         this._indexServer(folder, index);
         this._indexTextFields(folder, index);
+        this._indexFields(folder, index);
 
         return index;
     }

@@ -10,7 +10,7 @@ export default class FieldEquals extends AbstractField {
 
         if(!values) return {passed: false};
 
-        let search = this._value.toLowerCase();
+        let search = this._name === 'password' ? this._value:this._value.toLowerCase();
         for(let value of values) {
             if(value === search) return  {matches: 1, checks: 1, passed: true};
         }

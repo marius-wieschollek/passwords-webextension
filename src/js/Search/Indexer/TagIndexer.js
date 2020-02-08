@@ -2,6 +2,11 @@ import AbstractIndexer from '@js/Search/Indexer/AbstractIndexer';
 
 export default class TagIndexer extends AbstractIndexer {
 
+    constructor() {
+        super();
+        this._genericIndexFields = ['favorite', 'hidden', 'color'];
+    }
+
     /**
      *
      * @param {Tag} tag
@@ -27,6 +32,7 @@ export default class TagIndexer extends AbstractIndexer {
 
         this._indexServer(tag, index);
         this._indexTextFields(tag, index);
+        this._indexFields(tag, index);
 
         return index;
     }
