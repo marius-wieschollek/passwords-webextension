@@ -86,7 +86,7 @@ class SearchManager {
      * @private
      */
     async _reloadRepository(api, type) {
-        let repository = api.getInstance(`repository.${type}`, api, api.getInstance('cache.cache')),
+        let repository = api.getInstance(`repository.${type}`),
             models     = await repository.clearCache().findAll(),
             query      = new SearchQuery(),
             items      = query
