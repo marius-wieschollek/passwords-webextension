@@ -75,14 +75,15 @@ class TabManager {
     /**
      *
      * @param {(String|null)} [key=null]
+     * @param {(*|null)} [fallback=null]
      * @param {(Number|null)} [tab=null]
      * @return {*}
      */
-    get(key = null, tab = null) {
+    get(key = null, fallback = null, tab = null) {
         if(tab === null) tab = this._currentTab;
 
         if(!this._tabs.hasOwnProperty(tab) || tab === null) {
-            return null;
+            return fallback;
         }
 
         if(!key) {
@@ -90,7 +91,7 @@ class TabManager {
         }
 
         if(!this._tabs[tab].hasOwnProperty(key)) {
-            return null;
+            return fallback;
         }
 
         return this._tabs[tab][key];
