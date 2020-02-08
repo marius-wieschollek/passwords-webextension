@@ -1,11 +1,12 @@
 import Url from 'url-parse';
 import AbstractIndexer from '@js/Search/Indexer/AbstractIndexer';
 
-export default class PasswordIndexer extends AbstractIndexer{
+export default class PasswordIndexer extends AbstractIndexer {
 
     constructor() {
         super();
         this._textIndexFields = ['label', 'username', 'notes'];
+        this._genericIndexFields = ['shared', 'favorite', 'hidden', 'password', 'status', 'statusCode'];
     }
 
     /**
@@ -24,19 +25,21 @@ export default class PasswordIndexer extends AbstractIndexer{
      */
     _createIndex(password) {
         let index = {
-            id    : password.getId(),
-            type  : 'password',
-            text  : [],
-            tag   : [],
-            folder: [],
-            server: [],
-            url   : [],
-            host  : [],
-            fields: []
+            id      : password.getId(),
+            type    : 'password',
+            text    : [],
+            tag     : [],
+            folder  : [],
+            server  : [],
+            password: [],
+            url     : [],
+            host    : [],
+            fields  : []
         };
 
         this._indexServer(password, index);
         this._indexTextFields(password, index);
+        this._indexFields(password, index);
 
         let url = password.getUrl();
         if(url && url.length !== 0) {
@@ -47,33 +50,39 @@ export default class PasswordIndexer extends AbstractIndexer{
             index.host.push(model.host);
         }
 
-        for(let field of ['shared', 'favorite', 'password', 'status', 'statusCode']) {
-            index.fields[field] = [password.getProperty(field)];
+        let value = password.getPassword();
+        if(value && value.length !== 0) {
+            index.password.push(value);
         }
 
         let customFields = password.getCustomFields();
         for(let customField of customFields) {
-            if(!customField.value || customField.value.length === 0) {
-                if(customField.type === 'text' || customField.type === 'email') {
-                    let value = customField.value.toLowerCase();
-                    let field = customField.label.toLowerCase();
+            if(!customField.getValue() || customField.getValue().length === 0) continue;
 
-                    index.text.push(value);
+            if(customField.getType() === 'text' || customField.getType() === 'email') {
+                let value = customField.getValue().toLowerCase(),
+                    field = customField.getLabel().toLowerCase();
 
-                    if(!index.fields.hasOwnProperty(field)) index.fields[field] = [];
-                    index.fields[field].push(value);
-                }
-            }
+                index.text.push(value);
 
-            if(customField.type === 'url') {
-                let value = customField.value.toLowerCase();
-                let field = customField.label.toLowerCase();
+                if(!index.fields.hasOwnProperty(field)) index.fields[field] = [];
+                index.fields[field].push(value);
+            } else if(customField.getType() === 'url') {
+                let value = customField.getValue().toLowerCase(),
+                    field = customField.getLabel().toLowerCase();
 
                 index.url.push(value);
 
                 let model = new Url(value);
                 index.host.push(model.host);
 
+                if(!index.fields.hasOwnProperty(field)) index.fields[field] = [];
+                index.fields[field].push(value);
+            } else if(customField.getType() === 'secret') {
+                let value = customField.getValue(),
+                    field = customField.getLabel().toLowerCase();
+
+                index.password.push(value);
                 if(!index.fields.hasOwnProperty(field)) index.fields[field] = [];
                 index.fields[field].push(value);
             }

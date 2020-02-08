@@ -2,6 +2,7 @@ export default class AbstractIndexer {
 
     constructor() {
         this._textIndexFields = ['label'];
+        this._genericIndexFields = ['favorite', 'hidden'];
     }
 
     /**
@@ -30,6 +31,18 @@ export default class AbstractIndexer {
                 index.text.push(value);
                 index.fields[field] = [value];
             }
+        }
+    }
+
+    /**
+     *
+     * @param {(Password|Folder|Tag)} model
+     * @param {Object} index
+     * @protected
+     */
+    _indexFields(model, index) {
+        for(let field of this._genericIndexFields) {
+            index.fields[field] = [model.getProperty(field)];
         }
     }
 }

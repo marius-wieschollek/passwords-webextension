@@ -11,7 +11,14 @@ export default class Fill extends AbstractController {
      * @param {Message} reply
      */
     async execute(message, reply) {
+        /** @type EnhancedPassword **/
         let password = SearchIndex.getItem(message.getPayload());
+
+        let ids = TabManager.get('autofill.ids', []);
+        if(ids.indexOf(password.getId()) === -1) {
+            ids.push(password.getId());
+            TabManager.set('autofill.ids', ids);
+        }
 
         MessageService.send(
             {
