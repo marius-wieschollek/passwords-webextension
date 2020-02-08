@@ -61,11 +61,11 @@
 </template>
 
 <script>
-    import Translate from '@vue/Components/Translate';
-    import Foldout from '@vue/Components/Foldout';
     import Icon from '@vue/Components/Icon';
-    import MessageService from '@js/Services/MessageService';
+    import Foldout from '@vue/Components/Foldout';
+    import Translate from '@vue/Components/Translate';
     import SystemService from '@js/Services/SystemService';
+    import MessageService from '@js/Services/MessageService';
 
     export default {
         components: {Foldout, Translate, Icon},
@@ -113,6 +113,7 @@
                     console.error(e);
                 }
             },
+
             addServer() {
                 this.showNewForm = true;
             },

@@ -45,7 +45,7 @@ class ErrorManager {
      * @returns {Function}
      */
     catch() {
-        return (e) => { this.logError(e); }
+        return (e) => { this.logError(e); };
     }
 
     /**
@@ -71,11 +71,12 @@ class ErrorManager {
             message: message ? message:error.message,
             file   : file ? file:error.fileName,
             line   : line ? line:error.lineNumber,
-            col    : col ? col:'undefined'
+            col    : col ? col:'undefined',
+            stack  : error.stack ? error.stack:''
         };
 
         let errorObject = {details, error};
-        console.error(details.message, errorObject);
+        console.error(details.message, errorObject, error.stack);
 
         if(this._mode === 'server') {
             this._saveError(errorObject);
@@ -103,7 +104,7 @@ class ErrorManager {
             await SystemService.waitReady();
             QueueService
                 .getQueue('error', 'background')
-                .push(data)
+                .push(data);
         } catch(e) {
             this.logError(e);
         }
