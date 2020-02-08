@@ -1,6 +1,5 @@
 import FeedbackClient from '@js/Queue/Client/FeedbackClient';
 import MiningItem from '@js/Models/Queue/MiningItem';
-import Password from 'passwords-client/src/Model/Password';
 
 class MiningClient extends FeedbackClient {
 
@@ -12,6 +11,10 @@ class MiningClient extends FeedbackClient {
         this._solvedItems = {};
     }
 
+    /**
+     *
+     * @return {MiningItem[]}
+     */
     getItems() {
         let items = [];
 
@@ -23,6 +26,21 @@ class MiningClient extends FeedbackClient {
         return items;
     }
 
+    solveItem(item) {
+        return new Promise((resolve, reject) => {
+            let current = this._items[item.getId()];
+
+            this._solvedItems[item.getId()] = {
+                item,
+                resolve,
+                reject
+            };
+
+            current.item = item;
+            current.resolve(item);
+        });
+    }
+
     /**
      *
      * @param {MiningItem} item
@@ -31,9 +49,6 @@ class MiningClient extends FeedbackClient {
      */
     _worker(item) {
         return new Promise((resolve, reject) => {
-            let password = new Password(null, item.getPassword());
-            item.setPassword(password);
-
             this._items[item.getId()] = {
                 item,
                 resolve,

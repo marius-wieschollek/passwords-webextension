@@ -1,16 +1,16 @@
 import FeedbackItem from '@js/Models/Queue/FeedbackItem';
 
-export default class MiningItem extends FeedbackItem{
+export default class MiningItem extends FeedbackItem {
 
 
     /**
      *
-     * @param {Password} value
      * @returns {MiningItem}
      */
-    setPassword(value) {
+    addField(name, value) {
         let task = this.getTask();
-        task.password = value;
+        if(!task.hasOwnProperty('fields')) task.fields = {};
+        task.fields[name] = value;
         this.setTask(task);
 
         return this;
@@ -18,22 +18,45 @@ export default class MiningItem extends FeedbackItem{
 
     /**
      *
-     * @returns {(Password|Object)}
+     * @param name
+     * @return {*}
      */
-    getPassword() {
+    getField(name) {
         let task = this.getTask();
+        if(task.hasOwnProperty('fields') && task.fields.hasOwnProperty(name)) {
+            return task.fields[name];
+        }
 
-        return task.password;
+        return undefined;
     }
 
     /**
      *
-     * @param value
+     */
+    getFields() {
+        let task = this.getTask();
+
+        return task.hasOwnProperty('fields') ? task.fields:{};
+    }
+
+    /**
+     *
+     * @returns {Boolean}
+     */
+    getLabel() {
+        let fields = this.getFields();
+
+        return fields.hasOwnProperty('label') ? fields.label:'MinedPasswordNoLabel';
+    }
+
+
+    /**
+     *
      * @returns {MiningItem}
      */
     setNew(value) {
         let task = this.getTask();
-        task.isNew = value;
+        task.new = value;
         this.setTask(task);
 
         return this;
@@ -41,12 +64,12 @@ export default class MiningItem extends FeedbackItem{
 
     /**
      *
-     * @returns {string}
+     * @returns {Boolean}
      */
     isNew() {
         let task = this.getTask();
 
-        return task.isNew;
+        return task.hasOwnProperty('new') && task.new;
     }
 
 }

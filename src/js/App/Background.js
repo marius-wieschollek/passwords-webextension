@@ -27,8 +27,8 @@ class Background {
             RecommendationManager.init();
             BadgeManager.init();
             ContextMenuManager.init();
-            await ServerManager.init();
             MiningManager.init();
+            await ServerManager.init();
         } catch(e) {
             ErrorManager.logError(e);
         }
