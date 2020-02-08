@@ -9,7 +9,7 @@ export default class FillPassword extends AbstractController {
      * @param {Message} reply
      */
     async execute(message, reply) {
-        this._fillPassword(message.getPayload().user, message.getPayload().password)
+        this._fillPassword(message.getPayload().user, message.getPayload().password);
     }
 
     /**
@@ -33,9 +33,12 @@ export default class FillPassword extends AbstractController {
 
             if(forms.length !== 1) continue;
             if(form.submit) {
-                form.submit.click();
+                form.submit.dispatchEvent(new Event('click', {bubbles: true, cancelable: true}));
             } else if(form.secure) {
-                form.form.dispatchEvent(new Event('submit', {bubbles: true, cancelable: true}));
+                let data = {key: 'Enter', code: 'Enter', which: 13, keyCode: 13, bubbles: true, cancelable: true};
+                form.pass.dispatchEvent(new KeyboardEvent('keydown', data));
+                form.pass.dispatchEvent(new KeyboardEvent('keypress', data));
+                form.pass.dispatchEvent(new KeyboardEvent('keyup', data));
             }
         }
     }

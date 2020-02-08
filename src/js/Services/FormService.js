@@ -66,6 +66,11 @@ export default class FormService {
                 if(!pair.user && pair.firstGuess) pair.user = pair.firstGuess;
                 if(!pair.user && pair.secondGuess) pair.user = pair.secondGuess;
 
+                if(!pair.submit && form.id) {
+                    let submit = document.querySelector(`button[form="${form.id}"][type=submit], input[form="${form.id}"][type=submit]`);
+                    if(submit) pair.submit = submit;
+                }
+
                 pair.secure = form.method !== 'get';
                 fieldPairs.push(pair);
             }
@@ -85,7 +90,7 @@ export default class FormService {
             name   = field.name.toLowerCase(),
             id     = field.id.toLowerCase();
 
-        for(let i=0; i<search.length; i++) {
+        for(let i = 0; i < search.length; i++) {
             if(name.indexOf(search[i]) !== -1 || id.indexOf(search[i]) !== -1) return true;
         }
 
