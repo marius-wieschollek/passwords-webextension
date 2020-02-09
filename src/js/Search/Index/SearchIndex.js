@@ -54,7 +54,7 @@ class SearchIndex {
     /**
      *
      * @param {String[]} ids
-     * @return {AbstractModel[]}
+     * @return {AbstractRevisionModel[]}
      */
     getItems(ids) {
         let items = [];
@@ -70,7 +70,7 @@ class SearchIndex {
     /**
      *
      * @param {String} id
-     * @returns {(null|AbstractModel)}
+     * @returns {(null|AbstractRevisionModel)}
      */
     getItem(id) {
         if(this._items.hasOwnProperty(id)) {
@@ -82,7 +82,7 @@ class SearchIndex {
 
     /**
      *
-     * @param {AbstractModel[]} items
+     * @param {AbstractRevisionModel[]} items
      */
     addItems(items) {
         for(let item of items) {
@@ -93,7 +93,7 @@ class SearchIndex {
 
     /**
      *
-     * @param {AbstractModel} item
+     * @param {AbstractRevisionModel} item
      * @param {Boolean} [update=true]
      */
     addItem(item, update = true) {
@@ -114,7 +114,7 @@ class SearchIndex {
 
     /**
      *
-     * @param {AbstractModel[]} items
+     * @param {AbstractRevisionModel[]} items
      */
     removeItems(items) {
         for(let item of items) {
@@ -125,7 +125,7 @@ class SearchIndex {
 
     /**
      *
-     * @param {AbstractModel} item
+     * @param {AbstractRevisionModel} item
      * @param {Boolean} [update=true]
      */
     removeItem(item, update = true) {
@@ -145,7 +145,7 @@ class SearchIndex {
 
     /**
      *
-     * @param {AbstractModel} item
+     * @param {AbstractRevisionModel} item
      * @return {String}
      * @private
      */

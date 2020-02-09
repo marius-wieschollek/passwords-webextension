@@ -4,6 +4,7 @@ import ServerManager from '@js/Manager/ServerManager';
 import ErrorManager from '@js/Manager/ErrorManager';
 import TabManager from '@js/Manager/TabManager';
 import SearchQuery from '@js/Search/Query/SearchQuery';
+import SearchIndex from '@js/Search/Index/SearchIndex';
 
 class MiningManager {
 
@@ -74,8 +75,9 @@ class MiningManager {
         }
 
         await api.getPasswordRepository().create(password);
-        task
-            .setAccepted(true)
+        SearchIndex.addItem(password);
+
+        task.setAccepted(true)
             .setFeedback('MiningPasswordCreated');
     }
 
