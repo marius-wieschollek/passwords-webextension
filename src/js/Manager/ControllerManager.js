@@ -95,6 +95,20 @@ class ControllerManager {
                 await this._executeController(module, message, reply);
             }
         );
+        MessageService.listen(
+            'setting.set',
+            async (message, reply) => {
+                let module = await import('@js/Controller/Setting/Set');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
+            'setting.get',
+            async (message, reply) => {
+                let module = await import('@js/Controller/Setting/Get');
+                await this._executeController(module, message, reply);
+            }
+        );
     }
 
     /**
