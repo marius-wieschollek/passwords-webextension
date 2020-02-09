@@ -11,7 +11,7 @@ class SettingsService {
     /**
      *
      * @param {String} setting
-     * @param {*} fallback
+     * @param {*} [fallback=null]
      * @return {Promise<Setting>}
      */
     async get(setting, fallback = null) {
@@ -30,7 +30,7 @@ class SettingsService {
     /**
      *
      * @param {(Setting|String)} setting
-     * @param {*} fallback
+     * @param {*} [fallback=null]
      * @return {Promise<*>}
      */
     async getValue(setting, fallback = null) {
@@ -42,7 +42,7 @@ class SettingsService {
     /**
      *
      * @param {(Setting|String)} setting
-     * @param {*} value
+     * @param {*} [value]
      * @return {Promise<*>}
      */
     async set(setting, value) {
@@ -65,7 +65,7 @@ class SettingsService {
 
     /**
      *
-     * @param {String} setting
+     * @param {(Setting|String)} setting
      * @return {Promise<*>}
      */
     async reset(setting) {

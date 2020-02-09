@@ -94,6 +94,12 @@ class ServerManager {
             if(!authorized) return;
         }
 
+        let setting = await SettingsService.get('sync.server.default');
+        if(setting.getValue() === null) {
+            setting.setValue(serverId);
+            await SettingsService.set(setting);
+        }
+
         this._servers[serverId].status = 'enabled';
         await this._addServer.emit(server);
         this._keepaliveTimer[serverId] = setInterval(() => { this._keepalive(api); }, 59000);
@@ -112,6 +118,18 @@ class ServerManager {
         let api = await ApiRepository.findById(server.getId());
         await ApiRepository.delete(api);
         await ServerRepository.delete(server);
+
+        let setting = await SettingsService.get('sync.server.default');
+        if(setting.getValue() === serverId) {
+            let api = await this._findDefaultApi();
+            if(api !== null) {
+                setting.setValue(api.getServer().getId());
+                await SettingsService.set(setting);
+            } else {
+                await SettingsService.reset(setting);
+            }
+        }
+
         await this._deleteServer.emit(server);
         this._servers[serverId].status = 'deleted';
     }
@@ -129,9 +147,8 @@ class ServerManager {
             ErrorManager.logError(e);
         }
 
-        let all = await ApiRepository.findAll();
-        if(all.length > 0) {
-            let api = all.pop();
+        let api = await this._findDefaultApi();
+        if(api !== null) {
             await SettingsService.set('sync.server.default', api.getServer().getId());
 
             return api;
@@ -139,6 +156,15 @@ class ServerManager {
 
         // @TODO use custom error here
         throw new Error('No default configured');
+    }
+
+    async _findDefaultApi() {
+        let all = await ApiRepository.findAll();
+        if(all.length > 0) {
+            return all.pop();
+        }
+
+        return null;
     }
 
     /**
