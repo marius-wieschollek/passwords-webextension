@@ -6,6 +6,7 @@ import ApiRepository from '@js/Repositories/ApiRepository';
 import BooleanState from 'passwords-client/src/State/BooleanState';
 import EventQueue from '@js/Event/EventQueue';
 import StorageService from '@js/Services/StorageService';
+import SettingsService from '@js/Services/SettingsService';
 
 class ServerManager {
 
@@ -120,10 +121,24 @@ class ServerManager {
      * @return {Promise<Api>}
      */
     async getDefaultApi() {
-        // @TODO acutally implement default server setting
-        let all = await ApiRepository.findAll();
+        try {
+            let defaultId = await SettingsService.getValue('sync.server.default');
 
-        return all.pop();
+            return await ApiRepository.findById(defaultId);
+        } catch(e) {
+            ErrorManager.logError(e);
+        }
+
+        let all = await ApiRepository.findAll();
+        if(all.length > 0) {
+            let api = all.pop();
+            await SettingsService.set('sync.server.default', api.getServer().getId());
+
+            return api;
+        }
+
+        // @TODO use custom error here
+        throw new Error('No default configured');
     }
 
     /**
@@ -135,7 +150,7 @@ class ServerManager {
             .getRequest()
             .setPath('1.0/session/keepalive')
             .send()
-            .catch(ErrorManager.catch());
+            .catch(ErrorManager.catch);
     }
 
     /**

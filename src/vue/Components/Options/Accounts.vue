@@ -2,7 +2,7 @@
     <div>
         <div class="account-options">
             <translate tag="label" for="master-account" say="SettingsAccountsMain"/>
-            <select id="master-account">
+            <select id="master-account" v-model="defaultServer">
                 <option v-for="server in servers" :key="server.getId()" :value="server.getId()">
                     {{server.getLabel()}}
                 </option>
@@ -71,11 +71,12 @@
         components: {Foldout, Translate, Icon},
         data() {
             return {
-                servers    : [],
-                showNewForm: false,
-                submitting : false,
-                error: '',
-                newServer  : {
+                servers      : [],
+                defaultServer: null,
+                showNewForm  : false,
+                submitting   : false,
+                error        : '',
+                newServer    : {
                     label  : '',
                     baseUrl: '',
                     user   : '',
@@ -109,6 +110,8 @@
                 try {
                     let message = await MessageService.send({type: 'server.list'});
                     this.servers = message.getPayload();
+                    message = await MessageService.send({type: 'setting.get', payload: 'sync.server.default'});
+                    this.defaultServer = message.getPayload();
                 } catch(e) {
                     console.error(e);
                 }
@@ -154,6 +157,14 @@
                     this.showNewForm = false;
                 } else {
                     this.error = message.getPayload().message;
+                }
+            }
+        },
+
+        watch: {
+            defaultServer(value, oldValue) {
+                if(oldValue !== null && value !== oldValue) {
+                    MessageService.send({type: 'setting.set', payload: {setting: 'sync.server.default', value}});
                 }
             }
         }
