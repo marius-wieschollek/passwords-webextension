@@ -31,18 +31,21 @@ class StorageService {
      * @param {String} key
      * @param {*} value
      * @param {String} storage
-     * @returns {Promise<void>}
+     * @returns {Promise<Boolean>}
      */
     async set(key, value, storage = 'sync') {
         try {
             let set = {};
-            set[key] = value;
+            set[key] = JSON.stringify(value);
             if(storage === this.STORAGE_SYNC) this._syncChanges++;
             await this._api.storage[storage].set(set);
+            if(storage === this.STORAGE_SYNC) this._syncChanges--;
+            return true;
         } catch(e) {
+            if(storage === this.STORAGE_SYNC) this._syncChanges--;
             ErrorManager.logError(e);
+            return false;
         }
-        if(storage === this.STORAGE_SYNC) this._syncChanges--;
     }
 
     /**
@@ -99,7 +102,7 @@ class StorageService {
     async _getFromStorage(key, storage) {
         try {
             let result = await this._api.storage[storage].get(key);
-            if(result.hasOwnProperty(key)) return result[key];
+            if(result.hasOwnProperty(key)) return JSON.parse(result[key]);
         } catch(e) {
             ErrorManager.logError(e);
         }
@@ -110,7 +113,7 @@ class StorageService {
         for(let storage of ['local', 'sync']) {
             try {
                 let result = await this._api.storage[storage].get(key);
-                if(result.hasOwnProperty(key)) return result[key];
+                if(result.hasOwnProperty(key)) return JSON.parse(result[key]);
             } catch(e) {
                 ErrorManager.logError(e);
             }
