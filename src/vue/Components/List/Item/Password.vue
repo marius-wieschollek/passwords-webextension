@@ -67,6 +67,7 @@
             background-color : var(--element-primary-background-color);
             color            : var(--element-primary-hover-text-color);
             transition       : opacity 0s linear .25s;
+            display          : flex;
 
             .icon {
                 text-align : center;

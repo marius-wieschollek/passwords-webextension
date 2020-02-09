@@ -69,4 +69,9 @@
     @import "~@fortawesome/fontawesome-free/scss/solid";
     @import "~@fortawesome/fontawesome-free/scss/icons";
     @import "~@fortawesome/fontawesome-free/scss/animated";
+
+    .icon {
+        min-width  : 1em;
+        box-sizing : content-box;
+    }
 </style>

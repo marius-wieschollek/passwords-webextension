@@ -97,12 +97,12 @@
             > * {
                 flex-grow   : 0;
                 flex-shrink : 0;
-                padding     : 1rem;
             }
 
             > .label {
                 flex-grow  : 1;
                 min-width  : 100vw;
+                padding    : 1rem;
                 transition : min-width .25s ease-in-out;
             }
 
@@ -112,8 +112,13 @@
                 min-width   : 50vw;
             }
 
-            .option,
+            .options {
+                display : flex;
+            }
+
             .icon {
+                padding    : 1rem;
+                display    : inline-block;
                 transition : color .15s ease-in-out, background-color .15s ease-in-out;
 
                 &:hover {
