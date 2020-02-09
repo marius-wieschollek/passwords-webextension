@@ -23,7 +23,6 @@ class StorageService {
         this._api.storage.onChanged.addListener(
             (d,a) => { this._onChangeListener(d,a); }
         );
-        this._api.storage.sync.get().then(console.log);
     }
 
     /**

@@ -46,9 +46,14 @@ class MiningManager {
         try {
             task = await this._miningQueue.push(task);
 
-            if(task.isNew()) {
-                this.createPassword(task);
+            if(task.isDiscarded()) {
+                task.setAccepted(true)
+                    .setFeedback('MiningPasswordDiscarded');
+            } else if(task.isNew()) {
+                await this.createPassword(task);
             }
+
+            await this._miningQueue.push(task);
         } catch(e) {
             ErrorManager.logError(e);
             task
@@ -64,15 +69,11 @@ class MiningManager {
      * @return {Promise<void>}
      */
     async createPassword(task) {
-        let api      = await ServerManager.getDefaultApi(),
-            password = api.getClass('model.password', {}, api);
-
-        let fields = task.getFields();
-        for(let field in fields) {
-            if(fields.hasOwnProperty(field)) {
-                password.setProperty(field, fields[field]);
-            }
-        }
+        let api       = await ServerManager.getDefaultApi(),
+            /** @type PasswordConverter **/
+            converter = api.getInstance('converter.password'),
+            fields    = task.getFields(),
+            password  = converter.fromObject(fields);
 
         await api.getPasswordRepository().create(password);
         SearchIndex.addItem(password);
@@ -118,7 +119,7 @@ class MiningManager {
      */
     validateData(data) {
         if(!data.hasOwnProperty('user')) {
-            data.user = {value: '', selector: null}
+            data.user = {value: '', selector: null};
         }
     }
 }

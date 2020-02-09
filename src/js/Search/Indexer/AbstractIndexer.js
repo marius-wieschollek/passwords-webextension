@@ -25,8 +25,10 @@ export default class AbstractIndexer {
      */
     _indexTextFields(model, index) {
         for(let field of this._textIndexFields) {
-            let value = model.getProperty(field).toLowerCase();
+            let value = model.getProperty(field);
+            if(value === undefined) return;
 
+            value = value.toLowerCase();
             if(value.length !== 0) {
                 index.text.push(value);
                 index.fields[field] = [value];

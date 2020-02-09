@@ -72,4 +72,27 @@ export default class MiningItem extends FeedbackItem {
         return task.hasOwnProperty('new') && task.new;
     }
 
+
+    /**
+     *
+     * @returns {MiningItem}
+     */
+    setDiscarded(value) {
+        let task = this.getTask();
+        task.discarded = value;
+        this.setTask(task);
+
+        return this;
+    }
+
+    /**
+     *
+     * @returns {Boolean}
+     */
+    isDiscarded() {
+        let task = this.getTask();
+
+        return task.hasOwnProperty('discarded') && task.discarded;
+    }
+
 }
