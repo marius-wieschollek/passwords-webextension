@@ -3,37 +3,36 @@ import Server from '@js/Models/Server/Server';
 import uuid from 'uuidv4';
 import LocalisationService from '@js/Services/LocalisationService';
 import ServerRepository from '@js/Repositories/ServerRepository';
+import SettingsService from '@js/Services/SettingsService';
 
 class UpgradeManager {
 
-    constructor() {
-        this._version = 20000;
+    get CURRENT_VERSION() {
+        return 20001;
     }
 
     async run() {
         let version = await StorageService.get('version');
 
         if(version === null) {
-            await StorageService.set('version', this._version, StorageService.STORAGE_SYNC);
+            await StorageService.set('version', this.CURRENT_VERSION, StorageService.STORAGE_SYNC);
             return;
-        } else if(version === this._version) {
-            await this._removeOldVariables();
+        } else if(version === this.CURRENT_VERSION) {
             return;
         }
 
-        if(version === 10500) {
-            this._upgrade150();
+        if(version < 20000) {
+            await this._upgrade20000();
         }
 
+        if(version < 20001) {
+            await this._upgrade20001();
+        }
 
-        await Promise.all(
-            [
-                StorageService.remove('version', StorageService.STORAGE_LOCAL),
-                StorageService.set('version', this._version, StorageService.STORAGE_SYNC)
-            ]);
+        await StorageService.set('version', this.CURRENT_VERSION, StorageService.STORAGE_SYNC);
     }
 
-    async _upgrade150() {
+    async _upgrade20000() {
         let url      = await StorageService.get('url', StorageService.STORAGE_SYNC),
             user     = await StorageService.get('user', StorageService.STORAGE_SYNC),
             theme    = await StorageService.get('theme', StorageService.STORAGE_SYNC),
@@ -56,7 +55,19 @@ class UpgradeManager {
 
         await StorageService.delete('servers', StorageService.STORAGE_SYNC);
         await ServerRepository.create(server);
+        await SettingsService.set('sync.server.default', server.getId());
         await this._removeOldVariables();
+    }
+
+    async _upgrade20001() {
+        await this._removeOldVariables();
+        if(await SettingsService.getValue('sync.server.default') === null) {
+            let servers = await ServerRepository.findAll();
+
+            if(servers.length > 0) {
+                await SettingsService.set('sync.server.default', servers[0].getId());
+            }
+        }
     }
 
     async _removeOldVariables() {
@@ -65,6 +76,7 @@ class UpgradeManager {
         await StorageService.remove('updated', StorageService.STORAGE_LOCAL);
         await StorageService.remove('url', StorageService.STORAGE_SYNC);
         await StorageService.remove('user', StorageService.STORAGE_SYNC);
+        await StorageService.remove('version', StorageService.STORAGE_LOCAL)
     }
 }
 

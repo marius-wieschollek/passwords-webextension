@@ -68,7 +68,7 @@ class ServerRepository {
         for(let i = 0; i < servers.length; i++) {
             if(servers[i].getId() === server.getId()) {
                 servers.splice(i, 1);
-                await StorageService.set(this.STORAGE_KEY, JSON.stringify(servers));
+                await StorageService.set(this.STORAGE_KEY, servers);
                 return;
             }
         }
@@ -86,7 +86,7 @@ class ServerRepository {
 
         let servers = [];
         if(await StorageService.has(this.STORAGE_KEY)) {
-            let data = JSON.parse(await StorageService.get(this.STORAGE_KEY));
+            let data = await StorageService.get(this.STORAGE_KEY);
 
             for(let element of data) {
                 servers.push(new Server(element));
@@ -105,7 +105,7 @@ class ServerRepository {
     async _refreshServers() {
         let servers = [];
         if(await StorageService.has(this.STORAGE_KEY)) {
-            let data = JSON.parse(await StorageService.get(this.STORAGE_KEY));
+            let data = await StorageService.get(this.STORAGE_KEY);
 
             for(let element of data) {
                 try {
@@ -136,13 +136,13 @@ class ServerRepository {
         for(let i = 0; i < servers.length; i++) {
             if(servers[i].getId() === server.getId()) {
                 servers[i] = server;
-                await StorageService.set(this.STORAGE_KEY, JSON.stringify(servers));
+                await StorageService.set(this.STORAGE_KEY, servers);
                 return;
             }
         }
 
         servers.push(server);
-        await StorageService.set(this.STORAGE_KEY, JSON.stringify(servers));
+        await StorageService.set(this.STORAGE_KEY, servers);
     }
 }
 
