@@ -202,9 +202,9 @@ class MessageService {
      * @private
      */
     _receiveMessage(data, sender = null) {
-        let isFromTab = sender !== null && sender.hasOwnProperty('tab'),
+        let isFromTab = this._sentFromTab(sender),
             message   = this._createMessageFromJSON(data, isFromTab);
-        if(!message) return;
+        if(!message || (sender !== null && sender.id !== 'ncpasswords@mdns.eu')) return;
 
         return new Promise(
             (resolve, reject) => {
@@ -228,6 +228,18 @@ class MessageService {
 
     /**
      *
+     * @param {MessageSender} sender
+     * @return {boolean}
+     * @private
+     */
+    _sentFromTab(sender) {
+        return sender !== null &&
+               sender.hasOwnProperty('tab') &&
+               (!sender.hasOwnProperty('envType') || sender.envType !== 'addon_child');
+    }
+
+    /**
+     *
      * @param {String} data
      * @param {Boolean} fromTab
      * @returns {(Message|void)}
@@ -242,7 +254,7 @@ class MessageService {
         }
 
         if(fromTab && this._checkClientRestrictions(message)) {
-            console.debug('message.rejected', message);
+            console.debug('message.rejected', message, fromTab);
             return;
         }
 
