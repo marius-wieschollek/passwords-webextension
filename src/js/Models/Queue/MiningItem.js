@@ -78,9 +78,9 @@ export default class MiningItem extends FeedbackItem {
      * @returns {MiningItem}
      */
     setDiscarded(value) {
-        let task = this.getTask();
-        task.discarded = value;
-        this.setTask(task);
+        let result = this.getResult();
+        result.discarded = value;
+        this.setResult(result);
 
         return this;
     }
@@ -90,9 +90,9 @@ export default class MiningItem extends FeedbackItem {
      * @returns {Boolean}
      */
     isDiscarded() {
-        let task = this.getTask();
+        let result = this.getResult();
 
-        return task.hasOwnProperty('discarded') && task.discarded;
+        return result.hasOwnProperty('discarded') && result.discarded;
     }
 
 }

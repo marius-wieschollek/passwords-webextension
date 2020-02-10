@@ -42,7 +42,6 @@ class MiningManager {
      * @param {MiningItem} task
      */
     async processTask(task) {
-
         try {
             task = await this._miningQueue.push(task);
 
@@ -96,9 +95,7 @@ class MiningManager {
                 .execute();
 
         for(let item of items) {
-            if(data.password.value === item.getPassword() && data.user.value === item.getUserName()) {
-                return true;
-            }
+            if(data.password.value === item.getPassword()) return true;
         }
 
         query = new SearchQuery();
