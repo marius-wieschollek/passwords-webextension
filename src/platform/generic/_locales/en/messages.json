@@ -63,6 +63,10 @@
         "message"    : "Default account for new passwords",
         "description": ""
     },
+    "SettingsPasswordAutosubmit"       : {
+        "message"    : "Automatically submit login forms",
+        "description": ""
+    },
     "ServerLabel"                : {
         "message"    : "Name",
         "description": ""

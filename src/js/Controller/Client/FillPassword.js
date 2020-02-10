@@ -9,22 +9,23 @@ export default class FillPassword extends AbstractController {
      * @param {Message} reply
      */
     async execute(message, reply) {
-        this._fillPassword(message.getPayload().user, message.getPayload().password);
+        this._fillPassword(message.getPayload().user, message.getPayload().password, message.getPayload().submit);
     }
 
     /**
      *
      * @param {String} user
      * @param {String} password
+     * @param {Boolean} trySubmit
      */
-    _fillPassword(user, password) {
+    _fillPassword(user, password, trySubmit) {
         let forms = new FormService().getLoginFields();
         for(let i = 0; i < forms.length; i++) {
             let form = forms[i];
             if(form.user) this._insertTextIntoField(form.user, user);
             this._insertTextIntoField(form.pass, password);
 
-            if(forms.length !== 1) continue;
+            if(!trySubmit || forms.length !== 1) continue;
             if(form.submit) {
                 this._simulateClick(form.submit);
             } else if(form.secure) {
@@ -41,12 +42,14 @@ export default class FillPassword extends AbstractController {
      */
     _insertTextIntoField(field, value) {
         let bubbleEvent   = {bubbles: true, cancelable: true},
-            noBubbleEvent = {bubbles: false, cancelable: true};
+            noBubbleEvent = {bubbles: false, cancelable: true},
+            insertEvent   = {bubbles: true, cancelable: false, inputType: 'inserting', data: value};
 
         field.dispatchEvent(new FocusEvent('focus', noBubbleEvent));
         field.dispatchEvent(new FocusEvent('focusin', bubbleEvent));
         field.value = value;
-        field.dispatchEvent(new InputEvent('change', {bubbles: false, cancelable: false, inputType: 'insert', data: value}));
+        field.dispatchEvent(new InputEvent('input', insertEvent));
+        field.dispatchEvent(new Event('change', insertEvent));
         field.dispatchEvent(new FocusEvent('focusout', bubbleEvent));
         field.dispatchEvent(new FocusEvent('blur', noBubbleEvent));
     }

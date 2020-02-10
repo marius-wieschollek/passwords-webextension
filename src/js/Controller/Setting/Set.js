@@ -4,12 +4,27 @@ import ServerRepository from '@js/Repositories/ServerRepository';
 
 export default class Set extends AbstractController {
 
+    constructor() {
+        super();
+        this._booleanSettings = [
+            'sync.password.autosubmit'
+        ];
+    }
+
+    /**
+     *
+     * @param {Message} message
+     * @param {Message} reply
+     * @return {Promise<void>}
+     */
     async execute(message, reply) {
         let {setting, value} = message.getPayload();
 
         try {
             if(setting === 'sync.server.default') {
                 await this._setDefaultServer(value);
+            } else if(this._booleanSettings.indexOf(setting) !== -1) {
+                await this._setBoolean(setting, value);
             } else {
                 reply.setPayload(
                     {
@@ -40,5 +55,16 @@ export default class Set extends AbstractController {
     async _setDefaultServer(value) {
         await ServerRepository.findById(value);
         await SettingsService.set('sync.server.default', value);
+    }
+
+    /**
+     *
+     * @param {String} setting
+     * @param {Boolean} value
+     * @return {Promise<void>}
+     * @private
+     */
+    async _setBoolean(setting, value) {
+        await SettingsService.set(setting, value === true);
     }
 }

@@ -5,9 +5,7 @@
             <div slot="theme">
                 theme
             </div>
-            <div slot="other">
-                other
-            </div>
+            <settings slot="other"/>
         </tabs>
     </div>
 </template>
@@ -15,10 +13,11 @@
 <script>
     import Tabs from '@vue/Components/Tabs';
     import Accounts from '@vue/Components/Options/Accounts';
+    import Settings from '@vue/Components/Options/Settings';
 
     export default {
         el        : '#app',
-        components: {Tabs, Accounts},
+        components: {Tabs, Accounts, Settings},
 
         computed: {
             tabs() {
