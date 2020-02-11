@@ -116,6 +116,7 @@
                 display : flex;
             }
 
+            .option,
             .icon {
                 padding    : 1rem;
                 display    : inline-block;
@@ -125,6 +126,10 @@
                     background-color : var(--element-primary-background-color);
                     color            : var(--element-primary-text-color);
                 }
+            }
+
+            .option .icon {
+                padding: 0;
             }
         }
 

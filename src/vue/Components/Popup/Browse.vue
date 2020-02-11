@@ -3,9 +3,10 @@
         <div v-for="server in servers"
              :key="server.getId()"
              :slot="`${server.getId()}-tab`"
-             @click="reloadServer(server)"
              class="options">
-            <icon icon="sync" font="solid" :spin="reloading[server.getId()]"/>
+            <div class="option" @click="reloadServer(server)">
+                <icon icon="sync" font="solid" :spin="reloading[server.getId()]"/>
+            </div>
         </div>
         <div v-for="server in servers" :key="server.getId()" :slot="server.getId()" class="account-settings">
             Label: {{server.getLabel()}}<br>
