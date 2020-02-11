@@ -38,6 +38,11 @@
             this.loadServers();
         },
 
+        async activated() {
+            this.info = {};
+            await this.loadServers();
+        },
+
         computed: {
             serverNames() {
                 let names = {};

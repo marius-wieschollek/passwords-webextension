@@ -19,11 +19,21 @@
         },
 
         mounted() {
-            MessageService
-                .send({type: 'password.related'})
-                .then((r) => {
-                    this.passwords = r.getPayload();
-                });
+            this.reloadData();
+        },
+
+        activated() {
+            this.reloadData();
+        },
+
+        methods: {
+            reloadData() {
+                MessageService
+                    .send({type: 'password.related'})
+                    .then((r) => {
+                        this.passwords = r.getPayload();
+                    });
+            }
         }
     };
 </script>

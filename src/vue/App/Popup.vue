@@ -105,13 +105,13 @@
         > .tab-container > .tabs .tab {
             overflow    : hidden;
             width       : calc(100vw - 12rem);
-            transition  : width .25s ease-in-out;
+            transition  : width .15s ease-in-out;
             box-sizing  : border-box;
             flex-shrink : 0;
 
             .label {
                 opacity    : 1;
-                transition : opacity .25s ease-in-out;
+                transition : opacity .15s ease-in-out;
             }
 
             &:not(.active) {

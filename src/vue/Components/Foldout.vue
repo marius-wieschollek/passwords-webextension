@@ -9,7 +9,9 @@
                 <slot :name="`${name}-tab`"/>
             </div>
             <div :class="{ active: isActive(name) }" class="foldout-content">
-                <slot :name="name"/>
+                <keep-alive>
+                    <slot :name="name"/>
+                </keep-alive>
             </div>
         </div>
     </div>
@@ -103,7 +105,7 @@
                 flex-grow  : 1;
                 min-width  : 100vw;
                 padding    : 1rem;
-                transition : min-width .25s ease-in-out;
+                transition : min-width .15s ease-in-out;
             }
 
             &.active > .label,

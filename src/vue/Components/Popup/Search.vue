@@ -38,6 +38,11 @@
             document.getElementById('query').focus();
         },
 
+        activated() {
+            document.getElementById('query').focus();
+            this.search(this.query);
+        },
+
         methods: {
             search(query) {
                 MessageService
