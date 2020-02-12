@@ -27,7 +27,7 @@ export default class TagIndexer extends AbstractIndexer {
             type  : 'tag',
             text  : [],
             server: [],
-            fields: []
+            fields: {}
         };
 
         this._indexServer(tag, index);

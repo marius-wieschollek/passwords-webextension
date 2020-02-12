@@ -34,7 +34,7 @@ export default class PasswordIndexer extends AbstractIndexer {
             password: [],
             url     : [],
             host    : [],
-            fields  : []
+            fields  : {}
         };
 
         this._indexServer(password, index);

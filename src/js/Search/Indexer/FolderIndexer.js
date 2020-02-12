@@ -23,7 +23,7 @@ export default class FolderIndexer extends AbstractIndexer {
             text  : [],
             folder: [],
             server: [],
-            fields: []
+            fields: {}
         };
 
         this._indexServer(folder, index);

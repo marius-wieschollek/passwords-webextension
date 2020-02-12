@@ -51,7 +51,7 @@ export default class AbstractSort {
         }
 
         if(values.length === 0) return null;
-        if(values.length === 1) return values.pop();
+        if(values.length === 1) return values.first();
 
         return values.join();
     }
