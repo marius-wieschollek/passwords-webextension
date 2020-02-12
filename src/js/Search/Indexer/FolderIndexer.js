@@ -30,6 +30,11 @@ export default class FolderIndexer extends AbstractIndexer {
         this._indexTextFields(folder, index);
         this._indexFields(folder, index);
 
+        let value = folder.getParent();
+        if(value && value.length !== 0) {
+            index.folder.push(value);
+        }
+
         return index;
     }
 }

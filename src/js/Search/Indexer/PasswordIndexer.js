@@ -55,6 +55,11 @@ export default class PasswordIndexer extends AbstractIndexer {
             index.password.push(value);
         }
 
+        value = password.getFolder();
+        if(value && value.length !== 0) {
+            index.folder.push(value);
+        }
+
         let customFields = password.getCustomFields();
         for(let customField of customFields) {
             if(!customField.getValue() || customField.getValue().length === 0) continue;

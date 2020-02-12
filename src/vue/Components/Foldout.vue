@@ -130,8 +130,11 @@
                 }
             }
 
-            .option .icon {
-                padding: 0;
+            .option {
+                padding    : 0;
+                .icon {
+                    padding    : 1rem;
+                }
             }
         }
 

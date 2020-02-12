@@ -2,11 +2,13 @@ import MessageService from '@js/Services/MessageService';
 import ServerConverter from '@js/Converter/ServerConverter';
 import PasswordConverter from '@js/Converter/PasswordConverter';
 import ErrorManager from '@js/Manager/ErrorManager';
+import FolderConverter from '@js/Converter/FolderConverter';
 
 class ConverterManager {
+
     init() {
         MessageService.convert(
-            ['password.items', 'popup.data'],
+            ['password.items', 'folder.items', 'popup.data'],
             async (message) => {
                 await this._executeConverter(PasswordConverter, message);
             }
@@ -17,8 +19,21 @@ class ConverterManager {
                 await this._executeConverter(ServerConverter, message);
             }
         );
+        MessageService.convert(
+            ['folder.items'],
+            async (message) => {
+                await this._executeConverter(FolderConverter, message);
+            }
+        );
     }
 
+
+    /**
+     *
+     * @param {Object} module
+     * @param {Message} message
+     * @private
+     */
     async _executeConverter(module, message) {
         try {
             let controller = new module();
