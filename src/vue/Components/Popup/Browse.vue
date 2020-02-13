@@ -1,11 +1,11 @@
 <template>
     <foldout :tabs="serverNames" :translate="false">
-        <div v-for="server in servers" :key="server.getId()" :slot="`${server.getId()}-tab`" class="options">
+        <div v-for="server in servers" :key="`${server.getId()}-tab`" :slot="`${server.getId()}-tab`" class="options">
             <div class="option" @click="reloadServer(server)">
                 <icon icon="sync" font="solid" :spin="reloading[server.getId()]"/>
             </div>
         </div>
-        <div v-for="server in servers" :key="server.getId()" :slot="`${server.getId()}-tab-open`" class="options">
+        <div v-for="server in servers" :key="`${server.getId()}-tab-open`" :slot="`${server.getId()}-tab-open`" class="options">
             <icon icon="info-circle" font="solid" @click="showInfo(server)"/>
         </div>
         <div v-for="server in servers" :key="server.getId()" :slot="server.getId()">

@@ -15,7 +15,7 @@
                 type: String
             },
             value   : {
-                type: String
+                type: [String, Number]
             }
         },
 
