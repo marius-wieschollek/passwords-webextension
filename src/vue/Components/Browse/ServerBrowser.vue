@@ -2,7 +2,7 @@
     <div>
         <parent-folder :folder="folderId" v-on:open="open($event)" v-if="!isHomeFolder" />
         <folder-list :folders="folders" v-on:open="open($event)"/>
-        <password-list :passwords="passwords"/>
+        <password-list :passwords="passwords" :favicons="true"/>
     </div>
 </template>
 
@@ -62,7 +62,3 @@
         }
     };
 </script>
-
-<style scoped>
-
-</style>

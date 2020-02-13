@@ -40,6 +40,13 @@ class ControllerManager {
             }
         );
         MessageService.listen(
+            'password.favicon',
+            async (message, reply) => {
+                let module = await import('@js/Controller/Password/Favicon');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
             'folder.list',
             async (message, reply) => {
                 let module = await import('@js/Controller/Folder/List');

@@ -1,6 +1,6 @@
 <template>
     <ul class="list password-list">
-        <password v-for="password in passwords" :password="password" :key="password.getId()"/>
+        <password v-for="password in passwords" :password="password" :key="password.getId()" :favicon="favicons"/>
     </ul>
 </template>
 
@@ -13,6 +13,10 @@
             passwords: {
                 type   : Array,
                 default: []
+            },
+            favicons: {
+                type   : Boolean,
+                default: false
             }
         }
     };

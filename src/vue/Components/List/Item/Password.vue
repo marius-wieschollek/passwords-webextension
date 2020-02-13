@@ -1,7 +1,7 @@
 <template>
     <li class="item password-item">
         <div class="label" @click="sendPassword()" :title="password.getId()">
-            {{password.getLabel()}}
+            <favicon :password="password.getId()" :size="24" v-if="favicon"/>{{password.getLabel()}}
         </div>
         <div class="options">
             <icon icon="user" hover-icon="clipboard" @click="copy('username')"/>
@@ -14,15 +14,21 @@
     import Password from 'passwords-client/src/Model/Password/Password';
     import Icon from '@vue/Components/Icon';
     import MessageService from '@js/Services/MessageService';
+    import Favicon from '@vue/Components/List/Item/Favicon';
 
     export default {
-        components: {Icon},
+        components: {Favicon, Icon},
         props     : {
             password: {
                 type: Password
+            },
+            favicon : {
+                type   : Boolean,
+                default: false
             }
         },
-        methods   : {
+
+        methods: {
             sendPassword() {
                 MessageService.send(
                     {
@@ -59,6 +65,12 @@
             min-width   : 100vw;
             white-space : nowrap;
             transition  : min-width .25s ease-in-out;
+
+            .favicon {
+                vertical-align : middle;
+                border-radius  : 3px;
+                margin         : .25rem .3rem .25rem 0;
+            }
         }
 
         .options {
