@@ -132,8 +132,13 @@
 
             .option {
                 padding    : 0;
+
                 .icon {
                     padding    : 1rem;
+
+                    &:hover {
+                        background-color : transparent;
+                    }
                 }
             }
         }

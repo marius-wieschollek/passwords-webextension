@@ -64,8 +64,6 @@
 
         .options {
             opacity          : 0;
-            background-color : var(--element-primary-background-color);
-            color            : var(--element-primary-hover-text-color);
             transition       : opacity 0s linear .25s;
             display          : flex;
 
@@ -73,17 +71,12 @@
                 text-align : center;
                 width      : 3rem;
                 display    : inline-block;
-
-                &:hover {
-                    background-color : var(--element-primary-hover-background-color);
-                    color            : var(--element-primary-hover-text-color);
-                }
             }
         }
 
         &:hover {
-            background-color : var(--element-primary-background-color);
-            color            : var(--element-primary-hover-text-color);
+            background-color : var(--content-secondary-hover-background-color);
+            color            : var(--content-secondary-hover-text-color);
 
             > .label {
                 flex-shrink : 1;
@@ -91,6 +84,12 @@
             }
 
             .options {
+                > .icon:hover,
+                > .option:hover {
+                    background-color : var(--element-primary-background-color);
+                    color            : var(--element-primary-text-color);
+                }
+
                 opacity    : 1;
                 transition : none;
             }
