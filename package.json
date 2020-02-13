@@ -29,13 +29,13 @@
         "url-parse": "^1.4.7",
         "uuidv4": "^4.0.0",
         "vue": "^2.6.11",
-        "vue-loader": "^15.8.3",
+        "vue-loader": "^15.9.0",
         "vue-router": "^3.1.5",
         "vue-style-loader": "^4.1.2",
         "vue-template-compiler": "^2.6.11",
         "webextension-polyfill": "^0.6.0",
-        "webpack": "^4.41.5",
-        "webpack-cli": "^3.3.10"
+        "webpack": "^4.41.6",
+        "webpack-cli": "^3.3.11"
     },
     "repository": {
         "type": "git",

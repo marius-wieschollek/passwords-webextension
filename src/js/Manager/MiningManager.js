@@ -29,11 +29,11 @@ class MiningManager {
         if(this.checkIfDuplicate(data)) return;
 
         let task = new MiningItem()
-            .addField('label', data.title)
-            .addField('url', data.url)
-            .addField('username', data.user.value)
-            .addField('password', data.password.value)
-            .setNew(true);
+            .setTaskField('label', data.title)
+            .setTaskField('username', data.user.value)
+            .setTaskField('password', data.password.value)
+            .setTaskField('url', data.url)
+            .setTaskNew(true);
 
         this.processTask(task);
     }
@@ -71,7 +71,7 @@ class MiningManager {
         let api       = await ServerManager.getDefaultApi(),
             /** @type PasswordConverter **/
             converter = api.getInstance('converter.password'),
-            fields    = task.getFields(),
+            fields    = task.getResultFields(),
             password  = converter.fromObject(fields);
 
         await api.getPasswordRepository().create(password);

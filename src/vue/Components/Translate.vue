@@ -1,7 +1,9 @@
 <template>
     <component :is="tag" @click="fireEvent($event)">
+        <slot name="before" />
         {{ text }}
-        <slot name="default" v-if="say"></slot>
+        <slot name="default" v-if="say"/>
+        <slot name="after" />
     </component>
 </template>
 

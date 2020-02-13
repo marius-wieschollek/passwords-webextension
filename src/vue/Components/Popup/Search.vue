@@ -2,6 +2,7 @@
     <div class="search-container">
         <input type="text" id="query" v-model="query" :placeholder="placeholder">
         <password-list :passwords="passwords"/>
+        <translate tag="div" class="no-results" say="NoSearchQuery" v-if="query.length === 0"/>
         <translate tag="div" class="no-results" say="NoSearchResults" v-if="query.length !== 0 && passwords.length === 0"/>
     </div>
 </template>

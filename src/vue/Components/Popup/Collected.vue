@@ -1,16 +1,11 @@
 <template>
     <div class="collected-container">
         <foldout :tabs="tabs" :translate="false">
-            <div class="options" :slot="`${item.getId()}-tab`" :key="item.getId()" v-for="item of items">
+            <div class="options" :slot="`${item.getId()}-tab`" v-for="item of items" :key="item.getId()">
                 <icon icon="trash-alt" @click="discard(item)"/>
                 <icon icon="save" @click="save(item)"/>
             </div>
-
-            <div :slot="item.getId()" :key="item.getId()" v-for="item of items">
-                <div v-for="(field, name) in item.getFields()">
-                    {{name}}: {{field}}
-                </div>
-            </div>
+            <mining-item :item="item" :slot="item.getId()" :key="item.getId()" v-for="item of items"/>
         </foldout>
         <translate tag="div" class="no-results" say="NoCollectedPasswords" v-if="items.length === 0"/>
     </div>
@@ -21,9 +16,10 @@
     import Foldout from '@vue/Components/Foldout';
     import Translate from '@vue/Components/Translate';
     import MiningClient from '@js/Queue/Client/MiningClient';
+    import MiningItem from '@vue/Components/Collected/MiningItem';
 
     export default {
-        components: {Translate, Foldout, Icon},
+        components: {MiningItem, Translate, Foldout, Icon},
         data() {
             return {
                 items: MiningClient.getItems()

@@ -101,6 +101,10 @@
         "message"    : "Keine passenden Passwörter gefunden",
         "description": ""
     },
+    "NoSearchQuery"              : {
+        "message": "Zum Suchen tippen",
+        "description": ""
+    },
     "NoCollectedPasswords"       : {
         "message"    : "Keine neuen Passwörter gefunden",
         "description": ""
@@ -109,15 +113,6 @@
 
 
 
-    "NoRelatedMatches"           : {
-        "message": "Keine Logindaten gefunden"
-    },
-    "NoSearchMatches"            : {
-        "message": "Keine Treffer"
-    },
-    "NoSearchQuery"              : {
-        "message": "Mindestens drei Zeichen eingeben"
-    },
     "PasswordRequestFailedTitle" : {
         "message": "Nextcloud Password Abfrage fehlgeschlagen"
     },

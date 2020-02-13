@@ -219,6 +219,10 @@
         "message"    : "Did not find any passwords for your search",
         "description": ""
     },
+    "NoSearchQuery"              : {
+        "message"    : "Type to search",
+        "description": "Shown when the search query is empty"
+    },
     "SearchPlaceholder"          : {
         "message"    : "Search for passwords",
         "description": ""
@@ -226,6 +230,20 @@
     "NoCollectedPasswords"       : {
         "message"    : "No new passwords found",
         "description": ""
+    },
+    "MiningItemIsNew"            : {
+        "message"    : "This is a new password",
+        "description": ""
+    },
+    "MiningItemIsUpdate"         : {
+        "message"    : "This seems to be an update of \"$PASSWORD$\"",
+        "description": "",
+        "placeholders": {
+            "password"  : {
+                "content": "$1",
+                "example": "My Password"
+            }
+        }
     },
     "LabelLabel"                 : {
         "message"    : "Name",
@@ -271,18 +289,6 @@
 
 
 
-    "NoRelatedMatches"           : {
-        "message"    : "No logins found",
-        "description": "Shown when the related page did not find any results"
-    },
-    "NoSearchMatches"            : {
-        "message"    : "No matches",
-        "description": "Shown when the search did not find any results"
-    },
-    "NoSearchQuery"              : {
-        "message"    : "Type more than two characters",
-        "description": "Shown when the search query is empty"
-    },
     "PasswordRequestFailedTitle" : {
         "message"    : "Nextcloud password request failed",
         "description": "Notification title when the password request fails"
