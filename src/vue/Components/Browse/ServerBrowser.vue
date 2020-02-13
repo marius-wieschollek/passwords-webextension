@@ -1,8 +1,6 @@
 <template>
     <div>
-        <ul>
-            <li v-for="folder in folders" :key="folder.getId()" @click="open(folder)">{{folder.getLabel()}}</li>
-        </ul>
+        <folder-list :folders="folders" v-on:open="open($event)"/>
         <password-list :passwords="passwords"/>
     </div>
 </template>
@@ -11,9 +9,11 @@
     import Server from '@js/Models/Server/Server';
     import MessageService from '@js/Services/MessageService';
     import PasswordList from '@vue/Components/List/PasswordList';
+    import FolderList from '@vue/Components/List/FolderList';
+    import Folder from '@vue/Components/List/Item/Folder';
 
     export default {
-        components: {PasswordList},
+        components: {Folder, FolderList, PasswordList},
         props     : {
             server: {
                 type: Server
@@ -22,7 +22,8 @@
 
         data() {
             return {
-                folder   : '00000000-0000-0000-0000-000000000000',
+                folderId : '00000000-0000-0000-0000-000000000000',
+                folder   : null,
                 passwords: [],
                 folders  : []
             };
@@ -35,7 +36,7 @@
         methods: {
             loadFolders() {
                 MessageService
-                    .send({type: 'folder.list', payload: {server: this.server.getId(), folder: this.folder}})
+                    .send({type: 'folder.list', payload: {server: this.server.getId(), folder: this.folderId}})
                     .then((reply) => {
                         let payload = reply.getPayload();
                         this.folders = payload.folders;
@@ -43,12 +44,13 @@
                     });
             },
             open(folder) {
-                this.folder = folder.getId();
+                this.folderId = folder.getId();
+                this.folder = folder;
             }
         },
 
         watch: {
-            folder() {
+            folderId() {
                 this.loadFolders();
             }
         }

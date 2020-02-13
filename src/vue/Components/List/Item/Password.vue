@@ -19,8 +19,7 @@
         components: {Icon},
         props     : {
             password: {
-                type   : Password,
-                default: null
+                type: Password
             }
         },
         methods   : {
@@ -63,9 +62,9 @@
         }
 
         .options {
-            opacity          : 0;
-            transition       : opacity 0s linear .25s;
-            display          : flex;
+            opacity    : 0;
+            transition : opacity 0s linear .25s;
+            display    : flex;
 
             .icon {
                 text-align : center;
@@ -75,8 +74,8 @@
         }
 
         &:hover {
-            background-color : var(--content-secondary-hover-background-color);
-            color            : var(--content-secondary-hover-text-color);
+            background-color : var(--element-secondary-hover-background-color);
+            color            : var(--element-secondary-hover-text-color);
 
             > .label {
                 flex-shrink : 1;
@@ -84,14 +83,16 @@
             }
 
             .options {
+                background-color : var(--element-secondary-hover-background-color);
+
                 > .icon:hover,
                 > .option:hover {
                     background-color : var(--element-primary-background-color);
                     color            : var(--element-primary-text-color);
                 }
 
-                opacity    : 1;
-                transition : none;
+                opacity          : 1;
+                transition       : none;
             }
         }
     }
