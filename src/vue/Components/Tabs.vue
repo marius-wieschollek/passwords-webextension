@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="tab-content">
-            <div v-for="(meta, name) in tabs" :key="name">
+            <div v-for="(meta, name) in tabs" :key="name" :class="`tab-content-${name}`" :style="{display: name===tab ? 'block':'none'}">
                 <keep-alive>
                     <slot :name="name" v-if="name===tab"/>
                 </keep-alive>

@@ -227,6 +227,38 @@
         "message"    : "No new passwords found",
         "description": ""
     },
+    "LabelLabel"                 : {
+        "message"    : "Name",
+        "description": ""
+    },
+    "LabelPassword"              : {
+        "message"    : "Password",
+        "description": ""
+    },
+    "LabelUsername"              : {
+        "message"    : "User",
+        "description": ""
+    },
+    "LabelUrl"                   : {
+        "message"    : "Url",
+        "description": ""
+    },
+    "LabelUser"              : {
+        "message"    : "User",
+        "description": ""
+    },
+    "LabelPasswords"              : {
+        "message"    : "Passwords",
+        "description": ""
+    },
+    "LabelFolders"              : {
+        "message"    : "Folders",
+        "description": ""
+    },
+    "LabelTags"              : {
+        "message"    : "Tags",
+        "description": ""
+    },
 
 
 

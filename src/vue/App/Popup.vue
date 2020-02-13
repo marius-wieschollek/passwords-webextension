@@ -85,6 +85,8 @@
 
 <style lang="scss">
     body {
+        overflow : hidden;
+
         &.mobile {
             width  : 100vw;
             height : 100vh;

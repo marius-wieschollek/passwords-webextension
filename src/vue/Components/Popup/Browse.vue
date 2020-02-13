@@ -74,3 +74,12 @@
         }
     };
 </script>
+
+<style lang="scss">
+    .tab-content-browse {
+        .foldout-tab.active {
+            position: sticky;
+            top: 0;
+        }
+    }
+</style>
