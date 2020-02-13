@@ -13,7 +13,7 @@ export default class Favicon extends AbstractController {
         if(model !== null) {
             reply.setPayload(model.getFaviconUrl(size))
         } else {
-            let icon = await SystemService.getBrowserApi().runtime.getURL('img/passwords.svg');
+            let icon = await SystemService.getBrowserApi().runtime.getURL('img/favicon-fallback.svg');
             reply.setPayload(icon)
         }
     }

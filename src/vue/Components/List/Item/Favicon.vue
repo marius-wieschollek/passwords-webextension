@@ -1,5 +1,5 @@
 <template>
-    <img class="favicon" :src="src" :width="size" :height="size" alt=""/>
+    <img :class="className" :src="src" :width="size" :height="size" alt="" @error="showDefaultIcon()"/>
 </template>
 
 <script>
@@ -19,7 +19,8 @@
 
         data() {
             return {
-                src: null
+                src  : null,
+                error: false
             };
         },
 
@@ -28,18 +29,15 @@
         },
 
         computed: {
-            style() {
-                return {
-                    'background-image': `url(${this.src})`,
-                    width             : this.size,
-                    height            : this.size
-                };
+            className() {
+                return 'favicon ' + (this.error ? 'error':'');
             }
         },
 
         methods: {
             async resolveIconUrl() {
                 this.src = null;
+                this.error = false;
                 let reply = await MessageService.send(
                     {
                         type   : 'password.favicon',
@@ -49,6 +47,20 @@
                         }
                     }
                 );
+                this.src = reply.getPayload();
+            },
+            async showDefaultIcon() {
+                this.src = null;
+                let reply = await MessageService.send(
+                    {
+                        type   : 'password.favicon',
+                        payload: {
+                            password: null,
+                            size    : this.size
+                        }
+                    }
+                );
+                this.error = true;
                 this.src = reply.getPayload();
             }
         },

@@ -70,6 +70,12 @@
                 vertical-align : middle;
                 border-radius  : 3px;
                 margin         : .25rem .3rem .25rem 0;
+
+                &.error {
+                    margin     : 0 .68rem 0 .25rem;
+                    max-width  : 1rem;
+                    max-height : 1rem;
+                }
             }
         }
 
