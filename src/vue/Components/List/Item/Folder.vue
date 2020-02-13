@@ -1,8 +1,7 @@
 <template>
     <li class="item folder-item">
         <div class="label" @click="openFolder()" :title="folder.getId()">
-            <icon icon="folder"/>
-            {{folder.getLabel()}}
+            <icon icon="folder"/>{{folder.getLabel()}}
         </div>
     </li>
 </template>

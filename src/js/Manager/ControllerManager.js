@@ -47,6 +47,13 @@ class ControllerManager {
             }
         );
         MessageService.listen(
+            'folder.show',
+            async (message, reply) => {
+                let module = await import('@js/Controller/Folder/Show');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
             'server.list',
             async (message, reply) => {
                 let module = await import('@js/Controller/Server/List');

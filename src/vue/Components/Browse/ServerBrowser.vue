@@ -1,5 +1,6 @@
 <template>
     <div>
+        <parent-folder :folder="folderId" v-on:open="open($event)" v-if="!isHomeFolder" />
         <folder-list :folders="folders" v-on:open="open($event)"/>
         <password-list :passwords="passwords"/>
     </div>
@@ -11,9 +12,10 @@
     import PasswordList from '@vue/Components/List/PasswordList';
     import FolderList from '@vue/Components/List/FolderList';
     import Folder from '@vue/Components/List/Item/Folder';
+    import ParentFolder from '@vue/Components/List/Item/ParentFolder';
 
     export default {
-        components: {Folder, FolderList, PasswordList},
+        components: {ParentFolder, Folder, FolderList, PasswordList},
         props     : {
             server: {
                 type: Server
@@ -23,7 +25,6 @@
         data() {
             return {
                 folderId : '00000000-0000-0000-0000-000000000000',
-                folder   : null,
                 passwords: [],
                 folders  : []
             };
@@ -31,6 +32,12 @@
 
         mounted() {
             this.loadFolders();
+        },
+
+        computed: {
+            isHomeFolder() {
+                return this.folderId === '00000000-0000-0000-0000-000000000000';
+            }
         },
 
         methods: {
@@ -45,7 +52,6 @@
             },
             open(folder) {
                 this.folderId = folder.getId();
-                this.folder = folder;
             }
         },
 

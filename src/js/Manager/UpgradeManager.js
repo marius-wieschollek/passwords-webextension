@@ -4,6 +4,7 @@ import uuid from 'uuidv4';
 import LocalisationService from '@js/Services/LocalisationService';
 import ServerRepository from '@js/Repositories/ServerRepository';
 import SettingsService from '@js/Services/SettingsService';
+import SystemService from '@js/Services/SystemService';
 
 class UpgradeManager {
 
@@ -30,14 +31,14 @@ class UpgradeManager {
         }
 
         await StorageService.set('version', this.CURRENT_VERSION, StorageService.STORAGE_SYNC);
+        await StorageService.set('version', this.CURRENT_VERSION, StorageService.STORAGE_LOCAL);
     }
 
     async _upgrade20000() {
-        let url      = await StorageService.get('url', StorageService.STORAGE_SYNC),
-            user     = await StorageService.get('user', StorageService.STORAGE_SYNC),
-            theme    = await StorageService.get('theme', StorageService.STORAGE_SYNC),
-            password = await StorageService.get('password', StorageService.STORAGE_LOCAL);
+        let {url, user, theme} = await SystemService.getBrowserApi().storage.sync.get(['url', 'user', 'theme']);
+        let {password} = await SystemService.getBrowserApi().storage.local.get(['password']);
 
+        if(url === null || user === null || password === null) return;
         if(url.substr(-1, 1) !== '/') url += '/';
 
         let server = new Server(
@@ -76,7 +77,7 @@ class UpgradeManager {
         await StorageService.remove('updated', StorageService.STORAGE_LOCAL);
         await StorageService.remove('url', StorageService.STORAGE_SYNC);
         await StorageService.remove('user', StorageService.STORAGE_SYNC);
-        await StorageService.remove('version', StorageService.STORAGE_LOCAL)
+        await StorageService.remove('version', StorageService.STORAGE_LOCAL);
     }
 }
 

@@ -12,6 +12,9 @@ export default class FolderConverter {
         if(message.getType() === 'folder.items') {
             this._processFolderItems(message);
         }
+        if(message.getType() === 'folder.item') {
+            this._convertFolderItem(message);
+        }
 
         return message;
     }
@@ -28,6 +31,17 @@ export default class FolderConverter {
 
     /**
      *
+     * @param {Message} message
+     */
+    _convertFolderItem(message) {
+        let payload = message.getPayload();
+
+        if(payload === null) return;
+        message.setPayload(new Folder(payload));
+    }
+
+    /**
+     *
      * @param {Array} items
      * @return {Password[]}
      * @private
@@ -37,7 +51,7 @@ export default class FolderConverter {
 
         if(items !== null) {
             for(let data of items) {
-                folders.push(new Folder(data));
+                if(data !== null)  folders.push(new Folder(data));
             }
         }
 

@@ -20,7 +20,7 @@ class ConverterManager {
             }
         );
         MessageService.convert(
-            ['folder.items'],
+            ['folder.items', 'folder.item'],
             async (message) => {
                 await this._executeConverter(FolderConverter, message);
             }
