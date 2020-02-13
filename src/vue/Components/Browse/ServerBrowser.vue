@@ -1,8 +1,9 @@
 <template>
-    <div>
+    <div class="browse-container">
         <parent-folder :folder="folderId" v-on:open="open($event)" v-if="!isHomeFolder" />
         <folder-list :folders="folders" v-on:open="open($event)"/>
         <password-list :passwords="passwords" :favicons="true"/>
+        <translate tag="div" class="no-results" say="NoServerItems" v-if="passwords.length === 0 && folders.length === 0" />
     </div>
 </template>
 
@@ -13,9 +14,10 @@
     import FolderList from '@vue/Components/List/FolderList';
     import Folder from '@vue/Components/List/Item/Folder';
     import ParentFolder from '@vue/Components/List/Item/ParentFolder';
+    import Translate from '@vue/Components/Translate';
 
     export default {
-        components: {ParentFolder, Folder, FolderList, PasswordList},
+        components: {Translate, ParentFolder, Folder, FolderList, PasswordList},
         props     : {
             server: {
                 type: Server
@@ -62,3 +64,12 @@
         }
     };
 </script>
+
+<style lang="scss">
+    .browse-container {
+        .no-results {
+            line-height : 3rem;
+            text-align  : center;
+        }
+    }
+</style>

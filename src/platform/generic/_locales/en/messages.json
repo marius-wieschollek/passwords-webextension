@@ -223,12 +223,16 @@
         "message"    : "Type to search",
         "description": "Shown when the search query is empty"
     },
-    "SearchPlaceholder"          : {
-        "message"    : "Search for passwords",
-        "description": ""
-    },
     "NoCollectedPasswords"       : {
         "message"    : "No new passwords found",
+        "description": ""
+    },
+    "NoServerItems"       : {
+        "message"    : "No elements found",
+        "description": ""
+    },
+    "SearchPlaceholder"          : {
+        "message"    : "Search for passwords",
         "description": ""
     },
     "MiningItemIsNew"            : {

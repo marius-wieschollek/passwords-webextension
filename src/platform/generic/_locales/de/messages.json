@@ -89,12 +89,112 @@
         "message"    : "Werkzeuge",
         "description": ""
     },
-    "NoRelatedPasswords"         : {
-        "message"    : "Keine Vorschläge vorhanden",
+    "ValidationLabel"            : {
+        "message"    : "Titel",
         "description": ""
     },
-    "SearchPlaceholder"            : {
-        "message"    : "Suche nach Passwörtern",
+    "ValidationUser"             : {
+        "message"    : "Benutzer",
+        "description": ""
+    },
+    "ValidationToken"            : {
+        "message"    : "Token",
+        "description": ""
+    },
+    "ValidationBaseUrl"          : {
+        "message"    : "Basis-URL",
+        "description": ""
+    },
+    "ValidationNotEmpty"         : {
+        "message"     : "$FIELD$ kann nicht leer sein",
+        "description" : "",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "token"
+            }
+        }
+    },
+    "ValidationMinLength"        : {
+        "message"     : "$FIELD$ muss mindestens $MIN$ Zeichen lang sein",
+        "description" : "",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "token"
+            },
+            "min"  : {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationMaxLength"        : {
+        "message"     : "$FIELD$ muss kürzer als $MAX$ Zeichen sein",
+        "description" : "",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "token"
+            },
+            "max"  : {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationNotAnUrl"         : {
+        "message"    : "Die Basis-URL muss einge gültige URL sein",
+        "description": ""
+    },
+    "ValidationNotAToken"        : {
+        "message"    : "Das Token muss ein gültiges Nextcloud-Token sein",
+        "description": ""
+    },
+    "ValidationDuplicate"        : {
+        "message"    : "Es gibt bereits ein Konto für diesen Benutzer von dieser Nextcloud",
+        "description": ""
+    },
+    "ValidationNoConnection"     : {
+        "message"     : "Verbindung mit $URL$ nicht möglich",
+        "description" : "",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationHttpError"        : {
+        "message"     : "Der Verbindungsversuch mit $URL$ endete mit $ERROR$",
+        "description" : "",
+        "placeholders": {
+            "url"  : {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "HTTP 401 - Forbidden"
+            }
+        }
+    },
+    "ValidationConnectionError"  : {
+        "message"     : "Der Verbindungsversuch mit $URL$ endete mit $ERROR$",
+        "description" : "",
+        "placeholders": {
+            "url"  : {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "Undefined variable example in file"
+            }
+        }
+    },
+    "NoRelatedPasswords"         : {
+        "message"    : "Keine Vorschläge vorhanden",
         "description": ""
     },
     "NoSearchResults"            : {
@@ -102,11 +202,65 @@
         "description": ""
     },
     "NoSearchQuery"              : {
-        "message": "Zum Suchen tippen",
+        "message"    : "Zum Suchen tippen",
         "description": ""
     },
     "NoCollectedPasswords"       : {
-        "message"    : "Keine neuen Passwörter gefunden",
+        "message"    : "Keine neuen Passwörter vorhanden",
+        "description": ""
+    },
+    "NoServerItems"       : {
+        "message"    : "Keine Elemente vorhanden",
+        "description": ""
+    },
+    "SearchPlaceholder"            : {
+        "message"    : "Suche nach Passwörtern",
+        "description": ""
+    },
+    "MiningItemIsNew"            : {
+        "message"    : "Dies ist ein neues Passwort",
+        "description": ""
+    },
+    "MiningItemIsUpdate"         : {
+        "message"    : "Dies ist eine Änderung von \"$PASSWORD$\"",
+        "description": "",
+        "placeholders": {
+            "password"  : {
+                "content": "$1",
+                "example": "My Password"
+            }
+        }
+    },
+    "LabelLabel"                 : {
+        "message"    : "Titel",
+        "description": ""
+    },
+    "LabelPassword"              : {
+        "message"    : "Passwort",
+        "description": ""
+    },
+    "LabelUsername"              : {
+        "message"    : "Benutzer",
+        "description": ""
+    },
+    "LabelUrl"                   : {
+        "message"    : "Url",
+        "description": ""
+    },
+    "LabelUser"                  : {
+        "message"    : "Benutzer",
+        "description": ""
+    },
+    "LabelPasswords"             : {
+        "message"    : "Passwörter",
+        "description": ""
+    },
+    "LabelFolders"               : {
+        "message"    : "Ordner",
+        "description": ""
+    },
+    "LabelTags"                  : {
+        "message"    : "Tags",
         "description": ""
     },
 
