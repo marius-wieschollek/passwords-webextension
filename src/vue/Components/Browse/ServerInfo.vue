@@ -1,20 +1,20 @@
 <template>
     <div>
-        Label: {{server.getLabel()}}<br>
-        Url: {{server.getBaseUrl()}}<br>
-        User: {{server.getUser()}}<br>
-        <div v-for="(value, key) in info" :key="key">
-            {{key}}: {{value}}
-        </div>
+        <server-url-property property="url" :value="server.getBaseUrl()"/>
+        <server-property property="user" :value="server.getUser()"/>
+        <server-property :property="key" :value="value" v-for="(value, key) in info" :key="key"/>
     </div>
 </template>
 
 <script>
     import Server from '@js/Models/Server/Server';
     import MessageService from '@js/Services/MessageService';
+    import ServerProperty from '@vue/Components/Browse/ServerProperty';
+    import ServerUrlProperty from '@vue/Components/Browse/ServerUrlProperty';
 
     export default {
-        props: {
+        components: {ServerUrlProperty, ServerProperty},
+        props     : {
             server: {
                 type: Server
             }
