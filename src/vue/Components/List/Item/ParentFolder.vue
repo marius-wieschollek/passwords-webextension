@@ -1,7 +1,7 @@
 <template>
     <div class="item folder-item parent-item" v-if="model" @click="open()">
         <div class="label">
-            <icon icon="folder-open"/>{{model.getLabel()}}
+            <icon icon="folder-open" font="solid"/>{{model.getLabel()}}
         </div>
     </div>
 </template>
