@@ -1,7 +1,8 @@
 <template>
     <li class="item password-item">
         <div class="label" @click="sendPassword()" :title="password.getId()">
-            <favicon :password="password.getId()" :size="24" v-if="favicon"/>{{password.getLabel()}}
+            <favicon :password="password.getId()" :size="22" v-if="favicon"/>
+            {{password.getLabel()}}
         </div>
         <div class="options">
             <icon icon="user" hover-icon="clipboard" @click="copy('username')"/>
@@ -69,10 +70,14 @@
             .favicon {
                 vertical-align : middle;
                 border-radius  : 3px;
-                margin         : .25rem .3rem .25rem 0;
+                padding        : .5rem;
+                width          : 1.5rem;
+                height         : 1.5rem;
+                box-sizing     : content-box;
+                margin-left    : -.5rem;
 
                 &.error {
-                    margin     : 0 .68rem 0 .25rem;
+                    padding    : .75rem;
                     max-width  : 1rem;
                     max-height : 1rem;
                 }
@@ -125,17 +130,8 @@
             .options {
                 opacity          : 1;
                 transition       : none;
-                background-color : transparent;
                 color            : var(--content-primary-text-color);
-            }
-
-            &:hover {
-                .options {
-                    opacity          : 1;
-                    transition       : none;
-                    background-color : transparent;
-                    color            : var(--element-primary-hover-text-color);
-                }
+                background-color : var(--content-primary-background-color);
             }
         }
     }

@@ -8,7 +8,7 @@
         "watch:chrome": "webpack --env.production=0 --progress --colors --watch --env.platform=chrome",
         "build:firefox": "webpack --env.production",
         "build:chrome": "webpack --env.production --env.platform=chrome",
-        "adb:firefox": "which web-ext||sudo npm i -g web-ext;a=$(adb devices|tr -d '\\n');b=${a##*ed};c=${b%dev*};web-ext run -t firefox-android -s build --adb-device=${c}"
+        "adb:firefox": "which web-ext||sudo npm i -g web-ext;a=$(adb devices|tr -d '\\n');b=${a##*ed};c=${b%dev*};web-ext run -t firefox-android -s build --adb-device=${c} --firefox-apk=org.mozilla.firefox"
     },
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.12.1",

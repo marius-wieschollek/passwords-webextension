@@ -163,16 +163,12 @@
             .options {
                 opacity          : 1;
                 transition       : none;
-                background-color : transparent;
-                color            : var(--content-primary-text-color);
             }
 
             &:hover {
                 .options {
                     opacity          : 1;
                     transition       : none;
-                    background-color : transparent;
-                    color            : var(--element-primary-hover-text-color);
                 }
             }
         }
