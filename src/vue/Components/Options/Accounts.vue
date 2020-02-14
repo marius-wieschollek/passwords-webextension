@@ -8,55 +8,7 @@
                 </option>
             </select>
         </div>
-        <foldout :tabs="serverNames" :translate="false">
-            <form v-for="server in servers"
-                  :key="server.getId()"
-                  :slot="server.getId()"
-                  class="account-settings"
-                  v-on:submit.prevent="saveServer(server)">
-                <translate tag="label" :for="`${server.getId()}-name`" say="ServerLabel"/>
-                <input type="text" :id="`${server.getId()}-name`" v-model="server.getLabel()"/>
-                <translate tag="label" :for="`${server.getId()}-url`" say="ServerBaseUrl"/>
-                <input type="text" :id="`${server.getId()}-url`" v-model="server.getBaseUrl()"/>
-                <translate tag="label" :for="`${server.getId()}-user`" say="ServerUser"/>
-                <input type="text" :id="`${server.getId()}-user`" v-model="server.getUser()"/>
-                <translate tag="label" :for="`${server.getId()}-token`" say="ServerToken"/>
-                <input type="button" value="Change" :id="`${server.getId()}-token`"/>
-            </form>
-            <icon v-for="server in servers"
-                  :key="server.getId()"
-                  :slot="`${server.getId()}-tab-open`"
-                  icon="save"
-                  v-on:click.prevent="saveServer(server)"/>
-            <icon v-for="server in servers"
-                  :key="server.getId()"
-                  :slot="`${server.getId()}-tab-closed`"
-                  icon="trash-alt"
-                  v-on:click.prevent="deleteServer(server)"/>
-
-            <form v-if="showNewForm"
-                  slot="addserver"
-                  class="account-settings"
-                  v-on:submit.prevent="createServer($event)">
-                <translate tag="label" for="new-name" say="ServerLabel"/>
-                <input type="text" id="new-name" v-model="newServer.label" required/>
-                <translate tag="label" for="new-url" say="ServerBaseUrl"/>
-                <input type="text" id="new-url" v-model="newServer.baseUrl" required/>
-                <translate tag="label" for="new-user" say="ServerUser"/>
-                <input type="text" id="new-user" v-model="newServer.user" required/>
-                <translate tag="label" for="new-token" say="ServerToken"/>
-                <input type="text"
-                       value="Change"
-                       id="new-token"
-                       v-model="newServer.token"
-                       required
-                       pattern="([A-Za-z0-9]{5}-?){5}"
-                       placeholder="xxxxx-xxxxx-xxxxx-xxxxx-xxxxx"/>
-                <div>{{error}}</div>
-                <input type="submit" :disabled="submitting"/>
-            </form>
-        </foldout>
-        <translate tag="button" say="NewServerTitle" @click="addServer" v-if="!showNewForm"/>
+        <account-list :servers="servers" v-on:change="loadData"/>
     </div>
 </template>
 
@@ -64,45 +16,20 @@
     import Icon from '@vue/Components/Icon';
     import Foldout from '@vue/Components/Foldout';
     import Translate from '@vue/Components/Translate';
-    import SystemService from '@js/Services/SystemService';
     import MessageService from '@js/Services/MessageService';
+    import AccountList from '@vue/Components/Accounts/AccountList';
 
     export default {
-        components: {Foldout, Translate, Icon},
+        components: {AccountList, Foldout, Translate, Icon},
         data() {
             return {
                 servers      : [],
-                defaultServer: null,
-                showNewForm  : false,
-                submitting   : false,
-                error        : '',
-                newServer    : {
-                    label  : '',
-                    baseUrl: '',
-                    user   : '',
-                    token  : ''
-                }
+                defaultServer: null
             };
         },
 
         created() {
             this.loadData();
-        },
-
-        computed: {
-            serverNames() {
-                let names = {};
-
-                for(let server of this.servers) {
-                    names[server.getId()] = server.getLabel();
-                }
-
-                if(this.showNewForm) {
-                    names.addserver = 'New Account';
-                }
-
-                return names;
-            }
         },
 
         methods: {
@@ -114,49 +41,6 @@
                     this.defaultServer = message.getPayload();
                 } catch(e) {
                     console.error(e);
-                }
-            },
-
-            addServer() {
-                this.showNewForm = true;
-            },
-
-            /**
-             *
-             * @param {Server} server
-             */
-            async saveServer(server) {
-                alert('This is not yet implemented. Please use delete and create.');
-            },
-
-            /**
-             * @param {Server} server
-             */
-            async deleteServer(server) {
-                if(SystemService.getBrowserPlatform() === 'chrome' || confirm(`Do you really want to delete ${server.getLabel()}?`)) {
-                    let message = await MessageService.send({type: 'server.delete', payload: {server: server.getId()}});
-                    if(message.getType() === 'delete.success') {
-                        this.loadData();
-                    } else {
-                        alert(message.getPayload().message);
-                        this.loadData();
-                    }
-                }
-            },
-
-            /**
-             *
-             * @param {Event} event
-             */
-            async createServer(event) {
-                this.submitting = true;
-                let message = await MessageService.send({type: 'server.create', payload: this.newServer});
-                this.submitting = false;
-                if(message.getType() === 'server.item') {
-                    this.servers.push(message.getPayload());
-                    this.showNewForm = false;
-                } else {
-                    this.error = message.getPayload().message;
                 }
             }
         },

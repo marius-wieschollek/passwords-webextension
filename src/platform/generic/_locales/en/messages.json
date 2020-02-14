@@ -67,6 +67,18 @@
         "message"    : "Automatically submit login forms",
         "description": ""
     },
+    "AccountList"                : {
+        "message"    : "User accounts",
+        "description": ""
+    },
+    "NoAccounts"                : {
+        "message"    : "There are no accounts yet. Click here to create one.",
+        "description": ""
+    },
+    "NewServer"                : {
+        "message"    : "Create account",
+        "description": ""
+    },
     "ServerLabel"                : {
         "message"    : "Name",
         "description": ""
@@ -81,10 +93,6 @@
     },
     "ServerToken"                : {
         "message"    : "Token",
-        "description": ""
-    },
-    "NewServerTitle"             : {
-        "message"    : "Add a server",
         "description": ""
     },
     "TabRelated"                 : {

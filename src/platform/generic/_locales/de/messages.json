@@ -49,6 +49,18 @@
         "message"    : "Standardkonto für neue Passwörter",
         "description": ""
     },
+    "AccountList"                : {
+        "message"    : "Benutzerkonten",
+        "description": ""
+    },
+    "NoAccounts"                : {
+        "message"    : "Es gibt noch keine Benutzerkonten. Klicke hier um eines zu erstellen.",
+        "description": ""
+    },
+    "NewServer"                : {
+        "message"    : "Benutzerkonto erstellen",
+        "description": ""
+    },
     "ServerLabel"                : {
         "message"    : "Name",
         "description": ""
@@ -63,10 +75,6 @@
     },
     "ServerToken"                : {
         "message"    : "Token",
-        "description": ""
-    },
-    "NewServerTitle"             : {
-        "message"    : "Server hinzufügen",
         "description": ""
     },
     "TabRelated"                 : {
