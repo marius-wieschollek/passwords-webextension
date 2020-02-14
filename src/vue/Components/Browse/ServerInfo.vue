@@ -22,12 +22,19 @@
 
         data() {
             return {
-                info: {}
+                info : {},
+                timer: null
             };
         },
 
         mounted() {
             this.getServerInfo();
+            this.timer = setInterval(() => this.getServerInfo(), 2000);
+        },
+
+        destroyed() {
+            clearInterval(this.timer);
+            this.timer = null;
         },
 
         methods: {

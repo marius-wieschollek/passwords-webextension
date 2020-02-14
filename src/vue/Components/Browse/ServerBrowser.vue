@@ -28,12 +28,17 @@
             return {
                 folderId : '00000000-0000-0000-0000-000000000000',
                 passwords: [],
-                folders  : []
+                folders  : [],
+                timer    : null
             };
         },
 
         mounted() {
             this.loadFolders();
+        },
+
+        destroyed() {
+            clearTimeout(this.timer);
         },
 
         computed: {
@@ -44,12 +49,14 @@
 
         methods: {
             loadFolders() {
+                clearTimeout(this.timer);
                 MessageService
                     .send({type: 'folder.list', payload: {server: this.server.getId(), folder: this.folderId}})
                     .then((reply) => {
                         let payload = reply.getPayload();
                         this.folders = payload.folders;
                         this.passwords = payload.passwords;
+                        this.timer = setTimeout(() => this.loadFolders(), 5000);
                     });
             },
             open(folder) {

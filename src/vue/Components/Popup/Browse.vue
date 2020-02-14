@@ -63,7 +63,6 @@
                 this.info[server.getId()] = !this.info[server.getId()];
                 this.$forceUpdate();
             },
-
             async reloadServer(server) {
                 this.reloading[server.getId()] = true;
                 this.$forceUpdate();

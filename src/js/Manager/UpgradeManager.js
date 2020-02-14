@@ -54,7 +54,7 @@ class UpgradeManager {
             }
         );
 
-        await StorageService.delete('servers', StorageService.STORAGE_SYNC);
+        await StorageService.remove('servers', StorageService.STORAGE_SYNC);
         await ServerRepository.create(server);
         await SettingsService.set('sync.server.default', server.getId());
         await this._removeOldVariables();
