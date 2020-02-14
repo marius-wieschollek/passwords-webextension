@@ -1,5 +1,5 @@
 <template>
-    <img :class="className" :src="src" :width="size" :height="size" alt="" @error="showDefaultIcon()"/>
+    <img :class="className" :src="src" :width="size" :height="size" loading="lazy" alt="" @error="showDefaultIcon()"/>
 </template>
 
 <script>
