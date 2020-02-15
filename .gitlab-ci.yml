@@ -53,6 +53,7 @@ Publish Nightly Firefox:
 
 Publish Nightly Chrome:
   stage: publishing
+  allow_failure: true
   script:
     - 'export WEXT_SHIPIT_CHROME_EXTENSION_ID=${CHROME_EXTENSION_ID_TESTING}'
     - 'shipit chrome dist/chrome-extension'
