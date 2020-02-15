@@ -27,6 +27,13 @@ class ServerManager {
     /**
      * @returns {EventQueue}
      */
+    get onRemoveServer() {
+        return this._removeServer;
+    }
+
+    /**
+     * @returns {EventQueue}
+     */
     get onDeleteServer() {
         return this._deleteServer;
     }
@@ -36,6 +43,7 @@ class ServerManager {
         this._keepaliveTimer = {};
         this._authState = new BooleanState(true);
         this._addServer = new EventQueue();
+        this._removeServer = new EventQueue();
         this._deleteServer = new EventQueue();
         this._servers = {};
         StorageService.sync.on(
@@ -103,6 +111,29 @@ class ServerManager {
         this._servers[serverId].status = 'enabled';
         await this._addServer.emit(server);
         this._keepaliveTimer[serverId] = setInterval(() => { this._keepalive(api); }, 59000);
+    }
+
+    /**
+     *
+     * @param {Server} server
+     * @returns {Promise<void>}
+     */
+    async removeServer(server) {
+        let serverId = server.getId();
+        clearInterval(this._keepaliveTimer[serverId]);
+        delete this._keepaliveTimer[serverId];
+        await this._removeServer.emit(server);
+        this._servers[serverId].status = 'disabled';
+    }
+
+    /**
+     *
+     * @param {Server} server
+     * @returns {Promise<void>}
+     */
+    async reloadServer(server) {
+        await this.removeServer(server);
+        await this.addServer(server);
     }
 
     /**

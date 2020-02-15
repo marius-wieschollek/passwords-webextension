@@ -10,7 +10,7 @@
             </div>
             <div :class="{ active: isActive(name) }" class="foldout-content">
                 <keep-alive>
-                    <slot :name="name"/>
+                    <slot :name="name" v-if="isActive(name)"/>
                 </keep-alive>
             </div>
         </div>

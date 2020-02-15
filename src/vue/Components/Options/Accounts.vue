@@ -57,7 +57,7 @@
 
 <style lang="scss">
     .account-options,
-    .account-settings {
+    .account-form fieldset {
         display               : grid;
         grid-template-columns : 2fr 1fr;
         grid-row-gap          : 0.5rem;

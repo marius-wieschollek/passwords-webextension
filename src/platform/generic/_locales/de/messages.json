@@ -61,6 +61,10 @@
         "message"    : "Benutzerkonto erstellen",
         "description": ""
     },
+    "ServerSaveSuccess"         : {
+        "message"    : "Änderungen erfolgreich übernommen",
+        "description": ""
+    },
     "ServerLabel"                : {
         "message"    : "Name",
         "description": ""

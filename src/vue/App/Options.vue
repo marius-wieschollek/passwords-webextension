@@ -39,7 +39,7 @@
 
 <style lang="scss">
     body {
-        min-height : 400px;
+        min-height : 600px;
 
         select,
         input[type=text] {

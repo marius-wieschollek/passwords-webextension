@@ -79,6 +79,10 @@
         "message"    : "Create account",
         "description": ""
     },
+    "ServerSaveSuccess"         : {
+        "message"    : "Changes applied successfully",
+        "description": ""
+    },
     "ServerLabel"                : {
         "message"    : "Name",
         "description": ""

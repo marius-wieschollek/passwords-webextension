@@ -89,6 +89,13 @@ class ControllerManager {
             }
         );
         MessageService.listen(
+            'server.update',
+            async (message, reply) => {
+                let module = await import('@js/Controller/Server/Update');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
             'server.delete',
             async (message, reply) => {
                 let module = await import('@js/Controller/Server/Delete');
