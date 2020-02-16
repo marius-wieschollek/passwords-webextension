@@ -98,6 +98,12 @@ class MiningManager {
             if(data.password.value === item.getPassword()) return true;
         }
 
+        /** @type {MiningItem[]}**/
+        let miningItems = this._miningQueue.getItems();
+        for(let item of miningItems) {
+            if(data.password.value === item.getResultField('password')) return true;
+        }
+
         query = new SearchQuery();
         items = query
             .where(

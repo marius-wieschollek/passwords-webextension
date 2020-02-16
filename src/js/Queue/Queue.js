@@ -38,6 +38,19 @@ export default class Queue {
 
     /**
      *
+     * @return {FeedbackItem[]}
+     */
+    getItems() {
+        let items = [];
+        for(let id in this._items) {
+            items.push(this._items[id].item);
+        }
+
+        return items;
+    }
+
+    /**
+     *
      * @param {QueueItem|{}} item
      * @returns {Promise<QueueItem>}
      */
@@ -105,11 +118,7 @@ export default class Queue {
     _fetchMessages(message, reply) {
         if(message.getPayload().name !== this._name) return;
 
-        let items = [];
-        for(let id in this._items) {
-            items.push(this._items[id].item);
-        }
-
+        let items = this.getItems();
         console.debug('queue.fetch', items);
 
         reply
