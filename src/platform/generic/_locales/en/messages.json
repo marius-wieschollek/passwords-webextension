@@ -261,6 +261,14 @@
             }
         }
     },
+    "TitleClickToEdit"                 : {
+        "message"    : "Double click to edit",
+        "description": ""
+    },
+    "TitleEnterToExit"                 : {
+        "message"    : "Press enter to save",
+        "description": ""
+    },
     "LabelLabel"                 : {
         "message"    : "Name",
         "description": ""

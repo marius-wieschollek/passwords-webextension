@@ -243,6 +243,14 @@
             }
         }
     },
+    "TitleClickToEdit"                 : {
+        "message"    : "Zum Bearbeiten doppelklicken",
+        "description": ""
+    },
+    "TitleEnterToExit"                 : {
+        "message"    : "Zum Speichern Enter drücken",
+        "description": ""
+    },
     "LabelLabel"                 : {
         "message"    : "Titel",
         "description": ""

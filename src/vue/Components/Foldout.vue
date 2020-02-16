@@ -85,37 +85,59 @@
                 box-shadow       : 0 -1px 0 var(--content-secondary-hover-border-color) inset;
             }
 
-            &.active {
-                background-color : var(--content-primary-background-color);
-                color            : var(--content-primary-text-color);
-                box-shadow       : 0 -1px 0 var(--content-primary-hover-border-color) inset, 0 -4px 0 var(--content-primary-border-color) inset;
-
-                &:hover {
-                    background-color : var(--content-primary-hover-background-color);
-                    color            : var(--content-primary-hover-text-color);
-                }
-            }
-
             > * {
                 flex-grow   : 0;
                 flex-shrink : 0;
             }
 
             > .label {
-                flex-grow  : 1;
-                min-width  : 100vw;
-                padding    : 1rem;
-                transition : min-width .15s ease-in-out;
-            }
-
-            &.active > .label,
-            &:hover > .label {
-                flex-shrink : 1;
-                min-width   : 50vw;
+                flex-grow     : 1;
+                min-width     : 100vw;
+                padding       : 1rem;
+                transition    : min-width .15s ease-in-out;
+                white-space   : nowrap;
+                text-overflow : ellipsis;
+                overflow      : hidden;
             }
 
             .options {
-                display : flex;
+                display          : flex;
+                background-color : var(--content-secondary-background-color);
+                box-shadow       : 0 -1px 0 var(--content-secondary-border-color) inset;
+            }
+
+            &.active,
+            &:hover {
+                > .label {
+                    flex-shrink : 1;
+                    min-width   : 50vw;
+                }
+
+                .options {
+                    background-color : var(--content-secondary-hover-background-color);
+                    box-shadow       : 0 -1px 0 var(--content-secondary-hover-border-color) inset;
+                }
+            }
+
+            &.active {
+                background-color : var(--content-primary-background-color);
+                color            : var(--content-primary-text-color);
+                box-shadow       : 0 -1px 0 var(--content-primary-hover-border-color) inset, 0 -4px 0 var(--content-primary-border-color) inset;
+
+                .options {
+                    background-color : var(--content-primary-background-color);
+                    box-shadow       : 0 -1px 0 var(--content-primary-hover-border-color) inset, 0 -4px 0 var(--content-primary-border-color) inset;
+                }
+
+                &:hover {
+                    background-color : var(--content-primary-hover-background-color);
+                    color            : var(--content-primary-hover-text-color);
+
+                    .options {
+                        background-color : var(--content-primary-hover-background-color);
+                        color            : var(--content-primary-hover-text-color);
+                    }
+                }
             }
 
             .option,
@@ -127,14 +149,15 @@
                 &:hover {
                     background-color : var(--element-primary-background-color);
                     color            : var(--element-primary-text-color);
+                    box-shadow       : 0 -1px 0 var(--content-primary-hover-border-color) inset, 0 -4px 0 var(--content-primary-border-color) inset;
                 }
             }
 
             .option {
-                padding    : 0;
+                padding : 0;
 
                 .icon {
-                    padding    : 1rem;
+                    padding : 1rem;
 
                     &:hover {
                         background-color : transparent;
@@ -144,11 +167,18 @@
         }
 
         .foldout-content {
-            display       : none;
-            margin-bottom : 3rem;
+            display        : none;
+            padding-bottom : 1rem;
 
             &.active {
-                display : block;
+                display       : block;
+                border-bottom : 1px solid var(--content-secondary-border-color);
+            }
+        }
+
+        > div:last-child {
+            .foldout-content.active {
+                border-bottom : none;
             }
         }
     }
@@ -161,14 +191,14 @@
             }
 
             .options {
-                opacity          : 1;
-                transition       : none;
+                opacity    : 1;
+                transition : none;
             }
 
             &:hover {
                 .options {
-                    opacity          : 1;
-                    transition       : none;
+                    opacity    : 1;
+                    transition : none;
                 }
             }
         }

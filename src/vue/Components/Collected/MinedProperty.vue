@@ -1,8 +1,8 @@
 <template>
     <div class="mining-property">
-        <label :for="id" @dblclick="edit()">{{label}}</label>
-        <span @dblclick="edit()" v-if="!editing">{{value}}</span>
-        <input :id="id" v-model="value" v-else @keypress="checkEnter($event)"/>
+        <label :for="id" @dblclick="edit()" :title="editing ? '':title">{{label}}</label>
+        <div @dblclick="edit()" v-if="!editing" :title="title">{{value}}</div>
+        <input :id="id" v-model="value" v-else @keypress="checkEnter($event)" :title="inputTitle"/>
     </div>
 </template>
 
@@ -22,8 +22,10 @@
 
         data() {
             return {
-                editing: false,
-                value  : this.item.getResultField(this.field)
+                editing   : false,
+                value     : this.item.getResultField(this.field),
+                title     : LocalisationService.translate('TitleClickToEdit'),
+                inputTitle: LocalisationService.translate('TitleEnterToExit')
             };
         },
 
@@ -52,7 +54,7 @@
                 }
             }
         },
-        watch: {
+        watch  : {
             value(value) {
                 this.item.setResultField(this.field, value);
             }
@@ -63,24 +65,41 @@
 
 <style lang="scss">
     .mining-property {
-        display               : grid;
-        grid-template-columns : 4fr 6fr;
-        grid-row-gap          : .25rem;
-        padding               : .25rem;
+        padding : .5rem;
 
-        span,
         label {
-            padding : .5rem .25rem;
-            cursor  : pointer;
+            cursor      : pointer;
+            display     : block;
+            font-weight : bold;
+            color       : var(--content-primary-text-color)
+        }
+
+        div {
+            cursor        : pointer;
+            padding       : .25rem;
+            box-sizing    : border-box;
+            border-radius : 3px;
+            border        : none;
+            line-height   : 2rem;
+            white-space   : nowrap;
+            text-overflow : ellipsis;
+            overflow      : hidden;
+            box-shadow    : 0 0 0 1px transparent;
+            transition    : box-shadow .15s ease-in-out;
+
+            &:hover {
+                box-shadow : 0 0 0 1px var(--content-secondary-border-color);
+            }
         }
 
         input {
             width         : 100%;
-            padding       : .5rem .25rem;
+            padding       : .25rem;
             box-sizing    : border-box;
             box-shadow    : 0 0 0 1px var(--content-primary-border-color);
             border-radius : 3px;
             border        : none;
+            line-height   : 2rem;
         }
     }
 </style>
