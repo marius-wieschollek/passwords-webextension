@@ -6,39 +6,64 @@ export default class DomMiner {
     init() {
         window.addEventListener(
             'beforeunload',
-            () => {
-                this._checkForNewPassword();
-            }
+            () => {this._checkForNewPassword();},
+            {passive: true}
         );
+
+        let forms = new FormService().getLoginFields();
+        for(let form of forms) {
+            form.form.addEventListener(
+                'submit',
+                () => {this._checkFormForPassword(form);},
+                {passive: true}
+            );
+
+            if(form.submit) {
+                form.submit.addEventListener(
+                    'click',
+                    () => {this._checkFormForPassword(form);},
+                    {passive: true}
+                )
+            }
+        }
     }
 
     _checkForNewPassword() {
         let forms = new FormService().getLoginFields();
         for(let form of forms) {
-            if(form.pass.value.length !== 0) {
-                let info = {
-                    url     : this._getUrl(),
-                    title   : this._getTitle(),
-                    password: {
-                        selector: this._getFieldSelector(form.pass),
-                        value   : form.pass.value
-                    }
-                };
+            this._checkFormForPassword(form);
+        }
+    }
 
-                if(form.user) {
-                    info.user = {
-                        selector: this._getFieldSelector(form.user),
-                        value   : form.user.value
-                    };
+    /**
+     *
+     * @param {{form: HTMLFormElement, user: HTMLInputElement, pass: HTMLInputElement}} form
+     * @private
+     */
+    _checkFormForPassword(form) {
+        if(form.pass.value.length !== 0) {
+            let info = {
+                url     : this._getUrl(),
+                title   : this._getTitle(),
+                password: {
+                    selector: this._getFieldSelector(form.pass),
+                    value   : form.pass.value
                 }
+            };
 
-                MessageService.send(
-                    {
-                        type   : 'password.mine',
-                        payload: info
-                    }
-                );
+            if(form.user) {
+                info.user = {
+                    selector: this._getFieldSelector(form.user),
+                    value   : form.user.value
+                };
             }
+
+            MessageService.send(
+                {
+                    type   : 'password.mine',
+                    payload: info
+                }
+            );
         }
     }
 

@@ -12,6 +12,11 @@ export default class FormService {
         return results;
     }
 
+    /**
+     *
+     * @param {Node} el
+     * @return {(HTMLFormElement|void)}
+     */
     getParentForm(el) {
         while(el.parentNode) {
             if(el.parentNode.nodeName.toLowerCase() === 'form') {
@@ -32,6 +37,10 @@ export default class FormService {
         return style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0';
     }
 
+    /**
+     *
+     * @return {[]}
+     */
     getLoginFields() {
         let fieldPairs = [],
             passwords  = this.getPasswordFields(),
@@ -79,19 +88,30 @@ export default class FormService {
         return fieldPairs;
     }
 
+    /**
+     *
+     * @param {HTMLInputElement} field
+     * @return {Boolean}
+     */
     isQualifiedField(field) {
         return !field.readOnly && !field.disabled && ['text', 'email', 'tel', 'submit'].indexOf(field.type) !== -1;
     }
 
+    /**
+     *
+     * @param {HTMLInputElement} field
+     * @return {Boolean}
+     */
     isUserNameField(field) {
         if(field.type === 'email') return true;
 
         let search = ['user', 'login', 'email'],
+            pl     = field.placeholder.toLowerCase(),
             name   = field.name.toLowerCase(),
             id     = field.id.toLowerCase();
 
         for(let i = 0; i < search.length; i++) {
-            if(name.indexOf(search[i]) !== -1 || id.indexOf(search[i]) !== -1) return true;
+            if(name.indexOf(search[i]) !== -1 || id.indexOf(search[i]) !== -1 || pl.indexOf(search[i]) !== -1) return true;
         }
 
         return false;

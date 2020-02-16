@@ -88,7 +88,7 @@ class MiningManager {
     checkIfDuplicate(data) {
         let ids   = TabManager.get('autofill.ids', []),
             query = new SearchQuery(),
-            /** @type EnhancedPassword[] **/
+            /** @type {EnhancedPassword[]} **/
             items = query
                 .where(query.field('id').in(ids))
                 .type('password')
@@ -99,9 +99,13 @@ class MiningManager {
         }
 
         /** @type {MiningItem[]}**/
-        let miningItems = this._miningQueue.getItems();
-        for(let item of miningItems) {
+        items = this._miningQueue.getItems();
+        for(let item of items) {
             if(data.password.value === item.getResultField('password')) return true;
+            if(data.user.value === item.getResultField('username')) {
+                item.setTaskField('password', data.password.value);
+                return true;
+            }
         }
 
         query = new SearchQuery();
