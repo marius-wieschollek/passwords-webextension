@@ -10,7 +10,7 @@ export default class Server {
     /**
      *
      * @param data
-     * @return {Promise<{ok: boolean, errors: {}, [server]: ServerModel}>}
+     * @return {Promise<{ok: Boolean, errors: {}, [server]: ServerModel}>}
      */
     async validate(data) {
         let result = this._checkFormData(data);
