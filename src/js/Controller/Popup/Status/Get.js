@@ -11,6 +11,7 @@ export default class Get extends AbstractController {
             tab       : this._getCurrentTab(),
             search    : this._getSearchStatus(),
             browse    : this._getBrowseStatus(),
+            collected : this._getCollectedStatus(),
             device    : await this._getDevice(),
             authorized: this._isAuthorized()
         };
@@ -31,7 +32,7 @@ export default class Get extends AbstractController {
         }
 
         return {
-            query  : ''
+            query: ''
         };
     }
 
@@ -49,6 +50,21 @@ export default class Get extends AbstractController {
             server: null,
             info  : false,
             folder: null
+        };
+    }
+
+    /**
+     *
+     * @returns {{current: (null|String)}}
+     * @private
+     */
+    _getCollectedStatus() {
+        if(RegistryService.has('popup.collected.status')) {
+            return RegistryService.get('popup.collected.status');
+        }
+
+        return {
+            current: null
         };
     }
 

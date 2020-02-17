@@ -4,7 +4,7 @@
             <related slot="related"/>
             <search slot="search" :initial-status="search"/>
             <browse slot="browse" :initial-status="browse"/>
-            <collected slot="collected"/>
+            <collected slot="collected" :initial-status="collected"/>
         </tabs>
         <authorisation v-if="!isAuthorized"></authorisation>
     </div>
@@ -55,6 +55,14 @@
                         server: null,
                         info  : false,
                         folder: null
+                    };
+                }
+            },
+            collected   : {
+                type   : Object,
+                default: () => {
+                    return {
+                        current: null
                     };
                 }
             }

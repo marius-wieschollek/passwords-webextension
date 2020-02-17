@@ -1,6 +1,6 @@
 <template>
     <div class="collected-container">
-        <foldout :tabs="tabs" :translate="false">
+        <foldout :tabs="tabs" :translate="false" ref="foldout" v-on:switch="switchTab($event)">
             <div class="options" :slot="`${item.getId()}-tab`" v-for="item of items" :key="item.getId()">
                 <icon icon="trash-alt" @click="discard(item)"/>
                 <icon icon="save" @click="save(item)"/>
@@ -17,13 +17,33 @@
     import Translate from '@vue/Components/Translate';
     import MiningClient from '@js/Queue/Client/MiningClient';
     import MiningItem from '@vue/Components/Collected/MiningItem';
+    import MessageService from '@js/Services/MessageService';
 
     export default {
         components: {MiningItem, Translate, Foldout, Icon},
+
+        props: {
+            initialStatus: {
+                type   : Object,
+                default: () => {
+                    return {
+                        current: null
+                    };
+                }
+            }
+        },
+
         data() {
             return {
-                items: MiningClient.getItems()
+                items  : MiningClient.getItems(),
+                current: null
             };
+        },
+
+        async mounted() {
+            if(this.initialStatus.current !== null && this.tabs.hasOwnProperty(this.initialStatus.current)) {
+                this.$refs.foldout.setActive(this.initialStatus.current);
+            }
         },
 
         computed: {
@@ -47,6 +67,7 @@
                 await MiningClient.solveItem(item);
                 this.items = MiningClient.getItems();
             },
+
             /**
              *
              * @param {MiningItem} item
@@ -56,6 +77,28 @@
                 item.setDiscarded(true);
                 await MiningClient.solveItem(item);
                 this.items = MiningClient.getItems();
+            },
+
+            /**
+             *
+             * @param {{tab: String}} $event
+             */
+            switchTab($event) {
+                this.current = $event.tab;
+            },
+
+            sendStatus() {
+                let status = {
+                    current: this.current
+                };
+                MessageService
+                    .send({type: 'popup.status.set', payload: {tab: 'collected', status}});
+            }
+        },
+
+        watch: {
+            current() {
+                this.sendStatus();
             }
         }
     };
