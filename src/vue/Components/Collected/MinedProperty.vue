@@ -9,6 +9,7 @@
 <script>
     import LocalisationService from '@js/Services/LocalisationService';
     import MiningItem from '@js/Models/Queue/MiningItem';
+    import MessageService from '@js/Services/MessageService';
 
     export default {
         props: {
@@ -51,6 +52,9 @@
                     $event.preventDefault();
                     this.editing = false;
                     this.item.setResultField(this.field, this.value);
+
+                    MessageService
+                        .send({type: 'popup.mining.update', payload: this.item});
                 }
             }
         },

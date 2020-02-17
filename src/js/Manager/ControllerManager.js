@@ -124,6 +124,13 @@ class ControllerManager {
             }
         );
         MessageService.listen(
+            'popup.mining.update',
+            async (message, reply) => {
+                let module = await import('@js/Controller/Popup/UpdateMiningItem');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
             'options.status',
             async (message, reply) => {
                 let module = await import('@js/Controller/Options/Status');
