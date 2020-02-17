@@ -1,7 +1,6 @@
 import AbstractController from '@js/Controller/AbstractController';
 import SystemService from '@js/Services/SystemService';
 import RecommendationManager from '@js/Manager/RecommendationManager';
-import TabManager from '@js/Manager/TabManager';
 import QueueService from '@js/Services/QueueService';
 import RegistryService from '@js/Services/RegistryService';
 
@@ -24,21 +23,17 @@ export default class Get extends AbstractController {
 
     /**
      *
-     * @returns {{query: string, results: Password[]}}
+     * @returns {{query: string}}
      * @private
      */
     _getSearchStatus() {
-        let status = {
-            query  : '',
-            results: []
-        };
-
-        if(TabManager.has('search.query') && TabManager.has('search.results')) {
-            status.query = TabManager.get('search.query');
-            status.results = TabManager.get('search.results').execute();
+        if(RegistryService.has('popup.search.status')) {
+            return RegistryService.get('popup.search.status');
         }
 
-        return status;
+        return {
+            query  : ''
+        };
     }
 
     /**
@@ -95,6 +90,11 @@ export default class Get extends AbstractController {
         return info.device;
     }
 
+    /**
+     *
+     * @returns {string|*}
+     * @private
+     */
     _getCurrentTab() {
         if(RegistryService.has('popup.tab')) {
             return RegistryService.get('popup.tab');
