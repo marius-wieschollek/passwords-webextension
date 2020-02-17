@@ -110,9 +110,16 @@ class ControllerManager {
             }
         );
         MessageService.listen(
-            'popup.status',
+            'popup.status.get',
             async (message, reply) => {
-                let module = await import('@js/Controller/Popup/Status');
+                let module = await import('@js/Controller/Popup/Status/Get');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
+            'popup.status.set',
+            async (message, reply) => {
+                let module = await import('@js/Controller/Popup/Status/Set');
                 await this._executeController(module, message, reply);
             }
         );

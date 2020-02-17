@@ -28,11 +28,8 @@ export default class PasswordConverter {
     _processPopopData(message) {
         let payload = message.getPayload();
 
-        if(payload.hasOwnProperty('suggested')) {
-            payload.suggested = this._convertPasswords(payload.suggested);
-        }
-        if(payload.hasOwnProperty('search') && payload.search.hasOwnProperty('results')) {
-            payload.search.results = this._convertPasswords(payload.search.results);
+        if(payload.hasOwnProperty('related') && payload.related.hasOwnProperty('suggested')) {
+            payload.related.suggested = this._convertPasswords(payload.related.suggested);
         }
 
         message.setPayload(payload);
