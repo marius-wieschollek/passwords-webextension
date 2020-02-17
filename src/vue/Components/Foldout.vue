@@ -56,7 +56,7 @@
                 }
 
                 this.tab = tab;
-                this.$emit('switch', {tab})
+                this.$emit('switch', {tab});
             }
         },
 
@@ -159,7 +159,8 @@
                 padding : 0;
 
                 .icon {
-                    padding : 1rem;
+                    padding    : 1rem;
+                    box-shadow : none;
 
                     &:hover {
                         background-color : transparent;
