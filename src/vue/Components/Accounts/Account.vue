@@ -91,6 +91,7 @@
                     this.error = message.getPayload().message;
                 }
 
+                this.changeToken = false;
                 this.submitting = false;
             },
 
