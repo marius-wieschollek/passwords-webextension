@@ -51,10 +51,12 @@
             setActive(tab) {
                 if(!this.initialOpen && this.tab === tab) {
                     this.tab = null;
+                    this.$emit('switch', {tab: null});
                     return;
                 }
 
                 this.tab = tab;
+                this.$emit('switch', {tab})
             }
         },
 

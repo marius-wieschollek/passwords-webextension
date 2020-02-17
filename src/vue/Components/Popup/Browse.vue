@@ -1,16 +1,19 @@
 <template>
-    <foldout :tabs="serverNames" :translate="false">
+    <foldout :tabs="serverNames" :translate="false" ref="foldout" v-on:switch="switchTab($event)">
         <div v-for="server in servers" :key="`${server.getId()}-tab`" :slot="`${server.getId()}-tab`" class="options">
             <div class="option" @click="reloadServer(server)">
                 <icon icon="sync" font="solid" :spin="reloading[server.getId()]"/>
             </div>
         </div>
-        <div v-for="server in servers" :key="`${server.getId()}-tab-open`" :slot="`${server.getId()}-tab-open`" class="options">
+        <div v-for="server in servers"
+             :key="`${server.getId()}-tab-open`"
+             :slot="`${server.getId()}-tab-open`"
+             class="options">
             <icon icon="info-circle" font="solid" @click="showInfo(server)"/>
         </div>
         <div v-for="server in servers" :key="server.getId()" :slot="server.getId()">
-            <server-info :server="server" v-if="info[server.getId()]"/>
-            <server-browser :server="server" v-else/>
+            <server-info :server="server" v-if="info"/>
+            <server-browser :server="server" :folder="getInitialFolder(server)" v-on:open="setFolder($event)" v-else/>
         </div>
     </foldout>
 </template>
@@ -24,16 +27,36 @@
 
     export default {
         components: {ServerInfo, ServerBrowser, Icon, Foldout},
+
+        props: {
+            initialStatus: {
+                type   : Object,
+                default: () => {
+                    return {
+                        server: null,
+                        info  : false,
+                        folder: null
+                    };
+                }
+            }
+        },
+
         data() {
             return {
                 servers  : [],
                 reloading: {},
-                info     : {}
+                info     : false,
+                current  : null,
+                folder   : null
             };
         },
 
-        mounted() {
-            this.loadServers();
+        async mounted() {
+            await this.loadServers();
+            if(this.initialStatus.server !== null && this.serverNames.hasOwnProperty(this.initialStatus.server)) {
+                this.$refs.foldout.setActive(this.initialStatus.server);
+                if(this.initialStatus.info) this.info = true;
+            }
         },
 
         async activated() {
@@ -47,7 +70,6 @@
                 for(let server of this.servers) {
                     names[server.getId()] = server.getLabel();
                     this.reloading[server.getId()] = false;
-                    this.info[server.getId()] = false;
                 }
 
                 return names;
@@ -59,9 +81,16 @@
                 let message = await MessageService.send({type: 'server.list'});
                 this.servers = message.getPayload();
             },
-            showInfo(server) {
-                this.info[server.getId()] = !this.info[server.getId()];
-                this.$forceUpdate();
+            getInitialFolder(server) {
+                if(server.getId() === this.initialStatus.server) {
+                    return this.initialStatus.folder;
+                }
+
+                return null;
+            },
+            showInfo() {
+                this.info = !this.info;
+                this.folder = null;
             },
             async reloadServer(server) {
                 this.reloading[server.getId()] = true;
@@ -69,6 +98,36 @@
                 await MessageService.send({type: 'server.reload', payload: server.getId()});
                 this.reloading[server.getId()] = false;
                 this.$forceUpdate();
+            },
+            switchTab($event) {
+                this.info = false;
+                this.folder = null;
+                this.current = $event.tab;
+            },
+            setFolder($event) {
+                this.info = false;
+                this.folder = $event.folder;
+            },
+            sendStatus() {
+                let status = {
+                    server: this.current,
+                    info  : this.info,
+                    folder: this.folder
+                };
+                MessageService
+                    .send({type: 'popup.status.set', payload: {tab: 'browse', status}});
+            }
+        },
+
+        watch: {
+            info() {
+                this.sendStatus();
+            },
+            current() {
+                this.sendStatus();
+            },
+            folder() {
+                this.sendStatus();
             }
         }
     };
@@ -77,8 +136,8 @@
 <style lang="scss">
     .tab-content-browse {
         .foldout-tab.active {
-            position: sticky;
-            top: 0;
+            position : sticky;
+            top      : 0;
         }
     }
 </style>

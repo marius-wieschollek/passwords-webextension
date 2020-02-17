@@ -1,9 +1,12 @@
 <template>
     <div class="browse-container">
-        <parent-folder :folder="folderId" v-on:open="open($event)" v-if="!isHomeFolder" />
+        <parent-folder :folder="folderId" v-on:open="open($event)" v-if="!isHomeFolder"/>
         <folder-list :folders="folders" v-on:open="open($event)"/>
         <password-list :passwords="passwords" :favicons="true"/>
-        <translate tag="div" class="no-results" say="NoServerItems" v-if="passwords.length === 0 && folders.length === 0" />
+        <translate tag="div"
+                   class="no-results"
+                   say="NoServerItems"
+                   v-if="passwords.length === 0 && folders.length === 0"/>
     </div>
 </template>
 
@@ -19,8 +22,12 @@
     export default {
         components: {Translate, ParentFolder, Folder, FolderList, PasswordList},
         props     : {
-            server: {
+            server       : {
                 type: Server
+            },
+            folder: {
+                type   : String,
+                default: null
             }
         },
 
@@ -33,8 +40,9 @@
             };
         },
 
-        mounted() {
-            this.loadFolders();
+        async mounted() {
+            await this.loadFolders();
+            if(this.folder !== null) this.folderId = this.folder;
         },
 
         destroyed() {
@@ -48,19 +56,20 @@
         },
 
         methods: {
-            loadFolders() {
+            async loadFolders() {
                 clearTimeout(this.timer);
-                MessageService
-                    .send({type: 'folder.list', payload: {server: this.server.getId(), folder: this.folderId}})
-                    .then((reply) => {
-                        let payload = reply.getPayload();
-                        this.folders = payload.folders;
-                        this.passwords = payload.passwords;
-                        this.timer = setTimeout(() => this.loadFolders(), 5000);
-                    });
+                let reply = await MessageService
+                    .send({type: 'folder.list', payload: {server: this.server.getId(), folder: this.folderId}});
+
+                let payload = reply.getPayload();
+                this.folders = payload.folders;
+                this.passwords = payload.passwords;
+
+                this.timer = setTimeout(() => this.loadFolders(), 5000);
             },
             open(folder) {
                 this.folderId = folder.getId();
+                this.$emit('open', {folder: folder.getId()});
             }
         },
 
