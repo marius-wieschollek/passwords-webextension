@@ -55,6 +55,7 @@
                     return;
                 }
                 this.tab = tab;
+                this.$emit('switch', {tab})
             }
         },
 

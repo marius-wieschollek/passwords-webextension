@@ -47,7 +47,7 @@ class Popup {
     }
 
     async _initVue() {
-        let reply  = await MessageService.send({type: 'popup.status'}),
+        let reply  = await MessageService.send({type: 'popup.status.get'}),
             status = reply.getPayload();
         document.body.classList.add(status.device);
 

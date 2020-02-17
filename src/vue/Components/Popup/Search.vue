@@ -3,7 +3,10 @@
         <input type="text" id="query" v-model="query" :placeholder="placeholder">
         <password-list :passwords="passwords"/>
         <translate tag="div" class="no-results" say="NoSearchQuery" v-if="query.length === 0"/>
-        <translate tag="div" class="no-results" say="NoSearchResults" v-if="query.length !== 0 && passwords.length === 0"/>
+        <translate tag="div"
+                   class="no-results"
+                   say="NoSearchResults"
+                   v-if="query.length !== 0 && passwords.length === 0"/>
     </div>
 </template>
 
@@ -17,26 +20,29 @@
         components: {Translate, PasswordList},
 
         props: {
-            initialQuery    : {
-                type   : String,
-                default: ''
-            },
-            initialPasswords: {
-                type   : Array,
-                default: () => { return []; }
+            initialStatus: {
+                type   : Object,
+                default: () => {
+                    return {
+                        query: ''
+                    };
+                }
             }
         },
 
         data() {
             return {
-                query    : this.initialQuery,
-                passwords: this.initialPasswords,
+                query      : this.initialStatus.query,
+                passwords  : [],
                 placeholder: LocalisationService.translate('SearchPlaceholder')
             };
         },
 
         mounted() {
             document.getElementById('query').focus();
+            if(this.query.length !== 0) {
+                this.search(this.query);
+            }
         },
 
         activated() {
@@ -51,6 +57,9 @@
                     .then((r) => {
                         if(this.query === query) this.passwords = r.getPayload();
                     });
+
+                MessageService
+                    .send({type: 'popup.status.set', payload: {tab: 'search', status: {query}}});
             }
         },
 

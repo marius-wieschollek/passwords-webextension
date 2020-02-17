@@ -1,9 +1,9 @@
 <template>
     <div id="manager">
-        <tabs :tabs="tabs" :initial-tab="currentTab" v-if="isAuthorized">
+        <tabs :tabs="tabs" :initial-tab="tab" v-if="isAuthorized" v-on:switch="saveTab($event)">
             <related slot="related"/>
-            <search slot="search" :initial-query="search.query" :initial-passwords="search.results"/>
-            <browse slot="browse"/>
+            <search slot="search" :initial-status="search"/>
+            <browse slot="browse" :initial-status="browse"/>
             <collected slot="collected"/>
         </tabs>
         <authorisation v-if="!isAuthorized"></authorisation>
@@ -18,6 +18,7 @@
     import Related from '@vue/Components/Popup/Related';
     import Authorisation from '@vue/Components/Popup/Authorisation';
     import Collected from '@vue/Components/Popup/Collected';
+    import MessageService from '@js/Services/MessageService';
 
     export default {
         el        : '#app',
@@ -35,7 +36,7 @@
                 type   : Boolean,
                 default: true
             },
-            currentTab  : {
+            tab         : {
                 type   : String,
                 default: 'related'
             },
@@ -43,8 +44,17 @@
                 type   : Object,
                 default: () => {
                     return {
-                        query  : '',
-                        results: []
+                        query: ''
+                    };
+                }
+            },
+            browse      : {
+                type   : Object,
+                default: () => {
+                    return {
+                        server: null,
+                        info  : false,
+                        folder: null
                     };
                 }
             }
@@ -78,6 +88,15 @@
                         }
                     }
                 };
+            }
+        },
+
+        methods: {
+            saveTab($event) {
+                let tab = $event.tab === 'settings' ? 'related':$event.tab;
+
+                MessageService
+                    .send({type: 'popup.status.set', payload: {tab}});
             }
         }
     };
