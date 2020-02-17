@@ -214,7 +214,7 @@
         "description": ""
     },
     "NoSearchQuery"              : {
-        "message"    : "Zum Suchen tippen",
+        "message"    : "Verwende das Eingabefeld zum Suchen",
         "description": ""
     },
     "NoCollectedPasswords"       : {
@@ -226,7 +226,7 @@
         "description": ""
     },
     "SearchPlaceholder"            : {
-        "message"    : "Suche nach Passwörtern",
+        "message"    : "Passwörter durchsuchen",
         "description": ""
     },
     "MiningItemIsNew"            : {

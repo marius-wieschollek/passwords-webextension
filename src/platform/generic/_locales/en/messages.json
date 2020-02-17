@@ -225,27 +225,27 @@
     },
     "NoRelatedPasswords"         : {
         "message"    : "Did not find any related passwords",
-        "description": ""
+        "description": "Used in the related tab when no entries match the current website"
     },
     "NoSearchResults"            : {
-        "message"    : "Did not find any passwords for your search",
-        "description": ""
+        "message"    : "Did not find any passwords matching your query",
+        "description": "Used in the search tab when no entries match the search query"
     },
     "NoSearchQuery"              : {
-        "message"    : "Type to search",
-        "description": "Shown when the search query is empty"
+        "message"    : "Write into the search box to find passwords",
+        "description": "Used in the search tab when there is no search query"
     },
     "NoCollectedPasswords"       : {
         "message"    : "No new passwords found",
-        "description": ""
+        "description": "Used in the collected tab when no new passwords have been found"
     },
     "NoServerItems"       : {
         "message"    : "No elements found",
-        "description": ""
+        "description": "Used in the browse tab when a server has no entries to list"
     },
     "SearchPlaceholder"          : {
-        "message"    : "Search for passwords",
-        "description": ""
+        "message"    : "Find passwords",
+        "description": "Placeholder text of the search box"
     },
     "MiningItemIsNew"            : {
         "message"    : "This is a new password",

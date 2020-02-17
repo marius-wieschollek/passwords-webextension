@@ -2,7 +2,7 @@
     <div class="search-container">
         <input type="text" id="query" v-model="query" :placeholder="placeholder">
         <password-list :passwords="passwords"/>
-        <translate tag="div" class="no-results" say="NoSearchQuery" v-if="query.length === 0"/>
+        <translate tag="div" class="no-results" say="NoSearchQuery" @click="focus" v-if="query.length === 0"/>
         <translate tag="div"
                    class="no-results"
                    say="NoSearchResults"
@@ -39,7 +39,8 @@
         },
 
         mounted() {
-            document.getElementById('query').focus();
+            this.focus();
+            document.addEventListener('keydown', this.focus);
             if(this.query.length !== 0) {
                 this.search(this.query);
             }
@@ -51,6 +52,9 @@
         },
 
         methods: {
+            focus() {
+                document.getElementById('query').focus();
+            },
             search(query) {
                 MessageService
                     .send({type: 'password.search', payload: {query}})
@@ -74,8 +78,13 @@
 <style lang="scss">
     .search-container {
         input {
-            width       : 100%;
-            line-height : 3rem;
+            width            : 100%;
+            line-height      : 3rem;
+            padding          : 0 .5rem;
+            border           : none;
+            border-bottom    : 2px solid var(--content-primary-border-color);
+            border-top       : 1px solid var(--element-secondary-border-color);
+            background-color : var(--content-secondary-hover-background-color);
         }
 
         .no-results {
