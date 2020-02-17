@@ -8,7 +8,7 @@ class ConverterManager {
 
     init() {
         MessageService.convert(
-            ['password.items', 'folder.items', 'popup.data'],
+            ['password.items', 'folder.items'],
             async (message) => {
                 await this._executeConverter(PasswordConverter, message);
             }

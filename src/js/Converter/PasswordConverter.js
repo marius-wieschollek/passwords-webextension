@@ -14,25 +14,8 @@ export default class PasswordConverter {
         if(message.getType() === 'folder.items') {
             this._processFolderItems(message);
         }
-        if(message.getType() === 'popup.data') {
-            this._processPopopData(message);
-        }
 
         return message;
-    }
-
-    /**
-     *
-     * @param {Message} message
-     */
-    _processPopopData(message) {
-        let payload = message.getPayload();
-
-        if(payload.hasOwnProperty('related') && payload.related.hasOwnProperty('suggested')) {
-            payload.related.suggested = this._convertPasswords(payload.related.suggested);
-        }
-
-        message.setPayload(payload);
     }
 
     /**

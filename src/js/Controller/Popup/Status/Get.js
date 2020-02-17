@@ -9,7 +9,6 @@ export default class Get extends AbstractController {
     async execute(message, reply) {
         let status = {
             tab       : this._getCurrentTab(),
-            suggested : this._getRelatedStatus(),
             search    : this._getSearchStatus(),
             browse    : this._getBrowseStatus(),
             device    : await this._getDevice(),
@@ -34,23 +33,6 @@ export default class Get extends AbstractController {
         return {
             query  : ''
         };
-    }
-
-    /**
-     *
-     * @returns {{suggested: Password[]}}
-     * @private
-     */
-    _getRelatedStatus() {
-        let status = {
-            suggested: []
-        };
-
-        if(RecommendationManager.hasRecommendations()) {
-            status.suggested = RecommendationManager.getRecommendations();
-        }
-
-        return status;
     }
 
     /**
