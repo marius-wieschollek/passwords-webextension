@@ -62,6 +62,18 @@ class ServerRepository {
      *
      * @param {Server} server
      */
+    async update(server) {
+        if(server.getId() === null || server.getId() === undefined) {
+            return await this.create(server);
+        }
+
+        await this._saveServer(server);
+    }
+
+    /**
+     *
+     * @param {Server} server
+     */
     async delete(server) {
         let servers = await this._loadServers();
 

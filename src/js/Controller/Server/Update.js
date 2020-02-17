@@ -47,9 +47,11 @@ export default class Update extends AbstractController {
                 .setToken(server.getToken())
                 .setLabel(server.getLabel())
                 .setBaseUrl(server.getBaseUrl());
+            await ServerRepository.update(server);
 
             return realServer;
         } catch(e) {
+            ErrorManager.logError(e);
             result.ok = false;
             result.message = e.message;
             return false;

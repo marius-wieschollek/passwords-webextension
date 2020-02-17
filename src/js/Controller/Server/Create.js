@@ -44,6 +44,7 @@ export default class Create extends AbstractController {
             await ServerRepository.create(server);
             return true;
         } catch(e) {
+            ErrorManager.logError(e);
             result.ok = false;
             result.message = e.message;
             return false;
