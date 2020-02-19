@@ -1,5 +1,5 @@
 <template>
-    <form id="authorisation" @submit.prevent="submit" autocomplete="off">
+    <form id="authorisation" @submit.prevent="submit" autocomplete="off" :style="style" :class="className">
         <h2>{{authRequest.getLabel()}}</h2>
         <div v-if="authRequest.requiresPassword()" class="password-container">
             <input type="password" id="password" v-model="password" placeholder="Password">
@@ -15,9 +15,9 @@
             <input type="button" value="Request Token" @click="requestToken" v-if="tokenRequest">
             <input type="text" id="token" v-model="token" v-if="tokenField" placeholder="Token">
         </div>
-        <div class="login-container">
+        <div :class="loginClass">
             <input type="submit" value="Login"/>
-            <div style="text-align:center;color:#fff">{{state}}</div>
+            <icon :icon="icon" :spin="spin" font="solid"/>
         </div>
     </form>
 </template>
@@ -26,37 +26,27 @@
     import Translate from '@vue/Components/Translate';
     import Popup from '@js/App/Popup';
     import MessageService from '@js/Services/MessageService';
+    import Icon from '@vue/Components/Icon';
 
     export default {
-        components: {Translate},
+        components: {Icon, Translate},
         data() {
-            let current = Popup.AuthorisationClient.getCurrent();
-
             return {
-                authRequest : current,
+                authRequest : null,
                 password    : null,
                 token       : null,
                 provider    : null,
+                hasToken    : false,
+                hasPassword : false,
                 tokenField  : false,
                 tokenRequest: false,
-                state       : 'loading'
+                loggingIn   : false,
+                theme       : {}
             };
         },
 
         created() {
-            if(this.authRequest.requiresToken() && this.provider === null) {
-                for(let provider of this.authRequest.getProviders()) {
-                    if(!provider.hasRequest) {
-                        this.provider = provider.id;
-                        this.state = 'ready';
-                        return;
-                    }
-                }
-
-                this.provider = this.authRequest.getProviders()[0].id;
-                this.requestToken();
-            }
-            this.state = 'ready';
+            this.loadNext();
         },
 
         mounted() {
@@ -67,23 +57,94 @@
             }
         },
 
-        methods: {
-            async submit() {
-                if(this.authRequest.requiresPassword() && !this.password || this.authRequest.requiresToken() && !this.token) {
-                    this.state = 'input error';
-                    return;
+        computed: {
+            style() {
+                let theme = {};
+                if(this.theme.hasOwnProperty('color.primary')) {
+                    theme['--color-primary'] = this.theme['color.primary'];
+                }
+                if(this.theme.hasOwnProperty('color.text')) {
+                    theme['--color-text'] = this.theme['color.text'];
+                }
+                if(this.theme.hasOwnProperty('background')) {
+                    theme['--image-background'] = `url(${this.theme['background']})`;
+                }
+                if(this.theme.hasOwnProperty('logo')) {
+                    theme['--image-logo'] = `url(${this.theme['logo']})`;
                 }
 
+                return theme;
+            },
+            className() {
+                let classNames = this.hasPassword ? 'has-password':'no-password';
+                classNames += this.hasToken ? ' has-token':' no-token';
+
+                return classNames;
+            },
+            loginClass() {
+                let classNames = 'login-container';
+                classNames += this.loggingIn ? ' logging-in':'';
+
+                return classNames;
+            },
+            icon() {
+                return this.loggingIn ? 'circle-notch':'arrow-right';
+            },
+            spin() {
+                return this.loggingIn;
+            }
+        },
+
+        methods: {
+            async loadNext() {
+                this.token = null;
+                this.password = null;
+                this.provider = null;
+                this.hasToken = false;
+                this.hasPassword = false;
+                this.loggingIn = false;
+                this.tokenField = false;
+                this.tokenRequest = false;
+                this.authRequest = Popup.AuthorisationClient.getCurrent();
+
+                if(this.authRequest !== null) {
+                    this.hasToken = this.authRequest.requiresToken();
+                    this.hasPassword = this.authRequest.requiresPassword();
+                    this.loadToken();
+                    await this.loadTheme();
+                }
+            },
+            loadToken() {
+                if(this.hasToken) {
+                    for(let provider of this.authRequest.getProviders()) {
+                        if(!provider.hasRequest) {
+                            this.provider = provider.id;
+                            return;
+                        }
+                    }
+
+                    this.provider = this.authRequest.getProviders()[0].id;
+                    this.requestToken();
+                }
+            },
+            submit() {
+                if(this.hasPassword && !this.password || this.hasToken && !this.token) return;
+
+                this.loggingIn = true;
+                this.$forceUpdate();
+                setTimeout(() => {this.tryLogin();}, 250);
+            },
+            async tryLogin() {
                 try {
-                    this.state = 'login in progess';
                     await Popup.AuthorisationClient.solveCurrent();
-                    this.state = 'login success';
+                    this.loggingIn = false;
+                    await this.loadNext();
                 } catch(e) {
-                    this.state = 'login failed';
+                    this.loggingIn = false;
+                    //@TODO some error message maybe?
                 }
             },
             async requestToken() {
-                this.state = 'token request';
                 let result = await MessageService.send(
                     {
                         type   : 'token.request',
@@ -94,7 +155,13 @@
                     }
                 );
 
-                this.state = result.getPayload().success ? 'ready':'token request failed';
+                // @TODO error message when request failed
+                //result.getPayload().success ? 'ready':'token request failed';
+            },
+            async loadTheme() {
+                let reply = await MessageService.send({type: 'server.theme', payload: this.authRequest.getServerId()});
+
+                this.theme = reply.getPayload();
             }
         },
 
@@ -123,14 +190,21 @@
 
 <style lang="scss">
     #authorisation {
-        display          : flex;
-        flex-flow        : column;
-        align-items      : center;
-        justify-content  : center;
-        height           : 100vh;
-        width            : 100vw;
-        overflow         : hidden;
-        background-image : linear-gradient(40deg, #0082c9 0%, #30b6ff 100%);
+        --color-primary     : #0082c9;
+        --color-text        : #fff;
+        --image-background  : linear-gradient(40deg, #0082c9 0%, #30b6ff 100%);
+        --image-logo        : '';
+
+        display             : flex;
+        flex-flow           : column;
+        align-items         : center;
+        justify-content     : center;
+        height              : 100vh;
+        width               : 100vw;
+        overflow            : hidden;
+        background-image    : var(--image-background);
+        background-position : center;
+        background-size     : cover;
 
         h2 {
             text-align : center;
@@ -145,12 +219,74 @@
 
             select,
             input {
-                width : 80vw;
+                width         : 80vw;
+                border        : 1px solid var(--content-secondary-border-color);
+                border-bottom : none;
+                padding       : 1rem;
+            }
+        }
+
+        .password-container {
+            input {
+                border-radius : 3px 3px 0 0;
+            }
+        }
+
+        .token-container {
+            input:last-of-type {
+                border-radius : 0 0 3px 3px;
+            }
+        }
+
+        &.no-token {
+            .password-container {
+                input {
+                    border-radius : 3px;
+                }
+            }
+        }
+
+        &.no-password {
+            .token-container {
+                select {
+                    border-radius : 3px 3px 0 0;
+                }
             }
         }
 
         .login-container {
-            margin : 1rem 0;
+            margin   : 1rem 0;
+            position : relative;
+
+            input {
+                border           : 1px solid var(--color-text);
+                border-radius    : 1.5rem;
+                background-color : var(--color-primary);
+                color            : var(--color-text);
+                cursor           : pointer;
+            }
+
+            .icon {
+                position  : absolute;
+                display   : block;
+                color     : var(--color-text);
+                top       : 2px;
+                right     : 0;
+                padding   : .75rem 1rem;
+                font-size : 1.5rem;
+            }
+
+            &:not(.logging-in) {
+                .icon {
+                    transition : padding-right .25s ease-in-out;
+                }
+
+                &:hover {
+                    .icon {
+                        padding-right : .5rem;
+                    }
+                }
+            }
         }
     }
 </style>

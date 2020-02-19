@@ -16,11 +16,12 @@ export default class AuthorisationClient extends FeedbackClient {
 
     /**
      *
-     * @returns {AuthorisationItem}
+     * @returns {(AuthorisationItem|null)}
      */
     getCurrent() {
         if(this._current == null) {
             let keys = Object.keys(this._items);
+            if(keys.length === 0) return null;
             this._current = keys.shift();
         }
 
@@ -60,7 +61,7 @@ export default class AuthorisationClient extends FeedbackClient {
                 reject
             };
 
-            if(Popup.app) Popup.app.isAuthorized = false;
+            if(Popup.app) Popup.app.authorized = false;
         });
     }
 
@@ -86,7 +87,7 @@ export default class AuthorisationClient extends FeedbackClient {
                 resolve();
 
                 if(Object.keys(this._items).length === 0) {
-                    if(Popup.app) Popup.app.isAuthorized = true;
+                    if(Popup.app) Popup.app.authorized = true;
                 }
 
                 return;
@@ -99,7 +100,7 @@ export default class AuthorisationClient extends FeedbackClient {
                 reject
             };
 
-            if(Popup.app) Popup.app.isAuthorized = false;
+            if(Popup.app) Popup.app.authorized = false;
         });
     }
 }

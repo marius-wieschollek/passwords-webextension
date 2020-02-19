@@ -1,12 +1,12 @@
 <template>
     <div id="manager">
-        <tabs :tabs="tabs" :initial-tab="tab" v-if="isAuthorized" v-on:switch="saveTab($event)">
+        <tabs :tabs="tabs" :initial-tab="tab" v-if="authorized" v-on:switch="saveTab($event)">
             <related slot="related"/>
             <search slot="search" :initial-status="search"/>
             <browse slot="browse" :initial-status="browse"/>
             <collected slot="collected" :initial-status="collected"/>
         </tabs>
-        <authorisation v-if="!isAuthorized"></authorisation>
+        <authorisation v-if="!authorized"></authorisation>
     </div>
 </template>
 
@@ -32,7 +32,7 @@
         },
 
         props: {
-            isAuthorized: {
+            authorized: {
                 type   : Boolean,
                 default: true
             },

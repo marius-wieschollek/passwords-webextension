@@ -82,6 +82,13 @@ class ControllerManager {
             }
         );
         MessageService.listen(
+            'server.theme',
+            async (message, reply) => {
+                let module = await import('@js/Controller/Server/Theme');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
             'server.create',
             async (message, reply) => {
                 let module = await import('@js/Controller/Server/Create');
