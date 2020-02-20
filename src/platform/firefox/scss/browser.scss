@@ -7,6 +7,7 @@
     text-align : left;
 }
 
-button::-moz-focus-inner, input::-moz-focus-inner {
-    border: 0;
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border : 0;
 }

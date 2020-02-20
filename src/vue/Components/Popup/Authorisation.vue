@@ -5,6 +5,7 @@
             <input type="password" id="password" v-model="password" placeholder="Password">
         </div>
         <div v-if="authRequest.requiresToken()" class="token-container">
+            <icon class="token-refresh" icon="sync-alt" font="solid" :spin="reloading" @click="requestToken" v-if="tokenRequest"/>
             <select v-model="provider">
                 <option v-for="element in authRequest.getProviders()"
                         :key="element.id"
@@ -12,7 +13,6 @@
                         :title="element.description">{{element.label}}
                 </option>
             </select>
-            <input type="button" value="Request Token" @click="requestToken" v-if="tokenRequest">
             <input type="text" id="token" v-model="token" v-if="tokenField" placeholder="Token">
         </div>
         <div :class="loginClass">
@@ -23,10 +23,10 @@
 </template>
 
 <script>
-    import Translate from '@vue/Components/Translate';
-    import Popup from '@js/App/Popup';
     import MessageService from '@js/Services/MessageService';
+    import Translate from '@vue/Components/Translate';
     import Icon from '@vue/Components/Icon';
+    import Popup from '@js/App/Popup';
 
     export default {
         components: {Icon, Translate},
@@ -41,6 +41,7 @@
                 tokenField  : false,
                 tokenRequest: false,
                 loggingIn   : false,
+                reloading   : false,
                 theme       : {}
             };
         },
@@ -103,6 +104,7 @@
                 this.hasToken = false;
                 this.hasPassword = false;
                 this.loggingIn = false;
+                this.reloading = false;
                 this.tokenField = false;
                 this.tokenRequest = false;
                 this.authRequest = Popup.AuthorisationClient.getCurrent();
@@ -145,22 +147,27 @@
                 }
             },
             async requestToken() {
-                let result = await MessageService.send(
-                    {
-                        type   : 'token.request',
-                        payload: {
-                            server  : this.authRequest.getServerId(),
-                            provider: this.authRequest.getProvider()
+                this.reloading = true;
+                try {
+                    let result = await MessageService.send(
+                        {
+                            type   : 'token.request',
+                            payload: {
+                                server  : this.authRequest.getServerId(),
+                                provider: this.authRequest.getProvider()
+                            }
                         }
-                    }
-                );
+                    );
+                } catch(e) {
+                }
+
+                this.reloading = false;
 
                 // @TODO error message when request failed
                 //result.getPayload().success ? 'ready':'token request failed';
             },
             async loadTheme() {
                 let reply = await MessageService.send({type: 'server.theme', payload: this.authRequest.getServerId()});
-
                 this.theme = reply.getPayload();
             }
         },
@@ -219,7 +226,7 @@
 
             select,
             input {
-                width         : 80vw;
+                width         : 70vw;
                 border        : 1px solid var(--content-secondary-border-color);
                 border-bottom : none;
                 padding       : 1rem;
@@ -233,7 +240,29 @@
         }
 
         .token-container {
-            input:last-of-type {
+            .token-refresh {
+                position  : absolute;
+                padding   : .75rem 1rem;
+                font-size : 1.5rem;
+                color     : var(--color-text);
+                cursor    : pointer;
+                right     : 0;
+            }
+
+            select {
+                background-color    : var(--content-primary-background-color);
+                background-image    : url("/img/angle-down-solid.svg");
+                background-repeat   : no-repeat;
+                background-position : right 1rem center;
+                background-size     : 1rem;
+                cursor              : pointer;
+
+                -webkit-appearance  : none;
+                -moz-appearance     : none;
+            }
+
+            select:last-child,
+            input:last-child {
                 border-radius : 0 0 3px 3px;
             }
         }
@@ -250,6 +279,10 @@
             .token-container {
                 select {
                     border-radius : 3px 3px 0 0;
+
+                    &:last-child {
+                        border-radius : 3px;
+                    }
                 }
             }
         }
