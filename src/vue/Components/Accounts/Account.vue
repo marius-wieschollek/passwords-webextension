@@ -95,23 +95,6 @@
                 this.submitting = false;
             },
 
-            /**
-             */
-            async remove() {
-                if(SystemService.getBrowserPlatform() === 'chrome' || confirm(`Do you really want to delete ${this.server.getLabel()}?`)) {
-                    let message = await MessageService.send(
-                        {
-                            type   : 'server.delete',
-                            payload: {server: this.server.getId()}
-                        }
-                    );
-                    if(message.getType() !== 'delete.success') {
-                        alert(message.getPayload().message);
-                    }
-
-                    this.$emit('change');
-                }
-            },
             editToken() {
                 this.changeToken = true;
             }

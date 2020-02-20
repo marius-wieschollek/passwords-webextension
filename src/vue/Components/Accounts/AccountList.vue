@@ -3,7 +3,11 @@
         <translate tag="h3" say="AccountList">
             <icon icon="user-plus" font="solid" @click="showCreateForm" v-if="!addServer"/>
         </translate>
-        <foldout :tabs="serverNames" :translate="false" :initial-open="open" ref="foldout" v-if="servers.length !== 0 || addServer">
+        <foldout :tabs="serverNames"
+                 :translate="false"
+                 :initial-open="open"
+                 ref="foldout"
+                 v-if="servers.length !== 0 || addServer">
             <icon v-for="server in servers"
                   :key="`${server.getId()}-tab-open`"
                   :slot="`${server.getId()}-tab-open`"
@@ -35,6 +39,8 @@
     import Account from '@vue/Components/Accounts/Account';
     import NewAccount from '@vue/Components/Accounts/NewAccount';
     import LocalisationService from '@js/Services/LocalisationService';
+    import SystemService from '@js/Services/SystemService';
+    import MessageService from '@js/Services/MessageService';
 
     export default {
         components: {Account, NewAccount, Foldout, Translate, Icon},
@@ -48,7 +54,7 @@
         data() {
             return {
                 addServer: false,
-                open: false,
+                open     : false
             };
         },
 
@@ -80,8 +86,20 @@
             save(server) {
                 this.$refs[server.getId()][0].save();
             },
-            remove(server) {
-                this.$refs[server.getId()][0].remove();
+            async remove(server) {
+                if(SystemService.getBrowserPlatform() === 'chrome' || confirm(`Do you really want to delete ${server.getLabel()}?`)) {
+                    let message = await MessageService.send(
+                        {
+                            type   : 'server.delete',
+                            payload: {server: server.getId()}
+                        }
+                    );
+                    if(message.getType() !== 'delete.success') {
+                        alert(message.getPayload().message);
+                    }
+
+                    this.$emit('change');
+                }
             },
             create() {
                 this.$refs.create.save();
