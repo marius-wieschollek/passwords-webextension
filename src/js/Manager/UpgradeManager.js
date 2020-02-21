@@ -39,6 +39,7 @@ class UpgradeManager {
         let {password} = await SystemService.getBrowserApi().storage.local.get(['password']);
 
         if(url === null || user === null || password === null) return;
+        if(url === undefined || user === undefined || password === undefined) return;
         if(url.substr(-1, 1) !== '/') url += '/';
 
         let server = new Server(
