@@ -5,7 +5,12 @@
             <input type="password" id="password" v-model="password" placeholder="Password">
         </div>
         <div v-if="authRequest.requiresToken()" class="token-container">
-            <icon class="token-refresh" icon="sync-alt" font="solid" :spin="reloading" @click="requestToken" v-if="tokenRequest"/>
+            <icon class="token-refresh"
+                  icon="sync-alt"
+                  font="solid"
+                  :spin="reloading"
+                  @click="requestToken"
+                  v-if="tokenRequest"/>
             <select v-model="provider">
                 <option v-for="element in authRequest.getProviders()"
                         :key="element.id"
@@ -27,6 +32,7 @@
     import Translate from '@vue/Components/Translate';
     import Icon from '@vue/Components/Icon';
     import Popup from '@js/App/Popup';
+    import ToastService from '@js/Services/ToastService';
 
     export default {
         components: {Icon, Translate},
@@ -143,7 +149,7 @@
                     await this.loadNext();
                 } catch(e) {
                     this.loggingIn = false;
-                    //@TODO some error message maybe?
+                    await ToastService.error('AuthorizationFailedText', 'AuthorizationFailedTitle');
                 }
             },
             async requestToken() {
@@ -158,13 +164,18 @@
                             }
                         }
                     );
+
+                    if(!result.getPayload().success) {
+                        await ToastService.error(result.getPayload().message, 'TokenRequestFailed');
+                    }
                 } catch(e) {
+                    await ToastService.error(e.message, 'TokenRequestFailed');
                 }
 
                 this.reloading = false;
 
                 // @TODO error message when request failed
-                //result.getPayload().success ? 'ready':'token request failed';
+                // ? 'ready':'token request failed';
             },
             async loadTheme() {
                 let reply = await MessageService.send({type: 'server.theme', payload: this.authRequest.getServerId()});
@@ -251,7 +262,7 @@
 
             select {
                 background-color    : var(--content-primary-background-color);
-                background-image    : url("/img/angle-down-solid.svg");
+                background-image    : url("/platform/generic/img/angle-down-solid.svg");
                 background-repeat   : no-repeat;
                 background-position : right 1rem center;
                 background-size     : 1rem;

@@ -16,7 +16,7 @@ export default class Request extends AbstractController {
                 await token.sendRequest();
             } catch(e) {
                 ErrorManager.logError(e);
-                reply.setPayload({success: false});
+                reply.setPayload({success: false, message: e.message});
             }
         }
 
