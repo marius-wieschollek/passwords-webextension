@@ -7,6 +7,7 @@
             <collected slot="collected" :initial-status="collected"/>
         </tabs>
         <authorisation v-if="!authorized"></authorisation>
+        <div id="toasts"></div>
     </div>
 </template>
 
@@ -36,11 +37,11 @@
                 type   : Boolean,
                 default: true
             },
-            tab         : {
+            tab       : {
                 type   : String,
                 default: 'related'
             },
-            search      : {
+            search    : {
                 type   : Object,
                 default: () => {
                     return {
@@ -48,7 +49,7 @@
                     };
                 }
             },
-            browse      : {
+            browse    : {
                 type   : Object,
                 default: () => {
                     return {
@@ -58,7 +59,7 @@
                     };
                 }
             },
-            collected   : {
+            collected : {
                 type   : Object,
                 default: () => {
                     return {
