@@ -283,6 +283,18 @@
         "message"    : "Tags",
         "description": ""
     },
+    "AuthorizationFailedTitle"              : {
+        "message"    : "Authorisierung fehlgeschlagen",
+        "description": ""
+    },
+    "AuthorizationFailedText"              : {
+        "message"    : "Der Zugriff auf die Passwort-Datenbank mit den Logindaten wurde verwehrt",
+        "description": ""
+    },
+    "TokenRequestFailed"              : {
+        "message"    : "Anfordern des Token fehlgeschlagen",
+        "description": ""
+    },
 
 
 

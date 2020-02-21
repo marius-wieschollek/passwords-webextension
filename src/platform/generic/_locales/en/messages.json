@@ -301,6 +301,18 @@
         "message"    : "Tags",
         "description": ""
     },
+    "AuthorizationFailedTitle"              : {
+        "message"    : "Authorization failed",
+        "description": ""
+    },
+    "AuthorizationFailedText"              : {
+        "message"    : "Access to the password database with the provided login was denied",
+        "description": ""
+    },
+    "TokenRequestFailed"              : {
+        "message"    : "Token request failed",
+        "description": ""
+    },
 
 
 
