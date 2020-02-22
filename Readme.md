@@ -16,6 +16,12 @@ This WebExtension is the official client for the [Passwords app for Nextcloud](h
 * [Firefox Extension Development Build](https://git.mdns.eu/nextcloud/passwords-webextension/-/jobs/artifacts/testing/browse/dist/firefox-extension?job=Publish+Nightly+Firefox)
 * [Chrome Extension Development Build](https://chrome.google.com/webstore/detail/aipncmjoigmhooiiclcailmhiopachih)
 
+## Support
+* [Official Chat](https://t.me/nc_passwords)
+* [Official Forum](https://help.nextcloud.com/c/apps/passwords)
+* [User Handbook](https://git.mdns.eu/nextcloud/passwords-webextension/wikis/home)
+* [Bug Tracker](https://github.com/marius-wieschollek/passwords-webextension/issues)
+
 #### Passwords always at hand
 Click the passwords icon to select all accounts you have for the current site.
 Let the extension fill out and submit the login form for you or copy the password or the username to your clipboard easily.
