@@ -39,6 +39,7 @@ class ServerManager {
     }
 
     constructor() {
+        /** @type {(FeedbackQueue|null)} **/
         this._authQueue = null;
         this._keepaliveTimer = {};
         this._authState = new BooleanState(true);
@@ -124,6 +125,7 @@ class ServerManager {
         delete this._keepaliveTimer[serverId];
         await this._removeServer.emit(server);
         this._servers[serverId].status = 'disabled';
+        this._removeAuthItems(server.getId());
     }
 
     /**
@@ -149,6 +151,7 @@ class ServerManager {
         let api = await ApiRepository.findById(server.getId());
         await ApiRepository.delete(api);
         await ServerRepository.delete(server);
+        this._removeAuthItems(server.getId());
 
         let setting = await SettingsService.get('sync.server.default');
         if(setting.getValue() === serverId) {
@@ -187,6 +190,22 @@ class ServerManager {
 
         // @TODO use custom error here
         throw new Error('No default configured');
+    }
+
+    /**
+     *
+     * @param {String} serverId
+     * @private
+     */
+    _removeAuthItems(serverId) {
+        /** @type {AuthorisationItem[]} **/
+        let items = this._authQueue.getItems();
+
+        for(let item of items) {
+            if(item.getServerId() === serverId) {
+                this._authQueue.remove(item);
+            }
+        }
     }
 
     async _findDefaultApi() {

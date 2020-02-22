@@ -2,7 +2,6 @@ import AbstractController from '@js/Controller/AbstractController';
 import ServerValidation from '@js/Validation/Server';
 import ErrorManager from '@js/Manager/ErrorManager';
 import ServerRepository from '@js/Repositories/ServerRepository';
-import SearchManager from '@js/Manager/SearchManager';
 import ServerManager from '@js/Manager/ServerManager';
 
 export default class Update extends AbstractController {
