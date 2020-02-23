@@ -16,6 +16,7 @@
     import Icon from '@vue/Components/Icon';
     import MessageService from '@js/Services/MessageService';
     import Favicon from '@vue/Components/List/Item/Favicon';
+    import ToastService from '@js/Services/ToastService';
 
     export default {
         components: {Favicon, Icon},
@@ -41,6 +42,7 @@
             copy(property) {
                 let data = this.password.getProperty(property);
                 navigator.clipboard.writeText(data);
+                ToastService.info(`Copied ${property}`, null, null, 3);
             }
         }
     };
@@ -128,9 +130,9 @@
             }
 
             .options {
-                opacity          : 1;
-                transition       : none;
-                color            : var(--content-primary-text-color);
+                opacity    : 1;
+                transition : none;
+                color      : var(--content-primary-text-color);
             }
         }
     }
