@@ -204,7 +204,7 @@ class MessageService {
     _receiveMessage(data, sender = null) {
         let isFromTab = this._sentFromTab(sender),
             message   = this._createMessageFromJSON(data, isFromTab);
-        if(!message || (sender !== null && sender.id !== 'ncpasswords@mdns.eu')) return;
+        if(!message || (sender !== null && sender.id !== SystemService.getExtensionId())) return;
 
         return new Promise(
             (resolve, reject) => {
