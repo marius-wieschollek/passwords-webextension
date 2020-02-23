@@ -57,17 +57,17 @@ class UpgradeManager {
 
         await StorageService.remove('servers', StorageService.STORAGE_SYNC);
         await ServerRepository.create(server);
-        await SettingsService.set('sync.server.default', server.getId());
+        await SettingsService.set('server.default', server.getId());
         await this._removeOldVariables();
     }
 
     async _upgrade20001() {
         await this._removeOldVariables();
-        if(await SettingsService.getValue('sync.server.default') === null) {
+        if(await SettingsService.getValue('server.default') === null) {
             let servers = await ServerRepository.findAll();
 
             if(servers.length > 0) {
-                await SettingsService.set('sync.server.default', servers[0].getId());
+                await SettingsService.set('server.default', servers[0].getId());
             }
         }
     }

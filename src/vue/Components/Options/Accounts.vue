@@ -24,7 +24,7 @@
         data() {
             return {
                 servers      : [],
-                defaultServer: null
+                defaultServer: undefined
             };
         },
 
@@ -37,7 +37,7 @@
                 try {
                     let message = await MessageService.send({type: 'server.list'});
                     this.servers = message.getPayload();
-                    message = await MessageService.send({type: 'setting.get', payload: 'sync.server.default'});
+                    message = await MessageService.send({type: 'setting.get', payload: 'server.default'});
                     this.defaultServer = message.getPayload();
                 } catch(e) {
                     console.error(e);
@@ -47,8 +47,8 @@
 
         watch: {
             defaultServer(value, oldValue) {
-                if(oldValue !== null && value !== oldValue) {
-                    MessageService.send({type: 'setting.set', payload: {setting: 'sync.server.default', value}});
+                if(oldValue !== undefined && value !== oldValue) {
+                    MessageService.send({type: 'setting.set', payload: {setting: 'server.default', value}});
                 }
             }
         }

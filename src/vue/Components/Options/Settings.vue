@@ -24,7 +24,7 @@
         methods: {
             async loadData() {
                 try {
-                    let message = await MessageService.send({type: 'setting.get', payload: 'sync.password.autosubmit'});
+                    let message = await MessageService.send({type: 'setting.get', payload: 'password.autosubmit'});
                     this.autosubmit = message.getPayload();
                 } catch(e) {
                     console.error(e);
@@ -35,7 +35,7 @@
         watch  : {
             autosubmit(value, oldValue) {
                 if(oldValue !== null && value !== oldValue) {
-                    MessageService.send({type: 'setting.set', payload: {setting: 'sync.password.autosubmit', value}});
+                    MessageService.send({type: 'setting.set', payload: {setting: 'password.autosubmit', value}});
                 }
             }
         }

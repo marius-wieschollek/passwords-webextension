@@ -6,13 +6,9 @@ export default class Get extends AbstractController {
     constructor() {
         super();
         this._readableSettings = [
-            'sync.password.autosubmit',
-            'sync.server.default'
+            'password.autosubmit',
+            'server.default'
         ];
-        this._settingDefaults = {
-            'sync.password.autosubmit': true,
-            'sync.server.default'     : null
-        };
     }
 
     /**
@@ -26,8 +22,8 @@ export default class Get extends AbstractController {
 
         try {
             if(this._readableSettings.indexOf(setting) !== -1) {
-                let value = await SettingsService.getValue(setting, this._settingDefaults[setting]);
-                reply.setPayload(value);
+                let value = await SettingsService.getValue(setting);
+                reply.setType('setting.value').setPayload(value);
             } else {
                 reply.setPayload(
                     {

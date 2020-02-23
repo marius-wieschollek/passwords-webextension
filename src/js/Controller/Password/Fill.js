@@ -28,9 +28,9 @@ export default class Fill extends AbstractController {
                 channel : 'tabs',
                 tab     : TabManager.currentTabId,
                 payload : {
-                    user      : password.getUserName(),
-                    password  : password.getPassword(),
-                    submit: await SettingsService.getValue('sync.password.autosubmit', true)
+                    user    : password.getUserName(),
+                    password: password.getPassword(),
+                    submit  : await SettingsService.getValue('password.autosubmit')
                 }
             }
         );

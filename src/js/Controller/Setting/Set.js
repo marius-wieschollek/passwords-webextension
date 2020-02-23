@@ -7,7 +7,7 @@ export default class Set extends AbstractController {
     constructor() {
         super();
         this._booleanSettings = [
-            'sync.password.autosubmit'
+            'password.autosubmit'
         ];
     }
 
@@ -21,7 +21,7 @@ export default class Set extends AbstractController {
         let {setting, value} = message.getPayload();
 
         try {
-            if(setting === 'sync.server.default') {
+            if(setting === 'server.default') {
                 await this._setDefaultServer(value);
             } else if(this._booleanSettings.indexOf(setting) !== -1) {
                 await this._setBoolean(setting, value);
@@ -54,7 +54,7 @@ export default class Set extends AbstractController {
      */
     async _setDefaultServer(value) {
         await ServerRepository.findById(value);
-        await SettingsService.set('sync.server.default', value);
+        await SettingsService.set('server.default', value);
     }
 
     /**

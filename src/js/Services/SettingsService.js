@@ -6,35 +6,59 @@ class SettingsService {
     constructor() {
         this.browserScopes = [Setting.SCOPE_LOCAL, Setting.SCOPE_SYNC];
         this.serverScopes = [Setting.SCOPE_USER, Setting.SCOPE_SERVER, Setting.SCOPE_CLIENT];
+
+        this._mapping = {
+            'server.default'     : [
+                'local.server.default',
+                'sync.server.default'
+            ],
+            'password.autosubmit': [
+                'client.ext.password.autosubmit',
+                'local.password.autosubmit',
+                'sync.password.autosubmit'
+            ]
+        };
+        this._defaults = {
+            'server.default'     : null,
+            'password.autosubmit': true
+        };
     }
 
     /**
      *
      * @param {String} setting
-     * @param {*} [fallback=null]
      * @return {Promise<Setting>}
      */
-    async get(setting, fallback = null) {
-        let [scope, name] = setting.split('.', 2);
-
-        if(this.browserScopes.indexOf(scope) !== -1) {
-            return await this._browserGet(scope, name, fallback);
-        } else if(this.serverScopes.indexOf(scope) !== -1) {
-            return await this._serverGet(setting, fallback);
+    async get(setting) {
+        if(!this._mapping.hasOwnProperty(setting)) {
+            // @TODO use custom error
+            throw new Error('Unknown setting');
         }
 
-        // @TODO use custom error
-        throw new Error('Unknown scope');
+        let mapping = this._mapping[setting];
+        for(let key of mapping) {
+            let {scope, name} = this._getScopeAndName(key),
+                model;
+
+            if(this.browserScopes.indexOf(scope) !== -1) {
+                model = await this._browserGet(scope, name);
+            } else if(this.serverScopes.indexOf(scope) !== -1) {
+                model = await this._serverGet(key);
+            }
+
+            if(model) return model;
+        }
+
+        return new Setting(setting, this._defaults[setting], Setting.SCOPE_LOCAL);
     }
 
     /**
      *
      * @param {(Setting|String)} setting
-     * @param {*} [fallback=null]
      * @return {Promise<*>}
      */
-    async getValue(setting, fallback = null) {
-        let model = await this.get(setting, fallback);
+    async getValue(setting) {
+        let model = await this.get(setting);
 
         return model.getValue();
     }
@@ -46,21 +70,30 @@ class SettingsService {
      * @return {Promise<*>}
      */
     async set(setting, value) {
-        let {scope, name} = this._getScopeAndName(setting);
-
-
+        let mapping;
         if(setting instanceof Setting) {
+            // @TODO use custom error
+            if(!this._mapping.hasOwnProperty(setting.getName())) throw new Error('Unknown setting');
+
+            mapping = this._mapping[setting.getName()];
             value = setting.getValue();
+        } else {
+            // @TODO use custom error
+            if(!this._mapping.hasOwnProperty(setting)) throw new Error('Unknown setting');
+
+            mapping = this._mapping[setting];
         }
 
-        if(this.browserScopes.indexOf(scope) !== -1) {
-            return await this._browserSet(scope, name, value);
-        } else if(this.serverScopes.indexOf(scope) !== -1) {
-            return await this._serverSet(setting, value);
-        }
+        for(let key of mapping) {
+            let {scope, name} = this._getScopeAndName(key);
 
-        // @TODO use custom error
-        throw new Error('Unknown scope');
+            let model = new Setting(name, value, scope);
+            if(this.browserScopes.indexOf(scope) !== -1) {
+                await this._browserSet(model);
+            } else if(this.serverScopes.indexOf(scope) !== -1) {
+                await this._serverSet(model);
+            }
+        }
     }
 
     /**
@@ -69,16 +102,30 @@ class SettingsService {
      * @return {Promise<*>}
      */
     async reset(setting) {
-        let {scope, name} = this._getScopeAndName(setting);
+        let mapping;
+        if(setting instanceof Setting) {
+            // @TODO use custom error
+            if(!this._mapping.hasOwnProperty(setting.getName())) throw new Error('Unknown setting');
 
-        if(this.browserScopes.indexOf(scope) !== -1) {
-            return await this._browserDelete(scope, name);
-        } else if(this.serverScopes.indexOf(scope) !== -1) {
-            return await this._serverDelete(setting);
+            mapping = this._mapping[setting.getName()];
+            setting.setValue(this._defaults[setting.getName()]);
+        } else {
+            // @TODO use custom error
+            if(!this._mapping.hasOwnProperty(setting)) throw new Error('Unknown setting');
+
+            mapping = this._mapping[setting];
         }
 
-        // @TODO use custom error
-        throw new Error('Unknown scope');
+        for(let key of mapping) {
+            let {scope, name} = this._getScopeAndName(key);
+
+            let model = new Setting(name, value, scope);
+            if(this.browserScopes.indexOf(scope) !== -1) {
+                await this._browserDelete(model);
+            } else if(this.serverScopes.indexOf(scope) !== -1) {
+                await this._serverDelete(model);
+            }
+        }
     }
 
     async list() {
@@ -90,7 +137,9 @@ class SettingsService {
             scope = setting.getScope();
             name = setting.getName();
         } else {
-            [scope, name] = setting.split('.', 2);
+            let index = setting.indexOf('.');
+            scope = setting.substr(0, index);
+            name = setting.substring(index + 1);
         }
         return {scope, name};
     }
@@ -99,56 +148,68 @@ class SettingsService {
      *
      * @param {String} scope
      * @param {String} name
-     * @param {*} fallback
-     * @return {Promise<*>}
+     * @return {Promise<Setting>}
      * @private
      */
-    async _browserGet(scope, name, fallback) {
-        let key   = `setting.${name}`,
-            value = fallback;
+    async _browserGet(scope, name) {
+        let key = `setting.${name}`;
 
         if(await StorageService.has(key, scope)) {
-            value = await StorageService.get(key, scope);
+            let value = await StorageService.get(key, scope);
+            return new Setting(name, value, scope);
         }
-
-        return new Setting(name, value, scope);
     }
 
+    /**
+     *
+     * @param {String} setting
+     * @return {Promise<Setting>}
+     * @private
+     */
     async _serverGet(setting) {
         return undefined;
     }
 
     /**
      *
-     * @param {String} scope
-     * @param {String} name
-     * @param {*} value
+     * @param {Setting} setting
      * @return {Promise<Boolean>}
      * @private
      */
-    async _browserSet(scope, name, value) {
-        name = `setting.${name}`;
+    async _browserSet(setting) {
+        let name = `setting.${setting.getName()}`;
 
-        return await StorageService.set(name, value, scope);
+        return await StorageService.set(name, setting.getValue(), setting.getScope());
     }
 
-    async _serverSet(setting, value) {
+    /**
+     *
+     * @param {Setting} setting
+     * @return {Promise<Boolean>}
+     * @private
+     */
+    async _serverSet(setting) {
         return undefined;
     }
 
     /**
      *
-     * @param {String} scope
-     * @param {String} name
+     * @param {Setting} setting
      * @return {Promise<Boolean>}
      * @private
      */
-    async _browserDelete(scope, name) {
-        name = `setting.${name}`;
+    async _browserDelete(setting) {
+        let name = `setting.${setting.getName()}`;
 
-        return await StorageService.remove(name, scope);
+        return await StorageService.remove(name, setting.getScope());
     }
 
+    /**
+     *
+     * @param {Setting} setting
+     * @return {Promise<Boolean>}
+     * @private
+     */
     async _serverDelete(setting) {
         return undefined;
     }

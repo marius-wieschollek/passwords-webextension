@@ -103,7 +103,7 @@ class ServerManager {
             if(!authorized) return;
         }
 
-        let setting = await SettingsService.get('sync.server.default');
+        let setting = await SettingsService.get('server.default');
         if(setting.getValue() === null) {
             setting.setValue(serverId);
             await SettingsService.set(setting);
@@ -153,7 +153,7 @@ class ServerManager {
         await ServerRepository.delete(server);
         this._removeAuthItems(server.getId());
 
-        let setting = await SettingsService.get('sync.server.default');
+        let setting = await SettingsService.get('server.default');
         if(setting.getValue() === serverId) {
             let api = await this._findDefaultApi();
             if(api !== null) {
@@ -174,7 +174,7 @@ class ServerManager {
      */
     async getDefaultApi() {
         try {
-            let defaultId = await SettingsService.getValue('sync.server.default');
+            let defaultId = await SettingsService.getValue('server.default');
 
             return await ApiRepository.findById(defaultId);
         } catch(e) {
@@ -183,7 +183,7 @@ class ServerManager {
 
         let api = await this._findDefaultApi();
         if(api !== null) {
-            await SettingsService.set('sync.server.default', api.getServer().getId());
+            await SettingsService.set('server.default', api.getServer().getId());
 
             return api;
         }
