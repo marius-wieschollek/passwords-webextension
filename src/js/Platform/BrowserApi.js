@@ -1,7 +1,6 @@
 class BrowserApi {
 
     /**
-     *
      * @return {browser}
      */
     getBrowserApi() {
@@ -9,8 +8,7 @@ class BrowserApi {
     }
 
     /**
-     *
-     * @return {Promise<{name: string, version: string}>}
+     * @return {Promise<{os: String, vendor: String, name: String, arch: String, device: String, version: String}>}
      */
     async getBrowserInfo() {
         let app    = await browser.runtime.getBrowserInfo(),
@@ -49,6 +47,14 @@ class BrowserApi {
      */
     hasBadgeText() {
         return browser.browserAction.hasOwnProperty('getBadgeText');
+    }
+
+    /**
+     *
+     * @return {Boolean}
+     */
+    hasNotificationButtons() {
+        return false;
     }
 }
 
