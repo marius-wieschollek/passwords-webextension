@@ -313,6 +313,38 @@
         "message"    : "Token request failed",
         "description": ""
     },
+    "NotifyNewPasswordTitle"              : {
+        "message"    : "New password detected",
+        "description": ""
+    },
+    "NotifyNewPasswordText"              : {
+        "message"    : "A new password for \"$LABEL$\" was detected.",
+        "description": "",
+        "placeholders": {
+            "label"  : {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyNewPasswordTextFF"              : {
+        "message"    : "A new password for \"$LABEL$\" was detected. Click here to view and save it.",
+        "description": "",
+        "placeholders": {
+            "label"  : {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "ButtonSave": {
+        "message"    : "Save",
+        "description": "The save button of a password notification"
+    },
+    "ButtonMore": {
+        "message"    : "More Options",
+        "description": "The more options button of a password notification which opens the popup"
+    },
 
 
 
@@ -350,20 +382,6 @@
             "id": {
                 "content": "$1",
                 "example": "0"
-            }
-        }
-    },
-    "NewLoginDetectedTitle"      : {
-        "message"    : "New login found",
-        "description": "Notification title when a new login is detected"
-    },
-    "NewLoginDetectedText"       : {
-        "message"     : "Click here to save the password for \"$USER$\"",
-        "description" : "Notification text when a new login is detected",
-        "placeholders": {
-            "user": {
-                "content": "$1",
-                "example": "username"
             }
         }
     },

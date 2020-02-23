@@ -11,6 +11,7 @@ import TabManager from '@js/Manager/TabManager';
 import BadgeManager from '@js/Manager/BadgeManager';
 import ContextMenuManager from '@js/Manager/ContextMenuManager';
 import MiningManager from '@js/Manager/MiningManager';
+import NotificationService from '@js/Services/NotificationService';
 
 class Background {
     async init() {
@@ -24,6 +25,7 @@ class Background {
             ConverterManager.init();
             SearchManager.init();
             TabManager.init();
+            NotificationService.init();
             RecommendationManager.init();
             BadgeManager.init();
             ContextMenuManager.init();

@@ -295,6 +295,38 @@
         "message"    : "Anfordern des Token fehlgeschlagen",
         "description": ""
     },
+    "NotifyNewPasswordTitle"              : {
+        "message"    : "Neues Passwort erkannt",
+        "description": ""
+    },
+    "NotifyNewPasswordText"              : {
+        "message"    : "Ein neues Passwort für \"$LABEL$\" wurde erkannt.",
+        "description": "",
+        "placeholders": {
+            "label"  : {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyNewPasswordTextFF"              : {
+        "message"    : "Ein neues Passwort für \"$LABEL$\" wurde erkannt. Klicke hier um es anzusehen und zu speichern.",
+        "description": "",
+        "placeholders": {
+            "label"  : {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "ButtonSave": {
+        "message"    : "Speichern",
+        "description": "The save button of a password notification"
+    },
+    "ButtonMore": {
+        "message"    : "Mehr Optionen",
+        "description": "The more options button of a password notification which opens the popup"
+    },
 
 
 
@@ -317,17 +349,6 @@
         "message"     : "Die Attribute des Passworts mit der ID #$ID$ sind kein valides JSON und können daher nicht verarbeitet werden",
         "placeholders": {
             "id": {
-                "content": "$1"
-            }
-        }
-    },
-    "NewLoginDetectedTitle"      : {
-        "message": "Neue Logindaten erkannt"
-    },
-    "NewLoginDetectedText"       : {
-        "message"     : "Klicken Sie hier, um das Passwort für \"$USER$\" zu speichern",
-        "placeholders": {
-            "user": {
                 "content": "$1"
             }
         }

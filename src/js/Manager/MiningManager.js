@@ -5,6 +5,7 @@ import ErrorManager from '@js/Manager/ErrorManager';
 import TabManager from '@js/Manager/TabManager';
 import SearchQuery from '@js/Search/Query/SearchQuery';
 import SearchIndex from '@js/Search/Index/SearchIndex';
+import NotificationService from '@js/Services/NotificationService';
 
 class MiningManager {
 
@@ -43,6 +44,7 @@ class MiningManager {
      */
     async processTask(task) {
         try {
+            NotificationService.newPasswordNotification(task);
             task = await this._miningQueue.push(task);
 
             if(task.isDiscarded()) {
