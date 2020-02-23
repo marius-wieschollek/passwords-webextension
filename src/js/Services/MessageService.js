@@ -173,7 +173,7 @@ class MessageService {
                 console.debug('message.response', response, message);
             }
         } catch(error) {
-            ErrorManager.logError(error);
+            ErrorManager.logError(error, message);
             if(reject) reject(error, message);
         }
     }

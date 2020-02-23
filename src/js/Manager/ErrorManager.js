@@ -16,17 +16,19 @@ class ErrorManager {
     init(mode = 'client') {
         this._mode = mode;
 
-        window.onerror = (message, file, line, col, error) => {
-            this._addError(error, message, file, line, col);
+        if(SystemService.getArea() !== 'client') {
+            window.onerror = (message, file, line, col, error) => {
+                this._addError(error, message, file, line, col);
 
-            return false;
-        };
+                return false;
+            };
 
-        window.addEventListener('error', (e) => {
-            this._addError(e.error, e.message, e.filename, e.lineno, e.colno);
+            window.addEventListener('error', (e) => {
+                this._addError(e.error, e.message, e.filename, e.lineno, e.colno);
 
-            return false;
-        });
+                return false;
+            });
+        }
 
         if(mode === 'server') {
             this._addQueueConsumer();
@@ -37,8 +39,8 @@ class ErrorManager {
      *
      * @param {Error} error
      */
-    logError(error) {
-        this._addError(error);
+    logError(error, context) {
+        this._addError(error, context);
     }
 
     /**
@@ -51,15 +53,6 @@ class ErrorManager {
     /**
      *
      * @param {Error} error
-     * @deprecated
-     */
-    logException(error) {
-        this._addError(error);
-    }
-
-    /**
-     *
-     * @param {Error} error
      * @param {String} [message]
      * @param {String} [file]
      * @param {Number} [line]
@@ -67,22 +60,75 @@ class ErrorManager {
      * @private
      */
     _addError(error, message, file, line, col) {
-        let details = {
-            message: message ? message:error.message,
-            file   : file ? file:error.fileName,
-            line   : line ? line:error.lineNumber,
-            col    : col ? col:'undefined',
-            stack  : error.stack ? error.stack:''
-        };
+        let details;
+        if(error instanceof Error) {
+            details = this._getDetailsFromError(error, message);
+        } else if(typeof error === 'object' && error !== null) {
+            details = this._getDetailsFromObject(error);
+        } else {
+            details = this._getErrorFromEvent(message, file, line, col);
+        }
 
         let errorObject = {details, error};
-        console.error(details.message, errorObject, error.stack);
+        console.error(details.message, errorObject, details.stack);
 
         if(this._mode === 'server') {
             this._saveError(errorObject);
         } else {
             this._sendError(errorObject);
         }
+    }
+
+    /**
+     *
+     * @param {String} message
+     * @param {String} file
+     * @param {String} line
+     * @param {Number} col
+     * @return {{col: *, stack: string, file: *, line: *, message: *}}
+     * @private
+     */
+    _getErrorFromEvent(message, file, line, col) {
+        let error = new Error();
+
+        return {
+            message,
+            file,
+            line,
+            col,
+            stack: error.stack ? error.stack:''
+        };
+    }
+
+    /**
+     * @param {Object} data
+     * @return {{stack: string, data: *}}
+     * @private
+     */
+    _getDetailsFromObject(data) {
+        let error = new Error();
+        return {
+            data,
+            stack: error.stack ? error.stack:''
+        };
+    }
+
+    /**
+     *
+     * @param {Error} error
+     * @param {(Object|undefined)} context
+     * @return {{stack: *, file: *, data: *, line: number, message: *}}
+     * @private
+     */
+    _getDetailsFromError(error, context) {
+        let data = context ? context:error;
+        return {
+            data   : data,
+            message: error.message,
+            file   : error.fileName,
+            line   : error.lineNumber,
+            stack  : error.stack ? error.stack:''
+        };
     }
 
     /**
