@@ -7,6 +7,8 @@ export default class Get extends AbstractController {
         super();
         this._readableSettings = [
             'password.autosubmit',
+            'notification.password.new',
+            'notification.password.update',
             'server.default'
         ];
     }

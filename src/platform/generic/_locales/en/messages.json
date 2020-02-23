@@ -67,6 +67,18 @@
         "message"    : "Automatically submit login forms",
         "description": ""
     },
+    "NotificationSettings"       : {
+        "message"    : "Notification",
+        "description": ""
+    },
+    "SettingsNotifyPasswordNew"       : {
+        "message"    : "Notification for new passwords",
+        "description": ""
+    },
+    "SettingsNotifyPasswordUpdate"       : {
+        "message"    : "Notification for updated passwords",
+        "description": ""
+    },
     "AccountList"                : {
         "message"    : "User accounts",
         "description": ""

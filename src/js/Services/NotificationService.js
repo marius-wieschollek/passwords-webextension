@@ -2,6 +2,7 @@ import SystemService from '@js/Services/SystemService';
 import ErrorManager from '@js/Manager/ErrorManager';
 import NewPasswordNotification from '@js/Models/Notification/NewPasswordNotification';
 import AbstractNotification from '@js/Models/Notification/AbstractNotification';
+import SettingsService from '@js/Services/SettingsService';
 
 class NotificationService {
 
@@ -30,7 +31,9 @@ class NotificationService {
     newPasswordNotification(item) {
         let notification = new NewPasswordNotification(item);
 
-        this._sendNotification(notification);
+        if(SettingsService.getValue('notification.password.new')) {
+            this._sendNotification(notification);
+        }
 
         return notification;
     }

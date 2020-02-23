@@ -7,7 +7,9 @@ export default class Set extends AbstractController {
     constructor() {
         super();
         this._booleanSettings = [
-            'password.autosubmit'
+            'password.autosubmit',
+            'notification.password.new',
+            'notification.password.update'
         ];
     }
 

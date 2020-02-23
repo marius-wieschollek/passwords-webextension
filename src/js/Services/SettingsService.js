@@ -8,19 +8,31 @@ class SettingsService {
         this.serverScopes = [Setting.SCOPE_USER, Setting.SCOPE_SERVER, Setting.SCOPE_CLIENT];
 
         this._mapping = {
-            'server.default'     : [
+            'server.default'              : [
                 'local.server.default',
                 'sync.server.default'
             ],
-            'password.autosubmit': [
+            'password.autosubmit'         : [
                 'client.ext.password.autosubmit',
                 'local.password.autosubmit',
                 'sync.password.autosubmit'
+            ],
+            'notification.password.new'   : [
+                'client.ext.notification.password.new',
+                'local.notification.password.new',
+                'sync.notification.password.new'
+            ],
+            'notification.password.update': [
+                'client.ext.notification.password.update',
+                'local.notification.password.update',
+                'sync.notification.password.update'
             ]
         };
         this._defaults = {
-            'server.default'     : null,
-            'password.autosubmit': true
+            'server.default'              : null,
+            'password.autosubmit'         : true,
+            'notification.password.new'   : true,
+            'notification.password.update': true
         };
     }
 

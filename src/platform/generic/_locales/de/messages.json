@@ -49,6 +49,22 @@
         "message"    : "Standardkonto für neue Passwörter",
         "description": ""
     },
+    "SettingsPasswordAutosubmit"       : {
+        "message"    : "Formulare automatisch abschicken",
+        "description": ""
+    },
+    "NotificationSettings"       : {
+        "message"    : "Benachrichtigungen",
+        "description": ""
+    },
+    "SettingsNotifyPasswordNew"       : {
+        "message"    : "Benachrichtigung für neue Passwörter",
+        "description": ""
+    },
+    "SettingsNotifyPasswordUpdate"       : {
+        "message"    : "Benachrichtigung für aktualisierte Passwörter",
+        "description": ""
+    },
     "AccountList"                : {
         "message"    : "Benutzerkonten",
         "description": ""
@@ -327,6 +343,8 @@
         "message"    : "Mehr Optionen",
         "description": "The more options button of a password notification which opens the popup"
     },
+
+
 
 
 
