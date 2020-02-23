@@ -2,14 +2,21 @@ import polyfill from 'webextension-polyfill';
 import UaParser from 'ua-parser-js';
 
 class BrowserApi {
+
+    /**
+     * @return {browser}
+     */
     getBrowserApi() {
         return polyfill;
     }
 
+    /**
+     * @return {Promise<{os: String, vendor: String, name: String, arch: String, device: String, version: String}>}
+     */
     async getBrowserInfo() {
         let parser = new UaParser(navigator.userAgent),
-            app   = parser.getBrowser(),
-            os = await this.getBrowserApi().runtime.getPlatformInfo(),
+            app    = parser.getBrowser(),
+            os     = await this.getBrowserApi().runtime.getPlatformInfo(),
             device = os.os === 'android' ? 'mobile':'desktop';
 
         return {
@@ -22,19 +29,36 @@ class BrowserApi {
         };
     }
 
+    /**
+     *
+     * @return {browser.contextMenus}
+     */
     getContextMenu() {
         return this.getBrowserApi().contextMenus;
     }
 
+    /**
+     * @return {Boolean}
+     */
     hasContextMenu() {
         return this.getBrowserApi().hasOwnProperty('contextMenus');
     }
+
     /**
-     *
      * @return {Boolean}
      */
     hasBadgeText() {
         return this.getBrowserApi().browserAction.hasOwnProperty('getBadgeText');
+    }
+
+    /**
+     * @return {Boolean}
+     */
+    hasNotificationButtons() {
+        let parser = new UaParser(navigator.userAgent),
+            app    = parser.getBrowser();
+
+        return app.name !== 'Opera';
     }
 }
 

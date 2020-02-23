@@ -15,7 +15,6 @@ class SystemService {
     }
 
     /**
-     *
      * @returns {(String|null)}
      */
     getArea() {
@@ -23,7 +22,6 @@ class SystemService {
     }
 
     /**
-     *
      * @param {String} value
      * @returns {SystemService}
      */
@@ -36,7 +34,6 @@ class SystemService {
     }
 
     /**
-     *
      * @returns {String}
      */
     getBrowserPlatform() {
@@ -44,7 +41,6 @@ class SystemService {
     }
 
     /**
-     *
      * @return {Promise<{name: string, version: string}>}
      */
     getBrowserInfo() {
@@ -52,7 +48,6 @@ class SystemService {
     }
 
     /**
-     *
      * @returns {browser}
      */
     getBrowserApi() {
@@ -60,7 +55,6 @@ class SystemService {
     }
 
     /**
-     *
      * @returns {browser.contextMenus}
      */
     getContextMenu() {
@@ -68,7 +62,13 @@ class SystemService {
     }
 
     /**
-     *
+     * @returns {browser.contextMenus}
+     */
+    getExtensionId() {
+        return this.getBrowserApi().runtime.id;
+    }
+
+    /**
      * @returns {Boolean}
      */
     hasContextMenu() {
@@ -76,11 +76,24 @@ class SystemService {
     }
 
     /**
-     *
      * @returns {Boolean}
      */
     hasBadge() {
         return BrowserApi.hasBadgeText();
+    }
+
+    /**
+     * @returns {Boolean}
+     */
+    hasNotificationButtons() {
+        return BrowserApi.hasNotificationButtons();
+    }
+
+    /**
+     * @returns {Boolean}
+     */
+    hasNotificationOnShow() {
+        return this.getBrowserApi().notifications.hasOwnProperty('onShown');
     }
 
     /**
