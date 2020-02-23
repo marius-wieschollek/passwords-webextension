@@ -1,14 +1,22 @@
 import MessageService from '@js/Services/MessageService';
 import Message from '@js/Models/Message/Message';
 import QueueItem from '@js/Models/Queue/QueueItem';
+import EventQueue from '@js/Event/EventQueue';
 
 export default class Queue {
+
+    /**
+     * @return {EventQueue}
+     */
+    get queue() {
+        return this._event;
+    }
 
     /**
      *
      * @param {String} name
      * @param {(String|null)} [area=null]
-     * @param {QueueItem} [type=QueueItem]
+     * @param {QueueItem.constructor} [type=QueueItem]
      */
     constructor(name, area = null, type = QueueItem) {
         this._name = name;
@@ -16,6 +24,7 @@ export default class Queue {
         this._count = 0;
         this._type = type;
         this._area = area;
+        this._event = new EventQueue();
 
         MessageService.listen(
             'queue.fetch',
@@ -29,7 +38,6 @@ export default class Queue {
     }
 
     /**
-     *
      * @return {Boolean}
      */
     hasItems() {
@@ -37,8 +45,7 @@ export default class Queue {
     }
 
     /**
-     *
-     * @return {FeedbackItem[]}
+     * @return {QueueItem[]}
      */
     getItems() {
         let items = [];
@@ -50,7 +57,6 @@ export default class Queue {
     }
 
     /**
-     *
      * @param {QueueItem|{}} item
      * @returns {Promise<QueueItem>}
      */
@@ -67,21 +73,11 @@ export default class Queue {
                 reject
             };
 
-            MessageService.send(
-                {
-                    type    : 'queue.items',
-                    payload : {
-                        name : this._name,
-                        items: [item]
-                    },
-                    receiver: this._area
-                }
-            );
+            this._sendItem(item);
         });
     }
 
     /**
-     *
      * @param {(String|QueueItem)} id
      */
     remove(id) {
@@ -97,8 +93,16 @@ export default class Queue {
     }
 
     /**
-     *
-     * @param {{}} data
+     * @param {QueueItem} item
+     */
+    consume(item) {
+        let data = item.toJSON();
+
+        this._consumeItem(data);
+    }
+
+    /**
+     * @param {Object} data
      * @returns {QueueItem}
      */
     makeItem(data) {
@@ -110,7 +114,6 @@ export default class Queue {
     }
 
     /**
-     *
      * @param {Message} message
      * @param {Message} reply
      * @private
@@ -132,7 +135,6 @@ export default class Queue {
     }
 
     /**
-     *
      * @param {Message} message
      * @param {Message} reply
      * @private
@@ -142,21 +144,50 @@ export default class Queue {
         let items = message.getPayload().items;
 
         for(let data of items) {
-            if(!this._items.hasOwnProperty(data.id)) continue;
-
-            let {item, resolve, reject} = this._items[data.id];
-            item.setResult(data.result);
-            item.setSuccess(data.success);
-
-            if(item.getSuccess()) {
-                if(resolve) resolve(item);
-            } else if(reject) {
-                reject(item);
-            }
-
-            this._count--;
-            delete this._items[data.id];
+            this._consumeItem(data);
         }
+    }
+
+    /**
+     * @param {Object} data
+     * @private
+     */
+    _consumeItem(data) {
+        if(!this._items.hasOwnProperty(data.id)) return;
+
+        let {item, resolve, reject} = this._items[data.id];
+        item.setResult(data.result);
+        item.setSuccess(data.success);
+
+        if(item.getSuccess()) {
+            if(resolve) resolve(item);
+        } else if(reject) {
+            reject(item);
+        }
+
+        this._count--;
+        delete this._items[data.id];
+    }
+
+    /**
+     * @param {QueueItem} item
+     * @private
+     */
+    _sendItem(item) {
+        let data = [item.toJSON()];
+
+        MessageService.send(
+            {
+                type    : 'queue.items',
+                payload : {
+                    name : this._name,
+                    items: data
+                },
+                receiver: this._area
+            }
+        );
+
+        this._event.emit(data);
     }
 
     /**

@@ -26,15 +26,7 @@ export default class FeedbackQueue extends Queue {
         }
 
         return new Promise((resolve) => {
-            MessageService.send(
-                {
-                    type   : 'queue.items',
-                    payload: {
-                        name : this._name,
-                        items: [item]
-                    }
-                }
-            );
+            this._sendItem(item);
 
             resolve();
         });

@@ -4,7 +4,8 @@ export default class MiningItem extends FeedbackItem {
 
 
     /**
-     *
+     * @param {String} name
+     * @param {*} value
      * @returns {MiningItem}
      */
     setTaskField(name, value) {
@@ -19,7 +20,7 @@ export default class MiningItem extends FeedbackItem {
 
 
     /**
-     *
+     * @param {Boolean} value
      * @returns {MiningItem}
      */
     setTaskNew(value) {
@@ -31,7 +32,8 @@ export default class MiningItem extends FeedbackItem {
     }
 
     /**
-     *
+     * @param {String} name
+     * @param {*} value
      * @returns {MiningItem}
      */
     setResultField(name, value) {
@@ -45,7 +47,7 @@ export default class MiningItem extends FeedbackItem {
 
     /**
      *
-     * @param name
+     * @param {String} name
      * @return {*}
      */
     getResultField(name) {
@@ -59,6 +61,7 @@ export default class MiningItem extends FeedbackItem {
 
     /**
      *
+     * @return {Object}
      */
     getResultFields() {
         let result = this.getResult();
@@ -71,6 +74,7 @@ export default class MiningItem extends FeedbackItem {
 
     /**
      *
+     * @return {String[]}
      */
     listResultFields() {
         let task = this.getResult();
@@ -80,7 +84,7 @@ export default class MiningItem extends FeedbackItem {
 
     /**
      *
-     * @returns {Boolean}
+     * @returns {String}
      */
     getLabel() {
         let label = this.getResultField('label');
@@ -90,7 +94,7 @@ export default class MiningItem extends FeedbackItem {
 
 
     /**
-     *
+     * @param {Boolean} value
      * @returns {MiningItem}
      */
     setResultNew(value) {
@@ -114,7 +118,7 @@ export default class MiningItem extends FeedbackItem {
 
 
     /**
-     *
+     * @param {Boolean} value
      * @returns {MiningItem}
      */
     setDiscarded(value) {
