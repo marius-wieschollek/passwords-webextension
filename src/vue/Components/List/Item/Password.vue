@@ -131,7 +131,6 @@
                 opacity          : 1;
                 transition       : none;
                 color            : var(--content-primary-text-color);
-                background-color : var(--content-primary-background-color);
             }
         }
     }
