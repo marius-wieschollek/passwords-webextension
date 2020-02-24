@@ -1,7 +1,7 @@
 <template>
-    <div class="mining-property">
+    <div :class="classList">
         <label :for="id" @dblclick="edit()" :title="editing ? '':title">{{label}}</label>
-        <div @dblclick="edit()" v-if="!editing" :title="title">{{value}}</div>
+        <div @dblclick="edit()" v-if="!editing" :title="title">{{text}}</div>
         <input :id="id" v-model="value" v-else @keypress="checkEnter($event)" :title="inputTitle"/>
     </div>
 </template>
@@ -37,6 +37,12 @@
                 }
 
                 return this.field;
+            },
+            text() {
+                return this.field === 'password' ? '':this.value;
+            },
+            classList() {
+                return `mining-property ${this.field}`;
             },
             id() {
                 return `property${this.field}`;
@@ -104,6 +110,15 @@
             border-radius : 3px;
             border        : none;
             line-height   : 2rem;
+        }
+
+        &.password {
+            div {
+                font-family    : "Font Awesome 5 Free", sans-serif;
+                font-size      : .5rem;
+                letter-spacing : .25rem;
+                font-weight    : bold;
+            }
         }
     }
 </style>
