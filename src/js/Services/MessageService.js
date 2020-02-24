@@ -208,22 +208,35 @@ class MessageService {
 
         return new Promise(
             (resolve, reject) => {
-                this._notifyConverters(message).then(
-                    (message) => {
-                        this._processMessage(message).then(
-                            (reply) => {
-                                if(reply) {
-                                    console.debug('reply.send', reply);
-                                    resolve(JSON.stringify(reply));
-                                } else if(message.getReceiver() !== null) {
-                                    console.debug('reply.empty');
-                                    resolve();
-                                }
-                            }).catch(reject);
-                    }
-                );
+                this._processReceivedMessage(message)
+                    .then(resolve)
+                    .catch(reject);
             }
         );
+    }
+
+    /**
+     *
+     * @param {Message} message
+     * @return {Promise<string>}
+     * @private
+     */
+    async _processReceivedMessage(message) {
+        try {
+            message = await this._notifyConverters(message);
+            let reply = await this._processMessage(message);
+
+            if(reply) {
+                console.debug('reply.send', message, reply);
+                return JSON.stringify(reply);
+            } else if(message.getReceiver() !== null) {
+                console.debug('reply.empty', message);
+            }
+        } catch(e) {
+            console.error('message processing failed');
+            ErrorManager.logError(e, message);
+            throw e;
+        }
     }
 
     /**
