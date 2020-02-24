@@ -25,9 +25,9 @@ class BadgeManager {
             }
         );
         ServerManager.isAuthorized.onChange(
-            () => {
+            async (d) => {
                 let r = RecommendationManager.getRecommendations();
-                this._updateBrowserAction(r);
+                await this._updateBrowserAction(r);
             }
         );
     }
