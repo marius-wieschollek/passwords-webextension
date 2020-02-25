@@ -62,7 +62,7 @@ export default class AuthorisationItem extends FeedbackItem {
     getPassword() {
         let result = this.getResult();
 
-        return result.password;
+        return result.hasOwnProperty('password') ? result.password:null;
     }
 
     /**
@@ -85,7 +85,7 @@ export default class AuthorisationItem extends FeedbackItem {
     getToken() {
         let result = this.getResult();
 
-        return result.token;
+        return result.hasOwnProperty('token') ? result.token:null;
     }
 
     /**
@@ -108,6 +108,6 @@ export default class AuthorisationItem extends FeedbackItem {
     getProvider() {
         let result = this.getResult();
 
-        return result.provider;
+        return result.hasOwnProperty('provider') ? result.provider:null;
     }
 }

@@ -41,6 +41,7 @@ export default class Create extends AbstractController {
      */
     async _createServer(server, result) {
         try {
+            server.setEnabled(true);
             await ServerRepository.create(server);
             return true;
         } catch(e) {

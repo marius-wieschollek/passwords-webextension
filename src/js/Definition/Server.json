@@ -5,6 +5,9 @@
     "label": {
         "type": "string"
     },
+    "enabled": {
+        "type": "boolean"
+    },
     "rootFolder": {
         "type": "string"
     },

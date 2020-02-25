@@ -148,13 +148,28 @@ class ServerRepository {
         for(let i = 0; i < servers.length; i++) {
             if(servers[i].getId() === server.getId()) {
                 servers[i] = server;
-                await StorageService.set(this.STORAGE_KEY, servers);
+                await this._saveServerList(servers);
                 return;
             }
         }
 
         servers.push(server);
-        await StorageService.set(this.STORAGE_KEY, servers);
+        await this._saveServerList(servers);
+    }
+
+    /**
+     *
+     * @param {Server[]} servers
+     * @return {Promise<void>}
+     * @private
+     */
+    async _saveServerList(servers) {
+        let objects = [];
+
+        for(let server of servers) {
+            objects.push(server.getProperties());
+        }
+        await StorageService.set(this.STORAGE_KEY, objects);
     }
 }
 

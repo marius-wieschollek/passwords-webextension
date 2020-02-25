@@ -38,8 +38,13 @@ class ErrorManager {
     /**
      *
      * @param {Error} error
+     * @param {Object} [context]
      */
     logError(error, context) {
+        if(error instanceof Object && error.previousError instanceof Object) {
+            this._addError(error.previousError);
+        }
+
         this._addError(error, context);
     }
 
@@ -53,7 +58,7 @@ class ErrorManager {
     /**
      *
      * @param {Error} error
-     * @param {String} [message]
+     * @param {(String|Object)} [message]
      * @param {String} [file]
      * @param {Number} [line]
      * @param {Number} [col]

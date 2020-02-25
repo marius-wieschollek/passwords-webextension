@@ -9,7 +9,7 @@ import SystemService from '@js/Services/SystemService';
 class UpgradeManager {
 
     get CURRENT_VERSION() {
-        return 20001;
+        return 20002;
     }
 
     async run() {
@@ -28,6 +28,10 @@ class UpgradeManager {
 
         if(version < 20001) {
             await this._upgrade20001();
+        }
+
+        if(version < 20002) {
+            await this._upgrade20002();
         }
 
         await StorageService.set('version', this.CURRENT_VERSION, StorageService.STORAGE_SYNC);
@@ -69,6 +73,14 @@ class UpgradeManager {
             if(servers.length > 0) {
                 await SettingsService.set('server.default', servers[0].getId());
             }
+        }
+    }
+
+    async _upgrade20002() {
+        let servers = await ServerRepository.findAll();
+        for(let server of servers) {
+            server.setEnabled(true);
+            await ServerRepository.update(server);
         }
     }
 

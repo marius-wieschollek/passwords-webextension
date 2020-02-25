@@ -42,6 +42,7 @@ export default class Update extends AbstractController {
         try {
             let realServer = await ServerRepository.findById(server.getId());
             realServer
+                .setEnabled(true)
                 .setUser(server.getUser())
                 .setToken(server.getToken())
                 .setLabel(server.getLabel())
