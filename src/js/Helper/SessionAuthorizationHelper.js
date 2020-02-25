@@ -1,20 +1,35 @@
 import AuthorisationItem from '@js/Models/Queue/AuthorisationItem';
-import ServerAccessError from '@js/Exception/ServerAccessError';
 import ErrorManager from '@js/Manager/ErrorManager';
 import ServerRepository from '@js/Repositories/ServerRepository';
+import ToastService from '@js/Services/ToastService';
+import HttpError from 'passwords-client/src/Exception/Http/HttpError';
+import NetworkError from 'passwords-client/src/Exception/NetworkError';
+import UnauthorizedError from 'passwords-client/src/Exception/Http/UnauthorizedError';
 
 export default class SessionAuthorizationHelper {
 
+    /**
+     *
+     * @param {Api} api
+     * @param {FeedbackQueue} authQueue
+     */
     constructor(api, authQueue) {
         this._authQueue = authQueue;
-        this._attempts = 0;
         this._api = api;
     }
 
+    /**
+     *
+     * @return {Boolean}
+     */
     needsAuthorization() {
         return !this._api.getSession().getAuthorized();
     }
 
+    /**
+     *
+     * @return {Promise<Boolean>}
+     */
     async authorize() {
         if(!this.needsAuthorization() || await this._tryAuthorization()) {
             let server = this._api.getServer();
@@ -25,28 +40,33 @@ export default class SessionAuthorizationHelper {
         return false;
     }
 
+    /**
+     *
+     * @return {Promise<Boolean>}
+     * @private
+     */
     async _tryAuthorization() {
         let authRequest = await this._getAuthRequest();
 
+        if(!authRequest) return false;
         if(await this._tryAutomaticAuth(authRequest)) return true;
 
         let authItem = this._makeAuthItem(authRequest);
-        while(this._attempts < 5) {
+        while(true) {
             let result = await this._tryManualAuth(authRequest, authItem);
             if(result === 0) return true;
             if(result === 2) return false;
 
             authRequest = await this._getAuthRequest();
-            this._attempts++;
+            if(!authRequest) return false;
         }
-
-        await this._disableServer();
-        this._authQueue.push(authItem.setAccepted(true))
-            .catch(ErrorManager.catch);
-
-        throw new Error('test');
     }
 
+    /**
+     *
+     * @return {Promise<void>}
+     * @private
+     */
     async _disableServer() {
         let server = this._api.getServer();
         server.setEnabled(false);
@@ -57,7 +77,7 @@ export default class SessionAuthorizationHelper {
     /**
      *
      * @param {SessionAuthorization} authRequest
-     * @return {Promise<boolean>}
+     * @return {Promise<Boolean>}
      * @private
      */
     async _tryAutomaticAuth(authRequest) {
@@ -66,14 +86,14 @@ export default class SessionAuthorizationHelper {
                 await authRequest.authorize();
                 return true;
             } catch(e) {
-                throw new ServerAccessError(e);
+                await this._processError(e);
             }
         }
         return false;
     }
 
     /**
-     * @return {Promise<SessionAuthorization>}
+     * @return {Promise<(SessionAuthorization|Boolean)>}
      * @private
      */
     async _getAuthRequest() {
@@ -83,8 +103,10 @@ export default class SessionAuthorizationHelper {
             await authRequest.load();
             return authRequest;
         } catch(e) {
-            throw new ServerAccessError(e);
+            await this._processError(e);
         }
+
+        return false;
     }
 
     /**
@@ -126,10 +148,16 @@ export default class SessionAuthorizationHelper {
 
             return 0;
         } catch(e) {
-            ErrorManager.logError(e);
-            item.setAccepted(false).setFeedback(e);
-            return 1;
+            await this._processError(e);
+            if(!this._api.getServer().getEnabled()) {
+                this._authQueue.push(item.setAccepted(true))
+                    .catch(ErrorManager.catch);
+                return 2;
+            } else {
+                item.setAccepted(false).setFeedback(e);
+            }
         }
+        return 1;
     }
 
     /**
@@ -174,5 +202,35 @@ export default class SessionAuthorizationHelper {
         }
 
         return providers;
+    }
+
+    /**
+     *
+     * @param {Error} error
+     * @return {Promise<void>}
+     * @private
+     */
+    async _processError(error) {
+        ErrorManager.logError(error);
+        let title = 'Could not connect to ' + this._api.getServer().getLabel(),
+            text  = 'Unknown Error';
+
+        if(error instanceof UnauthorizedError) {
+            text = 'Server credentials rejected. Please update login data in the settings';
+
+            try {
+                await this._disableServer();
+            } catch(e) {
+                ErrorManager.logError(e);
+            }
+        } else if(error instanceof HttpError) {
+            text = 'HTTP connection error: ' + error.message;
+        } else if(error instanceof TypeError && error.message.substr(0, 12) === 'NetworkError') {
+            text = 'Network error. Please check if you\'re online and the server is reachable';
+        } else if(error instanceof Error) {
+            text = error.message;
+        }
+
+        ToastService.error(text, title).catch(ErrorManager.catch);
     }
 }

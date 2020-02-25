@@ -9,10 +9,12 @@ export default class List extends AbstractController {
      * @param {Message} reply
      */
     async execute(message, reply) {
-        let servers = await ServerRepository.findAll();
-        let results = [];
+        let payload = message.getPayload(),
+            servers = await ServerRepository.findAll(),
+            all     = payload && payload.all,
+            results = [];
         for(let server of servers) {
-            results.push(server);
+            if(all || server.getEnabled()) results.push(server);
         }
 
         reply.setType('server.items')

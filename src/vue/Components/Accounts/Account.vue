@@ -23,7 +23,6 @@
 <script>
     import Server from '@js/Models/Server/Server';
     import Translate from '@vue/Components/Translate';
-    import SystemService from '@js/Services/SystemService';
     import MessageService from '@js/Services/MessageService';
 
     export default {
@@ -86,6 +85,7 @@
 
                 if(message.getType() === 'server.item') {
                     this.success = true;
+                    this.token = '';
                     this.$emit('create');
                 } else {
                     this.error = message.getPayload().message;

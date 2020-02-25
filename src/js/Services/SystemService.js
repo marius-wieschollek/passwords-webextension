@@ -3,6 +3,31 @@ import BrowserApi from '@js/Platform/BrowserApi';
 
 class SystemService {
 
+    get AREA_BACKGROUND() {
+        return 'background';
+    }
+
+    get AREA_OPTIONS() {
+        return 'options';
+    }
+
+    get AREA_CLIENT() {
+        return 'client';
+    }
+
+    get AREA_POPUP() {
+        return 'popup';
+    }
+
+    get AREAS() {
+        return [
+            this.AREA_BACKGROUND,
+            this.AREA_OPTIONS,
+            this.AREA_CLIENT,
+            this.AREA_POPUP
+        ]
+    }
+
     constructor() {
         this._api = null;
         this._area = null;
@@ -26,7 +51,7 @@ class SystemService {
      * @returns {SystemService}
      */
     setArea(value) {
-        if(['background', 'popup', 'options', 'client'].indexOf(value) !== -1) {
+        if(this.AREAS.indexOf(value) !== -1) {
             this._area = value;
         }
 

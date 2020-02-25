@@ -13,9 +13,9 @@ class QueueService {
      * @param {(String|null)} [area=null]
      * @returns {Queue}
      */
-    getQueue(name, area = null) {
+    getQueue(name, area = null, type) {
         if(!this._queues.hasOwnProperty(name)) {
-            this._queues[name] = new Queue(name, area);
+            this._queues[name] = new Queue(name, area, type);
         }
 
         return this._queues[name];
@@ -30,7 +30,7 @@ class QueueService {
      */
     getFeedbackQueue(name, area = null, type) {
         if(!this._queues.hasOwnProperty(name)) {
-            this._queues[name] = new FeedbackQueue(name, null, type);
+            this._queues[name] = new FeedbackQueue(name, area, type);
         }
 
         return this._queues[name];

@@ -1,5 +1,9 @@
 import Vue from 'vue';
 import uuid from 'uuidv4';
+import QueueService from '@js/Services/QueueService';
+import SystemService from '@js/Services/SystemService';
+import QueueClient from '@js/Queue/Client/QueueClient';
+import ErrorManager from '@js/Manager/ErrorManager';
 
 class ToastService {
 
@@ -19,13 +23,20 @@ class ToastService {
         this._toasts = {};
         this._activeToasts = [];
         this._container = null;
+        this._consumer = null;
     }
 
     async init() {
+        if(SystemService.getArea() === SystemService.AREA_BACKGROUND) return;
+
         let Toasts          = await import(/* webpackChunkName: "ToastsComponents" */ '@vue/Components/Toasts'),
             ToastsContainer = Vue.extend(Toasts.default);
 
         this._container = new ToastsContainer({el: '#toasts', propsData: {toasts: this._activeToasts}});
+
+        if(SystemService.getArea() === SystemService.AREA_POPUP) {
+            this._consumer = new QueueClient('toasts', (item) => { return this._processQueueItem(item); });
+        }
     }
 
 
@@ -89,19 +100,34 @@ class ToastService {
             return new Promise((resolve, reject) => reject);
         }
 
-        toast.id = uuid();
         toast.visible = false;
         if(!toast.hasOwnProperty('closeable')) toast.closeable = true;
         if(toast.closeable && (!toast.hasOwnProperty('ttl') || toast.ttl < this.MIN_TTL)) toast.ttl = this.DEFAULT_TTL;
+        if(!toast.hasOwnProperty('id') || !toast.id || this._toasts.hasOwnProperty(toast.id)) toast.id = uuid();
 
+        if(SystemService.getArea() === SystemService.AREA_BACKGROUND) {
+            return this._sendToast(toast);
+        }
+
+        return this._createToast(toast);
+    }
+
+    _createToast(toast) {
         return new Promise((resolve) => {
+            this._toasts[toast.id] = {toast, resolve, timer: null};
+
             if(this._activeToasts.length < this.MAX_ACTIVE) {
                 this._activateToast(toast);
             }
-
-            this._toasts[toast.id] = {toast, resolve, timer: null};
             console.log('toast.created', toast);
         });
+    }
+
+    async _sendToast(toast) {
+        let queue = QueueService.getQueue('toasts', 'popup'),
+            item  = await queue.push(toast);
+
+        return item.getResult();
     }
 
     choose(id, choice) {
@@ -143,6 +169,22 @@ class ToastService {
             this._toasts[toast.id].timer = setTimeout(() => {
                 this.choose(toast.id, 'close');
             }, timeout);
+        }
+    }
+
+    /**
+     *
+     * @param {QueueItem} item
+     * @return {Promise<void>}
+     * @private
+     */
+    async _processQueueItem(item) {
+        try {
+            let result = await this.create(item.getTask());
+            item.setSuccess(true).setResult(result);
+        } catch(e) {
+            ErrorManager.logError(e);
+            item.setSuccess(false).setResult(e);
         }
     }
 }
