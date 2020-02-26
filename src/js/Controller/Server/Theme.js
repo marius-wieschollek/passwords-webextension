@@ -1,10 +1,53 @@
 import AbstractController from '@js/Controller/AbstractController';
 import ApiRepository from '@js/Repositories/ApiRepository';
+import RegistryService from '@js/Services/RegistryService';
+import ErrorManager from '@js/Manager/ErrorManager';
+import SystemService from '@js/Services/SystemService';
+import ServerRepository from '@js/Repositories/ServerRepository';
 
 export default class Theme extends AbstractController {
+
+    /**
+     * @param {Message} message
+     * @param {Message} reply
+     * @return {Promise<void>}
+     */
     async execute(message, reply) {
-        let server     = message.getPayload(),
-            api        = await ApiRepository.findById(server),
+        let server = message.getPayload(),
+            theme  = await this._getTheme(server);
+
+        reply.setType('server.theme').setPayload(theme);
+    }
+
+    /**
+     * @param {String} server
+     * @return {Promise<Object>}
+     * @private
+     */
+    async _getTheme(server) {
+        let key = `server.${server}.theme`;
+        if(RegistryService.has(key)) {
+            return RegistryService.get(key);
+        } else {
+            try {
+                let theme = await this._fetchThemeFromApi(server);
+                RegistryService.set(key, theme);
+
+                return theme;
+            } catch(e) {
+                ErrorManager.logError(e);
+                return await this._getDefaultTheme(server);
+            }
+        }
+    }
+
+    /**
+     * @param {String} server
+     * @return {Promise<{}>}
+     * @private
+     */
+    async _fetchThemeFromApi(server) {
+        let api        = await ApiRepository.findById(server),
             repository = api.getInstance('repository.setting'),
             collection = await repository.findByScope('server'),
             settings   = {};
@@ -16,6 +59,26 @@ export default class Theme extends AbstractController {
             }
         }
 
-        reply.setType('server.theme').setPayload(settings);
+        return settings;
+    }
+
+    /**
+     * @param {String} serverId
+     * @return {Promise<Object>}
+     * @private
+     */
+    async _getDefaultTheme(serverId) {
+        let server = await ServerRepository.findById(serverId);
+
+        return {
+            'app.icon'        : await SystemService.getBrowserApi().runtime.getURL('img/favicon-fallback.svg'),
+            background        : `${server.getBaseUrl()}core/img/background.png`,
+            'color.background': '#fff',
+            'color.primary'   : '#0082c9',
+            'color.text'      : '#fff',
+            'folder.icon'     : `${server.getBaseUrl()}core/img/filetypes/folder.svg`,
+            label             : 'Nextcloud',
+            logo              : `${server.getBaseUrl()}core/img/logo/logo.svg`
+        };
     }
 }

@@ -1,10 +1,10 @@
 <template>
     <form id="authorisation" @submit.prevent="submit" autocomplete="off" :style="style" :class="className">
-        <h2>{{authRequest.getLabel()}}</h2>
-        <div v-if="authRequest.requiresPassword()" class="password-container">
+        <h2>{{label}}</h2>
+        <div v-if="hasPassword" class="password-container">
             <input type="password" id="password" :disabled="loggingIn" v-model="password" placeholder="Password">
         </div>
-        <div v-if="authRequest.requiresToken()" class="token-container">
+        <div v-if="hasToken" class="token-container">
             <icon class="token-refresh"
                   icon="sync-alt"
                   font="solid"
@@ -39,6 +39,7 @@
         data() {
             return {
                 authRequest : null,
+                label       : '',
                 password    : null,
                 token       : null,
                 provider    : null,
@@ -52,14 +53,11 @@
             };
         },
 
-        created() {
-            this.loadNext();
-        },
-
-        mounted() {
-            if(this.authRequest.requiresPassword()) {
+        async mounted() {
+            await this.loadNext();
+            if(this.hasPassword) {
                 document.getElementById('password').focus();
-            } else if(this.authRequest.requiresToken() && this.tokenField) {
+            } else if(this.tokenField) {
                 document.getElementById('token').focus();
             }
         },
@@ -74,7 +72,15 @@
                     theme['--color-text'] = this.theme['color.text'];
                 }
                 if(this.theme.hasOwnProperty('background')) {
-                    theme['--image-background'] = `url(${this.theme['background']})`;
+                    let gradient = 'linear-gradient(40deg, #0082c9 0%, #30b6ff 100%)';
+
+                    if(this.theme['color.primary'] !== '#0082c9') {
+                        gradient =
+                            `linear-gradient(40deg,${this.theme['color.primary']} 0%,${this.theme['color.text']} 320%)`;
+                    }
+
+                    theme['--image-background'] =
+                        `url(${this.theme['background']}), ${gradient}`;
                 }
                 if(this.theme.hasOwnProperty('logo')) {
                     theme['--image-logo'] = `url(${this.theme['logo']})`;
@@ -105,6 +111,7 @@
         methods: {
             async loadNext() {
                 this.token = null;
+                this.label = '';
                 this.password = null;
                 this.provider = null;
                 this.hasToken = false;
@@ -118,8 +125,11 @@
                 if(this.authRequest !== null) {
                     this.hasToken = this.authRequest.requiresToken();
                     this.hasPassword = this.authRequest.requiresPassword();
+                    this.label = this.authRequest.getLabel();
                     this.loadToken();
                     await this.loadTheme();
+                } else {
+                    this.$parent.authorized = true;
                 }
             },
             loadToken() {
@@ -241,7 +251,7 @@
                 padding       : 1rem;
 
                 &[disabled] {
-                    opacity: .9;
+                    opacity : .9;
                 }
             }
         }
