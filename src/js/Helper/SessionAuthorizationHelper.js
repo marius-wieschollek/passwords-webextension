@@ -147,13 +147,12 @@ export default class SessionAuthorizationHelper {
         try {
             ServerManager.isAuthorized.set(false);
             await this._authQueue.push(item);
-            if(!item.getSuccess() && item.getResult().cancelled) {
-                return 2;
-            }
             await this._attemptManualAuth(authRequest, item);
 
             return 0;
         } catch(e) {
+            if(item.getCancelled()) return 2;
+
             ErrorManager.logError(e);
             item.setAccepted(false).setFeedback(e);
         }

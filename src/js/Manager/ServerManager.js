@@ -121,10 +121,12 @@ class ServerManager {
      */
     async removeServer(server) {
         let serverId = server.getId();
+        this._removeAuthItems(serverId);
+
+        if(!this._servers.hasOwnProperty(serverId)) return;
         clearInterval(this._keepaliveTimer[serverId]);
         delete this._keepaliveTimer[serverId];
         await this._removeServer.emit(server);
-        this._removeAuthItems(server.getId());
         delete this._servers[serverId];
     }
 

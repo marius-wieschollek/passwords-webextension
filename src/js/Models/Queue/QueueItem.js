@@ -11,6 +11,7 @@ export default class QueueItem {
         this._task = data.hasOwnProperty('task') ? data.task:{};
         this._result = data.hasOwnProperty('result') ? data.result:{};
         this._success = data.hasOwnProperty('success') ? data.success:null;
+        this._cancelled = data.hasOwnProperty('cancelled') ? data.cancelled:false;
     }
 
     /**
@@ -72,7 +73,7 @@ export default class QueueItem {
 
     /**
      *
-     * @returns {(Boolean|null)}
+     * @return {(Boolean|null)}
      */
     getSuccess() {
         return this._success;
@@ -81,10 +82,29 @@ export default class QueueItem {
     /**
      *
      * @param {Boolean} value
-     * @returns {QueueItem}
+     * @return {this}
      */
     setSuccess(value) {
         this._success = value;
+
+        return this;
+    }
+
+    /**
+     *
+     * @return {(Boolean|null)}
+     */
+    getCancelled() {
+        return this._cancelled;
+    }
+
+    /**
+     *
+     * @param {Boolean} value
+     * @return {this}
+     */
+    setCancelled(value) {
+        this._cancelled = value;
 
         return this;
     }
@@ -95,10 +115,11 @@ export default class QueueItem {
      */
     toJSON() {
         return {
-            id     : this._id,
-            task   : this._task,
-            result : this._result,
-            success: this._success
+            id       : this._id,
+            task     : this._task,
+            result   : this._result,
+            success  : this._success,
+            cancelled: this._cancelled
         };
     }
 }

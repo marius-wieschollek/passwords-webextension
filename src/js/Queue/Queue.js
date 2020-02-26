@@ -87,8 +87,9 @@ export default class Queue {
         delete this._items[itemId];
         this._count--;
 
-        item.setResult({cancelled: true});
+        item.setResult(null);
         item.setSuccess(false);
+        item.setCancelled(true);
         reject(item);
     }
 
