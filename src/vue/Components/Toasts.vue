@@ -1,7 +1,9 @@
 <template>
     <div class="toast-container">
-        <transition v-for="toast in toasts" :key="toast.id">
-            <toast :toast="toast" v-on:close="onClose(toast, $event)"/>
+        <transition name="toast" v-for="toast in toasts" :key="toast.id" appear>
+            <div>
+                <toast :toast="toast" v-on:close="onClose(toast, $event)"/>
+            </div>
         </transition>
     </div>
 </template>
@@ -20,7 +22,8 @@
                 }
             }
         },
-        methods   : {
+
+        methods: {
             /**
              * @param {Toast} toast
              * @param $event
@@ -38,6 +41,27 @@
         right    : 0;
         bottom   : 0;
         left     : 0;
+        overflow : hidden;
+
+        .toast-leave-active {
+            transition : opacity 1s;
+        }
+
+        .toast-leave-to {
+            opacity : 0;
+        }
+
+        .toast-enter-active {
+            transition : max-height 2s;
+        }
+
+        .toast-enter {
+            max-height : 0;
+        }
+
+        .toast-enter-to {
+            max-height : 100vh;
+        }
     }
 
     @media (min-width : 361px) {
