@@ -63,8 +63,6 @@ export default class Queue {
     push(item) {
         item = this._validateItem(item);
 
-        console.debug('queue.push', item);
-
         this._count++;
         return new Promise((resolve, reject) => {
             this._items[item.getId()] = {
@@ -123,7 +121,6 @@ export default class Queue {
         if(message.getPayload().name !== this._name) return;
 
         let items = this.getItems();
-        console.debug('queue.fetch', items);
 
         reply
             .setType('queue.items')

@@ -219,7 +219,6 @@ class ToastService {
             if(this._activeToasts.length < this.MAX_ACTIVE) {
                 this._activateToast(toast);
             }
-            console.log('toast.created', toast);
         });
     }
 
@@ -232,7 +231,6 @@ class ToastService {
     _sendToast(toast) {
         return new Promise(async (resolve) => {
             this._toasts[toast.getId()] = {toast, resolve, timer: null};
-            console.log('toast.created', toast);
 
             let queue = QueueService.getQueue('toasts', 'popup');
             try {
