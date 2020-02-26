@@ -93,6 +93,10 @@
         "message"    : "Das Benutzerkonto wurde gespeichert und kann verwendet werden",
         "description": ""
     },
+    "ServerDisabledWarning"         : {
+        "message"    : "Dieses Benutzerkonto wird nach dem erfolgreichen Speichern wieder aktiviert.",
+        "description": ""
+    },
     "ServerLabel"                : {
         "message"    : "Name",
         "description": ""

@@ -1,5 +1,9 @@
 <template>
     <form class="account-form" v-on:submit.prevent="save()">
+        <translate tag="div" class="server-warning" say="ServerDisabledWarning" v-if="!server.getEnabled()">
+            <icon icon="exclamation-triangle" font="solid" slot="before"/>
+        </translate>
+
         <fieldset :disabled="submitting">
             <translate tag="label" :for="`${id}-label`" say="ServerLabel" required/>
             <input type="text" :id="`${id}-label`" v-model="label"/>
@@ -23,9 +27,10 @@
     import MessageService from '@js/Services/MessageService';
     import ToastService from '@js/Services/ToastService';
     import ErrorManager from '@js/Manager/ErrorManager';
+    import Icon from '@vue/Components/Icon';
 
     export default {
-        components: {Translate},
+        components: {Icon, Translate},
 
         props: {
             server: {
@@ -104,6 +109,17 @@
 
 <style lang="scss">
     .account-form {
+        .server-warning {
+            background-color : #ffc312;
+            margin           : .5rem;
+            border-radius    : 3px;
+            padding          : 1rem;
+
+            .icon {
+                margin-right : .5rem;
+            }
+        }
+
         fieldset {
             margin : 0;
             border : 0;

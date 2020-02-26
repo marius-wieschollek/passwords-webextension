@@ -107,6 +107,10 @@
         "message"    : "The account has been created and is ready to be used",
         "description": ""
     },
+    "ServerDisabledWarning"         : {
+        "message"    : "This account is deactivated. It will be activated after it was saved successfully.",
+        "description": ""
+    },
     "ServerLabel"                : {
         "message"    : "Name",
         "description": ""
