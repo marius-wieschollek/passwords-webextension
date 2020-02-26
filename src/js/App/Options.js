@@ -4,6 +4,7 @@ import ErrorManager from '@js/Manager/ErrorManager';
 import SystemService from '@js/Services/SystemService';
 import MessageService from '@js/Services/MessageService';
 import ConverterManager from '@js/Manager/ConverterManager';
+import ToastService from '@js/Services/ToastService';
 
 class Options {
 
@@ -29,6 +30,7 @@ class Options {
             ConverterManager.init();
 
             await this._initVue();
+            await ToastService.init();
         } catch(e) {
             ErrorManager.logError(e);
         }

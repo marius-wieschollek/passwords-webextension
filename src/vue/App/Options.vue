@@ -7,6 +7,7 @@
             </div>
             <settings slot="other"/>
         </tabs>
+        <div id="toasts"></div>
     </div>
 </template>
 

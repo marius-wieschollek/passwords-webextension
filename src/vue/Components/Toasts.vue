@@ -39,4 +39,13 @@
         bottom   : 0;
         left     : 0;
     }
+
+    @media (min-width : 361px) {
+        #options {
+            .toast-container {
+                left  : auto;
+                width : 50vw;
+            }
+        }
+    }
 </style>

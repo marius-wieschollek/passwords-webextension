@@ -77,8 +77,20 @@
         "message"    : "Benutzerkonto erstellen",
         "description": ""
     },
-    "ServerSaveSuccess"         : {
-        "message"    : "Änderungen erfolgreich übernommen",
+    "ServerSaveTitle"         : {
+        "message"    : "Benutzerkonto gespeichert",
+        "description": ""
+    },
+    "ServerSaveMessage"         : {
+        "message"    : "Alle Änderungen wurden erfolgreich übernommen",
+        "description": ""
+    },
+    "ServerSaveErrorTitle"         : {
+        "message"    : "Speichern fehlgeschlagen",
+        "description": ""
+    },
+    "ServerCreatedMessage"         : {
+        "message"    : "Das Benutzerkonto wurde gespeichert und kann verwendet werden",
         "description": ""
     },
     "ServerLabel"                : {

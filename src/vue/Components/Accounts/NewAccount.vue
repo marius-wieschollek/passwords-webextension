@@ -1,7 +1,5 @@
 <template>
     <form class="account-form" v-on:submit.prevent="save()">
-        <div class="error" v-if="error">{{error}}</div>
-
         <fieldset :disabled="submitting">
             <translate tag="label" for="new-name" say="ServerLabel"/>
             <input type="text" id="new-name" v-model="label" required/>
@@ -24,6 +22,8 @@
 <script>
     import MessageService from '@js/Services/MessageService';
     import Translate from '@vue/Components/Translate';
+    import ToastService from '@js/Services/ToastService';
+    import ErrorManager from '@js/Manager/ErrorManager';
 
     export default {
         components: {Translate},
@@ -33,13 +33,8 @@
                 label     : '',
                 baseUrl   : '',
                 user      : '',
-                token     : '',
-                error     : ''
+                token     : ''
             };
-        },
-
-        activated() {
-            this.error = '';
         },
 
         methods: {
@@ -50,7 +45,6 @@
                 if(!this.$el.reportValidity() || this.submitting) return;
 
                 this.submitting = true;
-                this.error = '';
                 let payload = {
                     label  : this.label,
                     baseUrl: this.baseUrl,
@@ -63,12 +57,20 @@
                     if(message.getType() === 'server.item') {
                         this.$emit('create');
                     } else {
-                        this.error = message.getPayload().message;
+                        ToastService.error(message.getPayload().message, 'ServerSaveErrorTitle')
+                            .catch(ErrorManager.catch);
+                        this.submitting = false;
+                        return;
                     }
                 } catch(e) {
-                    this.error = e.message;
+                    ToastService.error(e.message, 'ServerSaveErrorTitle')
+                        .catch(ErrorManager.catch);
+                    this.submitting = false;
+                    return;
                 }
 
+                ToastService.success('ServerCreatedMessage', 'ServerSaveTitle')
+                    .catch(ErrorManager.catch);
                 this.submitting = false;
             }
         }

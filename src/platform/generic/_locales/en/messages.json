@@ -91,8 +91,20 @@
         "message"    : "Create account",
         "description": ""
     },
-    "ServerSaveSuccess"         : {
-        "message"    : "Changes applied successfully",
+    "ServerSaveTitle"         : {
+        "message"    : "Account saved",
+        "description": ""
+    },
+    "ServerSaveMessage"         : {
+        "message"    : "All changes were applied successfully",
+        "description": ""
+    },
+    "ServerSaveErrorTitle"         : {
+        "message"    : "Saving failed",
+        "description": ""
+    },
+    "ServerCreatedMessage"         : {
+        "message"    : "The account has been created and is ready to be used",
         "description": ""
     },
     "ServerLabel"                : {

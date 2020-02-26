@@ -74,7 +74,7 @@ class ToastService {
     info(message, title = null, options = null, ttl = 10) {
         let config = {type: 'info', title, message, ttl};
 
-        if(buttons !== null) config.options = options;
+        if(options !== null) config.options = options;
         config.closeable = options === null;
 
         return this.create(config);

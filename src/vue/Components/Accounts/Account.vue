@@ -1,8 +1,5 @@
 <template>
     <form class="account-form" v-on:submit.prevent="save()">
-        <div class="error" v-if="error">{{error}}</div>
-        <translate tag="div" class="success" say="ServerSaveSuccess" v-if="success"/>
-
         <fieldset :disabled="submitting">
             <translate tag="label" :for="`${id}-label`" say="ServerLabel" required/>
             <input type="text" :id="`${id}-label`" v-model="label"/>
@@ -24,6 +21,8 @@
     import Server from '@js/Models/Server/Server';
     import Translate from '@vue/Components/Translate';
     import MessageService from '@js/Services/MessageService';
+    import ToastService from '@js/Services/ToastService';
+    import ErrorManager from '@js/Manager/ErrorManager';
 
     export default {
         components: {Translate},
@@ -41,24 +40,15 @@
                 url        : this.server.getBaseUrl(),
                 user       : this.server.getUser(),
                 token      : '',
-                error      : '',
-                success    : false,
                 submitting : false,
                 changeToken: false
             };
-        },
-
-        activated() {
-            this.error = '';
-            this.success = false;
         },
 
         methods: {
             async save() {
                 if(!this.$el.reportValidity() || this.submitting) return;
 
-                this.error = '';
-                this.success = false;
                 this.submitting = true;
                 this.server
                     .setLabel(this.label)
@@ -78,20 +68,23 @@
                         }
                     );
                 } catch(e) {
-                    this.error = e.message;
+                    ToastService.error(e.message, 'ServerSaveErrorTitle')
+                        .catch(ErrorManager.catch);
                     this.submitting = false;
                     return;
                 }
 
                 if(message.getType() === 'server.item') {
-                    this.success = true;
                     this.token = '';
+                    this.changeToken = false;
+                    ToastService.success('ServerSaveMessage', 'ServerSaveTitle')
+                        .catch(ErrorManager.catch);
                     this.$emit('change');
                 } else {
-                    this.error = message.getPayload().message;
+                    ToastService.error(message.getPayload().message, 'ServerSaveErrorTitle')
+                        .catch(ErrorManager.catch);
                 }
 
-                this.changeToken = false;
                 this.submitting = false;
             },
 
@@ -110,21 +103,6 @@
 
 <style lang="scss">
     .account-form {
-        .error,
-        .success {
-            background-color  : #eb3b5a;
-            color             : white;
-            grid-column-start : 1;
-            grid-column-end   : 3;
-            border-radius     : 3px;
-            padding           : .5rem;
-            margin            : .5rem
-        }
-
-        .success {
-            background-color : #27ae60;
-        }
-
         fieldset {
             margin : 0;
             border : 0;
