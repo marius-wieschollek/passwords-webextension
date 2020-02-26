@@ -5,6 +5,8 @@ import ToastService from '@js/Services/ToastService';
 import HttpError from 'passwords-client/src/Exception/Http/HttpError';
 import NetworkError from 'passwords-client/src/Exception/NetworkError';
 import UnauthorizedError from 'passwords-client/src/Exception/Http/UnauthorizedError';
+import SystemService from '@js/Services/SystemService';
+import ServerManager from '@js/Manager/ServerManager';
 
 export default class SessionAuthorizationHelper {
 
@@ -58,7 +60,10 @@ export default class SessionAuthorizationHelper {
             if(result === 2) return false;
 
             authRequest = await this._getAuthRequest();
-            if(!authRequest) return false;
+            if(!authRequest) {
+                await this._authQueue.push(authItem.setAccepted(true));
+                return false;
+            }
         }
     }
 
@@ -140,6 +145,7 @@ export default class SessionAuthorizationHelper {
      */
     async _tryManualAuth(authRequest, item) {
         try {
+            ServerManager.isAuthorized.set(false);
             await this._authQueue.push(item);
             if(!item.getSuccess() && item.getResult().cancelled) {
                 return 2;
@@ -148,14 +154,8 @@ export default class SessionAuthorizationHelper {
 
             return 0;
         } catch(e) {
-            await this._processError(e);
-            if(!this._api.getServer().getEnabled()) {
-                this._authQueue.push(item.setAccepted(true))
-                    .catch(ErrorManager.catch);
-                return 2;
-            } else {
-                item.setAccepted(false).setFeedback(e);
-            }
+            ErrorManager.logError(e);
+            item.setAccepted(false).setFeedback(e);
         }
         return 1;
     }
@@ -212,25 +212,36 @@ export default class SessionAuthorizationHelper {
      */
     async _processError(error) {
         ErrorManager.logError(error);
-        let title = 'Could not connect to ' + this._api.getServer().getLabel(),
-            text  = 'Unknown Error';
+        let title   = 'Could not connect to ' + this._api.getServer().getLabel(),
+            tags    = [this._api.getServer().getId(), 'login-error'],
+            message = 'Unknown Error';
 
         if(error instanceof UnauthorizedError) {
-            text = 'Server credentials rejected. Please update login data in the settings';
-
             try {
                 await this._disableServer();
+                message = 'Server credentials rejected. Please update login data in the settings';
+
+                ToastService.create({message, title, tags, ttl: 0, type: 'error'})
+                    .then(() => {SystemService.getBrowserApi().runtime.openOptionsPage();})
+                    .catch(ErrorManager.catch);
+                return;
             } catch(e) {
                 ErrorManager.logError(e);
             }
         } else if(error instanceof HttpError) {
-            text = 'HTTP connection error: ' + error.message;
+            message = 'HTTP connection error: ' + error.message;
         } else if(error instanceof TypeError && error.message.substr(0, 12) === 'NetworkError') {
-            text = 'Network error. Please check if you\'re online and the server is reachable';
+            message = 'Network error. Please check if you\'re online and the server is reachable';
+
+            ToastService.create({message, title, tags, ttl: 0, type: 'error'})
+                .then(() => {SystemService.getBrowserApi().tabs.create({active: true, url: this._api.getServer().getBaseUrl()});})
+                .catch(ErrorManager.catch);
+
+            return;
         } else if(error instanceof Error) {
-            text = error.message;
+            message = error.message;
         }
 
-        ToastService.error(text, title).catch(ErrorManager.catch);
+        ToastService.create({message, title, tags, ttl: 5, type: 'error'}).catch(ErrorManager.catch);
     }
 }

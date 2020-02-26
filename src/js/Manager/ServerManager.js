@@ -91,7 +91,6 @@ class ServerManager {
             authHelper = new SessionAuthorizationHelper(api, this._authQueue);
 
         server.setStatus(server.STATUS_UNAUTHORIZED);
-        this._authState.set(false);
         try {
             let result = await authHelper.authorize();
             this._authState.set(!this._authQueue.hasItems());
