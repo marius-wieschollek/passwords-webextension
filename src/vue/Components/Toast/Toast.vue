@@ -1,40 +1,32 @@
 <template>
     <div :class="className" @click.prevent="close()">
-        <translate class="title" :say="title" v-if="title"/>
-        <translate class="text" :say="text"/>
+        <translate class="title" :say="toast.getTitle()" :variables="toast.getTitleVars()" v-if="toast.getTitle()"/>
+        <translate class="message" :say="toast.getMessage()" :variables="toast.getMessageVars()"/>
         <translate tag="div"
                    class="button"
                    :say="button"
                    :key="name"
-                   v-for="(button, name) in buttons"
-                   v-if="buttons"
+                   v-for="(button, name) in toast.getOptions()"
+                   v-if="toast.getOptions()"
                    @click.prevent="choose(name)"/>
     </div>
 </template>
 
 <script>
     import Translate from '@vue/Components/Translate';
+    import Toast from '@js/Models/Toast/Toast';
 
     export default {
         components: {Translate},
         props     : {
-            config: Object
+            toast: Toast
         },
 
         computed: {
-            title() {
-                return this.config.hasOwnProperty('title') ? this.config.title:null;
-            },
-            text() {
-                return this.config.text;
-            },
-            buttons() {
-                return this.config.hasOwnProperty('buttons') ? this.config.buttons:null;
-            },
             className() {
-                let className = `toast ${this.config.type}`;
+                let className = `toast ${this.toast.getType()}`;
 
-                if(this.config.closeable) {
+                if(this.toast.getCloseable()) {
                     return `${className} closeable`;
                 }
 
@@ -44,7 +36,7 @@
 
         methods: {
             close() {
-                if(this.config.closeable) {
+                if(this.toast.getCloseable()) {
                     this.$emit('close', 'close');
                 }
             },
@@ -85,7 +77,7 @@
             display       : block;
         }
 
-        .text {
+        .message {
             display : block;
         }
 

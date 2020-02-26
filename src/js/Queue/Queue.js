@@ -83,7 +83,7 @@ export default class Queue {
     remove(id) {
         let itemId = typeof id === 'string' ? id:id.getId();
         if(!this._items.hasOwnProperty(itemId)) return;
-        let [item, resolve, reject] = this._items[itemId];
+        let {item, resolve, reject} = this._items[itemId];
         delete this._items[itemId];
         this._count--;
 

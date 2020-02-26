@@ -1,7 +1,7 @@
 <template>
     <div class="toast-container">
         <transition v-for="toast in toasts" :key="toast.id">
-            <toast :config="toast" v-on:close="onClose(toast, $event)"/>
+            <toast :toast="toast" v-on:close="onClose(toast, $event)"/>
         </transition>
     </div>
 </template>
@@ -21,8 +21,12 @@
             }
         },
         methods   : {
+            /**
+             * @param {Toast} toast
+             * @param $event
+             */
             onClose(toast, $event) {
-                ToastService.choose(toast.id, $event);
+                ToastService.choose(toast.getId(), $event);
             }
         }
     };

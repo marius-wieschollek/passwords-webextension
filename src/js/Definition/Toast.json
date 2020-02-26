@@ -1,0 +1,35 @@
+{
+    "id": {
+        "type": "string"
+    },
+    "type": {
+        "type": "string"
+    },
+    "title": {
+        "type": "string"
+    },
+    "titleVars": {
+        "type": "array"
+    },
+    "message": {
+        "type": "string"
+    },
+    "messageVars": {
+        "type": "array"
+    },
+    "ttl": {
+        "type": "number"
+    },
+    "visible": {
+        "type": "boolean"
+    },
+    "closeable": {
+        "type": "boolean"
+    },
+    "options": {
+        "type": "object"
+    },
+    "tags": {
+        "type": "array"
+    }
+}

@@ -4,6 +4,7 @@ import QueueService from '@js/Services/QueueService';
 import SystemService from '@js/Services/SystemService';
 import QueueClient from '@js/Queue/Client/QueueClient';
 import ErrorManager from '@js/Manager/ErrorManager';
+import Toast from '@js/Models/Toast/Toast';
 
 class ToastService {
 
@@ -42,68 +43,67 @@ class ToastService {
 
     /**
      *
-     * @param {String} text The text of the toast
+     * @param {String} message The text of the toast
      * @param {String} [title=null] The title of the toast
      * @return {Promise<String>}
      */
-    warning(text, title = null) {
-        return this.create({type: 'warning', title, text, closeable: true, ttl: 10});
+    warning(message, title = null) {
+        return this.create({type: 'warning', title, message, closeable: true, ttl: 10});
     }
 
 
     /**
      *
-     * @param {String} text The text of the toast
+     * @param {String} message The text of the toast
      * @param {String} [title=null] The title of the toast
      * @return {Promise<String>}
      */
-    error(text, title = null) {
-        return this.create({type: 'error', title, text, closeable: true, ttl: 15});
+    error(message, title = null) {
+        return this.create({type: 'error', title, message, closeable: true, ttl: 10});
     }
 
     /**
      * await ToastService.info('text', 'title', {a: 'Option A', b: 'Option B'});
      *
-     * @param {String} text The text of the toast
+     * @param {String} message The text of the toast
      * @param {String} [title=null] The title of the toast
-     * @param {Object} [buttons=null] Object with available buttons
+     * @param {Object} [options=null] Object with available buttons
      * @param {Number} [ttl=10] Time before the toast is closed
      * @return {Promise<String>}
      */
-    info(text, title = null, buttons = null, ttl = 10) {
-        let config = {type: 'info', title, text, ttl};
+    info(message, title = null, options = null, ttl = 10) {
+        let config = {type: 'info', title, message, ttl};
 
-        if(buttons !== null) config.buttons = buttons;
-        config.closeable = buttons === null;
+        if(buttons !== null) config.options = options;
+        config.closeable = options === null;
 
         return this.create(config);
     }
 
     /**
      *
-     * @param {String} text The text of the toast
+     * @param {String} message The text of the toast
      * @param {String} [title=null] The title of the toast
      * @return {Promise<String>}
      */
-    success(text, title = null) {
-        return this.create({type: 'success', title, text, closeable: true, ttl: 5});
+    success(message, title = null) {
+        return this.create({type: 'success', title, message, closeable: true, ttl: 5});
     }
 
 
     /**
      *
-     * @param {Object} toast The configuration of the toast
+     * @param {(Toast|Object)} data The configuration of the toast
      * @return {Promise<String>}
      */
-    create(toast) {
-        if(!toast.text && !toast.title) {
+    create(data) {
+        let toast = this._createModel(data);
+
+        if(!toast.getMessage()) {
             return new Promise((resolve, reject) => reject);
         }
 
-        toast.visible = false;
-        if(!toast.hasOwnProperty('closeable')) toast.closeable = true;
-        if(toast.closeable && (!toast.hasOwnProperty('ttl') || toast.ttl < this.MIN_TTL)) toast.ttl = this.DEFAULT_TTL;
-        if(!toast.hasOwnProperty('id') || !toast.id || this._toasts.hasOwnProperty(toast.id)) toast.id = uuid();
+        toast.setVisible(false);
 
         if(SystemService.getArea() === SystemService.AREA_BACKGROUND) {
             return this._sendToast(toast);
@@ -112,27 +112,14 @@ class ToastService {
         return this._createToast(toast);
     }
 
-    _createToast(toast) {
-        return new Promise((resolve) => {
-            this._toasts[toast.id] = {toast, resolve, timer: null};
-
-            if(this._activeToasts.length < this.MAX_ACTIVE) {
-                this._activateToast(toast);
-            }
-            console.log('toast.created', toast);
-        });
-    }
-
-    async _sendToast(toast) {
-        let queue = QueueService.getQueue('toasts', 'popup'),
-            item  = await queue.push(toast);
-
-        return item.getResult();
-    }
-
+    /**
+     *
+     * @param {String} id
+     * @param {String} choice
+     */
     choose(id, choice) {
         for(let i = 0; i < this._activeToasts.length; i++) {
-            if(this._activeToasts[i].id === id) {
+            if(this._activeToasts[i].getId() === id) {
                 this._activeToasts.splice(i, 1);
                 break;
             }
@@ -143,31 +130,151 @@ class ToastService {
             if(this._toasts[id].timer !== null) clearTimeout(this._toasts[id]);
             delete this._toasts[id];
         }
-
+        this._removeFromQueue(id);
         this._checkActiveToasts();
     }
 
+    /**
+     * @param {String} tags
+     */
+    closeByTags(...tags) {
+        for(let id in this._toasts) {
+            if(!this._toasts.hasOwnProperty(id)) continue;
+            let toast    = this._toasts[id].toast,
+                itemTags = toast.getTags();
+
+            let intersect = tags.filter(value => itemTags.includes(value));
+            if(intersect.length === tags.length) this.choose(toast.getId(), 'close');
+        }
+    }
+
+    /**
+     * @param {(Toast|Object)} data
+     * @return {Toast}
+     * @private
+     */
+    _createModel(data) {
+        let model = data;
+        if(!(data instanceof Toast)) {
+            model = this._createModelFromData(data, model);
+        }
+
+        if(!model.getId() || this._toasts.hasOwnProperty(model.getId())) model.setId(uuid());
+        if(typeof model.getCloseable() !== 'boolean') model.setCloseable(true);
+        if(model.getCloseable() && model.getTtl() < this.MIN_TTL && model.getTtl() !== 0) model.setTtl(this.DEFAULT_TTL);
+        if(model.getTitle() && !model.getTitleVars()) model.setTitleVars([]);
+        if(!model.getMessageVars()) model.setMessageVars([]);
+        if(!model.getTags()) model.setTags([]);
+        if(!model.getMessage() && model.getTitle()) {
+            model.setMessage(model.getTitle());
+            model.setMessageVars(model.getTitleVars());
+            model.setTitle(undefined);
+            model.setTitleVars([]);
+        }
+
+        return model;
+    }
+
+    /**
+     * @param {Object} data
+     * @return {Toast}
+     * @private
+     */
+    _createModelFromData(data) {
+        if(data.hasOwnProperty('text')) {
+            data.message = data.text;
+            delete data.text;
+        }
+
+        if(data.hasOwnProperty('buttons')) {
+            data.options = data.buttons;
+            delete data.buttons;
+        }
+
+        if(data.hasOwnProperty('title') && Array.isArray(data.title)) {
+            let title = data.title.pop();
+            data.titleVars = data.title;
+            data.title = title;
+        }
+
+        if(data.hasOwnProperty('message') && Array.isArray(data.message)) {
+            let message = data.message.pop();
+            data.messageVars = data.message;
+            data.message = message;
+        }
+
+        return new Toast(data);
+    }
+
+    /**
+     *
+     * @param {Toast} toast
+     * @return {Promise<unknown>}
+     * @private
+     */
+    _createToast(toast) {
+        return new Promise((resolve) => {
+            this._toasts[toast.getId()] = {toast, resolve, timer: null};
+
+            if(this._activeToasts.length < this.MAX_ACTIVE) {
+                this._activateToast(toast);
+            }
+            console.log('toast.created', toast);
+        });
+    }
+
+    /**
+     *
+     * @param {Toast} toast
+     * @return {Promise<Object>}
+     * @private
+     */
+    _sendToast(toast) {
+        return new Promise(async (resolve) => {
+            this._toasts[toast.getId()] = {toast, resolve, timer: null};
+            console.log('toast.created', toast);
+
+            let queue = QueueService.getQueue('toasts', 'popup');
+            try {
+                let item  = await queue.push(toast);
+                delete this._toasts[toast.getId()];
+                resolve(item.getResult());
+            } catch(e) {
+                ErrorManager.logError(e);
+                delete this._toasts[toast.getId()];
+                resolve('close');
+            }
+        });
+    }
+
+    /**
+     * @private
+     */
     _checkActiveToasts() {
         if(this._activeToasts.length >= this.MAX_ACTIVE) return;
         for(let id in this._toasts) {
             if(!this._toasts.hasOwnProperty(id)) continue;
 
             let toast = this._toasts[id].toast;
-            if(!toast.visible) {
+            if(!toast.getVisible()) {
                 this._activateToast(toast);
                 if(this._activeToasts.length >= this.MAX_ACTIVE) return;
             }
         }
     }
 
+    /**
+     * @param {Toast} toast
+     * @private
+     */
     _activateToast(toast) {
-        toast.visible = true;
+        toast.setVisible(true);
         this._activeToasts.push(toast);
 
-        if(toast.ttl) {
-            let timeout = toast.ttl * 1000;
-            this._toasts[toast.id].timer = setTimeout(() => {
-                this.choose(toast.id, 'close');
+        if(toast.getTtl() > 0) {
+            let timeout = toast.getTtl() * 1000;
+            this._toasts[toast.getId()].timer = setTimeout(() => {
+                this.choose(toast.getId(), 'close');
             }, timeout);
         }
     }
@@ -185,6 +292,21 @@ class ToastService {
         } catch(e) {
             ErrorManager.logError(e);
             item.setSuccess(false).setResult(e);
+        }
+    }
+
+    /**
+     * @param {String} id
+     * @private
+     */
+    _removeFromQueue(id) {
+        if(SystemService.getArea() === SystemService.AREA_BACKGROUND) {
+            let queue = QueueService.getQueue('toasts', 'popup'),
+                items = queue.getItems();
+
+            for(let item of items) {
+                if(item.getTask().getId() === id) queue.remove(item);
+            }
         }
     }
 }
