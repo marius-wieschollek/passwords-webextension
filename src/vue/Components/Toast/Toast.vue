@@ -1,14 +1,16 @@
 <template>
     <div :class="className" @click.prevent="close()">
-        <translate class="title" :say="toast.getTitle()" :variables="toast.getTitleVars()" v-if="toast.getTitle()"/>
-        <translate class="message" :say="toast.getMessage()" :variables="toast.getMessageVars()"/>
-        <translate tag="div"
-                   class="button"
-                   :say="button"
-                   :key="name"
-                   v-for="(button, name) in toast.getOptions()"
-                   v-if="toast.getOptions()"
-                   @click.prevent="choose(name)"/>
+        <div class="toast-content">
+            <translate class="title" :say="toast.getTitle()" :variables="toast.getTitleVars()" v-if="toast.getTitle()"/>
+            <translate class="message" :say="toast.getMessage()" :variables="toast.getMessageVars()"/>
+            <translate tag="div"
+                       class="button"
+                       :say="button"
+                       :key="name"
+                       v-for="(button, name) in toast.getOptions()"
+                       v-if="toast.getOptions()"
+                       @click.prevent="choose(name)"/>
+        </div>
     </div>
 </template>
 
@@ -49,21 +51,25 @@
 
 <style lang="scss">
     .toast {
-        margin           : .5rem;
-        border-radius    : .25rem;
-        padding          : .5rem;
-        color            : #fff;
-        background-color : #0652dd;
+        overflow  : hidden;
 
-        &.waring {
+        .toast-content {
+            margin           : 0 .5rem .5rem;
+            border-radius    : .25rem;
+            padding          : .5rem;
+            color            : #fff;
+            background-color : #0652dd;
+        }
+
+        &.waring .toast-content {
             background-color : #ffc312;
         }
 
-        &.error {
+        &.error .toast-content {
             background-color : #ea2027;
         }
 
-        &.success {
+        &.success .toast-content {
             background-color : #009432;
         }
 

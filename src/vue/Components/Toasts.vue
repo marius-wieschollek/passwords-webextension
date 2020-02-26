@@ -1,10 +1,8 @@
 <template>
     <div class="toast-container">
-        <transition name="toast" v-for="toast in toasts" :key="toast.id" appear>
-            <div>
-                <toast :toast="toast" v-on:close="onClose(toast, $event)"/>
-            </div>
-        </transition>
+        <transition-group name="toast" tag="div" appear>
+            <toast :toast="toast" v-on:close="onClose(toast, $event)" v-for="toast in toasts" :key="toast.getId()"/>
+        </transition-group>
     </div>
 </template>
 
@@ -29,6 +27,7 @@
              * @param $event
              */
             onClose(toast, $event) {
+                console.log(toast.getId());
                 ToastService.choose(toast.getId(), $event);
             }
         }
@@ -44,23 +43,31 @@
         overflow : hidden;
 
         .toast-leave-active {
-            transition : opacity 1s;
-        }
-
-        .toast-leave-to {
-            opacity : 0;
+            animation : toast-leave .5s;
         }
 
         .toast-enter-active {
-            transition : max-height 2s;
+            animation : toast-enter .5s ease-in;
         }
 
-        .toast-enter {
-            max-height : 0;
+        @keyframes toast-enter {
+            0% {
+                max-height : 0;
+            }
+            100% {
+                max-height : 100vh;
+            }
         }
 
-        .toast-enter-to {
-            max-height : 100vh;
+        @keyframes toast-leave {
+            0% {
+                opacity    : 1;
+                max-height : 100vh;
+            }
+            100% {
+                opacity    : 0;
+                max-height : 0;
+            }
         }
     }
 
