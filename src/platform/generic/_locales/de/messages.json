@@ -320,7 +320,7 @@
         "description": ""
     },
     "AuthorizationFailedText"              : {
-        "message"    : "Der Zugriff auf die Passwort-Datenbank mit den Logindaten wurde verwehrt",
+        "message"    : "Die eingegebenen Anmeldedaten wurden abgelehnt",
         "description": ""
     },
     "TokenRequestFailed"              : {
