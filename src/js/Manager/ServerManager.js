@@ -8,6 +8,7 @@ import EventQueue from '@js/Event/EventQueue';
 import StorageService from '@js/Services/StorageService';
 import SettingsService from '@js/Services/SettingsService';
 import SessionAuthorizationHelper from '@js/Helper/SessionAuthorizationHelper';
+import ServerRequirementCheck from '@js/Helper/ServerRequirementCheck';
 
 class ServerManager {
 
@@ -86,18 +87,20 @@ class ServerManager {
      * @returns {Promise<void>}
      */
     async addServer(server) {
-        let serverId   = server.getId(),
-            api        = await ApiRepository.findById(serverId),
-            authHelper = new SessionAuthorizationHelper(api, this._authQueue);
+        let serverId    = server.getId(),
+            api         = await ApiRepository.findById(serverId),
+            authHelper  = new SessionAuthorizationHelper(api, this._authQueue),
+            checkHelper = new ServerRequirementCheck(api);
 
         server.setStatus(server.STATUS_UNAUTHORIZED);
+        if(!await checkHelper.check(true)) return;
         try {
             let result = await authHelper.authorize();
             this._authState.set(!this._authQueue.hasItems());
-            if(!result) return ;
+            if(!result) return;
         } catch(e) {
             this._authState.set(!this._authQueue.hasItems());
-            return ;
+            return;
         }
 
         this._servers[serverId] = server;
@@ -143,7 +146,7 @@ class ServerManager {
     async deleteServer(server) {
         await this.removeServer(server);
         let serverId = server.getId(),
-            api = await ApiRepository.findById(server.getId());
+            api      = await ApiRepository.findById(server.getId());
 
         await ApiRepository.delete(api);
         await ServerRepository.delete(server);

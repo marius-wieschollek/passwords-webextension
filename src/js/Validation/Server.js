@@ -4,6 +4,7 @@ import Api from 'passwords-client';
 import HttpError from 'passwords-client/src/Exception/Http/HttpError';
 import ServerRepository from '@js/Repositories/ServerRepository';
 import ServerModel from '@js/Models/Server/Server';
+import ServerRequirementCheck from '@js/Helper/ServerRequirementCheck';
 
 export default class Server {
 
@@ -19,7 +20,8 @@ export default class Server {
         let server = this._createModel(data, result);
         if(server &&
            await this._duplicateCheck(server, result) &&
-           await this._checkConnection(server, result)) {
+           await this._checkConnection(server, result) &&
+           await this._checkRequirements(server, result)) {
             result.server = server;
         }
 
@@ -197,7 +199,7 @@ export default class Server {
      *
      * @param {Server} server
      * @param {Object} response
-     * @returns {Promise<boolean>}
+     * @returns {Promise<Boolean>}
      * @private
      */
     async _checkConnection(server, response) {
@@ -218,6 +220,26 @@ export default class Server {
             }
             return false;
         }
+    }
+
+    /**
+     *
+     * @param {Server} server
+     * @param {Object} result
+     * @returns {Promise<Boolean>}
+     * @private
+     */
+    async _checkRequirements(server, result) {
+        let api = new Api(server, {}),
+            checkHelper = new ServerRequirementCheck(api);
+
+        if(!await checkHelper.check()) {
+            result.ok = false;
+            result.message = LocalisationService.translate('ValidationServerVersion');
+            return false;
+        }
+
+        return true;
     }
 
 

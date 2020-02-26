@@ -221,6 +221,10 @@
             }
         }
     },
+    "ValidationServerVersion": {
+        "message"     : "Die Version von Passwörter auf dem Server ist veraltet",
+        "description" : ""
+    },
     "NoRelatedPasswords"         : {
         "message"    : "Keine Vorschläge vorhanden",
         "description": ""
@@ -342,6 +346,26 @@
     "ButtonMore": {
         "message"    : "Mehr Optionen",
         "description": "The more options button of a password notification which opens the popup"
+    },
+    "ToastServerCheckTitle": {
+        "message"    : "$SERVER$ muss aktualisiert werden",
+        "description": "",
+        "placeholders": {
+            "server"  : {
+                "content": "$1",
+                "example": "Meine Nextcloud"
+            }
+        }
+    },
+    "ToastServerCheckMessage": {
+        "message"    : "The account \"$SERVER$\" verwendet einen Server auf dem eine veraltete Version von Passwörter installiert ist. Der Server muss aktualisiert werden bevor das Konto in den Einstellungen erneut aktiviert werden kann.",
+        "description": "",
+        "placeholders": {
+            "server"  : {
+                "content": "$1",
+                "example": "Meine Nextcloud"
+            }
+        }
     },
 
 

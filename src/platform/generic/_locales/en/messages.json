@@ -235,6 +235,10 @@
             }
         }
     },
+    "ValidationServerVersion": {
+        "message"     : "The app version installed on the server is outdated",
+        "description" : ""
+    },
     "NoRelatedPasswords"         : {
         "message"    : "Did not find any related passwords",
         "description": "Used in the related tab when no entries match the current website"
@@ -356,6 +360,26 @@
     "ButtonMore": {
         "message"    : "More Options",
         "description": "The more options button of a password notification which opens the popup"
+    },
+    "ToastServerCheckTitle": {
+        "message"    : "$SERVER$ needs to be upgraded",
+        "description": "",
+        "placeholders": {
+            "server"  : {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "ToastServerCheckMessage": {
+        "message"    : "The account \"$SERVER$\" uses a server running an outdated version of passwords. The server must be updated before the account can be reactivated in the settings.",
+        "description": "",
+        "placeholders": {
+            "server"  : {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
     },
 
 
