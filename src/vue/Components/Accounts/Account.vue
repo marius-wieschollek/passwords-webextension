@@ -68,6 +68,7 @@
                         }
                     );
                 } catch(e) {
+                    ErrorManager.logError(e);
                     ToastService.error(e.message, 'ServerSaveErrorTitle')
                         .catch(ErrorManager.catch);
                     this.submitting = false;

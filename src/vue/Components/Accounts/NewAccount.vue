@@ -55,22 +55,18 @@
                 try {
                     let message = await MessageService.send({type: 'server.create', payload});
                     if(message.getType() === 'server.item') {
+                        ToastService.success('ServerCreatedMessage', 'ServerSaveTitle')
+                            .catch(ErrorManager.catch);
                         this.$emit('create');
                     } else {
                         ToastService.error(message.getPayload().message, 'ServerSaveErrorTitle')
                             .catch(ErrorManager.catch);
-                        this.submitting = false;
-                        return;
                     }
                 } catch(e) {
-                    ToastService.error(e.message, 'ServerSaveErrorTitle')
-                        .catch(ErrorManager.catch);
-                    this.submitting = false;
-                    return;
+                    ErrorManager.logError(e);
+                    ToastService.error(e.message, 'ServerSaveErrorTitle').catch(ErrorManager.catch);
                 }
 
-                ToastService.success('ServerCreatedMessage', 'ServerSaveTitle')
-                    .catch(ErrorManager.catch);
                 this.submitting = false;
             }
         }
