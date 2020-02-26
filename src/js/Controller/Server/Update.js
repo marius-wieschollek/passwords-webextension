@@ -3,6 +3,7 @@ import ServerValidation from '@js/Validation/Server';
 import ErrorManager from '@js/Manager/ErrorManager';
 import ServerRepository from '@js/Repositories/ServerRepository';
 import ServerManager from '@js/Manager/ServerManager';
+import ToastService from '@js/Services/ToastService';
 
 export default class Update extends AbstractController {
 
@@ -25,6 +26,7 @@ export default class Update extends AbstractController {
         if(server) {
             ServerManager.reloadServer(server)
                 .catch(ErrorManager.catch);
+            ToastService.closeByTags(server.getId(), 'login-error');
             reply.setType('server.item').setPayload(server);
         } else {
             reply.setType('validation.error').setPayload(result);
@@ -47,7 +49,7 @@ export default class Update extends AbstractController {
                 .setToken(server.getToken())
                 .setLabel(server.getLabel())
                 .setBaseUrl(server.getBaseUrl());
-            await ServerRepository.update(server);
+            await ServerRepository.update(realServer);
 
             return realServer;
         } catch(e) {

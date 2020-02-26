@@ -1,9 +1,9 @@
 <template>
     <component :is="tag" @click="fireEvent($event)">
-        <slot name="before" />
+        <slot name="before"/>
         {{ text }}
         <slot name="default" v-if="say"/>
-        <slot name="after" />
+        <slot name="after"/>
     </component>
 </template>
 
@@ -17,8 +17,8 @@
                 'default': null
             },
             variables: {
-                type     : Object,
-                'default': () => { return {}; }
+                type     : Array,
+                'default': () => { return []; }
             },
             tag      : {
                 type     : String,

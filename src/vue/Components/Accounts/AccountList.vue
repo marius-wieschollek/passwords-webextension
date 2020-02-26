@@ -1,13 +1,13 @@
 <template>
     <div class="account-list">
         <translate tag="h3" say="AccountList">
-            <icon icon="user-plus" font="solid" @click="showCreateForm" v-if="!addServer"/>
+            <icon icon="user-plus" font="solid" @click="showCreateForm" v-if="!addAccount"/>
         </translate>
-        <foldout :tabs="serverNames"
+        <foldout :tabs="tabs"
                  :translate="false"
                  :initial-open="open"
                  ref="foldout"
-                 v-if="servers.length !== 0 || addServer">
+                 v-if="servers.length !== 0 || addAccount">
             <icon v-for="server in servers"
                   :key="`${server.getId()}-tab-open`"
                   :slot="`${server.getId()}-tab-open`"
@@ -26,7 +26,7 @@
                      v-on:change="onSave"/>
 
             <icon slot="create-tab-open" icon="save" v-on:click.prevent="create()"/>
-            <new-account slot="create" ref="create" v-on:create="onCreate" v-if="addServer"/>
+            <new-account slot="create" ref="create" v-on:create="onCreate" v-if="addAccount"/>
         </foldout>
         <translate tag="div" class="no-accounts" say="NoAccounts" @click="showCreateForm" v-else/>
     </div>
@@ -53,29 +53,37 @@
 
         data() {
             return {
-                addServer: false,
-                open     : false
+                addAccount: false,
+                open      : false
             };
         },
 
         computed: {
-            serverNames() {
-                let names = {};
+            tabs() {
+                let tabs = {};
 
                 for(let server of this.servers) {
-                    names[server.getId()] = server.getLabel();
+                    tabs[server.getId()] = {
+                        label   : server.getLabel(),
+                        icon    : server.getEnabled() ? 'user':'exclamation-triangle',
+                        iconFont: 'solid'
+                    };
                 }
 
-                if(this.addServer) {
-                    names.create = LocalisationService.translate('NewServer');
+                if(this.addAccount) {
+                    tabs.create = {
+                        label   : LocalisationService.translate('NewServer'),
+                        icon    : 'user-plus',
+                        iconFont: 'solid'
+                    };
                 }
 
-                return names;
+                return tabs;
             }
         },
         methods : {
             showCreateForm() {
-                this.addServer = true;
+                this.addAccount = true;
 
                 if(this.$refs.foldout) {
                     this.$refs.foldout.setActive('create');
@@ -106,7 +114,7 @@
             },
             onCreate() {
                 this.open = false;
-                this.addServer = false;
+                this.addAccount = false;
 
                 this.$emit('change');
             },
@@ -131,6 +139,10 @@
         .no-accounts {
             padding : 1rem;
             cursor  : pointer;
+        }
+
+        .label .icon-exclamation-triangle {
+            color : #ea2027;
         }
     }
 </style>

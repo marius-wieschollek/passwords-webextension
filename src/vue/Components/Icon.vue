@@ -45,7 +45,7 @@
 
                 if(this.spin) style += ' fa-spin';
 
-                return `icon ${style} fa-${icon}`;
+                return `icon icon-${icon} font-${font} ${style} fa-${icon}`;
             }
         },
 

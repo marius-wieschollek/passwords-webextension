@@ -86,7 +86,7 @@
                 if(message.getType() === 'server.item') {
                     this.success = true;
                     this.token = '';
-                    this.$emit('create');
+                    this.$emit('change');
                 } else {
                     this.error = message.getPayload().message;
                 }

@@ -1,16 +1,21 @@
 <template>
     <div class="foldout-container">
-        <div :key="name" v-for="(tab, name) in tabs">
-            <div class="foldout-tab" :class="{ active: isActive(name) }">
-                <translate :say="tab" class="label" @click="setActive(name)" v-if="translate"/>
-                <span class="label" @click="setActive(name)" v-else>{{tab}}</span>
-                <slot :name="`${name}-tab-open`" v-if="isActive(name)"/>
-                <slot :name="`${name}-tab-closed`" v-if="!isActive(name)"/>
-                <slot :name="`${name}-tab`"/>
+        <div v-for="tab in getTabs" :key="tab.id">
+            <div class="foldout-tab" :class="{ active: tab.active }">
+                <translate :say="tab.label" class="label" @click="setActive(tab.id)" v-if="translate">
+                    <icon :icon="tab.icon" :font="tab.iconFont" slot="before" v-if="tab.icon"/>
+                </translate>
+                <span class="label" @click="setActive(tab.id)" v-else>
+                    <icon :icon="tab.icon" :font="tab.iconFont" v-if="tab.icon"/>
+                    {{tab.label}}
+                </span>
+                <slot :name="`${tab.id}-tab-open`" v-if="isActive(tab.id)"/>
+                <slot :name="`${tab.id}-tab-closed`" v-if="!isActive(tab.id)"/>
+                <slot :name="`${tab.id}-tab`"/>
             </div>
-            <div :class="{ active: isActive(name) }" class="foldout-content">
+            <div :class="{ active: isActive(tab.id) }" class="foldout-content">
                 <keep-alive>
-                    <slot :name="name" v-if="isActive(name)"/>
+                    <slot :name="tab.id" v-if="isActive(tab.id)"/>
                 </keep-alive>
             </div>
         </div>
@@ -19,9 +24,10 @@
 
 <script>
     import Translate from '@vue/Components/Translate';
+    import Icon from '@vue/Components/Icon';
 
     export default {
-        components: {Translate},
+        components: {Icon, Translate},
 
         props: {
             tabs       : {
@@ -42,6 +48,26 @@
             if(this.initialOpen) tab = Object.keys(this.tabs)[0];
 
             return {tab};
+        },
+
+        computed: {
+            getTabs() {
+                let tabs = [];
+
+                for(let id in this.tabs) {
+                    if(!this.tabs.hasOwnProperty(id)) continue;
+                    let tab = this.tabs[id];
+                    if(typeof tab === 'string') tab = {label: tab};
+                    if(!tab.hasOwnProperty('icon')) tab.icon = null;
+                    if(!tab.hasOwnProperty('iconFont')) tab.iconFont = null;
+                    tab.id = id;
+                    tab.active = this.isActive(tab.id);
+
+                    tabs.push(tab);
+                }
+
+                return tabs;
+            }
         },
 
         methods: {
@@ -100,6 +126,10 @@
                 white-space   : nowrap;
                 text-overflow : ellipsis;
                 overflow      : hidden;
+
+                .icon {
+                    margin-right : .5rem;
+                }
             }
 
             .options {
@@ -143,7 +173,8 @@
             }
 
             .option,
-            .icon {
+            > .icon,
+            div .icon {
                 padding    : 1rem;
                 display    : inline-block;
                 transition : color .15s ease-in-out, background-color .15s ease-in-out;
@@ -164,6 +195,7 @@
 
                     &:hover {
                         background-color : transparent;
+                        box-shadow : none;
                     }
                 }
             }
