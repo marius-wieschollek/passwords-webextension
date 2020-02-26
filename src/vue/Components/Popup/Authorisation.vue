@@ -2,7 +2,7 @@
     <form id="authorisation" @submit.prevent="submit" autocomplete="off" :style="style" :class="className">
         <h2>{{authRequest.getLabel()}}</h2>
         <div v-if="authRequest.requiresPassword()" class="password-container">
-            <input type="password" id="password" v-model="password" placeholder="Password">
+            <input type="password" id="password" :disabled="loggingIn" v-model="password" placeholder="Password">
         </div>
         <div v-if="authRequest.requiresToken()" class="token-container">
             <icon class="token-refresh"
@@ -11,14 +11,14 @@
                   :spin="reloading"
                   @click="requestToken"
                   v-if="tokenRequest"/>
-            <select v-model="provider">
+            <select v-model="provider" :disabled="loggingIn">
                 <option v-for="element in authRequest.getProviders()"
                         :key="element.id"
                         :value="element.id"
                         :title="element.description">{{element.label}}
                 </option>
             </select>
-            <input type="text" id="token" v-model="token" v-if="tokenField" placeholder="Token">
+            <input type="text" id="token" :disabled="loggingIn" v-model="token" v-if="tokenField" placeholder="Token">
         </div>
         <div :class="loginClass">
             <input type="submit" value="Login"/>
@@ -149,6 +149,7 @@
                     await this.loadNext();
                 } catch(e) {
                     this.loggingIn = false;
+                    this.authRequest = Popup.AuthorisationClient.getCurrent();
                     await ToastService.error('AuthorizationFailedText', 'AuthorizationFailedTitle');
                 }
             },
@@ -173,9 +174,6 @@
                 }
 
                 this.reloading = false;
-
-                // @TODO error message when request failed
-                // ? 'ready':'token request failed';
             },
             async loadTheme() {
                 let reply = await MessageService.send({type: 'server.theme', payload: this.authRequest.getServerId()});
@@ -241,6 +239,10 @@
                 border        : 1px solid var(--content-secondary-border-color);
                 border-bottom : none;
                 padding       : 1rem;
+
+                &[disabled] {
+                    opacity: .9;
+                }
             }
         }
 
