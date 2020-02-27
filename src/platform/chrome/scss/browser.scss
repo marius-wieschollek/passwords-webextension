@@ -2,18 +2,23 @@ body {
     font-size : 11pt;
 
     &.options {
-        max-width : 400px;
-        width     : 400px;
+        max-width : 800px;
+        width     : 800px;
+    }
+
+    &.mobile.options {
+        max-width : 100vw;
+        width     : 100vw;
     }
 }
 
 #options {
     .account-form fieldset {
-        display: block;
+        display : block;
 
         input {
-            padding: .5rem;
-            width: 100%;
+            padding : .5rem;
+            width   : 100%;
         }
     }
 }
