@@ -41,14 +41,14 @@ class BrowserApi {
      * @return {Boolean}
      */
     hasContextMenu() {
-        return this.getBrowserApi().hasOwnProperty('contextMenus');
+        return !!this.getBrowserApi().contextMenus;
     }
 
     /**
      * @return {Boolean}
      */
     hasBadgeText() {
-        return this.getBrowserApi().browserAction.hasOwnProperty('getBadgeText');
+        return !!this.getBrowserApi().browserAction.getBadgeText;
     }
 
     /**
