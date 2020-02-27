@@ -43,8 +43,8 @@ class ToastService {
 
     /**
      *
-     * @param {String} message The text of the toast
-     * @param {String} [title=null] The title of the toast
+     * @param {(String|String[])} message The text of the toast
+     * @param {(String|String[])} [title=null] The title of the toast
      * @return {Promise<String>}
      */
     warning(message, title = null) {
@@ -54,8 +54,8 @@ class ToastService {
 
     /**
      *
-     * @param {String} message The text of the toast
-     * @param {String} [title=null] The title of the toast
+     * @param {(String|String[])} message The text of the toast
+     * @param {(String|String[])} [title=null] The title of the toast
      * @return {Promise<String>}
      */
     error(message, title = null) {
@@ -65,8 +65,8 @@ class ToastService {
     /**
      * await ToastService.info('text', 'title', {a: 'Option A', b: 'Option B'});
      *
-     * @param {String} message The text of the toast
-     * @param {String} [title=null] The title of the toast
+     * @param {(String|String[])} message The text of the toast
+     * @param {(String|String[])} [title=null] The title of the toast
      * @param {Object} [options=null] Object with available buttons
      * @param {Number} [ttl=10] Time before the toast is closed
      * @return {Promise<String>}
@@ -82,12 +82,12 @@ class ToastService {
 
     /**
      *
-     * @param {String} message The text of the toast
-     * @param {String} [title=null] The title of the toast
+     * @param {(String|String[])} message The text of the toast
+     * @param {(String|String[])} [title=null] The title of the toast
      * @return {Promise<String>}
      */
     success(message, title = null) {
-        return this.create({type: 'success', title, message, closeable: true, ttl: 5});
+        return this.create({type: 'success', title, message, closeable: true, ttl: 3});
     }
 
 
@@ -234,7 +234,7 @@ class ToastService {
 
             let queue = QueueService.getQueue('toasts', 'popup');
             try {
-                let item  = await queue.push(toast);
+                let item = await queue.push(toast);
                 delete this._toasts[toast.getId()];
                 resolve(item.getResult());
             } catch(e) {

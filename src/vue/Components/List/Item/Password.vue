@@ -17,6 +17,8 @@
     import MessageService from '@js/Services/MessageService';
     import Favicon from '@vue/Components/List/Item/Favicon';
     import ToastService from '@js/Services/ToastService';
+    import ErrorManager from '@js/Manager/ErrorManager';
+    import LocalisationService from '@js/Services/LocalisationService';
 
     export default {
         components: {Favicon, Icon},
@@ -31,18 +33,30 @@
         },
 
         methods: {
-            sendPassword() {
-                MessageService.send(
-                    {
-                        type   : 'password.fill',
-                        payload: this.password.getId()
-                    }
-                );
+            async sendPassword() {
+                try {
+                    await MessageService.send({type: 'password.fill', payload: this.password.getId()});
+
+                    ToastService.success(['PasswordPastedSuccess', this.password.getLabel()])
+                        .catch(ErrorManager.catch)
+                        .then(window.close);
+                } catch(e) {
+                    ErrorManager.logError(e);
+                    ToastService.success(['PasswordPastedError', this.password.getLabel()])
+                        .catch(ErrorManager.catch);
+                }
             },
             copy(property) {
                 let data = this.password.getProperty(property);
                 navigator.clipboard.writeText(data);
-                ToastService.info(`Copied ${property}`, null, null, 3);
+
+                let label = property.capitalize();
+                if(['password', 'username', 'url'].indexOf(property) === -1) {
+                    label = LocalisationService.translate(`Property${property}`);
+                }
+
+                ToastService.success(['PasswordPropertyCopied', property])
+                    .catch(ErrorManager.catch);
             }
         }
     };

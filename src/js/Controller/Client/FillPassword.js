@@ -9,7 +9,12 @@ export default class FillPassword extends AbstractController {
      * @param {Message} reply
      */
     async execute(message, reply) {
-        this._fillPassword(message.getPayload().user, message.getPayload().password, message.getPayload().submit);
+        try {
+            this._fillPassword(message.getPayload().user, message.getPayload().password, message.getPayload().submit);
+            reply.setPayload(true);
+        } catch(e) {
+            reply.setPayload(false);
+        }
     }
 
     /**

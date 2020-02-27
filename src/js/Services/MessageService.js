@@ -162,15 +162,19 @@ class MessageService {
                 }
             }
 
-            if(response) {
+            if(response && resolve) {
                 let reply = this._createMessageFromJSON(response);
-                if(!reply) return;
+                if(!reply) {
+                    resolve(null, message);
+                    return;
+                }
 
                 reply = await this._notifyConverters(reply);
                 console.debug('reply.receive', reply);
-                if(resolve) resolve(reply, message);
+
+                resolve(reply, message);
             } else {
-                console.debug('message.response', response, message);
+                console.debug('message.response', response, message, resolve);
             }
         } catch(error) {
             ErrorManager.logError(error, message);

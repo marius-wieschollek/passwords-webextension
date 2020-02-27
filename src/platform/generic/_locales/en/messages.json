@@ -1,25 +1,25 @@
 {
-    "extensionName"              : {
+    "extensionName"               : {
         "message"    : "Passwords for Nextcloud Client",
         "description": "Name of the extension."
     },
-    "extensionDescription"       : {
+    "extensionDescription"        : {
         "message"    : "The official browser extension for Passwords for Nextcloud",
         "description": "Description of the extension."
     },
-    "browserActionTitle"         : {
+    "browserActionTitle"          : {
         "message"    : "Passwords",
         "description": "Title of the button in the browser bar"
     },
-    "contextMenuTitle"           : {
+    "contextMenuTitle"            : {
         "message"    : "Passwords",
         "description": "Title of the context menu item"
     },
-    "protocolHandler"            : {
+    "protocolHandler"             : {
         "message"    : "PassLink Client",
         "description": "Title of the custom protocol handler"
     },
-    "BrowserActionTitleCounter"  : {
+    "BrowserActionTitleCounter"   : {
         "message"     : "Passwords ($COUNTER$)",
         "description" : "Title of the button in the browser bar with suggestion counter",
         "placeholders": {
@@ -29,7 +29,7 @@
             }
         }
     },
-    "UserAgent"                  : {
+    "UserAgent"                   : {
         "message"     : "Official Passwords Client for $BROWSER$ on $OS$",
         "description" : "The user agent used for api requests. Only ASCII characters allowed",
         "placeholders": {
@@ -43,127 +43,127 @@
             }
         }
     },
-    "MigrationAccountName"       : {
+    "MigrationAccountName"        : {
         "message"    : "Nextcloud Account",
         "description": "Label assigned to the account used by the v1.x migration"
     },
-    "SettingsTabAccounts"        : {
+    "SettingsTabAccounts"         : {
         "message"    : "Accounts",
         "description": ""
     },
-    "SettingsTabTheming"         : {
+    "SettingsTabTheming"          : {
         "message"    : "Theming",
         "description": ""
     },
-    "SettingsTabOther"           : {
+    "SettingsTabOther"            : {
         "message"    : "Other Settings",
         "description": ""
     },
-    "SettingsAccountsMain"       : {
+    "SettingsAccountsMain"        : {
         "message"    : "Default account for new passwords",
         "description": ""
     },
-    "SettingsPasswordAutosubmit"       : {
+    "SettingsPasswordAutosubmit"  : {
         "message"    : "Automatically submit login forms",
         "description": ""
     },
-    "NotificationSettings"       : {
+    "NotificationSettings"        : {
         "message"    : "Notification",
         "description": ""
     },
-    "SettingsNotifyPasswordNew"       : {
+    "SettingsNotifyPasswordNew"   : {
         "message"    : "Notification for new passwords",
         "description": ""
     },
-    "SettingsNotifyPasswordUpdate"       : {
+    "SettingsNotifyPasswordUpdate": {
         "message"    : "Notification for updated passwords",
         "description": ""
     },
-    "AccountList"                : {
+    "AccountList"                 : {
         "message"    : "User accounts",
         "description": ""
     },
-    "NoAccounts"                : {
+    "NoAccounts"                  : {
         "message"    : "There are no accounts yet. Click here to create one.",
         "description": ""
     },
-    "NewServer"                : {
+    "NewServer"                   : {
         "message"    : "Create account",
         "description": ""
     },
-    "ServerSaveTitle"         : {
+    "ServerSaveTitle"             : {
         "message"    : "Account saved",
         "description": ""
     },
-    "ServerSaveMessage"         : {
+    "ServerSaveMessage"           : {
         "message"    : "All changes were applied successfully",
         "description": ""
     },
-    "ServerSaveErrorTitle"         : {
+    "ServerSaveErrorTitle"        : {
         "message"    : "Saving failed",
         "description": ""
     },
-    "ServerCreatedMessage"         : {
+    "ServerCreatedMessage"        : {
         "message"    : "The account has been created and is ready to be used",
         "description": ""
     },
-    "ServerDisabledWarning"         : {
+    "ServerDisabledWarning"       : {
         "message"    : "This account is deactivated. It will be activated after it was saved successfully.",
         "description": ""
     },
-    "ServerLabel"                : {
+    "ServerLabel"                 : {
         "message"    : "Name",
         "description": ""
     },
-    "ServerBaseUrl"              : {
+    "ServerBaseUrl"               : {
         "message"    : "Url",
         "description": ""
     },
-    "ServerUser"                 : {
+    "ServerUser"                  : {
         "message"    : "User",
         "description": ""
     },
-    "ServerToken"                : {
+    "ServerToken"                 : {
         "message"    : "Token",
         "description": ""
     },
-    "TabRelated"                 : {
+    "TabRelated"                  : {
         "message"    : "Suggestions",
         "description": ""
     },
-    "TabSearch"                  : {
+    "TabSearch"                   : {
         "message"    : "Search",
         "description": ""
     },
-    "TabBrowse"                  : {
+    "TabBrowse"                   : {
         "message"    : "Browse",
         "description": ""
     },
-    "TabCollected"               : {
+    "TabCollected"                : {
         "message"    : "Collected",
         "description": ""
     },
-    "TabTools"                   : {
+    "TabTools"                    : {
         "message"    : "Tools",
         "description": ""
     },
-    "ValidationLabel"            : {
+    "ValidationLabel"             : {
         "message"    : "label",
         "description": ""
     },
-    "ValidationUser"             : {
+    "ValidationUser"              : {
         "message"    : "user",
         "description": ""
     },
-    "ValidationToken"            : {
+    "ValidationToken"             : {
         "message"    : "token",
         "description": ""
     },
-    "ValidationBaseUrl"          : {
+    "ValidationBaseUrl"           : {
         "message"    : "base url",
         "description": ""
     },
-    "ValidationNotEmpty"         : {
+    "ValidationNotEmpty"          : {
         "message"     : "The $FIELD$ can not be emtpy",
         "description" : "",
         "placeholders": {
@@ -173,7 +173,7 @@
             }
         }
     },
-    "ValidationMinLength"        : {
+    "ValidationMinLength"         : {
         "message"     : "The $FIELD$ must be at least $MIN$ characters long",
         "description" : "",
         "placeholders": {
@@ -187,7 +187,7 @@
             }
         }
     },
-    "ValidationMaxLength"        : {
+    "ValidationMaxLength"         : {
         "message"     : "The $FIELD$ must be shorter than $MAX$ characters",
         "description" : "",
         "placeholders": {
@@ -201,19 +201,19 @@
             }
         }
     },
-    "ValidationNotAnUrl"         : {
+    "ValidationNotAnUrl"          : {
         "message"    : "The base url must be a valid url",
         "description": ""
     },
-    "ValidationNotAToken"        : {
+    "ValidationNotAToken"         : {
         "message"    : "The token must be a valid Nextcloud token",
         "description": ""
     },
-    "ValidationDuplicate"        : {
+    "ValidationDuplicate"         : {
         "message"    : "There is already an account for this user on this Nextcloud.",
         "description": ""
     },
-    "ValidationNoConnection"     : {
+    "ValidationNoConnection"      : {
         "message"     : "Unable to connect to $URL$",
         "description" : "",
         "placeholders": {
@@ -223,7 +223,7 @@
             }
         }
     },
-    "ValidationHttpError"        : {
+    "ValidationHttpError"         : {
         "message"     : "Trying to connect to $URL$ resulted in $ERROR$",
         "description" : "",
         "placeholders": {
@@ -237,7 +237,7 @@
             }
         }
     },
-    "ValidationConnectionError"  : {
+    "ValidationConnectionError"   : {
         "message"     : "Trying to connect to $URL$ resulted in $ERROR$",
         "description" : "",
         "placeholders": {
@@ -251,73 +251,73 @@
             }
         }
     },
-    "ValidationServerVersion": {
-        "message"     : "The app version installed on the server is outdated",
-        "description" : ""
+    "ValidationServerVersion"     : {
+        "message"    : "The app version installed on the server is outdated",
+        "description": ""
     },
-    "NoRelatedPasswords"         : {
+    "NoRelatedPasswords"          : {
         "message"    : "Did not find any related passwords",
         "description": "Used in the related tab when no entries match the current website"
     },
-    "NoSearchResults"            : {
+    "NoSearchResults"             : {
         "message"    : "Did not find any passwords matching your query",
         "description": "Used in the search tab when no entries match the search query"
     },
-    "NoSearchQuery"              : {
+    "NoSearchQuery"               : {
         "message"    : "Write into the search box to find passwords",
         "description": "Used in the search tab when there is no search query"
     },
-    "NoCollectedPasswords"       : {
+    "NoCollectedPasswords"        : {
         "message"    : "No new passwords found",
         "description": "Used in the collected tab when no new passwords have been found"
     },
-    "NoServerItems"       : {
+    "NoServerItems"               : {
         "message"    : "No elements found",
         "description": "Used in the browse tab when a server has no entries to list"
     },
-    "SearchPlaceholder"          : {
+    "SearchPlaceholder"           : {
         "message"    : "Find passwords",
         "description": "Placeholder text of the search box"
     },
-    "MiningItemIsNew"            : {
+    "MiningItemIsNew"             : {
         "message"    : "This is a new password",
         "description": ""
     },
-    "MiningItemIsUpdate"         : {
-        "message"    : "This seems to be an update of \"$PASSWORD$\"",
-        "description": "",
+    "MiningItemIsUpdate"          : {
+        "message"     : "This seems to be an update of \"$PASSWORD$\"",
+        "description" : "",
         "placeholders": {
-            "password"  : {
+            "password": {
                 "content": "$1",
                 "example": "My Password"
             }
         }
     },
-    "TitleClickToEdit"                 : {
+    "TitleClickToEdit"            : {
         "message"    : "Double click to edit",
         "description": ""
     },
-    "TitleEnterToExit"                 : {
+    "TitleEnterToExit"            : {
         "message"    : "Press enter to save",
         "description": ""
     },
-    "LabelLabel"                 : {
+    "LabelLabel"                  : {
         "message"    : "Name",
         "description": ""
     },
-    "LabelPassword"              : {
+    "LabelPassword"               : {
         "message"    : "Password",
         "description": ""
     },
-    "LabelUsername"              : {
+    "LabelUsername"               : {
         "message"    : "User",
         "description": ""
     },
-    "LabelUrl"                   : {
+    "LabelUrl"                    : {
         "message"    : "Url",
         "description": ""
     },
-    "LabelUser"              : {
+    "LabelUser"                   : {
         "message"    : "User",
         "description": ""
     },
@@ -325,77 +325,119 @@
         "message"    : "Passwords",
         "description": ""
     },
-    "LabelFolders"              : {
+    "LabelFolders"                : {
         "message"    : "Folders",
         "description": ""
     },
-    "LabelTags"              : {
+    "LabelTags"                   : {
         "message"    : "Tags",
         "description": ""
     },
-    "AuthorizationFailedTitle"              : {
+    "AuthorizationFailedTitle"    : {
         "message"    : "Authorization failed",
         "description": ""
     },
-    "AuthorizationFailedText"              : {
+    "AuthorizationFailedText"     : {
         "message"    : "Access to the password database with the provided login was denied",
         "description": ""
     },
-    "TokenRequestFailed"              : {
+    "TokenRequestFailed"          : {
         "message"    : "Token request failed",
         "description": ""
     },
-    "NotifyNewPasswordTitle"              : {
+    "NotifyNewPasswordTitle"      : {
         "message"    : "New password detected",
         "description": ""
     },
-    "NotifyNewPasswordText"              : {
-        "message"    : "A new password for \"$LABEL$\" was detected.",
-        "description": "",
+    "NotifyNewPasswordText"       : {
+        "message"     : "A new password for \"$LABEL$\" was detected.",
+        "description" : "",
         "placeholders": {
-            "label"  : {
+            "label": {
                 "content": "$1",
                 "example": "Nextcloud Community Forum"
             }
         }
     },
-    "NotifyNewPasswordTextFF"              : {
-        "message"    : "A new password for \"$LABEL$\" was detected. Click here to view and save it.",
-        "description": "",
+    "NotifyNewPasswordTextFF"     : {
+        "message"     : "A new password for \"$LABEL$\" was detected. Click here to view and save it.",
+        "description" : "",
         "placeholders": {
-            "label"  : {
+            "label": {
                 "content": "$1",
                 "example": "Nextcloud Community Forum"
             }
         }
     },
-    "ButtonSave": {
+    "ButtonSave"                  : {
         "message"    : "Save",
         "description": "The save button of a password notification"
     },
-    "ButtonMore": {
+    "ButtonMore"                  : {
         "message"    : "More Options",
         "description": "The more options button of a password notification which opens the popup"
     },
-    "ToastServerCheckTitle": {
-        "message"    : "$SERVER$ needs to be upgraded",
-        "description": "",
+    "ToastServerCheckTitle"       : {
+        "message"     : "$SERVER$ needs to be upgraded",
+        "description" : "",
         "placeholders": {
-            "server"  : {
+            "server": {
                 "content": "$1",
                 "example": "My Nextcloud"
             }
         }
     },
-    "ToastServerCheckMessage": {
-        "message"    : "The account \"$SERVER$\" uses a server running an outdated version of passwords. The server must be updated before the account can be reactivated in the settings.",
-        "description": "",
+    "ToastServerCheckMessage"     : {
+        "message"     : "The account \"$SERVER$\" uses a server running an outdated version of passwords. The server must be updated before the account can be reactivated in the settings.",
+        "description" : "",
         "placeholders": {
-            "server"  : {
+            "server": {
                 "content": "$1",
                 "example": "My Nextcloud"
             }
         }
+    },
+    "PasswordPastedSuccess"       : {
+        "message"     : "$LABEL$ pasted successfully",
+        "description" : "",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "PasswordPastedError"         : {
+        "message"     : "Could not paste $LABEL$",
+        "description" : "",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "PasswordPropertyCopied"      : {
+        "message"     : "Copied $PROPERTY$",
+        "description" : "",
+        "placeholders": {
+            "property": {
+                "content": "$1",
+                "example": "Username"
+            }
+        }
+    },
+    "PropertyPassword"            : {
+        "message"    : "Password",
+        "description": ""
+    },
+    "PropertyUsername"            : {
+        "message"    : "Username",
+        "description": ""
+    },
+    "PropertyUrl"                 : {
+        "message"    : "Url",
+        "description": ""
     },
 
 
@@ -407,13 +449,11 @@
 
 
 
-
-
-    "PasswordRequestFailedTitle" : {
+    "PasswordRequestFailedTitle"  : {
         "message"    : "Nextcloud password request failed",
         "description": "Notification title when the password request fails"
     },
-    "PasswordRequestFailedText"  : {
+    "PasswordRequestFailedText"   : {
         "message"     : "The password list could not be retrieved.\nError: $ERROR$",
         "description" : "Notification text when the password request fails",
         "placeholders": {
@@ -423,11 +463,11 @@
             }
         }
     },
-    "PasswordEncodingFailedTitle": {
+    "PasswordEncodingFailedTitle" : {
         "message"    : "Could not parse password properties",
         "description": "Notification title when the password properties can not be parsed"
     },
-    "PasswordEncodingFailedText" : {
+    "PasswordEncodingFailedText"  : {
         "message"     : "The properties of password #$ID$ do not contain valid JSON data and could not be processed",
         "description" : "Notification text when the password properties can not be parsed",
         "placeholders": {
@@ -437,27 +477,27 @@
             }
         }
     },
-    "PasswordCreatedTitle"       : {
+    "PasswordCreatedTitle"        : {
         "message"    : "Password saved",
         "description": "Notification title when a password was saved"
     },
-    "PasswordCreatedText"        : {
+    "PasswordCreatedText"         : {
         "message"    : "The password was stored sucessfully",
         "description": "Notification text when a password was saved"
     },
-    "CreatePasswordFailedTitle"  : {
+    "CreatePasswordFailedTitle"   : {
         "message"    : "Save password failed",
         "description": "Notification title when saving a password failed"
     },
-    "CreatePasswordFailedText"   : {
+    "CreatePasswordFailedText"    : {
         "message"    : "The password could not be saved",
         "description": "Notification text when saving a password failed"
     },
-    "UpdatedLoginDetectedTitle"  : {
+    "UpdatedLoginDetectedTitle"   : {
         "message"    : "Updated login found",
         "description": "Notification title when an updated login is detected"
     },
-    "UpdatedLoginDetectedText"   : {
+    "UpdatedLoginDetectedText"    : {
         "message"     : "Click here to update the password for \"$USER$\"",
         "description" : "Notification text when an updated login is detected",
         "placeholders": {
@@ -467,43 +507,43 @@
             }
         }
     },
-    "PasswordUpdatedTitle"       : {
+    "PasswordUpdatedTitle"        : {
         "message"    : "Password updated",
         "description": "Notification title when a password was updated"
     },
-    "PasswordUpdatedText"        : {
+    "PasswordUpdatedText"         : {
         "message"    : "The password was updated sucessfully",
         "description": "Notification text when a password was updated"
     },
-    "UpdatePasswordFailedTitle"  : {
+    "UpdatePasswordFailedTitle"   : {
         "message"    : "Update password failed",
         "description": "Notification title when updating a password failed"
     },
-    "UpdatePasswordFailedText"   : {
+    "UpdatePasswordFailedText"    : {
         "message"    : "The password could not be updated",
         "description": "Notification text when updating a password failed"
     },
-    "ApiLogin200"                : {
+    "ApiLogin200"                 : {
         "message"    : "URL invalid or API disabled",
         "description": "Error text when an api request could not be decoded"
     },
-    "ApiLogin401"                : {
+    "ApiLogin401"                 : {
         "message"    : "Invalid user credentials",
         "description": "Error text when an api request got a 401 Unauthorized response"
     },
-    "ApiLogin403"                : {
+    "ApiLogin403"                 : {
         "message"    : "Access denied",
         "description": "Error text when an api request got a 403 Forbidden response"
     },
-    "ApiLogin404"                : {
+    "ApiLogin404"                 : {
         "message"    : "URL is invalid",
         "description": "Error text when an api request got a 404 Not Found response"
     },
-    "ApiLogin500"                : {
+    "ApiLogin500"                 : {
         "message"    : "Server crashed during request",
         "description": "Error text when an api request got a 50x Internal Server Error response"
     },
-    "ApiLoginGeneric"            : {
+    "ApiLoginGeneric"             : {
         "message"     : "Http Error $STATUS$: $MESSAGE$",
         "description" : "Generic error message for failed requests",
         "placeholders": {
@@ -517,7 +557,7 @@
             }
         }
     },
-    "SettingsInvalidUrl"         : {
+    "SettingsInvalidUrl"          : {
         "message"     : "The url $URL$ seems to be invalid.\n\n If the url of the app is\nhttps://example.com/index.php/apps/passwords\nyou need to enter\nhttps://example.com\n\nIf the url of the app is\nhttps://example.com/nextcloud/index.php/apps/passwords\nyou need to enter\nhttps://example.com/nextcloud",
         "description" : "Generic error message for failed requests",
         "placeholders": {
@@ -527,12 +567,12 @@
             }
         }
     },
-    "DarkMode"                   : {
+    "DarkMode"                    : {
         "message"    : "Dark Mode",
         "description": "Lable of the Dark Mode setting"
     },
-    "Url"                        : { "message": "Url" },
-    "Password"                   : { "message": "Password" },
-    "User"                       : { "message": "User" },
-    "Save"                       : { "message": "Save" }
+    "Url"                         : { "message": "Url" },
+    "Password"                    : { "message": "Password" },
+    "User"                        : { "message": "User" },
+    "Save"                        : { "message": "Save" }
 }

@@ -3,6 +3,7 @@ import MessageService from '@js/Services/MessageService';
 import AbstractController from '@js/Controller/AbstractController';
 import TabManager from '@js/Manager/TabManager';
 import SettingsService from '@js/Services/SettingsService';
+import ErrorManager from '@js/Manager/ErrorManager';
 
 export default class Fill extends AbstractController {
 
@@ -12,7 +13,8 @@ export default class Fill extends AbstractController {
      * @param {Message} reply
      */
     async execute(message, reply) {
-        /** @type EnhancedPassword **/
+        debugger;
+        /** @type {EnhancedPassword} **/
         let password = SearchIndex.getItem(message.getPayload());
 
         let ids = TabManager.get('autofill.ids', []);
@@ -21,18 +23,25 @@ export default class Fill extends AbstractController {
             TabManager.set('autofill.ids', ids);
         }
 
-        MessageService.send(
-            {
-                type    : 'autofill.password',
-                receiver: 'client',
-                channel : 'tabs',
-                tab     : TabManager.currentTabId,
-                payload : {
-                    user    : password.getUserName(),
-                    password: password.getPassword(),
-                    submit  : await SettingsService.getValue('password.autosubmit')
+        try {
+            await MessageService.send(
+                {
+                    type    : 'autofill.password',
+                    receiver: 'client',
+                    channel : 'tabs',
+                    tab     : TabManager.currentTabId,
+                    payload : {
+                        user    : password.getUserName(),
+                        password: password.getPassword(),
+                        submit  : await SettingsService.getValue('password.autosubmit')
+                    }
                 }
-            }
-        );
+            );
+
+            reply.setPayload({success: true});
+        } catch(e) {
+            ErrorManager.logError(e);
+            reply.setPayload({success: false});
+        }
     }
 }
