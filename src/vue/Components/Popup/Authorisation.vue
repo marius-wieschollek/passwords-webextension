@@ -42,6 +42,7 @@
     import InputField from '@vue/Components/Form/InputField';
     import ButtonField from '@vue/Components/Form/ButtonField';
     import SelectField from '@vue/Components/Form/SelectField';
+    import ErrorManager from '@js/Manager/ErrorManager';
 
     export default {
         components: {SelectField, ButtonField, InputField, Icon, Translate},
@@ -165,7 +166,8 @@
                 try {
                     await Popup.AuthorisationClient.solveCurrent();
                 } catch(e) {
-                    await ToastService.error('AuthorizationFailedText', 'AuthorizationFailedTitle');
+                    ToastService.error('AuthorizationFailedText', 'AuthorizationFailedTitle')
+                        .catch(ErrorManager.catch);
                 }
 
                 this.loggingIn = false;
@@ -186,10 +188,12 @@
                     );
 
                     if(!result.getPayload().success) {
-                        await ToastService.error(result.getPayload().message, 'TokenRequestFailed');
+                        ToastService.error(result.getPayload().message, 'TokenRequestFailed')
+                            .catch(ErrorManager.catch);
                     }
                 } catch(e) {
-                    await ToastService.error(e.message, 'TokenRequestFailed');
+                    ToastService.error(e.message, 'TokenRequestFailed')
+                        .catch(ErrorManager.catch);
                 }
 
                 this.reloading = false;
