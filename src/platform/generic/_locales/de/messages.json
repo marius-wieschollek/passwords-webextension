@@ -209,6 +209,16 @@
             }
         }
     },
+    "ValidationUnauthorizedError"         : {
+        "message"     : "Der Server hinter $URL$ hat die Anmeldedaten nicht akzeptiert",
+        "description" : "",
+        "placeholders": {
+            "url"  : {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
     "ValidationHttpError"         : {
         "message"     : "Der Verbindungsversuch mit $URL$ endete mit $ERROR$",
         "description" : "",
@@ -319,15 +329,15 @@
         "message"    : "Tags",
         "description": ""
     },
-    "PlaceholderPassword"    : {
+    "PlaceholderPassword"         : {
         "message"    : "Passwort",
         "description": ""
     },
-    "PlaceholderToken"    : {
+    "PlaceholderToken"            : {
         "message"    : "Zwei-Faktor Token",
         "description": ""
     },
-    "ButtonLogin"    : {
+    "ButtonLogin"                 : {
         "message"    : "Anmelden",
         "description": ""
     },
@@ -437,16 +447,48 @@
         "message"    : "Webseite",
         "description": ""
     },
-
-
-
-
-
-
-
-
-
-
+    "ServerConnectionErrorTitle"  : {
+        "message"     : "Verbindung mit $SERVER$ fehlgeschlagen",
+        "description" : "",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "ServerCredentialsRejected"   : {
+        "message"    : "Die Anmeldung am Server wurde verwehrt. Bitte aktualisiere die Anmeldedaten in den Einstellungen.",
+        "description": ""
+    },
+    "ServerHttpError"             : {
+        "message"     : "HTTP-Verbindungsfehler: $ERROR$",
+        "description" : "",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "ServerNetworkError"          : {
+        "message"    : "Ein Netzwerkfehler ist aufgetreten. Bitte prüfe ob du online bist und der Server erreichbar ist.",
+        "description": ""
+    },
+    "ServerUnknownError"          : {
+        "message"    : "Unbekannter Fehler.",
+        "description": ""
+    },
+    "ServerGenericError"          : {
+        "message"     : "Error: $ERROR$",
+        "description" : "",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
     "PasswordRequestFailedTitle"  : {
         "message": "Nextcloud Password Abfrage fehlgeschlagen"
     },

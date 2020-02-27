@@ -223,6 +223,16 @@
             }
         }
     },
+    "ValidationUnauthorizedError"         : {
+        "message"     : "The server at $URL$ did not accept the login data",
+        "description" : "",
+        "placeholders": {
+            "url"  : {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
     "ValidationHttpError"         : {
         "message"     : "Trying to connect to $URL$ resulted in $ERROR$",
         "description" : "",
@@ -450,6 +460,48 @@
     "PropertyUrl"                 : {
         "message"    : "Url",
         "description": ""
+    },
+    "ServerConnectionErrorTitle"                 : {
+        "message"    : "Unable to connect to $SERVER$",
+        "description": "",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "ServerCredentialsRejected"                 : {
+        "message"    : "Server credentials rejected. Please update the login data in the settings.",
+        "description": ""
+    },
+    "ServerHttpError"                 : {
+        "message"    : "HTTP connection error: $ERROR$",
+        "description": "",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "ServerNetworkError"                 : {
+        "message"    : "A network error occurred. Please check if you're online and the server is reachable.",
+        "description": ""
+    },
+    "ServerUnknownError"                 : {
+        "message"    : "Unknown error.",
+        "description": ""
+    },
+    "ServerGenericError"                 : {
+        "message"    : "Error: $ERROR$",
+        "description": "",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "500 - Internal Server Error"
+            }
+        }
     },
 
 

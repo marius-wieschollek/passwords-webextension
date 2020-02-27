@@ -1,12 +1,7 @@
 import AuthorisationItem from '@js/Models/Queue/AuthorisationItem';
 import ErrorManager from '@js/Manager/ErrorManager';
-import ServerRepository from '@js/Repositories/ServerRepository';
-import ToastService from '@js/Services/ToastService';
-import HttpError from 'passwords-client/src/Exception/Http/HttpError';
-import NetworkError from 'passwords-client/src/Exception/NetworkError';
-import UnauthorizedError from 'passwords-client/src/Exception/Http/UnauthorizedError';
-import SystemService from '@js/Services/SystemService';
 import ServerManager from '@js/Manager/ServerManager';
+import ConnectionErrorHelper from '@js/Helper/ConnectionErrorHelper';
 
 export default class SessionAuthorizationHelper {
 
@@ -16,6 +11,7 @@ export default class SessionAuthorizationHelper {
      * @param {FeedbackQueue} authQueue
      */
     constructor(api, authQueue) {
+        this._connectionError = new ConnectionErrorHelper();
         this._authQueue = authQueue;
         this._api = api;
     }
@@ -66,18 +62,6 @@ export default class SessionAuthorizationHelper {
             }
             this._updateAuthItem(authItem, authRequest);
         }
-    }
-
-    /**
-     *
-     * @return {Promise<void>}
-     * @private
-     */
-    async _disableServer() {
-        let server = this._api.getServer();
-        server.setEnabled(false);
-        server.setStatus(server.STATUS_DISABLED);
-        await ServerRepository.update(server);
     }
 
     /**
@@ -223,38 +207,7 @@ export default class SessionAuthorizationHelper {
      * @return {Promise<void>}
      * @private
      */
-    async _processError(error) {
-        ErrorManager.logError(error);
-        let title   = 'Could not connect to ' + this._api.getServer().getLabel(),
-            tags    = [this._api.getServer().getId(), 'login-error'],
-            message = 'Unknown Error';
-
-        if(error instanceof UnauthorizedError) {
-            try {
-                await this._disableServer();
-                message = 'Server credentials rejected. Please update login data in the settings';
-
-                ToastService.create({message, title, tags, ttl: 0, type: 'error'})
-                    .then(() => {SystemService.getBrowserApi().runtime.openOptionsPage();})
-                    .catch(ErrorManager.catch);
-                return;
-            } catch(e) {
-                ErrorManager.logError(e);
-            }
-        } else if(error instanceof HttpError) {
-            message = 'HTTP connection error: ' + error.message;
-        } else if(error instanceof TypeError && error.message.substr(0, 12) === 'NetworkError') {
-            message = 'Network error. Please check if you\'re online and the server is reachable';
-
-            ToastService.create({message, title, tags, ttl: 0, type: 'error'})
-                .then(() => {SystemService.getBrowserApi().tabs.create({active: true, url: this._api.getServer().getBaseUrl()});})
-                .catch(ErrorManager.catch);
-
-            return;
-        } else if(error instanceof Error) {
-            message = error.message;
-        }
-
-        ToastService.create({message, title, tags, ttl: 5, type: 'error'}).catch(ErrorManager.catch);
+    _processError(error) {
+        return this._connectionError.processError(error, this._api.getServer());
     }
 }

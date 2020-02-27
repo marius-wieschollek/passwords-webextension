@@ -5,6 +5,7 @@ import HttpError from 'passwords-client/src/Exception/Http/HttpError';
 import ServerRepository from '@js/Repositories/ServerRepository';
 import ServerModel from '@js/Models/Server/Server';
 import ServerRequirementCheck from '@js/Helper/ServerRequirementCheck';
+import UnauthorizedError from 'passwords-client/src/Exception/Http/UnauthorizedError';
 
 export default class Server {
 
@@ -211,8 +212,10 @@ export default class Server {
         } catch(e) {
             ErrorManager.logError(e);
             response.ok = false;
-            if(e.message === 'Failed to fetch') {
+            if(e.message === 'Failed to fetch' || e.message.substr(0, 12) === 'NetworkError') {
                 response.message = LocalisationService.translate('ValidationNoConnection', server.getBaseUrl());
+            } else if(e instanceof UnauthorizedError) {
+                response.message = LocalisationService.translate('ValidationUnauthorizedError', server.getBaseUrl());
             } else if(e instanceof HttpError) {
                 response.message = LocalisationService.translate('ValidationHttpError', server.getBaseUrl(), e.message);
             } else {

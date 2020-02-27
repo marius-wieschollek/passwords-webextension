@@ -3,6 +3,7 @@ import ToastService from '@js/Services/ToastService';
 import SystemService from '@js/Services/SystemService';
 import ErrorManager from '@js/Manager/ErrorManager';
 import Toast from '@js/Models/Toast/Toast';
+import ConnectionErrorHelper from '@js/Helper/ConnectionErrorHelper';
 
 export default class ServerRequirementCheck {
 
@@ -15,6 +16,7 @@ export default class ServerRequirementCheck {
      * @param {Api} api
      */
     constructor(api) {
+        this._connectionError = new ConnectionErrorHelper();
         this._api = api;
     }
 
@@ -29,13 +31,13 @@ export default class ServerRequirementCheck {
                 collection = await repository.findByName('server.app.version'),
                 setting    = collection.get(0);
 
-            if(setting.getValue() === null || !this.versionCompare(setting.getValue())) {
+            if(setting.getValue() === null || !this._versionCompare(setting.getValue())) {
                 if(disable) await this._disableServer();
                 return false;
             }
 
         } catch(e) {
-            ErrorManager.logError(e);
+            this._processError(e);
             return false;
         }
 
@@ -59,7 +61,7 @@ export default class ServerRequirementCheck {
             .setTitleVars([server.getLabel()])
             .setMessageVars([server.getLabel()])
             .setType('error')
-            .setTags([this._api.getServer().getId(), 'login-error'])
+            .setTags([this._api.getServer().getId(), 'server-error'])
             .setTtl(0);
 
         ToastService.create(toast)
@@ -71,7 +73,7 @@ export default class ServerRequirementCheck {
      * @param version
      * @return {Boolean}
      */
-    versionCompare(version) {
+    _versionCompare(version) {
         let base  = this.MINIMUM_APP_VERSION,
             parts = version.split('.');
 
@@ -81,5 +83,15 @@ export default class ServerRequirementCheck {
         }
 
         return true;
+    }
+
+    /**
+     *
+     * @param {Error} error
+     * @return {Promise<void>}
+     * @private
+     */
+    _processError(error) {
+        return this._connectionError.processError(error, this._api.getServer());
     }
 }

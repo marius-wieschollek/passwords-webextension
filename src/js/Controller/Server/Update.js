@@ -26,7 +26,7 @@ export default class Update extends AbstractController {
         if(server) {
             ServerManager.reloadServer(server)
                 .catch(ErrorManager.catch);
-            ToastService.closeByTags(server.getId(), 'login-error');
+            ToastService.closeByTags(server.getId(), 'server-error');
             reply.setType('server.item').setPayload(server);
         } else {
             reply.setType('validation.error').setPayload(result);

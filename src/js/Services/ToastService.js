@@ -156,7 +156,7 @@ class ToastService {
     _createModel(data) {
         let model = data;
         if(!(data instanceof Toast)) {
-            model = this._createModelFromData(data, model);
+            model = this._createModelFromData(data);
         }
 
         if(!model.getId() || this._toasts.hasOwnProperty(model.getId())) model.setId(uuid());
@@ -192,13 +192,13 @@ class ToastService {
         }
 
         if(data.hasOwnProperty('title') && Array.isArray(data.title)) {
-            let title = data.title.pop();
+            let title = data.title.shift();
             data.titleVars = data.title;
             data.title = title;
         }
 
         if(data.hasOwnProperty('message') && Array.isArray(data.message)) {
-            let message = data.message.pop();
+            let message = data.message.shift();
             data.messageVars = data.message;
             data.message = message;
         }
