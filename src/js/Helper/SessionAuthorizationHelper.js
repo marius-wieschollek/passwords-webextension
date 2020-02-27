@@ -64,6 +64,7 @@ export default class SessionAuthorizationHelper {
                 await this._authQueue.push(authItem.setAccepted(true));
                 return false;
             }
+            this._updateAuthItem(authItem, authRequest);
         }
     }
 
@@ -106,6 +107,8 @@ export default class SessionAuthorizationHelper {
             /** @type {SessionAuthorization} **/
             let authRequest = this._api.getClass('authorization.session');
             await authRequest.load();
+            this._api.setInstance('authorization.session', authRequest);
+
             return authRequest;
         } catch(e) {
             await this._processError(e);
@@ -121,17 +124,28 @@ export default class SessionAuthorizationHelper {
      * @private
      */
     _makeAuthItem(authRequest) {
+        let authItem = new AuthorisationItem();
+
+        return this._updateAuthItem(authItem, authRequest);
+    }
+
+    /**
+     *
+     * @param {AuthorisationItem} authItem
+     * @param {SessionAuthorization} authRequest
+     * @return {AuthorisationItem}
+     * @private
+     */
+    _updateAuthItem(authItem, authRequest) {
         let providers = this._getTokenProviderArray(authRequest.getTokens());
 
-        return new AuthorisationItem(
+        return authItem.setTask(
             {
-                task: {
-                    server  : this._api.getServer().getId(),
-                    label   : this._api.getServer().getLabel(),
-                    password: authRequest.requiresChallenge(),
-                    token   : authRequest.requiresToken(),
-                    providers
-                }
+                server  : this._api.getServer().getId(),
+                label   : this._api.getServer().getLabel(),
+                password: authRequest.requiresChallenge(),
+                token   : authRequest.requiresToken(),
+                providers
             }
         );
     }

@@ -13,7 +13,6 @@ export default class Fill extends AbstractController {
      * @param {Message} reply
      */
     async execute(message, reply) {
-        debugger;
         /** @type {EnhancedPassword} **/
         let password = SearchIndex.getItem(message.getPayload());
 

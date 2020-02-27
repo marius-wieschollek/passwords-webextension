@@ -44,7 +44,7 @@ export default class QueueItem {
     /**
      *
      * @param {(Object|*)} value
-     * @returns {QueueItem}
+     * @returns {this}
      */
     setTask(value) {
         this._task = value;
@@ -63,7 +63,7 @@ export default class QueueItem {
     /**
      *
      * @param {(Object|*)} value
-     * @return {QueueItem}
+     * @return {this}
      */
     setResult(value) {
         this._result = value;

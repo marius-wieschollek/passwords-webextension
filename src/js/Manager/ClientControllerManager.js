@@ -15,7 +15,7 @@ class ClientControllerManager {
                     let controller = new FillPassword();
                     await controller.execute(message, reply);
                 } catch(e) {
-                    ErrorManager.logError(e);
+                    ErrorManager.logError(e, {message, reply});
                 }
             }
         );

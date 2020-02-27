@@ -9,9 +9,10 @@ export default class Request extends AbstractController {
             provider    = message.getPayload().provider,
             authRequest = api.getSessionAuthorization();
 
+        if(!authRequest.isLoaded()) await authRequest.load();
         authRequest.setActiveToken(provider);
         let token = authRequest.getActiveToken();
-        if(token.requiresRequest()) {
+        if(token && token.requiresRequest()) {
             try {
                 await token.sendRequest();
             } catch(e) {

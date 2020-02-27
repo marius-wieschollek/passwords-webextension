@@ -39,7 +39,7 @@ class ConverterManager {
             let controller = new module();
             await controller.convert(message);
         } catch(e) {
-            ErrorManager.logError(e);
+            ErrorManager.logError(e, {module, message});
         }
     }
 }
