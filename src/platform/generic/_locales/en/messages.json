@@ -333,6 +333,18 @@
         "message"    : "Tags",
         "description": ""
     },
+    "PlaceholderPassword"    : {
+        "message"    : "Password",
+        "description": ""
+    },
+    "PlaceholderToken"    : {
+        "message"    : "Two-Factor Token",
+        "description": ""
+    },
+    "ButtonLogin"    : {
+        "message"    : "Login",
+        "description": ""
+    },
     "AuthorizationFailedTitle"    : {
         "message"    : "Authorization failed",
         "description": ""

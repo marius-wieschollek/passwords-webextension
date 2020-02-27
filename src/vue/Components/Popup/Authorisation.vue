@@ -2,7 +2,11 @@
     <form id="authorisation" @submit.prevent="submit" autocomplete="off" :style="style" :class="className">
         <h2>{{label}}</h2>
         <div v-if="hasPassword" class="password-container">
-            <input type="password" id="password" :disabled="loggingIn" v-model="password" placeholder="Password">
+            <input-field type="password"
+                         id="password"
+                         :disabled="loggingIn"
+                         v-model="password"
+                         placeholder="PlaceholderPassword"/>
         </div>
         <div v-if="hasToken" class="token-container">
             <icon class="token-refresh"
@@ -11,17 +15,19 @@
                   :spin="reloading"
                   @click="requestToken"
                   v-if="tokenRequest"/>
-            <select v-model="provider" :disabled="loggingIn">
-                <option v-for="element in authRequest.getProviders()"
-                        :key="element.id"
-                        :value="element.id"
-                        :title="element.description">{{element.label}}
-                </option>
-            </select>
-            <input type="text" id="token" :disabled="loggingIn" v-model="token" v-if="tokenField" placeholder="Token">
+            <select-field v-model="provider"
+                          :disabled="loggingIn"
+                          :translate="false"
+                          :options="authRequest.getProviders()"/>
+            <input-field type="text"
+                         id="token"
+                         :disabled="loggingIn"
+                         v-model="token"
+                         v-if="tokenField"
+                         placeholder="PlaceholderToken"/>
         </div>
         <div :class="loginClass">
-            <input type="submit" value="Login"/>
+            <button-field type="submit" value="ButtonLogin"/>
             <icon :icon="icon" :spin="spin" font="solid"/>
         </div>
     </form>
@@ -33,9 +39,12 @@
     import Icon from '@vue/Components/Icon';
     import Popup from '@js/App/Popup';
     import ToastService from '@js/Services/ToastService';
+    import InputField from '@vue/Components/Form/InputField';
+    import ButtonField from '@vue/Components/Form/ButtonField';
+    import SelectField from '@vue/Components/Form/SelectField';
 
     export default {
-        components: {Icon, Translate},
+        components: {SelectField, ButtonField, InputField, Icon, Translate},
         data() {
             return {
                 authRequest : null,
@@ -155,15 +164,15 @@
             async tryLogin() {
                 try {
                     await Popup.AuthorisationClient.solveCurrent();
-                    this.loggingIn = false;
-                    await this.loadNext();
                 } catch(e) {
-                    this.loggingIn = false;
-                    this.authRequest = Popup.AuthorisationClient.getCurrent();
                     await ToastService.error('AuthorizationFailedText', 'AuthorizationFailedTitle');
                 }
+
+                this.loggingIn = false;
+                await this.loadNext();
             },
             async requestToken() {
+                if(this.reloading || !this.tokenRequest) return ;
                 this.reloading = true;
                 try {
                     let result = await MessageService.send(
@@ -202,7 +211,7 @@
                 }
                 this.token = null;
                 this.authRequest.setProvider(value);
-                if(this.tokenRequest) this.requestToken();
+                if(this.tokenRequest && value) this.requestToken();
             },
             token(value) {
                 this.authRequest.setToken(value);

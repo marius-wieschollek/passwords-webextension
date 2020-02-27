@@ -319,6 +319,18 @@
         "message"    : "Tags",
         "description": ""
     },
+    "PlaceholderPassword"    : {
+        "message"    : "Passwort",
+        "description": ""
+    },
+    "PlaceholderToken"    : {
+        "message"    : "Zwei-Faktor Token",
+        "description": ""
+    },
+    "ButtonLogin"    : {
+        "message"    : "Anmelden",
+        "description": ""
+    },
     "AuthorizationFailedTitle"    : {
         "message"    : "Authorisierung fehlgeschlagen",
         "description": ""
