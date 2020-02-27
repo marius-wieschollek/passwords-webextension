@@ -77,5 +77,14 @@
                 border           : 1px solid var(--element-secondary-hover-border-color);
             }
         }
+
+        &.mobile {
+            input,
+            select,
+            button {
+                line-height : 3rem;
+                padding     : 0 1rem;
+            }
+        }
     }
 </style>

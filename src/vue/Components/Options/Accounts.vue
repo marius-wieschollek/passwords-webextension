@@ -3,7 +3,7 @@
         <div class="account-options">
             <translate tag="label" for="master-account" say="SettingsAccountsMain"/>
             <select id="master-account" v-model="defaultServer">
-                <option v-for="server in servers" :key="server.getId()" :value="server.getId()" :disabled="server.getEnabled()">
+                <option v-for="server in servers" :key="server.getId()" :value="server.getId()" :disabled="!server.getEnabled()">
                     {{server.getLabel()}}
                 </option>
             </select>

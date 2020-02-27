@@ -155,8 +155,9 @@
         }
 
         > .tab-container > .tab-content {
-            max-height : calc(100vh - 3rem - 2px);
-            overflow   : auto;
+            max-height      : calc(100vh - 3rem - 2px);
+            overflow        : auto;
+            scrollbar-width : thin;
         }
 
         @media screen and (min-aspect-ratio : 13/9) {
@@ -180,6 +181,10 @@
                             }
                         }
                     }
+                }
+
+                > .tab-content {
+                    max-height : 100vh;
                 }
             }
         }

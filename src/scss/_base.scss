@@ -1,20 +1,12 @@
 body {
-    margin     : 0;
-    display    : block;
-    box-sizing : border-box;
-
-    &.mobile {
-        input,
-        select,
-        button {
-            line-height : 3rem;
-            padding     : 0 1rem;
-        }
-    }
+    margin          : 0;
+    display         : block;
+    box-sizing      : border-box;
+    scrollbar-width : thin;
 
     input,
     select,
     button, {
-        font-size: 1rem;
+        font-size : 1rem;
     }
 }
