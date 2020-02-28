@@ -29,7 +29,8 @@
     .item.folder-item {
         line-height : 3rem;
         font-size   : 1rem;
-        color       : var(--main-text-color);
+        background-color : var(--element-bg-color);
+        color            : var(--element-fg-color);
         cursor      : pointer;
         overflow    : hidden;
 
@@ -45,8 +46,8 @@
         }
 
         &:hover {
-            background-color : var(--content-secondary-hover-background-color);
-            color            : var(--content-secondary-hover-text-color);
+            background-color : var(--element-hover-bg-color);
+            color            : var(--element-hover-fg-color);
 
             > .label {
                 flex-shrink : 1;

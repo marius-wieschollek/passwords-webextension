@@ -1,7 +1,8 @@
 <template>
     <div class="item folder-item parent-item" v-if="model" @click="open()">
         <div class="label">
-            <icon icon="folder-open" font="solid"/>{{model.getLabel()}}
+            <icon icon="folder-open" font="solid"/>
+            {{model.getLabel()}}
         </div>
     </div>
 </template>
@@ -62,7 +63,13 @@
 <style lang="scss">
     .item.parent-item,
     .item.parent-item:hover {
-        color       : var(--content-primary-text-color);
-        font-weight : bold;
+        background-color : var(--element-active-bg-color);
+        color            : var(--element-active-fg-color);
+        font-weight      : bold;
+
+        &:hover {
+            background-color : var(--element-active-hover-bg-color);
+            color            : var(--element-active-hover-fg-color);
+        }
     }
 </style>

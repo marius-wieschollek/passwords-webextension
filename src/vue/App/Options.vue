@@ -44,19 +44,13 @@
 
         select,
         input[type=text] {
-            background-color : var(--main-background-color);
-            color            : var(--element-secondary-text-color);
-            border           : 1px solid var(--element-secondary-border-color);
+            background-color : var(--element-bg-color);
+            color            : var(--element-fg-color);
+            border           : 1px solid var(--element-hover-bg-color);
             border-radius    : 3px;
             font-weight      : normal;
             cursor           : text;
             padding          : 3px;
-
-            &:hover {
-                background-color : var(--main-background-color);
-                color            : var(--element-secondary-hover-text-color);
-                border           : 1px solid var(--element-secondary-hover-border-color);
-            }
         }
 
         select {
@@ -64,17 +58,17 @@
         }
 
         input[type=button] {
-            background-color : var(--element-secondary-background-color);
-            color            : var(--element-secondary-text-color);
-            border           : 1px solid var(--element-secondary-border-color);
+            background-color : var(--element-hover-bg-color);
+            color            : var(--element-hover-fg-color);
+            border           : 1px solid var(--element-hover-bg-color);
             border-radius    : 3px;
             font-weight      : normal;
             cursor           : pointer;
 
             &:hover {
-                background-color : var(--element-secondary-hover-background-color);
-                color            : var(--element-secondary-hover-text-color);
-                border           : 1px solid var(--element-secondary-hover-border-color);
+                background-color : var(--button-hover-bg-color);
+                color            : var(--button-hover-fg-color);
+                border           : 1px solid var(--button-hover-bg-color);
             }
         }
 

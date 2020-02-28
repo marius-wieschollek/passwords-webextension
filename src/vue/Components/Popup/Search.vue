@@ -82,9 +82,9 @@
             line-height      : 3rem;
             padding          : 0 .5rem;
             border           : none;
-            border-bottom    : 2px solid var(--content-primary-border-color);
-            border-top       : 1px solid var(--element-secondary-border-color);
-            background-color : var(--content-secondary-hover-background-color);
+            border-bottom    : 2px solid var(--element-active-fg-color);
+            background-color : var(--element-active-hover-bg-color);
+            color : var(--element-active-hover-fg-color);
         }
 
         .no-results {

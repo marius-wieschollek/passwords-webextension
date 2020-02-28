@@ -1,8 +1,11 @@
 body {
-    margin          : 0;
-    display         : block;
-    box-sizing      : border-box;
-    scrollbar-width : thin;
+    background-color : var(--element-bg-color);
+    color            : var(--element-fg-color);
+    margin           : 0;
+    display          : block;
+    box-sizing       : border-box;
+    scrollbar-width  : thin;
+    scrollbar-color  : var(--element-active-fg-color) var(--element-active-bg-color);
 
     input,
     select,

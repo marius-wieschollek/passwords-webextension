@@ -36,7 +36,7 @@
         .create-info {
             display : block;
             padding : 1rem .5rem .25rem .5rem;
-            color   : var(--content-primary-text-color);
+            color   : var(--element-active-fg-color);
         }
     }
 </style>

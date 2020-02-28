@@ -103,14 +103,15 @@
             display          : flex;
             flex-direction   : row;
             overflow         : hidden;
-            background-color : var(--content-secondary-background-color);
-            color            : var(--content-secondary-text-color);
-            box-shadow       : 0 -1px 0 var(--content-secondary-border-color) inset;
+            background-color : var(--element-bg-color);
+            color            : var(--element-fg-color);
+            box-shadow       : var(--tab-border);
+            transition       : var(--element-transition);
 
             &:hover {
-                background-color : var(--content-secondary-hover-background-color);
-                color            : var(--content-secondary-hover-text-color);
-                box-shadow       : 0 -1px 0 var(--content-secondary-hover-border-color) inset;
+                background-color : var(--element-hover-bg-color);
+                color            : var(--element-hover-fg-color);
+                box-shadow       : var(--tab-border);
             }
 
             > * {
@@ -133,9 +134,7 @@
             }
 
             .options {
-                display          : flex;
-                background-color : var(--content-secondary-background-color);
-                box-shadow       : 0 -1px 0 var(--content-secondary-border-color) inset;
+                display : flex;
             }
 
             &.active,
@@ -144,45 +143,32 @@
                     flex-shrink : 1;
                     min-width   : 50vw;
                 }
-
-                .options {
-                    background-color : var(--content-secondary-hover-background-color);
-                    box-shadow       : 0 -1px 0 var(--content-secondary-hover-border-color) inset;
-                }
             }
 
             &.active {
-                background-color : var(--content-primary-background-color);
-                color            : var(--content-primary-text-color);
-                box-shadow       : 0 -1px 0 var(--content-primary-hover-border-color) inset, 0 -4px 0 var(--content-primary-border-color) inset;
-
-                .options {
-                    background-color : var(--content-primary-background-color);
-                    box-shadow       : 0 -1px 0 var(--content-primary-hover-border-color) inset, 0 -4px 0 var(--content-primary-border-color) inset;
-                }
+                background-color : var(--element-active-bg-color);
+                color            : var(--element-active-fg-color);
+                box-shadow       : var(--tab-active-border);
 
                 &:hover {
-                    background-color : var(--content-primary-hover-background-color);
-                    color            : var(--content-primary-hover-text-color);
-
-                    .options {
-                        background-color : var(--content-primary-hover-background-color);
-                        color            : var(--content-primary-hover-text-color);
-                    }
+                    background-color : var(--element-active-hover-bg-color);
+                    color            : var(--element-active-hover-fg-color);
                 }
             }
 
             .option,
             > .icon,
             div .icon {
-                padding    : 1rem;
-                display    : inline-block;
-                transition : color .15s ease-in-out, background-color .15s ease-in-out;
+                padding          : 1rem;
+                display          : inline-block;
+                background-color : var(--button-bg-color);
+                color            : var(--button-fg-color);
+                transition       : var(--button-transition);
 
                 &:hover {
-                    background-color : var(--element-primary-background-color);
-                    color            : var(--element-primary-text-color);
-                    box-shadow       : 0 -1px 0 var(--content-primary-hover-border-color) inset, 0 -4px 0 var(--content-primary-border-color) inset;
+                    background-color : var(--button-hover-bg-color);
+                    color            : var(--button-hover-fg-color);
+                    box-shadow       : var(--tab-active-border);
                 }
             }
 
@@ -195,7 +181,7 @@
 
                     &:hover {
                         background-color : transparent;
-                        box-shadow : none;
+                        box-shadow       : none;
                     }
                 }
             }
@@ -206,14 +192,14 @@
             padding-bottom : 1rem;
 
             &.active {
-                display       : block;
-                border-bottom : 1px solid var(--content-secondary-border-color);
+                display    : block;
+                box-shadow : var(--tab-border);
             }
         }
 
         > div:last-child {
             .foldout-content.active {
-                border-bottom : none;
+                box-shadow : none;
             }
         }
     }

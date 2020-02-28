@@ -29,7 +29,7 @@ module.exports = env => {
         new MiniCssExtractPlugin({filename: 'css/[name].css'}),
         new CleanWebpackPlugin(
             {
-                cleanStaleWebpackAssets: false,
+                cleanStaleWebpackAssets     : false,
                 cleanOnceBeforeBuildPatterns: ['**/*'],
                 cleanAfterEveryBuildPatterns: ['js/Platform', 'scss']
             }

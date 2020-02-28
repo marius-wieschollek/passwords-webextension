@@ -13,7 +13,10 @@
             </div>
         </div>
         <div class="tab-content">
-            <div v-for="(meta, name) in tabs" :key="name" :class="`tab-content-${name}`" :style="{display: name===tab ? 'block':'none'}">
+            <div v-for="(meta, name) in tabs"
+                 :key="name"
+                 :class="`tab-content-${name}`"
+                 :style="{display: name===tab ? 'block':'none'}">
                 <keep-alive>
                     <slot :name="name" v-if="name===tab"/>
                 </keep-alive>
@@ -55,7 +58,7 @@
                     return;
                 }
                 this.tab = tab;
-                this.$emit('switch', {tab})
+                this.$emit('switch', {tab});
             }
         },
 
@@ -82,15 +85,17 @@
             flex             : 1 1 auto;
             text-align       : center;
             display          : flex;
-            background-color : var(--content-secondary-background-color);
-            color            : var(--content-secondary-text-color);
-            box-shadow       : 0 -1px 0 var(--content-secondary-border-color) inset;
+            background-color : var(--element-bg-color);
+            color            : var(--element-fg-color);
+            box-shadow       : var(--tab-border);
             white-space      : nowrap;
+            transition       : var(--element-transition);
 
             &:hover {
-                background-color : var(--content-secondary-hover-background-color);
-                color            : var(--content-secondary-hover-text-color);
-                box-shadow       : 0 -1px 0 var(--content-secondary-hover-border-color) inset;
+                background-color : var(--element-hover-bg-color);
+                color            : var(--element-hover-fg-color);
+                box-shadow       : var(--tab-border);
+                transition       : var(--element-transition);
             }
 
             .icon {
@@ -100,17 +105,13 @@
             }
 
             &.active {
-                background-color : var(--content-primary-background-color);
-                color            : var(--content-primary-text-color);
-                box-shadow       : 0 -1px 0 var(--content-primary-hover-border-color) inset, 0 -4px 0 var(--content-primary-border-color) inset;
+                background-color : var(--element-active-bg-color);
+                color            : var(--element-active-fg-color);
+                box-shadow       : var(--tab-active-border);
 
                 &:hover {
-                    background-color : var(--content-primary-hover-background-color);
-                    color            : var(--content-primary-hover-text-color);
-                }
-
-                .icon svg {
-                    fill : var(--content-primary-text-color);
+                    background-color : var(--element-active-hover-bg-color);
+                    color            : var(--element-active-hover-fg-color);
                 }
             }
         }

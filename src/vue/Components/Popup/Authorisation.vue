@@ -259,7 +259,7 @@
             select,
             input {
                 width         : 70vw;
-                border        : 1px solid var(--content-secondary-border-color);
+                border        : 1px solid var(--element-hover-bg-color);
                 border-bottom : none;
                 padding       : 1rem;
 
@@ -286,7 +286,7 @@
             }
 
             select {
-                background-color    : var(--content-primary-background-color);
+                background-color    : var(--element-bg-color);
                 background-image    : url("/platform/generic/img/angle-down-solid.svg");
                 background-repeat   : no-repeat;
                 background-position : right 1rem center;

@@ -67,8 +67,8 @@
             margin           : 0 .5rem .5rem;
             border-radius    : .25rem;
             padding          : .5rem;
-            color            : #fff;
-            background-color : #0652dd;
+            background-color : var(--info-bg-color);
+            color            : var(--info-fg-color);
         }
 
         .icon {
@@ -85,7 +85,7 @@
 
             &:after {
                 content          : '';
-                background-color : var(--element-secondary-text-color);
+                background-color : var(--element-fg-color);
                 opacity          : 0;
                 position         : absolute;
                 top              : 0;
@@ -103,15 +103,18 @@
         }
 
         &.warning .toast-content {
-            background-color : #ffc312;
+            background-color : var(--warning-bg-color);
+            color: var(--warning-fg-color);
         }
 
         &.error .toast-content {
-            background-color : #ff3f34;
+            background-color : var(--error-bg-color);
+            color: var(--error-fg-color);
         }
 
         &.success .toast-content {
-            background-color : #05c46b;
+            background-color : var(--success-bg-color);
+            color: var(--success-fg-color);
         }
 
         &.has-default {

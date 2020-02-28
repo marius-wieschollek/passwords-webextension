@@ -142,7 +142,7 @@
         }
 
         .label .icon-exclamation-triangle {
-            color : #ea2027;
+            color : var(--error-bg-color);
         }
     }
 </style>

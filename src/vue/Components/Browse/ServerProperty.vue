@@ -40,12 +40,12 @@
         }
 
         a {
-            color: var(--content-primary-text-color);
-            text-decoration: none;
+            color           : var(--element-active-fg-color);
+            text-decoration : none;
 
             &:hover,
             &:active {
-                text-decoration: underline;
+                text-decoration : underline;
             }
         }
     }

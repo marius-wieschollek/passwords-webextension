@@ -81,7 +81,7 @@
             cursor      : pointer;
             display     : block;
             font-weight : bold;
-            color       : var(--content-primary-text-color)
+            color       : var(--element-active-fg-color)
         }
 
         div {
@@ -98,7 +98,7 @@
             transition    : box-shadow .15s ease-in-out;
 
             &:hover {
-                box-shadow : 0 0 0 1px var(--content-secondary-border-color);
+                box-shadow : 0 0 0 1px var(--element-hover-bg-color);
             }
         }
 
@@ -106,7 +106,7 @@
             width         : 100%;
             padding       : .25rem;
             box-sizing    : border-box;
-            box-shadow    : 0 0 0 1px var(--content-primary-border-color);
+            box-shadow    : 0 0 0 1px var(--element-active-fg-color);
             border-radius : 3px;
             border        : none;
             line-height   : 2rem;

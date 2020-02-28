@@ -64,12 +64,14 @@
 
 <style lang="scss">
     .item.password-item {
-        line-height : 3rem;
-        font-size   : 1rem;
-        color       : var(--main-text-color);
-        cursor      : pointer;
-        display     : flex;
-        overflow    : hidden;
+        line-height      : 3rem;
+        font-size        : 1rem;
+        background-color : var(--element-bg-color);
+        color            : var(--element-fg-color);
+        cursor           : pointer;
+        display          : flex;
+        overflow         : hidden;
+        transition       : var(--element-transition);
 
         > * {
             flex-grow   : 0;
@@ -115,8 +117,8 @@
         }
 
         &:hover {
-            background-color : var(--element-secondary-hover-background-color);
-            color            : var(--element-secondary-hover-text-color);
+            background-color : var(--element-hover-bg-color);
+            color            : var(--element-hover-fg-color);
 
             > .label {
                 flex-shrink : 1;
@@ -124,16 +126,20 @@
             }
 
             .options {
-                background-color : var(--element-secondary-hover-background-color);
+                > .icon,
+                > .option {
+                    background-color : var(--button-bg-color);
+                    color            : var(--button-fg-color);
+                    transition       : var(--button-transition);
 
-                > .icon:hover,
-                > .option:hover {
-                    background-color : var(--element-primary-background-color);
-                    color            : var(--element-primary-text-color);
+                    &:hover {
+                        background-color : var(--button-hover-bg-color);
+                        color            : var(--button-hover-fg-color);
+                    }
                 }
 
-                opacity          : 1;
-                transition       : none;
+                opacity    : 1;
+                transition : none;
             }
         }
     }
@@ -148,7 +154,7 @@
             .options {
                 opacity    : 1;
                 transition : none;
-                color      : var(--content-primary-text-color);
+                color      : var(--button-hover-bg-color);
             }
         }
     }

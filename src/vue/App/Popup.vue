@@ -135,13 +135,13 @@
         > .tab-container > .tabs .tab {
             overflow    : hidden;
             width       : calc(100vw - 12rem);
-            transition  : width .15s ease-in-out;
+            transition  : var(--popup-tab-transition);
             box-sizing  : border-box;
             flex-shrink : 0;
 
             .label {
                 opacity    : 1;
-                transition : opacity .15s ease-in-out;
+                transition : var(--fade-transition);
             }
 
             &:not(.active) {
@@ -158,6 +158,7 @@
             max-height      : calc(100vh - 3rem - 2px);
             overflow        : auto;
             scrollbar-width : thin;
+            scrollbar-color : var(--element-active-fg-color) var(--element-active-bg-color);
         }
 
         @media screen and (min-aspect-ratio : 13/9) {
@@ -168,13 +169,11 @@
 
                 > .tabs {
                     display      : block;
-                    border-right : 1px solid var(--content-secondary-border-color);
+                    border-right : 1px solid var(--element-hover-bg-color);
 
                     > .tab {
                         &.active {
-                            box-shadow : 0 -1px 0 var(--content-secondary-border-color) inset,
-                            1px 0 0 var(--content-primary-hover-border-color) inset,
-                            4px 0 0 var(--content-primary-border-color) inset;
+                            box-shadow : var(--mobile-active-border);
 
                             .label {
                                 opacity : 0;

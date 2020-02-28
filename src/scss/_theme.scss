@@ -1,0 +1,48 @@
+:root {
+    /**
+     * Generic content elements
+     */
+    --element-bg-color              : #fff;
+    --element-fg-color              : #000;
+    --element-hover-bg-color        : #ededed;
+    --element-hover-fg-color        : #000;
+    --element-active-bg-color       : #fff;
+    --element-active-fg-color       : #0996f8;
+    --element-active-hover-bg-color : #ededed;
+    --element-active-hover-fg-color : #0670cc;
+
+    /**
+     * Tab buttons
+     */
+    --button-bg-color               : inherit;
+    --button-fg-color               : inherit;
+    --button-hover-bg-color         : #0996f8;
+    --button-hover-fg-color         : #fff;
+
+    /**
+     * Tab borders (box-shadow)
+     */
+    --tab-border                    : 0 -1px 0 var(--element-hover-bg-color) inset;
+    --tab-active-border             : 0 -1px 0 var(--element-active-hover-fg-color) inset, 0 -4px 0 var(--element-active-fg-color) inset;
+    --mobile-active-border          : 0 -1px 0 var(--element-hover-bg-color) inset, 1px 0 0 var(--element-active-hover-fg-color) inset, 4px 0 0 var(--element-active-fg-color) inset;
+
+    /**
+     * Transition effects
+     */
+    --element-transition            : color .15s ease-in-out, background-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    --button-transition             : color .2s ease-in-out, background-color .2s ease-in-out, box-shadow .2s ease-in-out;
+    --popup-tab-transition          : color .15s ease-in-out, background-color .15s ease-in-out, box-shadow .15s ease-in-out, width .15s ease-in-out;
+    --fade-transition               : opacity .15s ease-in-out;
+
+    /**
+     * Toasts
+     */
+    --info-bg-color                 : #0652dd;
+    --info-fg-color                 : #fff;
+    --warning-bg-color              : #ffc312;
+    --warning-fg-color              : #fff;
+    --error-bg-color                : #ff3f34;
+    --error-fg-color                : #fff;
+    --success-bg-color              : #05c46b;
+    --success-fg-color              : #fff;
+}

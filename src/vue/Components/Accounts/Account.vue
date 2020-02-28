@@ -110,7 +110,8 @@
 <style lang="scss">
     .account-form {
         .server-warning {
-            background-color : #ffc312;
+            background-color : var(--warning-bg-color);
+            color            : var(--warning-fg-color);
             margin           : .5rem;
             border-radius    : 3px;
             padding          : 1rem;
