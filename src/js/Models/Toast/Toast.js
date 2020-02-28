@@ -146,6 +146,21 @@ export default class Toast extends AbstractModel {
     }
 
     /**
+     * @return {String}
+     */
+    getDefault() {
+        return this.getProperty('default');
+    }
+
+    /**
+     * @param {String} value
+     * @return {Toast}
+     */
+    setDefault(value) {
+        return this.setProperty('default', value);
+    }
+
+    /**
      * @return {Object}
      */
     getOptions() {

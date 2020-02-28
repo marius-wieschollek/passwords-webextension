@@ -1,5 +1,6 @@
 <template>
     <span :class="iconName"
+          :title="getTitle"
           @click="fireEvent($event)"
           @dblclick="fireEvent($event)"
           v-on:mouseenter="hoverOn()"
@@ -8,6 +9,8 @@
 </template>
 
 <script>
+    import LocalisationService from '@js/Services/LocalisationService';
+
     export default {
         props: {
             icon     : {
@@ -28,6 +31,10 @@
             spin     : {
                 type   : Boolean,
                 default: false
+            },
+            title    : {
+                type   : String,
+                default: null
             }
         },
 
@@ -46,6 +53,11 @@
                 if(this.spin) style += ' fa-spin';
 
                 return `icon icon-${icon} font-${font} ${style} fa-${icon}`;
+            },
+            getTitle() {
+                if(!this.title) return;
+
+                return LocalisationService.translate(this.title);
             }
         },
 

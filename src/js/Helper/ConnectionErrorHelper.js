@@ -26,7 +26,9 @@ export default class ConnectionErrorHelper {
                 await this._disableServer(server);
 
                 ToastService.create({message: 'ServerCredentialsRejected', title, tags, ttl: 0, type: 'error'})
-                    .then(() => {SystemService.getBrowserApi().runtime.openOptionsPage();})
+                    .then((c) => {
+                        if(c) SSystemService.getBrowserApi().runtime.openOptionsPage();
+                    })
                     .catch(ErrorManager.catch);
             } catch(e) {
                 ErrorManager.logError(e);
@@ -35,8 +37,10 @@ export default class ConnectionErrorHelper {
         } else if(error instanceof HttpError) {
             message = ['ServerHttpError', error.message];
         } else if(error instanceof TypeError && (error.message.substr(0, 12) === 'NetworkError' || error.message === 'Failed to fetch')) {
-            ToastService.create({message: 'ServerNetworkError', title, tags, ttl: 0, type: 'error'})
-                .then(() => {SystemService.getBrowserApi().tabs.create({active: true, url: server.getBaseUrl()});})
+            ToastService.create({message: 'ServerNetworkError', title, tags, default: true, ttl: 0, type: 'error'})
+                .then((c) => {
+                    if(c) SystemService.getBrowserApi().tabs.create({active: true, url: server.getBaseUrl()});
+                })
                 .catch(ErrorManager.catch);
 
             return;

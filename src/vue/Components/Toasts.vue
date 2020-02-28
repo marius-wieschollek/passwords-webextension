@@ -1,7 +1,7 @@
 <template>
     <div class="toast-container">
         <transition-group name="toast" tag="div" appear>
-            <toast :toast="toast" v-on:close="onClose(toast, $event)" v-for="toast in toasts" :key="toast.getId()"/>
+            <toast :toast="toast" v-on:choose="onChoose(toast, $event)" v-for="toast in toasts" :key="toast.getId()"/>
         </transition-group>
     </div>
 </template>
@@ -26,8 +26,7 @@
              * @param {Toast} toast
              * @param $event
              */
-            onClose(toast, $event) {
-                console.log(toast.getId());
+            onChoose(toast, $event) {
                 ToastService.choose(toast.getId(), $event);
             }
         }

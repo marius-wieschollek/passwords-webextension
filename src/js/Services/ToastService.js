@@ -94,7 +94,7 @@ class ToastService {
     /**
      *
      * @param {(Toast|Object)} data The configuration of the toast
-     * @return {Promise<String>}
+     * @return {Promise<(String|null)>}
      */
     create(data) {
         let toast = this._createModel(data);
@@ -115,9 +115,9 @@ class ToastService {
     /**
      *
      * @param {String} id
-     * @param {String} choice
+     * @param {(String|null)} [choice=null]
      */
-    choose(id, choice) {
+    choose(id, choice = null) {
         for(let i = 0; i < this._activeToasts.length; i++) {
             if(this._activeToasts[i].getId() === id) {
                 this._activeToasts.splice(i, 1);
@@ -144,7 +144,7 @@ class ToastService {
                 itemTags = toast.getTags();
 
             let intersect = tags.filter(value => itemTags.includes(value));
-            if(intersect.length === tags.length) this.choose(toast.getId(), 'close');
+            if(intersect.length === tags.length) this.choose(toast.getId());
         }
     }
 
@@ -162,6 +162,7 @@ class ToastService {
         if(!model.getId() || this._toasts.hasOwnProperty(model.getId())) model.setId(uuid());
         if(typeof model.getCloseable() !== 'boolean') model.setCloseable(true);
         if(model.getCloseable() && model.getTtl() < this.MIN_TTL && model.getTtl() !== 0) model.setTtl(this.DEFAULT_TTL);
+        if(model.getCloseable() && !model.getDefault()) model.setDefault('close');
         if(model.getTitle() && !model.getTitleVars()) model.setTitleVars([]);
         if(!model.getMessageVars()) model.setMessageVars([]);
         if(!model.getTags()) model.setTags([]);
@@ -240,7 +241,7 @@ class ToastService {
             } catch(e) {
                 ErrorManager.logError(e);
                 delete this._toasts[toast.getId()];
-                resolve('close');
+                resolve(null);
             }
         });
     }
@@ -272,7 +273,7 @@ class ToastService {
         if(toast.getTtl() > 0) {
             let timeout = toast.getTtl() * 1000;
             this._toasts[toast.getId()].timer = setTimeout(() => {
-                this.choose(toast.getId(), 'close');
+                this.choose(toast.getId());
             }, timeout);
         }
     }

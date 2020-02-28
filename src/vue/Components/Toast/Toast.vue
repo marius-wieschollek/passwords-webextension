@@ -1,6 +1,7 @@
 <template>
-    <div :class="className" @click.prevent="close()">
+    <div :class="className" @click.prevent="open()">
         <div class="toast-content">
+            <icon icon="times" font="solid" title="ButtonClose" @click.prevent="close()" v-if="hasCloseButton"/>
             <translate class="title" :say="toast.getTitle()" :variables="toast.getTitleVars()" v-if="toast.getTitle()"/>
             <translate class="message" :say="toast.getMessage()" :variables="toast.getMessageVars()"/>
             <translate tag="div"
@@ -17,9 +18,10 @@
 <script>
     import Translate from '@vue/Components/Translate';
     import Toast from '@js/Models/Toast/Toast';
+    import Icon from '@vue/Components/Icon';
 
     export default {
-        components: {Translate},
+        components: {Icon, Translate},
         props     : {
             toast: Toast
         },
@@ -29,21 +31,29 @@
                 let className = `toast ${this.toast.getType()}`;
 
                 if(this.toast.getCloseable()) {
-                    return `${className} closeable`;
+                    className += `${className} has-default`;
                 }
 
                 return className;
+            },
+            hasCloseButton() {
+                return this.toast.getCloseable() && this.toast.getDefault() !== 'close'
             }
         },
 
         methods: {
+            open() {
+                if(this.toast.getDefault()) {
+                    this.$emit('choose', this.toast.getDefault());
+                }
+            },
             close() {
                 if(this.toast.getCloseable()) {
-                    this.$emit('close', 'close');
+                    this.$emit('choose', null);
                 }
             },
             choose(name) {
-                this.$emit('close', name);
+                this.$emit('choose', name);
             }
         }
     };
@@ -51,7 +61,7 @@
 
 <style lang="scss">
     .toast {
-        overflow  : hidden;
+        overflow : hidden;
 
         .toast-content {
             margin           : 0 .5rem .5rem;
@@ -61,19 +71,50 @@
             background-color : #0652dd;
         }
 
-        &.waring .toast-content {
+        .icon {
+            float      : right;
+            position   : relative;
+            margin     : -.25rem;
+            padding    : .25rem;
+            text-align : center;
+
+            &:before {
+                position : relative;
+                z-index  : 1;
+            }
+
+            &:after {
+                content          : '';
+                background-color : var(--element-secondary-text-color);
+                opacity          : 0;
+                position         : absolute;
+                top              : 0;
+                left             : 0;
+                right            : 0;
+                bottom           : 0;
+                border-radius    : 3px;
+                transition       : opacity .15s;
+                cursor           : pointer;
+            }
+
+            &:hover:after {
+                opacity : .25;
+            }
+        }
+
+        &.warning .toast-content {
             background-color : #ffc312;
         }
 
         &.error .toast-content {
-            background-color : #ea2027;
+            background-color : #ff3f34;
         }
 
         &.success .toast-content {
-            background-color : #009432;
+            background-color : #05c46b;
         }
 
-        &.closeable {
+        &.has-default {
             cursor : pointer;
         }
 
