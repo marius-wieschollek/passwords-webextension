@@ -223,11 +223,11 @@
             }
         }
     },
-    "ValidationUnauthorizedError"         : {
+    "ValidationUnauthorizedError" : {
         "message"     : "The server at $URL$ did not accept the login data",
         "description" : "",
         "placeholders": {
-            "url"  : {
+            "url": {
                 "content": "$1",
                 "example": "https://cloud.example.com/"
             }
@@ -343,15 +343,15 @@
         "message"    : "Tags",
         "description": ""
     },
-    "PlaceholderPassword"    : {
+    "PlaceholderPassword"         : {
         "message"    : "Password",
         "description": ""
     },
-    "PlaceholderToken"    : {
+    "PlaceholderToken"            : {
         "message"    : "Two-Factor Token",
         "description": ""
     },
-    "ButtonLogin"    : {
+    "ButtonLogin"                 : {
         "message"    : "Login",
         "description": ""
     },
@@ -461,9 +461,9 @@
         "message"    : "Url",
         "description": ""
     },
-    "ServerConnectionErrorTitle"                 : {
-        "message"    : "Unable to connect to $SERVER$",
-        "description": "",
+    "ServerConnectionErrorTitle"  : {
+        "message"     : "Unable to connect to $SERVER$",
+        "description" : "",
         "placeholders": {
             "server": {
                 "content": "$1",
@@ -471,13 +471,13 @@
             }
         }
     },
-    "ServerCredentialsRejected"                 : {
+    "ServerCredentialsRejected"   : {
         "message"    : "Server credentials rejected. Please update the login data in the settings.",
         "description": ""
     },
-    "ServerHttpError"                 : {
-        "message"    : "HTTP connection error: $ERROR$",
-        "description": "",
+    "ServerHttpError"             : {
+        "message"     : "HTTP connection error: $ERROR$",
+        "description" : "",
         "placeholders": {
             "error": {
                 "content": "$1",
@@ -485,23 +485,35 @@
             }
         }
     },
-    "ServerNetworkError"                 : {
+    "ServerNetworkError"          : {
         "message"    : "A network error occurred. Please check if you're online and the server is reachable.",
         "description": ""
     },
-    "ServerUnknownError"                 : {
+    "ServerUnknownError"          : {
         "message"    : "Unknown error.",
         "description": ""
     },
-    "ServerGenericError"                 : {
-        "message"    : "Error: $ERROR$",
-        "description": "",
+    "ServerGenericError"          : {
+        "message"     : "Error: $ERROR$",
+        "description" : "",
         "placeholders": {
             "error": {
                 "content": "$1",
                 "example": "500 - Internal Server Error"
             }
         }
+    },
+    "SettingsCurrentTheme"        : {
+        "message"    : "Active theme",
+        "description": ""
+    },
+    "ThemeDark"                   : {
+        "message"    : "Dark theme",
+        "description": ""
+    },
+    "ThemeLight"                  : {
+        "message"    : "Light theme",
+        "description": ""
     },
 
 

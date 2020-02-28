@@ -209,11 +209,11 @@
             }
         }
     },
-    "ValidationUnauthorizedError"         : {
+    "ValidationUnauthorizedError" : {
         "message"     : "Der Server hinter $URL$ hat die Anmeldedaten nicht akzeptiert",
         "description" : "",
         "placeholders": {
-            "url"  : {
+            "url": {
                 "content": "$1",
                 "example": "https://cloud.example.com/"
             }
@@ -489,68 +489,16 @@
             }
         }
     },
-    "PasswordRequestFailedTitle"  : {
-        "message": "Nextcloud Password Abfrage fehlgeschlagen"
+    "SettingsCurrentTheme"        : {
+        "message"    : "Aktives Theme",
+        "description": ""
     },
-    "PasswordRequestFailedText"   : {
-        "message"     : "Die Passwortliste konnte nicht abgerufen werden. Fehler: $ERROR$",
-        "placeholders": {
-            "error": {
-                "content": "$1"
-            }
-        }
+    "ThemeDark"                   : {
+        "message"    : "Dunkles Theme",
+        "description": ""
     },
-    "PasswordEncodingFailedTitle" : {
-        "message": "Invalide Passwortattribute gefunden"
-    },
-    "PasswordEncodingFailedText"  : {
-        "message"     : "Die Attribute des Passworts mit der ID #$ID$ sind kein valides JSON und können daher nicht verarbeitet werden",
-        "placeholders": {
-            "id": {
-                "content": "$1"
-            }
-        }
-    },
-    "PasswordCreatedTitle"        : {
-        "message": "Passwort gespeichert"
-    },
-    "PasswordCreatedText"         : {
-        "message": "Das Passwort wurde erfolgreich gespeichert"
-    },
-    "CreatePasswordFailedTitle"   : {
-        "message": "Speichern fehlgeschlagen"
-    },
-    "CreatePasswordFailedText"    : {
-        "message": "Das Passwort konnte nicht gespeichert werden"
-    },
-    "UpdatedLoginDetectedTitle"   : {
-        "message": "Aktualisierte Logindaten erkannt"
-    },
-    "UpdatedLoginDetectedText"    : {
-        "message"     : "Klicken Sie hier, um das Passwort für \"$USER$\" zu aktualisieren",
-        "placeholders": {
-            "user": {
-                "content": "$1"
-            }
-        }
-    },
-    "PasswordUpdatedTitle"        : {
-        "message": "Passwort aktualisiert"
-    },
-    "PasswordUpdatedText"         : {
-        "message": "Das Passwort wurde erfolgreich aktualisiert"
-    },
-    "UpdatePasswordFailedTitle"   : {
-        "message": "Aktualisieren fehlgeschlagen"
-    },
-    "UpdatePasswordFailedText"    : {
-        "message": "Das Passwort konnte nicht aktualisiert werden"
-    },
-    "DarkMode"                    : {
-        "message": "Dunkler Modus"
-    },
-    "Url"                         : { "message": "Url" },
-    "Password"                    : { "message": "Passwort" },
-    "User"                        : { "message": "Benutzer" },
-    "Save"                        : { "message": "Speichern" }
+    "ThemeLight"                  : {
+        "message"    : "Helles theme",
+        "description": ""
+    }
 }

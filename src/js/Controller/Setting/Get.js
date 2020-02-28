@@ -9,7 +9,8 @@ export default class Get extends AbstractController {
             'password.autosubmit',
             'notification.password.new',
             'notification.password.update',
-            'server.default'
+            'server.default',
+            'theme.current'
         ];
     }
 

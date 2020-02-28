@@ -29,7 +29,8 @@
 
         data() {
             return {
-                model: this.value
+                model: this.value,
+                emit : this.value
             };
         },
 
@@ -68,7 +69,14 @@
 
         watch: {
             model(value) {
-                this.$emit('input', value);
+                if(this.emit !== value) {
+                    this.emit = value;
+                    this.$emit('input', value);
+                }
+            },
+            value(value) {
+                this.emit = value;
+                this.model = value;
             }
         }
     };

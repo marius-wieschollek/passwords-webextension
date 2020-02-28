@@ -2,9 +2,7 @@
     <div id="options">
         <tabs :tabs="tabs">
             <accounts slot="accounts"/>
-            <div slot="theme">
-                theme
-            </div>
+            <theming slot="theming" />
             <settings slot="other"/>
         </tabs>
         <div id="toasts"></div>
@@ -15,10 +13,11 @@
     import Tabs from '@vue/Components/Tabs';
     import Accounts from '@vue/Components/Options/Accounts';
     import Settings from '@vue/Components/Options/Settings';
+    import Theming from '@vue/Components/Options/Theming';
 
     export default {
         el        : '#app',
-        components: {Tabs, Accounts, Settings},
+        components: {Theming, Tabs, Accounts, Settings},
 
         computed: {
             tabs() {
@@ -26,7 +25,7 @@
                     accounts: {
                         label: 'SettingsTabAccounts'
                     },
-                    theme   : {
+                    theming   : {
                         label: 'SettingsTabTheming'
                     },
                     other   : {
