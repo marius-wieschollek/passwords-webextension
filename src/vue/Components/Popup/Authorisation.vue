@@ -174,7 +174,7 @@
                 await this.loadNext();
             },
             async requestToken() {
-                if(this.reloading || !this.tokenRequest) return ;
+                if(this.reloading || !this.tokenRequest) return;
                 this.reloading = true;
                 try {
                     let result = await MessageService.send(
@@ -258,10 +258,12 @@
 
             select,
             input {
-                width         : 70vw;
-                border        : 1px solid var(--element-hover-bg-color);
-                border-bottom : none;
-                padding       : 1rem;
+                background-color : var(--element-bg-color);
+                color            : var(--element-fg-color);
+                width            : 70vw;
+                border           : 1px solid var(--element-hover-bg-color);
+                border-bottom    : none;
+                padding          : 1rem;
 
                 &[disabled] {
                     opacity : .9;
@@ -286,7 +288,6 @@
             }
 
             select {
-                background-color    : var(--element-bg-color);
                 background-image    : url("/platform/generic/img/angle-down-solid.svg");
                 background-repeat   : no-repeat;
                 background-position : right 1rem center;

@@ -26,9 +26,15 @@ class SettingsService {
                 'client.ext.notification.password.update',
                 'local.notification.password.update',
                 'sync.notification.password.update'
+            ],
+            'theme.current'               : [
+                'client.ext.theme.current',
+                'local.theme.current',
+                'sync.theme.current'
             ]
         };
         this._defaults = {
+            'theme.current'               : 'light',
             'server.default'              : null,
             'password.autosubmit'         : true,
             'notification.password.new'   : true,

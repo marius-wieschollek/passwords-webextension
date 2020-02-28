@@ -1,0 +1,26 @@
+{
+    "id": "dark",
+    "label": "ThemeDark",
+    "colors": {
+        "element-bg"             : "#181818",
+        "element-fg"             : "#d8d8d8",
+        "element-hover-bg"       : "#222",
+        "element-hover-fg"       : "#d8d8d8",
+        "element-active-bg"      : "#181818",
+        "element-active-fg"      : "#0c63db",
+        "element-active-hover-bg": "#222",
+        "element-active-hover-fg": "#0c63db",
+        "button-bg"              : "inherit",
+        "button-fg"              : "inherit",
+        "button-hover-bg"        : "#0c63db",
+        "button-hover-fg"        : "#181818",
+        "info-bg"                : "#0c63db",
+        "info-fg"                : "#fff",
+        "warning-bg"             : "#eca700",
+        "warning-fg"             : "#fff",
+        "error-bg"               : "#e9322d",
+        "error-fg"               : "#fff",
+        "success-bg"             : "#46ba61",
+        "success-fg"             : "#fff"
+    }
+}

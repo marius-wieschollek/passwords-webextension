@@ -6,6 +6,7 @@ import MessageService from '@js/Services/MessageService';
 import ConverterManager from '@js/Manager/ConverterManager';
 import AuthorisationClient from '@js/Queue/Client/AuthorisationClient';
 import ToastService from '@js/Services/ToastService';
+import ThemeService from '@js/Services/ThemeService';
 
 class Popup {
 
@@ -41,6 +42,7 @@ class Popup {
             ConverterManager.init();
             this._authClient = new AuthorisationClient();
 
+            await ThemeService.apply();
             await this._initVue();
             await ToastService.init();
         } catch(e) {

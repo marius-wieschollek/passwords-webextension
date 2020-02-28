@@ -5,6 +5,7 @@ import SystemService from '@js/Services/SystemService';
 import MessageService from '@js/Services/MessageService';
 import ConverterManager from '@js/Manager/ConverterManager';
 import ToastService from '@js/Services/ToastService';
+import ThemeService from '@js/Services/ThemeService';
 
 class Options {
 
@@ -29,6 +30,7 @@ class Options {
             await MessageService.init(true, 'background');
             ConverterManager.init();
 
+            await ThemeService.apply();
             await this._initVue();
             await ToastService.init();
         } catch(e) {

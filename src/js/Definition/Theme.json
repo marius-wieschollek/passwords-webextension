@@ -1,0 +1,11 @@
+{
+    "id": {
+        "type": "string"
+    },
+    "label": {
+        "type": "string"
+    },
+    "colors": {
+        "type": "object"
+    }
+}

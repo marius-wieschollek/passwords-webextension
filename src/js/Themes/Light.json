@@ -1,0 +1,26 @@
+{
+    "id"    : "light",
+    "label" : "ThemeLight",
+    "colors": {
+        "element-bg"             : "#fff",
+        "element-fg"             : "#000",
+        "element-hover-bg"       : "#ededed",
+        "element-hover-fg"       : "#000",
+        "element-active-bg"      : "#fff",
+        "element-active-fg"      : "#0996f8",
+        "element-active-hover-bg": "#ededed",
+        "element-active-hover-fg": "#0670cc",
+        "button-bg"              : "inherit",
+        "button-fg"              : "inherit",
+        "button-hover-bg"        : "#0996f8",
+        "button-hover-fg"        : "#fff",
+        "info-bg"                : "#0652dd",
+        "info-fg"                : "#fff",
+        "warning-bg"             : "#ffc312",
+        "warning-fg"             : "#fff",
+        "error-bg"               : "#ff3f34",
+        "error-fg"               : "#fff",
+        "success-bg"             : "#05c46b",
+        "success-fg"             : "#fff"
+    }
+}
