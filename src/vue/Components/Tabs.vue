@@ -18,7 +18,7 @@
                  :class="`tab-content-${name}`"
                  :style="{display: name===tab ? 'block':'none'}">
                 <keep-alive>
-                    <slot :name="name" v-if="name===tab"/>
+                    <slot :name="name"/>
                 </keep-alive>
             </div>
         </div>

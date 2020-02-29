@@ -1,10 +1,10 @@
 <template>
     <div id="manager">
-        <tabs :tabs="tabs" :initial-tab="tab" v-if="authorized" v-on:switch="saveTab($event)">
-            <related slot="related"/>
-            <search slot="search" :initial-status="search"/>
-            <browse slot="browse" :initial-status="browse"/>
-            <collected slot="collected" :initial-status="collected"/>
+        <tabs :tabs="tabs" :initial-tab="tab" v-if="authorized" v-on:switch="saveTab($event)" ref="tabs">
+            <related slot="related" ref="related"/>
+            <search slot="search" ref="search" :initial-status="search"/>
+            <browse slot="browse" ref="browse" :initial-status="browse"/>
+            <collected slot="collected" ref="collected" :initial-status="collected"/>
         </tabs>
         <authorisation v-if="!authorized"></authorisation>
         <div id="toasts"></div>

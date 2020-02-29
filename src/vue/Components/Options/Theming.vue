@@ -1,12 +1,16 @@
 <template>
     <div class="theming">
         <div class="theme-settings">
-            <translate tag="label" for="theme-current" say="SettingsCurrentTheme"/>
-            <select-field id="theme-current" :options="themeList" :translate="false" v-model="currentTheme"/>
-        </div>
-        <div class="theme-preview">
+            <div class="setting">
+                <translate tag="label" for="theme-current" say="SettingsCurrentTheme"/>
+                <select-field id="theme-current" :options="themeList" :translate="false" v-model="currentTheme"/>
+            </div>
+            <translate tag="h4" say="SettingsCustomColors"/>
+            <div class="custom-colors">
 
+            </div>
         </div>
+        <preview-theme :theme="currentTheme"/>
     </div>
 </template>
 
@@ -15,9 +19,10 @@
     import MessageService from '@js/Services/MessageService';
     import Translate from '@vue/Components/Translate';
     import ToastService from '@js/Services/ToastService';
+    import PreviewTheme from '@vue/Components/Theming/PreviewTheme';
 
     export default {
-        components: {Translate, SelectField},
+        components: {PreviewTheme, Translate, SelectField},
 
         data() {
             return {
@@ -55,17 +60,19 @@
         }
 
         .theme-settings {
-            display               : grid;
-            grid-template-areas   : "label" "input";
-            grid-template-columns : 1fr 1fr;
+            .setting {
+                display               : grid;
+                grid-template-areas   : "label" "input";
+                grid-template-columns : 1fr 1fr;
 
-            label {
-                grid-area : label;
-            }
+                label {
+                    grid-area : label;
+                }
 
-            span,
-            input {
-                grid-area : input;
+                span,
+                input {
+                    grid-area : input;
+                }
             }
         }
     }

@@ -500,5 +500,25 @@
     "ThemeLight"                  : {
         "message"    : "Helles theme",
         "description": ""
+    },
+    "DemoInfoNotification"                  : {
+        "message"    : "Info Meldung",
+        "description": ""
+    },
+    "DemoSuccessNotification"                  : {
+        "message"    : "Erfolgsmeldung",
+        "description": ""
+    },
+    "DemoWarningNotification"                  : {
+        "message"    : "Warnmeldung",
+        "description": ""
+    },
+    "DemoErrorNotification"                  : {
+        "message"    : "Fehlermeldung",
+        "description": ""
+    },
+    "DemoDataInsert"                  : {
+        "message"    : "Demo-Daten einfügen",
+        "description": ""
     }
 }

@@ -50,6 +50,7 @@ module.exports = env => {
             client    : `${__dirname}/src/js/client.js`,
             popup     : `${__dirname}/src/js/popup.js`,
             options   : `${__dirname}/src/js/options.js`,
+            preview   : `${__dirname}/src/js/preview.js`,
             background: `${__dirname}/src/js/background.js`
         },
         output : {
@@ -64,7 +65,8 @@ module.exports = env => {
                 'vue$'        : 'vue/dist/vue.esm.js',
                 '@vue'        : `${__dirname}/src/vue`,
                 '@js/Platform': platformDir,
-                '@js'         : `${__dirname}/src/js`
+                '@js'         : `${__dirname}/src/js`,
+                '@scss'       : `${__dirname}/src/scss`
             }
         },
         module : {

@@ -515,6 +515,26 @@
         "message"    : "Light theme",
         "description": ""
     },
+    "DemoInfoNotification"                  : {
+        "message"    : "Info notification",
+        "description": ""
+    },
+    "DemoSuccessNotification"                  : {
+        "message"    : "Success notification",
+        "description": ""
+    },
+    "DemoWarningNotification"                  : {
+        "message"    : "Warning notification",
+        "description": ""
+    },
+    "DemoErrorNotification"                  : {
+        "message"    : "Error notification",
+        "description": ""
+    },
+    "DemoDataInsert"                  : {
+        "message"    : "Insert demo data",
+        "description": ""
+    },
 
 
 
