@@ -490,35 +490,71 @@
         }
     },
     "SettingsCurrentTheme"        : {
-        "message"    : "Aktives Theme",
+        "message"    : "Aktives Thema",
         "description": ""
     },
     "ThemeDark"                   : {
-        "message"    : "Dunkles Theme",
+        "message"    : "Dunkles Thema",
         "description": ""
     },
     "ThemeLight"                  : {
-        "message"    : "Helles theme",
+        "message"    : "Helles Thema",
         "description": ""
     },
-    "DemoInfoNotification"                  : {
+    "DemoInfoNotification"        : {
         "message"    : "Info Meldung",
         "description": ""
     },
-    "DemoSuccessNotification"                  : {
+    "DemoSuccessNotification"     : {
         "message"    : "Erfolgsmeldung",
         "description": ""
     },
-    "DemoWarningNotification"                  : {
+    "DemoWarningNotification"     : {
         "message"    : "Warnmeldung",
         "description": ""
     },
-    "DemoErrorNotification"                  : {
+    "DemoErrorNotification"       : {
         "message"    : "Fehlermeldung",
         "description": ""
     },
-    "DemoDataInsert"                  : {
+    "DemoDataInsert"              : {
         "message"    : "Demo-Daten einfügen",
+        "description": ""
+    },
+    "DemoText"                    : {
+        "message"    : "Demo",
+        "description": ""
+    },
+    "SettingsCustomTheme"         : {
+        "message"    : "Eigenes Thema",
+        "description": ""
+    },
+    "CustomDefaultElement"        : {
+        "message"    : "Normales Element",
+        "description": ""
+    },
+    "CustomActiveElement"         : {
+        "message"    : "Aktives Element",
+        "description": ""
+    },
+    "CustomButtons"               : {
+        "message"    : "Schaltflächen",
+        "description": ""
+    },
+    "CustomColorsBackground"      : {
+        "message"    : "Farbe Hintergrund",
+        "description": ""
+    },
+    "CustomColorsForeground"      : {
+        "message"    : "Farbe Vordergrund",
+        "description": ""
+    },
+    "CustomAlphaBackground"       : {
+        "message"    : "Transparenz Hintergrund",
+        "description": ""
+    },
+    "CustomAlphaForeground"       : {
+        "message"    : "Transparenz Vordergrund",
         "description": ""
     }
 }

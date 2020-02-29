@@ -535,6 +535,42 @@
         "message"    : "Insert demo data",
         "description": ""
     },
+    "DemoText"                    : {
+        "message"    : "Demo",
+        "description": ""
+    },
+    "SettingsCustomTheme"         : {
+        "message"    : "Custom theme",
+        "description": ""
+    },
+    "CustomDefaultElement"        : {
+        "message"    : "Default element",
+        "description": ""
+    },
+    "CustomActiveElement"         : {
+        "message"    : "Active element",
+        "description": ""
+    },
+    "CustomButtons"               : {
+        "message"    : "Buttons",
+        "description": ""
+    },
+    "CustomColorsBackground"      : {
+        "message"    : "Background color",
+        "description": ""
+    },
+    "CustomColorsForeground"      : {
+        "message"    : "Foreground color",
+        "description": ""
+    },
+    "CustomAlphaBackground"       : {
+        "message"    : "Background transparent",
+        "description": ""
+    },
+    "CustomAlphaForeground"       : {
+        "message"    : "Foreground transparent",
+        "description": ""
+    },
 
 
 

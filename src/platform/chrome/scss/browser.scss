@@ -21,4 +21,27 @@ body {
             width   : 100%;
         }
     }
+
+    .theming {
+        grid-template-columns : auto 360px;
+
+        .theme-preview {
+            max-width : 360px;
+            width     : 100%;
+        }
+
+        .theme-colors {
+            .color-setting {
+                input {
+                    -webkit-appearance: none;
+                    height: 1.5rem;
+                    background-color: transparent;
+
+                    &::-webkit-color-swatch {
+                        border: none;
+                    }
+                }
+            }
+        }
+    }
 }

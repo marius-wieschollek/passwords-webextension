@@ -17,12 +17,15 @@
     import ToastService from '@js/Services/ToastService';
     import Password from 'passwords-client/src/Model/Password/Password';
     import Preview from '@js/App/Preview';
+    import LocalisationService from '@js/Services/LocalisationService';
 
     export default {
         components: {Translate, Icon},
         data() {
             return {
-                showMenu: false
+                showMenu: false,
+                func    : () => {},
+                text    : LocalisationService.translate('DemoText')
             };
         },
 
@@ -32,30 +35,33 @@
 
         methods: {
             notifyInfo() {
-                ToastService.info('DemoInfoNotification', 'Demo', {a: 'Demo', b: 'Demo'});
+                ToastService.info('DemoInfoNotification', 'DemoInfoNotification', {a: this.text, b: this.text});
             },
             successInfo() {
-                ToastService.success('DemoSuccessNotification', 'Success');
+                ToastService.success('DemoSuccessNotification', 'DemoSuccessNotification');
             },
             warningInfo() {
-                ToastService.warning('DemoWarningNotification', 'Warning');
+                ToastService.warning('DemoWarningNotification', 'DemoWarningNotification');
             },
             errorInfo() {
-                ToastService.error('DemoErrorNotification', 'Error');
+                ToastService.error('DemoErrorNotification', 'DemoErrorNotification');
             },
             async demoData() {
                 let passwords = [
-                    new Password({label: 'Demo', username: 'demo', password: 'demo'}),
-                    new Password({label: 'Demo', username: 'demo', password: 'demo'})
+                    new Password({label: this.text, username: '', password: ''}),
+                    new Password({label: this.text, username: '', password: ''})
                 ];
 
                 let func = Preview.app.$refs.search.search;
-                Preview.app.$refs.search.search = () => {};
-                Preview.app.$refs.search.query = 'demo';
-                Preview.app.$refs.search.search = func;
+                Preview.app.$refs.search.search = this.func;
 
+                Preview.app.$refs.search.query = this.text;
                 Preview.app.$refs.search.passwords = passwords;
                 Preview.app.$refs.related.passwords = passwords;
+
+                setTimeout(() => {
+                    if(func !== this.func) Preview.app.$refs.search.search = func;
+                }, 100);
             }
         }
     };
@@ -92,10 +98,10 @@
             display          : none;
 
             li {
-                padding    : .25rem;
-                border-top : 1px solid rgba(0, 0, 0, .25);
-                cursor     : pointer;
-                white-space: nowrap;
+                padding     : .25rem;
+                border-top  : 1px solid rgba(0, 0, 0, .25);
+                cursor      : pointer;
+                white-space : nowrap;
 
                 &:hover {
                     background-color : rgba(0, 0, 0, .25);

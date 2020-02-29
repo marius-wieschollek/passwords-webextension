@@ -5,10 +5,7 @@
                 <translate tag="label" for="theme-current" say="SettingsCurrentTheme"/>
                 <select-field id="theme-current" :options="themeList" :translate="false" v-model="currentTheme"/>
             </div>
-            <translate tag="h4" say="SettingsCustomColors"/>
-            <div class="custom-colors">
-
-            </div>
+            <custom-theme />
         </div>
         <preview-theme :theme="currentTheme"/>
     </div>
@@ -20,9 +17,10 @@
     import Translate from '@vue/Components/Translate';
     import ToastService from '@js/Services/ToastService';
     import PreviewTheme from '@vue/Components/Theming/PreviewTheme';
+    import CustomTheme from '@vue/Components/Theming/CustomTheme';
 
     export default {
-        components: {PreviewTheme, Translate, SelectField},
+        components: {CustomTheme, PreviewTheme, Translate, SelectField},
 
         data() {
             return {
@@ -63,15 +61,38 @@
             .setting {
                 display               : grid;
                 grid-template-areas   : "label" "input";
-                grid-template-columns : 1fr 1fr;
+                grid-template-columns : 2fr 1fr;
 
                 label {
                     grid-area : label;
                 }
 
-                span,
+                select,
                 input {
                     grid-area : input;
+                }
+            }
+        }
+
+        .theme-colors {
+            .color-setting {
+                display               : grid;
+                grid-template-columns : 1fr 1.5rem 1.5rem;
+                grid-column-gap       : .2rem;
+                margin-bottom         : .2rem;
+
+                input {
+                    padding    : 0;
+                    margin     : 0;
+                    border     : 0;
+                    outline    : 0;
+                    box-shadow : 0 0 0 1px var(--element-hover-bg-color);
+                    width      : 1.5rem;
+                    cursor     : pointer;
+
+                    &[disabled] {
+                        opacity: .25;
+                    }
                 }
             }
         }
