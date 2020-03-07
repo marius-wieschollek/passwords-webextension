@@ -6,7 +6,6 @@
             <translate tag="li" say="DemoSuccessNotification" @click="successInfo"/>
             <translate tag="li" say="DemoWarningNotification" @click="warningInfo"/>
             <translate tag="li" say="DemoErrorNotification" @click="errorInfo"/>
-            <translate tag="li" say="DemoDataInsert" @click="demoData"/>
         </ul>
     </div>
 </template>
@@ -15,8 +14,6 @@
     import Icon from '@vue/Components/Icon';
     import Translate from '@vue/Components/Translate';
     import ToastService from '@js/Services/ToastService';
-    import Password from 'passwords-client/src/Model/Password/Password';
-    import Preview from '@js/App/Preview';
     import LocalisationService from '@js/Services/LocalisationService';
 
     export default {
@@ -29,45 +26,28 @@
             };
         },
 
-        mounted() {
-            this.demoData();
-        },
-
         methods: {
             notifyInfo() {
-                ToastService.info('DemoInfoNotification', 'DemoInfoNotification', {a: this.text, b: this.text});
+                ToastService.info('DemoInfoNotification', 'DemoInfoNotification', {a: this.text, b: this.text}, 0);
             },
             successInfo() {
-                ToastService.success('DemoSuccessNotification', 'DemoSuccessNotification');
+                ToastService.success('DemoSuccessNotification', 'DemoSuccessNotification', 0);
             },
             warningInfo() {
-                ToastService.warning('DemoWarningNotification', 'DemoWarningNotification');
+                ToastService.warning('DemoWarningNotification', 'DemoWarningNotification', 0);
             },
             errorInfo() {
-                ToastService.error('DemoErrorNotification', 'DemoErrorNotification');
-            },
-            async demoData() {
-                let passwords = [
-                    new Password({label: this.text, username: '', password: ''}),
-                    new Password({label: this.text, username: '', password: ''})
-                ];
-
-                let func = Preview.app.$refs.search.search;
-                Preview.app.$refs.search.search = this.func;
-
-                Preview.app.$refs.search.query = this.text;
-                Preview.app.$refs.search.passwords = passwords;
-                Preview.app.$refs.related.passwords = passwords;
-
-                setTimeout(() => {
-                    if(func !== this.func) Preview.app.$refs.search.search = func;
-                }, 100);
+                ToastService.error('DemoErrorNotification', 'DemoErrorNotification', 0);
             }
         }
     };
 </script>
 
 <style lang="scss">
+    :root {
+        --font-family : Ubuntu, Calibri, sans-serif;
+    }
+
     .demo-menu {
         position : absolute;
         z-index  : 0;

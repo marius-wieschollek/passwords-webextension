@@ -134,6 +134,17 @@ class MessageService {
     }
 
     /**
+     * @param {Message} message
+     * @return {Promise<Message|void>}
+     */
+    async sendLocal(message) {
+        message = this._validateMessage(message);
+        console.log('message.local', message);
+
+        return this._receiveMessage(JSON.stringify(message));
+    }
+
+    /**
      *
      * @param {String} id
      * @returns {Promise<void>}
@@ -359,13 +370,8 @@ class MessageService {
      * @private
      */
     _validateMessage(message) {
-        if(message instanceof Message) {
-            return message;
-        }
-
-        if(!message.hasOwnProperty('type')) {
-            message = {payload: message};
-        }
+        if(message instanceof Message) return message;
+        if(!message.hasOwnProperty('type')) message = {payload: message};
         message = new Message(message);
 
         return message;
