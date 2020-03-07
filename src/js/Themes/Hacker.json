@@ -1,0 +1,38 @@
+{
+    "id"       : "hacker",
+    "label"    : "ThemeHacker",
+    "badge"    : {
+        "color-bg": "#00ff00",
+        "color-fg": "#000000",
+        "icon"    : "passwords-light"
+    },
+    "font"     : {
+        "family": "mono",
+        "size"  : "11pt"
+    },
+    "colors"   : {
+        "element-bg"             : "#000000",
+        "element-fg"             : "#00ff00",
+        "element-hover-bg"       : "#00ff00",
+        "element-hover-fg"       : "#000000",
+        "element-active-bg"      : "#00ff00",
+        "element-active-fg"      : "#000000",
+        "element-active-hover-bg": "#00ff00",
+        "element-active-hover-fg": "#000000",
+        "button-bg"              : "inherit",
+        "button-fg"              : "inherit",
+        "button-hover-bg"        : "#00ff00",
+        "button-hover-fg"        : "#000000",
+        "info-bg"                : "#0000ff",
+        "info-fg"                : "#ffffff",
+        "warning-bg"             : "#ffff00",
+        "warning-fg"             : "#000000",
+        "error-bg"               : "#ff0000",
+        "error-fg"               : "#000000",
+        "success-bg"             : "#00ff00",
+        "success-fg"             : "#000000"
+    },
+    "variables": {
+        "tab-active-border": "var(--tab-border)"
+    }
+}

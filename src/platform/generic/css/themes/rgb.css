@@ -1,0 +1,113 @@
+:root {
+    --rgb-color-red     : #f00;
+    --rgb-color-blue    : #00f;
+    --rgb-color-green   : #0f0;
+    --rgb-color-yellow  : #ff0;
+    --tab-border        : none;
+    --tab-active-border : none;
+}
+
+body #manager > .tab-container > .tabs {
+    background      : linear-gradient(315deg, var(--rgb-color-red), var(--rgb-color-blue), var(--rgb-color-green), var(--rgb-color-yellow), var(--rgb-color-red), var(--rgb-color-blue), var(--rgb-color-green), var(--rgb-color-yellow));
+    background-size : 800% 800%;
+    animation       : rgb 5s linear infinite;
+}
+
+body #manager > .tab-container > .tabs .tab {
+    background-color : rgba(0, 0, 0, 0);
+    color            : rgba(255, 255, 255, .5);
+}
+
+body #manager > .tab-container > .tabs .tab:hover {
+    color : #fff;
+}
+
+body #manager > .tab-container > .tabs .tab.active {
+    background-color : rgba(0, 0, 0, .15);
+    color            : #fff;
+    box-shadow       : none;
+    position         : relative;
+}
+
+body #manager > .tab-container > .tabs .tab.active:after {
+    content              : ' ';
+    background           : linear-gradient(315deg, var(--rgb-color-red), var(--rgb-color-blue), var(--rgb-color-green), var(--rgb-color-yellow), var(--rgb-color-red), var(--rgb-color-blue), var(--rgb-color-green), var(--rgb-color-yellow));
+    background-size      : 800% 800%;
+    animation            : rgb-tab 5s linear infinite;
+    animation-play-state : paused;
+    position             : absolute;
+    left                 : 0;
+    bottom               : 0;
+    right                : 0;
+    height               : .25rem;
+}
+
+body #manager > .tab-container > .tabs .tab.active:hover:after {
+    animation-play-state : running;
+}
+
+body div#manager .foldout-container .foldout-tab .options > .icon:hover,
+body div#manager .foldout-container .foldout-tab .options .option:hover,
+body div#manager .tab-container .tab-content .list .item .options .icon:hover {
+    background      : linear-gradient(290deg, var(--rgb-color-red), var(--rgb-color-blue), var(--rgb-color-green), var(--rgb-color-yellow), var(--rgb-color-red), var(--rgb-color-blue), var(--rgb-color-green), var(--rgb-color-yellow));
+    background-size : 1600% 1600%;
+    animation       : rgb-button 5s linear infinite;
+    box-shadow      : none;
+    color           : #fff;
+}
+
+body div#manager .foldout-container .foldout-tab .options > .icon:hover,
+body div#manager .foldout-container .foldout-tab .options .option:hover .icon {
+    color : #fff;
+}
+
+body div#manager .foldout-container .foldout-tab.active {
+    box-shadow : none;
+    position   : relative;
+}
+
+body div#manager .foldout-container .foldout-tab.active:after {
+    content              : ' ';
+    background           : linear-gradient(315deg, var(--rgb-color-red), var(--rgb-color-blue), var(--rgb-color-green), var(--rgb-color-yellow), var(--rgb-color-red), var(--rgb-color-blue), var(--rgb-color-green), var(--rgb-color-yellow));
+    background-size      : 800% 800%;
+    animation            : rgb-tab 5s linear infinite;
+    animation-play-state : paused;
+    position             : absolute;
+    left                 : 0;
+    bottom               : 0;
+    right                : 0;
+    height               : .25rem;
+}
+
+body div#manager .foldout-container .foldout-tab.active:hover:after {
+    animation-play-state : running;
+}
+
+body #manager .search-container input#query {
+    background           : linear-gradient(180deg, var(--element-active-hover-bg-color) 13.5rem, #0000 13.5rem), linear-gradient(315deg, var(--rgb-color-red), var(--rgb-color-blue), var(--rgb-color-green), var(--rgb-color-yellow), var(--rgb-color-red), var(--rgb-color-blue), var(--rgb-color-green), var(--rgb-color-yellow));
+    background-size      : 800% 800%;
+    animation            : rgb 5s linear infinite;
+    animation-play-state : paused;
+    border-bottom        : 2px solid #0000;
+}
+
+body #manager .search-container input#query:focus,
+body #manager .search-container input#query:hover,
+body #manager .search-container input#query:active {
+    animation-play-state : running;
+}
+
+@keyframes rgb {
+    0% {background-position : 0 50%}
+    100% {background-position : 74% 50%}
+}
+
+@keyframes rgb-tab {
+    0% {background-position : 0 50%}
+    100% {background-position : 70% 50%}
+}
+
+@keyframes rgb-button {
+    0% {background-position : 0 50%}
+    100% {background-position : 84% 50%}
+}
