@@ -1,6 +1,15 @@
 {
     "id": "dark",
     "label": "ThemeDark",
+    "badge" : {
+        "color-bg": "#0c63db",
+        "color-fg": "#d8d8d8",
+        "icon"    : "passwords-light"
+    },
+    "font"  : {
+        "family": "default",
+        "size"  : "11pt"
+    },
     "colors": {
         "element-bg"             : "#181818",
         "element-fg"             : "#d8d8d8",

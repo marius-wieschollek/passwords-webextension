@@ -94,6 +94,14 @@ class SystemService {
     }
 
     /**
+     * @param {String} path
+     * @return {Promise<String>}
+     */
+    async getFileUrl(path) {
+        return await this.getBrowserApi().runtime.getURL(path);
+    }
+
+    /**
      * @returns {Boolean}
      */
     hasContextMenu() {

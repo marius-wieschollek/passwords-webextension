@@ -1,7 +1,13 @@
 import FeedbackClient from '@js/Queue/Client/FeedbackClient';
 import MiningItem from '@js/Models/Queue/MiningItem';
+import EventQueue from '@js/Event/EventQueue';
+import ErrorManager from '@js/Manager/ErrorManager';
 
 class MiningClient extends FeedbackClient {
+
+    get update() {
+        return this._event;
+    }
 
     constructor() {
         let worker = (i) => { return this._worker(i); };
@@ -9,6 +15,7 @@ class MiningClient extends FeedbackClient {
         super('mining', worker, feedbackWorker, MiningItem);
         this._items = {};
         this._solvedItems = {};
+        this._event = new EventQueue();
     }
 
     /**
@@ -54,6 +61,9 @@ class MiningClient extends FeedbackClient {
                 resolve,
                 reject
             };
+
+            this._event.emit(item)
+                .catch(ErrorManager.catch);
         });
     }
 

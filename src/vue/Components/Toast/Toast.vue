@@ -37,7 +37,7 @@
                 return className;
             },
             hasCloseButton() {
-                return this.toast.getCloseable() && this.toast.getDefault() !== 'close'
+                return this.toast.getCloseable() && this.toast.getDefault() !== 'close';
             }
         },
 
@@ -72,49 +72,94 @@
         }
 
         .icon {
-            float      : right;
-            position   : relative;
-            margin     : -.25rem;
-            padding    : .25rem;
+            float         : right;
+            position      : relative;
+            margin        : -.25rem;
+            padding       : .2rem;
+            text-align    : center;
+            cursor        : pointer;
+            transition    : background-color .15s;
+            border-radius : 3px;
+
+            &:hover {
+                background-color : var(--success-hv-color);
+            }
+        }
+
+        .button {
+            padding    : .5rem;
+            margin     : 0 -.5rem;
             text-align : center;
+            border-top : 1px solid var(--info-hv-color);
+            cursor     : pointer;
 
-            &:before {
-                position : relative;
-                z-index  : 1;
+            &:hover {
+                border-top-color : transparent;
+                background-color : var(--info-hv-color);
             }
 
-            &:after {
-                content          : '';
-                background-color : var(--element-fg-color);
-                opacity          : 0;
-                position         : absolute;
-                top              : 0;
-                left             : 0;
-                right            : 0;
-                bottom           : 0;
-                border-radius    : 3px;
-                transition       : opacity .15s;
-                cursor           : pointer;
+            &:first-of-type {
+                margin-top : .5rem;
             }
 
-            &:hover:after {
-                opacity : .25;
+            &:last-of-type {
+                margin-bottom : -.5rem;
+                border-radius : 0 0 .25rem .25rem;
+            }
+        }
+
+        &.success .toast-content {
+            background-color : var(--success-bg-color);
+            color            : var(--success-fg-color);
+
+            .icon:hover {
+                background-color : var(--success-hv-color);
+            }
+
+            .button {
+                border-top-color : var(--warning-hv-color);
+
+                &:hover {
+                    border-top-color : transparent;
+                    background-color : var(--warning-hv-color);
+                }
             }
         }
 
         &.warning .toast-content {
             background-color : var(--warning-bg-color);
-            color: var(--warning-fg-color);
+            color            : var(--warning-fg-color);
+
+            .icon:hover {
+                background-color : var(--warning-hv-color);
+            }
+
+            .button {
+                border-top-color : var(--warning-hv-color);
+
+                &:hover {
+                    border-top-color : transparent;
+                    background-color : var(--warning-hv-color);
+                }
+            }
         }
 
         &.error .toast-content {
             background-color : var(--error-bg-color);
-            color: var(--error-fg-color);
-        }
+            color            : var(--error-fg-color);
 
-        &.success .toast-content {
-            background-color : var(--success-bg-color);
-            color: var(--success-fg-color);
+            .icon:hover {
+                background-color : var(--error-hv-color);
+            }
+
+            .button {
+                border-top-color : var(--error-hv-color);
+
+                &:hover {
+                    border-top-color : transparent;
+                    background-color : var(--error-hv-color);
+                }
+            }
         }
 
         &.has-default {
@@ -129,28 +174,6 @@
 
         .message {
             display : block;
-        }
-
-        .button {
-            padding    : .5rem;
-            margin     : 0 -.5rem;
-            text-align : center;
-            border-top : 1px solid rgba(0, 0, 0, .25);
-            cursor     : pointer;
-
-            &:hover {
-                background-color : rgba(0, 0, 0, .25);
-                border-top       : 1px solid rgba(0, 0, 0, 0);
-            }
-
-            &:first-of-type {
-                margin-top : .5rem;
-            }
-
-            &:last-of-type {
-                margin-bottom : -.5rem;
-                border-radius : 0 0 .25rem .25rem;
-            }
         }
     }
 </style>

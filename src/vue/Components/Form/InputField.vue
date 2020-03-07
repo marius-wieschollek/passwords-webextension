@@ -1,5 +1,11 @@
 <template>
-    <input :placeholder="getPlaceholder" :title="getTitle" v-model="model"/>
+    <input :type="type"
+           :value="value"
+           :checked="isChecked"
+           :placeholder="getPlaceholder"
+           :title="getTitle"
+           @input="handleInput"
+           @change="handleChange"/>
 </template>
 
 <script>
@@ -8,9 +14,17 @@
     export default {
 
         props: {
-            value      : {
+            type       : {
                 type   : String,
-                default: ''
+                default: 'text'
+            },
+            value      : {
+                type   : [String, Number, Boolean],
+                default: null
+            },
+            checked    : {
+                type   : Boolean,
+                default: null
             },
             placeholder: {
                 type   : String,
@@ -20,13 +34,6 @@
                 type   : String,
                 default: ''
             }
-        },
-
-        data() {
-            return {
-                model: this.value,
-                emit : this.value
-            };
         },
 
         computed: {
@@ -39,19 +46,25 @@
                 if(this.title.length === 0) return;
 
                 return LocalisationService.translate(this.title);
+            },
+            isChecked() {
+                if(this.type !== 'checkbox' && this.type !== 'radio') return undefined;
+
+                return this.checked || this.value;
             }
         },
 
-        watch: {
-            model(value) {
-                if(this.emit !== value) {
-                    this.emit = value;
-                    this.$emit('input', value);
+        methods: {
+            handleInput($event) {
+                if(this.type !== 'checkbox' && this.type !== 'radio') {
+                    this.$emit('input', $event.target.value);
                 }
             },
-            value(value) {
-                this.emit = value;
-                this.model = value;
+            handleChange($event) {
+                if(this.type === 'checkbox' || this.type === 'radio') {
+                    this.$emit('change', $event.target.checked);
+                    this.$emit('input', $event.target.checked);
+                }
             }
         }
     };

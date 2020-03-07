@@ -1,6 +1,15 @@
 {
     "id"    : "light",
     "label" : "ThemeLight",
+    "badge" : {
+        "color-bg": "#0652dd",
+        "color-fg": "#ffffff",
+        "icon"    : "passwords-dark"
+    },
+    "font"  : {
+        "family": "default",
+        "size"  : "11pt"
+    },
     "colors": {
         "element-bg"             : "#ffffff",
         "element-fg"             : "#000000",
@@ -10,8 +19,8 @@
         "element-active-fg"      : "#0996f8",
         "element-active-hover-bg": "#ededed",
         "element-active-hover-fg": "#0670cc",
-        "button-bg"              : "#00000000",
-        "button-fg"              : "#00000000",
+        "button-bg"              : "inherit",
+        "button-fg"              : "inherit",
         "button-hover-bg"        : "#0996f8",
         "button-hover-fg"        : "#ffffff",
         "info-bg"                : "#0652dd",

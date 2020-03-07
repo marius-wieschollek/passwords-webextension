@@ -5,7 +5,19 @@
     "label": {
         "type": "string"
     },
+    "font": {
+        "type": "object"
+    },
+    "variables": {
+        "type": "object"
+    },
+    "badge": {
+        "type": "object"
+    },
     "colors": {
         "type": "object"
+    },
+    "style": {
+        "type": "boolean"
     }
 }

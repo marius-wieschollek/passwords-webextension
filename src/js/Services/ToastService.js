@@ -40,15 +40,26 @@ class ToastService {
         }
     }
 
+    /**
+     *
+     * @param {(String|String[])} message The text of the toast
+     * @param {(String|String[])} [title=null] The title of the toast
+     * @param {Number} [ttl=3] Time before the toast is closed
+     * @return {Promise<String>}
+     */
+    success(message, title = null, ttl = 3) {
+        return this.create({type: 'success', title, message, closeable: true, ttl});
+    }
 
     /**
      *
      * @param {(String|String[])} message The text of the toast
      * @param {(String|String[])} [title=null] The title of the toast
+     * @param {Number} [ttl=10] Time before the toast is closed
      * @return {Promise<String>}
      */
-    warning(message, title = null) {
-        return this.create({type: 'warning', title, message, closeable: true, ttl: 10});
+    warning(message, title = null, ttl = 10) {
+        return this.create({type: 'warning', title, message, closeable: true, ttl});
     }
 
 
@@ -56,10 +67,11 @@ class ToastService {
      *
      * @param {(String|String[])} message The text of the toast
      * @param {(String|String[])} [title=null] The title of the toast
+     * @param {Number} [ttl=10] Time before the toast is closed
      * @return {Promise<String>}
      */
-    error(message, title = null) {
-        return this.create({type: 'error', title, message, closeable: true, ttl: 10});
+    error(message, title = null, ttl = 10) {
+        return this.create({type: 'error', title, message, closeable: true, ttl});
     }
 
     /**
@@ -78,16 +90,6 @@ class ToastService {
         config.closeable = options === null;
 
         return this.create(config);
-    }
-
-    /**
-     *
-     * @param {(String|String[])} message The text of the toast
-     * @param {(String|String[])} [title=null] The title of the toast
-     * @return {Promise<String>}
-     */
-    success(message, title = null) {
-        return this.create({type: 'success', title, message, closeable: true, ttl: 3});
     }
 
 

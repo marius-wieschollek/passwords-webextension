@@ -489,20 +489,8 @@
             }
         }
     },
-    "SettingsCurrentTheme"        : {
-        "message"    : "Aktives Thema",
-        "description": ""
-    },
-    "ThemeDark"                   : {
-        "message"    : "Dunkles Thema",
-        "description": ""
-    },
-    "ThemeLight"                  : {
-        "message"    : "Helles Thema",
-        "description": ""
-    },
     "DemoInfoNotification"        : {
-        "message"    : "Info Meldung",
+        "message"    : "Infomeldung",
         "description": ""
     },
     "DemoSuccessNotification"     : {
@@ -517,44 +505,248 @@
         "message"    : "Fehlermeldung",
         "description": ""
     },
-    "DemoDataInsert"              : {
-        "message"    : "Demo-Daten einfügen",
-        "description": ""
-    },
     "DemoText"                    : {
         "message"    : "Demo",
         "description": ""
     },
-    "SettingsCustomTheme"         : {
+    "SettingsThemeId"        : {
+        "message"    : "Aktives Thema",
+        "description": ""
+    },
+    "ThemeDark"                   : {
+        "message"    : "Dunkles Thema",
+        "description": ""
+    },
+    "ThemeOledDark"               : {
+        "message"    : "Dunkles OLED Thema",
+        "description": ""
+    },
+    "ThemeLight"                  : {
+        "message"    : "Standard",
+        "description": ""
+    },
+    "ThemeAdaptaLight"            : {
+        "message"    : "Adapta",
+        "description": ""
+    },
+    "ThemeAdaptaTeal"             : {
+        "message"    : "Adapta teal",
+        "description": ""
+    },
+    "ThemeArcDark"                : {
+        "message"    : "Arc dark",
+        "description": ""
+    },
+    "ThemeArcLight"               : {
+        "message"    : "Arc",
+        "description": ""
+    },
+    "ThemeHacker"                 : {
+        "message"    : "Hacker",
+        "description": ""
+    },
+    "ThemeRGB"                 : {
+        "message"    : "Gaming RGB",
+        "description": ""
+    },
+    "ThemeCustom"                 : {
         "message"    : "Eigenes Thema",
         "description": ""
     },
+    "CustomFont"                  : {
+        "message"    : "Schriftart",
+        "description": ""
+    },
     "CustomDefaultElement"        : {
-        "message"    : "Normales Element",
+        "message"    : "Normale Elemente",
         "description": ""
     },
     "CustomActiveElement"         : {
-        "message"    : "Aktives Element",
+        "message"    : "Aktive Elemente",
         "description": ""
     },
     "CustomButtons"               : {
         "message"    : "Schaltflächen",
         "description": ""
     },
-    "CustomColorsBackground"      : {
-        "message"    : "Farbe Hintergrund",
+    "CustomToasts"                : {
+        "message"    : "Mini-Benachrichtigungen",
         "description": ""
     },
-    "CustomColorsForeground"      : {
-        "message"    : "Farbe Vordergrund",
+    "CustomBadge"                 : {
+        "message"    : "Browser-Symbol",
         "description": ""
     },
-    "CustomAlphaBackground"       : {
-        "message"    : "Transparenz Hintergrund",
+    "BackgroundColorLabel"      : {
+        "message"    : "Hintergrundfarbe",
         "description": ""
     },
-    "CustomAlphaForeground"       : {
-        "message"    : "Transparenz Vordergrund",
+    "ForegroundColorLabel"      : {
+        "message"    : "Vordergrundfarbe",
+        "description": ""
+    },
+    "BackgroundInheritLabel"     : {
+        "message"    : "Hintergrund erben",
+        "description": ""
+    },
+    "ForegroundInheritLabel"     : {
+        "message"    : "Vordergrund erben",
+        "description": ""
+    },
+    "BackgroundColorBaseTitle"    : {
+        "message"    : "Diese Farbe wird im Normalfall für den Hintergrund verwendet",
+        "description": ""
+    },
+    "BackgroundColorHoverTitle"       : {
+        "message"    : "Diese Farbe wird für den Hintergrund verwendet wenn das Element mit der Maus aktiviert wird. Diese Farbe kann auch für Umrandungen verwendet werden wenn das Element nicht aktiviert ist.",
+        "description": ""
+    },
+    "ForegroundColorBaseTitle"    : {
+        "message"    : "Diese Farbe wird im Normalfall für den Vordergrund verwendet",
+        "description": ""
+    },
+    "ForegroundColorHoverTitle"       : {
+        "message"    : "Diese Farbe wird für den Vordergrund und Umrandungen verwendet wenn das Element mit der Maus überfahren wird",
+        "description": ""
+    },
+    "BackgroundInheritTitle": {
+        "message"    : "Falls aktiviert wird die Farbe des übergeordneten Elements übernommen",
+        "description": ""
+    },
+    "ForegroundInheritTitle": {
+        "message"    : "Falls aktiviert wird die Farbe des übergeordneten Elements übernommen",
+        "description": ""
+    },
+    "SettingsCustomFont"          : {
+        "message"    : "Schriftart",
+        "description": ""
+    },
+    "FontDefault"                 : {
+        "message"    : "Standard",
+        "description": ""
+    },
+    "FontMono"                    : {
+        "message"    : "Monospace-Schrift",
+        "description": ""
+    },
+    "FontSerif"                   : {
+        "message"    : "Serifenschrift",
+        "description": ""
+    },
+    "FontSans"                    : {
+        "message"    : "Serifenlose Schrift",
+        "description": ""
+    },
+    "FontLight"                   : {
+        "message"    : "Dünne Schrift",
+        "description": ""
+    },
+    "FontNextcloud"               : {
+        "message"    : "Nextcloud",
+        "description": ""
+    },
+    "FontOpenDyslexic"            : {
+        "message"    : "Open Dyslexic",
+        "description": ""
+    },
+    "FontCustom"                  : {
+        "message"    : "Eigene Schrift",
+        "description": ""
+    },
+    "SettingsCustomFontSize"      : {
+        "message"    : "Schriftgröße",
+        "description": ""
+    },
+    "FontSizeVerySmall"           : {
+        "message"    : "Sehr klein",
+        "description": ""
+    },
+    "FontSizeSmall"               : {
+        "message"    : "Klein",
+        "description": ""
+    },
+    "FontSizeDefault"             : {
+        "message"    : "Standard",
+        "description": ""
+    },
+    "FontSizeMedium"              : {
+        "message"    : "Medium",
+        "description": ""
+    },
+    "FontSizeLarge"               : {
+        "message"    : "Groß",
+        "description": ""
+    },
+    "FontSizeVeryLarge"           : {
+        "message"    : "Sehr groß",
+        "description": ""
+    },
+    "ToastInfoColors"             : {
+        "message"    : "Infomeldung",
+        "description": ""
+    },
+    "ToastSuccessColors"          : {
+        "message"    : "Erfolgsmeldung",
+        "description": ""
+    },
+    "ToastWarningColors"          : {
+        "message"    : "Warnmeldung",
+        "description": ""
+    },
+    "ToastErrorColors"            : {
+        "message"    : "Fehlermeldung",
+        "description": ""
+    },
+    "ToastBackgroundTitle"        : {
+        "message"    : "Hintergrundfarbe für die Mini-Benachrichtigung",
+        "description": ""
+    },
+    "ToastForegroundTitle"        : {
+        "message"    : "Farbe für Texte und Schaltflächen",
+        "description": ""
+    },
+    "SettingsBadgeIcon"           : {
+        "message"    : "Symbolleisten-Symbol",
+        "description": ""
+    },
+    "BadgeIconAuto"               : {
+        "message"    : "Automatisch",
+        "description": ""
+    },
+    "BadgeIconLight"              : {
+        "message"    : "Helles Symbol",
+        "description": ""
+    },
+    "BadgeIconMedium"             : {
+        "message"    : "Graues Symbol",
+        "description": ""
+    },
+    "BadgeIconDark"               : {
+        "message"    : "Dunkles Symbol",
+        "description": ""
+    },
+    "BadgeIconNewLight"           : {
+        "message"    : "Helles modernes Symbol",
+        "description": ""
+    },
+    "BadgeIconNewMedium"          : {
+        "message"    : "Graues modernes Symbol",
+        "description": ""
+    },
+    "BadgeIconNewDark"            : {
+        "message"    : "Dunkles modernes Symbol",
+        "description": ""
+    },
+    "CustomBadgeColors"           : {
+        "message"    : "Abzeichenfarbe",
+        "description": ""
+    },
+    "BadgeBackgroundTitle"        : {
+        "message"    : "Hintergrundfarbe des Abzeichens",
+        "description": ""
+    },
+    "BadgeForegroundTitle"        : {
+        "message"    : "Textfarbe des Abzeichens",
         "description": ""
     }
 }

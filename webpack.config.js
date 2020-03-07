@@ -42,7 +42,7 @@ module.exports = env => {
         );
     }
 
-    let platformDir = platform === 'firefox' ? `${__dirname}/src/js/Platform`:`${__dirname}/src/platform/${platform}/js/Platform`;
+    let jsPlatformDir = platform === 'firefox' ? `${__dirname}/src/js/Platform`:`${__dirname}/src/platform/${platform}/js/Platform`;
     return {
         mode   : production ? 'production':'development',
         devtool: 'none',
@@ -64,9 +64,10 @@ module.exports = env => {
             alias     : {
                 'vue$'        : 'vue/dist/vue.esm.js',
                 '@vue'        : `${__dirname}/src/vue`,
-                '@js/Platform': platformDir,
+                '@js/Platform': jsPlatformDir,
                 '@js'         : `${__dirname}/src/js`,
-                '@scss'       : `${__dirname}/src/scss`
+                '@scss'       : `${__dirname}/src/scss`,
+                '@scssP'      : `${__dirname}/src/platform/${platform}/scss`
             }
         },
         module : {
@@ -101,16 +102,6 @@ module.exports = env => {
                                 sassOptions: {
                                     outputStyle: 'compressed'
                                 }
-                            }
-                        },
-                        {
-                            loader : 'sass-resources-loader',
-                            options: {
-                                sourceMap: true,
-                                resources: [
-                                    `${__dirname}/src/scss/includes.scss`,
-                                    `${__dirname}/src/platform/${platform}/scss/browser.scss`
-                                ]
                             }
                         }
                     ]

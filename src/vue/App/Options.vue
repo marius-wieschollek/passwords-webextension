@@ -11,9 +11,9 @@
 
 <script>
     import Tabs from '@vue/Components/Tabs';
+    import Theming from '@vue/Components/Options/Theming';
     import Accounts from '@vue/Components/Options/Accounts';
     import Settings from '@vue/Components/Options/Settings';
-    import Theming from '@vue/Components/Options/Theming';
 
     export default {
         el        : '#app',
@@ -38,6 +38,9 @@
 </script>
 
 <style lang="scss">
+    @import "@scss/includes";
+    @import "@scssP/browser.scss";
+
     body {
         min-height : 600px;
 

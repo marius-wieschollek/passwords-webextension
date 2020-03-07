@@ -1,8 +1,10 @@
 <template>
-    <select v-model="model">
+    <select @change="handleChange">
         <option v-for="option in optionList"
                 :key="option.id"
                 :value="option.id"
+                :disabled="option.disabled"
+                :selected="option.id === value"
                 :title="getTranslated(option.description)">{{getTranslated(option.label)}}
         </option>
     </select>
@@ -27,13 +29,6 @@
             }
         },
 
-        data() {
-            return {
-                model: this.value,
-                emit : this.value
-            };
-        },
-
         computed: {
             optionList() {
                 let options = [];
@@ -43,11 +38,12 @@
                     let config = this.options[id];
 
                     if(typeof config === 'string') {
-                        options.push({id, label: config, description: null});
+                        options.push({id, label: config, disabled: false, description: null});
                     } else {
                         let option = {
                             id         : config.hasOwnProperty('id') ? config.id:id,
                             label      : config.label,
+                            disabled   : config.hasOwnProperty('disabled') ? config.disabled === true:false,
                             description: config.hasOwnProperty('description') ? config.description:null
                         };
 
@@ -64,19 +60,10 @@
                 if(!this.translate || !text) return text;
 
                 return LocalisationService.translate(text);
-            }
-        },
-
-        watch: {
-            model(value) {
-                if(this.emit !== value) {
-                    this.emit = value;
-                    this.$emit('input', value);
-                }
             },
-            value(value) {
-                this.emit = value;
-                this.model = value;
+            handleChange($event) {
+                this.$emit('change', $event.target.value);
+                this.$emit('input', $event.target.value);
             }
         }
     };

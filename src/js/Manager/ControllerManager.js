@@ -165,6 +165,20 @@ class ControllerManager {
                 await this._executeController(module, message, reply);
             }
         );
+        MessageService.listen(
+            'theme.show',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "ThemeShow" */ '@js/Controller/Theme/Show');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
+            'theme.save',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "ThemeSave" */ '@js/Controller/Theme/Save');
+                await this._executeController(module, message, reply);
+            }
+        );
     }
 
     /**

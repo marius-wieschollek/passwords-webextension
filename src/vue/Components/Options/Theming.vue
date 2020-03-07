@@ -1,13 +1,13 @@
 <template>
-    <div class="theming">
+    <div class="theming" v-if="theme">
         <div class="theme-settings">
             <div class="setting">
-                <translate tag="label" for="theme-current" say="SettingsCurrentTheme"/>
-                <select-field id="theme-current" :options="themeList" :translate="false" v-model="currentTheme"/>
+                <translate tag="label" for="theme-current" say="SettingsThemeId"/>
+                <select-field id="theme-current" :options="list" v-model="themeId"/>
             </div>
-            <custom-theme />
+            <custom-theme :theme="customTheme" v-if="customTheme && themeId === 'custom'"/>
         </div>
-        <preview-theme :theme="currentTheme"/>
+        <preview-theme :theme="theme"/>
     </div>
 </template>
 
@@ -18,29 +18,68 @@
     import ToastService from '@js/Services/ToastService';
     import PreviewTheme from '@vue/Components/Theming/PreviewTheme';
     import CustomTheme from '@vue/Components/Theming/CustomTheme';
+    import ErrorManager from '@js/Manager/ErrorManager';
 
     export default {
         components: {CustomTheme, PreviewTheme, Translate, SelectField},
 
         data() {
             return {
-                currentTheme: null,
-                themeList   : {}
+                themeId: null,
+                theme  : null,
+                themes : []
             };
         },
 
-        mounted() {
-            MessageService.send({type: 'theme.list'}).then((r) => { this.themeList = r.getPayload(); });
-            MessageService.send({type: 'setting.get', payload: 'theme.current'}).then((r) => {
-                this.currentTheme =
-                    r.getPayload();
-            });
+        computed: {
+            list() {
+                let list = {};
+
+                for(let theme of this.themes) list[theme.getId()] = theme.getLabel();
+
+                return list;
+            },
+            customTheme() {
+                for(let theme of this.themes) {
+                    if(theme.getId() === 'custom') return theme;
+                }
+            }
+        },
+
+        async mounted() {
+            let reply = await MessageService.send({type: 'theme.list'});
+            this.themes = reply.getPayload();
+
+            reply = await MessageService.send({type: 'setting.get', payload: 'theme.current'});
+            this.themeId = reply.getPayload();
+
+            this.setCurrentTheme(this.themeId);
+        },
+
+        methods: {
+            setCurrentTheme(themeId) {
+                for(let theme of this.themes) {
+                    if(theme.getId() === themeId) {
+                        this.theme = theme;
+                        return;
+                    }
+                }
+            }
         },
 
         watch: {
-            currentTheme(value) {
+            themeId(value) {
                 MessageService.send({type: 'setting.set', payload: {setting: 'theme.current', value}})
                     .catch((e) => { ToastService.error(e.message); });
+
+                this.setCurrentTheme(this.themeId);
+                MessageService.send(
+                    {
+                        type    : 'theme.preview',
+                        payload : this.theme,
+                        receiver: 'popup'
+                    }
+                ).catch(ErrorManager.catch);
             }
         }
     };
@@ -53,15 +92,12 @@
         grid-column-gap       : 1rem;
         padding               : 1rem;
 
-        .theme-preview {
-            background-color : grey;
-        }
-
         .theme-settings {
             .setting {
                 display               : grid;
-                grid-template-areas   : "label" "input";
-                grid-template-columns : 2fr 1fr;
+                grid-template-areas   : "label input";
+                grid-template-columns : 3fr 2fr;
+                margin-bottom         : .25rem;
 
                 label {
                     grid-area : label;
@@ -70,6 +106,7 @@
                 select,
                 input {
                     grid-area : input;
+                    width     : 100%;
                 }
             }
         }
@@ -91,7 +128,7 @@
                     cursor     : pointer;
 
                     &[disabled] {
-                        opacity: .25;
+                        opacity : .25;
                     }
                 }
             }

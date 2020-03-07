@@ -1,4 +1,11 @@
+:root {
+    font-family      : var(--font-family);
+    font-size        : var(--font-size);
+}
+
 body {
+    font-family      : var(--font-family);
+    font-size        : var(--font-size);
     background-color : var(--element-bg-color);
     color            : var(--element-fg-color);
     margin           : 0;
@@ -10,6 +17,7 @@ body {
     input,
     select,
     button, {
-        font-size : 1rem;
+        font-family : var(--font-family);
+        font-size   : 1rem;
     }
 }

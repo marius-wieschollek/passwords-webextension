@@ -1,4 +1,7 @@
 :root {
+    --font-family                   : initial;
+    --font-size                     : 11pt;
+
     /**
      * Generic content elements
      */
@@ -39,10 +42,14 @@
      */
     --info-bg-color                 : #0652dd;
     --info-fg-color                 : #fff;
+    --info-hv-color                 : #ffffff40;
     --warning-bg-color              : #ffc312;
     --warning-fg-color              : #fff;
+    --warning-hv-color              : #ffffff40;
     --error-bg-color                : #ff3f34;
     --error-fg-color                : #fff;
+    --error-hv-color                : #ffffff40;
     --success-bg-color              : #05c46b;
     --success-fg-color              : #fff;
+    --success-hv-color              : #ffffff40;
 }

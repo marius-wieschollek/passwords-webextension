@@ -1,16 +1,17 @@
 <template>
     <div class="color-setting">
         <translate :say="label"/>
-        <input type="color" v-model="currentBase" :disabled="!baseEnabled"/>
-        <input type="color" v-model="currentHover" :disabled="!hoverEnabled"/>
+        <input-field type="color" v-model="currentBase" :title="baseTitle" :disabled="baseDisabled"/>
+        <input-field type="color" v-model="currentHover" :title="hoverTitle" :disabled="hoverDisabled"/>
     </div>
 </template>
 
 <script>
     import Translate from '@vue/Components/Translate';
+    import InputField from '@vue/Components/Form/InputField';
 
     export default {
-        components: {Translate},
+        components: {InputField, Translate},
 
         props: {
             name  : String,
@@ -34,13 +35,19 @@
 
         computed: {
             label() {
-                return this.type === 'bg' ? 'CustomColorsBackground':'CustomColorsForeground';
+                return this.type === 'bg' ? 'BackgroundColorLabel':'ForegroundColorLabel';
             },
-            baseEnabled() {
-                return this.defaultBase.length === 7;
+            baseTitle() {
+                return this.type === 'bg' ? 'BackgroundColorBaseTitle':'ForegroundColorBaseTitle';
             },
-            hoverEnabled() {
-                return this.defaultHover.length === 7;
+            hoverTitle() {
+                return this.type === 'bg' ? 'BackgroundColorHoverTitle':'ForegroundColorHoverTitle';
+            },
+            baseDisabled() {
+                return this.defaultBase === 'inherit';
+            },
+            hoverDisabled() {
+                return this.defaultHover === 'inherit';
             }
         },
 
@@ -65,11 +72,11 @@
                     this.currentHover = value[this.keyHover];
                 }
             },
-            currentBase(value) {
-                if(this.defaultBase !== value) this.update();
+            currentBase() {
+                this.update();
             },
-            currentHover(value) {
-                if(this.defaultHover !== value) this.update();
+            currentHover() {
+                this.update();
             }
         }
     };

@@ -1,14 +1,13 @@
 import Queue from '@js/Queue/Queue';
-import MessageService from '@js/Services/MessageService';
 import FeedbackItem from '@js/Models/Queue/FeedbackItem';
 
 export default class FeedbackQueue extends Queue {
 
     /**
      *
-     * @param {String}      name
+     * @param {String}        name
      * @param {(String|null)} [area=null]
-     * @param {QueueItem}   [type=FeedbackItem]
+     * @param {QueueItem}     [type=FeedbackItem]
      */
     constructor(name, area, type = FeedbackItem) {
         super(name, area, type);

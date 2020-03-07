@@ -31,9 +31,14 @@ class SettingsService {
                 'client.ext.theme.current',
                 'local.theme.current',
                 'sync.theme.current'
+            ],
+            'theme.custom'                : [
+                'sync.theme.custom',
+                'local.theme.custom'
             ]
         };
         this._defaults = {
+            'theme.custom'                : null,
             'theme.current'               : 'light',
             'server.default'              : null,
             'password.autosubmit'         : true,

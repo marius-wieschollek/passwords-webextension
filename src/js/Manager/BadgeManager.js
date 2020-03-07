@@ -4,6 +4,7 @@ import TabManager from '@js/Manager/TabManager';
 import ServerManager from '@js/Manager/ServerManager';
 import ErrorManager from '@js/Manager/ErrorManager';
 import LocalisationService from '@js/Services/LocalisationService';
+import ThemeService from '@js/Services/ThemeService';
 
 class BadgeManager {
 
@@ -64,11 +65,7 @@ class BadgeManager {
                 await this._api.browserAction.setBadgeText({text: '', tabId});
             }
 
-            if(SystemService.getBrowserPlatform() === 'firefox') {
-                await this._api.browserAction.setBadgeTextColor({color: '#fff'});
-            }
-
-            await this._api.browserAction.setBadgeBackgroundColor({color: '#0082c9'});
+            await this._setBadgeTheme();
         } catch(e) {
             ErrorManager.logError(e);
         }
@@ -95,6 +92,19 @@ class BadgeManager {
         } catch(e) {
             ErrorManager.logError(e);
         }
+    }
+
+    async _setBadgeTheme() {
+        if(SystemService.getBrowserPlatform() === 'firefox') {
+            let color = await ThemeService.getBadgeTextColor();
+            await this._api.browserAction.setBadgeTextColor({color});
+        }
+
+        let color = await ThemeService.getBadgeBackgroundColor();
+        await this._api.browserAction.setBadgeBackgroundColor({color});
+
+        let icon = await ThemeService.getBadgeIcon();
+        await this._api.browserAction.setIcon({path:icon});
     }
 }
 

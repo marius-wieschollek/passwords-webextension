@@ -36,8 +36,17 @@
         data() {
             return {
                 items  : MiningClient.getItems(),
-                current: null
+                current: null,
+                listener: (i) => { this.addItem(i); }
             };
+        },
+
+        created() {
+            MiningClient.update.on(this.listener);
+        },
+
+        destroyed() {
+            MiningClient.update.off(this.listener);
         },
 
         async mounted() {
@@ -85,6 +94,13 @@
              */
             switchTab($event) {
                 this.current = $event.tab;
+            },
+
+            /**
+             * @param {MiningItem} item
+             */
+            addItem(item) {
+                this.items.push(item);
             },
 
             sendStatus() {

@@ -1,8 +1,9 @@
+import ErrorManager from '@js/Manager/ErrorManager';
 import MessageService from '@js/Services/MessageService';
+import ThemeConverter from '@js/Converter/ThemeConverter';
+import FolderConverter from '@js/Converter/FolderConverter';
 import ServerConverter from '@js/Converter/ServerConverter';
 import PasswordConverter from '@js/Converter/PasswordConverter';
-import ErrorManager from '@js/Manager/ErrorManager';
-import FolderConverter from '@js/Converter/FolderConverter';
 
 class ConverterManager {
 
@@ -23,6 +24,12 @@ class ConverterManager {
             ['folder.items', 'folder.item'],
             async (message) => {
                 await this._executeConverter(FolderConverter, message);
+            }
+        );
+        MessageService.convert(
+            ['theme.items', 'theme.item', 'theme.save', 'theme.preview'],
+            async (message) => {
+                await this._executeConverter(ThemeConverter, message);
             }
         );
     }

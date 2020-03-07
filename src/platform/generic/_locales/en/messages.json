@@ -503,7 +503,27 @@
             }
         }
     },
-    "SettingsCurrentTheme"        : {
+    "DemoInfoNotification"        : {
+        "message"    : "Info notification",
+        "description": ""
+    },
+    "DemoSuccessNotification"     : {
+        "message"    : "Success notification",
+        "description": ""
+    },
+    "DemoWarningNotification"     : {
+        "message"    : "Warning notification",
+        "description": ""
+    },
+    "DemoErrorNotification"       : {
+        "message"    : "Error notification",
+        "description": ""
+    },
+    "DemoText"                    : {
+        "message"    : "Demo",
+        "description": ""
+    },
+    "SettingsThemeId"             : {
         "message"    : "Active theme",
         "description": ""
     },
@@ -511,36 +531,44 @@
         "message"    : "Dark theme",
         "description": ""
     },
+    "ThemeOledDark"               : {
+        "message"    : "Dark OLED",
+        "description": ""
+    },
     "ThemeLight"                  : {
-        "message"    : "Light theme",
+        "message"    : "Default",
         "description": ""
     },
-    "DemoInfoNotification"                  : {
-        "message"    : "Info notification",
+    "ThemeAdaptaLight"            : {
+        "message"    : "Adapta",
         "description": ""
     },
-    "DemoSuccessNotification"                  : {
-        "message"    : "Success notification",
+    "ThemeAdaptaTeal"             : {
+        "message"    : "Adapta teal",
         "description": ""
     },
-    "DemoWarningNotification"                  : {
-        "message"    : "Warning notification",
+    "ThemeArcDark"                : {
+        "message"    : "Arc dark",
         "description": ""
     },
-    "DemoErrorNotification"                  : {
-        "message"    : "Error notification",
+    "ThemeArcLight"               : {
+        "message"    : "Arc",
         "description": ""
     },
-    "DemoDataInsert"                  : {
-        "message"    : "Insert demo data",
+    "ThemeHacker"                 : {
+        "message"    : "Hacker",
         "description": ""
     },
-    "DemoText"                    : {
-        "message"    : "Demo",
+    "ThemeRGB"                 : {
+        "message"    : "Gaming RGB",
         "description": ""
     },
-    "SettingsCustomTheme"         : {
+    "ThemeCustom"                 : {
         "message"    : "Custom theme",
+        "description": ""
+    },
+    "CustomFont"                  : {
+        "message"    : "Font",
         "description": ""
     },
     "CustomDefaultElement"        : {
@@ -555,156 +583,184 @@
         "message"    : "Buttons",
         "description": ""
     },
-    "CustomColorsBackground"      : {
+    "CustomToasts"                : {
+        "message"    : "Toast notifications",
+        "description": ""
+    },
+    "CustomBadge"                 : {
+        "message"    : "Browser icon",
+        "description": ""
+    },
+    "BackgroundColorLabel"        : {
         "message"    : "Background color",
         "description": ""
     },
-    "CustomColorsForeground"      : {
+    "ForegroundColorLabel"        : {
         "message"    : "Foreground color",
         "description": ""
     },
-    "CustomAlphaBackground"       : {
-        "message"    : "Background transparent",
+    "BackgroundInheritLabel"      : {
+        "message"    : "Inherit background",
         "description": ""
     },
-    "CustomAlphaForeground"       : {
-        "message"    : "Foreground transparent",
+    "ForegroundInheritLabel"      : {
+        "message"    : "Inherit foreground",
         "description": ""
     },
-
-
-
-
-
-
-
-
-
-
-    "PasswordRequestFailedTitle"  : {
-        "message"    : "Nextcloud password request failed",
-        "description": "Notification title when the password request fails"
+    "BackgroundColorBaseTitle"    : {
+        "message"    : "This color is usually used for the background",
+        "description": ""
     },
-    "PasswordRequestFailedText"   : {
-        "message"     : "The password list could not be retrieved.\nError: $ERROR$",
-        "description" : "Notification text when the password request fails",
-        "placeholders": {
-            "error": {
-                "content": "$1",
-                "example": "Unknown Error"
-            }
-        }
+    "BackgroundColorHoverTitle"       : {
+        "message"    : "This color is used for the background if the element is active. It can also be used for the border of an inactive element",
+        "description": ""
     },
-    "PasswordEncodingFailedTitle" : {
-        "message"    : "Could not parse password properties",
-        "description": "Notification title when the password properties can not be parsed"
+    "ForegroundColorBaseTitle"    : {
+        "message"    : "This color is usually used for texts and borders",
+        "description": ""
     },
-    "PasswordEncodingFailedText"  : {
-        "message"     : "The properties of password #$ID$ do not contain valid JSON data and could not be processed",
-        "description" : "Notification text when the password properties can not be parsed",
-        "placeholders": {
-            "id": {
-                "content": "$1",
-                "example": "0"
-            }
-        }
+    "ForegroundColorHoverTitle"       : {
+        "message"    : "This color is used for texts and borders if the element is active",
+        "description": ""
     },
-    "PasswordCreatedTitle"        : {
-        "message"    : "Password saved",
-        "description": "Notification title when a password was saved"
+    "BackgroundInheritTitle": {
+        "message"    : "If activated, the value will be inherited from the parent element",
+        "description": ""
     },
-    "PasswordCreatedText"         : {
-        "message"    : "The password was stored sucessfully",
-        "description": "Notification text when a password was saved"
+    "ForegroundInheritTitle": {
+        "message"    : "If activated, the value will be inherited from the parent element",
+        "description": ""
     },
-    "CreatePasswordFailedTitle"   : {
-        "message"    : "Save password failed",
-        "description": "Notification title when saving a password failed"
+    "SettingsCustomFont"          : {
+        "message"    : "Font family",
+        "description": ""
     },
-    "CreatePasswordFailedText"    : {
-        "message"    : "The password could not be saved",
-        "description": "Notification text when saving a password failed"
+    "FontDefault"                 : {
+        "message"    : "Default",
+        "description": ""
     },
-    "UpdatedLoginDetectedTitle"   : {
-        "message"    : "Updated login found",
-        "description": "Notification title when an updated login is detected"
+    "FontMono"                    : {
+        "message"    : "Monospace",
+        "description": ""
     },
-    "UpdatedLoginDetectedText"    : {
-        "message"     : "Click here to update the password for \"$USER$\"",
-        "description" : "Notification text when an updated login is detected",
-        "placeholders": {
-            "user": {
-                "content": "$1",
-                "example": "username"
-            }
-        }
+    "FontSerif"                   : {
+        "message"    : "Serif",
+        "description": ""
     },
-    "PasswordUpdatedTitle"        : {
-        "message"    : "Password updated",
-        "description": "Notification title when a password was updated"
+    "FontSans"                    : {
+        "message"    : "Sans serif",
+        "description": ""
     },
-    "PasswordUpdatedText"         : {
-        "message"    : "The password was updated sucessfully",
-        "description": "Notification text when a password was updated"
+    "FontLight"                   : {
+        "message"    : "Light",
+        "description": ""
     },
-    "UpdatePasswordFailedTitle"   : {
-        "message"    : "Update password failed",
-        "description": "Notification title when updating a password failed"
+    "FontNextcloud"               : {
+        "message"    : "Nextcloud",
+        "description": ""
     },
-    "UpdatePasswordFailedText"    : {
-        "message"    : "The password could not be updated",
-        "description": "Notification text when updating a password failed"
+    "FontOpenDyslexic"            : {
+        "message"    : "Open Dyslexic",
+        "description": ""
     },
-    "ApiLogin200"                 : {
-        "message"    : "URL invalid or API disabled",
-        "description": "Error text when an api request could not be decoded"
+    "FontCustom"                  : {
+        "message"    : "Custom",
+        "description": ""
     },
-    "ApiLogin401"                 : {
-        "message"    : "Invalid user credentials",
-        "description": "Error text when an api request got a 401 Unauthorized response"
+    "SettingsCustomFontSize"      : {
+        "message"    : "Font size",
+        "description": ""
     },
-    "ApiLogin403"                 : {
-        "message"    : "Access denied",
-        "description": "Error text when an api request got a 403 Forbidden response"
+    "FontSizeVerySmall"           : {
+        "message"    : "Very small",
+        "description": ""
     },
-    "ApiLogin404"                 : {
-        "message"    : "URL is invalid",
-        "description": "Error text when an api request got a 404 Not Found response"
+    "FontSizeSmall"               : {
+        "message"    : "Small",
+        "description": ""
     },
-    "ApiLogin500"                 : {
-        "message"    : "Server crashed during request",
-        "description": "Error text when an api request got a 50x Internal Server Error response"
+    "FontSizeDefault"             : {
+        "message"    : "Default",
+        "description": ""
     },
-    "ApiLoginGeneric"             : {
-        "message"     : "Http Error $STATUS$: $MESSAGE$",
-        "description" : "Generic error message for failed requests",
-        "placeholders": {
-            "status" : {
-                "content": "$1",
-                "example": "HTTP status code"
-            },
-            "message": {
-                "content": "$2",
-                "example": "HTTP status text"
-            }
-        }
+    "FontSizeMedium"              : {
+        "message"    : "Medium",
+        "description": ""
     },
-    "SettingsInvalidUrl"          : {
-        "message"     : "The url $URL$ seems to be invalid.\n\n If the url of the app is\nhttps://example.com/index.php/apps/passwords\nyou need to enter\nhttps://example.com\n\nIf the url of the app is\nhttps://example.com/nextcloud/index.php/apps/passwords\nyou need to enter\nhttps://example.com/nextcloud",
-        "description" : "Generic error message for failed requests",
-        "placeholders": {
-            "url": {
-                "content": "$1",
-                "example": "The user input"
-            }
-        }
+    "FontSizeLarge"               : {
+        "message"    : "Large",
+        "description": ""
     },
-    "DarkMode"                    : {
-        "message"    : "Dark Mode",
-        "description": "Lable of the Dark Mode setting"
+    "FontSizeVeryLarge"           : {
+        "message"    : "Very large",
+        "description": ""
     },
-    "Url"                         : { "message": "Url" },
-    "Password"                    : { "message": "Password" },
-    "User"                        : { "message": "User" },
-    "Save"                        : { "message": "Save" }
+    "ToastInfoColors"             : {
+        "message"    : "Info toast",
+        "description": ""
+    },
+    "ToastSuccessColors"          : {
+        "message"    : "Success toast",
+        "description": ""
+    },
+    "ToastWarningColors"          : {
+        "message"    : "Warning toast",
+        "description": ""
+    },
+    "ToastErrorColors"            : {
+        "message"    : "Error toast",
+        "description": ""
+    },
+    "ToastBackgroundTitle"        : {
+        "message"    : "Background color for popup messages",
+        "description": ""
+    },
+    "ToastForegroundTitle"        : {
+        "message"    : "Color for text and button backgrounds",
+        "description": ""
+    },
+    "SettingsBadgeIcon"           : {
+        "message"    : "Toolbar icon",
+        "description": ""
+    },
+    "BadgeIconAuto"               : {
+        "message"    : "Automatic",
+        "description": ""
+    },
+    "BadgeIconLight"              : {
+        "message"    : "Light icon",
+        "description": ""
+    },
+    "BadgeIconMedium"             : {
+        "message"    : "Grey icon",
+        "description": ""
+    },
+    "BadgeIconDark"               : {
+        "message"    : "Dark icon",
+        "description": ""
+    },
+    "BadgeIconNewLight"           : {
+        "message"    : "Light modern icon",
+        "description": ""
+    },
+    "BadgeIconNewMedium"          : {
+        "message"    : "Grey modern icon",
+        "description": ""
+    },
+    "BadgeIconNewDark"            : {
+        "message"    : "Dark modern icon",
+        "description": ""
+    },
+    "CustomBadgeColors"           : {
+        "message"    : "Badge colors",
+        "description": ""
+    },
+    "BadgeBackgroundTitle"        : {
+        "message"    : "Background color of the badge",
+        "description": ""
+    },
+    "BadgeForegroundTitle"        : {
+        "message"    : "Text color of the badge",
+        "description": ""
+    }
 }
