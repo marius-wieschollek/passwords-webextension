@@ -1,6 +1,7 @@
 {
     "id"       : "hacker",
     "label"    : "ThemeHacker",
+    "style"    : true,
     "badge"    : {
         "color-bg": "#00ff00",
         "color-fg": "#000000",
