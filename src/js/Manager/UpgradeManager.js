@@ -42,6 +42,10 @@ class UpgradeManager {
         let {url, user, theme} = await SystemService.getBrowserApi().storage.sync.get(['url', 'user', 'theme']);
         let {password} = await SystemService.getBrowserApi().storage.local.get(['password']);
 
+        if(theme === 'dark') {
+            await SettingsService.set('theme.current', 'dark');
+        }
+
         if(url === null || user === null || password === null) return;
         if(url === undefined || user === undefined || password === undefined) return;
         if(url.substr(-1, 1) !== '/') url += '/';
@@ -90,6 +94,7 @@ class UpgradeManager {
         await StorageService.remove('updated', StorageService.STORAGE_LOCAL);
         await StorageService.remove('url', StorageService.STORAGE_SYNC);
         await StorageService.remove('user', StorageService.STORAGE_SYNC);
+        await StorageService.remove('theme', StorageService.STORAGE_SYNC);
         await StorageService.remove('version', StorageService.STORAGE_LOCAL);
     }
 }
