@@ -3,6 +3,9 @@
     --rgb-color-blue    : #00f;
     --rgb-color-green   : #0f0;
     --rgb-color-yellow  : #ff0;
+}
+
+body #manager {
     --tab-border        : none;
     --tab-active-border : none;
 }
