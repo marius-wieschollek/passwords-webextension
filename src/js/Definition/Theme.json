@@ -5,6 +5,9 @@
     "label": {
         "type": "string"
     },
+    "type": {
+        "type": "string"
+    },
     "font": {
         "type": "object"
     },

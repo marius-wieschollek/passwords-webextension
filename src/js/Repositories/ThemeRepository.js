@@ -12,6 +12,10 @@ import SettingsService from '@js/Services/SettingsService';
 import StorageService from '@js/Services/StorageService';
 import uuid from 'uuidv4';
 import BooleanState from 'passwords-client/src/State/BooleanState';
+import ApiRepository from '@js/Repositories/ApiRepository';
+import ServerThemeHelper from '@js/Helper/ServerThemeHelper';
+import ErrorManager from '@js/Manager/ErrorManager';
+import ServerManager from '@js/Manager/ServerManager';
 
 class ThemeRepository {
 
@@ -23,6 +27,12 @@ class ThemeRepository {
         this._themes = null;
         this._customThemes = null;
         this._loading = new BooleanState(false);
+        ServerManager.onAddServer.on(
+            (server) => { this._addServer(server).catch(ErrorManager.catch); }
+        );
+        ServerManager.onRemoveServer.on(
+            (server) => { this._removeServer(server).catch(ErrorManager.catch); }
+        );
     }
 
     /**
@@ -80,7 +90,7 @@ class ThemeRepository {
         if(themes.hasOwnProperty(id)) return themes[id];
 
         // @TODO custom error here
-        throw new Error('Unknown theme');
+        throw new Error('Unknown theme ' + id);
     }
 
 
@@ -89,9 +99,9 @@ class ThemeRepository {
      * @return {Object}
      * @private
      */
-    async _listThemes() {
-        if(this._loading.get()) await this._loading.awaitFalse();
-        if(this._themes !== null) return this._themes;
+    async _listThemes(force = false) {
+        while(this._loading.get()) await this._loading.awaitFalse();
+        if(this._themes !== null && !force) return this._themes;
         this._loading.set(true);
 
         let themes = {};
@@ -99,6 +109,11 @@ class ThemeRepository {
         for(let data of systemThemes) {
             let theme = new Theme(data);
 
+            themes[theme.getId()] = theme;
+        }
+
+        let serverThemes = await this.loadServerThemes();
+        for(let theme of serverThemes) {
             themes[theme.getId()] = theme;
         }
 
@@ -113,9 +128,15 @@ class ThemeRepository {
 
         this._themes = themes;
         this._loading.set(false);
+
         return themes;
     }
 
+    /**
+     *
+     * @return {Promise<Theme>}
+     * @private
+     */
     async _makeCustomTheme() {
         let theme = await SettingsService.getValue('theme.custom');
 
@@ -154,6 +175,30 @@ class ThemeRepository {
 
     /**
      *
+     * @return {Promise<[]>}
+     */
+    async loadServerThemes() {
+        let themes   = [],
+            promises = [],
+            apis     = await ApiRepository.findAll();
+
+        for(let api of apis) {
+            if(api.getServer().getEnabled()) {
+                promises.push(
+                    ServerThemeHelper.create(api)
+                        .then((theme) => themes.push(theme))
+                        .catch(ErrorManager.catch)
+                );
+            }
+        }
+
+        await Promise.all(promises);
+
+        return themes;
+    }
+
+    /**
+     *
      * @param theme
      * @returns {Promise<void>}
      * @private
@@ -186,6 +231,32 @@ class ThemeRepository {
             objects.push(theme.getProperties());
         }
         await StorageService.set(this.STORAGE_KEY, objects);
+    }
+
+    /**
+     *
+     * @param {Server} server
+     * @private
+     */
+    async _addServer(server) {
+        let id = server.getId();
+        if(this._themes === null || this._themes.hasOwnProperty(id)) return;
+        let api = await ApiRepository.findById(id);
+
+        let theme = await ServerThemeHelper.create(api);
+        this._themes[theme.getId()] = theme;
+    }
+
+    /**
+     *
+     * @param {Server} server
+     * @private
+     */
+    async _removeServer(server) {
+        let id = server.getId();
+        if(this._themes !== null && this._themes.hasOwnProperty(id)) {
+            delete this._themes[id];
+        }
     }
 }
 

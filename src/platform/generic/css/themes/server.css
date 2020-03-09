@@ -1,0 +1,28 @@
+:root {
+    --tab-border                    : 0 -1px 0 var(--border-color) inset;
+    --tab-active-border             : 0 -1px 0 var(--border-color) inset;
+    --tab-button-active-border      : 0 -1px 0 var(--border-color) inset;
+    --main-tab-border               : none;
+    --main-tab-active-border        : 0 4px 0 var(--tabs-fg-color) inset;
+    --main-tab-mobile-active-border : 0 -1px 0 var(--element-hover-bg-color) inset, 4px 0 0 var(--tabs-fg-color) inset;
+
+}
+
+body,
+body #manager > .tab-container > .tab-content {
+    scrollbar-color : var(--tabs-end-color) var(--element-active-bg-color);
+}
+
+body #manager > .tab-container > .tabs {
+    background-image : linear-gradient(40deg, var(--tabs-start-color) 0%, var(--tabs-end-color) 100%);
+}
+
+body #manager > .tab-container > .tabs > .tab {
+    background : none;
+    color      : var(--tabs-fg-color);
+}
+
+body #manager > .tab-container > .tabs > .tab.active {
+    background : none;
+    color      : var(--tabs-active-fg-color);
+}

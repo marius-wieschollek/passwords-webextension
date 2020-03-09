@@ -104,7 +104,7 @@ class BadgeManager {
         await this._api.browserAction.setBadgeBackgroundColor({color});
 
         let icon = await ThemeService.getBadgeIcon();
-        await this._api.browserAction.setIcon({path:icon});
+        if(icon !== null) await this._api.browserAction.setIcon({path:icon});
     }
 }
 

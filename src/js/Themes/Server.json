@@ -1,0 +1,40 @@
+{
+    "id"    : "",
+    "label" : "",
+    "type"  : "server",
+    "badge" : {
+        "color-bg": "#0082c9",
+        "color-fg": "#ffffff"
+    },
+    "font"  : {
+        "family": "default",
+        "size"  : "11pt"
+    },
+    "colors": {
+        "tabs-start"             : "#0082c9",
+        "tabs-end"               : "#30b6ff",
+        "tabs-fg"                : "#ffffff80",
+        "tabs-active-fg"         : "#ffffff",
+        "border"                 : "#dbdbdb",
+        "element-bg"             : "#ffffff",
+        "element-fg"             : "#000000C0",
+        "element-hover-bg"       : "#ededed",
+        "element-hover-fg"       : "#000000",
+        "element-active-bg"      : "#ededed",
+        "element-active-fg"      : "#0082c9",
+        "element-active-hover-bg": "#ededed",
+        "element-active-hover-fg": "#0082c9",
+        "button-bg"              : "inherit",
+        "button-fg"              : "inherit",
+        "button-hover-bg"        : "#0082c9",
+        "button-hover-fg"        : "#ffffff",
+        "info-bg"                : "#0097e6",
+        "info-fg"                : "#ffffff",
+        "warning-bg"             : "#ffc312",
+        "warning-fg"             : "#ffffff",
+        "error-bg"               : "#ff3f34",
+        "error-fg"               : "#ffffff",
+        "success-bg"             : "#05c46b",
+        "success-fg"             : "#ffffff"
+    }
+}

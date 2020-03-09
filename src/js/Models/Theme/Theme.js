@@ -23,7 +23,7 @@ export default class Theme extends AbstractModel {
     }
 
     /**
-     * @return {Object}
+     * @return {String}
      */
     getLabel() {
         return this.getProperty('label');
@@ -35,6 +35,36 @@ export default class Theme extends AbstractModel {
      */
     setLabel(value) {
         return this.setProperty('label', value);
+    }
+
+    /**
+     * @return {String}
+     */
+    getType() {
+        return this.getProperty('type');
+    }
+
+    /**
+     * @param {String} value
+     * @return {this}
+     */
+    setType(value) {
+        return this.setProperty('type', value);
+    }
+
+    /**
+     * @return {Boolean}
+     */
+    getStyle() {
+        return this.getProperty('style');
+    }
+
+    /**
+     * @param {Boolean} value
+     * @return {this}
+     */
+    setStyle(value) {
+        return this.setProperty('style', value);
     }
 
     /**
@@ -170,21 +200,6 @@ export default class Theme extends AbstractModel {
      */
     setFontSize(value) {
         return this._setSubProperty('font', 'size', value);
-    }
-
-    /**
-     * @return {Boolean}
-     */
-    getStyle() {
-        return this.getProperty('style');
-    }
-
-    /**
-     * @param {Boolean} value
-     * @return {this}
-     */
-    setStyle(value) {
-        return this.setProperty('style', value);
     }
 
     /**

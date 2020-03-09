@@ -27,9 +27,7 @@
 
         mounted() {
             this.url = 'preview.html';
-            SystemService.getFileUrl(`/img/${this.theme.getBadgeIcon()}.svg`)
-                .then((r) => {this.icon = r;})
-                .catch(ErrorManager.catch);
+            this.loadIcon();
         },
 
         computed: {
@@ -41,13 +39,22 @@
             }
         },
 
+        methods: {
+            loadIcon() {
+                let icon = this.theme.getBadgeIcon();
+                if(icon === null) icon = 'passwords';
+
+                SystemService.getFileUrl(`/img/${icon}.svg`)
+                    .then((r) => {this.icon = r;})
+                    .catch(ErrorManager.catch);
+            }
+        },
+
         watch: {
             theme: {
                 deep: true,
-                handler(theme) {
-                    SystemService.getFileUrl(`/img/${theme.getBadgeIcon()}.svg`)
-                        .then((r) => {this.icon = r;})
-                        .catch(ErrorManager.catch);
+                handler() {
+                    this.loadIcon();
                 }
             }
         }

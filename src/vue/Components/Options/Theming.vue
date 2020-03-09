@@ -64,6 +64,8 @@
                         return;
                     }
                 }
+
+                this.theme = this.themes[0];
             }
         },
 

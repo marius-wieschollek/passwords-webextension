@@ -27,7 +27,10 @@
      */
     --tab-border                    : 0 -1px 0 var(--element-hover-bg-color) inset;
     --tab-active-border             : 0 -1px 0 var(--element-active-hover-fg-color) inset, 0 -4px 0 var(--element-active-fg-color) inset;
-    --mobile-active-border          : 0 -1px 0 var(--element-hover-bg-color) inset, 1px 0 0 var(--element-active-hover-fg-color) inset, 4px 0 0 var(--element-active-fg-color) inset;
+    --tab-button-active-border      : var(--tab-active-border);
+    --main-tab-border               : 0 -1px 0 var(--element-hover-bg-color) inset;
+    --main-tab-active-border        : 0 -1px 0 var(--element-active-hover-fg-color) inset, 0 -4px 0 var(--element-active-fg-color) inset;
+    --main-tab-mobile-active-border : 0 -1px 0 var(--element-hover-bg-color) inset, 1px 0 0 var(--element-active-hover-fg-color) inset, 4px 0 0 var(--element-active-fg-color) inset;
 
     /**
      * Transition effects

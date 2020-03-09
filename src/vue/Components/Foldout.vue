@@ -103,6 +103,7 @@
             display          : flex;
             flex-direction   : row;
             overflow         : hidden;
+            line-height      : 1rem;
             background-color : var(--element-bg-color);
             color            : var(--element-fg-color);
             box-shadow       : var(--tab-border);
@@ -168,7 +169,7 @@
                 &:hover {
                     background-color : var(--button-hover-bg-color);
                     color            : var(--button-hover-fg-color);
-                    box-shadow       : var(--tab-active-border);
+                    box-shadow       : var(--tab-button-active-border);
                 }
             }
 

@@ -140,6 +140,7 @@
             width       : calc(100vw - 12rem);
             transition  : var(--popup-tab-transition);
             box-sizing  : border-box;
+            box-shadow : var(--main-tab-border);
             flex-shrink : 0;
 
             .label {
@@ -154,6 +155,10 @@
                 .label {
                     opacity : 0;
                 }
+            }
+
+            &.active {
+                box-shadow : var(--main-tab-active-border);
             }
         }
 
@@ -176,7 +181,7 @@
 
                     > .tab {
                         &.active {
-                            box-shadow : var(--mobile-active-border);
+                            box-shadow : var(--main-tab-mobile-active-border);
 
                             .label {
                                 opacity : 0;

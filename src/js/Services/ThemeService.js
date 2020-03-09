@@ -36,6 +36,8 @@ class ThemeService {
         let theme = await this.getCurrentTheme(),
             icon  = theme.getBadgeIcon();
 
+        if(!icon) return null;
+
         return await SystemService.getBrowserApi().runtime.getURL(`img/${icon}.svg`);
     }
 
@@ -180,6 +182,7 @@ class ThemeService {
 
         css = `:root { ${css} }`;
         if(theme.getStyle()) css = `@import url("/css/themes/${theme.getId()}.css");\n${css}`;
+        if(theme.getType() === 'server') css = `@import url("/css/themes/server.css");\n${css}`;
 
         if(this._style === null) {
             this._style = document.createElement('style');
