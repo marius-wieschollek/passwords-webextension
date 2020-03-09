@@ -4,11 +4,11 @@
     "badge" : {
         "color-bg": "#0c63db",
         "color-fg": "#d8d8d8",
-        "icon"    : "passwords-light"
+        "icon"    : null
     },
     "font"  : {
         "family": "default",
-        "size"  : "11pt"
+        "size"  : "d"
     },
     "colors": {
         "element-bg"             : "#181818",

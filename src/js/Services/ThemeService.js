@@ -5,13 +5,17 @@ import ErrorManager from '@js/Manager/ErrorManager';
 
 class ThemeService {
 
-    get FONT_MAPPING() {
+    get FONT_SIZE_MAPPING() {
+        return this._fontSizes;
+    }
+
+    get FONT_FAMILY_MAPPING() {
         return {
             default  : '-apple-system, BlinkMacSystemFont, Ubuntu, Calibri, "Helvetica Neue", sans-serif',
             mono     : 'FreeMono, "Courier New", monospace',
             sans     : 'Ubuntu, Calibri, "Helvetica Neue", sans-serif',
             serif    : '"Times New Roman", Numbus, serif',
-            light    : '"Comfortaa Light","Lato Light","Corbel Light","Gill Sans Light", sans-serif',
+            light    : '"Comfortaa Light","Lato Light","Corbel Light","Gill Sans Light", sans-serif-thin, sans-serif-light',
             nextcloud: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
             dyslexic : 'OpenDyslexic, Dyslexie, sans-serif'
         };
@@ -21,6 +25,27 @@ class ThemeService {
         /** @type {(ThemeRepository|null)} **/
         this._repository = null;
         this._style = null;
+        this._fontSizes = {
+            'xs': '8pt',
+            's' : '10pt',
+            'd' : '11pt',
+            'm' : '12pt',
+            'l' : '14pt',
+            'xl': '16pt'
+        };
+
+        SystemService.getBrowserInfo().then((d) => {
+            if(d.device === 'mobile') {
+                this._fontSizes = {
+                    'xs': '10pt',
+                    's' : '12pt',
+                    'd' : '12.5pt',
+                    'm' : '13pt',
+                    'l' : '16pt',
+                    'xl': '18pt'
+                };
+            }
+        })
     }
 
     /**
@@ -130,7 +155,7 @@ class ThemeService {
 
         let css = {};
         if(font.hasOwnProperty('family') && font.family) {
-            let mapping = this.FONT_MAPPING;
+            let mapping = this.FONT_FAMILY_MAPPING;
 
             if(mapping.hasOwnProperty(font.family)) {
                 css['--font-family'] = mapping[font.family];
@@ -139,7 +164,14 @@ class ThemeService {
             }
         }
 
-        if(font.hasOwnProperty('size') && font.size) css['--font-size'] = font.size;
+        if(font.hasOwnProperty('size') && font.size) {
+            let mapping = this.FONT_SIZE_MAPPING;
+            if(mapping.hasOwnProperty(font.size)) {
+                css['--font-size'] = mapping[font.size];
+            } else {
+                css['--font-size'] = font.size;
+            }
+        }
 
         return css;
     }

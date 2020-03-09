@@ -9,7 +9,7 @@
     },
     "font"     : {
         "family": "mono",
-        "size"  : "11pt"
+        "size"  : "d"
     },
     "colors"   : {
         "element-bg"             : "#000000",

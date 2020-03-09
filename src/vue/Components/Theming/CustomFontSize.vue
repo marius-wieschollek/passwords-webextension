@@ -31,12 +31,12 @@
         computed: {
             options() {
                 let options = {
-                    '8pt' : 'FontSizeVerySmall',
-                    '10pt': 'FontSizeSmall',
-                    '11pt': 'FontSizeDefault',
-                    '12pt': 'FontSizeMedium',
-                    '14pt': 'FontSizeLarge',
-                    '16pt': 'FontSizeVeryLarge'
+                    'xs' : 'FontSizeVerySmall',
+                    's': 'FontSizeSmall',
+                    'd': 'FontSizeDefault',
+                    'm': 'FontSizeMedium',
+                    'l': 'FontSizeLarge',
+                    'xl': 'FontSizeVeryLarge'
                 };
 
                 if(!options.hasOwnProperty(this.value)) {
