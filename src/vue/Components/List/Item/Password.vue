@@ -55,7 +55,7 @@
                     label = LocalisationService.translate(`Property${property}`);
                 }
 
-                ToastService.success(['PasswordPropertyCopied', property])
+                ToastService.success(['PasswordPropertyCopied', label])
                     .catch(ErrorManager.catch);
             }
         }
