@@ -136,4 +136,17 @@
             }
         }
     }
+
+    body.mobile {
+        .theming {
+            grid-template-columns : 1fr;
+            grid-row-gap          : 1rem;
+            grid-column-gap       : 0;
+            padding               : 0;
+
+            .theme-settings {
+                padding : 1rem;
+            }
+        }
+    }
 </style>

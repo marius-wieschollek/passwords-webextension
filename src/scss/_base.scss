@@ -1,11 +1,12 @@
 :root {
-    font-family      : var(--font-family);
-    font-size        : var(--font-size);
+    font-family : var(--font-family);
+    font-size   : var(--font-size);
 }
 
 body {
     font-family      : var(--font-family);
     font-size        : var(--font-size);
+    line-height      : 1.1em;
     background-color : var(--element-bg-color);
     color            : var(--element-fg-color);
     margin           : 0;

@@ -66,27 +66,29 @@
         .badge-preview {
             border        : 1px solid var(--element-hover-bg-color);
             border-radius : 5px;
+            box-sizing    : border-box;
             width         : 40px;
             height        : 40px;
             margin        : .5rem auto;
-            padding       : 7px;
             position      : relative;
 
             img {
                 width  : 24px;
                 height : 24px;
+                margin : 7px;
             }
 
             .badge {
                 position      : absolute;
-                width         : 1rem;
-                height        : 1rem;
-                font-size     : .8rem;
-                line-height   : 1rem;
+                width         : 1.1rem;
+                height        : 1.1rem;
+                font-size     : .75rem;
+                line-height   : 1.1rem;
                 text-align    : center;
                 border-radius : 3px;
-                right         : -.4rem;
-                top           : -.4rem;
+                right         : -.45rem;
+                top           : -.45rem;
+                font-family   : Verdana, sans-serif;
 
                 &.bottom {
                     top    : auto;
@@ -100,6 +102,16 @@
             border        : 1px solid var(--element-hover-bg-color);
             width         : 100%;
             border-radius : 5px;
+        }
+    }
+    body.mobile {
+        .theme-preview {
+            .popup-preview {
+                height        : 360px;
+                width         : 100vw;
+                border-radius : 0;
+                border-width: 1px 0;
+            }
         }
     }
 </style>

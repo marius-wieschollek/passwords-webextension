@@ -6,8 +6,9 @@
 }
 
 body #manager {
-    --tab-border        : none;
-    --tab-active-border : none;
+    --main-tab-border               : none;
+    --main-tab-active-border        : none;
+    --main-tab-mobile-active-border : none;
 }
 
 body #manager > .tab-container > .tabs {
@@ -100,9 +101,23 @@ body #manager .search-container input#query:active {
     animation-play-state : running;
 }
 
+
+@media screen and (min-aspect-ratio : 13/9) {
+    body #manager > .tab-container > .tabs {
+        background      : linear-gradient(315deg, var(--rgb-color-red), var(--rgb-color-blue), var(--rgb-color-green), var(--rgb-color-yellow), var(--rgb-color-red), var(--rgb-color-blue), var(--rgb-color-green), var(--rgb-color-yellow));
+        background-size : 800% 800%;
+        animation       : rgb-mobile 5s linear infinite;
+    }
+}
+
 @keyframes rgb {
     0% {background-position : 0 50%}
-    100% {background-position : 74% 50%}
+    100% {background-position : 77% 50%}
+}
+
+@keyframes rgb-mobile {
+    0% {background-position : 50% 0}
+    100% {background-position : 50% 75%}
 }
 
 @keyframes rgb-tab {

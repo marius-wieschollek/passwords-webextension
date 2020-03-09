@@ -66,7 +66,8 @@ class SystemService {
     }
 
     /**
-     * @return {Promise<{name: string, version: string}>}
+     *
+     * @return {Promise<{os: String, vendor: String, name: String, arch: String, device: String, version: String}>}
      */
     getBrowserInfo() {
         return BrowserApi.getBrowserInfo();

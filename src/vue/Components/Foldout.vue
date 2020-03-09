@@ -103,7 +103,6 @@
             display          : flex;
             flex-direction   : row;
             overflow         : hidden;
-            line-height      : 1rem;
             background-color : var(--element-bg-color);
             color            : var(--element-fg-color);
             box-shadow       : var(--tab-border);

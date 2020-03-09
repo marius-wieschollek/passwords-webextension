@@ -1,8 +1,8 @@
 <template>
     <div id="manager">
-        <tabs :tabs="tabs" :initial-tab="tab" v-if="authorized" v-on:switch="saveTab($event)" >
+        <tabs :tabs="tabs" :initial-tab="tab" v-if="authorized" v-on:switch="saveTab($event)">
             <related slot="related"/>
-            <search slot="search"  :initial-status="search"/>
+            <search slot="search" :initial-status="search"/>
             <browse slot="browse" :initial-status="browse"/>
             <collected slot="collected" :initial-status="collected"/>
         </tabs>
@@ -140,7 +140,7 @@
             width       : calc(100vw - 12rem);
             transition  : var(--popup-tab-transition);
             box-sizing  : border-box;
-            box-shadow : var(--main-tab-border);
+            box-shadow  : var(--main-tab-border);
             flex-shrink : 0;
 
             .label {
