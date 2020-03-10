@@ -63,12 +63,20 @@
         "message"    : "Default account for new passwords",
         "description": ""
     },
+    "AutofillSettings"  : {
+        "message"    : "Password autofill",
+        "description": ""
+    },
+    "SettingsPopupAutoclose"  : {
+        "message"    : "Close popup after autofill",
+        "description": ""
+    },
     "SettingsPasswordAutosubmit"  : {
         "message"    : "Automatically submit login forms",
         "description": ""
     },
     "NotificationSettings"        : {
-        "message"    : "Notification",
+        "message"    : "Notifications",
         "description": ""
     },
     "SettingsNotifyPasswordNew"   : {
@@ -77,6 +85,14 @@
     },
     "SettingsNotifyPasswordUpdate": {
         "message"    : "Notification for updated passwords",
+        "description": ""
+    },
+    "SearchSettings": {
+        "message"    : "Search",
+        "description": ""
+    },
+    "SettingsPopupRelatedSearch": {
+        "message"    : "Search on type from \"Related\" tab",
         "description": ""
     },
     "AccountList"                 : {

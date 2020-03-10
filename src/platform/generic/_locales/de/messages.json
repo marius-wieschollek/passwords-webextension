@@ -49,6 +49,14 @@
         "message"    : "Standardkonto für neue Passwörter",
         "description": ""
     },
+    "AutofillSettings"  : {
+        "message"    : "Passwörter einfügen",
+        "description": ""
+    },
+    "SettingsPopupAutoclose"  : {
+        "message"    : "Popup nach erfolgreichem Einfügen schließen",
+        "description": ""
+    },
     "SettingsPasswordAutosubmit"  : {
         "message"    : "Formulare automatisch abschicken",
         "description": ""
@@ -63,6 +71,14 @@
     },
     "SettingsNotifyPasswordUpdate": {
         "message"    : "Benachrichtigung für aktualisierte Passwörter",
+        "description": ""
+    },
+    "SearchSettings": {
+        "message"    : "Suche",
+        "description": ""
+    },
+    "SettingsPopupRelatedSearch": {
+        "message"    : "Suche starten wenn in \"Vorschläge\" getippt wird",
         "description": ""
     },
     "AccountList"                 : {
