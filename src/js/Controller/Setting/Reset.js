@@ -1,11 +1,11 @@
 import AbstractController from '@js/Controller/AbstractController';
 import SettingsService from '@js/Services/SettingsService';
 
-export default class Get extends AbstractController {
+export default class Reset extends AbstractController {
 
     constructor() {
         super();
-        this._readableSettings = [
+        this._resettableSettings = [
             'password.autosubmit',
             'popup.autoclose',
             'popup.related.search',
@@ -27,8 +27,8 @@ export default class Get extends AbstractController {
         let setting = message.getPayload();
 
         try {
-            if(this._readableSettings.indexOf(setting) !== -1) {
-                let value = await SettingsService.getValue(setting);
+            if(this._resettableSettings.indexOf(setting) !== -1) {
+                let value = await SettingsService.reset(setting);
                 reply.setType('setting.value').setPayload(value);
             } else {
                 reply.setPayload(

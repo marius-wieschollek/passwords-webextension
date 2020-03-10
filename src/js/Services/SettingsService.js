@@ -1,83 +1,37 @@
-import StorageService from '@js/Services/StorageService';
 import Setting from '@js/Models/Setting/Setting';
 
 class SettingsService {
 
     constructor() {
-        this.browserScopes = [Setting.SCOPE_LOCAL, Setting.SCOPE_SYNC];
-        this.serverScopes = [Setting.SCOPE_USER, Setting.SCOPE_SERVER, Setting.SCOPE_CLIENT];
+        this._backend = null;
+        this._settings = {};
+    }
 
-        this._mapping = {
-            'server.default'              : [
-                'local.server.default',
-                'sync.server.default'
-            ],
-            'password.autosubmit'         : [
-                'client.ext.password.autosubmit',
-                'local.password.autosubmit',
-                'sync.password.autosubmit'
-            ],
-            'notification.password.new'   : [
-                'client.ext.notification.password.new',
-                'local.notification.password.new',
-                'sync.notification.password.new'
-            ],
-            'notification.password.update': [
-                'client.ext.notification.password.update',
-                'local.notification.password.update',
-                'sync.notification.password.update'
-            ],
-            'theme.current'               : [
-                'client.ext.theme.current',
-                'local.theme.current',
-                'sync.theme.current'
-            ],
-            'theme.custom'                : [
-                'sync.theme.custom',
-                'local.theme.custom'
-            ]
-        };
-        this._defaults = {
-            'theme.custom'                : null,
-            'theme.current'               : 'light',
-            'server.default'              : null,
-            'password.autosubmit'         : true,
-            'notification.password.new'   : true,
-            'notification.password.update': true
-        };
+    init(backend) {
+        this._backend = backend;
+    }
+
+    /**
+     *
+     * @param {String} name
+     * @return {Promise<Setting>}
+     */
+    async get(name) {
+        if(this._settings.hasOwnProperty(name)) {
+            return this._settings[name];
+        }
+
+        let value   = await this._backend.get(name),
+            setting = new Setting(name, value);
+
+        this._settings[name] = setting;
+
+        return setting;
     }
 
     /**
      *
      * @param {String} setting
-     * @return {Promise<Setting>}
-     */
-    async get(setting) {
-        if(!this._mapping.hasOwnProperty(setting)) {
-            // @TODO use custom error
-            throw new Error('Unknown setting');
-        }
-
-        let mapping = this._mapping[setting];
-        for(let key of mapping) {
-            let {scope, name} = this._getScopeAndName(key),
-                model;
-
-            if(this.browserScopes.indexOf(scope) !== -1) {
-                model = await this._browserGet(scope, name);
-            } else if(this.serverScopes.indexOf(scope) !== -1) {
-                model = await this._serverGet(key);
-            }
-
-            if(model) return model;
-        }
-
-        return new Setting(setting, this._defaults[setting], Setting.SCOPE_LOCAL);
-    }
-
-    /**
-     *
-     * @param {(Setting|String)} setting
      * @return {Promise<*>}
      */
     async getValue(setting) {
@@ -93,29 +47,15 @@ class SettingsService {
      * @return {Promise<*>}
      */
     async set(setting, value) {
-        let mapping;
+        let name = setting;
         if(setting instanceof Setting) {
-            // @TODO use custom error
-            if(!this._mapping.hasOwnProperty(setting.getName())) throw new Error('Unknown setting');
-
-            mapping = this._mapping[setting.getName()];
+            name = setting.getName();
             value = setting.getValue();
-        } else {
-            // @TODO use custom error
-            if(!this._mapping.hasOwnProperty(setting)) throw new Error('Unknown setting');
-
-            mapping = this._mapping[setting];
         }
 
-        for(let key of mapping) {
-            let {scope, name} = this._getScopeAndName(key);
-
-            let model = new Setting(name, value, scope);
-            if(this.browserScopes.indexOf(scope) !== -1) {
-                await this._browserSet(model);
-            } else if(this.serverScopes.indexOf(scope) !== -1) {
-                await this._serverSet(model);
-            }
+        await this._backend.set(name, value);
+        if(this._settings.hasOwnProperty(name)) {
+            this._settings[name].setValue(value);
         }
     }
 
@@ -125,116 +65,16 @@ class SettingsService {
      * @return {Promise<*>}
      */
     async reset(setting) {
-        let mapping;
-        if(setting instanceof Setting) {
-            // @TODO use custom error
-            if(!this._mapping.hasOwnProperty(setting.getName())) throw new Error('Unknown setting');
+        let isSetting = setting instanceof Setting,
+            name      = isSetting ? setting.getName():setting;
 
-            mapping = this._mapping[setting.getName()];
-            setting.setValue(this._defaults[setting.getName()]);
-        } else {
-            // @TODO use custom error
-            if(!this._mapping.hasOwnProperty(setting)) throw new Error('Unknown setting');
-
-            mapping = this._mapping[setting];
+        let value = await this._backend.reset(name);
+        if(isSetting) setting.setValue(value);
+        if(this._settings.hasOwnProperty(name)) {
+            this._settings[name].setValue(value);
         }
 
-        for(let key of mapping) {
-            let {scope, name} = this._getScopeAndName(key);
-
-            let model = new Setting(name, value, scope);
-            if(this.browserScopes.indexOf(scope) !== -1) {
-                await this._browserDelete(model);
-            } else if(this.serverScopes.indexOf(scope) !== -1) {
-                await this._serverDelete(model);
-            }
-        }
-    }
-
-    async list() {
-    }
-
-    _getScopeAndName(setting) {
-        let scope, name;
-        if(setting instanceof Setting) {
-            scope = setting.getScope();
-            name = setting.getName();
-        } else {
-            let index = setting.indexOf('.');
-            scope = setting.substr(0, index);
-            name = setting.substring(index + 1);
-        }
-        return {scope, name};
-    }
-
-    /**
-     *
-     * @param {String} scope
-     * @param {String} name
-     * @return {Promise<Setting>}
-     * @private
-     */
-    async _browserGet(scope, name) {
-        let key = `setting.${name}`;
-
-        if(await StorageService.has(key, scope)) {
-            let value = await StorageService.get(key, scope);
-            return new Setting(name, value, scope);
-        }
-    }
-
-    /**
-     *
-     * @param {String} setting
-     * @return {Promise<Setting>}
-     * @private
-     */
-    async _serverGet(setting) {
-        return undefined;
-    }
-
-    /**
-     *
-     * @param {Setting} setting
-     * @return {Promise<Boolean>}
-     * @private
-     */
-    async _browserSet(setting) {
-        let name = `setting.${setting.getName()}`;
-
-        return await StorageService.set(name, setting.getValue(), setting.getScope());
-    }
-
-    /**
-     *
-     * @param {Setting} setting
-     * @return {Promise<Boolean>}
-     * @private
-     */
-    async _serverSet(setting) {
-        return undefined;
-    }
-
-    /**
-     *
-     * @param {Setting} setting
-     * @return {Promise<Boolean>}
-     * @private
-     */
-    async _browserDelete(setting) {
-        let name = `setting.${setting.getName()}`;
-
-        return await StorageService.remove(name, setting.getScope());
-    }
-
-    /**
-     *
-     * @param {Setting} setting
-     * @return {Promise<Boolean>}
-     * @private
-     */
-    async _serverDelete(setting) {
-        return undefined;
+        return isSetting ? setting:value;
     }
 }
 

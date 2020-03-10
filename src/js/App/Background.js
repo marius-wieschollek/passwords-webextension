@@ -14,6 +14,8 @@ import MiningManager from '@js/Manager/MiningManager';
 import NotificationService from '@js/Services/NotificationService';
 import ThemeService from '@js/Services/ThemeService';
 import ThemeRepository from '@js/Repositories/ThemeRepository';
+import SettingsService from '@js/Services/SettingsService';
+import MasterSettingsProvider from '@js/Settings/MasterSettingsProvider';
 
 class Background {
     async init() {
@@ -21,6 +23,7 @@ class Background {
         ErrorManager.init('server');
         try {
             await SystemService.waitReady();
+            SettingsService.init(MasterSettingsProvider);
             await UpgradeManager.run();
             await MessageService.init();
             ControllerManager.init();

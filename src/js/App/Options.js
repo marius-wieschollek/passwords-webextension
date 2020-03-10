@@ -6,6 +6,8 @@ import MessageService from '@js/Services/MessageService';
 import ConverterManager from '@js/Manager/ConverterManager';
 import ToastService from '@js/Services/ToastService';
 import ThemeService from '@js/Services/ThemeService';
+import SettingsService from '@js/Services/SettingsService';
+import ClientSettingsProvider from '@js/Settings/ClientSettingsProvider';
 
 class Options {
 
@@ -29,6 +31,7 @@ class Options {
             SystemService.connect();
             await MessageService.init(true, 'background');
             ConverterManager.init();
+            SettingsService.init(ClientSettingsProvider);
 
             await ThemeService.apply();
             await this._initVue();

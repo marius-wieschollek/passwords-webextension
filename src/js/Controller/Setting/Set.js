@@ -8,7 +8,9 @@ export default class Set extends AbstractController {
     constructor() {
         super();
         this._booleanSettings = [
+            'popup.autoclose',
             'password.autosubmit',
+            'popup.related.search',
             'notification.password.new',
             'notification.password.update'
         ];
@@ -24,7 +26,9 @@ export default class Set extends AbstractController {
         let {setting, value} = message.getPayload();
 
         try {
-            if(setting === 'server.default') {
+            if(setting === 'theme.custom') {
+                await SettingsService.set(setting, value);
+            } else if(setting === 'server.default') {
                 await this._setDefaultServer(value);
             } else if(setting === 'theme.current') {
                 await this._setCurrentTheme(value);

@@ -159,6 +159,13 @@ class ControllerManager {
             }
         );
         MessageService.listen(
+            'setting.reset',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "SettingReset" */ '@js/Controller/Setting/Reset');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
             'theme.list',
             async (message, reply) => {
                 let module = await import(/* webpackChunkName: "ThemeList" */ '@js/Controller/Theme/List');

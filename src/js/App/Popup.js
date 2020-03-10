@@ -7,6 +7,8 @@ import ConverterManager from '@js/Manager/ConverterManager';
 import AuthorisationClient from '@js/Queue/Client/AuthorisationClient';
 import ToastService from '@js/Services/ToastService';
 import ThemeService from '@js/Services/ThemeService';
+import SettingsService from '@js/Services/SettingsService';
+import ClientSettingsProvider from '@js/Settings/ClientSettingsProvider';
 
 class Popup {
 
@@ -40,6 +42,7 @@ class Popup {
             SystemService.connect();
             await MessageService.init(true, 'background');
             ConverterManager.init();
+            SettingsService.init(ClientSettingsProvider);
             this._authClient = new AuthorisationClient();
 
             await ThemeService.apply();
