@@ -1,7 +1,7 @@
 <template>
     <div id="manager">
-        <tabs :tabs="tabs" :initial-tab="tab" v-if="authorized" v-on:switch="saveTab($event)">
-            <related slot="related"/>
+        <tabs :tabs="tabs" :initial-tab="tab" ref="tabs" v-on:switch="saveTab($event)" v-if="authorized">
+            <related slot="related" v-on:search="searchEvent"/>
             <search slot="search" :initial-status="search"/>
             <browse slot="browse" :initial-status="browse"/>
             <collected slot="collected" :initial-status="collected"/>
@@ -106,6 +106,10 @@
 
                 MessageService
                     .send({type: 'popup.status.set', payload: {tab}});
+            },
+            searchEvent($event) {
+                this.search.query = $event;
+                this.$refs.tabs.setActive('search');
             }
         }
     };

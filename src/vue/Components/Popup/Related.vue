@@ -1,6 +1,6 @@
 <template>
     <div class="related-container">
-        <password-list :passwords="passwords" />
+        <password-list :passwords="passwords"/>
         <translate tag="div" class="no-results" say="NoRelatedPasswords" v-if="passwords.length === 0"/>
     </div>
 </template>
@@ -24,6 +24,11 @@
 
         activated() {
             this.reloadData();
+            document.addEventListener('keypress', this.search);
+        },
+
+        deactivated() {
+            document.removeEventListener('keypress', this.search);
         },
 
         methods: {
@@ -33,6 +38,11 @@
                     .then((r) => {
                         this.passwords = r.getPayload();
                     });
+            },
+            search(event) {
+                if(event.key.length === 1) {
+                    this.$emit('search', event.key);
+                }
             }
         }
     };

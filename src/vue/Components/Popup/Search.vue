@@ -40,15 +40,21 @@
 
         mounted() {
             this.focus();
-            document.addEventListener('keydown', this.focus);
             if(this.query.length !== 0) {
                 this.search(this.query);
             }
         },
 
         activated() {
-            document.getElementById('query').focus();
-            this.search(this.query);
+            document.addEventListener('keydown', this.focus);
+            this.focus();
+            if(this.query.length !== 0) {
+                this.search(this.query);
+            }
+        },
+
+        deactivated() {
+            document.removeEventListener('keydown', this.focus);
         },
 
         methods: {
@@ -70,6 +76,9 @@
         watch: {
             query(query) {
                 this.search(query);
+            },
+            "initialStatus.query"(query) {
+                this.query = query;
             }
         }
     };
