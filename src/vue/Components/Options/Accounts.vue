@@ -18,6 +18,8 @@
     import Translate from '@vue/Components/Translate';
     import MessageService from '@js/Services/MessageService';
     import AccountList from '@vue/Components/Accounts/AccountList';
+    import SettingsService from '@js/Services/SettingsService';
+    import ErrorManager from '@js/Manager/ErrorManager';
 
     export default {
         components: {AccountList, Foldout, Translate, Icon},
@@ -37,8 +39,7 @@
                 try {
                     let message = await MessageService.send({type: 'server.list', payload: {all: true}});
                     this.servers = message.getPayload();
-                    message = await MessageService.send({type: 'setting.get', payload: 'server.default'});
-                    this.defaultServer = message.getPayload();
+                    this.defaultServer = await SettingsService.getValue('server.default');
                 } catch(e) {
                     console.error(e);
                 }
@@ -48,7 +49,7 @@
         watch: {
             defaultServer(value, oldValue) {
                 if(oldValue !== undefined && value !== oldValue) {
-                    MessageService.send({type: 'setting.set', payload: {setting: 'server.default', value}});
+                    SettingsService.set('server.default', value).catch(ErrorManager.catch);
                 }
             }
         }

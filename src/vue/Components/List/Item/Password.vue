@@ -19,6 +19,7 @@
     import ToastService from '@js/Services/ToastService';
     import ErrorManager from '@js/Manager/ErrorManager';
     import LocalisationService from '@js/Services/LocalisationService';
+    import SettingsService from '@js/Services/SettingsService';
 
     export default {
         components: {Favicon, Icon},
@@ -36,14 +37,19 @@
             async sendPassword() {
                 try {
                     await MessageService.send({type: 'password.fill', payload: this.password.getId()});
-
-                    ToastService.success(['PasswordPastedSuccess', this.password.getLabel()])
-                        .catch(ErrorManager.catch)
-                        .then(window.close);
                 } catch(e) {
                     ErrorManager.logError(e);
                     ToastService.success(['PasswordPastedError', this.password.getLabel()])
                         .catch(ErrorManager.catch);
+                }
+
+                try {
+                    await ToastService.success(['PasswordPastedSuccess', this.password.getLabel()]);
+                    if(await SettingsService.getValue('popup.autoclose')) {
+                        window.close()
+                    }
+                } catch(e) {
+                    ErrorManager.logError(e);
                 }
             },
             copy(property) {

@@ -6,14 +6,16 @@
 </template>
 
 <script>
+    import Translate from '@vue/Components/Translate';
     import MessageService from '@js/Services/MessageService';
     import PasswordList from '@vue/Components/List/PasswordList';
-    import Translate from '@vue/Components/Translate';
+    import SettingsService from '@js/Services/SettingsService';
 
     export default {
         components: {Translate, PasswordList},
         data() {
             return {
+                hasSearch: false,
                 passwords: []
             };
         },
@@ -24,11 +26,21 @@
 
         activated() {
             this.reloadData();
-            document.addEventListener('keypress', this.search);
+
+            SettingsService.getValue('popup.related.search')
+                .then((value) => {
+                    if(value) {
+                        document.addEventListener('keypress', this.search);
+                        this.hasSearch = true;
+                    }
+                });
         },
 
         deactivated() {
-            document.removeEventListener('keypress', this.search);
+            if(this.hasSearch) {
+                document.removeEventListener('keypress', this.search);
+                this.hasSearch = false;
+            }
         },
 
         methods: {
