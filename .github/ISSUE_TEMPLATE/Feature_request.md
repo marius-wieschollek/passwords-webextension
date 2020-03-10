@@ -5,13 +5,7 @@ labels: feature
 ---
 
 <!--
-For QUESTIONS or SUPPORT, please visit the forum.
- -> https://help.nextcloud.com/c/apps/passwords
- or look into the MANUAL
- -> https://git.mdns.eu/nextcloud/passwords-webextension/wikis/home
-
-If your request is about the NEXTCLOUD APP, please go to
- -> https://github.com/marius-wieschollek/passwords
+ Remember not to include personal data as this is public.
 -->
 
 **Current Status**
