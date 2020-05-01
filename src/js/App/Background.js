@@ -23,9 +23,9 @@ class Background {
         ErrorManager.init('server');
         try {
             await SystemService.waitReady();
+            await MessageService.init();
             SettingsService.init(MasterSettingsProvider);
             await UpgradeManager.run();
-            await MessageService.init();
             ControllerManager.init();
             ConverterManager.init();
             SearchManager.init();
