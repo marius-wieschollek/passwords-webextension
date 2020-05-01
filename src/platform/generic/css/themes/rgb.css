@@ -101,7 +101,6 @@ body #manager .search-container input#query:active {
     animation-play-state : running;
 }
 
-
 @media screen and (min-aspect-ratio : 13/9) {
     body #manager > .tab-container > .tabs {
         background      : linear-gradient(315deg, var(--rgb-color-red), var(--rgb-color-blue), var(--rgb-color-green), var(--rgb-color-yellow), var(--rgb-color-red), var(--rgb-color-blue), var(--rgb-color-green), var(--rgb-color-yellow));
