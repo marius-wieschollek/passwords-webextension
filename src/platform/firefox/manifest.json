@@ -70,7 +70,7 @@
         {
             "protocol"   : "ext+passlink",
             "name"       : "__MSG_protocolHandler__",
-            "uriTemplate": "html/passlink.html#data=%s"
+            "uriTemplate": "html/passlink.html?link=%s"
         }
     ],
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';",

@@ -186,6 +186,13 @@ class ControllerManager {
                 await this._executeController(module, message, reply);
             }
         );
+        MessageService.listen(
+            'passlink.status',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "PassLinkStatus" */ '@js/Controller/PassLink/Status');
+                await this._executeController(module, message, reply);
+            }
+        );
     }
 
     /**

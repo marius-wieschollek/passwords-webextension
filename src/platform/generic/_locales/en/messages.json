@@ -63,11 +63,11 @@
         "message"    : "Default account for new passwords",
         "description": ""
     },
-    "AutofillSettings"  : {
+    "AutofillSettings"            : {
         "message"    : "Password autofill",
         "description": ""
     },
-    "SettingsPopupAutoclose"  : {
+    "SettingsPopupAutoclose"      : {
         "message"    : "Close popup after autofill",
         "description": ""
     },
@@ -87,11 +87,11 @@
         "message"    : "Notification for updated passwords",
         "description": ""
     },
-    "SearchSettings": {
+    "SearchSettings"              : {
         "message"    : "Search",
         "description": ""
     },
-    "SettingsPopupRelatedSearch": {
+    "SettingsPopupRelatedSearch"  : {
         "message"    : "Search on type from \"Related\" tab",
         "description": ""
     },
@@ -575,7 +575,7 @@
         "message"    : "Hacker",
         "description": ""
     },
-    "ThemeRGB"                 : {
+    "ThemeRGB"                    : {
         "message"    : "Gaming RGB",
         "description": ""
     },
@@ -627,7 +627,7 @@
         "message"    : "This color is usually used for the background",
         "description": ""
     },
-    "BackgroundColorHoverTitle"       : {
+    "BackgroundColorHoverTitle"   : {
         "message"    : "This color is used for the background if the element is active. It can also be used for the border of an inactive element",
         "description": ""
     },
@@ -635,15 +635,15 @@
         "message"    : "This color is usually used for texts and borders",
         "description": ""
     },
-    "ForegroundColorHoverTitle"       : {
+    "ForegroundColorHoverTitle"   : {
         "message"    : "This color is used for texts and borders if the element is active",
         "description": ""
     },
-    "BackgroundInheritTitle": {
+    "BackgroundInheritTitle"      : {
         "message"    : "If activated, the value will be inherited from the parent element",
         "description": ""
     },
-    "ForegroundInheritTitle": {
+    "ForegroundInheritTitle"      : {
         "message"    : "If activated, the value will be inherited from the parent element",
         "description": ""
     },
@@ -777,6 +777,48 @@
     },
     "BadgeForegroundTitle"        : {
         "message"    : "Text color of the badge",
+        "description": ""
+    },
+    "PasslinkConnectCheckCodes"   : {
+        "message"    : "Check if the codes below match with the ones you see in the app. If they do, confirm the connection in the app and you're done.",
+        "description": ""
+    },
+    "PasslinkConnectServer"     : {
+        "message"    : "The new connection was saved as \"$LABEL$\"",
+        "description": "",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "PasslinkConnectNotFound"     : {
+        "message"    : "This link is invalid. It may have been used already or is expired.",
+        "description": ""
+    },
+    "PasslinkConnectRejected"     : {
+        "message"    : "The login request was rejected by the server.",
+        "description": ""
+    },
+    "PasslinkConnectNetworkError" : {
+        "message"    : "The connection to the server failed. Please check your network.",
+        "description": ""
+    },
+    "PasslinkConnectSuccess"      : {
+        "message"    : "Connection successful",
+        "description": ""
+    },
+    "PasslinkConnectFailed"       : {
+        "message"    : "Connection failed",
+        "description": ""
+    },
+    "PasslinkConnectSettings"        : {
+        "message"    : "Open settings",
+        "description": ""
+    },
+    "PasslinkConnectClose"        : {
+        "message"    : "Close the window",
         "description": ""
     }
 }

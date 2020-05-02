@@ -7,6 +7,10 @@ class SystemService {
         return 'background';
     }
 
+    get AREA_PASSLINK() {
+        return 'passlink';
+    }
+
     get AREA_OPTIONS() {
         return 'options';
     }
@@ -22,6 +26,7 @@ class SystemService {
     get AREAS() {
         return [
             this.AREA_BACKGROUND,
+            this.AREA_PASSLINK,
             this.AREA_OPTIONS,
             this.AREA_CLIENT,
             this.AREA_POPUP

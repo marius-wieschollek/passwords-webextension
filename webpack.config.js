@@ -51,6 +51,7 @@ module.exports = env => {
             popup     : `${__dirname}/src/js/popup.js`,
             options   : `${__dirname}/src/js/options.js`,
             preview   : `${__dirname}/src/js/preview.js`,
+            passlink  : `${__dirname}/src/js/passlink.js`,
             background: `${__dirname}/src/js/background.js`
         },
         output : {

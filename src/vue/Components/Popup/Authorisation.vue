@@ -74,6 +74,7 @@
 
         computed: {
             style() {
+                // @TODO Use theme css vars helper here
                 let theme = {};
                 if(this.theme.hasOwnProperty('color.primary')) {
                     theme['--color-primary'] = this.theme['color.primary'];

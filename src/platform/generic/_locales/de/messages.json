@@ -764,5 +764,47 @@
     "BadgeForegroundTitle"        : {
         "message"    : "Textfarbe des Abzeichens",
         "description": ""
+    },
+    "PasslinkConnectCheckCodes"   : {
+        "message"    : "Prüfe ob diese Codes mit denen in der App übereinstimmen. Wenn das der Fall ist, bestätige die Verbindung in der App und du bist fertig.",
+        "description": ""
+    },
+    "PasslinkConnectServer"     : {
+        "message"    : "Die neue Verbindung wurde als \"$LABEL$\" gespeichert",
+        "description": "",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "PasslinkConnectNotFound"     : {
+        "message"    : "Dieser Link ist ungültig. Er wurde entweder schon benutzt oder ist abgelaufen.",
+        "description": ""
+    },
+    "PasslinkConnectRejected"     : {
+        "message"    : "Der Server hat den Anmeldeversuch nicht aktzeptiert.",
+        "description": ""
+    },
+    "PasslinkConnectNetworkError" : {
+        "message"    : "Der Verbindungsaufbau zum Server ist fehlgeschlagen. Bitte prüfe deine Netzwerkverbindung.",
+        "description": ""
+    },
+    "PasslinkConnectSuccess"      : {
+        "message"    : "Verbindung erfolgreich",
+        "description": ""
+    },
+    "PasslinkConnectFailed"       : {
+        "message"    : "Verbindung fehlgeschlagen",
+        "description": ""
+    },
+    "PasslinkConnectSettings"        : {
+        "message"    : "Einstellungen öffnen",
+        "description": ""
+    },
+    "PasslinkConnectClose"        : {
+        "message"    : "Fenster schließen",
+        "description": ""
     }
 }
