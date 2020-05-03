@@ -47,7 +47,7 @@
         },
 
         async mounted() {
-            let reply = await MessageService.send({type: 'theme.list'});
+            let reply = await MessageService.send('theme.list');
             this.themes = reply.getPayload();
 
             reply = await MessageService.send({type: 'setting.get', payload: 'theme.current'});
