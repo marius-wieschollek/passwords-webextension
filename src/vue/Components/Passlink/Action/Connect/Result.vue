@@ -11,11 +11,11 @@
 </template>
 
 <script>
-    import Translate from '@vue/Components/Translate';
     import Icon from '@vue/Components/Icon';
+    import Translate from '@vue/Components/Translate';
+    import ErrorManager from '@js/Manager/ErrorManager';
     import SystemService from '@js/Services/SystemService';
     import MessageService from '@js/Services/MessageService';
-    import ErrorManager from '@js/Manager/ErrorManager';
 
     export default {
         components: {Icon, Translate},

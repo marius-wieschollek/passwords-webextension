@@ -1,15 +1,17 @@
 <template>
     <div id="passlink">
         <connect v-if="action === 'connect'"/>
+        <error :action-data="actionData" v-if="action === 'error'" />
         <div id="toasts"></div>
     </div>
 </template>
 
 <script>
     import Connect from '@vue/Components/Passlink/Action/Connect';
+    import Error from '@vue/Components/Passlink/Action/Error';
 
     export default {
-        components: {Connect},
+        components: {Error, Connect},
         el        : '#app',
 
         props: {

@@ -783,7 +783,15 @@
         "message"    : "Text color of the badge",
         "description": ""
     },
-    "PasslinkNoActiveAction"   : {
+    "PasslinkErrorNoMessage"      : {
+        "message"    : "There has been an error but no error message was provided",
+        "description": ""
+    },
+    "PasslinkErrorClose"          : {
+        "message"    : "Close",
+        "description": ""
+    },
+    "PasslinkNoActiveAction"      : {
         "message"    : "There is no active passlink action of this type",
         "description": ""
     },
