@@ -108,6 +108,13 @@ class ContextMenuManager {
         data.contexts = this._getContexts();
         if(SystemService.getBrowserPlatform() === 'chrome') {
             delete data.icons;
+
+            if(data.hasOwnProperty('command')) {
+                delete data.command;
+                data.onclick = () => {
+                    this._openBrowserAction();
+                }
+            }
         }
 
         menu.create(data);
@@ -131,6 +138,14 @@ class ContextMenuManager {
                 }
             }
         );
+    }
+
+    /**
+     *
+     * @private
+     */
+    _openBrowserAction() {
+        SystemService.getBrowserApi().browserAction.openPopup();
     }
 }
 
