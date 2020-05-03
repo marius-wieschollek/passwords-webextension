@@ -1,6 +1,6 @@
 <template>
     <div id="passlink">
-        <connect :action-data="actionData" v-if="action === 'connect'"/>
+        <connect v-if="action === 'connect'"/>
         <div id="toasts"></div>
     </div>
 </template>

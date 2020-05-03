@@ -110,7 +110,7 @@ class MessageService {
 
     /**
      *
-     * @param {(Message|Object)} message The message to be sent
+     * @param {(Message|Object|String)} message The message to be sent
      * @returns {Promise<Message>}
      */
     send(message) {
@@ -365,12 +365,13 @@ class MessageService {
 
     /**
      *
-     * @param {Message|{}} message
+     * @param {Message|Object|String} message
      * @returns {Message}
      * @private
      */
     _validateMessage(message) {
         if(message instanceof Message) return message;
+        if(typeof message === 'string') message = {type: message};
         if(!message.hasOwnProperty('type')) message = {payload: message};
         message = new Message(message);
 

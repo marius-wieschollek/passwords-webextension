@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import App from '@vue/App/Passlink.vue';
-import {PassLink} from 'passwords-client';
 import ErrorManager from '@js/Manager/ErrorManager';
 import SystemService from '@js/Services/SystemService';
 import MessageService from '@js/Services/MessageService';
@@ -33,16 +32,13 @@ class Passlink {
             await MessageService.init(true, 'background');
             ConverterManager.init();
             SettingsService.init(ClientSettingsProvider);
-            this._api = SystemService.getBrowserApi();
 
-            let urlParams = new URLSearchParams(window.location.search);
-            let link = urlParams.get('link');
+            let urlParams = new URLSearchParams(window.location.search),
+                link      = urlParams.get('link');
             if(link !== null) {
-                this._processLink(link);
+                await this._processLink(link);
             } else {
-                let action = urlParams.get('action');
-                let data = JSON.parse(urlParams.get('data'));
-                await this._processAction(action, data);
+                await this._processAction('error', {message: 'PasslinkNoLinkProvided'});
             }
         } catch(e) {
             ErrorManager.logError(e);
@@ -57,7 +53,7 @@ class Passlink {
      * @private
      */
     async _initVue(action, data) {
-        let reply  = await MessageService.send({type: 'passlink.status'}),
+        let reply  = await MessageService.send('passlink.status'),
             status = reply.getPayload();
         document.body.classList.add(status.device);
 
@@ -75,7 +71,6 @@ class Passlink {
      * @private
      */
     async _processAction(action, data) {
-        console.log(action, data);
         await ThemeService.apply();
         await this._initVue(action, data);
         await ToastService.init();
@@ -86,37 +81,20 @@ class Passlink {
      * @param {String} link
      * @private
      */
-    _processLink(link) {
-        try {
-            let info = PassLink.analyzeLink(link);
+    async _processLink(link) {
+        let reply = await MessageService.send({type: 'passlink.analyze', payload: link}),
+            info  = reply.getPayload();
 
-            this._openInPopup(info.action, info.parameters);
-        } catch(e) {
-            this._processAction('error', {message: e.message, link});
-            ErrorManager.logError(e);
-        }
-    }
-
-    async _openInPopup(action, data = {}) {
-        let current = await this._api.tabs.getCurrent(),
-            parent  = await this._api.windows.getLastFocused(),
-            offset  = {width: 14, height: 42, left: 25, top: 74},
-            width   = 360 + offset.width,
-            height  = 360 + offset.height,
-            left    = Math.floor(parent.left + parent.width - width - offset.left),
-            top     = Math.floor(parent.top + offset.top);
-
-        let baseUrl     = await this._api.runtime.getURL('html/passlink.html'),
-            encodedData = encodeURIComponent(JSON.stringify(data)),
-            url         = `${baseUrl}?action=${action}&data=${encodedData}`;
-
-        let info = await this._api.windows.create({type: 'panel', url, top, left, width, height});
-
-        if(SystemService.getBrowserPlatform() === 'firefox') {
-            await this._api.windows.update(info.id, {top, left});
+        if(info.action === 'connect') {
+            await MessageService.send('tab.popout').catch(ErrorManager.catch);
         }
 
-        await this._api.tabs.remove(current.id);
+        reply = await MessageService.send({type: 'passlink.action', payload: info});
+        if(!reply.getPayload().success) {
+            info = {action: 'error', data: {link, message: reply.getPayload().message}};
+        }
+
+        this._processAction(info.action, info.parameters).catch(ErrorManager.catch);
     }
 }
 

@@ -1,10 +1,6 @@
 <template>
     <div class="passlink-connect" :style="style">
-        <connect-codes :action-data="actionData"
-                       v-on:error="error"
-                       v-on:success="success"
-                       v-on:theme="theme"
-                       v-if="step === 0"/>
+        <connect-codes v-on:error="error" v-on:success="success" v-if="step === 0"/>
         <connect-result :success="result" :message="message" v-else/>
     </div>
 </template>
@@ -12,14 +8,10 @@
 <script>
     import ConnectResult from '@vue/Components/Passlink/Action/Connect/Result';
     import ConnectCodes from '@vue/Components/Passlink/Action/Connect/Codes';
-    import ThemeCssVarsHelper from '@js/Helper/ThemeCssVarsHelper';
+    import MessageService from '@js/Services/MessageService';
 
     export default {
         components: {ConnectCodes, ConnectResult},
-        props     : {
-            actionData: Object
-        },
-
         data() {
             return {
                 step   : 0,
@@ -29,10 +21,15 @@
             };
         },
 
+        mounted() {
+            MessageService.send('passlink.connect.theme').then((reply) => {
+                if(reply.getPayload().success) {
+                    this.style = reply.getPayload().vars;
+                }
+            });
+        },
+
         methods: {
-            theme(theme) {
-                this.style = ThemeCssVarsHelper.processTheme(theme);
-            },
             error(message) {
                 this.step = 1;
                 this.result = false;

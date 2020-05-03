@@ -217,6 +217,10 @@
             }
         }
     },
+    "ValidationFailed"            : {
+        "message"    : "Validation failed",
+        "description": ""
+    },
     "ValidationNotAnUrl"          : {
         "message"    : "The base url must be a valid url",
         "description": ""
@@ -779,13 +783,17 @@
         "message"    : "Text color of the badge",
         "description": ""
     },
+    "PasslinkNoActiveAction"   : {
+        "message"    : "There is no active passlink action of this type",
+        "description": ""
+    },
     "PasslinkConnectCheckCodes"   : {
         "message"    : "Check if the codes below match with the ones you see in the app. If they do, confirm the connection in the app and you're done.",
         "description": ""
     },
-    "PasslinkConnectServer"     : {
-        "message"    : "The new connection was saved as \"$LABEL$\"",
-        "description": "",
+    "PasslinkConnectServer"       : {
+        "message"     : "The new connection was saved as \"$LABEL$\"",
+        "description" : "",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -813,7 +821,7 @@
         "message"    : "Connection failed",
         "description": ""
     },
-    "PasslinkConnectSettings"        : {
+    "PasslinkConnectSettings"     : {
         "message"    : "Open settings",
         "description": ""
     },

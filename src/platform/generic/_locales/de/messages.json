@@ -203,6 +203,10 @@
             }
         }
     },
+    "ValidationFailed"            : {
+        "message"    : "Validierung fehlgeschlagen",
+        "description": ""
+    },
     "ValidationNotAnUrl"          : {
         "message"    : "Die Basis-URL muss einge gültige URL sein",
         "description": ""
@@ -763,6 +767,10 @@
     },
     "BadgeForegroundTitle"        : {
         "message"    : "Textfarbe des Abzeichens",
+        "description": ""
+    },
+    "PasslinkNoActiveAction"   : {
+        "message"    : "There is no active passlink action of this type",
         "description": ""
     },
     "PasslinkConnectCheckCodes"   : {

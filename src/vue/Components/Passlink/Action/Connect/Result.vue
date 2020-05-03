@@ -14,6 +14,8 @@
     import Translate from '@vue/Components/Translate';
     import Icon from '@vue/Components/Icon';
     import SystemService from '@js/Services/SystemService';
+    import MessageService from '@js/Services/MessageService';
+    import ErrorManager from '@js/Manager/ErrorManager';
 
     export default {
         components: {Icon, Translate},
@@ -38,7 +40,7 @@
         },
 
         mounted() {
-            setTimeout(() => {window.close();}, 10000);
+            setTimeout(() => {this.close();}, 10000);
         },
 
         methods: {
@@ -47,7 +49,7 @@
                 this.close();
             },
             close() {
-                window.close();
+                MessageService.send('tab.close').catch(ErrorManager.catch);
             }
         }
     };
