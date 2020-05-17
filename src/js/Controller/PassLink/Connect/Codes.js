@@ -1,5 +1,5 @@
 import AbstractController from '@js/Controller/AbstractController';
-import TabManager from '@js/Manager/TabManager';
+import RegistryService from '@js/Services/RegistryService';
 
 export default class Codes extends AbstractController {
 
@@ -9,12 +9,12 @@ export default class Codes extends AbstractController {
      * @param {Message} reply
      */
     async execute(message, reply) {
-        if(!TabManager.has('passlink.action.connect')) {
+        if(!RegistryService.has('passlink.action.connect')) {
             reply.setPayload({success: false, message: 'PasslinkNoActiveAction'});
         }
 
         /** @type Connect **/
-        let action = TabManager.get('passlink.action.connect');
+        let action = RegistryService.get('passlink.action.connect');
         reply.setPayload({success: true, codes: action.getCodes()});
     }
 }

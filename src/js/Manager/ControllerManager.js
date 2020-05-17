@@ -208,6 +208,13 @@ class ControllerManager {
             }
         );
         MessageService.listen(
+            'passlink.open',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "PassLinkOpen" */ '@js/Controller/PassLink/Open');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
             'passlink.connect.theme',
             async (message, reply) => {
                 let module = await import(/* webpackChunkName: "PassLinkConnectTheme" */ '@js/Controller/PassLink/Connect/Theme');

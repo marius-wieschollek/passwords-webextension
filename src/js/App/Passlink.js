@@ -34,15 +34,33 @@ class Passlink {
             SettingsService.init(ClientSettingsProvider);
 
             let urlParams = new URLSearchParams(window.location.search),
-                link      = urlParams.get('link');
+                link      = urlParams.get('link'),
+                action    = urlParams.get('action');
             if(link !== null) {
                 await this._processLink(link);
+            } else if(action !== null) {
+                let data = urlParams.get('data');
+                if(data !== null) data = JSON.parse(data);
+
+                await this._processAction(action, data);
             } else {
                 await this._processAction('error', {message: 'PasslinkNoLinkProvided'});
             }
         } catch(e) {
             ErrorManager.logError(e);
         }
+    }
+
+    /**
+     *
+     * @param {String} link
+     * @return {Promise<void>}
+     */
+    async loadLink(link) {
+        let info = await this._analyzeLink(link);
+
+        this._app.action = info.action
+        this._app.actionData = info.parameters
     }
 
     /**
@@ -82,11 +100,23 @@ class Passlink {
      * @private
      */
     async _processLink(link) {
+        let info = await this._analyzeLink(link);
+
+        this._processAction(info.action, info.parameters).catch(ErrorManager.catch);
+    }
+
+    /**
+     *
+     * @param link
+     * @return {Promise<void>}
+     * @private
+     */
+    async _analyzeLink(link) {
         let reply = await MessageService.send({type: 'passlink.analyze', payload: link}),
             info  = reply.getPayload();
 
         if(info.action === 'connect') {
-            await MessageService.send('tab.popout').catch(ErrorManager.catch);
+            await MessageService.send({type: 'tab.popout', payload: {url: location.href}}).catch(ErrorManager.catch);
         }
 
         reply = await MessageService.send({type: 'passlink.action', payload: info});
@@ -94,7 +124,7 @@ class Passlink {
             info = {action: 'error', data: {link, message: reply.getPayload().message}};
         }
 
-        this._processAction(info.action, info.parameters).catch(ErrorManager.catch);
+        return info;
     }
 }
 

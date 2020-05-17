@@ -1,7 +1,7 @@
 import AbstractController from '@js/Controller/AbstractController';
 import {PassLink} from 'passwords-client';
 import ErrorManager from '@js/Manager/ErrorManager';
-import TabManager from '@js/Manager/TabManager';
+import RegistryService from '@js/Services/RegistryService';
 
 export default class Action extends AbstractController {
 
@@ -16,8 +16,8 @@ export default class Action extends AbstractController {
         try {
             let handler = PassLink.getAction(action, data);
 
-            if(!TabManager.has(`passlink.action.${action}`) || TabManager.get(`passlink.action.${action}`).getParameter('id') !== handler.getParameter('id')) {
-                TabManager.set(`passlink.action.${action}`, handler);
+            if(!RegistryService.has(`passlink.action.${action}`) || RegistryService.get(`passlink.action.${action}`).getParameter('id') !== handler.getParameter('id')) {
+                RegistryService.set(`passlink.action.${action}`, handler);
             }
 
             reply.setPayload({success: true});

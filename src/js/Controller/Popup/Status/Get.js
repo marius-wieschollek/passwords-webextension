@@ -3,6 +3,7 @@ import SystemService from '@js/Services/SystemService';
 import RecommendationManager from '@js/Manager/RecommendationManager';
 import QueueService from '@js/Services/QueueService';
 import RegistryService from '@js/Services/RegistryService';
+import ServerRepository from '@js/Repositories/ServerRepository';
 
 export default class Get extends AbstractController {
 
@@ -13,7 +14,8 @@ export default class Get extends AbstractController {
             browse    : this._getBrowseStatus(),
             collected : this._getCollectedStatus(),
             device    : await this._getDevice(),
-            authorized: this._isAuthorized()
+            authorized: this._isAuthorized(),
+            firstRun: await this._isFirstRun()
         };
 
         reply
@@ -103,5 +105,16 @@ export default class Get extends AbstractController {
         }
 
         return 'search';
+    }
+
+    /**
+     *
+     * @return {Promise<Boolean>}
+     * @private
+     */
+    async _isFirstRun() {
+        let servers = await ServerRepository.findAll();
+
+        return servers.length === 0
     }
 }

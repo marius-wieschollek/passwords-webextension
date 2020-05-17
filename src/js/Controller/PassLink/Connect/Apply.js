@@ -1,5 +1,4 @@
 import AbstractController from '@js/Controller/AbstractController';
-import TabManager from '@js/Manager/TabManager';
 import SystemService from '@js/Services/SystemService';
 import LocalisationService from '@js/Services/LocalisationService';
 import HttpError from 'passwords-client/src/Exception/Http/HttpError';
@@ -8,6 +7,7 @@ import ServerValidation from '@js/Validation/Server';
 import ServerRepository from '@js/Repositories/ServerRepository';
 import ServerManager from '@js/Manager/ServerManager';
 import ErrorManager from '@js/Manager/ErrorManager';
+import RegistryService from '@js/Services/RegistryService';
 
 export default class Analyze extends AbstractController {
 
@@ -17,16 +17,16 @@ export default class Analyze extends AbstractController {
      * @param {Message} reply
      */
     async execute(message, reply) {
-        if(!TabManager.has('passlink.action.connect')) {
+        if(!RegistryService.has('passlink.action.connect')) {
             reply.setPayload({success: false, message: 'PasslinkNoActiveAction'});
         }
 
         /** @type Connect **/
-        let action = TabManager.get('passlink.action.connect');
+        let action = RegistryService.get('passlink.action.connect');
         action.setClientLabel(await this._getClientLabel());
 
-        let createServer = !TabManager.has('passlink.connect' + action.getParameter('id'));
-        TabManager.set('passlink.connect' + action.getParameter('id'), true);
+        let createServer = !RegistryService.has('passlink.connect.' + action.getParameter('id'));
+        RegistryService.set('passlink.connect.' + action.getParameter('id'), true);
 
         try {
             let login = await action.apply(),
@@ -39,7 +39,7 @@ export default class Analyze extends AbstractController {
             reply.setPayload({success: false, message: this._getErrorMessage(e)});
         }
 
-        TabManager.remove('passlink.action.connect');
+        RegistryService.remove('passlink.action.connect');
     }
 
     /**

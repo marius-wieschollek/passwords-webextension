@@ -73,7 +73,7 @@
             "uriTemplate": "html/passlink.html?link=%s"
         }
     ],
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';",
+    "content_security_policy": "script-src 'self' blob:; object-src 'self';",
     "content_scripts" : [
         {
             "matches": [

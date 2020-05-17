@@ -6,14 +6,15 @@
     /**
      * Generic content elements
      */
-    --element-bg-color              : #fff;
-    --element-fg-color              : #000;
+    --element-bg-color              : #ffffff;
+    --element-fg-color              : #000000;
     --element-hover-bg-color        : #ededed;
-    --element-hover-fg-color        : #000;
-    --element-active-bg-color       : #fff;
+    --element-hover-fg-color        : #000000;
+    --element-active-bg-color       : #ffffff;
     --element-active-fg-color       : #0996f8;
     --element-active-hover-bg-color : #ededed;
     --element-active-hover-fg-color : #0670cc;
+    --element-border-radius         : 3px;
 
     /**
      * Tab buttons
@@ -21,7 +22,9 @@
     --button-bg-color               : inherit;
     --button-fg-color               : inherit;
     --button-hover-bg-color         : #0996f8;
-    --button-hover-fg-color         : #fff;
+    --button-hover-fg-color         : #ffffff;
+    --button-border-radius          : 3px;
+    --button-border-radius-large    : 100px;
 
     /**
      * Tab borders (box-shadow)
@@ -45,15 +48,15 @@
      * Toasts
      */
     --info-bg-color                 : #0652dd;
-    --info-fg-color                 : #fff;
+    --info-fg-color                 : #ffffff;
     --info-hv-color                 : #ffffff40;
     --warning-bg-color              : #ffc312;
-    --warning-fg-color              : #fff;
+    --warning-fg-color              : #ffffff;
     --warning-hv-color              : #ffffff40;
     --error-bg-color                : #ff3f34;
-    --error-fg-color                : #fff;
+    --error-fg-color                : #ffffff;
     --error-hv-color                : #ffffff40;
     --success-bg-color              : #05c46b;
-    --success-fg-color              : #fff;
+    --success-fg-color              : #ffffff;
     --success-hv-color              : #ffffff40;
 }

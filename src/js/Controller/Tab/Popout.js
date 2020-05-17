@@ -11,7 +11,10 @@ export default class Popout extends AbstractController {
      */
     async execute(message, reply) {
         let info = await SystemService.getBrowserInfo();
-        if(info.device === 'desktop') this.tabToWindow();
+        if(info.device === 'desktop') {
+            let id = this.getTabId(message);
+            this.tabToWindow(id);
+        }
         reply.setPayload({success: true});
     }
 
@@ -19,9 +22,8 @@ export default class Popout extends AbstractController {
      *
      * @return {Promise<void>}
      */
-    async tabToWindow() {
+    async tabToWindow(tabId) {
         let api    = SystemService.getBrowserApi(),
-            tabId  = TabManager.get('id'),
             parent = await api.windows.getLastFocused({populate: true}),
             offset = {width: 14, height: 42, left: 25, top: 74},
             width  = 360 + offset.width,
@@ -39,5 +41,21 @@ export default class Popout extends AbstractController {
         if(SystemService.getBrowserPlatform() === 'firefox') {
             await api.windows.update(info.id, {top, left});
         }
+    }
+
+    /**
+     *
+     * @param {Message} message
+     * @return {Promise<void>}
+     */
+    async getTabId(message) {
+        let payload = message.getPayload();
+
+        if(payload === null || !payload.hasOwnProperty('url')) return TabManager.get('id');
+
+        let tabs = await SystemService.getBrowserApi().tabs.query({url: payload.url});
+        if(tabs.length === 0) return TabManager.get('id');
+
+        return tabs[0].id;
     }
 }

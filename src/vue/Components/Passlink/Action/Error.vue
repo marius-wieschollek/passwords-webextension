@@ -22,7 +22,7 @@
 
         computed: {
             message() {
-                return this.actionData.message ? 'PasslinkErrorNoMessage':this.actionData.message;
+                return this.actionData.message ? this.actionData.message:'PasslinkErrorNoMessage';
             }
         },
 

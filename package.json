@@ -15,10 +15,10 @@
         "clean-webpack-plugin": "^3.0.0",
         "copy-webpack-plugin": "^5.1.1",
         "css-loader": "^3.5.3",
-        "eventemitter3": "^4.0.0",
+        "eventemitter3": "^4.0.4",
         "file-loader": "^6.0.0",
         "mini-css-extract-plugin": "^0.9.0",
-        "node-sass": "^4.14.0",
+        "node-sass": "^4.14.1",
         "optimize-css-assets-webpack-plugin": "^5.0.3",
         "passwords-client": "https://git.mdns.eu/nextcloud/passwords-client/-/archive/master/passwords-client-master.tar.gz",
         "sass-loader": "^8.0.2",
@@ -30,6 +30,7 @@
         "uuidv4": "^4.0.0",
         "vue": "^2.6.11",
         "vue-loader": "^15.9.2",
+        "vue-qrcode-reader": "^2.3.0",
         "vue-router": "^3.1.6",
         "vue-style-loader": "^4.1.2",
         "vue-template-compiler": "^2.6.11",
@@ -47,6 +48,5 @@
         "security"
     ],
     "author": "Marius Wieschollek",
-    "license": "GPL",
-    "dependencies": {}
+    "license": "GPL"
 }

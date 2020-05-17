@@ -1,6 +1,6 @@
 import AbstractController from '@js/Controller/AbstractController';
-import TabManager from '@js/Manager/TabManager';
 import ThemeCssVarsHelper from '@js/Helper/ThemeCssVarsHelper';
+import RegistryService from '@js/Services/RegistryService';
 
 export default class Theme extends AbstractController {
 
@@ -10,12 +10,12 @@ export default class Theme extends AbstractController {
      * @param {Message} reply
      */
     async execute(message, reply) {
-        if(!TabManager.has('passlink.action.connect')) {
+        if(!RegistryService.has('passlink.action.connect')) {
             reply.setPayload({success: false, message: 'PasslinkNoActiveAction'});
         }
 
         /** @type Connect **/
-        let action = TabManager.get('passlink.action.connect'),
+        let action = RegistryService.get('passlink.action.connect'),
             theme  = await action.getTheme(),
             vars   = ThemeCssVarsHelper.processTheme(theme);
         reply.setPayload({success: true, theme, vars});
