@@ -1,5 +1,5 @@
 <template>
-    <form id="authorisation" @submit.prevent="submit" autocomplete="off" :style="style" :class="className">
+    <form id="authorisation" @submit.prevent="submit" autocomplete="off" :style="theme" :class="className">
         <h2>{{label}}</h2>
         <div v-if="hasPassword" class="password-container">
             <input-field type="password"
@@ -73,32 +73,6 @@
         },
 
         computed: {
-            style() {
-                // @TODO Use theme css vars helper here
-                let theme = {};
-                if(this.theme.hasOwnProperty('color.primary')) {
-                    theme['--color-primary'] = this.theme['color.primary'];
-                }
-                if(this.theme.hasOwnProperty('color.text')) {
-                    theme['--color-text'] = this.theme['color.text'];
-                }
-                if(this.theme.hasOwnProperty('background')) {
-                    let gradient = 'linear-gradient(40deg, #0082c9 0%, #30b6ff 100%)';
-
-                    if(this.theme['color.primary'] !== '#0082c9') {
-                        gradient =
-                            `linear-gradient(40deg,${this.theme['color.primary']} 0%,${this.theme['color.text']} 320%)`;
-                    }
-
-                    theme['--image-background'] =
-                        `url(${this.theme['background']}), ${gradient}`;
-                }
-                if(this.theme.hasOwnProperty('logo')) {
-                    theme['--image-logo'] = `url(${this.theme['logo']})`;
-                }
-
-                return theme;
-            },
             className() {
                 let classNames = this.hasPassword ? 'has-password':'no-password';
                 classNames += this.hasToken ? ' has-token':' no-token';
@@ -230,26 +204,28 @@
 
 <style lang="scss">
     #authorisation {
-        --color-primary     : #0082c9;
-        --color-text        : #fff;
-        --image-background  : linear-gradient(40deg, #0082c9 0%, #30b6ff 100%);
-        --image-logo        : '';
+        --color-primary      : #0082c9;
+        --color-text         : #ffffff;
+        --image-background   : linear-gradient(40deg, #0082c9 0%, #30b6ff 100%);
+        --image-logo         : '';
+        --border-radius      : var(--button-border-radius);
+        --border-radius-pill : var(--button-border-radius-large);
 
-        display             : flex;
-        flex-flow           : column;
-        align-items         : center;
-        justify-content     : center;
-        height              : 100vh;
-        width               : 100vw;
-        overflow            : hidden;
-        background-image    : var(--image-background);
-        background-position : center;
-        background-size     : cover;
+        display              : flex;
+        flex-flow            : column;
+        align-items          : center;
+        justify-content      : center;
+        height               : 100vh;
+        width                : 100vw;
+        overflow             : hidden;
+        background-image     : var(--image-background);
+        background-position  : center;
+        background-size      : cover;
 
         h2 {
             text-align : center;
             margin     : 0 0 2rem;
-            color      : #fff;
+            color      : #ffffff;
         }
 
         .token-container,
@@ -258,13 +234,15 @@
             text-align : center;
 
             select,
+            button,
             input {
                 background-color : var(--element-bg-color);
                 color            : var(--element-fg-color);
                 width            : 70vw;
                 border           : 1px solid var(--element-hover-bg-color);
                 border-bottom    : none;
-                padding          : 1rem;
+                padding          : .75rem;
+                font-size        : 1.5rem;
 
                 &[disabled] {
                     opacity : .9;
@@ -273,8 +251,8 @@
         }
 
         .password-container {
-            input {
-                border-radius : 3px 3px 0 0;
+            button {
+                border-radius : var(--border-radius) var(--border-radius) 0 0;
             }
         }
 
@@ -301,14 +279,14 @@
 
             select:last-child,
             input:last-child {
-                border-radius : 0 0 3px 3px;
+                border-radius : 0 0 var(--border-radius) var(--border-radius);
             }
         }
 
         &.no-token {
             .password-container {
                 input {
-                    border-radius : 3px;
+                    border-radius : var(--border-radius);
                 }
             }
         }
@@ -316,10 +294,10 @@
         &.no-password {
             .token-container {
                 select {
-                    border-radius : 3px 3px 0 0;
+                    border-radius : var(--border-radius) var(--border-radius) 0 0;
 
                     &:last-child {
-                        border-radius : 3px;
+                        border-radius : var(--border-radius);
                     }
                 }
             }
@@ -329,12 +307,13 @@
             margin   : 1rem 0;
             position : relative;
 
-            input {
+            button {
                 border           : 1px solid var(--color-text);
-                border-radius    : 1.5rem;
+                border-radius    : var(--border-radius-pill);
                 background-color : var(--color-primary);
                 color            : var(--color-text);
                 cursor           : pointer;
+                text-align       : center;
             }
 
             .icon {
@@ -343,7 +322,7 @@
                 color     : var(--color-text);
                 top       : 2px;
                 right     : 0;
-                padding   : .75rem 1rem;
+                padding   : 1rem;
                 font-size : 1.5rem;
             }
 

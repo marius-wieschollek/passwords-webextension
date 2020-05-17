@@ -4,6 +4,7 @@ import RegistryService from '@js/Services/RegistryService';
 import ErrorManager from '@js/Manager/ErrorManager';
 import SystemService from '@js/Services/SystemService';
 import ServerRepository from '@js/Repositories/ServerRepository';
+import ThemeCssVarsHelper from '@js/Helper/ThemeCssVarsHelper';
 
 export default class Theme extends AbstractController {
 
@@ -59,7 +60,7 @@ export default class Theme extends AbstractController {
             }
         }
 
-        return settings;
+        return ThemeCssVarsHelper.processTheme(settings);
     }
 
     /**
@@ -70,15 +71,12 @@ export default class Theme extends AbstractController {
     async _getDefaultTheme(serverId) {
         let server = await ServerRepository.findById(serverId);
 
-        return {
-            'app.icon'        : await SystemService.getBrowserApi().runtime.getURL('img/favicon-fallback.svg'),
-            background        : `${server.getBaseUrl()}core/img/background.png`,
-            'color.background': '#fff',
-            'color.primary'   : '#0082c9',
-            'color.text'      : '#fff',
-            'folder.icon'     : `${server.getBaseUrl()}core/img/filetypes/folder.svg`,
-            label             : 'Nextcloud',
-            logo              : `${server.getBaseUrl()}core/img/logo/logo.svg`
-        };
+        return ThemeCssVarsHelper.processTheme(
+            {
+                'app.icon': await SystemService.getBrowserApi().runtime.getURL('img/favicon-fallback.svg'),
+                background: `${server.getBaseUrl()}core/img/background.png`,
+                logo      : `${server.getBaseUrl()}core/img/logo/logo.svg`
+            }
+        );
     }
 }
