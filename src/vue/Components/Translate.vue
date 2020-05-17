@@ -1,5 +1,5 @@
 <template>
-    <component :is="tag" @click="fireEvent($event)">
+    <component :is="tag" v-on="$listeners">
         <slot name="before"/>
         {{ text }}
         <slot name="default" v-if="say"/>
@@ -35,11 +35,6 @@
                     return LocalisationService.translate(this.$slots.default[0].text.trim(), this.variables);
                 }
                 return '';
-            }
-        },
-        methods : {
-            fireEvent($event) {
-                this.$emit($event.type, $event);
             }
         }
     };
