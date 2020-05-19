@@ -64,6 +64,7 @@
                         listeners[key] = this.$listeners[key];
                     }
                 }
+                console.log(listeners);
 
                 return listeners;
             },

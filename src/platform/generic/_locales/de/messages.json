@@ -832,7 +832,7 @@
         "description": "Instructions shown above the PassLink QR scanner telling the use to point his camera at the qr code he wants to scan"
     },
     "PasslinkScanScanning"        : {
-        "message"    : "Suche einen QR Code",
+        "message"    : "Suche nache einem QR Code",
         "description": "Message used by the PassLink QR scanner while the camera feed is scanned for a qr code"
     },
     "PasslinkScanProcessingLink"  : {
