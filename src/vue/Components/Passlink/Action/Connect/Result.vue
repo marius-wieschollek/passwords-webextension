@@ -49,7 +49,7 @@
                 this.close();
             },
             close() {
-                MessageService.send('tab.close').catch(ErrorManager.catch);
+                MessageService.send({type: 'tab.close', payload: {url: location.href}}).catch(ErrorManager.catch);
             }
         }
     };

@@ -12,7 +12,7 @@ export default class Popout extends AbstractController {
     async execute(message, reply) {
         let info = await SystemService.getBrowserInfo();
         if(info.device === 'desktop') {
-            let id = this.getTabId(message);
+            let id = await this.getTabId(message);
             this.tabToWindow(id);
         }
         reply.setPayload({success: true});
