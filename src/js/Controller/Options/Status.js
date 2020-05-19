@@ -10,9 +10,7 @@ export default class Status extends AbstractController {
      */
     async execute(message, reply) {
         let info   = await SystemService.getBrowserInfo(),
-            status = {
-                device: info.device
-            };
+            status = {device: info.device};
 
         reply
             .setType('options.data')
