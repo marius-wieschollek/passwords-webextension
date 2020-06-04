@@ -5,8 +5,8 @@
             {{password.getLabel()}}
         </div>
         <div class="options">
-            <icon icon="user" hover-icon="clipboard" @click="copy('username')"/>
-            <icon icon="key" font="solid" hover-icon="clipboard" hover-font="regular" @click="copy('password')"/>
+            <icon icon="user" hover-icon="clipboard" @click="copy('username')" @dragstart="event.dataTransfer.setData('text/plain','username')"/>
+            <icon icon="key" font="solid" hover-icon="clipboard" hover-font="regular" @click="copy('password')" @dragstart="event.dataTransfer.setData('text/plain','password')"/>
         </div>
     </li>
 </template>
