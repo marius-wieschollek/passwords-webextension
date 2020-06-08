@@ -7,11 +7,15 @@
             <i class="fa fa-user target"
                @click="copyUser"
                @mouseover="switchIcon($event, 'user')"
-               @mouseout="switchIcon($event, 'user')" v-if="login.user"></i>
+               @mouseout="switchIcon($event, 'user')" v-if="login.user"
+               draggable="true"
+               @dragstart="dragUser"></i>
             <i class="fa fa-key target"
                @click="copyPassword"
                @mouseover="switchIcon($event, 'key')"
-               @mouseout="switchIcon($event, 'key')"></i>
+               @mouseout="switchIcon($event, 'key')"
+               draggable="true"
+               @dragstart="dragPassword"></i>
         </div>
     </div>
 </template>
@@ -64,10 +68,16 @@
                 Utility.copyToClipboard(this.login.password);
                 this.playAnimation($e, 'success');
             },
+            dragPassword($e) {
+                event.dataTransfer.setData('text/plain', this.login.password);
+            },
             copyUser($e) {
                 $e.stopPropagation();
                 Utility.copyToClipboard(this.login.user);
                 this.playAnimation($e, 'success');
+            },
+            dragUser($e) {
+                event.dataTransfer.setData('text/plain', this.login.user);
             },
             switchIcon($e, cName) {
                 $($e.target)
