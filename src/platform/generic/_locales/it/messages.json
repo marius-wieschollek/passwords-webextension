@@ -1,95 +1,824 @@
 {
-    "extensionName"              : {
-        "message": "Nextcloud Passwords"
+    "extensionName"               : {
+        "message"    : "Password per Nextcloud",
+        "description": "Name of the extension."
     },
-    "extensionDescription"       : {
-        "message": "Un semplice client per Nextcloud Passwords"
+    "extensionDescription"        : {
+        "message"    : "L'estensione ufficiale dell'applicazione Passwords di Nextcloud",
+        "description": "Description of the extension."
     },
-    "browserActionTitle"         : {
-        "message": "Parola d'ordine"
+    "browserActionTitle"          : {
+        "message"    : "Password",
+        "description": "Title of the button in the browser bar"
     },
-    "contextMenuTitle"           : {
-        "message": "Parola d'ordine"
+    "contextMenuTitle"            : {
+        "message"    : "Password",
+        "description": "Title of the context menu item"
     },
-    "NoRelatedMatches"           : {
-        "message": "Nessun accesso trovato"
+    "protocolHandler"             : {
+        "message"    : "Client PassLink",
+        "description": "Title of the custom protocol handler"
     },
-    "NoSearchMatches"            : {
-        "message": "Nessuna partita"
+    "BrowserActionTitleCounter"   : {
+        "message"     : "Password ($COUNTER$)",
+        "description" : "Title of the button in the browser bar with suggestion counter",
+        "placeholders": {
+            "counter": {
+                "content": "$1",
+                "example": "2"
+            }
+        }
     },
-    "NoSearchQuery"              : {
-        "message": "Digitare più di due caratteri"
+    "UserAgent"                   : {
+        "message"     : "Il client Password ufficiale per $BROWSER$ su $OS$",
+        "description" : "The user agent used for api requests. Only ASCII characters allowed",
+        "placeholders": {
+            "browser": {
+                "content": "$1",
+                "example": "Firefox"
+            },
+            "os"     : {
+                "content": "$2",
+                "example": "Linux"
+            }
+        }
     },
-    "PasswordRequestFailedTitle" : {
-        "message": "Richiesta password Nextcloud fallita"
+    "MigrationAccountName"        : {
+        "message"    : "Account Nextcloud",
+        "description": "Label assigned to the account used by the v1.x migration"
     },
-    "PasswordRequestFailedText"  : {
-        "message"     : "Non è stato possibile recuperare l' elenco password. Errore: $ERROR$",
+    "SettingsTabAccounts"         : {
+        "message"    : "Account",
+        "description": ""
+    },
+    "SettingsTabTheming"          : {
+        "message"    : "Temi",
+        "description": ""
+    },
+    "SettingsTabOther"            : {
+        "message"    : "Altre Impostazioni",
+        "description": ""
+    },
+    "SettingsAccountsMain"        : {
+        "message"    : "Account predefinito per password nuove",
+        "description": ""
+    },
+    "AutofillSettings"            : {
+        "message"    : "Completamento automatico password",
+        "description": ""
+    },
+    "SettingsPopupAutoclose"      : {
+        "message"    : "Chiudi popup dopo il completamento",
+        "description": ""
+    },
+    "SettingsPasswordAutosubmit"  : {
+        "message"    : "Invia form login automaticamente",
+        "description": ""
+    },
+    "NotificationSettings"        : {
+        "message"    : "Notifiche",
+        "description": ""
+    },
+    "SettingsNotifyPasswordNew"   : {
+        "message"    : "Notifiche per password nuove",
+        "description": ""
+    },
+    "SettingsNotifyPasswordUpdate": {
+        "message"    : "Notifiche per password aggiornate",
+        "description": ""
+    },
+    "SearchSettings"              : {
+        "message"    : "Ricerca",
+        "description": ""
+    },
+    "SettingsPopupRelatedSearch"  : {
+        "message"    : "Ricerca su tipo dal tab \"Relativi\"",
+        "description": ""
+    },
+    "AccountList"                 : {
+        "message"    : "Account utente",
+        "description": ""
+    },
+    "NoAccounts"                  : {
+        "message"    : "Non ci sono ancora account. Premi qui per aggiungerne uno.",
+        "description": ""
+    },
+    "NewServer"                   : {
+        "message"    : "Crea account",
+        "description": ""
+    },
+    "ServerSaveTitle"             : {
+        "message"    : "Account salvato",
+        "description": ""
+    },
+    "ServerSaveMessage"           : {
+        "message"    : "Cambiamenti applicati con successo",
+        "description": ""
+    },
+    "ServerSaveErrorTitle"        : {
+        "message"    : "Salvataggio fallito",
+        "description": ""
+    },
+    "ServerCreatedMessage"        : {
+        "message"    : "L'account è stato creato ed è pronto per essere utilizzato",
+        "description": ""
+    },
+    "ServerDisabledWarning"       : {
+        "message"    : "Questo account è disattivato. Verrà attivato quando verrà salvato.",
+        "description": ""
+    },
+    "ServerLabel"                 : {
+        "message"    : "Nome",
+        "description": ""
+    },
+    "ServerBaseUrl"               : {
+        "message"    : "Url",
+        "description": ""
+    },
+    "ServerUser"                  : {
+        "message"    : "Utente",
+        "description": ""
+    },
+    "ServerToken"                 : {
+        "message"    : "Token",
+        "description": ""
+    },
+    "TabRelated"                  : {
+        "message"    : "Suggerimenti",
+        "description": ""
+    },
+    "TabSearch"                   : {
+        "message"    : "Caratteri",
+        "description": ""
+    },
+    "TabBrowse"                   : {
+        "message"    : "Sfoglia",
+        "description": ""
+    },
+    "TabCollected"                : {
+        "message"    : "Collezionate",
+        "description": ""
+    },
+    "TabTools"                    : {
+        "message"    : "Strumenti",
+        "description": ""
+    },
+    "ValidationLabel"             : {
+        "message"    : "etichetta",
+        "description": ""
+    },
+    "ValidationUser"              : {
+        "message"    : "utente",
+        "description": ""
+    },
+    "ValidationToken"             : {
+        "message"    : "token",
+        "description": ""
+    },
+    "ValidationBaseUrl"           : {
+        "message"    : "url base",
+        "description": ""
+    },
+    "ValidationNotEmpty"          : {
+        "message"     : "Il campo $FIELD$ non può essere vuoto",
+        "description" : "",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "token"
+            }
+        }
+    },
+    "ValidationMinLength"         : {
+        "message"     : "Il campo $FIELD$ deve essere lungo almeno $MIN$ caratteri",
+        "description" : "",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "token"
+            },
+            "min"  : {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationMaxLength"         : {
+        "message"     : "Il campo $FIELD$ deve essere più corto di $MAX$ caratteri",
+        "description" : "",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "token"
+            },
+            "max"  : {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationNotAnUrl"          : {
+        "message"    : "L'url base deve essere un url valido",
+        "description": ""
+    },
+    "ValidationNotAToken"         : {
+        "message"    : "Il token deve essere un token Nextcloud valido",
+        "description": ""
+    },
+    "ValidationDuplicate"         : {
+        "message"    : "C'è già un account per questo utente su Nextcloud.",
+        "description": ""
+    },
+    "ValidationNoConnection"      : {
+        "message"     : "Impossibile connettersi a $URL$",
+        "description" : "",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationUnauthorizedError" : {
+        "message"     : "Il server a $URL$ non ha accettato il login",
+        "description" : "",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationHttpError"         : {
+        "message"     : "La connessione a $URL$ ha dato come errore $ERROR$",
+        "description" : "",
+        "placeholders": {
+            "url"  : {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "HTTP 401 - Forbidden"
+            }
+        }
+    },
+    "ValidationConnectionError"   : {
+        "message"     : "La connessione a $URL$ ha dato come errore $ERROR$",
+        "description" : "",
+        "placeholders": {
+            "url"  : {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "Undefined variable example in file"
+            }
+        }
+    },
+    "ValidationServerVersion"     : {
+        "message"    : "La versione di App installata sul suo server è vecchia",
+        "description": ""
+    },
+    "NoRelatedPasswords"          : {
+        "message"    : "Nessuna password relativa trovata",
+        "description": "Used in the related tab when no entries match the current website"
+    },
+    "NoSearchResults"             : {
+        "message"    : "Nessuna password trovata con la tua ricerca",
+        "description": "Used in the search tab when no entries match the search query"
+    },
+    "NoSearchQuery"               : {
+        "message"    : "Scrivi nel campo di ricerca per trovare password",
+        "description": "Used in the search tab when there is no search query"
+    },
+    "NoCollectedPasswords"        : {
+        "message"    : "Nessuna nuova password trovata",
+        "description": "Used in the collected tab when no new passwords have been found"
+    },
+    "NoServerItems"               : {
+        "message"    : "Nessun elemento trovato",
+        "description": "Used in the browse tab when a server has no entries to list"
+    },
+    "SearchPlaceholder"           : {
+        "message"    : "Cerca password",
+        "description": "Placeholder text of the search box"
+    },
+    "MiningItemIsNew"             : {
+        "message"    : "Questa è una nuova password",
+        "description": ""
+    },
+    "MiningItemIsUpdate"          : {
+        "message"     : "Sembra essere una nuova versione di \"$PASSWORD$\"",
+        "description" : "",
+        "placeholders": {
+            "password": {
+                "content": "$1",
+                "example": "My Password"
+            }
+        }
+    },
+    "TitleClickToEdit"            : {
+        "message"    : "Doppio click per modificare",
+        "description": ""
+    },
+    "TitleEnterToExit"            : {
+        "message"    : "Premi invio per salvare",
+        "description": ""
+    },
+    "LabelLabel"                  : {
+        "message"    : "Nome",
+        "description": ""
+    },
+    "LabelPassword"               : {
+        "message"    : "Password",
+        "description": ""
+    },
+    "LabelUsername"               : {
+        "message"    : "Utente",
+        "description": ""
+    },
+    "LabelUrl"                    : {
+        "message"    : "Url",
+        "description": ""
+    },
+    "LabelUser"                   : {
+        "message"    : "Utente",
+        "description": ""
+    },
+    "LabelPasswords"              : {
+        "message"    : "Password",
+        "description": ""
+    },
+    "LabelFolders"                : {
+        "message"    : "Cartella",
+        "description": ""
+    },
+    "LabelTags"                   : {
+        "message"    : "Etichetta",
+        "description": ""
+    },
+    "PlaceholderPassword"         : {
+        "message"    : "Password",
+        "description": ""
+    },
+    "PlaceholderToken"            : {
+        "message"    : "Token 2FA",
+        "description": ""
+    },
+    "ButtonLogin"                 : {
+        "message"    : "Login",
+        "description": ""
+    },
+    "AuthorizationFailedTitle"    : {
+        "message"    : "Autorizzazione fallita",
+        "description": ""
+    },
+    "AuthorizationFailedText"     : {
+        "message"    : "L'accesso al database con le seguenti credenziali ha fallito",
+        "description": ""
+    },
+    "TokenRequestFailed"          : {
+        "message"    : "Richiesta token fallita",
+        "description": ""
+    },
+    "NotifyNewPasswordTitle"      : {
+        "message"    : "Nuova password rilevata",
+        "description": ""
+    },
+    "NotifyNewPasswordText"       : {
+        "message"     : "Una nuova password per \"$LABEL$\" è stata rilevata.",
+        "description" : "",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyNewPasswordTextFF"     : {
+        "message"     : "Una nuova password per \"$LABEL$\" è stata rilevata. Clicca qui per modificarla e salvarla.",
+        "description" : "",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "ButtonSave"                  : {
+        "message"    : "Salva",
+        "description": "The save button of a password notification"
+    },
+    "ButtonMore"                  : {
+        "message"    : "Altre opzioni",
+        "description": "The more options button of a password notification which opens the popup"
+    },
+    "ToastServerCheckTitle"       : {
+        "message"     : "$SERVER$ ha bisogno di essere aggiornato",
+        "description" : "",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "ToastServerCheckMessage"     : {
+        "message"     : "L'account \"$SERVER$\" usa un server con una versione vecchia di Passwords. Il server deve essere aggiornato per poter riattivare questo account dalle impostazioni.",
+        "description" : "",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "PasswordPastedSuccess"       : {
+        "message"     : "$LABEL$ incollata con successo",
+        "description" : "",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "PasswordPastedError"         : {
+        "message"     : "Impossibile incollare $LABEL$",
+        "description" : "",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "PasswordPropertyCopied"      : {
+        "message"     : "Copiato $PROPERTY$",
+        "description" : "",
+        "placeholders": {
+            "property": {
+                "content": "$1",
+                "example": "Username"
+            }
+        }
+    },
+    "PropertyPassword"            : {
+        "message"    : "Password",
+        "description": ""
+    },
+    "PropertyUsername"            : {
+        "message"    : "Utente",
+        "description": ""
+    },
+    "PropertyUrl"                 : {
+        "message"    : "Url",
+        "description": ""
+    },
+    "ServerConnectionErrorTitle"  : {
+        "message"     : "Impossibile connettersi a $SERVER$",
+        "description" : "",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "ServerCredentialsRejected"   : {
+        "message"    : "Credenziali utente rifiutate. Perfavore aggiorna i dati di accesso nelle impostazioni.",
+        "description": ""
+    },
+    "ServerHttpError"             : {
+        "message"     : "Errore HTTP: $ERROR$",
+        "description" : "",
         "placeholders": {
             "error": {
-                "content": "$1"
+                "content": "$1",
+                "example": "500 - Internal Server Error"
             }
         }
     },
-    "PasswordEncodingFailedTitle": {
-        "message": "Non è stato possibile analizzare le proprietà della password"
+    "ServerNetworkError"          : {
+        "message"    : "Si è verificato un errore di rete. Controlla di essere online e che il server sia raggiungibile.",
+        "description": ""
     },
-    "PasswordEncodingFailedText" : {
-        "message"     : "The properties of password #$ID$ do not contain valid JSON data and could not be processed",
+    "ServerUnknownError"          : {
+        "message"    : "Errore sconosciuto.",
+        "description": ""
+    },
+    "ServerGenericError"          : {
+        "message"     : "Errore: $ERROR$",
+        "description" : "",
         "placeholders": {
-            "id": {
-                "content": "$1"
+            "error": {
+                "content": "$1",
+                "example": "500 - Internal Server Error"
             }
         }
     },
-    "NewLoginDetectedTitle"      : {
-        "message": "Nuovo login trovato"
+    "DemoInfoNotification"        : {
+        "message"    : "Notifica info",
+        "description": ""
     },
-    "NewLoginDetectedText"       : {
-        "message"     : "Clicca qui per salvare la password per \"$USER$\"",
+    "DemoSuccessNotification"     : {
+        "message"    : "Notifica successo",
+        "description": ""
+    },
+    "DemoWarningNotification"     : {
+        "message"    : "Notifica avviso",
+        "description": ""
+    },
+    "DemoErrorNotification"       : {
+        "message"    : "Notifica errore",
+        "description": ""
+    },
+    "DemoText"                    : {
+        "message"    : "Demo",
+        "description": ""
+    },
+    "SettingsThemeId"             : {
+        "message"    : "Tema attivo",
+        "description": ""
+    },
+    "ThemeDark"                   : {
+        "message"    : "Tema scuro",
+        "description": ""
+    },
+    "ThemeOledDark"               : {
+        "message"    : "Dark OLED",
+        "description": ""
+    },
+    "ThemeLight"                  : {
+        "message"    : "Predefinito",
+        "description": ""
+    },
+    "ThemeAdaptaLight"            : {
+        "message"    : "Adapta",
+        "description": ""
+    },
+    "ThemeAdaptaTeal"             : {
+        "message"    : "Adapta teal",
+        "description": ""
+    },
+    "ThemeArcDark"                : {
+        "message"    : "Arc dark",
+        "description": ""
+    },
+    "ThemeArcLight"               : {
+        "message"    : "Arc",
+        "description": ""
+    },
+    "ThemeHacker"                 : {
+        "message"    : "Hacker",
+        "description": ""
+    },
+    "ThemeRGB"                    : {
+        "message"    : "Gaming RGB",
+        "description": ""
+    },
+    "ThemeCustom"                 : {
+        "message"    : "Tema personalizzato",
+        "description": ""
+    },
+    "CustomFont"                  : {
+        "message"    : "Font",
+        "description": ""
+    },
+    "CustomDefaultElement"        : {
+        "message"    : "Elemento normale",
+        "description": ""
+    },
+    "CustomActiveElement"         : {
+        "message"    : "Elemento attivo",
+        "description": ""
+    },
+    "CustomButtons"               : {
+        "message"    : "Tasti",
+        "description": ""
+    },
+    "CustomToasts"                : {
+        "message"    : "Notifiche toast",
+        "description": ""
+    },
+    "CustomBadge"                 : {
+        "message"    : "Icona browser",
+        "description": ""
+    },
+    "BackgroundColorLabel"        : {
+        "message"    : "Colore di sfondo",
+        "description": ""
+    },
+    "ForegroundColorLabel"        : {
+        "message"    : "Colore primo piano",
+        "description": ""
+    },
+    "BackgroundInheritLabel"      : {
+        "message"    : "Eredita sfondo",
+        "description": ""
+    },
+    "ForegroundInheritLabel"      : {
+        "message"    : "Eredita primo piano",
+        "description": ""
+    },
+    "BackgroundColorBaseTitle"    : {
+        "message"    : "Questo colore viene usato per lo sfondo",
+        "description": ""
+    },
+    "BackgroundColorHoverTitle"   : {
+        "message"    : "Questo colore viene usato per lo sfondo degli elementi attivi. Viene usato anche per il bordo degli elementi non attivi",
+        "description": ""
+    },
+    "ForegroundColorBaseTitle"    : {
+        "message"    : "Questo colore viene usato per testi e bordi",
+        "description": ""
+    },
+    "ForegroundColorHoverTitle"   : {
+        "message"    : "Questo colore viene usato per testi e bordi degli elementi attivi",
+        "description": ""
+    },
+    "BackgroundInheritTitle"      : {
+        "message"    : "Se attivato, il valore verrà ereditato dall'elemento superiore",
+        "description": ""
+    },
+    "ForegroundInheritTitle"      : {
+        "message"    : "Se attivato, il valore verrà ereditato dall'elemento superiore",
+        "description": ""
+    },
+    "SettingsCustomFont"          : {
+        "message"    : "Font",
+        "description": ""
+    },
+    "FontDefault"                 : {
+        "message"    : "Default",
+        "description": ""
+    },
+    "FontMono"                    : {
+        "message"    : "Monospace",
+        "description": ""
+    },
+    "FontSerif"                   : {
+        "message"    : "Serif",
+        "description": ""
+    },
+    "FontSans"                    : {
+        "message"    : "Sans serif",
+        "description": ""
+    },
+    "FontLight"                   : {
+        "message"    : "Light",
+        "description": ""
+    },
+    "FontNextcloud"               : {
+        "message"    : "Nextcloud",
+        "description": ""
+    },
+    "FontOpenDyslexic"            : {
+        "message"    : "Open Dyslexic",
+        "description": ""
+    },
+    "FontCustom"                  : {
+        "message"    : "Personalizzato",
+        "description": ""
+    },
+    "SettingsCustomFontSize"      : {
+        "message"    : "Dimensione font",
+        "description": ""
+    },
+    "FontSizeVerySmall"           : {
+        "message"    : "Molto piccolo",
+        "description": ""
+    },
+    "FontSizeSmall"               : {
+        "message"    : "Piccolo",
+        "description": ""
+    },
+    "FontSizeDefault"             : {
+        "message"    : "Normale",
+        "description": ""
+    },
+    "FontSizeMedium"              : {
+        "message"    : "Medio",
+        "description": ""
+    },
+    "FontSizeLarge"               : {
+        "message"    : "Largo",
+        "description": ""
+    },
+    "FontSizeVeryLarge"           : {
+        "message"    : "Molto largo",
+        "description": ""
+    },
+    "ToastInfoColors"             : {
+        "message"    : "Toast info",
+        "description": ""
+    },
+    "ToastSuccessColors"          : {
+        "message"    : "Toast successo",
+        "description": ""
+    },
+    "ToastWarningColors"          : {
+        "message"    : "Toast attenzione",
+        "description": ""
+    },
+    "ToastErrorColors"            : {
+        "message"    : "Toast errore",
+        "description": ""
+    },
+    "ToastBackgroundTitle"        : {
+        "message"    : "Colore di sfondo per i messaggi popup",
+        "description": ""
+    },
+    "ToastForegroundTitle"        : {
+        "message"    : "Colore per pulsanti e testi",
+        "description": ""
+    },
+    "SettingsBadgeIcon"           : {
+        "message"    : "Icona barra",
+        "description": ""
+    },
+    "BadgeIconAuto"               : {
+        "message"    : "Automatico",
+        "description": ""
+    },
+    "BadgeIconLight"              : {
+        "message"    : "Icona chiara",
+        "description": ""
+    },
+    "BadgeIconMedium"             : {
+        "message"    : "Icona grigia",
+        "description": ""
+    },
+    "BadgeIconDark"               : {
+        "message"    : "Icona scura",
+        "description": ""
+    },
+    "BadgeIconNewLight"           : {
+        "message"    : "Icona moderna chiara",
+        "description": ""
+    },
+    "BadgeIconNewMedium"          : {
+        "message"    : "Icona moderna grigia",
+        "description": ""
+    },
+    "BadgeIconNewDark"            : {
+        "message"    : "Icona moderna scura",
+        "description": ""
+    },
+    "CustomBadgeColors"           : {
+        "message"    : "Colori emblema",
+        "description": ""
+    },
+    "BadgeBackgroundTitle"        : {
+        "message"    : "Colore sfondo emblema",
+        "description": ""
+    },
+    "BadgeForegroundTitle"        : {
+        "message"    : "Colore testo emblema",
+        "description": ""
+    },
+    "PasslinkConnectCheckCodes"   : {
+        "message"    : "Controlla se i codici qui sotto corrispondono a quelli sull'app. In quel caso, conferma la connessione dall'app e hai finito.",
+        "description": ""
+    },
+    "PasslinkConnectServer"     : {
+        "message"    : "La nuova connessione è stata salvata come \"$LABEL$\"",
+        "description": "",
         "placeholders": {
-            "user": {
-                "content": "$1"
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
             }
         }
     },
-    "PasswordCreatedTitle"       : {
-        "message": "Password salvata"
+    "PasslinkConnectNotFound"     : {
+        "message"    : "Questo link non è valido. Potrebbe essere scaduto o stato già usato.",
+        "description": ""
     },
-    "PasswordCreatedText"        : {
-        "message": "La password è stata memorizzata con successo"
+    "PasslinkConnectRejected"     : {
+        "message"    : "La richiesta di login è stata rifiutata dal server.",
+        "description": ""
     },
-    "CreatePasswordFailedTitle"  : {
-        "message": "Salva password non riuscita"
+    "PasslinkConnectNetworkError" : {
+        "message"    : "La connessione al server è fallita. Controlla la tua rete.",
+        "description": ""
     },
-    "CreatePasswordFailedText"   : {
-        "message": "Non è stato possibile salvare la password"
+    "PasslinkConnectSuccess"      : {
+        "message"    : "Connessione effettuata con successo",
+        "description": ""
     },
-    "UpdatedLoginDetectedTitle"  : {
-        "message": "Accesso aggiornato trovato"
+    "PasslinkConnectFailed"       : {
+        "message"    : "Connessione fallita",
+        "description": ""
     },
-    "UpdatedLoginDetectedText"   : {
-        "message"     : "Clicca qui per aggiornare la password per \"$USER$\"",
-        "placeholders": {
-            "user": {
-                "content": "$1"
-            }
-        }
+    "PasslinkConnectSettings"        : {
+        "message"    : "Apri impostazioni",
+        "description": ""
     },
-    "PasswordUpdatedTitle"       : {
-        "message": "Password aggiornata"
-    },
-    "PasswordUpdatedText"        : {
-        "message": "La password è stata aggiornata con successo"
-    },
-    "UpdatePasswordFailedTitle"  : {
-        "message": "Aggiorna password non riuscita"
-    },
-    "UpdatePasswordFailedText"   : {
-        "message": "La password non può essere aggiornata"
-    },
-    "Url"                        : { "message": "Url" },
-    "Password"                   : { "message": "Parola d'ordine" },
-    "User"                       : { "message": "Utente" },
-    "Save"                       : { "message": "Memorizzare" }
+    "PasslinkConnectClose"        : {
+        "message"    : "Chiudi finestra",
+        "description": ""
+    }
 }
