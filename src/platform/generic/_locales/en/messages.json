@@ -180,7 +180,7 @@
         "description": ""
     },
     "ValidationNotEmpty"          : {
-        "message"     : "The $FIELD$ can not be emtpy",
+        "message"     : "The $FIELD$ can not be empty",
         "description" : "",
         "placeholders": {
             "field": {
