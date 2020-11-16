@@ -2,7 +2,7 @@
     <div :class="classList">
         <label :for="id" @dblclick="edit()" :title="editing ? '':title">{{label}}</label>
         <div @dblclick="edit()" v-if="!editing" :title="title">{{text}}</div>
-        <input :id="id" v-model="value" v-else @keypress="checkEnter($event)" :title="inputTitle"/>
+        <input-field :id="id" :type="type" v-model="value" @keypress="checkEnter($event)" title="TitleEnterToExit" v-else/>
     </div>
 </template>
 
@@ -10,9 +10,11 @@
     import LocalisationService from '@js/Services/LocalisationService';
     import MiningItem from '@js/Models/Queue/MiningItem';
     import MessageService from '@js/Services/MessageService';
+    import InputField from '@vue/Components/Form/InputField';
 
     export default {
-        props: {
+        components: {InputField},
+        props     : {
             item : {
                 type: MiningItem
             },
@@ -23,22 +25,22 @@
 
         data() {
             return {
-                editing   : false,
-                value     : this.item.getResultField(this.field),
-                title     : LocalisationService.translate('TitleClickToEdit'),
-                inputTitle: LocalisationService.translate('TitleEnterToExit')
+                editing: false,
+                value  : this.item.getResultField(this.field),
+                title  : LocalisationService.translate('TitleClickToEdit')
             };
         },
 
         computed: {
             label() {
-                if(['label', 'url', 'username', 'password'].indexOf(this.field) !== -1) {
+                if(['label', 'url', 'username', 'password', 'hidden'].indexOf(this.field) !== -1) {
                     return LocalisationService.translate(`Label${this.field.capitalize()}`);
                 }
 
                 return this.field;
             },
             text() {
+                if(this.type === 'checkbox') return this.value ? 'yes':'no';
                 return this.field === 'password' ? '':this.value;
             },
             classList() {
@@ -46,6 +48,9 @@
             },
             id() {
                 return `property${this.field}`;
+            },
+            type() {
+                return this.field === 'hidden' ? 'checkbox':'text';
             }
         },
 

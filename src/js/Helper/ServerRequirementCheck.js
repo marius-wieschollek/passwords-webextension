@@ -8,7 +8,7 @@ import ConnectionErrorHelper from '@js/Helper/ConnectionErrorHelper';
 export default class ServerRequirementCheck {
 
     get MINIMUM_APP_VERSION() {
-        return ['2020', '3'];
+        return [2020, 3];
     }
 
     /**
@@ -78,8 +78,11 @@ export default class ServerRequirementCheck {
             parts = version.split('.');
 
         for(let i = 0; i < base.length; i++) {
-            if(!parts.hasOwnProperty(i) || Number(parts[i]) < Number(base[i])) return false;
-            if(Number(parts[i]) > Number(base[i])) return true;
+            if(!parts.hasOwnProperty(i)) return false;
+
+            let part = parseInt(parts[i]);
+            if(part < base[i]) return false;
+            if(part > base[i]) return true;
         }
 
         return true;

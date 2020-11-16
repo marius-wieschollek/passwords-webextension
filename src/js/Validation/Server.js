@@ -43,7 +43,7 @@ export default class Server {
         if(!this._validateToken(data, result.errors)) result.ok = false;
 
         if(!result.ok) {
-            result.message = 'Validation failed';
+            result.message = LocalisationService.translate('ValidationFailed');
         }
 
         return result;

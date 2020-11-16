@@ -1,15 +1,19 @@
 <template>
     <div id="passlink">
-        <connect :action-data="actionData" v-if="action === 'connect'"/>
+        <connect v-if="action === 'connect'"/>
+        <scan-qr v-if="action === 'scan-qr'" />
+        <error :action-data="actionData" v-if="action === 'error'" />
         <div id="toasts"></div>
     </div>
 </template>
 
 <script>
     import Connect from '@vue/Components/Passlink/Action/Connect';
+    import ScanQr from '@vue/Components/Passlink/Action/ScanQr';
+    import Error from '@vue/Components/Passlink/Action/Error';
 
     export default {
-        components: {Connect},
+        components: {Error, Connect, ScanQr},
         el        : '#app',
 
         props: {

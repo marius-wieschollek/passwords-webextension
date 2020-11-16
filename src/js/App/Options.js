@@ -41,8 +41,13 @@ class Options {
         }
     }
 
+    /**
+     *
+     * @return {Promise<void>}
+     * @private
+     */
     async _initVue() {
-        let reply  = await MessageService.send({type: 'options.status'}),
+        let reply  = await MessageService.send('options.status'),
             status = reply.getPayload();
         document.body.classList.add(status.device);
 

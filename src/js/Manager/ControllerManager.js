@@ -193,6 +193,62 @@ class ControllerManager {
                 await this._executeController(module, message, reply);
             }
         );
+        MessageService.listen(
+            'passlink.analyze',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "PassLinkAnalyze" */ '@js/Controller/PassLink/Analyze');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
+            'passlink.action',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "PassLinkAction" */ '@js/Controller/PassLink/Action');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
+            'passlink.open',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "PassLinkOpen" */ '@js/Controller/PassLink/Open');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
+            'passlink.connect.theme',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "PassLinkConnectTheme" */ '@js/Controller/PassLink/Connect/Theme');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
+            'passlink.connect.codes',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "PassLinkConnectCodes" */ '@js/Controller/PassLink/Connect/Codes');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
+            'passlink.connect.apply',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "PassLinkConnectApply" */ '@js/Controller/PassLink/Connect/Apply');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
+            'tab.popout',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "TabPopout" */ '@js/Controller/Tab/Popout');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
+            'tab.close',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "TabClose" */ '@js/Controller/Tab/Close');
+                await this._executeController(module, message, reply);
+            }
+        );
     }
 
     /**

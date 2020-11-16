@@ -30,6 +30,15 @@ class RegistryService {
     set(key, value) {
         this.registry[key] = value;
     }
+
+    /**
+     * @param {String} key
+     */
+    remove(key) {
+        if(this.has(key)) {
+            delete this.registry[key];
+        }
+    }
 }
 
 export default new RegistryService();

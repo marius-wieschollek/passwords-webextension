@@ -40,6 +40,9 @@ class ServerManager {
         return this._deleteServer;
     }
 
+    /**
+     *
+     */
     constructor() {
         /** @type {(FeedbackQueue|null)} **/
         this._authQueue = null;
@@ -207,6 +210,11 @@ class ServerManager {
         }
     }
 
+    /**
+     *
+     * @return {Promise<Api|null>}
+     * @private
+     */
     async _findDefaultApi() {
         let all = await ApiRepository.findAll();
         if(all.length > 0) {

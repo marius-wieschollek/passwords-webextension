@@ -78,7 +78,7 @@
 
         methods: {
             async loadServers() {
-                let message = await MessageService.send({type: 'server.list'});
+                let message = await MessageService.send('server.list');
                 this.servers = message.getPayload();
             },
             getInitialFolder(server) {

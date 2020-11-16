@@ -3,6 +3,7 @@
           :title="getTitle"
           @click="fireEvent($event)"
           @dblclick="fireEvent($event)"
+          @dragstart="fireEvent($event)"
           v-on:mouseenter="hoverOn()"
           v-on:mouseleave="hoverOff()">
     </span>

@@ -6,7 +6,7 @@ export default class SortAscending extends AbstractSort {
         if(a === b) return 0;
         if(typeof a === 'string') {
             if(b === null) return -1;
-            return a.localeCompare(b, 'kn', {sensitivity: 'base'});
+            return a.localeCompare(b, undefined, {numeric: true, sensitivity: 'base'});
         }
         return a < b ? -1:1;
     }

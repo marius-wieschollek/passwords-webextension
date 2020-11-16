@@ -1,5 +1,5 @@
 <template>
-    <select @change="handleChange">
+    <select @change="handleChange" v-on="listeners">
         <option v-for="option in optionList"
                 :key="option.id"
                 :value="option.id"
@@ -56,6 +56,17 @@
         },
 
         methods: {
+            listeners() {
+                let listeners = {};
+
+                for(let key in this.$listeners) {
+                    if(this.$listeners.hasOwnProperty(key) && key !== 'input' && key !== 'change') {
+                        listeners[key] = this.$listeners[key];
+                    }
+                }
+
+                return listeners;
+            },
             getTranslated(text) {
                 if(!this.translate || !text) return text;
 

@@ -2,6 +2,7 @@
     <div class="account-list">
         <translate tag="h3" say="AccountList">
             <icon icon="user-plus" font="solid" @click="showCreateForm" v-if="!addAccount"/>
+            <icon icon="qrcode" font="solid" @click="openPassLinkScan"/>
         </translate>
         <foldout :tabs="tabs"
                  :translate="false"
@@ -41,6 +42,7 @@
     import LocalisationService from '@js/Services/LocalisationService';
     import SystemService from '@js/Services/SystemService';
     import MessageService from '@js/Services/MessageService';
+    import ErrorManager from '@js/Manager/ErrorManager';
 
     export default {
         components: {Account, NewAccount, Foldout, Translate, Icon},
@@ -91,6 +93,10 @@
                     this.open = true;
                 }
             },
+            openPassLinkScan() {
+                MessageService.send({type: 'passlink.open', payload: {action: 'scan-qr'}})
+                    .catch(ErrorManager.catch);
+            },
             save(server) {
                 this.$refs[server.getId()][0].save();
             },
@@ -133,6 +139,10 @@
             .icon {
                 float  : right;
                 cursor : pointer;
+
+                &.icon-user-plus {
+                    margin-left: .5rem;
+                }
             }
         }
 

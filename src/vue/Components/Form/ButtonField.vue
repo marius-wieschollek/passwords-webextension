@@ -1,5 +1,5 @@
 <template>
-    <input :type="getType" :placeholder="getPlaceholder" :title="getTitle" :value="getValue"/>
+    <button :type="getType" :title="getTitle" v-on="$listeners">{{getValue}}</button>
 </template>
 
 <script>
@@ -9,10 +9,6 @@
 
         props: {
             value      : {
-                type   : String,
-                default: ''
-            },
-            placeholder: {
                 type   : String,
                 default: ''
             },
@@ -27,11 +23,6 @@
         },
 
         computed: {
-            getPlaceholder() {
-                if(this.placeholder.length === 0) return;
-
-                return LocalisationService.translate(this.placeholder);
-            },
             getTitle() {
                 if(this.title.length === 0) return;
 

@@ -5,8 +5,8 @@
             {{password.getLabel()}}
         </div>
         <div class="options">
-            <icon icon="user" hover-icon="clipboard" @click="copy('username')"/>
-            <icon icon="key" font="solid" hover-icon="clipboard" hover-font="regular" @click="copy('password')"/>
+            <icon icon="user" hover-icon="clipboard" @click="copy('username')" draggable="true" @dragstart="drag($event, 'username')"/>
+            <icon icon="key" font="solid" hover-icon="clipboard" hover-font="regular" @click="copy('password')" draggable="true" @dragstart="drag($event, 'password')"/>
         </div>
     </li>
 </template>
@@ -63,6 +63,10 @@
 
                 ToastService.success(['PasswordPropertyCopied', label])
                     .catch(ErrorManager.catch);
+            },
+            drag(event, property) {
+                let data = this.password.getProperty(property);
+                event.dataTransfer.setData('text/plain', data);
             }
         }
     };

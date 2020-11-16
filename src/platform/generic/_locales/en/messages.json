@@ -180,7 +180,7 @@
         "description": ""
     },
     "ValidationNotEmpty"          : {
-        "message"     : "The $FIELD$ can not be emtpy",
+        "message"     : "The $FIELD$ can not be empty",
         "description" : "",
         "placeholders": {
             "field": {
@@ -216,6 +216,10 @@
                 "example": "29"
             }
         }
+    },
+    "ValidationFailed"            : {
+        "message"    : "Validation failed",
+        "description": ""
     },
     "ValidationNotAnUrl"          : {
         "message"    : "The base url must be a valid url",
@@ -779,13 +783,29 @@
         "message"    : "Text color of the badge",
         "description": ""
     },
+    "PasslinkErrorNoMessage"      : {
+        "message"    : "There has been an error but no error message was provided",
+        "description": ""
+    },
+    "PasslinkNoLinkProvided"      : {
+        "message"    : "No link or action is missing",
+        "description": ""
+    },
+    "PasslinkErrorClose"          : {
+        "message"    : "Close",
+        "description": ""
+    },
+    "PasslinkNoActiveAction"      : {
+        "message"    : "There is no active passlink action of this type",
+        "description": ""
+    },
     "PasslinkConnectCheckCodes"   : {
         "message"    : "Check if the codes below match with the ones you see in the app. If they do, confirm the connection in the app and you're done.",
         "description": ""
     },
-    "PasslinkConnectServer"     : {
-        "message"    : "The new connection was saved as \"$LABEL$\"",
-        "description": "",
+    "PasslinkConnectServer"       : {
+        "message"     : "The new connection was saved as \"$LABEL$\"",
+        "description" : "",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -813,12 +833,80 @@
         "message"    : "Connection failed",
         "description": ""
     },
-    "PasslinkConnectSettings"        : {
+    "PasslinkConnectSettings"     : {
         "message"    : "Open settings",
         "description": ""
     },
     "PasslinkConnectClose"        : {
         "message"    : "Close the window",
+        "description": ""
+    },
+    "PasslinkScanInstructions"    : {
+        "message"    : "Point your camera to the QR code and wait for it to be recognized and scanned.",
+        "description": "Instructions shown above the PassLink QR scanner telling the use to point his camera at the qr code he wants to scan"
+    },
+    "PasslinkScanScanning"        : {
+        "message"    : "Looking for a QR Code",
+        "description": "Message used by the PassLink QR scanner while the camera feed is scanned for a qr code"
+    },
+    "PasslinkScanProcessingLink"  : {
+        "message"    : "Processing QR Code",
+        "description": "Message used by the PassLink QR scanner when a valid code was found and is now being analyzed"
+    },
+    "PasslinkScanInvalidQrCode"   : {
+        "message"    : "This QR Code is not supported",
+        "description": "Message used by the PassLink QR scanner when the user scans a code that does not contain a valid and supported uri of Passlink"
+    },
+    "QrNotAllowedError"           : {
+        "message"    : "Access to the camera was not granted",
+        "description": "Message used by the PassLink QR scanner when the user did not allow camera access"
+    },
+    "QrNotFoundError"             : {
+        "message"    : "No cameras were found on this device",
+        "description": "Message used by the PassLink QR scanner when the device has no cameras"
+    },
+    "QrNotSupportedError"         : {
+        "message"    : "Insecure Context",
+        "description": "Message used by the PassLink QR scanner when the page was opened in an insecure context (http://). This should never happen"
+    },
+    "QrNotReadableError"          : {
+        "message"    : "Camera not accessible. Maybe it is already in use?",
+        "description": "Message used by the PassLink QR scanner when the camera stream can not be read"
+    },
+    "QrOverconstrainedError"      : {
+        "message"    : "Camera not suitable to be used",
+        "description": "Message used by the PassLink QR scanner when the camera is faulty"
+    },
+    "QrStreamApiNotSupportedError": {
+        "message"    : "The Stream API is not supported by this browser",
+        "description": "Message used by the PassLink QR scanner when the browser does not support the required streaming api. This should never happen"
+    },
+    "FirstRunConnectTitle"        : {
+        "message"    : "Connect to Nextcloud",
+        "description": ""
+    },
+    "FirstRunConnectText"         : {
+        "message"    : "Open the passwords app, click on \"More\", open \"Apps & Extensions\" and open the PassLink Connect dialog.",
+        "description": ""
+    },
+    "FirstRunConnectLink"         : {
+        "message"    : "If the PassLink dialog is open on the same device, use the connect via link option",
+        "description": ""
+    },
+    "FirstRunConnectScan"         : {
+        "message"    : "If this is a different device, scan the PassLink Connect Code with the button below",
+        "description": ""
+    },
+    "FirstRunConnectScanChrome"         : {
+        "message"    : "Click the button below and scan the PassLink Connect code",
+        "description": ""
+    },
+    "FirstRunConnectManual"       : {
+        "message"    : "You can also create the account manually in the extension settings",
+        "description": ""
+    },
+    "FirstRunConnectScanButton"   : {
+        "message"    : "Scan PassLink Code",
         "description": ""
     }
 }

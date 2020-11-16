@@ -66,6 +66,14 @@ export default class Server extends ServerModel {
         return this.setProperty('inboxFolder', value);
     }
 
+    getPrivateFolder() {
+        return this.getProperty('privateFolder');
+    }
+
+    setPrivateFolder(value) {
+        return this.setProperty('privateFolder', value);
+    }
+
     getInboxTag() {
         return this.getProperty('inboxTag');
     }

@@ -49,11 +49,11 @@
         "message"    : "Standardkonto für neue Passwörter",
         "description": ""
     },
-    "AutofillSettings"  : {
+    "AutofillSettings"            : {
         "message"    : "Passwörter einfügen",
         "description": ""
     },
-    "SettingsPopupAutoclose"  : {
+    "SettingsPopupAutoclose"      : {
         "message"    : "Popup nach erfolgreichem Einfügen schließen",
         "description": ""
     },
@@ -73,11 +73,11 @@
         "message"    : "Benachrichtigung für aktualisierte Passwörter",
         "description": ""
     },
-    "SearchSettings": {
+    "SearchSettings"              : {
         "message"    : "Suche",
         "description": ""
     },
-    "SettingsPopupRelatedSearch": {
+    "SettingsPopupRelatedSearch"  : {
         "message"    : "Suche starten wenn in \"Vorschläge\" getippt wird",
         "description": ""
     },
@@ -202,6 +202,10 @@
                 "example": "29"
             }
         }
+    },
+    "ValidationFailed"            : {
+        "message"    : "Validierung fehlgeschlagen",
+        "description": ""
     },
     "ValidationNotAnUrl"          : {
         "message"    : "Die Basis-URL muss einge gültige URL sein",
@@ -525,7 +529,7 @@
         "message"    : "Demo",
         "description": ""
     },
-    "SettingsThemeId"        : {
+    "SettingsThemeId"             : {
         "message"    : "Aktives Thema",
         "description": ""
     },
@@ -561,7 +565,7 @@
         "message"    : "Hacker",
         "description": ""
     },
-    "ThemeRGB"                 : {
+    "ThemeRGB"                    : {
         "message"    : "Gaming RGB",
         "description": ""
     },
@@ -593,19 +597,19 @@
         "message"    : "Browser-Symbol",
         "description": ""
     },
-    "BackgroundColorLabel"      : {
+    "BackgroundColorLabel"        : {
         "message"    : "Hintergrundfarbe",
         "description": ""
     },
-    "ForegroundColorLabel"      : {
+    "ForegroundColorLabel"        : {
         "message"    : "Vordergrundfarbe",
         "description": ""
     },
-    "BackgroundInheritLabel"     : {
+    "BackgroundInheritLabel"      : {
         "message"    : "Hintergrund erben",
         "description": ""
     },
-    "ForegroundInheritLabel"     : {
+    "ForegroundInheritLabel"      : {
         "message"    : "Vordergrund erben",
         "description": ""
     },
@@ -613,7 +617,7 @@
         "message"    : "Diese Farbe wird im Normalfall für den Hintergrund verwendet",
         "description": ""
     },
-    "BackgroundColorHoverTitle"       : {
+    "BackgroundColorHoverTitle"   : {
         "message"    : "Diese Farbe wird für den Hintergrund verwendet wenn das Element mit der Maus aktiviert wird. Diese Farbe kann auch für Umrandungen verwendet werden wenn das Element nicht aktiviert ist.",
         "description": ""
     },
@@ -621,15 +625,15 @@
         "message"    : "Diese Farbe wird im Normalfall für den Vordergrund verwendet",
         "description": ""
     },
-    "ForegroundColorHoverTitle"       : {
+    "ForegroundColorHoverTitle"   : {
         "message"    : "Diese Farbe wird für den Vordergrund und Umrandungen verwendet wenn das Element mit der Maus überfahren wird",
         "description": ""
     },
-    "BackgroundInheritTitle": {
+    "BackgroundInheritTitle"      : {
         "message"    : "Falls aktiviert wird die Farbe des übergeordneten Elements übernommen",
         "description": ""
     },
-    "ForegroundInheritTitle": {
+    "ForegroundInheritTitle"      : {
         "message"    : "Falls aktiviert wird die Farbe des übergeordneten Elements übernommen",
         "description": ""
     },
@@ -765,13 +769,29 @@
         "message"    : "Textfarbe des Abzeichens",
         "description": ""
     },
+    "PasslinkErrorNoMessage"      : {
+        "message"    : "Es ist ein Fehler aufgetreten, aber es ist keine Fehlermeldung vorhanden",
+        "description": ""
+    },
+    "PasslinkNoLinkProvided"      : {
+        "message"    : "Kein Link und keine Aktion zum Ausführen angegeben",
+        "description": ""
+    },
+    "PasslinkErrorClose"          : {
+        "message"    : "Schließen",
+        "description": ""
+    },
+    "PasslinkNoActiveAction"      : {
+        "message"    : "There is no active passlink action of this type",
+        "description": ""
+    },
     "PasslinkConnectCheckCodes"   : {
         "message"    : "Prüfe ob diese Codes mit denen in der App übereinstimmen. Wenn das der Fall ist, bestätige die Verbindung in der App und du bist fertig.",
         "description": ""
     },
-    "PasslinkConnectServer"     : {
-        "message"    : "Die neue Verbindung wurde als \"$LABEL$\" gespeichert",
-        "description": "",
+    "PasslinkConnectServer"       : {
+        "message"     : "Die neue Verbindung wurde als \"$LABEL$\" gespeichert",
+        "description" : "",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -799,12 +819,80 @@
         "message"    : "Verbindung fehlgeschlagen",
         "description": ""
     },
-    "PasslinkConnectSettings"        : {
+    "PasslinkConnectSettings"     : {
         "message"    : "Einstellungen öffnen",
         "description": ""
     },
     "PasslinkConnectClose"        : {
         "message"    : "Fenster schließen",
+        "description": ""
+    },
+    "PasslinkScanInstructions"    : {
+        "message"    : "Richte deine Kamera auf den QR Code aus und warte bis er erkannt und gescannt wird",
+        "description": "Instructions shown above the PassLink QR scanner telling the use to point his camera at the qr code he wants to scan"
+    },
+    "PasslinkScanScanning"        : {
+        "message"    : "Suche nache einem QR Code",
+        "description": "Message used by the PassLink QR scanner while the camera feed is scanned for a qr code"
+    },
+    "PasslinkScanProcessingLink"  : {
+        "message"    : "Verarbeite QR Code",
+        "description": "Message used by the PassLink QR scanner when a valid code was found and is now being analyzed"
+    },
+    "PasslinkScanInvalidQrCode"   : {
+        "message"    : "Dieser QR Code wird nicht unterstützt",
+        "description": "Message used by the PassLink QR scanner when the user scans a code that does not contain a valid and supported uri of Passlink"
+    },
+    "QrNotAllowedError"           : {
+        "message"    : "Zugriff auf die Kamera wurde abgelehnt",
+        "description": "Message used by the PassLink QR scanner when the user did not allow camera access"
+    },
+    "QrNotFoundError"             : {
+        "message"    : "Es wurden keine Kameras an diesem Gerät gefunden",
+        "description": "Message used by the PassLink QR scanner when the device has no cameras"
+    },
+    "QrNotSupportedError"         : {
+        "message"    : "Unsicherer Kontext",
+        "description": "Message used by the PassLink QR scanner when the page was opened in an insecure context (http://). This should never happen"
+    },
+    "QrNotReadableError"          : {
+        "message"    : "Kamera nicht verfügbar. Ist sie vielleicht belegt?",
+        "description": "Message used by the PassLink QR scanner when the camera stream can not be read"
+    },
+    "QrOverconstrainedError"      : {
+        "message"    : "Kamera ist unbrauchbar",
+        "description": "Message used by the PassLink QR scanner when the camera is faulty"
+    },
+    "QrStreamApiNotSupportedError": {
+        "message"    : "Die Stream API ist in diesem Browser nicht verfügbar",
+        "description": "Message used by the PassLink QR scanner when the browser does not support the required streaming api. This should never happen"
+    },
+    "FirstRunConnectTitle"        : {
+        "message"    : "Mit Nextcloud verbinden",
+        "description": ""
+    },
+    "FirstRunConnectText"         : {
+        "message"    : "Öffne die Passwörter App, klicke auf \"Mehr\", öffne \"Apps & Erweiterungen\" und starte den PassLink Dialog.",
+        "description": ""
+    },
+    "FirstRunConnectLink"         : {
+        "message"    : "Wenn der PassLink Dialog im selben Browser geöffnet ist, verbinde dich mittels Link",
+        "description": ""
+    },
+    "FirstRunConnectScan"         : {
+        "message"    : "Falls das hier ein Gerät ist, klicke auf die Schaltfläche unten und scanne den Code",
+        "description": ""
+    },
+    "FirstRunConnectScanChrome"         : {
+        "message"    : "Klicke auf die Schaltfläche unten und scanne den PassLink Code",
+        "description": ""
+    },
+    "FirstRunConnectManual"       : {
+        "message"    : "In den Addon-Einstellungen ist es auch möglich, ein Konto manuell anzulegen",
+        "description": ""
+    },
+    "FirstRunConnectScanButton"   : {
+        "message"    : "PassLink Code scannen",
         "description": ""
     }
 }

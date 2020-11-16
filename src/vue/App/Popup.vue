@@ -7,6 +7,7 @@
             <collected slot="collected" :initial-status="collected"/>
         </tabs>
         <authorisation v-if="!authorized"></authorisation>
+        <first-run-wizard v-if="firstRun"/>
         <div id="toasts"></div>
     </div>
 </template>
@@ -29,7 +30,8 @@
             Related,
             Search,
             Browse,
-            Tabs
+            Tabs,
+            'first-run-wizard': () => import (/* webpackChunkName: "FirstRunWizard" */'@vue/Components/Firstrun/FirstRunWizard')
         },
 
         props: {
@@ -66,6 +68,10 @@
                         current: null
                     };
                 }
+            },
+            firstRun : {
+                type   : Boolean,
+                default: true
             }
         },
 

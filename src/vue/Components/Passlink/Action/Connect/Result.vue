@@ -11,9 +11,11 @@
 </template>
 
 <script>
-    import Translate from '@vue/Components/Translate';
     import Icon from '@vue/Components/Icon';
+    import Translate from '@vue/Components/Translate';
+    import ErrorManager from '@js/Manager/ErrorManager';
     import SystemService from '@js/Services/SystemService';
+    import MessageService from '@js/Services/MessageService';
 
     export default {
         components: {Icon, Translate},
@@ -38,7 +40,7 @@
         },
 
         mounted() {
-            setTimeout(() => {window.close();}, 10000);
+            setTimeout(() => {this.close();}, 10000);
         },
 
         methods: {
@@ -47,7 +49,7 @@
                 this.close();
             },
             close() {
-                window.close();
+                MessageService.send({type: 'tab.close', payload: {url: location.href}}).catch(ErrorManager.catch);
             }
         }
     };
