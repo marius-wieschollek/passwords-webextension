@@ -106,9 +106,9 @@
                 let a = document.createElement('a');
                 a.href = str;
                 return (a.host && a.host !== window.location.host) &&
-                       str.indexOf('index.php') === -1 &&
-                       str.indexOf('passwords') === -1 &&
-                       str.indexOf('apps') === -1;
+                       str.indexOf('/index.php') === -1 &&
+                       str.indexOf('/passwords') === -1 &&
+                       str.indexOf('/apps') === -1;
             }
         }
     };
