@@ -78,8 +78,8 @@ export default class ServerRequirementCheck {
             parts = version.split('.');
 
         for(let i = 0; i < base.length; i++) {
-            if(!parts.hasOwnProperty(i) || parts[i] < base[i]) return false;
-            if(parts[i] > base[i]) return true;
+            if(!parts.hasOwnProperty(i) || Number(parts[i]) < Number(base[i])) return false;
+            if(Number(parts[i]) > Number(base[i])) return true;
         }
 
         return true;
