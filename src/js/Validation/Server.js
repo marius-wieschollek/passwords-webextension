@@ -98,7 +98,7 @@ export default class Server {
             data.baseUrl += '/';
         }
 
-        let baseUrlRegex = /^https:\/\/[\w.\/]+$/;
+        let baseUrlRegex = /^https:\/\/[\w.\/\-]+$/;
         if(baseUrlRegex.test(errors.baseUrl)) {
             errors.baseUrl = LocalisationService.translate('ValidationNotAnUrl');
             return false;
