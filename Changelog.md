@@ -1,3 +1,7 @@
+#### Version 1.10.0 / 26.05.2019
+ - Added drag and drop for passwords
+ - Fixed issue with "-" in Nextcloud domain name
+
 #### Version 1.9.1 / 26.05.2019
  - Fixed improper autofill field selection
  - Fixed issues title overflow
