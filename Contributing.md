@@ -40,12 +40,12 @@ _Using a test account is recommended_
 
 ### Packing
 ##### Build on Firefox
-1. Run `npm build`
+1. Run `npm build:firefox`
 2. Pack the contents of the "dist" folder to a .zip file
 3. Rename the file to "ncpasswords@mdns.eu.xpi"
 
 ##### Build on Chromium
-1. Run `npm build-chrome`
+1. Run `npm build:chrome`
 2. Open "chrome://extensions/" in Chromium 
 3. Enable "Developer mode"
 4. Click "Pack extension"
