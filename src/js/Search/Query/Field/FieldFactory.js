@@ -18,7 +18,7 @@ export default class FieldFactory {
 
     /**
      *
-     * @param {String} value
+     * @param {*} value
      * @param {String} [name=null]
      * @return {FieldEquals}
      */

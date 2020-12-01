@@ -3,9 +3,7 @@ import ServerRepository from '@js/Repositories/ServerRepository';
 import Api from 'passwords-client';
 import SystemService from '@js/Services/SystemService';
 import LocalisationService from '@js/Services/LocalisationService';
-import EnhancedPassword from 'passwords-client/src/Model/Password/EnhancedPassword';
-import EnhancedFolder from 'passwords-client/src/Model/Folder/EnhancedFolder';
-import EnhancedTag from 'passwords-client/src/Model/Tag/EnhancedTag';
+import EnhancedClassLoader from "passwords-client/src/ClassLoader/EnhancedClassLoader";
 
 class ApiRepository {
 
@@ -64,11 +62,11 @@ class ApiRepository {
      */
     async _loadApis() {
         let servers = await ServerRepository.findAll(),
-            classes = {model: {server: Server, password: EnhancedPassword, folder: EnhancedFolder, tag: EnhancedTag}},
             config  = await this._getApiConfig();
 
         for(let server of servers) {
             if(!this._api.hasOwnProperty(server.getId())) {
+                let classes = new EnhancedClassLoader({model: {server: Server}});
                 this._api[server.getId()] = new Api(server, config, classes);
             }
         }

@@ -27,6 +27,7 @@ export default class PasswordIndexer extends AbstractIndexer {
         let index = {
             id      : password.getId(),
             type    : 'password',
+            hidden  : password.isHidden(),
             text    : [],
             tag     : [],
             folder  : [],

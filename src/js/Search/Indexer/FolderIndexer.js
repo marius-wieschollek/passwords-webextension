@@ -20,6 +20,7 @@ export default class FolderIndexer extends AbstractIndexer {
         let index = {
             id    : folder.getId(),
             type  : 'folder',
+            hidden: folder.isHidden(),
             text  : [],
             folder: [],
             server: [],

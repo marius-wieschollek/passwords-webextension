@@ -82,6 +82,10 @@ class RecommendationManager {
             .sortBy('score')
             .sortBy('label');
 
+        if(tab.tab.incognito) {
+            query.hidden(true);
+        }
+
         let recommendations = query.execute();
         if(recommendations.length !== 0) {
             tab.recommended = recommendations;

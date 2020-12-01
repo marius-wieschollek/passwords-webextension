@@ -363,6 +363,10 @@
         "message"    : "Tags",
         "description": ""
     },
+    "LabelHidden"                   : {
+        "message"    : "Incognito Password",
+        "description": ""
+    },
     "PlaceholderPassword"         : {
         "message"    : "Password",
         "description": ""

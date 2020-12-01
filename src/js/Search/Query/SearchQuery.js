@@ -20,6 +20,7 @@ export default class SearchQuery {
         }
 
         this._condition = this[condition]();
+        this._hidden = false;
         this._sort = [];
         this._score = 0.5;
         this._limit = 0;
@@ -55,6 +56,17 @@ export default class SearchQuery {
      */
     type(value) {
         this._type = value;
+
+        return this;
+    }
+
+    /**
+     *
+     * @param {Boolean} value
+     * @return {SearchQuery}
+     */
+    hidden(value) {
+        this._hidden = value;
 
         return this;
     }
@@ -130,6 +142,7 @@ export default class SearchQuery {
             matches = [];
 
         for(let item of items) {
+            if(!this._hidden && item.hidden) continue;
             let result = this._condition.evaluate(item);
 
             if(result.passed) {

@@ -25,6 +25,7 @@ export default class TagIndexer extends AbstractIndexer {
         let index = {
             id    : tag.getId(),
             type  : 'tag',
+            hidden: tag.isHidden(),
             text  : [],
             server: [],
             fields: {}

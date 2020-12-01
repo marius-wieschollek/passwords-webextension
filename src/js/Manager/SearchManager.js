@@ -3,6 +3,7 @@ import ApiRepository from '@js/Repositories/ApiRepository';
 import SearchIndex from '@js/Search/Index/SearchIndex';
 import SearchQuery from '@js/Search/Query/SearchQuery';
 import ErrorManager from '@js/Manager/ErrorManager';
+import HiddenFolderHelper from "@js/Helper/HiddenFolderHelper";
 
 class SearchManager {
 
@@ -73,6 +74,7 @@ class SearchManager {
                     this._reloadRepository(api, 'tag')
                 ]
             );
+            await this._loadHiddenPasswords(api, 'tag');
         } catch(e) {
             ErrorManager.logError(e);
         }
@@ -87,7 +89,7 @@ class SearchManager {
      */
     async _reloadRepository(api, type) {
         let repository = api.getInstance(`repository.${type}`),
-            models     = await repository.clearCache().findAll(),
+            models     = await repository.findAll(),
             query      = new SearchQuery(),
             items      = query
                 .where(query.field('server').equals(api.getServer().getId()))
@@ -96,6 +98,20 @@ class SearchManager {
 
         SearchIndex.removeItems(items);
         SearchIndex.addItems(models);
+    }
+
+    /**
+     *
+     * @param api
+     * @returns {Promise<void>}
+     * @private
+     */
+    async _loadHiddenPasswords(api) {
+        let helper = new HiddenFolderHelper(),
+            folder = await helper.getHiddenFolder(api);
+
+        let passwords = await folder.fetchPasswords();
+        SearchIndex.addItems(passwords);
     }
 }
 

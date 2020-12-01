@@ -8,6 +8,7 @@ import SearchIndex from '@js/Search/Index/SearchIndex';
 import NotificationService from '@js/Services/NotificationService';
 import ServerRepository from '@js/Repositories/ServerRepository';
 import Setting from 'passwords-client/src/Model/Setting/Setting';
+import HiddenFolderHelper from "@js/Helper/HiddenFolderHelper";
 
 class MiningManager {
 
@@ -30,13 +31,14 @@ class MiningManager {
     addPassword(data) {
         this.validateData(data);
         if(this.checkIfDuplicate(data)) return;
+        let hidden = TabManager.get().tab.incognito;
 
         let task = new MiningItem()
             .setTaskField('label', data.title)
             .setTaskField('username', data.user.value)
             .setTaskField('password', data.password.value)
             .setTaskField('url', data.url)
-            .setTaskField('hidden', false)
+            .setTaskField('hidden', hidden)
             .setTaskNew(true);
 
         this.processTask(task);
@@ -80,7 +82,8 @@ class MiningManager {
             password  = converter.fromObject(fields);
 
             if(password.getHidden()) {
-                password.setFolder(await this.getHiddenFolder(api));
+                let helper = new HiddenFolderHelper();
+                password.setFolder(await helper.getHiddenFolderId(api));
             }
 
         await api.getPasswordRepository().create(password);
@@ -137,48 +140,6 @@ class MiningManager {
         if(!data.hasOwnProperty('user')) {
             data.user = {value: '', selector: null};
         }
-    }
-
-    /**
-     *
-     * @param {Api} api
-     */
-    async getHiddenFolder(api) {
-        debugger;
-        let server = api.getServer(),
-            folderId = server.getPrivateFolder();
-
-        if(folderId) return folderId;
-
-        /** @type SettingRepository **/
-        let repository = api.getInstance('repository.setting'),
-            settings = await repository.findByName('client.ext.folder.private');
-
-        if(settings.length) {
-            let setting = settings.get(0);
-            if(setting.getValue()) {
-                server.setPrivateFolder(setting.getValue());
-                ServerRepository.update(server)
-                    .catch(ErrorManager.catch);
-                return setting.getValue();
-            }
-        }
-
-        let folder = api.getClass('model.folder');
-        folder.setLabel('BrowserExtensionPrivateFolder')
-            .setHidden(true);
-
-        await api.getFolderRepository().create(folder);
-
-        server.setPrivateFolder(folder.getId());
-        ServerRepository.update(server)
-            .catch(ErrorManager.catch);
-
-        let setting = api.getClass('model.setting', 'ext.folder.private', folder.getId(), Setting.SCOPE_CLIENT);
-        repository.set(setting)
-            .catch(ErrorManager.catch);
-
-        return folder.getId();
     }
 }
 
