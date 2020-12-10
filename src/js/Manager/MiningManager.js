@@ -208,6 +208,7 @@ class MiningManager {
         if(items.length !== 0) {
             return items[0];
         }
+        return null;
     }
 }
 
