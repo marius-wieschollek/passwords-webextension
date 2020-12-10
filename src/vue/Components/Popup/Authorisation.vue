@@ -2,7 +2,8 @@
     <form id="authorisation" @submit.prevent="submit" autocomplete="off" :style="theme" :class="className">
         <h2>{{label}}</h2>
         <div v-if="hasPassword" class="password-container">
-            <input-field type="password"
+            <input-field ref="password"
+                         type="password"
                          id="password"
                          :disabled="loggingIn"
                          v-model="password"
@@ -19,7 +20,8 @@
                           :disabled="loggingIn"
                           :translate="false"
                           :options="authRequest.getProviders()"/>
-            <input-field type="text"
+            <input-field ref="token"
+                         type="text"
                          id="token"
                          :disabled="loggingIn"
                          v-model="token"
@@ -66,9 +68,9 @@
         async mounted() {
             await this.loadNext();
             if(this.hasPassword) {
-                document.getElementById('password').focus();
+                this.$refs.password.focus();
             } else if(this.tokenField) {
-                document.getElementById('token').focus();
+                this.$refs.token.focus();
             }
         },
 

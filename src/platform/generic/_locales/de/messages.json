@@ -898,5 +898,9 @@
     "FirstRunConnectScanButton"   : {
         "message"    : "PassLink Code scannen",
         "description": ""
+    },
+    "OpenSettings"   : {
+        "message"    : "Addon-Einstellungen öffnen",
+        "description": ""
     }
 }

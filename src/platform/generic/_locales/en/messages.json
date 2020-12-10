@@ -912,5 +912,9 @@
     "FirstRunConnectScanButton"   : {
         "message"    : "Scan PassLink Code",
         "description": ""
+    },
+    "OpenSettings"   : {
+        "message"    : "Open Extension Settings",
+        "description": ""
     }
 }

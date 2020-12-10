@@ -5,6 +5,7 @@
             <search slot="search" :initial-status="search"/>
             <browse slot="browse" :initial-status="browse"/>
             <collected slot="collected" :initial-status="collected"/>
+            <tools slot="tools" />
         </tabs>
         <authorisation v-if="!authorized"></authorisation>
         <first-run-wizard v-if="firstRun"/>
@@ -14,7 +15,7 @@
 
 <script>
     import Tabs from '@vue/Components/Tabs';
-    import SystemService from '@js/Services/SystemService';
+    import Tools from '@vue/Components/Popup/Tools';
     import Browse from '@vue/Components/Popup/Browse';
     import Search from '@vue/Components/Popup/Search';
     import Related from '@vue/Components/Popup/Related';
@@ -25,6 +26,7 @@
     export default {
         el        : '#app',
         components: {
+            Tools,
             Collected,
             Authorisation,
             Related,
@@ -94,13 +96,9 @@
                         icon : 'history',
                         label: 'TabCollected'
                     },
-                    settings : {
+                    tools : {
                         icon  : 'tools',
-                        label : 'TabTools',
-                        action: () => {
-                            SystemService.getBrowserApi().runtime.openOptionsPage();
-                            window.close();
-                        }
+                        label : 'TabTools'
                     }
                 };
             }
@@ -108,7 +106,7 @@
 
         methods: {
             saveTab($event) {
-                let tab = $event.tab === 'settings' ? 'related':$event.tab;
+                let tab = $event.tab;
 
                 MessageService
                     .send({type: 'popup.status.set', payload: {tab}});

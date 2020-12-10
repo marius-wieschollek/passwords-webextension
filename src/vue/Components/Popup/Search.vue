@@ -1,6 +1,6 @@
 <template>
     <div class="search-container">
-        <input type="text" id="query" v-model="query" :placeholder="placeholder">
+        <input ref="query" type="text" id="query" v-model="query" :placeholder="placeholder">
         <password-list :passwords="passwords"/>
         <translate tag="div" class="no-results" say="NoSearchQuery" @click="focus" v-if="query.length === 0"/>
         <translate tag="div"
@@ -59,7 +59,7 @@
 
         methods: {
             focus() {
-                document.getElementById('query').focus();
+               this.$refs.query.focus();
             },
             search(query) {
                 MessageService
@@ -85,20 +85,20 @@
 </script>
 
 <style lang="scss">
-    .search-container {
-        input {
-            width            : 100%;
-            line-height      : 3rem;
-            padding          : 0 .5rem;
-            border           : none;
-            border-bottom    : 2px solid var(--element-active-fg-color);
-            background-color : var(--element-active-hover-bg-color);
-            color : var(--element-active-hover-fg-color);
-        }
-
-        .no-results {
-            line-height : 3rem;
-            text-align  : center;
-        }
+.search-container {
+    input {
+        width            : 100%;
+        line-height      : 3rem;
+        padding          : 0 .5rem;
+        border           : none;
+        border-bottom    : 2px solid var(--element-active-fg-color);
+        background-color : var(--element-active-hover-bg-color);
+        color            : var(--element-active-hover-fg-color);
     }
+
+    .no-results {
+        line-height : 3rem;
+        text-align  : center;
+    }
+}
 </style>

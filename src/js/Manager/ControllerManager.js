@@ -138,6 +138,13 @@ class ControllerManager {
             }
         );
         MessageService.listen(
+            'popup.settings.open',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "OpenSettings" */ '@js/Controller/Popup/OpenSettings');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
             'options.status',
             async (message, reply) => {
                 let module = await import(/* webpackChunkName: "OptionsStatus" */ '@js/Controller/Options/Status');
