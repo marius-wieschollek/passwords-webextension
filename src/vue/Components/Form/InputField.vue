@@ -52,10 +52,7 @@
                 if(this.type !== 'checkbox' && this.type !== 'radio') return undefined;
 
                 return this.checked || this.value;
-            }
-        },
-
-        methods: {
+            },
             listeners() {
                 let listeners = {};
 
@@ -66,7 +63,10 @@
                 }
 
                 return listeners;
-            },
+            }
+        },
+
+        methods: {
             handleInput($event) {
                 if(this.type !== 'checkbox' && this.type !== 'radio') {
                     this.$emit('input', $event.target.value);

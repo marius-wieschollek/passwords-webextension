@@ -3,7 +3,7 @@
         <translate say="MiningItemIsNew" class="create-info" v-if="item.isNew()">
             <icon slot="before" icon="info-circle" font="solid"/>
         </translate>
-        <translate say="MiningItemIsUpdate" v-else>
+        <translate say="MiningItemIsUpdate" class="create-info" :variables="updateVariables" v-else>
             <icon slot="before" icon="info-circle" font="solid"/>
         </translate>
         <mined-property :field="field" :item="item" v-for="field in fields" :key="field"/>
@@ -24,19 +24,31 @@
             }
         },
         computed  : {
+            updateVariables() {
+                return [
+                    this.item.getTask().fields.label
+                ];
+            },
             fields() {
-                return this.item.listResultFields();
+                let resultFields = this.item.listResultFields(),
+                    fields       = [];
+
+                for(let resultField of resultFields) {
+                    if(resultField !== 'id') fields.push(resultField);
+                }
+
+                return fields;
             }
         }
     };
 </script>
 
 <style lang="scss">
-    .mining-item {
-        .create-info {
-            display : block;
-            padding : 1rem .5rem .25rem .5rem;
-            color   : var(--element-active-fg-color);
-        }
+.mining-item {
+    .create-info {
+        display : block;
+        padding : 1rem .5rem .25rem .5rem;
+        color   : var(--element-active-fg-color);
     }
+}
 </style>

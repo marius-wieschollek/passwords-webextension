@@ -6,9 +6,8 @@ import TabManager from '@js/Manager/TabManager';
 import SearchQuery from '@js/Search/Query/SearchQuery';
 import SearchIndex from '@js/Search/Index/SearchIndex';
 import NotificationService from '@js/Services/NotificationService';
-import ServerRepository from '@js/Repositories/ServerRepository';
-import Setting from 'passwords-client/src/Model/Setting/Setting';
 import HiddenFolderHelper from "@js/Helper/HiddenFolderHelper";
+import Url from "url-parse";
 
 class MiningManager {
 
@@ -41,6 +40,13 @@ class MiningManager {
             .setTaskField('hidden', hidden)
             .setTaskNew(true);
 
+        let basePassword = this.findPossibleUpdate(data);
+        if(basePassword !== null) {
+            task.setTaskField('id', basePassword.getId())
+                .setTaskField('label', basePassword.getLabel())
+                .setTaskNew(false);
+        }
+
         this.processTask(task);
     }
 
@@ -57,6 +63,8 @@ class MiningManager {
                     .setFeedback('MiningPasswordDiscarded');
             } else if(task.isNew()) {
                 await this.createPassword(task);
+            } else {
+                await this.updatePassword(task);
             }
 
             await this._miningQueue.push(task);
@@ -76,21 +84,52 @@ class MiningManager {
      */
     async createPassword(task) {
         let api       = await ServerManager.getDefaultApi(),
-            /** @type PasswordConverter **/
+            /** @type {PasswordConverter} **/
             converter = api.getInstance('converter.password'),
             fields    = task.getResultFields(),
             password  = converter.fromObject(fields);
 
-            if(password.getHidden()) {
-                let helper = new HiddenFolderHelper();
-                password.setFolder(await helper.getHiddenFolderId(api));
-            }
+        if(password.getHidden()) {
+            let helper = new HiddenFolderHelper();
+            password.setFolder(await helper.getHiddenFolderId(api));
+        }
 
         await api.getPasswordRepository().create(password);
         SearchIndex.addItem(password);
 
         task.setAccepted(true)
             .setFeedback('MiningPasswordCreated');
+    }
+
+    /**
+     * @param {MiningItem} task
+     * @return {Promise<void>}
+     */
+    async updatePassword(task) {
+        let api      = await ServerManager.getDefaultApi(),
+            query    = new SearchQuery(),
+            password = /** @type {EnhancedPassword} **/ query
+                .where(query.field('id').equals(task.getResultField('id')))
+                .execute()[0];
+
+        password
+            .setLabel(task.getResultField('label'))
+            .setUserName(task.getResultField('username'))
+            .setPassword(task.getResultField('password'))
+            .setUrl(task.getResultField('url'))
+            .setHidden(task.getResultField('hidden'));
+
+        if(password.isHidden()) {
+            let helper = new HiddenFolderHelper();
+            password.setFolder(await helper.getHiddenFolderId(api));
+        }
+
+        await api.getPasswordRepository().update(password);
+        SearchIndex.removeItem(password);
+        SearchIndex.addItem(password);
+
+        task.setAccepted(true)
+            .setFeedback('MiningPasswordUpdated');
     }
 
     /**
@@ -139,6 +178,35 @@ class MiningManager {
     validateData(data) {
         if(!data.hasOwnProperty('user')) {
             data.user = {value: '', selector: null};
+        }
+    }
+
+    /**
+     *
+     * @param {Object} data
+     * @returns {(EnhancedPassword|null)}
+     */
+    findPossibleUpdate(data) {
+        let tab = TabManager.get();
+
+        let url = Url(tab.url);
+        if(url.host.length === 0) {
+            return null;
+        }
+
+        let query = new SearchQuery(),
+            items = query
+                .where(
+                    query.field('username').equals(data.user.value),
+                    query.field('host').contains(url.host)
+                )
+                .type('password')
+                .hidden(tab.tab.incognito)
+                .limit(1)
+                .execute();
+
+        if(items.length !== 0) {
+            return items[0];
         }
     }
 }

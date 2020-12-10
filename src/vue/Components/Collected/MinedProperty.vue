@@ -25,7 +25,7 @@
 
         data() {
             return {
-                editing: false,
+                editing: this.field === 'hidden',
                 value  : this.item.getResultField(this.field),
                 title  : LocalisationService.translate('TitleClickToEdit')
             };
@@ -40,14 +40,13 @@
                 return this.field;
             },
             text() {
-                if(this.type === 'checkbox') return this.value ? 'yes':'no';
                 return this.field === 'password' ? '':this.value;
             },
             classList() {
-                return `mining-property ${this.field}`;
+                return `mining-property field-${this.field}`;
             },
             id() {
-                return `property${this.field}`;
+                return `property-${this.field}`;
             },
             type() {
                 return this.field === 'hidden' ? 'checkbox':'text';
@@ -120,12 +119,21 @@
             color            : var(--element-fg-color);
         }
 
-        &.password {
+        &.field-password {
             div {
                 font-family    : "Font Awesome 5 Free", sans-serif;
                 font-size      : .5rem;
                 letter-spacing : .25rem;
                 font-weight    : bold;
+            }
+        }
+
+        &.field-hidden {
+            display: flex;
+
+            input {
+                width: auto;
+                margin-left: auto;
             }
         }
     }
