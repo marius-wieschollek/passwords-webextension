@@ -143,6 +143,7 @@ class MiningManager {
             items = query
                 .where(query.field('id').in(ids))
                 .type('password')
+                .hidden(true)
                 .execute();
 
         for(let item of items) {
@@ -159,6 +160,7 @@ class MiningManager {
             }
         }
 
+        let tab = TabManager.get();
         query = new SearchQuery();
         items = query
             .where(
@@ -166,7 +168,9 @@ class MiningManager {
                 query.field('username').equals(data.user.value)
             )
             .type('password')
+            .hidden(tab.tab.incognito)
             .limit(1)
+            .score(0.1)
             .execute();
 
         return items.length > 0;
@@ -203,11 +207,13 @@ class MiningManager {
                 .type('password')
                 .hidden(tab.tab.incognito)
                 .limit(1)
+                .score(0.1)
                 .execute();
 
         if(items.length !== 0) {
             return items[0];
         }
+
         return null;
     }
 }
