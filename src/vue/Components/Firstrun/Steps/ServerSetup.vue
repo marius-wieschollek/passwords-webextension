@@ -5,8 +5,8 @@
         <ul class="sever-setup-options">
             <translate tag="li" say="FirstRunConnectLink" v-if="platform !== 'chrome'"/>
             <translate tag="li" say="FirstRunConnectScan" v-if="platform !== 'chrome'"/>
-            <translate tag="li" say="FirstRunConnectScanChrome" v-if="platform === 'chrome'"/>
-            <translate tag="li" say="FirstRunConnectManual"/>
+            <translate tag="li" class="link" say="FirstRunConnectScanChrome" v-if="platform === 'chrome'" @click="scanQr" />
+            <translate tag="li" class="link" say="FirstRunConnectManual" @click="openSettings"/>
         </ul>
         <button-field value="FirstRunConnectScanButton" @click="scanQr"/>
     </div>
@@ -35,6 +35,10 @@
                 MessageService.send({type: 'passlink.open', payload: {action: 'scan-qr'}})
                     .catch(ErrorManager.catch);
                 window.close();
+            },
+            openSettings() {
+                MessageService.send('popup.settings.open');
+                //window.close();
             }
         }
     };
@@ -51,6 +55,14 @@
 
             li {
                 margin-bottom : .25rem;
+
+                &.link {
+                    cursor: pointer;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
             }
         }
 

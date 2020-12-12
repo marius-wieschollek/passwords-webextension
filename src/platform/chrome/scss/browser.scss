@@ -33,15 +33,21 @@ body {
         .theme-colors {
             .color-setting {
                 input {
-                    -webkit-appearance: none;
-                    height: 1.5rem;
-                    background-color: transparent;
+                    -webkit-appearance : none;
+                    height             : 1.5rem;
+                    background-color   : transparent;
 
                     &::-webkit-color-swatch {
-                        border: none;
+                        border : none;
                     }
                 }
             }
         }
+    }
+}
+
+.input-slider {
+    .input-slider-button {
+        top : 0;
     }
 }
