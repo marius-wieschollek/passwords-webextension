@@ -297,7 +297,7 @@ class MessageService {
      */
     _checkClientRestrictions(message) {
         return message.getSender() !== 'client' ||
-               (message.getType() !== 'password.mine' && message.getType() !== 'queue.items') ||
+               (message.getType() !== 'password.mine' && message.getType() !== 'queue.items' && message.getType() !== 'debug.form.fields') ||
                (message.getType() === 'queue.items' && message.getPayload().name !== 'error');
     }
 

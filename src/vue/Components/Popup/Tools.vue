@@ -1,6 +1,9 @@
 <template>
     <div class="tools-container">
-        <translate tag="h4" say="ToolsGeneratePassword" />
+        <foldout :tabs="tabs" :initial-open="true" ref="foldout">
+            <generate slot="generate"/>
+            <debug slot="debug"/>
+        </foldout>
         <translate class="tools-settings-link" say="OpenSettings" @click="openSettings">
             <icon slot="before" icon="cogs" font="solid"/>
         </translate>
@@ -11,10 +14,30 @@
     import Translate from "@vue/Components/Translate";
     import Icon from "@vue/Components/Icon";
     import MessageService from "@js/Services/MessageService";
+    import Foldout from "@vue/Components/Foldout";
+    import Debug from "@vue/Components/Tools/Debug";
+    import Generate from "@vue/Components/Tools/Generate";
 
     export default {
-        components: {Icon, Translate},
-        methods   : {
+        components: {Generate, Debug, Foldout, Icon, Translate},
+
+        computed: {
+            tabs() {
+                return {
+                    generate: {
+                        icon    : 'key',
+                        iconFont: 'solid',
+                        label   : 'ToolsTabGeneratePassword'
+                    },
+                    debug   : {
+                        icon    : 'bug',
+                        iconFont: 'solid',
+                        label   : 'ToolsTabDebugTools'
+                    }
+                };
+            }
+        },
+        methods : {
             openSettings() {
                 MessageService.send('popup.settings.open');
                 window.close();
