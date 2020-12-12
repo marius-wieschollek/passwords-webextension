@@ -20,7 +20,7 @@
                 default: () => []
             },
             value    : {
-                type   : String,
+                type   : [String, Number],
                 default: null
             },
             translate: {
@@ -52,10 +52,7 @@
                 }
 
                 return options;
-            }
-        },
-
-        methods: {
+            },
             listeners() {
                 let listeners = {};
 
@@ -66,7 +63,10 @@
                 }
 
                 return listeners;
-            },
+            }
+        },
+
+        methods: {
             getTranslated(text) {
                 if(!this.translate || !text) return text;
 

@@ -1,5 +1,10 @@
 <template>
-    <button :type="getType" :title="getTitle" v-on="$listeners">{{getValue}}</button>
+    <button :type="getType" :title="getTitle" v-on="$listeners">
+        <slot name="before"/>
+        {{getValue}}
+        <slot name="default"/>
+        <slot name="after"/>
+    </button>
 </template>
 
 <script>

@@ -51,30 +51,50 @@ export default class FormService {
                 form    = this.getParentForm(current);
             if(form && this.checkIfFormVisible(form)) {
                 let fields = form.getElementsByTagName('input'),
+                    lastUserGuess = null,
                     pair   = {form: form, pass: current};
 
                 for(let i = 0; i < fields.length; i++) {
                     let field = fields[i];
 
+                    if(field === current && lastUserGuess !== null) {
+                        pair.firstGuess = lastUserGuess;
+                    }
+
                     if(!this.isQualifiedField(field)) continue;
 
+                    lastUserGuess = null;
                     if(!pair.user && this.isUserNameField(field)) {
                         pair.user = field;
-                    } else if(!pair.firstGuess && field.type === 'text' && (field.autofocus || field.required)) {
-                        pair.firstGuess = field;
-                    } else if(!pair.secondGuess && field.type === 'text') {
-                        pair.secondGuess = field;
+                    } else if(field.type === 'text') {
+                        if((field.autofocus || field.required)) {
+                            if(!pair.firstGuess) {
+                                pair.firstGuess = field;
+                            } else {
+                                lastUserGuess = field
+                                if(!pair.secondGuess) pair.secondGuess = field;
+                            }
+                        } else {
+                            if(!pair.secondGuess) pair.secondGuess = field;
+                            lastUserGuess = field
+                        }
                     } else if(!pair.submit && field.type === 'submit') {
                         pair.submit = field;
-                    } else if(!pair.user && field.type === 'tel') {
+                    } else if(!pair.tel && field.type === 'tel') {
                         pair.tel = field;
+                    } else if(!pair.email && field.type === 'email') {
+                        pair.email = field;
                     }
                 }
 
+                if(!pair.user && pair.email) pair.user = pair.email;
                 if(!pair.user && pair.tel) pair.user = pair.tel;
                 if(!pair.user && pair.firstGuess) pair.user = pair.firstGuess;
                 if(!pair.user && pair.secondGuess) pair.user = pair.secondGuess;
 
+                if(!pair.submit) {
+                    pair.submit = form.querySelector('button[type="submit"]')
+                }
                 if(!pair.submit && form.id) {
                     let submit = document.querySelector(`button[form="${form.id}"][type=submit], input[form="${form.id}"][type=submit]`);
                     if(submit) pair.submit = submit;

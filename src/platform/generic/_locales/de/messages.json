@@ -902,5 +902,53 @@
     "OpenSettings"   : {
         "message"    : "Addon-Einstellungen öffnen",
         "description": ""
+    },
+    "ToolsTabGeneratePassword"    : {
+        "message"    : "Passwort generieren",
+        "description": ""
+    },
+    "ToolsTabDebugTools"          : {
+        "message"    : "Entwicklerwerkzeuge",
+        "description": ""
+    },
+    "GeneratedPasswordPlaceholder"    : {
+        "message"    : "Erstelltes Passwort",
+        "description": ""
+    },
+    "LabelGenerateAddNumbers"    : {
+        "message"    : "Zahlen",
+        "description": ""
+    },
+    "LabelGenerateAddSpecial"    : {
+        "message"    : "Sonderzeichen",
+        "description": ""
+    },
+    "LabelGenerateStrength"    : {
+        "message"    : "Stärke",
+        "description": ""
+    },
+    "LabelGeneratorStrengthLow"    : {
+        "message"    : "Niedrig",
+        "description": ""
+    },
+    "LabelGeneratorStrengthStandard"    : {
+        "message"    : "Standard",
+        "description": ""
+    },
+    "LabelGeneratorStrengthMedium"    : {
+        "message"    : "Mittel",
+        "description": ""
+    },
+    "LabelGeneratorStrengthHigh"    : {
+        "message"    : "Hoch",
+        "description": ""
+    },
+    "LabelGeneratorStrengthUltra"    : {
+        "message"    : "Ultra",
+        "description": ""
+    },
+    "DebugHighlightLoginForms"    : {
+        "message"    : "Felder von Anmeldeformularen zeigen",
+        "description": ""
     }
 }

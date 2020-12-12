@@ -4,6 +4,10 @@ import QueueService from '@js/Services/QueueService';
 
 class ErrorManager {
 
+    get catchEvt() {
+        return this.catch();
+    }
+
     constructor() {
         this._errors = [];
         this._mode = 'client';

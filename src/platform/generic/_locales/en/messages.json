@@ -363,7 +363,7 @@
         "message"    : "Tags",
         "description": ""
     },
-    "LabelHidden"                   : {
+    "LabelHidden"                 : {
         "message"    : "Incognito Password",
         "description": ""
     },
@@ -901,7 +901,7 @@
         "message"    : "If this is a different device, scan the PassLink Connect Code with the button below",
         "description": ""
     },
-    "FirstRunConnectScanChrome"         : {
+    "FirstRunConnectScanChrome"   : {
         "message"    : "Click the button below and scan the PassLink Connect code",
         "description": ""
     },
@@ -913,8 +913,56 @@
         "message"    : "Scan PassLink Code",
         "description": ""
     },
-    "OpenSettings"   : {
+    "OpenSettings"                : {
         "message"    : "Open Extension Settings",
+        "description": ""
+    },
+    "ToolsTabGeneratePassword"    : {
+        "message"    : "Generate Password",
+        "description": ""
+    },
+    "ToolsTabDebugTools"          : {
+        "message"    : "Debug Tools",
+        "description": ""
+    },
+    "GeneratedPasswordPlaceholder"    : {
+        "message"    : "Generated Password",
+        "description": ""
+    },
+    "LabelGenerateAddNumbers"    : {
+        "message"    : "Numbers",
+        "description": ""
+    },
+    "LabelGenerateAddSpecial"    : {
+        "message"    : "Symbols",
+        "description": ""
+    },
+    "LabelGenerateStrength"    : {
+        "message"    : "Strength",
+        "description": ""
+    },
+    "LabelGeneratorStrengthLow"    : {
+        "message"    : "Low",
+        "description": ""
+    },
+    "LabelGeneratorStrengthStandard"    : {
+        "message"    : "Standard",
+        "description": ""
+    },
+    "LabelGeneratorStrengthMedium"    : {
+        "message"    : "Medium",
+        "description": ""
+    },
+    "LabelGeneratorStrengthHigh"    : {
+        "message"    : "High",
+        "description": ""
+    },
+    "LabelGeneratorStrengthUltra"    : {
+        "message"    : "Ultra",
+        "description": ""
+    },
+    "DebugHighlightLoginForms"    : {
+        "message"    : "Highlight Login Form Fields",
         "description": ""
     }
 }
