@@ -301,6 +301,10 @@
         "message"    : "No new passwords found",
         "description": "Used in the collected tab when no new passwords have been found"
     },
+    "AddPasswordForCurrentTab"     : {
+        "message"    : "Add account for current tab",
+        "description": "Used in the collected tab for the option to add a blank entry with just the url of the current tab"
+    },
     "NoServerItems"               : {
         "message"    : "No elements found",
         "description": "Used in the browse tab when a server has no entries to list"

@@ -1,8 +1,9 @@
 <template>
     <div :class="classList">
-        <label :for="id" @dblclick="edit()" :title="editing ? '':title">{{label}}</label>
-        <div @dblclick="edit()" v-if="!editing" :title="title">{{text}}</div>
-        <input-field :id="id" :type="type" v-model="value" @keypress="checkEnter($event)" title="TitleEnterToExit" v-else/>
+        <label :for="id" @dblclick="edit()" :title="title">{{ label }}</label>
+        <div @dblclick="edit()" v-if="!editing" :title="title">{{ text }}</div>
+        <input-field :id="id" v-model="value" @keypress="checkEnter($event)" title="TitleEnterToExit" v-else-if="type === 'text'"/>
+        <slider-field :id="id" v-model="value" v-else/>
     </div>
 </template>
 
@@ -11,9 +12,10 @@
     import MiningItem from '@js/Models/Queue/MiningItem';
     import MessageService from '@js/Services/MessageService';
     import InputField from '@vue/Components/Form/InputField';
+    import SliderField from "@vue/Components/Form/SliderField";
 
     export default {
-        components: {InputField},
+        components: {SliderField, InputField},
         props     : {
             item : {
                 type: MiningItem
@@ -26,8 +28,7 @@
         data() {
             return {
                 editing: this.field === 'hidden',
-                value  : this.item.getResultField(this.field),
-                title  : LocalisationService.translate('TitleClickToEdit')
+                value  : this.item.getResultField(this.field)
             };
         },
 
@@ -50,6 +51,10 @@
             },
             type() {
                 return this.field === 'hidden' ? 'checkbox':'text';
+            },
+            title() {
+                if(this.field === 'hidden') return '';
+                return this.editing ? LocalisationService.translate('TitleEnterToExit'):LocalisationService.translate('TitleClickToEdit');
             }
         },
 
@@ -78,63 +83,67 @@
 </script>
 
 <style lang="scss">
-    .mining-property {
-        padding : .5rem;
+.mining-property {
+    padding : .5rem;
 
-        label {
-            cursor      : pointer;
-            display     : block;
-            font-weight : bold;
-            color       : var(--element-active-fg-color)
-        }
+    label {
+        cursor      : pointer;
+        display     : block;
+        font-weight : bold;
+        color       : var(--element-active-fg-color)
+    }
 
-        div {
-            cursor        : pointer;
-            padding       : .25rem;
-            box-sizing    : border-box;
-            border-radius : 3px;
-            border        : none;
-            line-height   : 2rem;
-            white-space   : nowrap;
-            text-overflow : ellipsis;
-            overflow      : hidden;
-            box-shadow    : 0 0 0 1px transparent;
-            transition    : box-shadow .15s ease-in-out;
-            color         : var(--element-fg-color);
+    div {
+        cursor        : pointer;
+        padding       : .25rem;
+        box-sizing    : border-box;
+        border-radius : 3px;
+        border        : none;
+        line-height   : 2rem;
+        height        : 2.5rem;
+        white-space   : nowrap;
+        text-overflow : ellipsis;
+        overflow      : hidden;
+        box-shadow    : 0 0 0 1px transparent;
+        transition    : box-shadow .15s ease-in-out;
+        color         : var(--element-fg-color);
 
-            &:hover {
-                box-shadow : 0 0 0 1px var(--element-hover-bg-color);
-            }
-        }
-
-        input {
-            width            : 100%;
-            padding          : .25rem;
-            box-sizing       : border-box;
-            box-shadow       : 0 0 0 1px var(--element-active-fg-color);
-            border-radius    : 3px;
-            border           : none;
-            line-height      : 2rem;
-            background-color : var(--element-bg-color);
-            color            : var(--element-fg-color);
-        }
-
-        &.field-password {
-            div {
-                font-family    : "Font Awesome 5 Free", sans-serif;
-                font-size      : .5rem;
-                letter-spacing : .25rem;
-                font-weight    : bold;
-            }
-        }
-
-        &.field-hidden {
-            display: flex;
-
-            input {
-                width: auto;
-                margin-left: auto;
-            }
+        &:hover {
+            box-shadow : 0 0 0 1px var(--element-hover-bg-color);
         }
     }
+
+    input {
+        width            : 100%;
+        padding          : .25rem;
+        box-sizing       : border-box;
+        box-shadow       : 0 0 0 1px var(--element-active-fg-color);
+        border-radius    : 3px;
+        border           : none;
+        line-height      : 2rem;
+        background-color : var(--element-bg-color);
+        color            : var(--element-fg-color);
+    }
+
+    &.field-password {
+        div {
+            font-family    : "Font Awesome 5 Free", sans-serif;
+            font-size      : .5rem;
+            letter-spacing : .25rem;
+            font-weight    : bold;
+        }
+    }
+
+    &.field-hidden {
+        display : flex;
+
+        label {
+            flex-grow : 1;
+        }
+
+        .input-slider {
+            margin-top : 2px;
+        }
+    }
+}
 </style>

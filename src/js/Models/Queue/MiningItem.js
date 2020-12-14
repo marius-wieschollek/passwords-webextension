@@ -31,6 +31,19 @@ export default class MiningItem extends FeedbackItem {
         return this;
     }
 
+
+    /**
+     * @param {Boolean} value
+     * @returns {MiningItem}
+     */
+    setTaskManual(value) {
+        let task = this.getTask();
+        task.manual = value;
+        this.setTask(task);
+
+        return this;
+    }
+
     /**
      * @param {String} name
      * @param {*} value
@@ -114,6 +127,16 @@ export default class MiningItem extends FeedbackItem {
             result = this.getResult();
 
         return (task.hasOwnProperty('new') && task.new) || (result.hasOwnProperty('new') && result.new);
+    }
+
+    /**
+     *
+     * @returns {Boolean}
+     */
+    isManual() {
+        let task   = this.getTask();
+
+        return (task.hasOwnProperty('manual') && task.manual);
     }
 
 

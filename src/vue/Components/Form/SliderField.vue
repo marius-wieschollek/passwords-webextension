@@ -115,7 +115,7 @@
 
     &.on {
         .input-slider-button {
-            left : .55rem;
+            left : calc(100% - .9em);
         }
     }
 

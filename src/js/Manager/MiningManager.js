@@ -30,6 +30,14 @@ class MiningManager {
     addPassword(data) {
         this.validateData(data);
         if(this.checkIfDuplicate(data)) return;
+        data.manual = false;
+        this.createItem(data);
+    }
+
+    /**
+     * @param {Object} data
+     */
+    createItem(data) {
         let hidden = TabManager.get().tab.incognito;
 
         let task = new MiningItem()
@@ -38,13 +46,16 @@ class MiningManager {
             .setTaskField('password', data.password.value)
             .setTaskField('url', data.url)
             .setTaskField('hidden', hidden)
+            .setTaskManual(data.manual)
             .setTaskNew(true);
 
-        let basePassword = this.findPossibleUpdate(data);
-        if(basePassword !== null) {
-            task.setTaskField('id', basePassword.getId())
-                .setTaskField('label', basePassword.getLabel())
-                .setTaskNew(false);
+        if(!data.manual) {
+            let basePassword = this.findPossibleUpdate(data);
+            if(basePassword !== null) {
+                task.setTaskField('id', basePassword.getId())
+                    .setTaskField('label', basePassword.getLabel())
+                    .setTaskNew(false);
+            }
         }
 
         this.processTask(task);
@@ -55,7 +66,7 @@ class MiningManager {
      */
     async processTask(task) {
         try {
-            NotificationService.newPasswordNotification(task);
+            if(task.isNew() && !task.isManual()) NotificationService.newPasswordNotification(task);
             task = await this._miningQueue.push(task);
 
             if(task.isDiscarded()) {

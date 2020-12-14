@@ -8,6 +8,9 @@
             <mining-item :item="item" :slot="item.getId()" :key="item.getId()" v-for="item of items"/>
         </foldout>
         <translate tag="div" class="no-results" say="NoCollectedPasswords" v-if="items.length === 0"/>
+        <translate class="collected-add-blank" say="AddPasswordForCurrentTab" @click="addBlankPassword" v-if="items.length === 0">
+            <icon slot="before" icon="user-plus" font="solid"/>
+        </translate>
     </div>
 </template>
 
@@ -18,6 +21,7 @@
     import MiningClient from '@js/Queue/Client/MiningClient';
     import MiningItem from '@vue/Components/Collected/MiningItem';
     import MessageService from '@js/Services/MessageService';
+    import ErrorManager from '@js/Manager/ErrorManager';
 
     export default {
         components: {MiningItem, Translate, Foldout, Icon},
@@ -35,8 +39,8 @@
 
         data() {
             return {
-                items  : MiningClient.getItems(),
-                current: null,
+                items   : MiningClient.getItems(),
+                current : null,
                 listener: (i) => { this.addItem(i); }
             };
         },
@@ -103,12 +107,19 @@
                 this.items.push(item);
             },
 
+            addBlankPassword() {
+                MessageService
+                    .send('password.add.blank')
+                    .catch(ErrorManager.catchEvt);
+            },
+
             sendStatus() {
                 let status = {
                     current: this.current
                 };
                 MessageService
-                    .send({type: 'popup.status.set', payload: {tab: 'collected', status}});
+                    .send({type: 'popup.status.set', payload: {tab: 'collected', status}})
+                    .catch(ErrorManager.catchEvt);
             }
         },
 
@@ -121,10 +132,30 @@
 </script>
 
 <style lang="scss">
-    .collected-container {
-        .no-results {
-            line-height : 3rem;
-            text-align  : center;
+.collected-container {
+    .no-results {
+        line-height : 3rem;
+        text-align  : center;
+    }
+
+    .collected-add-blank {
+        position         : fixed;
+        bottom           : 0;
+        padding          : 1rem;
+        width            : 100%;
+        border-top       : 1px solid var(--element-active-fg-color);
+        background-color : var(--element-active-bg-color);
+        color            : var(--element-active-hover-fg-color);
+        cursor           : pointer;
+        transition       : var(--element-transition);
+
+        &:hover {
+            background-color : var(--element-active-hover-bg-color);
+        }
+
+        .icon {
+            margin-right : .5rem;
         }
     }
+}
 </style>

@@ -54,6 +54,13 @@ class ControllerManager {
             }
         );
         MessageService.listen(
+            'password.add.blank',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "PasswordAddBlank" */ '@js/Controller/Password/AddBlank');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
             'folder.list',
             async (message, reply) => {
                 let module = await import(/* webpackChunkName: "FolderList" */ '@js/Controller/Folder/List');
