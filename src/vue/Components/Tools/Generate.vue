@@ -1,7 +1,7 @@
 <template>
     <div class="tools-generate-password">
         <div class="generate-password-container">
-            <div class="generate-password-wrapper">
+            <div class="generate-password-wrapper" :title="title">
                 <input ref="password" type="text" id="password" v-model="password" :placeholder="placeholder">
             </div>
             <div class="options">
@@ -44,6 +44,7 @@
         data() {
             return {
                 password   : '',
+                title   : '',
                 generating : false,
                 numbers    : false,
                 special    : false,
@@ -100,8 +101,11 @@
                 this.generating = true;
                 let response = /** @type {Message} **/ await MessageService
                     .send({type: 'password.generate', payload: {numbers: this.numbers, special: this.special, strength: this.strength}});
-
-                this.password = response.getPayload();
+                let data = response.getPayload();
+                if(data.success) {
+                    this.password = data.password;
+                    this.title = LocalisationService.translate('GeneratedPasswordTitle', data.words.join(' '))
+                }
                 this.generating = false;
             }
         },

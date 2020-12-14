@@ -107,7 +107,7 @@
         border           : 1px solid var(--element-active-fg-color);
         position         : absolute;
         top              : .1em;
-        left             : 1px;
+        left             : .1em;
         height           : .8em;
         width            : .8em;
         transition       : left .15s ease-in-out;
@@ -115,7 +115,7 @@
 
     &.on {
         .input-slider-button {
-            left : .5rem;
+            left : .55rem;
         }
     }
 

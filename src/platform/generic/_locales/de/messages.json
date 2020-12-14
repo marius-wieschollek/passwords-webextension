@@ -915,6 +915,16 @@
         "message"    : "Erstelltes Passwort",
         "description": ""
     },
+    "GeneratedPasswordTitle"    : {
+        "message"    : "Passwort Worte: $WORDS$",
+        "description": "",
+        "placeholders": {
+            "words": {
+                "content": "$1",
+                "example": "First Second Third"
+            }
+        }
+    },
     "LabelGenerateAddNumbers"    : {
         "message"    : "Zahlen",
         "description": ""
@@ -946,6 +956,16 @@
     "LabelGeneratorStrengthUltra"    : {
         "message"    : "Ultra",
         "description": ""
+    },
+    "PasswordGenerateError"    : {
+        "message"    : "Fehler im Passwort-Generator: $ERROR$",
+        "description": "",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "Unexpected data type"
+            }
+        }
     },
     "DebugHighlightLoginForms"    : {
         "message"    : "Felder von Anmeldeformularen zeigen",

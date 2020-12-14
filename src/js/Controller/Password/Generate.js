@@ -1,5 +1,7 @@
 import AbstractController from '@js/Controller/AbstractController';
 import ServerManager from '@js/Manager/ServerManager';
+import ToastService from "@js/Services/ToastService";
+import ErrorManager from "@js/Manager/ErrorManager";
 
 export default class Generate extends AbstractController {
 
@@ -14,8 +16,15 @@ export default class Generate extends AbstractController {
             passwordService = api.getInstance('service.password'),
             params          = message.getPayload();
 
-        let data = await passwordService.generate(params.numbers, params.special, params.strength);
+            try {
+                let data = await passwordService.generate(params.numbers, params.special, params.strength);
 
-        reply.setPayload(data.password);
+                reply.setPayload({success: true, password: data.password, words: data.words});
+            } catch(e) {
+                ErrorManager.logError(e);
+                ToastService.create({message: ['PasswordGenerateError', e.message], ttl: 5, type: 'error'})
+                    .catch(ErrorManager.catchEvt);
+                reply.setPayload({success: false});
+            }
     }
 }
