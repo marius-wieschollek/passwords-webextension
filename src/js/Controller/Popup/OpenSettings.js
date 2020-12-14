@@ -5,6 +5,5 @@ export default class OpenSettings extends AbstractController {
 
     async execute(message, reply) {
         SystemService.getBrowserApi().runtime.openOptionsPage();
-        window.close();
     }
 }

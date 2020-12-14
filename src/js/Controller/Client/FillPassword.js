@@ -10,8 +10,8 @@ export default class FillPassword extends AbstractController {
      */
     async execute(message, reply) {
         try {
-            this._fillPassword(message.getPayload().user, message.getPayload().password, message.getPayload().submit);
-            reply.setPayload(true);
+            let result = this._fillPassword(message.getPayload().user, message.getPayload().password, message.getPayload().submit);
+            reply.setPayload(result);
         } catch(e) {
             reply.setPayload(false);
         }
@@ -22,9 +22,12 @@ export default class FillPassword extends AbstractController {
      * @param {String} user
      * @param {String} password
      * @param {Boolean} trySubmit
+     * @returns {Boolean}
      */
     _fillPassword(user, password, trySubmit) {
         let forms = new FormService().getLoginFields();
+        if(forms.length === 0) return false;
+
         for(let i = 0; i < forms.length; i++) {
             let form = forms[i];
             if(form.user) this._insertTextIntoField(form.user, user);
@@ -37,6 +40,8 @@ export default class FillPassword extends AbstractController {
                 this._simulateEnter(form.pass);
             }
         }
+
+        return true;
     }
 
     /**

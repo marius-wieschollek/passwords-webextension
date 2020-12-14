@@ -23,7 +23,7 @@ export default class Fill extends AbstractController {
         }
 
         try {
-            await MessageService.send(
+            let response = await MessageService.send(
                 {
                     type    : 'autofill.password',
                     receiver: 'client',
@@ -37,7 +37,7 @@ export default class Fill extends AbstractController {
                 }
             );
 
-            reply.setPayload({success: true});
+            reply.setPayload({success: response.getPayload()});
         } catch(e) {
             ErrorManager.logError(e);
             reply.setPayload({success: false});

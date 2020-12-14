@@ -22,7 +22,7 @@ export default class Generate extends AbstractController {
                 reply.setPayload({success: true, password: data.password, words: data.words});
             } catch(e) {
                 ErrorManager.logError(e);
-                ToastService.create({message: ['PasswordGenerateError', e.message], ttl: 5, type: 'error'})
+                ToastService.error(['PasswordGenerateError', e.message])
                     .catch(ErrorManager.catchEvt);
                 reply.setPayload({success: false});
             }

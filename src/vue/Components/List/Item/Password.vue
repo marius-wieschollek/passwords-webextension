@@ -36,11 +36,17 @@
         methods: {
             async sendPassword() {
                 try {
-                    await MessageService.send({type: 'password.fill', payload: this.password.getId()});
+                    let response = await MessageService.send({type: 'password.fill', payload: this.password.getId()});
+
+                    if(response.getPayload().success === false) {
+                        ToastService.error(['PasswordPastedError', this.password.getLabel()])
+                                    .catch(ErrorManager.catchEvt);
+                        return;
+                    }
                 } catch(e) {
                     ErrorManager.logError(e);
-                    ToastService.success(['PasswordPastedError', this.password.getLabel()])
-                        .catch(ErrorManager.catch);
+                    ToastService.error(['PasswordPastedError', this.password.getLabel()])
+                        .catch(ErrorManager.catchEvt);
                 }
 
                 try {
