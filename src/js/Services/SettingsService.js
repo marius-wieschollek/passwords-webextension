@@ -1,28 +1,33 @@
 import Setting from '@js/Models/Setting/Setting';
+import InvalidScopeError from "passwords-client/src/Exception/InvalidScopeError";
 
 class SettingsService {
 
     constructor() {
+        /** @type {(MasterSettingsProvider|ClientSettingsProvider|null)} **/
         this._backend = null;
         this._settings = {};
     }
 
+    /**
+     *
+     * @param {(MasterSettingsProvider|ClientSettingsProvider)} backend
+     */
     init(backend) {
         this._backend = backend;
     }
 
     /**
-     *
      * @param {String} name
-     * @return {Promise<Setting>}
+     * @returns {Promise<Setting>}
      */
     async get(name) {
         if(this._settings.hasOwnProperty(name)) {
             return this._settings[name];
         }
 
-        let value   = await this._backend.get(name),
-            setting = new Setting(name, value);
+        let data   = await this._backend.get(name),
+            setting = new Setting(name, data.value, data.scope);
 
         this._settings[name] = setting;
 

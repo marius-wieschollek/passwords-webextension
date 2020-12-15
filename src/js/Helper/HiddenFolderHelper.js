@@ -2,6 +2,7 @@ import ServerRepository from "@js/Repositories/ServerRepository";
 import ErrorManager from "@js/Manager/ErrorManager";
 import Setting from "passwords-client/src/Model/Setting/Setting";
 import NotFoundError from "passwords-client/src/Exception/Http/NotFoundError";
+import SettingsService from "@js/Services/SettingsService";
 
 export default class HiddenFolderHelper {
 
@@ -18,7 +19,7 @@ export default class HiddenFolderHelper {
     /**
      *
      * @param {Api} api
-     * @returns {Promise<{EnhancedFolder}>}
+     * @returns {Promise<EnhancedFolder>}
      */
     async getHiddenFolder(api) {
         let folderId = await this._getFolderId(api);
@@ -42,20 +43,14 @@ export default class HiddenFolderHelper {
 
         if(folderId) return folderId;
 
-        /** @type {SettingRepository} **/
-        let settingsRepository = api.getInstance('repository.setting'),
-            settings           = await settingsRepository.findByName('client.ext.folder.private');
+        let folderSetting = await SettingsService.getValue('password.folder.private');
+        if(folderSetting !== null) {
+            server.setPrivateFolder(folderSetting);
+            ServerRepository
+                .update(server)
+                .catch(ErrorManager.catch);
 
-        if(settings.length) {
-            let setting = settings.get(0);
-            if(setting.getValue()) {
-                server.setPrivateFolder(setting.getValue());
-                ServerRepository
-                    .update(server)
-                    .catch(ErrorManager.catch);
-
-                return setting.getValue();
-            }
+            return folderSetting;
         }
 
         return null;
@@ -64,12 +59,11 @@ export default class HiddenFolderHelper {
     /**
      *
      * @param {Api} api
-     * @returns {Promise<{Folder}>}
+     * @returns {Promise<(EnhancedFolder|Folder)>}
      * @private
      */
     async _createHiddenFolder(api) {
-        let settingsRepository = api.getInstance('repository.setting'),
-            server             = api.getServer(),
+        let server             = api.getServer(),
             folder             = api
                 .getClass('model.folder')
                 .setLabel('BrowserExtensionPrivateFolder')
@@ -82,10 +76,9 @@ export default class HiddenFolderHelper {
             .update(server)
             .catch(ErrorManager.catch);
 
-        let setting = api.getClass('model.setting', 'ext.folder.private', folder.getId(), Setting.SCOPE_CLIENT);
-        settingsRepository
-            .set(setting)
-            .catch(ErrorManager.catch);
+        SettingsService
+            .set('password.folder.private', folder.getId())
+            .catch(ErrorManager.catchEvt);
 
         return folder;
     }
@@ -94,12 +87,12 @@ export default class HiddenFolderHelper {
      *
      * @param {Api} api
      * @param {String} folderId
-     * @returns {Promise<{EnhancedFolder}>}
+     * @returns {Promise<EnhancedFolder>}
      * @private
      */
     async _loadHiddenFolder(api, folderId) {
         try {
-            return await api.getFolderRepository().findById(folderId, 'passwords');
+            return await api.getFolderRepository().findById(folderId, 'model+passwords');
         } catch(e) {
             if(e instanceof NotFoundError) {
                 return await this._createHiddenFolder(api);

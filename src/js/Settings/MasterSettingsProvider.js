@@ -1,10 +1,11 @@
 import Setting from '@js/Models/Setting/Setting';
 import StorageService from '@js/Services/StorageService';
+import ServerManager from "@js/Manager/ServerManager";
 
 class MasterSettingsProvider {
 
     constructor() {
-        this.browserScopes = [StorageService.STORAGE_LOCAL, StorageService.STORAGE_LOCAL];
+        this.browserScopes = [Setting.SCOPE_LOCAL, Setting.SCOPE_SYNC];
         this.serverScopes = [Setting.SCOPE_USER, Setting.SCOPE_SERVER, Setting.SCOPE_CLIENT];
 
         this._mapping = {
@@ -16,6 +17,9 @@ class MasterSettingsProvider {
                 'client.ext.password.autosubmit',
                 'local.password.autosubmit',
                 'sync.password.autosubmit'
+            ],
+            'password.folder.private'     : [
+                'client.ext.folder.private'
             ],
             'popup.autoclose'             : [
                 'client.ext.password.autoclose',
@@ -54,6 +58,7 @@ class MasterSettingsProvider {
             'popup.autoclose'             : true,
             'popup.related.search'        : true,
             'password.autosubmit'         : true,
+            'password.folder.private'     : null,
             'notification.password.new'   : true,
             'notification.password.update': true
         };
@@ -62,7 +67,7 @@ class MasterSettingsProvider {
     /**
      *
      * @param {String} setting
-     * @return {Promise<*>}
+     * @return {Promise<{value:*, scope:String}>}
      */
     async get(setting) {
         // @TODO use custom error
@@ -79,10 +84,10 @@ class MasterSettingsProvider {
                 value = await this._serverGet(key);
             }
 
-            if(value) return value;
+            if(value !== null) return {value, scope};
         }
 
-        return this._defaults[setting];
+        return {value: this._defaults[setting], scope: Setting.SCOPE_LOCAL};
     }
 
     /**
@@ -154,7 +159,7 @@ class MasterSettingsProvider {
      *
      * @param {String} scope
      * @param {String} name
-     * @return {Promise<Setting>}
+     * @return {Promise<*>}
      * @private
      */
     async _browserGet(scope, name) {
@@ -168,11 +173,13 @@ class MasterSettingsProvider {
     /**
      *
      * @param {String} key
-     * @return {Promise<Setting>}
+     * @return {Promise<*>}
      * @private
      */
     async _serverGet(key) {
-        return undefined;
+        let setting = await this._getServerSetting(key);
+
+        return setting === null ? null:setting.getValue();
     }
 
     /**
@@ -191,11 +198,23 @@ class MasterSettingsProvider {
     /**
      *
      * @param {String} key
+     * @param {*} value
      * @return {Promise<Boolean>}
      * @private
      */
     async _serverSet(key, value) {
-        return undefined;
+        if(key === 'ext.folder.private') debugger;
+        let setting = await this._getServerSetting(key),
+            repository = await this._getSettingsRepository();
+
+        if(setting !== null) {
+            setting.setValue(value);
+        } else {
+            setting = new Setting(key, value, Setting.SCOPE_CLIENT);
+        }
+        await repository.set(setting);
+
+        return true;
     }
 
     /**
@@ -217,7 +236,41 @@ class MasterSettingsProvider {
      * @private
      */
     async _serverDelete(key) {
-        return undefined;
+        let setting = await this._getServerSetting(key);
+
+        if(setting !== null) {
+            let repository = await this._getSettingsRepository();
+
+                await repository.reset(setting);
+        }
+
+        return true;
+    }
+
+    /**
+     *
+     * @param key
+     * @returns {Promise<null|Setting>}
+     * @private
+     */
+    async _getServerSetting(key) {
+        let repository = await this._getSettingsRepository(),
+            settings          = /** @type {SettingCollection} **/ await repository.findByName(key);
+
+        if(settings.length === 0) return null;
+
+        return settings.get(0);
+    }
+
+    /**
+     *
+     * @returns {Promise<SettingRepository>}
+     * @private
+     */
+    async _getSettingsRepository() {
+        let api = await ServerManager.getDefaultApi();
+
+        return /** @type {SettingRepository} **/ api.getInstance('repository.setting');
     }
 }
 

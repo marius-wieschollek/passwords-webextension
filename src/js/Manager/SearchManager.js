@@ -74,7 +74,7 @@ class SearchManager {
                     this._reloadRepository(api, 'tag')
                 ]
             );
-            await this._loadHiddenPasswords(api, 'tag');
+            await this._loadHiddenPasswords(api);
         } catch(e) {
             ErrorManager.logError(e);
         }
@@ -111,7 +111,7 @@ class SearchManager {
             folder = await helper.getHiddenFolder(api);
 
         let passwords = await folder.fetchPasswords();
-        SearchIndex.addItems(passwords);
+        if(passwords.length !== 0) SearchIndex.addItems(passwords);
     }
 }
 

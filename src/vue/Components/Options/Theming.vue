@@ -51,7 +51,7 @@
             this.themes = reply.getPayload();
 
             reply = await MessageService.send({type: 'setting.get', payload: 'theme.current'});
-            this.themeId = reply.getPayload();
+            this.themeId = reply.getPayload().value;
 
             this.setCurrentTheme(this.themeId);
         },

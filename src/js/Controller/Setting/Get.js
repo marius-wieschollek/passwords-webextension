@@ -28,8 +28,9 @@ export default class Get extends AbstractController {
 
         try {
             if(this._readableSettings.indexOf(setting) !== -1) {
-                let value = await SettingsService.getValue(setting);
-                reply.setType('setting.value').setPayload(value);
+                /** @type {Setting} **/
+                let model = await SettingsService.get(setting);
+                reply.setType('setting.value').setPayload({value:model.getValue(), scope:model.getScope()});
             } else {
                 reply.setPayload(
                     {

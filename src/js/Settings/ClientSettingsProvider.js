@@ -4,9 +4,10 @@ class ClientSettingsProvider {
 
     /**
      * @param {String} name
-     * @return {Promise<Object|*>}
+     * @return {Promise<{value:*, scope:String}>}
      */
     async get(name) {
+        /** @type {Message} **/
         let reply = await MessageService.send({type: 'setting.get', payload: name});
         if(reply.getType() !== 'setting.value') {
             throw new Error(reply.getPayload().message)
