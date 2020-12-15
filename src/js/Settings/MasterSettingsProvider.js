@@ -7,6 +7,7 @@ class MasterSettingsProvider {
     constructor() {
         this.browserScopes = [Setting.SCOPE_LOCAL, Setting.SCOPE_SYNC];
         this.serverScopes = [Setting.SCOPE_USER, Setting.SCOPE_SERVER, Setting.SCOPE_CLIENT];
+        this._serverSettings = {};
 
         this._mapping = {
             'server.default'              : [
@@ -203,8 +204,7 @@ class MasterSettingsProvider {
      * @private
      */
     async _serverSet(key, value) {
-        if(key === 'ext.folder.private') debugger;
-        let setting = await this._getServerSetting(key),
+        let setting    = await this._getServerSetting(key),
             repository = await this._getSettingsRepository();
 
         if(setting !== null) {
@@ -241,7 +241,7 @@ class MasterSettingsProvider {
         if(setting !== null) {
             let repository = await this._getSettingsRepository();
 
-                await repository.reset(setting);
+            await repository.reset(setting);
         }
 
         return true;
@@ -254,10 +254,15 @@ class MasterSettingsProvider {
      * @private
      */
     async _getServerSetting(key) {
+        if(this._serverSettings.hasOwnProperty(key)) {
+            return this._serverSettings[key];
+        }
+
         let repository = await this._getSettingsRepository(),
-            settings          = /** @type {SettingCollection} **/ await repository.findByName(key);
+            settings   = /** @type {SettingCollection} **/ await repository.findByName(key);
 
         if(settings.length === 0) return null;
+        this._serverSettings[key] = settings.get(0);
 
         return settings.get(0);
     }
