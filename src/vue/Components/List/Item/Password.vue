@@ -2,12 +2,13 @@
     <li class="item password-item">
         <div class="label" @click="sendPassword()" :title="password.getId()">
             <favicon :password="password.getId()" :size="22" v-if="favicon"/>
-            {{password.getLabel()}}
+            {{ password.getLabel() }}
         </div>
         <div class="options">
             <icon icon="user" hover-icon="clipboard" @click="copy('username')" draggable="true" @dragstart="drag($event, 'username')"/>
             <icon icon="key" font="solid" hover-icon="clipboard" hover-font="regular" @click="copy('password')" draggable="true" @dragstart="drag($event, 'password')"/>
         </div>
+        <icon :class="securityClass" icon="shield-alt" font="solid"/>
     </li>
 </template>
 
@@ -33,6 +34,14 @@
             }
         },
 
+        computed: {
+            securityClass() {
+                let types = ['secure', 'warn', 'bad'];
+
+                return `security ${types[this.password.getStatus()]}`;
+            }
+        },
+
         methods: {
             async sendPassword() {
                 try {
@@ -46,13 +55,13 @@
                 } catch(e) {
                     ErrorManager.logError(e);
                     ToastService.error(['PasswordPastedError', this.password.getLabel()])
-                        .catch(ErrorManager.catchEvt);
+                                .catch(ErrorManager.catchEvt);
                 }
 
                 try {
                     await ToastService.success(['PasswordPastedSuccess', this.password.getLabel()]);
                     if(await SettingsService.getValue('popup.autoclose')) {
-                        window.close()
+                        window.close();
                     }
                 } catch(e) {
                     ErrorManager.logError(e);
@@ -68,7 +77,7 @@
                 }
 
                 ToastService.success(['PasswordPropertyCopied', label])
-                    .catch(ErrorManager.catch);
+                            .catch(ErrorManager.catch);
             },
             drag(event, property) {
                 let data = this.password.getProperty(property);
@@ -79,99 +88,125 @@
 </script>
 
 <style lang="scss">
-    .item.password-item {
-        line-height      : 3rem;
-        font-size        : 1rem;
-        background-color : var(--element-bg-color);
-        color            : var(--element-fg-color);
-        cursor           : pointer;
-        display          : flex;
-        overflow         : hidden;
-        transition       : var(--element-transition);
+.item.password-item {
+    line-height      : 3rem;
+    font-size        : 1rem;
+    background-color : var(--element-bg-color);
+    color            : var(--element-fg-color);
+    cursor           : pointer;
+    display          : flex;
+    overflow         : hidden;
+    transition       : var(--element-transition);
+    position         : relative;
 
-        > * {
-            flex-grow   : 0;
-            flex-shrink : 0;
+    > * {
+        flex-grow   : 0;
+        flex-shrink : 0;
+    }
+
+    > .label {
+        flex-grow     : 1;
+        padding       : 0 .5rem;
+        min-width     : 100vw;
+        white-space   : nowrap;
+        transition    : min-width .25s ease-in-out;
+        overflow      : hidden;
+        text-overflow : ellipsis;
+
+        .favicon {
+            vertical-align : middle;
+            border-radius  : 3px;
+            padding        : .5rem;
+            width          : 1.5rem;
+            height         : 1.5rem;
+            box-sizing     : content-box;
+            margin-left    : -.5rem;
+
+            &.error {
+                padding    : .75rem;
+                max-width  : 1rem;
+                max-height : 1rem;
+            }
+        }
+    }
+
+    .options {
+        opacity          : 0;
+        display          : flex;
+        z-index          : 1;
+        background-color : var(--element-bg-color);
+        transition       : opacity 0s linear .25s, var(--element-transition);
+
+        .icon {
+            text-align : center;
+            width      : 3rem;
+            display    : inline-block;
+        }
+    }
+
+    .security {
+        position    : absolute;
+        right       : 0;
+        text-align  : center;
+        width       : 3rem;
+        display     : inline-block;
+        line-height : 3rem;
+        z-index     : 0;
+
+        &.secure {
+            color : var(--success-bg-color)
         }
 
+        &.warn {
+            color : var(--warning-bg-color)
+        }
+
+        &.bad {
+            color : var(--error-bg-color)
+        }
+    }
+
+    &:hover {
+        background-color : var(--element-hover-bg-color);
+        color            : var(--element-hover-fg-color);
+
         > .label {
-            flex-grow     : 1;
-            padding       : 0 .5rem;
-            min-width     : 100vw;
-            white-space   : nowrap;
-            transition    : min-width .25s ease-in-out;
-            overflow      : hidden;
-            text-overflow : ellipsis;
-
-            .favicon {
-                vertical-align : middle;
-                border-radius  : 3px;
-                padding        : .5rem;
-                width          : 1.5rem;
-                height         : 1.5rem;
-                box-sizing     : content-box;
-                margin-left    : -.5rem;
-
-                &.error {
-                    padding    : .75rem;
-                    max-width  : 1rem;
-                    max-height : 1rem;
-                }
-            }
+            flex-shrink : 1;
+            min-width   : 50vw;
         }
 
         .options {
-            opacity    : 0;
-            transition : opacity 0s linear .25s;
-            display    : flex;
-
-            .icon {
-                text-align : center;
-                width      : 3rem;
-                display    : inline-block;
-            }
-        }
-
-        &:hover {
             background-color : var(--element-hover-bg-color);
-            color            : var(--element-hover-fg-color);
+            opacity          : 1;
+            transition       : none;
 
-            > .label {
-                flex-shrink : 1;
-                min-width   : 50vw;
-            }
+            > .icon,
+            > .option {
+                background-color : var(--button-bg-color);
+                color            : var(--button-fg-color);
+                transition       : var(--button-transition);
 
-            .options {
-                > .icon,
-                > .option {
-                    background-color : var(--button-bg-color);
-                    color            : var(--button-fg-color);
-                    transition       : var(--button-transition);
-
-                    &:hover {
-                        background-color : var(--button-hover-bg-color);
-                        color            : var(--button-hover-fg-color);
-                    }
+                &:hover {
+                    background-color : var(--button-hover-bg-color);
+                    color            : var(--button-hover-fg-color);
                 }
-
-                opacity    : 1;
-                transition : none;
             }
         }
     }
+}
 
-    body.mobile {
-        .item.password-item {
-            > .label {
-                flex-shrink : 1;
-                min-width   : 50vw;
-            }
+body.mobile {
+    .item.password-item {
+        > .label {
+            flex-shrink : 1;
+            min-width   : 50vw;
+        }
 
-            .options {
-                opacity    : 1;
-                transition : none;
-                color      : var(--button-hover-bg-color);
-            }
+        .options {
+            opacity    : 1;
+            transition : none;
+            color      : var(--button-hover-bg-color);
         }
     }
+}
 </style>
