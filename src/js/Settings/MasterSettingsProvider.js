@@ -22,6 +22,15 @@ class MasterSettingsProvider {
             'password.folder.private'     : [
                 'client.ext.folder.private'
             ],
+            'password.generator.strength'     : [
+                'user.password.generator.strength'
+            ],
+            'password.generator.numbers'     : [
+                'user.password.generator.numbers'
+            ],
+            'password.generator.special'     : [
+                'user.password.generator.special'
+            ],
             'popup.autoclose'             : [
                 'client.ext.password.autoclose',
                 'local.password.autoclose',

@@ -111,6 +111,7 @@
         height           : .8em;
         width            : .8em;
         transition       : left .15s ease-in-out;
+        box-sizing       : border-box;
     }
 
     &.on {

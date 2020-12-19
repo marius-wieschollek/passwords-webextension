@@ -38,14 +38,15 @@
     import Translate from '@vue/Components/Translate';
     import SelectField from '@vue/Components/Form/SelectField';
     import MessageService from '@js/Services/MessageService';
+    import SettingsService from "@js/Services/SettingsService";
 
     export default {
         components: {SelectField, Translate, SliderField, Icon},
         data() {
             return {
                 password   : '',
-                title   : '',
-                generating : false,
+                title      : '',
+                generating : true,
                 numbers    : false,
                 special    : false,
                 strength   : 1,
@@ -81,10 +82,29 @@
         },
 
         mounted() {
-            this.generatePassword();
+            Promise.all(
+                [
+                    this.loadSetting('strength'),
+                    this.loadSetting('numbers'),
+                    this.loadSetting('special')
+                ]
+            ).then(() => {
+                this.generating = false;
+                this.generatePassword();
+            });
         },
 
         methods: {
+            loadSetting(type) {
+                new Promise((resolve) => {
+                    SettingsService
+                        .getValue(`password.generator.${type}`)
+                        .then((v) => {
+                            this[type] = v;
+                            resolve();
+                        });
+                });
+            },
             copy() {
                 let data  = this.password,
                     label = LocalisationService.translate('PropertyPassword');
@@ -98,13 +118,14 @@
                 event.dataTransfer.setData('text/plain', this.password);
             },
             async generatePassword() {
+                if(this.generating) return;
                 this.generating = true;
                 let response = /** @type {Message} **/ await MessageService
                     .send({type: 'password.generate', payload: {numbers: this.numbers, special: this.special, strength: this.strength}});
                 let data = response.getPayload();
                 if(data.success) {
                     this.password = data.password;
-                    this.title = LocalisationService.translate('GeneratedPasswordTitle', data.words.join(' '))
+                    this.title = LocalisationService.translate('GeneratedPasswordTitle', data.words.join(' '));
                 }
                 this.generating = false;
             }

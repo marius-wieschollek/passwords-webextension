@@ -7,6 +7,9 @@ export default class Get extends AbstractController {
         super();
         this._readableSettings = [
             'password.autosubmit',
+            'password.generator.strength',
+            'password.generator.numbers',
+            'password.generator.special',
             'popup.autoclose',
             'popup.related.search',
             'notification.password.new',
