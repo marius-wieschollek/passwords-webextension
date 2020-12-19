@@ -85,9 +85,22 @@ class Preview {
                 resolve(new Message());
             });
         }
+        if(message.type === 'popup.settings.open') {
+            return new Promise((resolve) => {
+                resolve(new Message());
+            });
+        }
         if(message.type === 'password.related' || message.type === 'password.search') {
             return new Promise((resolve) => {
                 resolve(this._getPasswordItems());
+            });
+        }
+        if(message.type === 'password.generate') {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    let text = LocalisationService.translate('DemoText');
+                    resolve(new Message({payload: {success: true, password: text, words: [text]}}));
+                }, 2000);
             });
         }
         if(message.type === 'server.list') {
@@ -186,7 +199,7 @@ class Preview {
      * @private
      */
     _getServerInfo() {
-        let payload = {passwords: 123, folders: 34, tags: 12};
+        let payload = {passwords: 111, folders: 33, tags: 22};
 
         return new Message().setPayload(payload);
     }
@@ -208,9 +221,11 @@ class Preview {
      * @private
      */
     _showFolder(message) {
+        let label = LocalisationService.translate('DemoText');
+
         let folder = new Folder(
             {
-                label   : 'Demo',
+                label,
                 id      : message.payload,
                 parent  : '00000000-0000-0000-0000-000000000000',
                 revision: '00000000-0000-0000-0000-000000000000'
@@ -289,6 +304,7 @@ class Preview {
      */
     _getDemoFolders(parent) {
         let label = LocalisationService.translate('DemoText');
+
         return [
             new Folder({id: 'fld-1', parent, label}),
             new Folder({id: 'fld-2', parent, label})
@@ -302,6 +318,7 @@ class Preview {
      */
     _getDemoPasswords(folder = '00000000-0000-0000-0000-000000000000') {
         let label = LocalisationService.translate('DemoText');
+
         return [
             new Password({id: 'pwd-1', label, username: '', password: '', folder}),
             new Password({id: 'pwd-2', label, username: '', password: '', folder})
@@ -333,7 +350,8 @@ class Preview {
             .setTaskField('label', label)
             .setTaskField('username', 'username')
             .setTaskField('password', 'password')
-            .setTaskField('url', 'https://www.example.com');
+            .setTaskField('url', 'https://www.example.com')
+            .setTaskField('hidden', false);
     }
 }
 
