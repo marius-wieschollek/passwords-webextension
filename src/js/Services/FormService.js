@@ -1,15 +1,7 @@
 export default class FormService {
 
     getPasswordFields() {
-        let fields  = document.getElementsByTagName('input'),
-            results = [],
-            i       = fields.length;
-        while(i--) {
-            if(fields[i].type === 'password') {
-                results.push(fields[i]);
-            }
-        }
-        return results;
+        return document.querySelectorAll('input[type="password"]');
     }
 
     /**
@@ -50,9 +42,9 @@ export default class FormService {
             let current = passwords[i],
                 form    = this.getParentForm(current);
             if(form && this.checkIfFormVisible(form)) {
-                let fields = form.getElementsByTagName('input'),
+                let fields        = form.getElementsByTagName('input'),
                     lastUserGuess = null,
-                    pair   = {form: form, pass: current};
+                    pair          = {form: form, pass: current};
 
                 for(let i = 0; i < fields.length; i++) {
                     let field = fields[i];
@@ -71,12 +63,12 @@ export default class FormService {
                             if(!pair.firstGuess) {
                                 pair.firstGuess = field;
                             } else {
-                                lastUserGuess = field
+                                lastUserGuess = field;
                                 if(!pair.secondGuess) pair.secondGuess = field;
                             }
                         } else {
                             if(!pair.secondGuess) pair.secondGuess = field;
-                            lastUserGuess = field
+                            lastUserGuess = field;
                         }
                     } else if(!pair.submit && field.type === 'submit') {
                         pair.submit = field;
@@ -84,6 +76,8 @@ export default class FormService {
                         pair.tel = field;
                     } else if(!pair.email && field.type === 'email') {
                         pair.email = field;
+                    } else if(!pair.remember && this.isRememberField(field)) {
+                        pair.remember = field;
                     }
                 }
 
@@ -93,7 +87,7 @@ export default class FormService {
                 if(!pair.user && pair.secondGuess) pair.user = pair.secondGuess;
 
                 if(!pair.submit) {
-                    pair.submit = form.querySelector('button[type="submit"]')
+                    pair.submit = form.querySelector('button[type="submit"]');
                 }
                 if(!pair.submit && form.id) {
                     let submit = document.querySelector(`button[form="${form.id}"][type=submit], input[form="${form.id}"][type=submit]`);
@@ -114,7 +108,7 @@ export default class FormService {
      * @return {Boolean}
      */
     isQualifiedField(field) {
-        return !field.readOnly && !field.disabled && ['text', 'email', 'tel', 'submit'].indexOf(field.type) !== -1;
+        return !field.readOnly && !field.disabled && ['text', 'email', 'tel', 'submit', 'checkbox'].indexOf(field.type) !== -1;
     }
 
     /**
@@ -135,5 +129,10 @@ export default class FormService {
         }
 
         return false;
+    }
+
+    isRememberField(field) {
+        return field.type === 'checkbox' &&
+               (field.name && field.name.indexOf('remember') !== -1 || field.id && field.id.indexOf('remember') !== -1);
     }
 }
