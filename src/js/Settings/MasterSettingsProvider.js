@@ -1,6 +1,7 @@
 import Setting from '@js/Models/Setting/Setting';
 import StorageService from '@js/Services/StorageService';
 import ServerManager from "@js/Manager/ServerManager";
+import ErrorManager from "@js/Manager/ErrorManager";
 
 class MasterSettingsProvider {
 
@@ -22,13 +23,13 @@ class MasterSettingsProvider {
             'password.folder.private'     : [
                 'client.ext.folder.private'
             ],
-            'password.generator.strength'     : [
+            'password.generator.strength' : [
                 'user.password.generator.strength'
             ],
-            'password.generator.numbers'     : [
+            'password.generator.numbers'  : [
                 'user.password.generator.numbers'
             ],
-            'password.generator.special'     : [
+            'password.generator.special'  : [
                 'user.password.generator.special'
             ],
             'popup.autoclose'             : [
@@ -94,7 +95,7 @@ class MasterSettingsProvider {
                 value = await this._serverGet(key);
             }
 
-            if(value !== null) return {value, scope};
+            if(value !== undefined) return {value, scope};
         }
 
         return {value: this._defaults[setting], scope: Setting.SCOPE_LOCAL};
@@ -178,6 +179,8 @@ class MasterSettingsProvider {
         if(await StorageService.has(key, scope)) {
             return await StorageService.get(key, scope);
         }
+
+        return undefined;
     }
 
     /**
@@ -189,7 +192,7 @@ class MasterSettingsProvider {
     async _serverGet(key) {
         let setting = await this._getServerSetting(key);
 
-        return setting === null ? null:setting.getValue();
+        return setting === null ? undefined:setting.getValue();
     }
 
     /**
@@ -215,6 +218,7 @@ class MasterSettingsProvider {
     async _serverSet(key, value) {
         let setting    = await this._getServerSetting(key),
             repository = await this._getSettingsRepository();
+        if(!repository) return false;
 
         if(setting !== null) {
             setting.setValue(value);
@@ -249,6 +253,7 @@ class MasterSettingsProvider {
 
         if(setting !== null) {
             let repository = await this._getSettingsRepository();
+            if(!repository) return false;
 
             await repository.reset(setting);
         }
@@ -267,9 +272,10 @@ class MasterSettingsProvider {
             return this._serverSettings[key];
         }
 
-        let repository = await this._getSettingsRepository(),
-            settings   = /** @type {SettingCollection} **/ await repository.findByName(key);
+        let repository = await this._getSettingsRepository();
+        if(!repository) return null;
 
+        let settings = /** @type {SettingCollection} **/ await repository.findByName(key);
         if(settings.length === 0) return null;
         this._serverSettings[key] = settings.get(0);
 
@@ -278,13 +284,18 @@ class MasterSettingsProvider {
 
     /**
      *
-     * @returns {Promise<SettingRepository>}
+     * @returns {Promise<(SettingRepository|null)>}
      * @private
      */
     async _getSettingsRepository() {
-        let api = await ServerManager.getDefaultApi();
+        try {
+            let api = await ServerManager.getDefaultApi();
 
-        return /** @type {SettingRepository} **/ api.getInstance('repository.setting');
+            return /** @type {SettingRepository} **/ api.getInstance('repository.setting');
+        } catch(e) {
+            ErrorManager.logError(e);
+            return null;
+        }
     }
 }
 
