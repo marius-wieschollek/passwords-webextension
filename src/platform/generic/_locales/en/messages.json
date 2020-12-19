@@ -410,7 +410,31 @@
         }
     },
     "NotifyNewPasswordTextFF"     : {
-        "message"     : "A new password for \"$LABEL$\" was detected. Click here to view and save it.",
+        "message"     : "A new password for \"$LABEL$\" was detected. Click the passwords icon to view and save it.",
+        "description" : "",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTitle"      : {
+        "message"    : "Updated password detected",
+        "description": ""
+    },
+    "NotifyUpdatePasswordText"       : {
+        "message"     : "An update for \"$LABEL$\" was detected.",
+        "description" : "",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTextFF"     : {
+        "message"     : "An update for \"$LABEL$\" was detected. Click the passwords icon to view and save it.",
         "description" : "",
         "placeholders": {
             "label": {
@@ -987,6 +1011,10 @@
     },
     "DebugHighlightLoginForms"    : {
         "message"    : "Highlight Login Form Fields",
+        "description": ""
+    },
+    "AutofillBadPasswordWarning" : {
+        "message"    : "This password is compromised and should be changed immediately",
         "description": ""
     }
 }

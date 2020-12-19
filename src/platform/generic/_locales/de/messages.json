@@ -1,25 +1,25 @@
 {
-    "extensionName"               : {
+    "extensionName"                 : {
         "message"    : "Passwörter für Nextcloud Client",
         "description": "Name of the extension."
     },
-    "extensionDescription"        : {
+    "extensionDescription"          : {
         "message"    : "Die offizielle Extension für die Passwörter App für Nextcloud",
         "description": "Description of the extension."
     },
-    "browserActionTitle"          : {
+    "browserActionTitle"            : {
         "message"    : "Passwörter",
         "description": "Title of the button in the browser bar"
     },
-    "contextMenuTitle"            : {
+    "contextMenuTitle"              : {
         "message"    : "Passwörter",
         "description": "Title of the context menu item"
     },
-    "protocolHandler"             : {
+    "protocolHandler"               : {
         "message"    : "PassLink Client",
         "description": "Title of the custom protocol handler"
     },
-    "BrowserActionTitleCounter"   : {
+    "BrowserActionTitleCounter"     : {
         "message"     : "Passwörter ($COUNTER$)",
         "description" : "Title of the button in the browser bar with suggestion counter",
         "placeholders": {
@@ -29,143 +29,143 @@
             }
         }
     },
-    "MigrationAccountName"        : {
+    "MigrationAccountName"          : {
         "message"    : "Nextcloud Konto",
         "description": "Label assigned to the account used by the v1.x migration"
     },
-    "SettingsTabAccounts"         : {
+    "SettingsTabAccounts"           : {
         "message"    : "Konten",
         "description": ""
     },
-    "SettingsTabTheming"          : {
+    "SettingsTabTheming"            : {
         "message"    : "Design",
         "description": ""
     },
-    "SettingsTabOther"            : {
+    "SettingsTabOther"              : {
         "message"    : "Weitere Einstellungen",
         "description": ""
     },
-    "SettingsAccountsMain"        : {
+    "SettingsAccountsMain"          : {
         "message"    : "Standardkonto für neue Passwörter",
         "description": ""
     },
-    "AutofillSettings"            : {
+    "AutofillSettings"              : {
         "message"    : "Passwörter einfügen",
         "description": ""
     },
-    "SettingsPopupAutoclose"      : {
+    "SettingsPopupAutoclose"        : {
         "message"    : "Popup nach erfolgreichem Einfügen schließen",
         "description": ""
     },
-    "SettingsPasswordAutosubmit"  : {
+    "SettingsPasswordAutosubmit"    : {
         "message"    : "Formulare automatisch abschicken",
         "description": ""
     },
-    "NotificationSettings"        : {
+    "NotificationSettings"          : {
         "message"    : "Benachrichtigungen",
         "description": ""
     },
-    "SettingsNotifyPasswordNew"   : {
+    "SettingsNotifyPasswordNew"     : {
         "message"    : "Benachrichtigung für neue Passwörter",
         "description": ""
     },
-    "SettingsNotifyPasswordUpdate": {
+    "SettingsNotifyPasswordUpdate"  : {
         "message"    : "Benachrichtigung für aktualisierte Passwörter",
         "description": ""
     },
-    "SearchSettings"              : {
+    "SearchSettings"                : {
         "message"    : "Suche",
         "description": ""
     },
-    "SettingsPopupRelatedSearch"  : {
+    "SettingsPopupRelatedSearch"    : {
         "message"    : "Suche starten wenn in \"Vorschläge\" getippt wird",
         "description": ""
     },
-    "AccountList"                 : {
+    "AccountList"                   : {
         "message"    : "Benutzerkonten",
         "description": ""
     },
-    "NoAccounts"                  : {
+    "NoAccounts"                    : {
         "message"    : "Es gibt noch keine Benutzerkonten. Klicke hier um eines zu erstellen.",
         "description": ""
     },
-    "NewServer"                   : {
+    "NewServer"                     : {
         "message"    : "Benutzerkonto erstellen",
         "description": ""
     },
-    "ServerSaveTitle"             : {
+    "ServerSaveTitle"               : {
         "message"    : "Benutzerkonto gespeichert",
         "description": ""
     },
-    "ServerSaveMessage"           : {
+    "ServerSaveMessage"             : {
         "message"    : "Alle Änderungen wurden erfolgreich übernommen",
         "description": ""
     },
-    "ServerSaveErrorTitle"        : {
+    "ServerSaveErrorTitle"          : {
         "message"    : "Speichern fehlgeschlagen",
         "description": ""
     },
-    "ServerCreatedMessage"        : {
+    "ServerCreatedMessage"          : {
         "message"    : "Das Benutzerkonto wurde gespeichert und kann verwendet werden",
         "description": ""
     },
-    "ServerDisabledWarning"       : {
+    "ServerDisabledWarning"         : {
         "message"    : "Dieses Benutzerkonto wird nach dem erfolgreichen Speichern wieder aktiviert.",
         "description": ""
     },
-    "ServerLabel"                 : {
+    "ServerLabel"                   : {
         "message"    : "Name",
         "description": ""
     },
-    "ServerBaseUrl"               : {
+    "ServerBaseUrl"                 : {
         "message"    : "Url",
         "description": ""
     },
-    "ServerUser"                  : {
+    "ServerUser"                    : {
         "message"    : "Benutzer",
         "description": ""
     },
-    "ServerToken"                 : {
+    "ServerToken"                   : {
         "message"    : "Token",
         "description": ""
     },
-    "TabRelated"                  : {
+    "TabRelated"                    : {
         "message"    : "Vorschläge",
         "description": ""
     },
-    "TabSearch"                   : {
+    "TabSearch"                     : {
         "message"    : "Suche",
         "description": ""
     },
-    "TabBrowse"                   : {
+    "TabBrowse"                     : {
         "message"    : "Durchsuchen",
         "description": ""
     },
-    "TabCollected"                : {
+    "TabCollected"                  : {
         "message"    : "Gesammelt",
         "description": ""
     },
-    "TabTools"                    : {
+    "TabTools"                      : {
         "message"    : "Werkzeuge",
         "description": ""
     },
-    "ValidationLabel"             : {
+    "ValidationLabel"               : {
         "message"    : "Titel",
         "description": ""
     },
-    "ValidationUser"              : {
+    "ValidationUser"                : {
         "message"    : "Benutzer",
         "description": ""
     },
-    "ValidationToken"             : {
+    "ValidationToken"               : {
         "message"    : "Token",
         "description": ""
     },
-    "ValidationBaseUrl"           : {
+    "ValidationBaseUrl"             : {
         "message"    : "Basis-URL",
         "description": ""
     },
-    "ValidationNotEmpty"          : {
+    "ValidationNotEmpty"            : {
         "message"     : "$FIELD$ kann nicht leer sein",
         "description" : "",
         "placeholders": {
@@ -175,7 +175,7 @@
             }
         }
     },
-    "ValidationMinLength"         : {
+    "ValidationMinLength"           : {
         "message"     : "$FIELD$ muss mindestens $MIN$ Zeichen lang sein",
         "description" : "",
         "placeholders": {
@@ -189,7 +189,7 @@
             }
         }
     },
-    "ValidationMaxLength"         : {
+    "ValidationMaxLength"           : {
         "message"     : "$FIELD$ muss kürzer als $MAX$ Zeichen sein",
         "description" : "",
         "placeholders": {
@@ -203,23 +203,23 @@
             }
         }
     },
-    "ValidationFailed"            : {
+    "ValidationFailed"              : {
         "message"    : "Validierung fehlgeschlagen",
         "description": ""
     },
-    "ValidationNotAnUrl"          : {
+    "ValidationNotAnUrl"            : {
         "message"    : "Die Basis-URL muss einge gültige URL sein",
         "description": ""
     },
-    "ValidationNotAToken"         : {
+    "ValidationNotAToken"           : {
         "message"    : "Das Token muss ein gültiges Nextcloud-Token sein",
         "description": ""
     },
-    "ValidationDuplicate"         : {
+    "ValidationDuplicate"           : {
         "message"    : "Es gibt bereits ein Konto für diesen Benutzer von dieser Nextcloud",
         "description": ""
     },
-    "ValidationNoConnection"      : {
+    "ValidationNoConnection"        : {
         "message"     : "Verbindung mit $URL$ nicht möglich",
         "description" : "",
         "placeholders": {
@@ -229,7 +229,7 @@
             }
         }
     },
-    "ValidationUnauthorizedError" : {
+    "ValidationUnauthorizedError"   : {
         "message"     : "Der Server hinter $URL$ hat die Anmeldedaten nicht akzeptiert",
         "description" : "",
         "placeholders": {
@@ -239,7 +239,7 @@
             }
         }
     },
-    "ValidationHttpError"         : {
+    "ValidationHttpError"           : {
         "message"     : "Der Verbindungsversuch mit $URL$ endete mit $ERROR$",
         "description" : "",
         "placeholders": {
@@ -253,7 +253,7 @@
             }
         }
     },
-    "ValidationConnectionError"   : {
+    "ValidationConnectionError"     : {
         "message"     : "Der Verbindungsversuch mit $URL$ endete mit $ERROR$",
         "description" : "",
         "placeholders": {
@@ -267,43 +267,43 @@
             }
         }
     },
-    "ValidationServerVersion"     : {
+    "ValidationServerVersion"       : {
         "message"    : "Die Version von Passwörter auf dem Server ist veraltet",
         "description": ""
     },
-    "NoRelatedPasswords"          : {
+    "NoRelatedPasswords"            : {
         "message"    : "Keine Vorschläge vorhanden",
         "description": ""
     },
-    "NoSearchResults"             : {
+    "NoSearchResults"               : {
         "message"    : "Keine passenden Passwörter gefunden",
         "description": ""
     },
-    "NoSearchQuery"               : {
+    "NoSearchQuery"                 : {
         "message"    : "Verwende das Eingabefeld zum Suchen",
         "description": ""
     },
-    "NoCollectedPasswords"        : {
+    "NoCollectedPasswords"          : {
         "message"    : "Keine neuen Passwörter vorhanden",
         "description": ""
     },
-    "AddPasswordForCurrentTab"     : {
+    "AddPasswordForCurrentTab"      : {
         "message"    : "Konto wür aktuellen Tab hinzufügen",
         "description": "Used in the collected tab for the option to add a blank entry with just the url of the current tab"
     },
-    "NoServerItems"               : {
+    "NoServerItems"                 : {
         "message"    : "Keine Elemente vorhanden",
         "description": ""
     },
-    "SearchPlaceholder"           : {
+    "SearchPlaceholder"             : {
         "message"    : "Passwörter durchsuchen",
         "description": ""
     },
-    "MiningItemIsNew"             : {
+    "MiningItemIsNew"               : {
         "message"    : "Dies ist ein neues Passwort",
         "description": ""
     },
-    "MiningItemIsUpdate"          : {
+    "MiningItemIsUpdate"            : {
         "message"     : "Dies ist eine Änderung von \"$PASSWORD$\"",
         "description" : "",
         "placeholders": {
@@ -313,43 +313,43 @@
             }
         }
     },
-    "TitleClickToEdit"            : {
+    "TitleClickToEdit"              : {
         "message"    : "Zum Bearbeiten doppelklicken",
         "description": ""
     },
-    "TitleEnterToExit"            : {
+    "TitleEnterToExit"              : {
         "message"    : "Zum Speichern Enter drücken",
         "description": ""
     },
-    "LabelLabel"                  : {
+    "LabelLabel"                    : {
         "message"    : "Titel",
         "description": ""
     },
-    "LabelPassword"               : {
+    "LabelPassword"                 : {
         "message"    : "Passwort",
         "description": ""
     },
-    "LabelUsername"               : {
+    "LabelUsername"                 : {
         "message"    : "Benutzer",
         "description": ""
     },
-    "LabelUrl"                    : {
+    "LabelUrl"                      : {
         "message"    : "Url",
         "description": ""
     },
-    "LabelUser"                   : {
+    "LabelUser"                     : {
         "message"    : "Benutzer",
         "description": ""
     },
-    "LabelPasswords"              : {
+    "LabelPasswords"                : {
         "message"    : "Passwörter",
         "description": ""
     },
-    "LabelFolders"                : {
+    "LabelFolders"                  : {
         "message"    : "Ordner",
         "description": ""
     },
-    "LabelTags"                   : {
+    "LabelTags"                     : {
         "message"    : "Tags",
         "description": ""
     },
@@ -357,35 +357,35 @@
         "message"    : "Verstecktes Passwort",
         "description": ""
     },
-    "PlaceholderPassword"         : {
+    "PlaceholderPassword"           : {
         "message"    : "Passwort",
         "description": ""
     },
-    "PlaceholderToken"            : {
+    "PlaceholderToken"              : {
         "message"    : "Zwei-Faktor Token",
         "description": ""
     },
-    "ButtonLogin"                 : {
+    "ButtonLogin"                   : {
         "message"    : "Anmelden",
         "description": ""
     },
-    "AuthorizationFailedTitle"    : {
+    "AuthorizationFailedTitle"      : {
         "message"    : "Authorisierung fehlgeschlagen",
         "description": ""
     },
-    "AuthorizationFailedText"     : {
+    "AuthorizationFailedText"       : {
         "message"    : "Die eingegebenen Anmeldedaten wurden abgelehnt",
         "description": ""
     },
-    "TokenRequestFailed"          : {
+    "TokenRequestFailed"            : {
         "message"    : "Anfordern des Token fehlgeschlagen",
         "description": ""
     },
-    "NotifyNewPasswordTitle"      : {
+    "NotifyNewPasswordTitle"        : {
         "message"    : "Neues Passwort erkannt",
         "description": ""
     },
-    "NotifyNewPasswordText"       : {
+    "NotifyNewPasswordText"         : {
         "message"     : "Ein neues Passwort für \"$LABEL$\" wurde erkannt.",
         "description" : "",
         "placeholders": {
@@ -395,8 +395,8 @@
             }
         }
     },
-    "NotifyNewPasswordTextFF"     : {
-        "message"     : "Ein neues Passwort für \"$LABEL$\" wurde erkannt. Klicke hier um es anzusehen und zu speichern.",
+    "NotifyNewPasswordTextFF"       : {
+        "message"     : "Ein neues Passwort für \"$LABEL$\" wurde erkannt. Klicke auf das \"Passwörter\" icon um es anzusehen und zu speichern.",
         "description" : "",
         "placeholders": {
             "label": {
@@ -405,15 +405,39 @@
             }
         }
     },
-    "ButtonSave"                  : {
+    "NotifyUpdatePasswordTitle"     : {
+        "message"    : "Aktualisiertes Passwort erkannt",
+        "description": ""
+    },
+    "NotifyUpdatePasswordText"      : {
+        "message"     : "Eine Aktualisierung für \"$LABEL$\" wurde erkannt.",
+        "description" : "",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTextFF"    : {
+        "message"     : "Eine Aktualisierung für \"$LABEL$\" wurde erkannt. Klicke auf das \"Passwörter\" icon sie anzusehen und zu speichern.",
+        "description" : "",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "ButtonSave"                    : {
         "message"    : "Speichern",
         "description": "The save button of a password notification"
     },
-    "ButtonMore"                  : {
+    "ButtonMore"                    : {
         "message"    : "Mehr Optionen",
         "description": "The more options button of a password notification which opens the popup"
     },
-    "ToastServerCheckTitle"       : {
+    "ToastServerCheckTitle"         : {
         "message"     : "$SERVER$ muss aktualisiert werden",
         "description" : "",
         "placeholders": {
@@ -423,7 +447,7 @@
             }
         }
     },
-    "ToastServerCheckMessage"     : {
+    "ToastServerCheckMessage"       : {
         "message"     : "The account \"$SERVER$\" verwendet einen Server auf dem eine veraltete Version von Passwörter installiert ist. Der Server muss aktualisiert werden bevor das Konto in den Einstellungen erneut aktiviert werden kann.",
         "description" : "",
         "placeholders": {
@@ -433,7 +457,7 @@
             }
         }
     },
-    "PasswordPastedSuccess"       : {
+    "PasswordPastedSuccess"         : {
         "message"     : "$LABEL$ eingefügt",
         "description" : "",
         "placeholders": {
@@ -443,7 +467,7 @@
             }
         }
     },
-    "PasswordPastedError"         : {
+    "PasswordPastedError"           : {
         "message"     : "Konnte $LABEL$ nicht einfügen",
         "description" : "",
         "placeholders": {
@@ -453,7 +477,7 @@
             }
         }
     },
-    "PasswordPropertyCopied"      : {
+    "PasswordPropertyCopied"        : {
         "message"     : "$PROPERTY$ kopiert",
         "description" : "",
         "placeholders": {
@@ -463,19 +487,19 @@
             }
         }
     },
-    "PropertyPassword"            : {
+    "PropertyPassword"              : {
         "message"    : "Passwort",
         "description": ""
     },
-    "PropertyUsername"            : {
+    "PropertyUsername"              : {
         "message"    : "Benutzer",
         "description": ""
     },
-    "PropertyUrl"                 : {
+    "PropertyUrl"                   : {
         "message"    : "Webseite",
         "description": ""
     },
-    "ServerConnectionErrorTitle"  : {
+    "ServerConnectionErrorTitle"    : {
         "message"     : "Verbindung mit $SERVER$ fehlgeschlagen",
         "description" : "",
         "placeholders": {
@@ -485,11 +509,11 @@
             }
         }
     },
-    "ServerCredentialsRejected"   : {
+    "ServerCredentialsRejected"     : {
         "message"    : "Die Anmeldung am Server wurde verwehrt. Bitte aktualisiere die Anmeldedaten in den Einstellungen.",
         "description": ""
     },
-    "ServerHttpError"             : {
+    "ServerHttpError"               : {
         "message"     : "HTTP-Verbindungsfehler: $ERROR$",
         "description" : "",
         "placeholders": {
@@ -499,15 +523,15 @@
             }
         }
     },
-    "ServerNetworkError"          : {
+    "ServerNetworkError"            : {
         "message"    : "Ein Netzwerkfehler ist aufgetreten. Bitte prüfe ob du online bist und der Server erreichbar ist.",
         "description": ""
     },
-    "ServerUnknownError"          : {
+    "ServerUnknownError"            : {
         "message"    : "Unbekannter Fehler.",
         "description": ""
     },
-    "ServerGenericError"          : {
+    "ServerGenericError"            : {
         "message"     : "Error: $ERROR$",
         "description" : "",
         "placeholders": {
@@ -517,287 +541,287 @@
             }
         }
     },
-    "DemoInfoNotification"        : {
+    "DemoInfoNotification"          : {
         "message"    : "Infomeldung",
         "description": ""
     },
-    "DemoSuccessNotification"     : {
+    "DemoSuccessNotification"       : {
         "message"    : "Erfolgsmeldung",
         "description": ""
     },
-    "DemoWarningNotification"     : {
+    "DemoWarningNotification"       : {
         "message"    : "Warnmeldung",
         "description": ""
     },
-    "DemoErrorNotification"       : {
+    "DemoErrorNotification"         : {
         "message"    : "Fehlermeldung",
         "description": ""
     },
-    "DemoText"                    : {
+    "DemoText"                      : {
         "message"    : "Demo",
         "description": ""
     },
-    "SettingsThemeId"             : {
+    "SettingsThemeId"               : {
         "message"    : "Aktives Thema",
         "description": ""
     },
-    "ThemeDark"                   : {
+    "ThemeDark"                     : {
         "message"    : "Dunkles Thema",
         "description": ""
     },
-    "ThemeOledDark"               : {
+    "ThemeOledDark"                 : {
         "message"    : "Dunkles OLED Thema",
         "description": ""
     },
-    "ThemeLight"                  : {
+    "ThemeLight"                    : {
         "message"    : "Standard",
         "description": ""
     },
-    "ThemeAdaptaLight"            : {
+    "ThemeAdaptaLight"              : {
         "message"    : "Adapta",
         "description": ""
     },
-    "ThemeAdaptaTeal"             : {
+    "ThemeAdaptaTeal"               : {
         "message"    : "Adapta teal",
         "description": ""
     },
-    "ThemeArcDark"                : {
+    "ThemeArcDark"                  : {
         "message"    : "Arc dark",
         "description": ""
     },
-    "ThemeArcLight"               : {
+    "ThemeArcLight"                 : {
         "message"    : "Arc",
         "description": ""
     },
-    "ThemeHacker"                 : {
+    "ThemeHacker"                   : {
         "message"    : "Hacker",
         "description": ""
     },
-    "ThemeRGB"                    : {
+    "ThemeRGB"                      : {
         "message"    : "Gaming RGB",
         "description": ""
     },
-    "ThemeCustom"                 : {
+    "ThemeCustom"                   : {
         "message"    : "Eigenes Thema",
         "description": ""
     },
-    "CustomFont"                  : {
+    "CustomFont"                    : {
         "message"    : "Schriftart",
         "description": ""
     },
-    "CustomDefaultElement"        : {
+    "CustomDefaultElement"          : {
         "message"    : "Normale Elemente",
         "description": ""
     },
-    "CustomActiveElement"         : {
+    "CustomActiveElement"           : {
         "message"    : "Aktive Elemente",
         "description": ""
     },
-    "CustomButtons"               : {
+    "CustomButtons"                 : {
         "message"    : "Schaltflächen",
         "description": ""
     },
-    "CustomToasts"                : {
+    "CustomToasts"                  : {
         "message"    : "Mini-Benachrichtigungen",
         "description": ""
     },
-    "CustomBadge"                 : {
+    "CustomBadge"                   : {
         "message"    : "Browser-Symbol",
         "description": ""
     },
-    "BackgroundColorLabel"        : {
+    "BackgroundColorLabel"          : {
         "message"    : "Hintergrundfarbe",
         "description": ""
     },
-    "ForegroundColorLabel"        : {
+    "ForegroundColorLabel"          : {
         "message"    : "Vordergrundfarbe",
         "description": ""
     },
-    "BackgroundInheritLabel"      : {
+    "BackgroundInheritLabel"        : {
         "message"    : "Hintergrund erben",
         "description": ""
     },
-    "ForegroundInheritLabel"      : {
+    "ForegroundInheritLabel"        : {
         "message"    : "Vordergrund erben",
         "description": ""
     },
-    "BackgroundColorBaseTitle"    : {
+    "BackgroundColorBaseTitle"      : {
         "message"    : "Diese Farbe wird im Normalfall für den Hintergrund verwendet",
         "description": ""
     },
-    "BackgroundColorHoverTitle"   : {
+    "BackgroundColorHoverTitle"     : {
         "message"    : "Diese Farbe wird für den Hintergrund verwendet wenn das Element mit der Maus aktiviert wird. Diese Farbe kann auch für Umrandungen verwendet werden wenn das Element nicht aktiviert ist.",
         "description": ""
     },
-    "ForegroundColorBaseTitle"    : {
+    "ForegroundColorBaseTitle"      : {
         "message"    : "Diese Farbe wird im Normalfall für den Vordergrund verwendet",
         "description": ""
     },
-    "ForegroundColorHoverTitle"   : {
+    "ForegroundColorHoverTitle"     : {
         "message"    : "Diese Farbe wird für den Vordergrund und Umrandungen verwendet wenn das Element mit der Maus überfahren wird",
         "description": ""
     },
-    "BackgroundInheritTitle"      : {
+    "BackgroundInheritTitle"        : {
         "message"    : "Falls aktiviert wird die Farbe des übergeordneten Elements übernommen",
         "description": ""
     },
-    "ForegroundInheritTitle"      : {
+    "ForegroundInheritTitle"        : {
         "message"    : "Falls aktiviert wird die Farbe des übergeordneten Elements übernommen",
         "description": ""
     },
-    "SettingsCustomFont"          : {
+    "SettingsCustomFont"            : {
         "message"    : "Schriftart",
         "description": ""
     },
-    "FontDefault"                 : {
+    "FontDefault"                   : {
         "message"    : "Standard",
         "description": ""
     },
-    "FontMono"                    : {
+    "FontMono"                      : {
         "message"    : "Monospace-Schrift",
         "description": ""
     },
-    "FontSerif"                   : {
+    "FontSerif"                     : {
         "message"    : "Serifenschrift",
         "description": ""
     },
-    "FontSans"                    : {
+    "FontSans"                      : {
         "message"    : "Serifenlose Schrift",
         "description": ""
     },
-    "FontLight"                   : {
+    "FontLight"                     : {
         "message"    : "Dünne Schrift",
         "description": ""
     },
-    "FontNextcloud"               : {
+    "FontNextcloud"                 : {
         "message"    : "Nextcloud",
         "description": ""
     },
-    "FontOpenDyslexic"            : {
+    "FontOpenDyslexic"              : {
         "message"    : "Open Dyslexic",
         "description": ""
     },
-    "FontCustom"                  : {
+    "FontCustom"                    : {
         "message"    : "Eigene Schrift",
         "description": ""
     },
-    "SettingsCustomFontSize"      : {
+    "SettingsCustomFontSize"        : {
         "message"    : "Schriftgröße",
         "description": ""
     },
-    "FontSizeVerySmall"           : {
+    "FontSizeVerySmall"             : {
         "message"    : "Sehr klein",
         "description": ""
     },
-    "FontSizeSmall"               : {
+    "FontSizeSmall"                 : {
         "message"    : "Klein",
         "description": ""
     },
-    "FontSizeDefault"             : {
+    "FontSizeDefault"               : {
         "message"    : "Standard",
         "description": ""
     },
-    "FontSizeMedium"              : {
+    "FontSizeMedium"                : {
         "message"    : "Medium",
         "description": ""
     },
-    "FontSizeLarge"               : {
+    "FontSizeLarge"                 : {
         "message"    : "Groß",
         "description": ""
     },
-    "FontSizeVeryLarge"           : {
+    "FontSizeVeryLarge"             : {
         "message"    : "Sehr groß",
         "description": ""
     },
-    "ToastInfoColors"             : {
+    "ToastInfoColors"               : {
         "message"    : "Infomeldung",
         "description": ""
     },
-    "ToastSuccessColors"          : {
+    "ToastSuccessColors"            : {
         "message"    : "Erfolgsmeldung",
         "description": ""
     },
-    "ToastWarningColors"          : {
+    "ToastWarningColors"            : {
         "message"    : "Warnmeldung",
         "description": ""
     },
-    "ToastErrorColors"            : {
+    "ToastErrorColors"              : {
         "message"    : "Fehlermeldung",
         "description": ""
     },
-    "ToastBackgroundTitle"        : {
+    "ToastBackgroundTitle"          : {
         "message"    : "Hintergrundfarbe für die Mini-Benachrichtigung",
         "description": ""
     },
-    "ToastForegroundTitle"        : {
+    "ToastForegroundTitle"          : {
         "message"    : "Farbe für Texte und Schaltflächen",
         "description": ""
     },
-    "SettingsBadgeIcon"           : {
+    "SettingsBadgeIcon"             : {
         "message"    : "Symbolleisten-Symbol",
         "description": ""
     },
-    "BadgeIconAuto"               : {
+    "BadgeIconAuto"                 : {
         "message"    : "Automatisch",
         "description": ""
     },
-    "BadgeIconLight"              : {
+    "BadgeIconLight"                : {
         "message"    : "Helles Symbol",
         "description": ""
     },
-    "BadgeIconMedium"             : {
+    "BadgeIconMedium"               : {
         "message"    : "Graues Symbol",
         "description": ""
     },
-    "BadgeIconDark"               : {
+    "BadgeIconDark"                 : {
         "message"    : "Dunkles Symbol",
         "description": ""
     },
-    "BadgeIconNewLight"           : {
+    "BadgeIconNewLight"             : {
         "message"    : "Helles modernes Symbol",
         "description": ""
     },
-    "BadgeIconNewMedium"          : {
+    "BadgeIconNewMedium"            : {
         "message"    : "Graues modernes Symbol",
         "description": ""
     },
-    "BadgeIconNewDark"            : {
+    "BadgeIconNewDark"              : {
         "message"    : "Dunkles modernes Symbol",
         "description": ""
     },
-    "CustomBadgeColors"           : {
+    "CustomBadgeColors"             : {
         "message"    : "Abzeichenfarbe",
         "description": ""
     },
-    "BadgeBackgroundTitle"        : {
+    "BadgeBackgroundTitle"          : {
         "message"    : "Hintergrundfarbe des Abzeichens",
         "description": ""
     },
-    "BadgeForegroundTitle"        : {
+    "BadgeForegroundTitle"          : {
         "message"    : "Textfarbe des Abzeichens",
         "description": ""
     },
-    "PasslinkErrorNoMessage"      : {
+    "PasslinkErrorNoMessage"        : {
         "message"    : "Es ist ein Fehler aufgetreten, aber es ist keine Fehlermeldung vorhanden",
         "description": ""
     },
-    "PasslinkNoLinkProvided"      : {
+    "PasslinkNoLinkProvided"        : {
         "message"    : "Kein Link und keine Aktion zum Ausführen angegeben",
         "description": ""
     },
-    "PasslinkErrorClose"          : {
+    "PasslinkErrorClose"            : {
         "message"    : "Schließen",
         "description": ""
     },
-    "PasslinkNoActiveAction"      : {
+    "PasslinkNoActiveAction"        : {
         "message"    : "There is no active passlink action of this type",
         "description": ""
     },
-    "PasslinkConnectCheckCodes"   : {
+    "PasslinkConnectCheckCodes"     : {
         "message"    : "Prüfe ob diese Codes mit denen in der App übereinstimmen. Wenn das der Fall ist, bestätige die Verbindung in der App und du bist fertig.",
         "description": ""
     },
-    "PasslinkConnectServer"       : {
+    "PasslinkConnectServer"         : {
         "message"     : "Die neue Verbindung wurde als \"$LABEL$\" gespeichert",
         "description" : "",
         "placeholders": {
@@ -807,121 +831,121 @@
             }
         }
     },
-    "PasslinkConnectNotFound"     : {
+    "PasslinkConnectNotFound"       : {
         "message"    : "Dieser Link ist ungültig. Er wurde entweder schon benutzt oder ist abgelaufen.",
         "description": ""
     },
-    "PasslinkConnectRejected"     : {
+    "PasslinkConnectRejected"       : {
         "message"    : "Der Server hat den Anmeldeversuch nicht aktzeptiert.",
         "description": ""
     },
-    "PasslinkConnectNetworkError" : {
+    "PasslinkConnectNetworkError"   : {
         "message"    : "Der Verbindungsaufbau zum Server ist fehlgeschlagen. Bitte prüfe deine Netzwerkverbindung.",
         "description": ""
     },
-    "PasslinkConnectSuccess"      : {
+    "PasslinkConnectSuccess"        : {
         "message"    : "Verbindung erfolgreich",
         "description": ""
     },
-    "PasslinkConnectFailed"       : {
+    "PasslinkConnectFailed"         : {
         "message"    : "Verbindung fehlgeschlagen",
         "description": ""
     },
-    "PasslinkConnectSettings"     : {
+    "PasslinkConnectSettings"       : {
         "message"    : "Einstellungen öffnen",
         "description": ""
     },
-    "PasslinkConnectClose"        : {
+    "PasslinkConnectClose"          : {
         "message"    : "Fenster schließen",
         "description": ""
     },
-    "PasslinkScanInstructions"    : {
+    "PasslinkScanInstructions"      : {
         "message"    : "Richte deine Kamera auf den QR Code aus und warte bis er erkannt und gescannt wird",
         "description": "Instructions shown above the PassLink QR scanner telling the use to point his camera at the qr code he wants to scan"
     },
-    "PasslinkScanScanning"        : {
+    "PasslinkScanScanning"          : {
         "message"    : "Suche nache einem QR Code",
         "description": "Message used by the PassLink QR scanner while the camera feed is scanned for a qr code"
     },
-    "PasslinkScanProcessingLink"  : {
+    "PasslinkScanProcessingLink"    : {
         "message"    : "Verarbeite QR Code",
         "description": "Message used by the PassLink QR scanner when a valid code was found and is now being analyzed"
     },
-    "PasslinkScanInvalidQrCode"   : {
+    "PasslinkScanInvalidQrCode"     : {
         "message"    : "Dieser QR Code wird nicht unterstützt",
         "description": "Message used by the PassLink QR scanner when the user scans a code that does not contain a valid and supported uri of Passlink"
     },
-    "QrNotAllowedError"           : {
+    "QrNotAllowedError"             : {
         "message"    : "Zugriff auf die Kamera wurde abgelehnt",
         "description": "Message used by the PassLink QR scanner when the user did not allow camera access"
     },
-    "QrNotFoundError"             : {
+    "QrNotFoundError"               : {
         "message"    : "Es wurden keine Kameras an diesem Gerät gefunden",
         "description": "Message used by the PassLink QR scanner when the device has no cameras"
     },
-    "QrNotSupportedError"         : {
+    "QrNotSupportedError"           : {
         "message"    : "Unsicherer Kontext",
         "description": "Message used by the PassLink QR scanner when the page was opened in an insecure context (http://). This should never happen"
     },
-    "QrNotReadableError"          : {
+    "QrNotReadableError"            : {
         "message"    : "Kamera nicht verfügbar. Ist sie vielleicht belegt?",
         "description": "Message used by the PassLink QR scanner when the camera stream can not be read"
     },
-    "QrOverconstrainedError"      : {
+    "QrOverconstrainedError"        : {
         "message"    : "Kamera ist unbrauchbar",
         "description": "Message used by the PassLink QR scanner when the camera is faulty"
     },
-    "QrStreamApiNotSupportedError": {
+    "QrStreamApiNotSupportedError"  : {
         "message"    : "Die Stream API ist in diesem Browser nicht verfügbar",
         "description": "Message used by the PassLink QR scanner when the browser does not support the required streaming api. This should never happen"
     },
-    "FirstRunConnectTitle"        : {
+    "FirstRunConnectTitle"          : {
         "message"    : "Mit Nextcloud verbinden",
         "description": ""
     },
-    "FirstRunConnectText"         : {
+    "FirstRunConnectText"           : {
         "message"    : "Öffne die Passwörter App, klicke auf \"Mehr\", öffne \"Apps & Erweiterungen\" und starte den PassLink Dialog.",
         "description": ""
     },
-    "FirstRunConnectLink"         : {
+    "FirstRunConnectLink"           : {
         "message"    : "Wenn der PassLink Dialog im selben Browser geöffnet ist, verbinde dich mittels Link",
         "description": ""
     },
-    "FirstRunConnectScan"         : {
+    "FirstRunConnectScan"           : {
         "message"    : "Falls das hier ein Gerät ist, klicke auf die Schaltfläche unten und scanne den Code",
         "description": ""
     },
-    "FirstRunConnectScanChrome"         : {
+    "FirstRunConnectScanChrome"     : {
         "message"    : "Klicke auf die Schaltfläche unten und scanne den PassLink Code",
         "description": ""
     },
-    "FirstRunConnectManual"       : {
+    "FirstRunConnectManual"         : {
         "message"    : "In den Addon-Einstellungen ist es auch möglich, ein Konto manuell anzulegen",
         "description": ""
     },
-    "FirstRunConnectScanButton"   : {
+    "FirstRunConnectScanButton"     : {
         "message"    : "PassLink Code scannen",
         "description": ""
     },
-    "OpenSettings"   : {
+    "OpenSettings"                  : {
         "message"    : "Addon-Einstellungen öffnen",
         "description": ""
     },
-    "ToolsTabGeneratePassword"    : {
+    "ToolsTabGeneratePassword"      : {
         "message"    : "Passwort generieren",
         "description": ""
     },
-    "ToolsTabDebugTools"          : {
+    "ToolsTabDebugTools"            : {
         "message"    : "Entwicklerwerkzeuge",
         "description": ""
     },
-    "GeneratedPasswordPlaceholder"    : {
+    "GeneratedPasswordPlaceholder"  : {
         "message"    : "Erstelltes Passwort",
         "description": ""
     },
-    "GeneratedPasswordTitle"    : {
-        "message"    : "Passwort Worte: $WORDS$",
-        "description": "",
+    "GeneratedPasswordTitle"        : {
+        "message"     : "Passwort Worte: $WORDS$",
+        "description" : "",
         "placeholders": {
             "words": {
                 "content": "$1",
@@ -929,27 +953,27 @@
             }
         }
     },
-    "LabelGenerateAddNumbers"    : {
+    "LabelGenerateAddNumbers"       : {
         "message"    : "Zahlen",
         "description": ""
     },
-    "LabelGenerateAddSpecial"    : {
+    "LabelGenerateAddSpecial"       : {
         "message"    : "Sonderzeichen",
         "description": ""
     },
-    "LabelGenerateStrength"    : {
+    "LabelGenerateStrength"         : {
         "message"    : "Stärke",
         "description": ""
     },
-    "LabelGeneratorStrengthLow"    : {
+    "LabelGeneratorStrengthLow"     : {
         "message"    : "Niedrig",
         "description": ""
     },
-    "LabelGeneratorStrengthStandard"    : {
+    "LabelGeneratorStrengthStandard": {
         "message"    : "Standard",
         "description": ""
     },
-    "LabelGeneratorStrengthMedium"    : {
+    "LabelGeneratorStrengthMedium"  : {
         "message"    : "Mittel",
         "description": ""
     },
@@ -957,13 +981,13 @@
         "message"    : "Hoch",
         "description": ""
     },
-    "LabelGeneratorStrengthUltra"    : {
+    "LabelGeneratorStrengthUltra"   : {
         "message"    : "Ultra",
         "description": ""
     },
-    "PasswordGenerateError"    : {
-        "message"    : "Fehler im Passwort-Generator: $ERROR$",
-        "description": "",
+    "PasswordGenerateError"         : {
+        "message"     : "Fehler im Passwort-Generator: $ERROR$",
+        "description" : "",
         "placeholders": {
             "error": {
                 "content": "$1",
@@ -971,8 +995,12 @@
             }
         }
     },
-    "DebugHighlightLoginForms"    : {
+    "DebugHighlightLoginForms"      : {
         "message"    : "Felder von Anmeldeformularen zeigen",
+        "description": ""
+    },
+    "AutofillBadPasswordWarning" : {
+        "message"    : "Dieses Passwort ist kompromittiert und sollte sofort geändert werden",
         "description": ""
     }
 }

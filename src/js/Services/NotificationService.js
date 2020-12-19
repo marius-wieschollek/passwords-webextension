@@ -1,8 +1,8 @@
 import SystemService from '@js/Services/SystemService';
 import ErrorManager from '@js/Manager/ErrorManager';
 import NewPasswordNotification from '@js/Models/Notification/NewPasswordNotification';
-import AbstractNotification from '@js/Models/Notification/AbstractNotification';
 import SettingsService from '@js/Services/SettingsService';
+import UpdatePasswordNotification from "@js/Models/Notification/UpdatePasswordNotification";
 
 class NotificationService {
 
@@ -30,6 +30,21 @@ class NotificationService {
      */
     newPasswordNotification(item) {
         let notification = new NewPasswordNotification(item);
+
+        if(SettingsService.getValue('notification.password.new')) {
+            this._sendNotification(notification);
+        }
+
+        return notification;
+    }
+
+    /**
+     *
+     * @param {MiningItem} item
+     * @return {NewPasswordNotification}
+     */
+    updatePasswordNotification(item) {
+        let notification = new UpdatePasswordNotification(item);
 
         if(SettingsService.getValue('notification.password.new')) {
             this._sendNotification(notification);
