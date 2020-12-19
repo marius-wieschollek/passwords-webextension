@@ -140,7 +140,7 @@ class ThemeRepository {
     async _makeCustomTheme() {
         let theme = await SettingsService.getValue('theme.custom');
 
-        if(theme === null) {
+        if(theme === null || theme === undefined) {
             theme = LightTheme;
             theme.label = 'ThemeCustom';
         }
