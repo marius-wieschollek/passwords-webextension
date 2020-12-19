@@ -4,6 +4,8 @@ import AbstractController from '@js/Controller/AbstractController';
 import TabManager from '@js/Manager/TabManager';
 import SettingsService from '@js/Services/SettingsService';
 import ErrorManager from '@js/Manager/ErrorManager';
+import ToastService from "@js/Services/ToastService";
+import Message from "@js/Models/Message/Message";
 
 export default class Fill extends AbstractController {
 
@@ -29,6 +31,7 @@ export default class Fill extends AbstractController {
                     receiver: 'client',
                     channel : 'tabs',
                     tab     : TabManager.currentTabId,
+                    silent  : true,
                     payload : {
                         user    : password.getUserName(),
                         password: password.getPassword(),
@@ -37,7 +40,14 @@ export default class Fill extends AbstractController {
                 }
             );
 
-            reply.setPayload({success: response.getPayload()});
+            if(password.getStatus() === 2) {
+                ToastService
+                    .warning('AutofillBadPasswordWarning')
+                    .catch(ErrorManager.catchEvt);
+            }
+
+            let success = response instanceof Message ? response.getPayload() === true:false;
+            reply.setPayload({success});
         } catch(e) {
             ErrorManager.logError(e);
             reply.setPayload({success: false});

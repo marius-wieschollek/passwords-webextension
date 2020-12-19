@@ -1,18 +1,18 @@
 {
-    "manifest_version": 2,
-    "name"            : "__MSG_extensionName__",
-    "version"         : "2.0.0.99999",
-    "description"     : "__MSG_extensionDescription__",
-    "author"          : "Marius Wieschollek",
-    "default_locale"  : "en",
-    "icons"           : {
+    "manifest_version"       : 2,
+    "name"                   : "__MSG_extensionName__",
+    "version"                : "2.0.0.99999",
+    "description"            : "__MSG_extensionDescription__",
+    "author"                 : "Marius Wieschollek",
+    "default_locale"         : "en",
+    "icons"                  : {
         "16" : "img/passwords-16.png",
         "32" : "img/passwords-32.png",
         "48" : "img/passwords-48.png",
         "96" : "img/passwords-96.png",
         "128": "img/passwords-128.png"
     },
-    "browser_action"  : {
+    "browser_action"         : {
         "default_icon" : "img/passwords-16.png",
         "default_title": "__MSG_browserActionTitle__",
         "default_popup": "html/popup.html",
@@ -50,27 +50,26 @@
             }
         ]
     },
-    "background"      : {
+    "background"             : {
         "scripts": [
             "js/background.js"
         ]
     },
-    "options_ui": {
+    "options_ui"             : {
         "page": "html/options.html"
     },
     "content_security_policy": "script-src 'self' 'wasm-eval' blob:; object-src 'self'",
-    "content_scripts" : [
+    "content_scripts"        : [
         {
-            "matches": [
+            "matches"   : [
                 "http://*/*",
                 "https://*/*"
             ],
-            "js"     : [
-                "js/client.js"
-            ]
+            "js"        : [ "js/client.js" ],
+            "all_frames": true
         }
     ],
-    "permissions"     : [
+    "permissions"            : [
         "*://*/*",
         "tabs",
         "storage",

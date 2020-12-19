@@ -1,5 +1,6 @@
 import FormService from '@js/Services/FormService';
 import AbstractController from '@js/Controller/AbstractController';
+import ErrorManager from "@js/Manager/ErrorManager";
 
 export default class FillPassword extends AbstractController {
 
@@ -11,9 +12,10 @@ export default class FillPassword extends AbstractController {
     async execute(message, reply) {
         try {
             let result = this._fillPassword(message.getPayload().user, message.getPayload().password, message.getPayload().submit);
-            reply.setPayload(result);
+
+            if(result) reply.setPayload(true);
         } catch(e) {
-            reply.setPayload(false);
+            ErrorManager.logError(e)
         }
     }
 

@@ -3,6 +3,132 @@ import uuid from 'uuidv4';
 export default class Message {
 
     /**
+     * @returns {String|null}
+     */
+    get id() {
+        return this.getId();
+    }
+
+    /**
+     * @param {String|null} value
+     */
+    set id(value) {
+        this.setId(value)
+    }
+
+    /**
+     * @returns {String|null}
+     */
+    get tab() {
+        return this.getTab();
+    }
+
+    /**
+     * @param {String|null} value
+     */
+    set tab(value) {
+        this.setTab(value)
+    }
+
+    /**
+     * @returns {String|null}
+     */
+    get type() {
+        return this.getType();
+    }
+
+    /**
+     * @param {String|null} value
+     */
+    set type(value) {
+        this.setType(value)
+    }
+
+    /**
+     * @returns {String|null}
+     */
+    get reply() {
+        return this.getReply();
+    }
+
+    /**
+     * @param {String|null} value
+     */
+    set reply(value) {
+        this.setReply(value)
+    }
+
+    /**
+     * @returns {String|null}
+     */
+    get sender() {
+        return this.getSender();
+    }
+
+    /**
+     * @param {String|null} value
+     */
+    set sender(value) {
+        this.setSender(value)
+    }
+
+    /**
+     * @returns {String|null}
+     */
+    get channel() {
+        return this.getChannel();
+    }
+
+    /**
+     * @param {String|null} value
+     */
+    set channel(value) {
+        this.setChannel(value)
+    }
+
+    /**
+     * @returns {Boolean}
+     */
+    get silent() {
+        return this.getSilent();
+    }
+
+    /**
+     * @param {Boolean} value
+     */
+    set silent(value) {
+        this.setSilent(value)
+    }
+
+    /**
+     * @returns {Object|*|null}
+     */
+    get payload() {
+        return this.getPayload();
+    }
+
+    /**
+     * @param {Object|*|null} value
+     */
+    set payload(value) {
+        this.setPayload(value)
+    }
+
+    /**
+     * @returns {String|null}
+     */
+    get receiver() {
+        return this.getReceiver();
+    }
+
+    /**
+     * @param {String|null} value
+     */
+    set receiver(value) {
+        this.setReceiver(value)
+    }
+
+    /**
      *
      * @param {Object} [data={}]
      */
@@ -12,6 +138,7 @@ export default class Message {
         this._type = data.hasOwnProperty('type') ? data.type:null;
         this._reply = data.hasOwnProperty('reply') ? data.reply:null;
         this._sender = data.hasOwnProperty('sender') ? data.sender:null;
+        this._silent = data.hasOwnProperty('silent') ? data.silent:false;
         this._channel = data.hasOwnProperty('channel') ? data.channel:'runtime';
         this._payload = data.hasOwnProperty('payload') ? data.payload:null;
         this._receiver = data.hasOwnProperty('receiver') ? data.receiver:null;
@@ -160,6 +287,25 @@ export default class Message {
 
     /**
      *
+     * @param {Boolean} value
+     * @returns {Message}
+     */
+    setSilent(value) {
+        this._silent = value;
+
+        return this;
+    }
+
+    /**
+     *
+     * @returns {Boolean}
+     */
+    getSilent() {
+        return this._silent;
+    }
+
+    /**
+     *
      * @param {(Object|*|null)} value
      * @returns {Message}
      */
@@ -179,6 +325,7 @@ export default class Message {
             tab    : this._tab,
             type    : this._type,
             reply   : this._reply,
+            silent  : this._silent,
             sender  : this._sender,
             channel : this._channel,
             payload : this._payload,

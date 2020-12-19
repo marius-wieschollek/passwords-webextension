@@ -1,18 +1,18 @@
 {
-    "manifest_version": 2,
-    "name"            : "__MSG_extensionName__",
-    "version"         : "2.0.0.BUILD",
-    "description"     : "__MSG_extensionDescription__",
-    "author"          : "Marius Wieschollek",
-    "default_locale"  : "en",
-    "icons"           : {
+    "manifest_version"         : 2,
+    "name"                     : "__MSG_extensionName__",
+    "version"                  : "2.0.0.BUILD",
+    "description"              : "__MSG_extensionDescription__",
+    "author"                   : "Marius Wieschollek",
+    "default_locale"           : "en",
+    "icons"                    : {
         "16" : "img/passwords-16.png",
         "32" : "img/passwords-32.png",
         "48" : "img/passwords-48.png",
         "96" : "img/passwords-96.png",
         "128": "img/passwords-128.png"
     },
-    "browser_action"  : {
+    "browser_action"           : {
         "default_icon" : "img/passwords.svg",
         "default_title": "__MSG_browserActionTitle__",
         "default_popup": "html/popup.html",
@@ -50,40 +50,41 @@
             }
         ]
     },
-    "omnibox"    : {
+    "omnibox"                  : {
         "keyword": "pwd"
     },
-    "options_ui": {
-        "page": "html/options.html",
+    "options_ui"               : {
+        "page"         : "html/options.html",
         "browser_style": true
     },
     "browser_specific_settings": {
         "gecko": {
-            "id": "ncpasswords@mdns.eu",
+            "id"                : "ncpasswords@mdns.eu",
             "strict_min_version": "57.0"
         }
     },
-    "background"      : {
+    "background"               : {
         "scripts": [ "js/background.js" ]
     },
-    "protocol_handlers": [
+    "protocol_handlers"        : [
         {
             "protocol"   : "ext+passlink",
             "name"       : "__MSG_protocolHandler__",
             "uriTemplate": "html/passlink.html?link=%s"
         }
     ],
-    "content_security_policy": "script-src 'self' blob:; object-src 'self';",
-    "content_scripts" : [
+    "content_security_policy"  : "script-src 'self' blob:; object-src 'self';",
+    "content_scripts"          : [
         {
-            "matches": [
+            "matches"   : [
                 "http://*/*",
                 "https://*/*"
             ],
-            "js"     : [ "js/client.js" ]
+            "js"        : [ "js/client.js" ],
+            "all_frames": true
         }
     ],
-    "permissions"     : [
+    "permissions"              : [
         "*://*/*",
         "tabs",
         "menus",

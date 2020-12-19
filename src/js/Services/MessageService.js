@@ -224,7 +224,11 @@ class MessageService {
         return new Promise(
             (resolve, reject) => {
                 this._processReceivedMessage(message)
-                    .then(resolve)
+                    .then((reply) => {
+                        if(!message.getSilent() || reply !== undefined) {
+                            resolve(reply);
+                        }
+                    })
                     .catch(reject);
             }
         );
@@ -360,7 +364,7 @@ class MessageService {
             }
         }
 
-        if(reply.getPayload() || reply.getType()) return reply;
+        if((reply.getPayload() !== null && reply.getPayload() !== undefined) || reply.getType()) return reply;
     }
 
     /**
