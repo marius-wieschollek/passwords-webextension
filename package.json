@@ -29,7 +29,7 @@
         "url-parse": "^1.4.7",
         "uuidv4": "^4.0.0",
         "vue": "^2.6.12",
-        "vue-loader": "^15.9.5",
+        "vue-loader": "^15.9.6",
         "vue-qrcode-reader": "^2.3.16",
         "vue-router": "^3.4.9",
         "vue-style-loader": "^4.1.2",

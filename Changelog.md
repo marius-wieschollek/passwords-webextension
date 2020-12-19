@@ -1,3 +1,18 @@
+#### Version 2.0.0
+ - Extension completely rewritten
+ - Use new passwords app api
+ - New user interface
+ - Added password generator
+ - Added support for multiple accounts
+ - Added theming support
+ - Added client side encryption support
+ - Added 2FA support
+ - Added automatic server sync
+ - Added private/hidden passwords  
+ - Improved new/updated account detection
+ - Improved autofill feature
+ - Improved search
+
 #### Version 1.9.1 / 26.05.2019
  - Fixed improper autofill field selection
  - Fixed issues title overflow
