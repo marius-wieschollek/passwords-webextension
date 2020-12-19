@@ -34,12 +34,26 @@
             }
         },
 
+        data() {
+            return {
+                active: true
+            };
+        },
+
         computed: {
             securityClass() {
                 let types = ['secure', 'warn', 'bad'];
 
                 return `security ${types[this.password.getStatus()]}`;
             }
+        },
+
+        activated() {
+            this.active = true;
+        },
+
+        deactivated() {
+            this.active = false;
         },
 
         methods: {
@@ -56,11 +70,12 @@
                     ErrorManager.logError(e);
                     ToastService.error(['PasswordPastedError', this.password.getLabel()])
                                 .catch(ErrorManager.catchEvt);
+                    return;
                 }
 
                 try {
                     await ToastService.success(['PasswordPastedSuccess', this.password.getLabel()]);
-                    if(await SettingsService.getValue('popup.autoclose')) {
+                    if(await SettingsService.getValue('popup.autoclose') && this.active) {
                         window.close();
                     }
                 } catch(e) {
