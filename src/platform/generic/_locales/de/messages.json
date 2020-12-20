@@ -107,7 +107,7 @@
         "message"    : "Es gibt noch keine Benutzerkonten. Klicke hier um eines zu erstellen.",
         "description": ""
     },
-    "NewServer"                     : {
+    "NewAccountFormLabel"            : {
         "message"    : "Benutzerkonto erstellen",
         "description": ""
     },
@@ -145,6 +145,10 @@
     },
     "ServerToken"                   : {
         "message"    : "Token",
+        "description": ""
+    },
+    "ServerTokenChange"                   : {
+        "message"    : "Token ändern",
         "description": ""
     },
     "TabRelated"                    : {

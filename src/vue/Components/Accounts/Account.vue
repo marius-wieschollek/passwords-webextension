@@ -12,7 +12,7 @@
             <translate tag="label" :for="`${id}-user`" say="ServerUser" required/>
             <input type="text" :id="`${id}-user`" v-model="user"/>
             <translate tag="label" :for="`${id}-token`" say="ServerToken" required/>
-            <input type="button" value="Change" :id="`${id}-token`" v-if="!changeToken" @click="editToken()"/>
+            <input type="button" :value="changeLabel" :id="`${id}-token`" v-if="!changeToken" @click="editToken()"/>
             <input type="text" :id="`${id}-token`" v-model="token"
                    required
                    pattern="([A-Za-z0-9]{5}-?){5}"
@@ -28,6 +28,7 @@
     import ToastService from '@js/Services/ToastService';
     import ErrorManager from '@js/Manager/ErrorManager';
     import Icon from '@vue/Components/Icon';
+    import LocalisationService from "@js/Services/LocalisationService";
 
     export default {
         components: {Icon, Translate},
@@ -44,6 +45,7 @@
                 label      : this.server.getLabel(),
                 url        : this.server.getBaseUrl(),
                 user       : this.server.getUser(),
+                changeLabel: LocalisationService.translate('ServerTokenChange'),
                 token      : '',
                 submitting : false,
                 changeToken: false

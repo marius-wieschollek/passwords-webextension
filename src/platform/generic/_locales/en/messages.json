@@ -69,119 +69,123 @@
     },
     "AutofillSettings"              : {
         "message"    : "Password autofill",
-        "description": ""
+        "description": "Headline above the password autofill section in the other settings tab in the extension settings"
     },
     "SettingsPopupAutoclose"        : {
         "message"    : "Close popup after autofill",
-        "description": ""
+        "description": "Label of the setting in the extension settings to automatically close the extension popup after successfull autofill"
     },
     "SettingsPasswordAutosubmit"    : {
         "message"    : "Automatically submit login forms",
-        "description": ""
+        "description": "Label of the setting in the extension settings to automatically submit login forms after autofill"
     },
     "NotificationSettings"          : {
         "message"    : "Notifications",
-        "description": ""
+        "description": "Headline above the notification section in the other settings tab in the extension settings"
     },
     "SettingsNotifyPasswordNew"     : {
         "message"    : "Notification for new passwords",
-        "description": ""
+        "description": "Label of the setting in the extension settings to enable or disable the notification for new detected passwords"
     },
     "SettingsNotifyPasswordUpdate"  : {
         "message"    : "Notification for updated passwords",
-        "description": ""
+        "description": "Label of the setting in the extension settings to enable or disable the notification for detected password updates"
     },
     "SearchSettings"                : {
         "message"    : "Search",
-        "description": ""
+        "description": "Headline above the search section in the other settings tab in the extension settings"
     },
     "SettingsPopupRelatedSearch"    : {
         "message"    : "Search on type from \"Related\" tab",
-        "description": ""
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
     },
     "AccountList"                   : {
         "message"    : "User accounts",
-        "description": ""
+        "description": "Headline above the user accounts section in the accounts tab in the extension settings"
     },
     "NoAccounts"                    : {
         "message"    : "There are no accounts yet. Click here to create one.",
-        "description": ""
+        "description": "Message in place of the user accounts list in the extension settings if there are no user accounts yet. The user can click the message to create an account"
     },
-    "NewServer"                     : {
+    "NewAccountFormLabel"           : {
         "message"    : "Create account",
-        "description": ""
+        "description": "Label of the new account form in the extension settings"
     },
     "ServerSaveTitle"               : {
         "message"    : "Account saved",
-        "description": ""
+        "description": "Title of the toast notification in the extension settings after an account was created or updated successfully"
     },
     "ServerSaveMessage"             : {
         "message"    : "All changes were applied successfully",
-        "description": ""
-    },
-    "ServerSaveErrorTitle"          : {
-        "message"    : "Saving failed",
-        "description": ""
+        "description": "Message of the toast notification in the extension settings after an account was created successfully"
     },
     "ServerCreatedMessage"          : {
         "message"    : "The account has been created and is ready to be used",
-        "description": ""
+        "description": "Message of the toast notification in the extension settings after an account was updated successfully"
+    },
+    "ServerSaveErrorTitle"          : {
+        "message"    : "Saving failed",
+        "description": "Title of the toast notification in the extension settings after an account could not be updated or saved. The message will be the specific error message"
     },
     "ServerDisabledWarning"         : {
         "message"    : "This account is deactivated. It will be activated after it was saved successfully.",
-        "description": ""
+        "description": "Warning message which appears above the account details if the server was disabled. Usual reasons are invalid login data, unsupported extension version or permanent connection issues."
     },
     "ServerLabel"                   : {
         "message"    : "Name",
-        "description": ""
+        "description": "Label of the account name field in account details in the extension settings"
     },
     "ServerBaseUrl"                 : {
         "message"    : "Url",
-        "description": ""
+        "description": "Label of the server url field in account details in the extension settings"
     },
     "ServerUser"                    : {
         "message"    : "User",
-        "description": ""
+        "description": "Label of the account login user field in account details in the extension settings"
     },
     "ServerToken"                   : {
         "message"    : "Token",
-        "description": ""
+        "description": "Label of the account login token field in account details in the extension settings"
+    },
+    "ServerTokenChange"             : {
+        "message"    : "Change Token",
+        "description": "Label of the button to change the login token of an existing account in the account details in the extension settings"
     },
     "TabRelated"                    : {
         "message"    : "Suggestions",
-        "description": ""
+        "description": "Label of the related passwords tab in the extension popup"
     },
     "TabSearch"                     : {
         "message"    : "Search",
-        "description": ""
+        "description": "Label of the search tab in the extension popup"
     },
     "TabBrowse"                     : {
         "message"    : "Browse",
-        "description": ""
+        "description": "Label of the browse servers tab in the extension popup"
     },
     "TabCollected"                  : {
         "message"    : "Collected",
-        "description": ""
+        "description": "Label of the new collected passwords tab in the extension popup"
     },
     "TabTools"                      : {
         "message"    : "Tools",
-        "description": ""
+        "description": "Label of the tools tab in the extension popup"
     },
     "ValidationLabel"               : {
         "message"    : "label",
-        "description": ""
+        "description": "Name of the account label field in account validation message. This value is used when the user attempts to save an account with an invalid label"
     },
     "ValidationUser"                : {
         "message"    : "user",
-        "description": ""
+        "description": "Name of the account username field in account validation message. This value is used when the user attempts to save an account with an invalid username"
     },
     "ValidationToken"               : {
         "message"    : "token",
-        "description": ""
+        "description": "Name of the account token field in account validation message. This value is used when the user attempts to save an account with an invalid token"
     },
     "ValidationBaseUrl"             : {
         "message"    : "base url",
-        "description": ""
+        "description": "Name of the account base url field in account validation message. This value is used when the user attempts to save an account with an invalid base url"
     },
     "ValidationNotEmpty"            : {
         "message"     : "The $FIELD$ can not be empty",
@@ -947,27 +951,28 @@
     },
     "OpenSettings"                  : {
         "message"    : "Open Extension Settings",
-        "description": ""
+        "description": "Label of the button to open the extension settings in the tools tab of the popup"
     },
     "ToolsTabGeneratePassword"      : {
         "message"    : "Generate Password",
-        "description": ""
+        "description": "Label of the generate password section in the tools tab of the popup"
     },
     "ToolsTabDebugTools"            : {
         "message"    : "Debug Tools",
-        "description": ""
+        "description": "Label of the debugging tools section in the tools tab of the popup"
     },
     "GeneratedPasswordPlaceholder"  : {
         "message"    : "Generated Password",
-        "description": ""
+        "description": "Placeholder of the field for the generated password in the tools tab of the popup"
     },
     "GeneratedPasswordTitle"        : {
         "message"     : "Password words: $WORDS$",
-        "description" : "",
+        "description" : "Title of the input field for the generated password in the tools tab of the popup. It shows the words used to generate the password",
         "placeholders": {
             "words": {
-                "content": "$1",
-                "example": "First Second Third"
+                "content"    : "$1",
+                "description": "The words used for the password",
+                "example"    : "First Second Third"
             }
         }
     },
@@ -1015,7 +1020,7 @@
     },
     "DebugHighlightLoginForms"      : {
         "message"    : "Highlight Login Form Fields",
-        "description": ""
+        "description": "Label of the button in the popup which triggers the option to highlight all login form fields in the current tab"
     },
     "AutofillBadPasswordWarning"    : {
         "message"    : "This password is compromised and should be changed immediately",

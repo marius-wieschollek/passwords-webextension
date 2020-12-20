@@ -74,7 +74,7 @@
 
                 if(this.addAccount) {
                     tabs.create = {
-                        label   : LocalisationService.translate('NewServer'),
+                        label   : LocalisationService.translate('NewAccountFormLabel'),
                         icon    : 'user-plus',
                         iconFont: 'solid'
                     };
