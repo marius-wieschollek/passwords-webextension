@@ -1,25 +1,25 @@
 {
-    "extensionName"               : {
+    "extensionName"                 : {
         "message"    : "Passwords for Nextcloud Client",
         "description": "Name of the extension."
     },
-    "extensionDescription"        : {
+    "extensionDescription"          : {
         "message"    : "The official browser extension for Passwords for Nextcloud",
         "description": "Description of the extension."
     },
-    "browserActionTitle"          : {
+    "browserActionTitle"            : {
         "message"    : "Passwords",
         "description": "Title of the button in the browser bar"
     },
-    "contextMenuTitle"            : {
+    "contextMenuTitle"              : {
         "message"    : "Passwords",
         "description": "Title of the context menu item"
     },
-    "protocolHandler"             : {
+    "protocolHandler"               : {
         "message"    : "PassLink Client",
         "description": "Title of the custom protocol handler"
     },
-    "BrowserActionTitleCounter"   : {
+    "BrowserActionTitleCounter"     : {
         "message"     : "Passwords ($COUNTER$)",
         "description" : "Title of the button in the browser bar with suggestion counter",
         "placeholders": {
@@ -29,7 +29,7 @@
             }
         }
     },
-    "UserAgent"                   : {
+    "UserAgent"                     : {
         "message"     : "Official Passwords Client for $BROWSER$ on $OS$",
         "description" : "The user agent used for api requests. Only ASCII characters allowed",
         "placeholders": {
@@ -43,143 +43,147 @@
             }
         }
     },
-    "MigrationAccountName"        : {
+    "MigrationAccountName"          : {
         "message"    : "Nextcloud Account",
         "description": "Label assigned to the account used by the v1.x migration"
     },
-    "SettingsTabAccounts"         : {
+    "SettingsTabAccounts"           : {
         "message"    : "Accounts",
         "description": ""
     },
-    "SettingsTabTheming"          : {
+    "SettingsTabTheming"            : {
         "message"    : "Theming",
         "description": ""
     },
-    "SettingsTabOther"            : {
+    "SettingsTabOther"              : {
         "message"    : "Other Settings",
         "description": ""
     },
-    "SettingsAccountsMain"        : {
+    "SettingsTabDebug"              : {
+        "message"    : "Debug",
+        "description": ""
+    },
+    "SettingsAccountsMain"          : {
         "message"    : "Default account for new passwords",
         "description": ""
     },
-    "AutofillSettings"            : {
+    "AutofillSettings"              : {
         "message"    : "Password autofill",
         "description": ""
     },
-    "SettingsPopupAutoclose"      : {
+    "SettingsPopupAutoclose"        : {
         "message"    : "Close popup after autofill",
         "description": ""
     },
-    "SettingsPasswordAutosubmit"  : {
+    "SettingsPasswordAutosubmit"    : {
         "message"    : "Automatically submit login forms",
         "description": ""
     },
-    "NotificationSettings"        : {
+    "NotificationSettings"          : {
         "message"    : "Notifications",
         "description": ""
     },
-    "SettingsNotifyPasswordNew"   : {
+    "SettingsNotifyPasswordNew"     : {
         "message"    : "Notification for new passwords",
         "description": ""
     },
-    "SettingsNotifyPasswordUpdate": {
+    "SettingsNotifyPasswordUpdate"  : {
         "message"    : "Notification for updated passwords",
         "description": ""
     },
-    "SearchSettings"              : {
+    "SearchSettings"                : {
         "message"    : "Search",
         "description": ""
     },
-    "SettingsPopupRelatedSearch"  : {
+    "SettingsPopupRelatedSearch"    : {
         "message"    : "Search on type from \"Related\" tab",
         "description": ""
     },
-    "AccountList"                 : {
+    "AccountList"                   : {
         "message"    : "User accounts",
         "description": ""
     },
-    "NoAccounts"                  : {
+    "NoAccounts"                    : {
         "message"    : "There are no accounts yet. Click here to create one.",
         "description": ""
     },
-    "NewServer"                   : {
+    "NewServer"                     : {
         "message"    : "Create account",
         "description": ""
     },
-    "ServerSaveTitle"             : {
+    "ServerSaveTitle"               : {
         "message"    : "Account saved",
         "description": ""
     },
-    "ServerSaveMessage"           : {
+    "ServerSaveMessage"             : {
         "message"    : "All changes were applied successfully",
         "description": ""
     },
-    "ServerSaveErrorTitle"        : {
+    "ServerSaveErrorTitle"          : {
         "message"    : "Saving failed",
         "description": ""
     },
-    "ServerCreatedMessage"        : {
+    "ServerCreatedMessage"          : {
         "message"    : "The account has been created and is ready to be used",
         "description": ""
     },
-    "ServerDisabledWarning"       : {
+    "ServerDisabledWarning"         : {
         "message"    : "This account is deactivated. It will be activated after it was saved successfully.",
         "description": ""
     },
-    "ServerLabel"                 : {
+    "ServerLabel"                   : {
         "message"    : "Name",
         "description": ""
     },
-    "ServerBaseUrl"               : {
+    "ServerBaseUrl"                 : {
         "message"    : "Url",
         "description": ""
     },
-    "ServerUser"                  : {
+    "ServerUser"                    : {
         "message"    : "User",
         "description": ""
     },
-    "ServerToken"                 : {
+    "ServerToken"                   : {
         "message"    : "Token",
         "description": ""
     },
-    "TabRelated"                  : {
+    "TabRelated"                    : {
         "message"    : "Suggestions",
         "description": ""
     },
-    "TabSearch"                   : {
+    "TabSearch"                     : {
         "message"    : "Search",
         "description": ""
     },
-    "TabBrowse"                   : {
+    "TabBrowse"                     : {
         "message"    : "Browse",
         "description": ""
     },
-    "TabCollected"                : {
+    "TabCollected"                  : {
         "message"    : "Collected",
         "description": ""
     },
-    "TabTools"                    : {
+    "TabTools"                      : {
         "message"    : "Tools",
         "description": ""
     },
-    "ValidationLabel"             : {
+    "ValidationLabel"               : {
         "message"    : "label",
         "description": ""
     },
-    "ValidationUser"              : {
+    "ValidationUser"                : {
         "message"    : "user",
         "description": ""
     },
-    "ValidationToken"             : {
+    "ValidationToken"               : {
         "message"    : "token",
         "description": ""
     },
-    "ValidationBaseUrl"           : {
+    "ValidationBaseUrl"             : {
         "message"    : "base url",
         "description": ""
     },
-    "ValidationNotEmpty"          : {
+    "ValidationNotEmpty"            : {
         "message"     : "The $FIELD$ can not be empty",
         "description" : "",
         "placeholders": {
@@ -189,7 +193,7 @@
             }
         }
     },
-    "ValidationMinLength"         : {
+    "ValidationMinLength"           : {
         "message"     : "The $FIELD$ must be at least $MIN$ characters long",
         "description" : "",
         "placeholders": {
@@ -203,7 +207,7 @@
             }
         }
     },
-    "ValidationMaxLength"         : {
+    "ValidationMaxLength"           : {
         "message"     : "The $FIELD$ must be shorter than $MAX$ characters",
         "description" : "",
         "placeholders": {
@@ -217,23 +221,23 @@
             }
         }
     },
-    "ValidationFailed"            : {
+    "ValidationFailed"              : {
         "message"    : "Validation failed",
         "description": ""
     },
-    "ValidationNotAnUrl"          : {
+    "ValidationNotAnUrl"            : {
         "message"    : "The base url must be a valid url",
         "description": ""
     },
-    "ValidationNotAToken"         : {
+    "ValidationNotAToken"           : {
         "message"    : "The token must be a valid Nextcloud token",
         "description": ""
     },
-    "ValidationDuplicate"         : {
+    "ValidationDuplicate"           : {
         "message"    : "There is already an account for this user on this Nextcloud.",
         "description": ""
     },
-    "ValidationNoConnection"      : {
+    "ValidationNoConnection"        : {
         "message"     : "Unable to connect to $URL$",
         "description" : "",
         "placeholders": {
@@ -243,7 +247,7 @@
             }
         }
     },
-    "ValidationUnauthorizedError" : {
+    "ValidationUnauthorizedError"   : {
         "message"     : "The server at $URL$ did not accept the login data",
         "description" : "",
         "placeholders": {
@@ -253,7 +257,7 @@
             }
         }
     },
-    "ValidationHttpError"         : {
+    "ValidationHttpError"           : {
         "message"     : "Trying to connect to $URL$ resulted in $ERROR$",
         "description" : "",
         "placeholders": {
@@ -267,7 +271,7 @@
             }
         }
     },
-    "ValidationConnectionError"   : {
+    "ValidationConnectionError"     : {
         "message"     : "Trying to connect to $URL$ resulted in $ERROR$",
         "description" : "",
         "placeholders": {
@@ -281,43 +285,43 @@
             }
         }
     },
-    "ValidationServerVersion"     : {
+    "ValidationServerVersion"       : {
         "message"    : "The app version installed on the server is outdated",
         "description": ""
     },
-    "NoRelatedPasswords"          : {
+    "NoRelatedPasswords"            : {
         "message"    : "Did not find any related passwords",
         "description": "Used in the related tab when no entries match the current website"
     },
-    "NoSearchResults"             : {
+    "NoSearchResults"               : {
         "message"    : "Did not find any passwords matching your query",
         "description": "Used in the search tab when no entries match the search query"
     },
-    "NoSearchQuery"               : {
+    "NoSearchQuery"                 : {
         "message"    : "Write into the search box to find passwords",
         "description": "Used in the search tab when there is no search query"
     },
-    "NoCollectedPasswords"        : {
+    "NoCollectedPasswords"          : {
         "message"    : "No new passwords found",
         "description": "Used in the collected tab when no new passwords have been found"
     },
-    "AddPasswordForCurrentTab"     : {
+    "AddPasswordForCurrentTab"      : {
         "message"    : "Add account for current tab",
         "description": "Used in the collected tab for the option to add a blank entry with just the url of the current tab"
     },
-    "NoServerItems"               : {
+    "NoServerItems"                 : {
         "message"    : "No elements found",
         "description": "Used in the browse tab when a server has no entries to list"
     },
-    "SearchPlaceholder"           : {
+    "SearchPlaceholder"             : {
         "message"    : "Find passwords",
         "description": "Placeholder text of the search box"
     },
-    "MiningItemIsNew"             : {
+    "MiningItemIsNew"               : {
         "message"    : "This is a new password",
         "description": ""
     },
-    "MiningItemIsUpdate"          : {
+    "MiningItemIsUpdate"            : {
         "message"     : "This seems to be an update of \"$PASSWORD$\"",
         "description" : "",
         "placeholders": {
@@ -327,79 +331,79 @@
             }
         }
     },
-    "TitleClickToEdit"            : {
+    "TitleClickToEdit"              : {
         "message"    : "Double click to edit",
         "description": ""
     },
-    "TitleEnterToExit"            : {
+    "TitleEnterToExit"              : {
         "message"    : "Press enter to save",
         "description": ""
     },
-    "LabelLabel"                  : {
+    "LabelLabel"                    : {
         "message"    : "Name",
         "description": ""
     },
-    "LabelPassword"               : {
+    "LabelPassword"                 : {
         "message"    : "Password",
         "description": ""
     },
-    "LabelUsername"               : {
+    "LabelUsername"                 : {
         "message"    : "User",
         "description": ""
     },
-    "LabelUrl"                    : {
+    "LabelUrl"                      : {
         "message"    : "Url",
         "description": ""
     },
-    "LabelUser"                   : {
+    "LabelUser"                     : {
         "message"    : "User",
         "description": ""
     },
-    "LabelPasswords"              : {
+    "LabelPasswords"                : {
         "message"    : "Passwords",
         "description": ""
     },
-    "LabelFolders"                : {
+    "LabelFolders"                  : {
         "message"    : "Folders",
         "description": ""
     },
-    "LabelTags"                   : {
+    "LabelTags"                     : {
         "message"    : "Tags",
         "description": ""
     },
-    "LabelHidden"                 : {
+    "LabelHidden"                   : {
         "message"    : "Incognito Password",
         "description": ""
     },
-    "PlaceholderPassword"         : {
+    "PlaceholderPassword"           : {
         "message"    : "Password",
         "description": ""
     },
-    "PlaceholderToken"            : {
+    "PlaceholderToken"              : {
         "message"    : "Two-Factor Token",
         "description": ""
     },
-    "ButtonLogin"                 : {
+    "ButtonLogin"                   : {
         "message"    : "Login",
         "description": ""
     },
-    "AuthorizationFailedTitle"    : {
+    "AuthorizationFailedTitle"      : {
         "message"    : "Authorization failed",
         "description": ""
     },
-    "AuthorizationFailedText"     : {
+    "AuthorizationFailedText"       : {
         "message"    : "Access to the password database with the provided login was denied",
         "description": ""
     },
-    "TokenRequestFailed"          : {
+    "TokenRequestFailed"            : {
         "message"    : "Token request failed",
         "description": ""
     },
-    "NotifyNewPasswordTitle"      : {
+    "NotifyNewPasswordTitle"        : {
         "message"    : "New password detected",
         "description": ""
     },
-    "NotifyNewPasswordText"       : {
+    "NotifyNewPasswordText"         : {
         "message"     : "A new password for \"$LABEL$\" was detected.",
         "description" : "",
         "placeholders": {
@@ -409,7 +413,7 @@
             }
         }
     },
-    "NotifyNewPasswordTextFF"     : {
+    "NotifyNewPasswordTextFF"       : {
         "message"     : "A new password for \"$LABEL$\" was detected. Click the passwords icon to view and save it.",
         "description" : "",
         "placeholders": {
@@ -419,11 +423,11 @@
             }
         }
     },
-    "NotifyUpdatePasswordTitle"      : {
+    "NotifyUpdatePasswordTitle"     : {
         "message"    : "Updated password detected",
         "description": ""
     },
-    "NotifyUpdatePasswordText"       : {
+    "NotifyUpdatePasswordText"      : {
         "message"     : "An update for \"$LABEL$\" was detected.",
         "description" : "",
         "placeholders": {
@@ -433,7 +437,7 @@
             }
         }
     },
-    "NotifyUpdatePasswordTextFF"     : {
+    "NotifyUpdatePasswordTextFF"    : {
         "message"     : "An update for \"$LABEL$\" was detected. Click the passwords icon to view and save it.",
         "description" : "",
         "placeholders": {
@@ -443,15 +447,15 @@
             }
         }
     },
-    "ButtonSave"                  : {
+    "ButtonSave"                    : {
         "message"    : "Save",
         "description": "The save button of a password notification"
     },
-    "ButtonMore"                  : {
+    "ButtonMore"                    : {
         "message"    : "More Options",
         "description": "The more options button of a password notification which opens the popup"
     },
-    "ToastServerCheckTitle"       : {
+    "ToastServerCheckTitle"         : {
         "message"     : "$SERVER$ needs to be upgraded",
         "description" : "",
         "placeholders": {
@@ -461,7 +465,7 @@
             }
         }
     },
-    "ToastServerCheckMessage"     : {
+    "ToastServerCheckMessage"       : {
         "message"     : "The account \"$SERVER$\" uses a server running an outdated version of passwords. The server must be updated before the account can be reactivated in the settings.",
         "description" : "",
         "placeholders": {
@@ -471,7 +475,7 @@
             }
         }
     },
-    "PasswordPastedSuccess"       : {
+    "PasswordPastedSuccess"         : {
         "message"     : "$LABEL$ pasted successfully",
         "description" : "",
         "placeholders": {
@@ -481,7 +485,7 @@
             }
         }
     },
-    "PasswordPastedError"         : {
+    "PasswordPastedError"           : {
         "message"     : "Could not paste $LABEL$",
         "description" : "",
         "placeholders": {
@@ -491,7 +495,7 @@
             }
         }
     },
-    "PasswordPropertyCopied"      : {
+    "PasswordPropertyCopied"        : {
         "message"     : "Copied $PROPERTY$",
         "description" : "",
         "placeholders": {
@@ -501,19 +505,19 @@
             }
         }
     },
-    "PropertyPassword"            : {
+    "PropertyPassword"              : {
         "message"    : "Password",
         "description": ""
     },
-    "PropertyUsername"            : {
+    "PropertyUsername"              : {
         "message"    : "Username",
         "description": ""
     },
-    "PropertyUrl"                 : {
+    "PropertyUrl"                   : {
         "message"    : "Url",
         "description": ""
     },
-    "ServerConnectionErrorTitle"  : {
+    "ServerConnectionErrorTitle"    : {
         "message"     : "Unable to connect to $SERVER$",
         "description" : "",
         "placeholders": {
@@ -523,11 +527,11 @@
             }
         }
     },
-    "ServerCredentialsRejected"   : {
+    "ServerCredentialsRejected"     : {
         "message"    : "Server credentials rejected. Please update the login data in the settings.",
         "description": ""
     },
-    "ServerHttpError"             : {
+    "ServerHttpError"               : {
         "message"     : "HTTP connection error: $ERROR$",
         "description" : "",
         "placeholders": {
@@ -537,15 +541,15 @@
             }
         }
     },
-    "ServerNetworkError"          : {
+    "ServerNetworkError"            : {
         "message"    : "A network error occurred. Please check if you're online and the server is reachable.",
         "description": ""
     },
-    "ServerUnknownError"          : {
+    "ServerUnknownError"            : {
         "message"    : "Unknown error.",
         "description": ""
     },
-    "ServerGenericError"          : {
+    "ServerGenericError"            : {
         "message"     : "Error: $ERROR$",
         "description" : "",
         "placeholders": {
@@ -555,287 +559,287 @@
             }
         }
     },
-    "DemoInfoNotification"        : {
+    "DemoInfoNotification"          : {
         "message"    : "Info notification",
         "description": ""
     },
-    "DemoSuccessNotification"     : {
+    "DemoSuccessNotification"       : {
         "message"    : "Success notification",
         "description": ""
     },
-    "DemoWarningNotification"     : {
+    "DemoWarningNotification"       : {
         "message"    : "Warning notification",
         "description": ""
     },
-    "DemoErrorNotification"       : {
+    "DemoErrorNotification"         : {
         "message"    : "Error notification",
         "description": ""
     },
-    "DemoText"                    : {
+    "DemoText"                      : {
         "message"    : "Demo",
         "description": ""
     },
-    "SettingsThemeId"             : {
+    "SettingsThemeId"               : {
         "message"    : "Active theme",
         "description": ""
     },
-    "ThemeDark"                   : {
+    "ThemeDark"                     : {
         "message"    : "Dark theme",
         "description": ""
     },
-    "ThemeOledDark"               : {
+    "ThemeOledDark"                 : {
         "message"    : "Dark OLED",
         "description": ""
     },
-    "ThemeLight"                  : {
+    "ThemeLight"                    : {
         "message"    : "Default",
         "description": ""
     },
-    "ThemeAdaptaLight"            : {
+    "ThemeAdaptaLight"              : {
         "message"    : "Adapta",
         "description": ""
     },
-    "ThemeAdaptaTeal"             : {
+    "ThemeAdaptaTeal"               : {
         "message"    : "Adapta teal",
         "description": ""
     },
-    "ThemeArcDark"                : {
+    "ThemeArcDark"                  : {
         "message"    : "Arc dark",
         "description": ""
     },
-    "ThemeArcLight"               : {
+    "ThemeArcLight"                 : {
         "message"    : "Arc",
         "description": ""
     },
-    "ThemeHacker"                 : {
+    "ThemeHacker"                   : {
         "message"    : "Hacker",
         "description": ""
     },
-    "ThemeRGB"                    : {
+    "ThemeRGB"                      : {
         "message"    : "Gaming RGB",
         "description": ""
     },
-    "ThemeCustom"                 : {
+    "ThemeCustom"                   : {
         "message"    : "Custom theme",
         "description": ""
     },
-    "CustomFont"                  : {
+    "CustomFont"                    : {
         "message"    : "Font",
         "description": ""
     },
-    "CustomDefaultElement"        : {
+    "CustomDefaultElement"          : {
         "message"    : "Default element",
         "description": ""
     },
-    "CustomActiveElement"         : {
+    "CustomActiveElement"           : {
         "message"    : "Active element",
         "description": ""
     },
-    "CustomButtons"               : {
+    "CustomButtons"                 : {
         "message"    : "Buttons",
         "description": ""
     },
-    "CustomToasts"                : {
+    "CustomToasts"                  : {
         "message"    : "Toast notifications",
         "description": ""
     },
-    "CustomBadge"                 : {
+    "CustomBadge"                   : {
         "message"    : "Browser icon",
         "description": ""
     },
-    "BackgroundColorLabel"        : {
+    "BackgroundColorLabel"          : {
         "message"    : "Background color",
         "description": ""
     },
-    "ForegroundColorLabel"        : {
+    "ForegroundColorLabel"          : {
         "message"    : "Foreground color",
         "description": ""
     },
-    "BackgroundInheritLabel"      : {
+    "BackgroundInheritLabel"        : {
         "message"    : "Inherit background",
         "description": ""
     },
-    "ForegroundInheritLabel"      : {
+    "ForegroundInheritLabel"        : {
         "message"    : "Inherit foreground",
         "description": ""
     },
-    "BackgroundColorBaseTitle"    : {
+    "BackgroundColorBaseTitle"      : {
         "message"    : "This color is usually used for the background",
         "description": ""
     },
-    "BackgroundColorHoverTitle"   : {
+    "BackgroundColorHoverTitle"     : {
         "message"    : "This color is used for the background if the element is active. It can also be used for the border of an inactive element",
         "description": ""
     },
-    "ForegroundColorBaseTitle"    : {
+    "ForegroundColorBaseTitle"      : {
         "message"    : "This color is usually used for texts and borders",
         "description": ""
     },
-    "ForegroundColorHoverTitle"   : {
+    "ForegroundColorHoverTitle"     : {
         "message"    : "This color is used for texts and borders if the element is active",
         "description": ""
     },
-    "BackgroundInheritTitle"      : {
+    "BackgroundInheritTitle"        : {
         "message"    : "If activated, the value will be inherited from the parent element",
         "description": ""
     },
-    "ForegroundInheritTitle"      : {
+    "ForegroundInheritTitle"        : {
         "message"    : "If activated, the value will be inherited from the parent element",
         "description": ""
     },
-    "SettingsCustomFont"          : {
+    "SettingsCustomFont"            : {
         "message"    : "Font family",
         "description": ""
     },
-    "FontDefault"                 : {
+    "FontDefault"                   : {
         "message"    : "Default",
         "description": ""
     },
-    "FontMono"                    : {
+    "FontMono"                      : {
         "message"    : "Monospace",
         "description": ""
     },
-    "FontSerif"                   : {
+    "FontSerif"                     : {
         "message"    : "Serif",
         "description": ""
     },
-    "FontSans"                    : {
+    "FontSans"                      : {
         "message"    : "Sans serif",
         "description": ""
     },
-    "FontLight"                   : {
+    "FontLight"                     : {
         "message"    : "Light",
         "description": ""
     },
-    "FontNextcloud"               : {
+    "FontNextcloud"                 : {
         "message"    : "Nextcloud",
         "description": ""
     },
-    "FontOpenDyslexic"            : {
+    "FontOpenDyslexic"              : {
         "message"    : "Open Dyslexic",
         "description": ""
     },
-    "FontCustom"                  : {
+    "FontCustom"                    : {
         "message"    : "Custom",
         "description": ""
     },
-    "SettingsCustomFontSize"      : {
+    "SettingsCustomFontSize"        : {
         "message"    : "Font size",
         "description": ""
     },
-    "FontSizeVerySmall"           : {
+    "FontSizeVerySmall"             : {
         "message"    : "Very small",
         "description": ""
     },
-    "FontSizeSmall"               : {
+    "FontSizeSmall"                 : {
         "message"    : "Small",
         "description": ""
     },
-    "FontSizeDefault"             : {
+    "FontSizeDefault"               : {
         "message"    : "Default",
         "description": ""
     },
-    "FontSizeMedium"              : {
+    "FontSizeMedium"                : {
         "message"    : "Medium",
         "description": ""
     },
-    "FontSizeLarge"               : {
+    "FontSizeLarge"                 : {
         "message"    : "Large",
         "description": ""
     },
-    "FontSizeVeryLarge"           : {
+    "FontSizeVeryLarge"             : {
         "message"    : "Very large",
         "description": ""
     },
-    "ToastInfoColors"             : {
+    "ToastInfoColors"               : {
         "message"    : "Info toast",
         "description": ""
     },
-    "ToastSuccessColors"          : {
+    "ToastSuccessColors"            : {
         "message"    : "Success toast",
         "description": ""
     },
-    "ToastWarningColors"          : {
+    "ToastWarningColors"            : {
         "message"    : "Warning toast",
         "description": ""
     },
-    "ToastErrorColors"            : {
+    "ToastErrorColors"              : {
         "message"    : "Error toast",
         "description": ""
     },
-    "ToastBackgroundTitle"        : {
+    "ToastBackgroundTitle"          : {
         "message"    : "Background color for popup messages",
         "description": ""
     },
-    "ToastForegroundTitle"        : {
+    "ToastForegroundTitle"          : {
         "message"    : "Color for text and button backgrounds",
         "description": ""
     },
-    "SettingsBadgeIcon"           : {
+    "SettingsBadgeIcon"             : {
         "message"    : "Toolbar icon",
         "description": ""
     },
-    "BadgeIconAuto"               : {
+    "BadgeIconAuto"                 : {
         "message"    : "Automatic",
         "description": ""
     },
-    "BadgeIconLight"              : {
+    "BadgeIconLight"                : {
         "message"    : "Light icon",
         "description": ""
     },
-    "BadgeIconMedium"             : {
+    "BadgeIconMedium"               : {
         "message"    : "Grey icon",
         "description": ""
     },
-    "BadgeIconDark"               : {
+    "BadgeIconDark"                 : {
         "message"    : "Dark icon",
         "description": ""
     },
-    "BadgeIconNewLight"           : {
+    "BadgeIconNewLight"             : {
         "message"    : "Light modern icon",
         "description": ""
     },
-    "BadgeIconNewMedium"          : {
+    "BadgeIconNewMedium"            : {
         "message"    : "Grey modern icon",
         "description": ""
     },
-    "BadgeIconNewDark"            : {
+    "BadgeIconNewDark"              : {
         "message"    : "Dark modern icon",
         "description": ""
     },
-    "CustomBadgeColors"           : {
+    "CustomBadgeColors"             : {
         "message"    : "Badge colors",
         "description": ""
     },
-    "BadgeBackgroundTitle"        : {
+    "BadgeBackgroundTitle"          : {
         "message"    : "Background color of the badge",
         "description": ""
     },
-    "BadgeForegroundTitle"        : {
+    "BadgeForegroundTitle"          : {
         "message"    : "Text color of the badge",
         "description": ""
     },
-    "PasslinkErrorNoMessage"      : {
+    "PasslinkErrorNoMessage"        : {
         "message"    : "There has been an error but no error message was provided",
         "description": ""
     },
-    "PasslinkNoLinkProvided"      : {
+    "PasslinkNoLinkProvided"        : {
         "message"    : "No link or action is missing",
         "description": ""
     },
-    "PasslinkErrorClose"          : {
+    "PasslinkErrorClose"            : {
         "message"    : "Close",
         "description": ""
     },
-    "PasslinkNoActiveAction"      : {
+    "PasslinkNoActiveAction"        : {
         "message"    : "There is no active passlink action of this type",
         "description": ""
     },
-    "PasslinkConnectCheckCodes"   : {
+    "PasslinkConnectCheckCodes"     : {
         "message"    : "Check if the codes below match with the ones you see in the app. If they do, confirm the connection in the app and you're done.",
         "description": ""
     },
-    "PasslinkConnectServer"       : {
+    "PasslinkConnectServer"         : {
         "message"     : "The new connection was saved as \"$LABEL$\"",
         "description" : "",
         "placeholders": {
@@ -845,121 +849,121 @@
             }
         }
     },
-    "PasslinkConnectNotFound"     : {
+    "PasslinkConnectNotFound"       : {
         "message"    : "This link is invalid. It may have been used already or is expired.",
         "description": ""
     },
-    "PasslinkConnectRejected"     : {
+    "PasslinkConnectRejected"       : {
         "message"    : "The login request was rejected by the server.",
         "description": ""
     },
-    "PasslinkConnectNetworkError" : {
+    "PasslinkConnectNetworkError"   : {
         "message"    : "The connection to the server failed. Please check your network.",
         "description": ""
     },
-    "PasslinkConnectSuccess"      : {
+    "PasslinkConnectSuccess"        : {
         "message"    : "Connection successful",
         "description": ""
     },
-    "PasslinkConnectFailed"       : {
+    "PasslinkConnectFailed"         : {
         "message"    : "Connection failed",
         "description": ""
     },
-    "PasslinkConnectSettings"     : {
+    "PasslinkConnectSettings"       : {
         "message"    : "Open settings",
         "description": ""
     },
-    "PasslinkConnectClose"        : {
+    "PasslinkConnectClose"          : {
         "message"    : "Close the window",
         "description": ""
     },
-    "PasslinkScanInstructions"    : {
+    "PasslinkScanInstructions"      : {
         "message"    : "Point your camera to the QR code and wait for it to be recognized and scanned.",
         "description": "Instructions shown above the PassLink QR scanner telling the use to point his camera at the qr code he wants to scan"
     },
-    "PasslinkScanScanning"        : {
+    "PasslinkScanScanning"          : {
         "message"    : "Looking for a QR Code",
         "description": "Message used by the PassLink QR scanner while the camera feed is scanned for a qr code"
     },
-    "PasslinkScanProcessingLink"  : {
+    "PasslinkScanProcessingLink"    : {
         "message"    : "Processing QR Code",
         "description": "Message used by the PassLink QR scanner when a valid code was found and is now being analyzed"
     },
-    "PasslinkScanInvalidQrCode"   : {
+    "PasslinkScanInvalidQrCode"     : {
         "message"    : "This QR Code is not supported",
         "description": "Message used by the PassLink QR scanner when the user scans a code that does not contain a valid and supported uri of Passlink"
     },
-    "QrNotAllowedError"           : {
+    "QrNotAllowedError"             : {
         "message"    : "Access to the camera was not granted",
         "description": "Message used by the PassLink QR scanner when the user did not allow camera access"
     },
-    "QrNotFoundError"             : {
+    "QrNotFoundError"               : {
         "message"    : "No cameras were found on this device",
         "description": "Message used by the PassLink QR scanner when the device has no cameras"
     },
-    "QrNotSupportedError"         : {
+    "QrNotSupportedError"           : {
         "message"    : "Insecure Context",
         "description": "Message used by the PassLink QR scanner when the page was opened in an insecure context (http://). This should never happen"
     },
-    "QrNotReadableError"          : {
+    "QrNotReadableError"            : {
         "message"    : "Camera not accessible. Maybe it is already in use?",
         "description": "Message used by the PassLink QR scanner when the camera stream can not be read"
     },
-    "QrOverconstrainedError"      : {
+    "QrOverconstrainedError"        : {
         "message"    : "Camera not suitable to be used",
         "description": "Message used by the PassLink QR scanner when the camera is faulty"
     },
-    "QrStreamApiNotSupportedError": {
+    "QrStreamApiNotSupportedError"  : {
         "message"    : "The Stream API is not supported by this browser",
         "description": "Message used by the PassLink QR scanner when the browser does not support the required streaming api. This should never happen"
     },
-    "FirstRunConnectTitle"        : {
+    "FirstRunConnectTitle"          : {
         "message"    : "Connect to Nextcloud",
         "description": ""
     },
-    "FirstRunConnectText"         : {
+    "FirstRunConnectText"           : {
         "message"    : "Open the passwords app, click on \"More\", open \"Apps & Extensions\" and open the PassLink Connect dialog.",
         "description": ""
     },
-    "FirstRunConnectLink"         : {
+    "FirstRunConnectLink"           : {
         "message"    : "If the PassLink dialog is open on the same device, use the connect via link option",
         "description": ""
     },
-    "FirstRunConnectScan"         : {
+    "FirstRunConnectScan"           : {
         "message"    : "If this is a different device, scan the PassLink Connect Code with the button below",
         "description": ""
     },
-    "FirstRunConnectScanChrome"   : {
+    "FirstRunConnectScanChrome"     : {
         "message"    : "Click the button below and scan the PassLink Connect code",
         "description": ""
     },
-    "FirstRunConnectManual"       : {
+    "FirstRunConnectManual"         : {
         "message"    : "You can also create the account manually in the extension settings",
         "description": ""
     },
-    "FirstRunConnectScanButton"   : {
+    "FirstRunConnectScanButton"     : {
         "message"    : "Scan PassLink Code",
         "description": ""
     },
-    "OpenSettings"                : {
+    "OpenSettings"                  : {
         "message"    : "Open Extension Settings",
         "description": ""
     },
-    "ToolsTabGeneratePassword"    : {
+    "ToolsTabGeneratePassword"      : {
         "message"    : "Generate Password",
         "description": ""
     },
-    "ToolsTabDebugTools"          : {
+    "ToolsTabDebugTools"            : {
         "message"    : "Debug Tools",
         "description": ""
     },
-    "GeneratedPasswordPlaceholder"    : {
+    "GeneratedPasswordPlaceholder"  : {
         "message"    : "Generated Password",
         "description": ""
     },
-    "GeneratedPasswordTitle"    : {
-        "message"    : "Password words: $WORDS$",
-        "description": "",
+    "GeneratedPasswordTitle"        : {
+        "message"     : "Password words: $WORDS$",
+        "description" : "",
         "placeholders": {
             "words": {
                 "content": "$1",
@@ -967,41 +971,41 @@
             }
         }
     },
-    "LabelGenerateAddNumbers"    : {
+    "LabelGenerateAddNumbers"       : {
         "message"    : "Numbers",
-        "description": ""
+        "description": "Label of the option to include numbers in the password generator in the tools tab"
     },
-    "LabelGenerateAddSpecial"    : {
+    "LabelGenerateAddSpecial"       : {
         "message"    : "Symbols",
-        "description": ""
+        "description": "Label of the option to include special characters in the password generator in the tools tab"
     },
-    "LabelGenerateStrength"    : {
+    "LabelGenerateStrength"         : {
         "message"    : "Strength",
-        "description": ""
+        "description": "Label of the option to set the strength in the password generator in the tools tab"
     },
-    "LabelGeneratorStrengthLow"    : {
+    "LabelGeneratorStrengthLow"     : {
         "message"    : "Low",
-        "description": ""
+        "description": "Label of the low (0) strength option for the password generator in the tools tab"
     },
-    "LabelGeneratorStrengthStandard"    : {
+    "LabelGeneratorStrengthStandard": {
         "message"    : "Standard",
-        "description": ""
+        "description": "Label of the default (1) strength option for the password generator in the tools tab"
     },
-    "LabelGeneratorStrengthMedium"    : {
+    "LabelGeneratorStrengthMedium"  : {
         "message"    : "Medium",
-        "description": ""
+        "description": "Label of the medium (2) strength option for the password generator in the tools tab"
     },
     "LabelGeneratorStrengthHigh"    : {
         "message"    : "High",
-        "description": ""
+        "description": "Label of the high (3) strength option for the password generator in the tools tab"
     },
-    "LabelGeneratorStrengthUltra"    : {
+    "LabelGeneratorStrengthUltra"   : {
         "message"    : "Ultra",
-        "description": ""
+        "description": "Label of the very high (4) strength option for the password generator in the tools tab"
     },
-    "PasswordGenerateError"    : {
-        "message"    : "Failed to generate a password: $ERROR$",
-        "description": "",
+    "PasswordGenerateError"         : {
+        "message"     : "Failed to generate a password: $ERROR$",
+        "description" : "Notification shown when the generation of a password fails",
         "placeholders": {
             "error": {
                 "content": "$1",
@@ -1009,12 +1013,52 @@
             }
         }
     },
-    "DebugHighlightLoginForms"    : {
+    "DebugHighlightLoginForms"      : {
         "message"    : "Highlight Login Form Fields",
         "description": ""
     },
-    "AutofillBadPasswordWarning" : {
+    "AutofillBadPasswordWarning"    : {
         "message"    : "This password is compromised and should be changed immediately",
-        "description": ""
+        "description": "Notification shown after the user used autofill for a password with the security status breached/compromised"
+    },
+    "DebugInternalStats"            : {
+        "message"    : "Internal Status",
+        "description": "Headline above the internal status section in the extension settings in the debug tab"
+    },
+    "DebugInfoExtensionVersion"       : {
+        "message"    : "Extension Version",
+        "description": "Description of the extension version in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionPlatform"       : {
+        "message"    : "Extension Platform",
+        "description": "Description of the extension platform (firefox or chrome) in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionEnvironment"       : {
+        "message"    : "Extension Mode",
+        "description": "Description of the extension mode (production or development) in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoHiddenFolderId"       : {
+        "message"    : "Hidden Passwords Folder ID",
+        "description": "Description of the id of the folder used to store hidden/private passwords in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugErrorLog"                 : {
+        "message"    : "Error Log",
+        "description": "Headline above the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorNoMessage"           : {
+        "message"    : "No error message",
+        "description": "Used as error message for errors with no error message (but have a timestamp) in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorNoDetails"           : {
+        "message"    : "No error details",
+        "description": "Used as error message for errors with no details at all in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorDataCopied"          : {
+        "message"    : "Error details copied to clipboard",
+        "description": "Success notification when you copy an error report to the clipboard in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugNoErrors"                 : {
+        "message"    : "No errors in log",
+        "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
     }
 }

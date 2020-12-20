@@ -4,7 +4,7 @@
             <div :key="name"
                  v-for="(tab, name) in tabs"
                  @click="setActive(name)"
-                 :class="{ active: isActive(name) }"
+                 :class="`tab-label-${name} ${isActive(name) ? 'active':''}`"
                  class="tab">
                 <div>
                     <icon :icon="tab.icon" class="icon" v-if="tab.icon" font="solid"/>

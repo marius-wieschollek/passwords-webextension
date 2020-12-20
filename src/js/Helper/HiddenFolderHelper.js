@@ -1,6 +1,5 @@
 import ServerRepository from "@js/Repositories/ServerRepository";
 import ErrorManager from "@js/Manager/ErrorManager";
-import Setting from "passwords-client/src/Model/Setting/Setting";
 import NotFoundError from "passwords-client/src/Exception/Http/NotFoundError";
 import SettingsService from "@js/Services/SettingsService";
 
@@ -63,8 +62,8 @@ export default class HiddenFolderHelper {
      * @private
      */
     async _createHiddenFolder(api) {
-        let server             = api.getServer(),
-            folder             = api
+        let server = api.getServer(),
+            folder = api
                 .getClass('model.folder')
                 .setLabel('BrowserExtensionPrivateFolder')
                 .setHidden(true);

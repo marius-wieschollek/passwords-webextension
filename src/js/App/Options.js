@@ -49,7 +49,13 @@ class Options {
     async _initVue() {
         let reply  = await MessageService.send('options.status'),
             status = reply.getPayload();
-        document.body.classList.add(status.device);
+        document.body.classList.add(status.device)
+
+        Vue.filter('capitalize', function (value) {
+            if (!value) return ''
+            value = value.toString()
+            return value.charAt(0).toUpperCase() + value.slice(1)
+        })
 
         this._app = new Vue({propsData: status, ...App});
     }

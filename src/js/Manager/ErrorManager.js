@@ -4,6 +4,10 @@ import QueueService from '@js/Services/QueueService';
 
 class ErrorManager {
 
+    get errors() {
+        return this._errors;
+    }
+
     get catchEvt() {
         return this.catch();
     }
@@ -118,7 +122,8 @@ class ErrorManager {
         let error = new Error();
         return {
             data,
-            stack: error.stack ? error.stack:''
+            stack: error.stack ? error.stack:'',
+            time: Date.now()
         };
     }
 
@@ -136,7 +141,8 @@ class ErrorManager {
             message: error.message,
             file   : error.fileName,
             line   : error.lineNumber,
-            stack  : error.stack ? error.stack:''
+            stack  : error.stack ? error.stack:'',
+            time   : Date.now()
         };
     }
 

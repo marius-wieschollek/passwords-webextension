@@ -45,6 +45,10 @@
         "message"    : "Weitere Einstellungen",
         "description": ""
     },
+    "SettingsTabDebug"              : {
+        "message"    : "Debug",
+        "description": ""
+    },
     "SettingsAccountsMain"          : {
         "message"    : "Standardkonto für neue Passwörter",
         "description": ""
@@ -999,8 +1003,48 @@
         "message"    : "Felder von Anmeldeformularen zeigen",
         "description": ""
     },
-    "AutofillBadPasswordWarning" : {
+    "AutofillBadPasswordWarning"    : {
         "message"    : "Dieses Passwort ist kompromittiert und sollte sofort geändert werden",
+        "description": ""
+    },
+    "DebugInternalStats"            : {
+        "message"    : "Interner Status",
+        "description": ""
+    },
+    "DebugInfoExtensionVersion"       : {
+        "message"    : "Extension Version",
+        "description": ""
+    },
+    "DebugInfoExtensionPlatform"       : {
+        "message"    : "Extension Plattform",
+        "description": ""
+    },
+    "DebugInfoExtensionEnvironment"       : {
+        "message"    : "Extension Modus",
+        "description": ""
+    },
+    "DebugInfoHiddenFolderId"       : {
+        "message"    : "ID des Ordners für private Passwörter",
+        "description": ""
+    },
+    "DebugErrorLog"                 : {
+        "message"    : "Fehlerberichte",
+        "description": ""
+    },
+    "DebugErrorNoMessage"           : {
+        "message"    : "Keine Fehlerbeschreibung",
+        "description": ""
+    },
+    "DebugErrorNoDetails"           : {
+        "message"    : "Keine Fehlerdetails",
+        "description": ""
+    },
+    "DebugErrorDataCopied"          : {
+        "message"    : "Fehlerbericht in die Zwischenablage kopiert",
+        "description": ""
+    },
+    "DebugNoErrors"                 : {
+        "message"    : "Keine Fehlerberichte vorhanden",
         "description": ""
     }
 }
