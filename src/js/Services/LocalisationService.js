@@ -1,9 +1,22 @@
 import SystemService from "@js/Services/SystemService";
+import SettingsService from "@js/Services/SettingsService";
 
 class LocalisationService {
 
     constructor() {
         this._browser = SystemService.getBrowserApi();
+        this._debug = null;
+    }
+
+    /**
+     *
+     */
+    init() {
+        SettingsService
+            .get('debug.localisation.enabled')
+            .then((s) => {
+                this._debug = s;
+            });
     }
 
     /**
@@ -12,7 +25,8 @@ class LocalisationService {
      * @param {(String|String[])} [variables]
      * @returns {String}
      */
-    translate(key, ...variables ) {
+    translate(key, ...variables) {
+        if(this._debug && !this._debug.getValue()) return key;
         if(Array.isArray(key)) {
             if(key.length < 0) return '';
 

@@ -16,7 +16,8 @@ export default class Get extends AbstractController {
             'notification.password.update',
             'server.default',
             'theme.current',
-            'theme.custom'
+            'theme.custom',
+            'debug.localisation.enabled'
         ];
     }
 

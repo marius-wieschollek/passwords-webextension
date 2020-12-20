@@ -8,6 +8,7 @@ import ToastService from '@js/Services/ToastService';
 import ThemeService from '@js/Services/ThemeService';
 import SettingsService from '@js/Services/SettingsService';
 import ClientSettingsProvider from '@js/Settings/ClientSettingsProvider';
+import LocalisationService from "@js/Services/LocalisationService";
 
 class Passlink {
 
@@ -32,6 +33,7 @@ class Passlink {
             await MessageService.init(true, 'background');
             ConverterManager.init();
             SettingsService.init(ClientSettingsProvider);
+            await LocalisationService.init();
 
             let urlParams = new URLSearchParams(window.location.search),
                 link      = urlParams.get('link'),

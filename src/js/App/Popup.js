@@ -9,6 +9,7 @@ import ToastService from '@js/Services/ToastService';
 import ThemeService from '@js/Services/ThemeService';
 import SettingsService from '@js/Services/SettingsService';
 import ClientSettingsProvider from '@js/Settings/ClientSettingsProvider';
+import LocalisationService from "@js/Services/LocalisationService";
 
 class Popup {
 
@@ -46,6 +47,7 @@ class Popup {
             this._authClient = new AuthorisationClient();
 
             await ThemeService.apply();
+            await LocalisationService.init();
             await this._initVue();
             await ToastService.init();
         } catch(e) {

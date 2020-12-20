@@ -49,23 +49,23 @@
     },
     "SettingsTabAccounts"           : {
         "message"    : "Accounts",
-        "description": ""
+        "description": "Label of the user accounts tab in the extension settings"
     },
     "SettingsTabTheming"            : {
         "message"    : "Theming",
-        "description": ""
+        "description": "Label of the themes tab in the extension settings"
     },
     "SettingsTabOther"              : {
         "message"    : "Other Settings",
-        "description": ""
+        "description": "Label of the general settings tab in the extension settings"
     },
     "SettingsTabDebug"              : {
         "message"    : "Debug",
-        "description": ""
+        "description": "Label of the extension debugging tab in the extension settings"
     },
     "SettingsAccountsMain"          : {
         "message"    : "Default account for new passwords",
-        "description": ""
+        "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
     },
     "AutofillSettings"              : {
         "message"    : "Password autofill",
@@ -1025,21 +1025,29 @@
         "message"    : "Internal Status",
         "description": "Headline above the internal status section in the extension settings in the debug tab"
     },
-    "DebugInfoExtensionVersion"       : {
+    "DebugInfoExtensionVersion"     : {
         "message"    : "Extension Version",
         "description": "Description of the extension version in the internal status section in the debug tab in the extension settings"
     },
-    "DebugInfoExtensionPlatform"       : {
+    "DebugInfoExtensionPlatform"    : {
         "message"    : "Extension Platform",
         "description": "Description of the extension platform (firefox or chrome) in the internal status section in the debug tab in the extension settings"
     },
-    "DebugInfoExtensionEnvironment"       : {
+    "DebugInfoExtensionEnvironment" : {
         "message"    : "Extension Mode",
         "description": "Description of the extension mode (production or development) in the internal status section in the debug tab in the extension settings"
     },
     "DebugInfoHiddenFolderId"       : {
         "message"    : "Hidden Passwords Folder ID",
         "description": "Description of the id of the folder used to store hidden/private passwords in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugSettings"                 : {
+        "message"    : "Debugging Settings",
+        "description": "Headline above the debugging settings section in the extension settings in the debug tab"
+    },
+    "DebugLanguageTagsEnabled"      : {
+        "message"    : "Show language keys",
+        "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
     },
     "DebugErrorLog"                 : {
         "message"    : "Error Log",

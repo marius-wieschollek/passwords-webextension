@@ -60,6 +60,9 @@ class MasterSettingsProvider {
             'theme.custom'                : [
                 'sync.theme.custom',
                 'local.theme.custom'
+            ],
+            'debug.localisation.enabled'  : [
+                'local.localisation.enabled'
             ]
         };
         this._defaults = {
@@ -71,7 +74,8 @@ class MasterSettingsProvider {
             'password.autosubmit'         : true,
             'password.folder.private'     : null,
             'notification.password.new'   : true,
-            'notification.password.update': true
+            'notification.password.update': true,
+            'debug.localisation.enabled'  : true
         };
     }
 

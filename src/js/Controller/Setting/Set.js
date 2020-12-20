@@ -12,7 +12,8 @@ export default class Set extends AbstractController {
             'password.autosubmit',
             'popup.related.search',
             'notification.password.new',
-            'notification.password.update'
+            'notification.password.update',
+            'debug.localisation.enabled'
         ];
     }
 

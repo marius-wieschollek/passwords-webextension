@@ -2,6 +2,7 @@ import AbstractController from '@js/Controller/AbstractController';
 import HiddenFolderHelper from "@js/Helper/HiddenFolderHelper";
 import ErrorManager from "@js/Manager/ErrorManager";
 import ServerManager from "@js/Manager/ServerManager";
+import SettingsService from "@js/Services/SettingsService";
 
 export default class DebugData extends AbstractController {
 
@@ -12,8 +13,9 @@ export default class DebugData extends AbstractController {
      */
     async execute(message, reply) {
         let data = {
-            hidden: {id: null},
-            errors: ErrorManager.errors
+            hidden  : {id: null},
+            errors  : ErrorManager.errors,
+            settings: {localisations: false}
         };
 
         try {
@@ -21,7 +23,14 @@ export default class DebugData extends AbstractController {
                 helper = new HiddenFolderHelper();
             data.hidden.id = await helper.getHiddenFolderId(api);
         } catch(e) {
-            ErrorManager.logError(e)
+            ErrorManager.logError(e);
+        }
+
+        try {
+            let value = await SettingsService.getValue('debug.localisation.enabled');
+            data.settings.localize = !value;
+        } catch(e) {
+            ErrorManager.logError(e);
         }
 
         reply

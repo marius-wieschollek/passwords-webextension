@@ -82,14 +82,37 @@ class ErrorManager {
             details = this._getErrorFromEvent(message, file, line, col);
         }
 
-        let errorObject = {details, error};
-        console.error(details.message, errorObject, details.stack);
+        let errorData   = this._convertErrorToObject(error),
+            errorObject = {details, error: errorData};
+        console.error(details.message, error, errorObject, details.stack);
 
         if(this._mode === 'server') {
             this._saveError(errorObject);
         } else {
             this._sendError(errorObject);
         }
+    }
+
+    /**
+     *
+     * @param {(Error|Object)} error
+     * @returns {*}
+     * @private
+     */
+    _convertErrorToObject(error) {
+        if(error instanceof Error) {
+            return {
+                columnNumber: error.columnNumber ? error.columnNumber:undefined,
+                fileName    : error.fileName ? error.fileName:undefined,
+                lineNumber  : error.lineNumber ? error.lineNumber:undefined,
+                message     : error.message ? error.message:undefined,
+                name        : error.name ? error.name:undefined,
+                stack       : error.stack ? error.stack:undefined,
+                string      : error.toString()
+            };
+        }
+
+        return error;
     }
 
     /**
@@ -123,7 +146,7 @@ class ErrorManager {
         return {
             data,
             stack: error.stack ? error.stack:'',
-            time: Date.now()
+            time : Date.now()
         };
     }
 
@@ -176,10 +199,11 @@ class ErrorManager {
      * @private
      */
     _addQueueConsumer() {
-        SystemService.waitReady()
+        SystemService
+            .waitReady()
             .then(() => {
                 MessageService.listen(
-                    'queue.items.error',
+                    'queue.items',
                     (message) => {
                         return this._processQueueItems(message);
                     }
@@ -194,7 +218,11 @@ class ErrorManager {
      */
     _processQueueItems(message) {
         let payload = message.getPayload();
-        this._saveError(payload);
+        if(payload && payload.name === 'error') {
+            for(let item of payload.items) {
+                this._saveError(item.task);
+            }
+        }
     }
 }
 

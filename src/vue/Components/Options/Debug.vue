@@ -18,6 +18,12 @@
             <span class="value">{{ hidden.id }}</span>
         </div>
 
+        <translate tag="h3" say="DebugSettings"/>
+        <div class="debug-info">
+            <translate tag="label" class="label" say="DebugLanguageTagsEnabled"/>
+            <slider-field v-model="settings.localize"/>
+        </div>
+
         <translate tag="h3" say="DebugErrorLog"/>
         <div class="debug-error-item" v-for="error in errors">
             <div class="error-message" v-if="error.details && error.details.message" @click="showData">
@@ -37,38 +43,75 @@
     import ToastService from "@js/Services/ToastService";
     import ErrorManager from "@js/Manager/ErrorManager";
     import LocalisationService from "@js/Services/LocalisationService";
+    import SliderField from "@vue/Components/Form/SliderField";
+    import SettingsService from "@js/Services/SettingsService";
 
     export default {
-        components: {Icon, Translate},
+        components: {SliderField, Icon, Translate},
         data() {
             return {
-                hidden: {
+                hidden  : {
                     id: ''
                 },
-                errors: [],
-                app: {
-                    version: process.env.APP_VERSION,
-                    platform: process.env.APP_PLATFORM,
+                errors  : [],
+                app     : {
+                    version    : process.env.APP_VERSION,
+                    platform   : process.env.APP_PLATFORM,
                     environment: process.env.NODE_ENV
-                }
+                },
+                settings: {
+                    localize: false
+                },
+                interval: null
             };
         },
 
         mounted() {
-            MessageService.send('options.debug.data').then((reply) => {
-                let data = reply.getPayload();
+            this.loadData();
+            if(!this.interval) {
+                this.interval = setInterval(() => {
+                    this.loadData();
+                }, 5000);
+            }
+        },
 
-                if(data.hasOwnProperty('hidden')) {
-                    this.hidden = data.hidden;
-                }
+        beforeDestroy() {
+            clearInterval(this.interval);
+            this.interval = null;
+        },
 
-                if(data.hasOwnProperty('errors')) {
-                    this.errors = data.errors;
-                }
-            });
+        activated() {
+            this.loadData();
+            if(!this.interval) {
+                this.interval = setInterval(() => {
+                    this.loadData();
+                }, 5000);
+            }
+        },
+
+        deactivated() {
+            clearInterval(this.interval);
+            this.interval = null;
         },
 
         methods: {
+            loadData() {
+                MessageService.send('options.debug.data').then((reply) => {
+                    let data = reply.getPayload();
+
+                    if(data.hasOwnProperty('hidden')) {
+                        this.hidden = data.hidden;
+                    }
+
+                    if(data.hasOwnProperty('errors')) {
+                        this.errors = data.errors;
+                    }
+
+                    if(data.hasOwnProperty('settings')) {
+                        this.settings = data.settings;
+                    }
+                });
+            },
             getTitle(error) {
                 if(error.details) {
                     let label = '';
@@ -101,6 +144,14 @@
 
                 ToastService
                     .success('DebugErrorDataCopied')
+                    .catch(ErrorManager.catchEvt);
+            }
+        },
+
+        watch: {
+            'settings.localize': (value) => {
+                SettingsService
+                    .set('debug.localisation.enabled', !value)
                     .catch(ErrorManager.catchEvt);
             }
         }

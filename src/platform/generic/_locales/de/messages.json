@@ -29,6 +29,20 @@
             }
         }
     },
+    "UserAgent"                     : {
+        "message"     : "Offizielle Passwords $BROWSER$ Extension auf $OS$",
+        "description" : "The user agent used for api requests. Only ASCII characters allowed",
+        "placeholders": {
+            "browser": {
+                "content": "$1",
+                "example": "Firefox"
+            },
+            "os"     : {
+                "content": "$2",
+                "example": "Linux"
+            }
+        }
+    },
     "MigrationAccountName"          : {
         "message"    : "Nextcloud Konto",
         "description": "Label assigned to the account used by the v1.x migration"
@@ -1011,21 +1025,29 @@
         "message"    : "Interner Status",
         "description": ""
     },
-    "DebugInfoExtensionVersion"       : {
+    "DebugInfoExtensionVersion"     : {
         "message"    : "Extension Version",
         "description": ""
     },
-    "DebugInfoExtensionPlatform"       : {
+    "DebugInfoExtensionPlatform"    : {
         "message"    : "Extension Plattform",
         "description": ""
     },
-    "DebugInfoExtensionEnvironment"       : {
+    "DebugInfoExtensionEnvironment" : {
         "message"    : "Extension Modus",
         "description": ""
     },
     "DebugInfoHiddenFolderId"       : {
         "message"    : "ID des Ordners für private Passwörter",
         "description": ""
+    },
+    "DebugSettings"                 : {
+        "message"    : "Entwicklereinstellungen",
+        "description": "Headline above the debugging settings section in the extension settings in the debug tab"
+    },
+    "DebugLanguageTagsEnabled"      : {
+        "message"    : "Sprach-Tags anzeigen",
+        "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
     },
     "DebugErrorLog"                 : {
         "message"    : "Fehlerberichte",

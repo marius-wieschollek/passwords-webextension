@@ -16,6 +16,8 @@ import ThemeService from '@js/Services/ThemeService';
 import ThemeRepository from '@js/Repositories/ThemeRepository';
 import SettingsService from '@js/Services/SettingsService';
 import MasterSettingsProvider from '@js/Settings/MasterSettingsProvider';
+import LocalisationService from "@js/Services/LocalisationService";
+import ToastService from "@js/Services/ToastService";
 
 class Background {
     async init() {
@@ -37,6 +39,7 @@ class Background {
             ContextMenuManager.init();
             MiningManager.init();
             await ServerManager.init();
+            await LocalisationService.init();
         } catch(e) {
             ErrorManager.logError(e);
         }
