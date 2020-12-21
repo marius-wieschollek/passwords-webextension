@@ -1,9 +1,8 @@
 import Server from '@js/Models/Server/Server';
 import ServerRepository from '@js/Repositories/ServerRepository';
-import Api from 'passwords-client';
+import {EnhancedClassLoader, PasswordsClient} from 'passwords-client';
 import SystemService from '@js/Services/SystemService';
 import LocalisationService from '@js/Services/LocalisationService';
-import EnhancedClassLoader from "passwords-client/src/ClassLoader/EnhancedClassLoader";
 
 class ApiRepository {
 
@@ -13,7 +12,7 @@ class ApiRepository {
 
     /**
      *
-     * @returns {Promise<Api[]>}
+     * @returns {Promise<PasswordsClient[]>}
      */
     async findAll() {
         let apis  = await this._loadApis(),
@@ -30,7 +29,7 @@ class ApiRepository {
 
     /**
      *
-     * @returns {Promise<Api>}
+     * @returns {Promise<PasswordsClient>}
      */
     async findById(id) {
         let apis = await this._loadApis();
@@ -40,12 +39,12 @@ class ApiRepository {
         }
 
         // @TODO: Use custom NotFoundError here
-        throw new Error('Api not found');
+        throw new Error('PasswordsClient not found');
     }
 
     /**
      *
-     * @param {Api} api
+     * @param {PasswordsClient} api
      */
     async delete(api) {
         let apis = await this._loadApis();
@@ -57,7 +56,7 @@ class ApiRepository {
 
     /**
      *
-     * @return {Promise<{Api}>}
+     * @return {Promise<{PasswordsClient}>}
      * @private
      */
     async _loadApis() {
@@ -67,7 +66,7 @@ class ApiRepository {
         for(let server of servers) {
             if(!this._api.hasOwnProperty(server.getId())) {
                 let classes = new EnhancedClassLoader({model: {server: Server}});
-                this._api[server.getId()] = new Api(server, config, classes);
+                this._api[server.getId()] = new PasswordsClient(server, config, classes);
             }
         }
 

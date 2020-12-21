@@ -1,6 +1,6 @@
 import LocalisationService from '@js/Services/LocalisationService';
 import ErrorManager from '@js/Manager/ErrorManager';
-import Api from 'passwords-client';
+import {PasswordsClient} from 'passwords-client';
 import HttpError from 'passwords-client/src/Exception/Http/HttpError';
 import ServerRepository from '@js/Repositories/ServerRepository';
 import ServerModel from '@js/Models/Server/Server';
@@ -205,7 +205,7 @@ export default class Server {
      */
     async _checkConnection(server, response) {
         try {
-            let api = new Api(server, {});
+            let api = new PasswordsClient(server, {});
             let sessionAuth = api.getSessionAuthorization();
             await sessionAuth.load();
             return true;
@@ -233,7 +233,7 @@ export default class Server {
      * @private
      */
     async _checkRequirements(server, result) {
-        let api = new Api(server, {}),
+        let api = new PasswordsClient(server, {}),
             checkHelper = new ServerRequirementCheck(api);
 
         if(!await checkHelper.check()) {
@@ -280,6 +280,6 @@ export default class Server {
             fieldName = LocalisationService.translate(fieldLabel);
         variables.unshift(fieldName);
 
-        return LocalisationService.translate(message, [fieldName]);
+        return LocalisationService.translate(message, variables);
     }
 }

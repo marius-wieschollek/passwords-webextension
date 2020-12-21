@@ -6,7 +6,7 @@ import SettingsService from "@js/Services/SettingsService";
 export default class HiddenFolderHelper {
 
     /**
-     * @param {Api} api
+     * @param {PasswordsClient} api
      * @returns {Promise<String>}
      */
     async getHiddenFolderId(api) {
@@ -17,7 +17,7 @@ export default class HiddenFolderHelper {
 
     /**
      *
-     * @param {Api} api
+     * @param {PasswordsClient} api
      * @returns {Promise<EnhancedFolder>}
      */
     async getHiddenFolder(api) {
@@ -32,7 +32,7 @@ export default class HiddenFolderHelper {
 
     /**
      *
-     * @param {Api} api
+     * @param {PasswordsClient} api
      * @returns {Promise<(String|null)>}
      * @private
      */
@@ -57,7 +57,7 @@ export default class HiddenFolderHelper {
 
     /**
      *
-     * @param {Api} api
+     * @param {PasswordsClient} api
      * @returns {Promise<(EnhancedFolder|Folder)>}
      * @private
      */
@@ -84,7 +84,7 @@ export default class HiddenFolderHelper {
 
     /**
      *
-     * @param {Api} api
+     * @param {PasswordsClient} api
      * @param {String} folderId
      * @returns {Promise<EnhancedFolder>}
      * @private

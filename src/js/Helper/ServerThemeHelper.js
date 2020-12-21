@@ -6,7 +6,7 @@ class ServerThemeHelper {
 
     /**
      *
-     * @param {Api} api
+     * @param {PasswordsClient} api
      */
     async create(api) {
         let colors = await this._getColors(api);
@@ -75,7 +75,7 @@ class ServerThemeHelper {
     }
 
     /**
-     * @param {Api} api
+     * @param {PasswordsClient} api
      * @private
      */
     async _getColors(api) {

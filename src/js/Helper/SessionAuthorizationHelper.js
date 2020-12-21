@@ -3,11 +3,15 @@ import ErrorManager from '@js/Manager/ErrorManager';
 import ServerManager from '@js/Manager/ServerManager';
 import ConnectionErrorHelper from '@js/Helper/ConnectionErrorHelper';
 
+/**
+ * @external PasswordsClient
+ * @see https://git.mdns.eu/nextcloud/passwords-client/blob/master/src/Client/PasswordsClient.js
+ */
 export default class SessionAuthorizationHelper {
 
     /**
      *
-     * @param {Api} api
+     * @param {PasswordsClient} api
      * @param {FeedbackQueue} authQueue
      */
     constructor(api, authQueue) {

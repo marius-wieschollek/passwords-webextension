@@ -77,7 +77,7 @@
                 } catch(e) {
                     ErrorManager.logError(e);
                     ToastService.error(e.message, 'ServerSaveErrorTitle')
-                        .catch(ErrorManager.catch);
+                                .catch(ErrorManager.catch);
                     this.submitting = false;
                     return;
                 }
@@ -86,10 +86,19 @@
                     this.token = '';
                     this.changeToken = false;
                     ToastService.success('ServerSaveMessage', 'ServerSaveTitle')
-                        .catch(ErrorManager.catch);
+                                .catch(ErrorManager.catch);
                     this.$emit('change');
                 } else {
-                    ToastService.error(message.getPayload().message, 'ServerSaveErrorTitle')
+                    let payload = message.getPayload(),
+                        text = payload.message;
+                    if(payload.errors) {
+                        for(let key in payload.errors) {
+                            if(payload.errors.hasOwnProperty(key)) text += ' ' + payload.errors[key];
+                        }
+                    }
+
+                    ToastService
+                        .error(text, 'ServerSaveErrorTitle')
                         .catch(ErrorManager.catch);
                 }
 
@@ -110,29 +119,29 @@
 </script>
 
 <style lang="scss">
-    .account-form {
-        .server-warning {
-            background-color : var(--warning-bg-color);
-            color            : var(--warning-fg-color);
-            margin           : .5rem;
-            border-radius    : 3px;
-            padding          : 1rem;
+.account-form {
+    .server-warning {
+        background-color : var(--warning-bg-color);
+        color            : var(--warning-fg-color);
+        margin           : .5rem;
+        border-radius    : 3px;
+        padding          : 1rem;
 
-            .icon {
-                margin-right : .5rem;
-            }
+        .icon {
+            margin-right : .5rem;
         }
+    }
 
-        fieldset {
-            margin : 0;
-            border : 0;
+    fieldset {
+        margin : 0;
+        border : 0;
 
-            &[disabled="disabled"] {
-                input {
-                    opacity : 0.5;
-                    cursor  : default;
-                }
+        &[disabled="disabled"] {
+            input {
+                opacity : 0.5;
+                cursor  : default;
             }
         }
     }
+}
 </style>

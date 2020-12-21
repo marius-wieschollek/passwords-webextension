@@ -188,7 +188,7 @@
         "description": ""
     },
     "ValidationNotEmpty"            : {
-        "message"     : "$FIELD$ kann nicht leer sein",
+        "message"     : "$FIELD$ kann nicht leer sein.",
         "description" : "",
         "placeholders": {
             "field": {
@@ -198,7 +198,7 @@
         }
     },
     "ValidationMinLength"           : {
-        "message"     : "$FIELD$ muss mindestens $MIN$ Zeichen lang sein",
+        "message"     : "$FIELD$ muss mindestens $MIN$ Zeichen lang sein.",
         "description" : "",
         "placeholders": {
             "field": {
@@ -212,7 +212,7 @@
         }
     },
     "ValidationMaxLength"           : {
-        "message"     : "$FIELD$ muss kürzer als $MAX$ Zeichen sein",
+        "message"     : "$FIELD$ muss kürzer als $MAX$ Zeichen sein.",
         "description" : "",
         "placeholders": {
             "field": {
@@ -226,23 +226,23 @@
         }
     },
     "ValidationFailed"              : {
-        "message"    : "Validierung fehlgeschlagen",
+        "message"    : "Validierung fehlgeschlagen.",
         "description": ""
     },
     "ValidationNotAnUrl"            : {
-        "message"    : "Die Basis-URL muss einge gültige URL sein",
+        "message"    : "Die Basis-URL muss einge gültige URL sein.",
         "description": ""
     },
     "ValidationNotAToken"           : {
-        "message"    : "Das Token muss ein gültiges Nextcloud-Token sein",
+        "message"    : "Das Token muss ein gültiges Nextcloud-Token sein.",
         "description": ""
     },
     "ValidationDuplicate"           : {
-        "message"    : "Es gibt bereits ein Konto für diesen Benutzer von dieser Nextcloud",
+        "message"    : "Es gibt bereits ein Konto für diesen Benutzer von dieser Nextcloud.",
         "description": ""
     },
     "ValidationNoConnection"        : {
-        "message"     : "Verbindung mit $URL$ nicht möglich",
+        "message"     : "Verbindung mit $URL$ nicht möglich.",
         "description" : "",
         "placeholders": {
             "url": {
@@ -252,7 +252,7 @@
         }
     },
     "ValidationUnauthorizedError"   : {
-        "message"     : "Der Server hinter $URL$ hat die Anmeldedaten nicht akzeptiert",
+        "message"     : "Der Server hinter $URL$ hat die Anmeldedaten nicht akzeptiert.",
         "description" : "",
         "placeholders": {
             "url": {
@@ -262,7 +262,7 @@
         }
     },
     "ValidationHttpError"           : {
-        "message"     : "Der Verbindungsversuch mit $URL$ endete mit $ERROR$",
+        "message"     : "Der Verbindungsversuch mit $URL$ endete mit $ERROR$.",
         "description" : "",
         "placeholders": {
             "url"  : {
@@ -276,7 +276,7 @@
         }
     },
     "ValidationConnectionError"     : {
-        "message"     : "Der Verbindungsversuch mit $URL$ endete mit $ERROR$",
+        "message"     : "Der Verbindungsversuch mit $URL$ endete mit $ERROR$.",
         "description" : "",
         "placeholders": {
             "url"  : {
@@ -290,7 +290,7 @@
         }
     },
     "ValidationServerVersion"       : {
-        "message"    : "Die Version von Passwörter auf dem Server ist veraltet",
+        "message"    : "Die Version von Passwörter auf dem Server ist veraltet.",
         "description": ""
     },
     "NoRelatedPasswords"            : {

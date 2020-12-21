@@ -59,7 +59,15 @@
                             .catch(ErrorManager.catch);
                         this.$emit('create');
                     } else {
-                        ToastService.error(message.getPayload().message, 'ServerSaveErrorTitle')
+                        let payload = message.getPayload(),
+                            text = payload.message;
+                        if(payload.errors) {
+                            for(let key in payload.errors) {
+                                if(payload.errors.hasOwnProperty(key)) text += ' ' + payload.errors[key];
+                            }
+                        }
+
+                        ToastService.error(text, 'ServerSaveErrorTitle')
                             .catch(ErrorManager.catch);
                     }
                 } catch(e) {

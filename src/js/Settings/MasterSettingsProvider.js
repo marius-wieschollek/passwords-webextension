@@ -53,9 +53,8 @@ class MasterSettingsProvider {
                 'sync.notification.password.update'
             ],
             'theme.current'               : [
-                'client.ext.theme.current',
-                'local.theme.current',
-                'sync.theme.current'
+                'sync.theme.current',
+                'local.theme.current'
             ],
             'theme.custom'                : [
                 'sync.theme.custom',
@@ -294,6 +293,9 @@ class MasterSettingsProvider {
     async _getSettingsRepository() {
         try {
             let api = await ServerManager.getDefaultApi();
+            if(api.getSessionAuthorization().needsAuthorization()) {
+                return null;
+            }
 
             return /** @type {SettingRepository} **/ api.getInstance('repository.setting');
         } catch(e) {

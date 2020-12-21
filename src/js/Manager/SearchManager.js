@@ -61,7 +61,7 @@ class SearchManager {
 
     /**
      *
-     * @param {Api} api
+     * @param {PasswordsClient} api
      * @return {Promise<void>}
      * @private
      */
@@ -82,7 +82,7 @@ class SearchManager {
 
     /**
      *
-     * @param {Api} api
+     * @param {PasswordsClient} api
      * @param {String} type
      * @return {Promise<void>}
      * @private

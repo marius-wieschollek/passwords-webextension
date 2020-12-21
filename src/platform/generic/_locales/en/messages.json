@@ -188,8 +188,8 @@
         "description": "Name of the account base url field in account validation message. This value is used when the user attempts to save an account with an invalid base url"
     },
     "ValidationNotEmpty"            : {
-        "message"     : "The $FIELD$ can not be empty",
-        "description" : "",
+        "message"     : "The $FIELD$ can not be empty.",
+        "description" : "Validation message when the user attempts to save something (like an account) but a required field is empty.",
         "placeholders": {
             "field": {
                 "content": "$1",
@@ -198,8 +198,8 @@
         }
     },
     "ValidationMinLength"           : {
-        "message"     : "The $FIELD$ must be at least $MIN$ characters long",
-        "description" : "",
+        "message"     : "The $FIELD$ must be at least $MIN$ characters long.",
+        "description" : "Validation message when the user attempts to save something (like an account) but a field is shorter than required",
         "placeholders": {
             "field": {
                 "content": "$1",
@@ -212,8 +212,8 @@
         }
     },
     "ValidationMaxLength"           : {
-        "message"     : "The $FIELD$ must be shorter than $MAX$ characters",
-        "description" : "",
+        "message"     : "The $FIELD$ must be shorter than $MAX$ characters.",
+        "description" : "Validation message when the user attempts to save something (like an account) but a field is longer than allowed",
         "placeholders": {
             "field": {
                 "content": "$1",
@@ -226,24 +226,24 @@
         }
     },
     "ValidationFailed"              : {
-        "message"    : "Validation failed",
-        "description": ""
+        "message"    : "Validation failed.",
+        "description": "Validation message when the user attempts to save something (like an account) but there were validation errors"
     },
     "ValidationNotAnUrl"            : {
-        "message"    : "The base url must be a valid url",
-        "description": ""
+        "message"    : "The base url must be a valid url.",
+        "description": "Validation message when the user attempts to save an account but the server url is not a valid url"
     },
     "ValidationNotAToken"           : {
-        "message"    : "The token must be a valid Nextcloud token",
-        "description": ""
+        "message"    : "The token must be a valid Nextcloud token.",
+        "description": "Validation message when the user attempts to save an account but the token does not match the Nextcloud token schema"
     },
     "ValidationDuplicate"           : {
         "message"    : "There is already an account for this user on this Nextcloud.",
-        "description": ""
+        "description": "Validation message when the user attempts to save a new account, but a similar account with the same server and same user name already exists"
     },
     "ValidationNoConnection"        : {
-        "message"     : "Unable to connect to $URL$",
-        "description" : "",
+        "message"     : "Unable to connect to $URL$.",
+        "description" : "Validation message when the user attempts to save an account but it is not possible to connect to this server with the given url",
         "placeholders": {
             "url": {
                 "content": "$1",
@@ -252,8 +252,8 @@
         }
     },
     "ValidationUnauthorizedError"   : {
-        "message"     : "The server at $URL$ did not accept the login data",
-        "description" : "",
+        "message"     : "The server at $URL$ did not accept the login data.",
+        "description" : "Validation message when the user attempts to save an account but the server did not accept the user name and token",
         "placeholders": {
             "url": {
                 "content": "$1",
@@ -262,8 +262,8 @@
         }
     },
     "ValidationHttpError"           : {
-        "message"     : "Trying to connect to $URL$ resulted in $ERROR$",
-        "description" : "",
+        "message"     : "Trying to connect to $URL$ resulted in $ERROR$.",
+        "description" : "Validation message when the user attempts to save an account but the server responded with an unexpected HTTP status code",
         "placeholders": {
             "url"  : {
                 "content": "$1",
@@ -276,8 +276,8 @@
         }
     },
     "ValidationConnectionError"     : {
-        "message"     : "Trying to connect to $URL$ resulted in $ERROR$",
-        "description" : "",
+        "message"     : "Trying to connect to $URL$ resulted in $ERROR$.",
+        "description" : "Validation message when the user attempts to save an account but the connection attempt resulted in any kind of error (including internal extension errors)",
         "placeholders": {
             "url"  : {
                 "content": "$1",
@@ -290,8 +290,8 @@
         }
     },
     "ValidationServerVersion"       : {
-        "message"    : "The app version installed on the server is outdated",
-        "description": ""
+        "message"    : "The app version installed on the server is outdated.",
+        "description": "Validation message when the user attempts to save an account but the version of the passwords app installed on the server is outdated"
     },
     "NoRelatedPasswords"            : {
         "message"    : "Did not find any related passwords",

@@ -172,7 +172,7 @@ class ServerManager {
 
     /**
      *
-     * @return {Promise<Api>}
+     * @return {Promise<PasswordsClient>}
      */
     async getDefaultApi() {
         try {
@@ -212,7 +212,7 @@ class ServerManager {
 
     /**
      *
-     * @return {Promise<Api|null>}
+     * @return {Promise<PasswordsClient|null>}
      * @private
      */
     async _findDefaultApi() {
@@ -226,7 +226,7 @@ class ServerManager {
 
     /**
      *
-     * @param {Api} api
+     * @param {PasswordsClient} api
      */
     _keepalive(api) {
         api

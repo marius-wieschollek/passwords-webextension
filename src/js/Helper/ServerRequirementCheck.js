@@ -13,7 +13,7 @@ export default class ServerRequirementCheck {
 
     /**
      *
-     * @param {Api} api
+     * @param {PasswordsClient} api
      */
     constructor(api) {
         this._connectionError = new ConnectionErrorHelper();
