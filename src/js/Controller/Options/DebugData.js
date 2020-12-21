@@ -21,7 +21,11 @@ export default class DebugData extends AbstractController {
         try {
             let api    = await ServerManager.getDefaultApi(),
                 helper = new HiddenFolderHelper();
-            data.hidden.id = await helper.getHiddenFolderId(api);
+            if(api.isAuthorized()) {
+                data.hidden.id = await helper.getHiddenFolderId(api);
+            } else {
+                data.hidden.id = '-';
+            }
         } catch(e) {
             ErrorManager.logError(e);
         }

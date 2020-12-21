@@ -195,7 +195,10 @@ class MasterSettingsProvider {
     async _serverGet(key) {
         let setting = await this._getServerSetting(key);
 
-        return setting === null ? undefined:setting.getValue();
+        if(setting === null) return undefined;
+        if(setting.getValue() === null) return undefined;
+
+        return setting.getValue();
     }
 
     /**
@@ -222,6 +225,9 @@ class MasterSettingsProvider {
         let setting    = await this._getServerSetting(key),
             repository = await this._getSettingsRepository();
         if(!repository) return false;
+
+        let api = await ServerManager.getDefaultApi();
+        if(!api.isAuthorized()) return false;
 
         if(setting !== null) {
             setting.setValue(value);
@@ -293,9 +299,6 @@ class MasterSettingsProvider {
     async _getSettingsRepository() {
         try {
             let api = await ServerManager.getDefaultApi();
-            if(api.getSessionAuthorization().needsAuthorization()) {
-                return null;
-            }
 
             return /** @type {SettingRepository} **/ api.getInstance('repository.setting');
         } catch(e) {

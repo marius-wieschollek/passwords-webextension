@@ -2,6 +2,7 @@ import ServerRepository from "@js/Repositories/ServerRepository";
 import ErrorManager from "@js/Manager/ErrorManager";
 import NotFoundError from "passwords-client/src/Exception/Http/NotFoundError";
 import SettingsService from "@js/Services/SettingsService";
+import ClientNotAuthorizedError from "@js/Exception/ClientNotAuthorizedError";
 
 export default class HiddenFolderHelper {
 
@@ -21,6 +22,10 @@ export default class HiddenFolderHelper {
      * @returns {Promise<EnhancedFolder>}
      */
     async getHiddenFolder(api) {
+        if(!api.isAuthorized()) {
+            throw new ClientNotAuthorizedError(api);
+        }
+
         let folderId = await this._getFolderId(api);
 
         if(folderId === null) {

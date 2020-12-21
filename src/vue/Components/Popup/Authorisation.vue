@@ -68,9 +68,9 @@
         async mounted() {
             await this.loadNext();
             if(this.hasPassword) {
-                this.$refs.password.focus();
+                this.$refs.password.$el.focus();
             } else if(this.tokenField) {
-                this.$refs.token.focus();
+                this.$refs.token.$el.focus();
             }
         },
 

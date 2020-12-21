@@ -69,7 +69,7 @@
     "protocol_handlers"        : [
         {
             "protocol"   : "ext+passlink",
-            "name"       : "__MSG_protocolHandler__",
+            "name"       : "Passwords for Firefox",
             "uriTemplate": "html/passlink.html?link=%s"
         }
     ],

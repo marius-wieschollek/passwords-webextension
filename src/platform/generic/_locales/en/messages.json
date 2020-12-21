@@ -15,10 +15,6 @@
         "message"    : "Passwords",
         "description": "Title of the context menu item"
     },
-    "protocolHandler"               : {
-        "message"    : "PassLink Client",
-        "description": "Title of the custom protocol handler"
-    },
     "BrowserActionTitleCounter"     : {
         "message"     : "Passwords ($COUNTER$)",
         "description" : "Title of the button in the browser bar with suggestion counter",

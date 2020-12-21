@@ -4,6 +4,9 @@ import {EnhancedClassLoader, PasswordsClient} from 'passwords-client';
 import SystemService from '@js/Services/SystemService';
 import LocalisationService from '@js/Services/LocalisationService';
 
+/**
+ * @typedef {PasswordsClient} PasswordsClient
+ */
 class ApiRepository {
 
     constructor() {

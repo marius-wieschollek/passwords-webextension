@@ -1,12 +1,11 @@
 import PasswordIndexer from '@js/Search/Indexer/PasswordIndexer';
-import Password from 'passwords-client/src/Model/Password/Password';
+import {Password, Folder, Tag} from 'passwords-client';
 import Server from '@js/Models/Server/Server';
-import Folder from 'passwords-client/src/Model/Folder/Folder';
-import Tag from 'passwords-client/src/Model/Tag/Tag';
 import EventQueue from '@js/Event/EventQueue';
 import ErrorManager from '@js/Manager/ErrorManager';
 import FolderIndexer from '@js/Search/Indexer/FolderIndexer';
 import TagIndexer from '@js/Search/Indexer/TagIndexer';
+import UnknownItemTypeError from "@js/Exception/UnknownItemTypeError";
 
 class SearchIndex {
 
@@ -150,18 +149,12 @@ class SearchIndex {
      * @private
      */
     _getItemType(item) {
-        if(item instanceof Password) {
-            return 'password';
-        }
-        if(item instanceof Folder) {
-            return 'folder';
-        }
-        if(item instanceof Tag) {
-            return 'tag';
-        }
-        if(item instanceof Server) {
-            return 'server';
-        }
+        if(item instanceof Password) return 'password';
+        if(item instanceof Folder) return 'folder';
+        if(item instanceof Tag) return 'tag';
+        if(item instanceof Server) return 'server';
+
+        throw new UnknownItemTypeError(item);
     }
 }
 

@@ -101,15 +101,20 @@ class ErrorManager {
      */
     _convertErrorToObject(error) {
         if(error instanceof Error) {
-            return {
-                columnNumber: error.columnNumber ? error.columnNumber:undefined,
-                fileName    : error.fileName ? error.fileName:undefined,
-                lineNumber  : error.lineNumber ? error.lineNumber:undefined,
-                message     : error.message ? error.message:undefined,
+            let data = {
                 name        : error.name ? error.name:undefined,
-                stack       : error.stack ? error.stack:undefined,
+                stack       : [],
                 string      : error.toString()
             };
+            if(error.stack) data.stack = error.stack.split("\n");
+            let properties = Object.getOwnPropertyDescriptors(error);
+            for(let property in properties) {
+                if(properties.hasOwnProperty(property) && properties[property].hasOwnProperty('value')) {
+                    data[property] = properties[property].value;
+                }
+            }
+
+            return data;
         }
 
         return error;
