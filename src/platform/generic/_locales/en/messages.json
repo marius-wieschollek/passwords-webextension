@@ -92,7 +92,7 @@
         "description": "Headline above the search section in the other settings tab in the extension settings"
     },
     "SettingsPopupRelatedSearch"    : {
-        "message"    : "Search on type from \"Related\" tab",
+        "message"    : "Start search when i type in \"Related\"",
         "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
     },
     "AccountList"                   : {
