@@ -3,6 +3,7 @@ import HiddenFolderHelper from "@js/Helper/HiddenFolderHelper";
 import ErrorManager from "@js/Manager/ErrorManager";
 import ServerManager from "@js/Manager/ServerManager";
 import SettingsService from "@js/Services/SettingsService";
+import SystemService from "@js/Services/SystemService";
 
 export default class DebugData extends AbstractController {
 
@@ -15,7 +16,12 @@ export default class DebugData extends AbstractController {
         let data = {
             hidden  : {id: null},
             errors  : ErrorManager.errors,
-            settings: {localisations: false}
+            settings: {localisations: false},
+            app     : {
+                version    : process.env.APP_VERSION,
+                platform   : process.env.APP_PLATFORM,
+                environment: process.env.NODE_ENV
+            }
         };
 
         try {
@@ -33,6 +39,13 @@ export default class DebugData extends AbstractController {
         try {
             let value = await SettingsService.getValue('debug.localisation.enabled');
             data.settings.localize = !value;
+        } catch(e) {
+            ErrorManager.logError(e);
+        }
+
+        try {
+            let manifest = SystemService.getBrowserApi().runtime.getManifest();
+            if(manifest.hasOwnProperty('version')) data.app.version = manifest.version
         } catch(e) {
             ErrorManager.logError(e);
         }
