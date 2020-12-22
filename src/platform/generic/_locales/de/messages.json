@@ -45,31 +45,31 @@
     },
     "SettingsTabAccounts"           : {
         "message"    : "Konten",
-        "description": ""
+        "description": "Label of the user accounts tab in the extension settings"
     },
     "SettingsTabTheming"            : {
-        "message"    : "Design",
-        "description": ""
+        "message"    : "Themes",
+        "description": "Label of the themes tab in the extension settings"
     },
     "SettingsTabOther"              : {
         "message"    : "Weitere Einstellungen",
-        "description": ""
+        "description": "Label of the general settings tab in the extension settings"
     },
     "SettingsTabDebug"              : {
         "message"    : "Debug",
-        "description": ""
+        "description": "Label of the extension debugging tab in the extension settings"
     },
     "SettingsAccountsMain"          : {
         "message"    : "Standardkonto für neue Passwörter",
-        "description": ""
+        "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
     },
     "AutofillSettings"              : {
         "message"    : "Passwörter einfügen",
-        "description": ""
+        "description": "Headline above the password autofill section in the other settings tab in the extension settings"
     },
     "SettingsPopupAutoclose"        : {
         "message"    : "Popup nach erfolgreichem Einfügen schließen",
-        "description": ""
+        "description": "Label of the setting in the extension settings to automatically close the extension popup after successfull autofill"
     },
     "SettingsPasswordAutosubmit"    : {
         "message"    : "Formulare automatisch abschicken",
@@ -115,12 +115,12 @@
         "message"    : "Alle Änderungen wurden erfolgreich übernommen",
         "description": ""
     },
-    "ServerSaveErrorTitle"          : {
-        "message"    : "Speichern fehlgeschlagen",
-        "description": ""
-    },
     "ServerCreatedMessage"          : {
         "message"    : "Das Benutzerkonto wurde gespeichert und kann verwendet werden",
+        "description": ""
+    },
+    "ServerSaveErrorTitle"          : {
+        "message"    : "Speichern fehlgeschlagen",
         "description": ""
     },
     "ServerDisabledWarning"         : {
@@ -129,11 +129,11 @@
     },
     "ServerLabel"                   : {
         "message"    : "Name",
-        "description": ""
+        "description": "Label of the account name field in account details in the extension settings"
     },
     "ServerBaseUrl"                 : {
         "message"    : "Url",
-        "description": ""
+        "description": "Label of the server url field in account details in the extension settings"
     },
     "ServerUser"                    : {
         "message"    : "Benutzer",
@@ -141,7 +141,7 @@
     },
     "ServerToken"                   : {
         "message"    : "Token",
-        "description": ""
+        "description": "Label of the account login token field in account details in the extension settings"
     },
     "ServerTokenChange"                   : {
         "message"    : "Token ändern",
@@ -351,6 +351,10 @@
         "message"    : "Benutzer",
         "description": ""
     },
+    "LabelHidden"                   : {
+        "message"    : "Verstecktes Passwort",
+        "description": ""
+    },
     "LabelUrl"                      : {
         "message"    : "Url",
         "description": ""
@@ -369,11 +373,7 @@
     },
     "LabelTags"                     : {
         "message"    : "Tags",
-        "description": ""
-    },
-    "LabelHidden"                   : {
-        "message"    : "Verstecktes Passwort",
-        "description": ""
+        "description": "Label for the tag count in the server info in the browse tab"
     },
     "PlaceholderPassword"           : {
         "message"    : "Passwort",
@@ -555,6 +555,7 @@
         "placeholders": {
             "error": {
                 "content": "$1",
+                "description": "The error message",
                 "example": "500 - Internal Server Error"
             }
         }
@@ -597,27 +598,27 @@
     },
     "ThemeAdaptaLight"              : {
         "message"    : "Adapta",
-        "description": ""
+        "description": "Label of the theme with the Adapta color scheme"
     },
     "ThemeAdaptaTeal"               : {
         "message"    : "Adapta teal",
-        "description": ""
+        "description": "Label of the theme with the Adapta teal color scheme"
     },
     "ThemeArcDark"                  : {
         "message"    : "Arc dark",
-        "description": ""
+        "description": "Label of the theme with the Arc dark scheme"
     },
     "ThemeArcLight"                 : {
         "message"    : "Arc",
-        "description": ""
+        "description": "Label of the theme with the Arc color scheme"
     },
     "ThemeHacker"                   : {
         "message"    : "Hacker",
-        "description": ""
+        "description": "Label of the hacker style theme"
     },
     "ThemeRGB"                      : {
         "message"    : "Gaming RGB",
-        "description": ""
+        "description": "Label of the gaming rgb animated theme"
     },
     "ThemeCustom"                   : {
         "message"    : "Eigenes Thema",
@@ -713,11 +714,11 @@
     },
     "FontNextcloud"                 : {
         "message"    : "Nextcloud",
-        "description": ""
+        "description": "Label of the Nextcloud font option in the custom theme settings"
     },
     "FontOpenDyslexic"              : {
         "message"    : "Open Dyslexic",
-        "description": ""
+        "description": "Label of the open dyslexic font option in the custom theme settings. This font is good for users with dyslexia"
     },
     "FontCustom"                    : {
         "message"    : "Eigene Schrift",
@@ -741,7 +742,7 @@
     },
     "FontSizeMedium"                : {
         "message"    : "Medium",
-        "description": ""
+        "description": "Label for the medium font size in the custom theme settings"
     },
     "FontSizeLarge"                 : {
         "message"    : "Groß",
@@ -832,8 +833,8 @@
         "description": ""
     },
     "PasslinkNoActiveAction"        : {
-        "message"    : "There is no active passlink action of this type",
-        "description": ""
+        "message"    : "Es existiert keine aktive PassLink Aktion dieses Typs",
+        "description": "Error message when an active PassLink action is required for a request but no active action can be found. (Example: Request to view the second step of the PassLink connect step, but no PassLink connect was started at all)"
     },
     "PasslinkConnectCheckCodes"     : {
         "message"    : "Prüfe ob diese Codes mit denen in der App übereinstimmen. Wenn das der Fall ist, bestätige die Verbindung in der App und du bist fertig.",
@@ -943,7 +944,7 @@
     },
     "FirstRunConnectScanButton"     : {
         "message"    : "PassLink Code scannen",
-        "description": ""
+        "description": "Text of the button to scan a PassLink QR Code"
     },
     "OpenSettings"                  : {
         "message"    : "Addon-Einstellungen öffnen",
@@ -967,6 +968,7 @@
         "placeholders": {
             "words": {
                 "content": "$1",
+                "description": "The words used for the password",
                 "example": "First Second Third"
             }
         }
@@ -989,7 +991,7 @@
     },
     "LabelGeneratorStrengthStandard": {
         "message"    : "Standard",
-        "description": ""
+        "description": "Label of the default (1) strength option for the password generator in the tools tab"
     },
     "LabelGeneratorStrengthMedium"  : {
         "message"    : "Mittel",
@@ -1027,7 +1029,7 @@
     },
     "DebugInfoExtensionVersion"     : {
         "message"    : "Extension Version",
-        "description": ""
+        "description": "Description of the extension version in the internal status section in the debug tab in the extension settings"
     },
     "DebugInfoExtensionPlatform"    : {
         "message"    : "Extension Plattform",

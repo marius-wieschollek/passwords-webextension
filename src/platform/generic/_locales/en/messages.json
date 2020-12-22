@@ -582,267 +582,267 @@
     },
     "SettingsThemeId"               : {
         "message"    : "Active theme",
-        "description": ""
+        "description": "Label of the option to choose the current theme in the extension settings"
     },
     "ThemeDark"                     : {
         "message"    : "Dark theme",
-        "description": ""
+        "description": "Label of the dark theme"
     },
     "ThemeOledDark"                 : {
         "message"    : "Dark OLED",
-        "description": ""
+        "description": "Label of the dark theme optimized for OLED-Displays"
     },
     "ThemeLight"                    : {
         "message"    : "Default",
-        "description": ""
+        "description": "Label of the default light theme"
     },
     "ThemeAdaptaLight"              : {
         "message"    : "Adapta",
-        "description": ""
+        "description": "Label of the theme with the Adapta color scheme"
     },
     "ThemeAdaptaTeal"               : {
         "message"    : "Adapta teal",
-        "description": ""
+        "description": "Label of the theme with the Adapta teal color scheme"
     },
     "ThemeArcDark"                  : {
         "message"    : "Arc dark",
-        "description": ""
+        "description": "Label of the theme with the Arc dark scheme"
     },
     "ThemeArcLight"                 : {
         "message"    : "Arc",
-        "description": ""
+        "description": "Label of the theme with the Arc color scheme"
     },
     "ThemeHacker"                   : {
         "message"    : "Hacker",
-        "description": ""
+        "description": "Label of the hacker style theme"
     },
     "ThemeRGB"                      : {
         "message"    : "Gaming RGB",
-        "description": ""
+        "description": "Label of the gaming rgb animated theme"
     },
     "ThemeCustom"                   : {
         "message"    : "Custom theme",
-        "description": ""
+        "description": "Label for the custom theme option"
     },
     "CustomFont"                    : {
         "message"    : "Font",
-        "description": ""
+        "description": "Headline for the font settings in the custom theme settings"
     },
     "CustomDefaultElement"          : {
         "message"    : "Default element",
-        "description": ""
+        "description": "Headline for the default element styling settings in the custom theme settings"
     },
     "CustomActiveElement"           : {
         "message"    : "Active element",
-        "description": ""
+        "description": "Headline for the active element styling settings in the custom theme settings"
     },
     "CustomButtons"                 : {
         "message"    : "Buttons",
-        "description": ""
+        "description": "Headline for the button styling settings in the custom theme settings"
     },
     "CustomToasts"                  : {
         "message"    : "Toast notifications",
-        "description": ""
+        "description": "Headline for the toast notification styling settings in the custom theme settings"
     },
     "CustomBadge"                   : {
         "message"    : "Browser icon",
-        "description": ""
+        "description": "Headline for the browser toolbar icon styling settings in the custom theme settings"
     },
     "BackgroundColorLabel"          : {
         "message"    : "Background color",
-        "description": ""
+        "description": "Label of background color options in the custom theme settings"
     },
     "ForegroundColorLabel"          : {
         "message"    : "Foreground color",
-        "description": ""
+        "description": "Label of foreground / text color options in the custom theme settings"
     },
     "BackgroundInheritLabel"        : {
         "message"    : "Inherit background",
-        "description": ""
+        "description": "Label of options to inherit the background color in the custom theme settings"
     },
     "ForegroundInheritLabel"        : {
         "message"    : "Inherit foreground",
-        "description": ""
+        "description": "Label of options to inherit the foreground / text color in the custom theme settings"
     },
     "BackgroundColorBaseTitle"      : {
         "message"    : "This color is usually used for the background",
-        "description": ""
+        "description": "Tooltip of the color input field in the custom theme settings for the default background color for an element"
     },
     "BackgroundColorHoverTitle"     : {
         "message"    : "This color is used for the background if the element is active. It can also be used for the border of an inactive element",
-        "description": ""
+        "description": "Tooltip of the color input field in the custom theme settings for the mouse hover / active background color for an element"
     },
     "ForegroundColorBaseTitle"      : {
         "message"    : "This color is usually used for texts and borders",
-        "description": ""
+        "description": "Tooltip of the color input field in the custom theme settings for the default foreground / text color for an element"
     },
     "ForegroundColorHoverTitle"     : {
         "message"    : "This color is used for texts and borders if the element is active",
-        "description": ""
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active foreground / text color for an element"
     },
     "BackgroundInheritTitle"        : {
         "message"    : "If activated, the value will be inherited from the parent element",
-        "description": ""
+        "description": "Tooltip for the checkbox to inherit the background color (from the parent element in the html) in the custom theme settings"
     },
     "ForegroundInheritTitle"        : {
         "message"    : "If activated, the value will be inherited from the parent element",
-        "description": ""
+        "description": "Tooltip for the checkbox to inherit the foreground / text color (from the parent element in the html) in the custom theme settings"
     },
     "SettingsCustomFont"            : {
         "message"    : "Font family",
-        "description": ""
+        "description": "Label of the font option in the custom theme settings"
     },
     "FontDefault"                   : {
         "message"    : "Default",
-        "description": ""
+        "description": "Label of the default font option in the custom theme settings"
     },
     "FontMono"                      : {
         "message"    : "Monospace",
-        "description": ""
+        "description": "Label of the monospaced font option in the custom theme settings"
     },
     "FontSerif"                     : {
         "message"    : "Serif",
-        "description": ""
+        "description": "Label of the serif style (like Times New Roman) font option in the custom theme settings"
     },
     "FontSans"                      : {
         "message"    : "Sans serif",
-        "description": ""
+        "description": "Label of the sans serif (like Arial) font option in the custom theme settings"
     },
     "FontLight"                     : {
         "message"    : "Light",
-        "description": ""
+        "description": "Label of the thin font option in the custom theme settings"
     },
     "FontNextcloud"                 : {
         "message"    : "Nextcloud",
-        "description": ""
+        "description": "Label of the Nextcloud font option in the custom theme settings"
     },
     "FontOpenDyslexic"              : {
         "message"    : "Open Dyslexic",
-        "description": ""
+        "description": "Label of the open dyslexic font option in the custom theme settings. This font is good for users with dyslexia"
     },
     "FontCustom"                    : {
         "message"    : "Custom",
-        "description": ""
+        "description": "Label for unrecognized fonts in the custom theme settings. This option is usually not shown"
     },
     "SettingsCustomFontSize"        : {
         "message"    : "Font size",
-        "description": ""
+        "description": "Label of the font size setting in the custom theme settings"
     },
     "FontSizeVerySmall"             : {
         "message"    : "Very small",
-        "description": ""
+        "description": "Label for the very small font size in the custom theme settings"
     },
     "FontSizeSmall"                 : {
         "message"    : "Small",
-        "description": ""
+        "description": "Label for the small font size in the custom theme settings"
     },
     "FontSizeDefault"               : {
         "message"    : "Default",
-        "description": ""
+        "description": "Label for the default font size in the custom theme settings"
     },
     "FontSizeMedium"                : {
         "message"    : "Medium",
-        "description": ""
+        "description": "Label for the medium font size in the custom theme settings"
     },
     "FontSizeLarge"                 : {
         "message"    : "Large",
-        "description": ""
+        "description": "Label for the large font size in the custom theme settings"
     },
     "FontSizeVeryLarge"             : {
         "message"    : "Very large",
-        "description": ""
+        "description": "Label for the very large font size in the custom theme settings"
     },
     "ToastInfoColors"               : {
         "message"    : "Info toast",
-        "description": ""
+        "description": "Label of the setting in the custom theme settings to choose the colors of informational toast notifications"
     },
     "ToastSuccessColors"            : {
         "message"    : "Success toast",
-        "description": ""
+        "description": "Label of the setting in the custom theme settings to choose the colors of success toast notifications"
     },
     "ToastWarningColors"            : {
         "message"    : "Warning toast",
-        "description": ""
+        "description": "Label of the setting in the custom theme settings to choose the colors of warning toast notifications"
     },
     "ToastErrorColors"              : {
         "message"    : "Error toast",
-        "description": ""
+        "description": "Label of the setting in the custom theme settings to choose the colors of error toast notifications"
     },
     "ToastBackgroundTitle"          : {
-        "message"    : "Background color for popup messages",
-        "description": ""
+        "message"    : "Background color for the toast notification",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification background color"
     },
     "ToastForegroundTitle"          : {
-        "message"    : "Color for text and button backgrounds",
-        "description": ""
+        "message"    : "Color for text and button backgrounds of the toast notification",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification foreground / text color"
     },
     "SettingsBadgeIcon"             : {
         "message"    : "Toolbar icon",
-        "description": ""
+        "description": "Label of the setting to choose the toolbar icon in the custom theme settings"
     },
     "BadgeIconAuto"                 : {
         "message"    : "Automatic",
-        "description": ""
+        "description": "Label of the automatic icon option for the toolbar icon in the custom theme settings"
     },
     "BadgeIconLight"                : {
         "message"    : "Light icon",
-        "description": ""
+        "description": "Label of the light icon option for the toolbar icon in the custom theme settings"
     },
     "BadgeIconMedium"               : {
         "message"    : "Grey icon",
-        "description": ""
+        "description": "Label of the grey icon option for the toolbar icon in the custom theme settings"
     },
     "BadgeIconDark"                 : {
         "message"    : "Dark icon",
-        "description": ""
+        "description": "Label of the dark icon option for the toolbar icon in the custom theme settings"
     },
     "BadgeIconNewLight"             : {
         "message"    : "Light modern icon",
-        "description": ""
+        "description": "Label of the light modern icon option for the toolbar icon in the custom theme settings"
     },
     "BadgeIconNewMedium"            : {
         "message"    : "Grey modern icon",
-        "description": ""
+        "description": "Label of the grey modern icon option for the toolbar icon in the custom theme settings"
     },
     "BadgeIconNewDark"              : {
         "message"    : "Dark modern icon",
-        "description": ""
+        "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
     },
     "CustomBadgeColors"             : {
         "message"    : "Badge colors",
-        "description": ""
+        "description": "Label of the settings for the toolbar icon badge colors in the custom theme settings"
     },
     "BadgeBackgroundTitle"          : {
         "message"    : "Background color of the badge",
-        "description": ""
+        "description": "Tooltip for the color input for the background color of the toolbar icon badge in the custom theme settings"
     },
     "BadgeForegroundTitle"          : {
         "message"    : "Text color of the badge",
-        "description": ""
+        "description": "Tooltip for the color input for the text color of the toolbar icon badge in the custom theme settings"
     },
     "PasslinkErrorNoMessage"        : {
         "message"    : "There has been an error but no error message was provided",
-        "description": ""
+        "description": "Error message shown in the PassLink popup window when and error happened but no error message was provided"
     },
     "PasslinkNoLinkProvided"        : {
         "message"    : "No link or action is missing",
-        "description": ""
+        "description": "Error message shown in the PassLink popup window when the window was opened but no action or link to process was provided"
     },
     "PasslinkErrorClose"            : {
         "message"    : "Close",
-        "description": ""
+        "description": "Text of the close button in the PassLink error window"
     },
     "PasslinkNoActiveAction"        : {
-        "message"    : "There is no active passlink action of this type",
-        "description": ""
+        "message"    : "There is no active PassLink action of this type",
+        "description": "Error message when an active PassLink action is required for a request but no active action can be found. (Example: Request to view the second step of the PassLink connect step, but no PassLink connect was started at all)"
     },
     "PasslinkConnectCheckCodes"     : {
         "message"    : "Check if the codes below match with the ones you see in the app. If they do, confirm the connection in the app and you're done.",
-        "description": ""
+        "description": "Message during the PassLink Connect action telling the user to check if the codes below match the ones shown in the Nextcloud Passwords App. If so, the user just needs to confirm the connection in the Nextcloud app to add the account to the extension."
     },
     "PasslinkConnectServer"         : {
-        "message"     : "The new connection was saved as \"$LABEL$\"",
-        "description" : "",
+        "message"     : "The new account was saved as \"$LABEL$\"",
+        "description" : "Confirmation message in the PassLink Connect action when a new account has been created successfully",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -852,31 +852,31 @@
     },
     "PasslinkConnectNotFound"       : {
         "message"    : "This link is invalid. It may have been used already or is expired.",
-        "description": ""
+        "description": "Error message in PassLink when the link used has expired or was already used."
     },
     "PasslinkConnectRejected"       : {
-        "message"    : "The login request was rejected by the server.",
-        "description": ""
+        "message"    : "The connection request was rejected by the server.",
+        "description": "Error message when the server rejected the PassLink connect action was not confirmed by the server"
     },
     "PasslinkConnectNetworkError"   : {
         "message"    : "The connection to the server failed. Please check your network.",
-        "description": ""
+        "description": "Error message in PassLink when the connection to the Nextcloud server failed with a networking error"
     },
     "PasslinkConnectSuccess"        : {
         "message"    : "Connection successful",
-        "description": ""
+        "description": "Message in the PassLink window when the PassLink Connect action was successful"
     },
     "PasslinkConnectFailed"         : {
         "message"    : "Connection failed",
-        "description": ""
+        "description": "Message in the PassLink window when the PassLink Connect action failed"
     },
     "PasslinkConnectSettings"       : {
         "message"    : "Open settings",
-        "description": ""
+        "description": "Text of the button to open the extension settings in the PassLink result window"
     },
     "PasslinkConnectClose"          : {
         "message"    : "Close the window",
-        "description": ""
+        "description": "Text of the button  in the PassLink result window to close the window"
     },
     "PasslinkScanInstructions"      : {
         "message"    : "Point your camera to the QR code and wait for it to be recognized and scanned.",
@@ -920,31 +920,31 @@
     },
     "FirstRunConnectTitle"          : {
         "message"    : "Connect to Nextcloud",
-        "description": ""
+        "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
     },
     "FirstRunConnectText"           : {
         "message"    : "Open the passwords app, click on \"More\", open \"Apps & Extensions\" and open the PassLink Connect dialog.",
-        "description": ""
+        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
     },
     "FirstRunConnectLink"           : {
         "message"    : "If the PassLink dialog is open on the same device, use the connect via link option",
-        "description": ""
+        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
     },
     "FirstRunConnectScan"           : {
         "message"    : "If this is a different device, scan the PassLink Connect Code with the button below",
-        "description": ""
+        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
     },
     "FirstRunConnectScanChrome"     : {
         "message"    : "Click the button below and scan the PassLink Connect code",
-        "description": ""
+        "description": "Text shown to chrome in the first run wizard users that they can scan the QR-Code in the PassLink Connect dialog in the Nextcloud app to start the connection process"
     },
     "FirstRunConnectManual"         : {
         "message"    : "You can also create the account manually in the extension settings",
-        "description": ""
+        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
     },
     "FirstRunConnectScanButton"     : {
         "message"    : "Scan PassLink Code",
-        "description": ""
+        "description": "Text of the button to scan a PassLink QR Code"
     },
     "OpenSettings"                  : {
         "message"    : "Open Extension Settings",
