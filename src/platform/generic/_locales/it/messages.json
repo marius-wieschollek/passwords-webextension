@@ -1,23 +1,23 @@
 {
-    "extensionName"               : {
-        "message"    : "Password per Nextcloud",
+    "extensionName": {
+        "message": "Password per Nextcloud",
         "description": "Name of the extension."
     },
-    "extensionDescription"        : {
-        "message"    : "L'estensione ufficiale dell'applicazione Passwords di Nextcloud",
+    "extensionDescription": {
+        "message": "L'estensione ufficiale dell'applicazione Passwords di Nextcloud",
         "description": "Description of the extension."
     },
-    "browserActionTitle"          : {
-        "message"    : "Passwords",
+    "browserActionTitle": {
+        "message": "Passwords",
         "description": "Title of the button in the browser bar"
     },
-    "contextMenuTitle"            : {
-        "message"    : "Passwords",
+    "contextMenuTitle": {
+        "message": "Passwords",
         "description": "Title of the context menu item"
     },
-    "BrowserActionTitleCounter"   : {
-        "message"     : "Password ($COUNTER$)",
-        "description" : "Title of the button in the browser bar with suggestion counter",
+    "BrowserActionTitleCounter": {
+        "message": "Password ($COUNTER$)",
+        "description": "Title of the button in the browser bar with suggestion counter",
         "placeholders": {
             "counter": {
                 "content": "$1",
@@ -25,159 +25,159 @@
             }
         }
     },
-    "UserAgent"                   : {
-        "message"     : "Il client Password ufficiale per $BROWSER$ su $OS$",
-        "description" : "The user agent used for api requests. Only ASCII characters allowed",
+    "UserAgent": {
+        "message": "Il client Password ufficiale per $BROWSER$ su $OS$",
+        "description": "The user agent used for api requests. Only ASCII characters allowed",
         "placeholders": {
             "browser": {
                 "content": "$1",
                 "example": "Firefox"
             },
-            "os"     : {
+            "os": {
                 "content": "$2",
                 "example": "Linux"
             }
         }
     },
-    "MigrationAccountName"        : {
-        "message"    : "Account Nextcloud",
+    "MigrationAccountName": {
+        "message": "Account Nextcloud",
         "description": "Label assigned to the account used by the v1.x migration"
     },
-    "SettingsTabAccounts"         : {
-        "message"    : "Account",
+    "SettingsTabAccounts": {
+        "message": "Account",
         "description": "Label of the user accounts tab in the extension settings"
     },
-    "SettingsTabTheming"          : {
-        "message"    : "Temi",
+    "SettingsTabTheming": {
+        "message": "Temi",
         "description": "Label of the themes tab in the extension settings"
     },
-    "SettingsTabOther"            : {
-        "message"    : "Altre Impostazioni",
+    "SettingsTabOther": {
+        "message": "Altre Impostazioni",
         "description": "Label of the general settings tab in the extension settings"
     },
-    "SettingsAccountsMain"        : {
-        "message"    : "Account predefinito per password nuove",
+    "SettingsAccountsMain": {
+        "message": "Account predefinito per password nuove",
         "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
     },
-    "AutofillSettings"            : {
-        "message"    : "Completamento automatico password",
+    "AutofillSettings": {
+        "message": "Completamento automatico password",
         "description": "Headline above the password autofill section in the other settings tab in the extension settings"
     },
-    "SettingsPopupAutoclose"      : {
-        "message"    : "Chiudi popup dopo il completamento",
+    "SettingsPopupAutoclose": {
+        "message": "Chiudi popup dopo il completamento",
         "description": "Label of the setting in the extension settings to automatically close the extension popup after successfull autofill"
     },
-    "SettingsPasswordAutosubmit"  : {
-        "message"    : "Invia form login automaticamente",
+    "SettingsPasswordAutosubmit": {
+        "message": "Invia form login automaticamente",
         "description": "Label of the setting in the extension settings to automatically submit login forms after autofill"
     },
-    "NotificationSettings"        : {
-        "message"    : "Notifiche",
+    "NotificationSettings": {
+        "message": "Notifiche",
         "description": "Headline above the notification section in the other settings tab in the extension settings"
     },
-    "SettingsNotifyPasswordNew"   : {
-        "message"    : "Notifiche per password nuove",
+    "SettingsNotifyPasswordNew": {
+        "message": "Notifiche per password nuove",
         "description": "Label of the setting in the extension settings to enable or disable the notification for new detected passwords"
     },
     "SettingsNotifyPasswordUpdate": {
-        "message"    : "Notifiche per password aggiornate",
+        "message": "Notifiche per password aggiornate",
         "description": "Label of the setting in the extension settings to enable or disable the notification for detected password updates"
     },
-    "SearchSettings"              : {
-        "message"    : "Ricerca",
+    "SearchSettings": {
+        "message": "Ricerca",
         "description": "Headline above the search section in the other settings tab in the extension settings"
     },
-    "SettingsPopupRelatedSearch"  : {
-        "message"    : "Ricerca su tipo dal tab \"Relativi\"",
+    "SettingsPopupRelatedSearch": {
+        "message": "Ricerca su tipo dal tab \"Relativi\"",
         "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
     },
-    "AccountList"                 : {
-        "message"    : "Account utente",
+    "AccountList": {
+        "message": "Account utente",
         "description": "Headline above the user accounts section in the accounts tab in the extension settings"
     },
-    "NoAccounts"                  : {
-        "message"    : "Non ci sono ancora account. Premi qui per aggiungerne uno.",
+    "NoAccounts": {
+        "message": "Non ci sono ancora account. Premi qui per aggiungerne uno.",
         "description": "Message in place of the user accounts list in the extension settings if there are no user accounts yet. The user can click the message to create an account"
     },
-    "NewServer"                   : {
-        "message"    : "Crea account",
+    "NewServer": {
+        "message": "Crea account",
         "description": ""
     },
-    "ServerSaveTitle"             : {
-        "message"    : "Account salvato",
+    "ServerSaveTitle": {
+        "message": "Account salvato",
         "description": "Title of the toast notification in the extension settings after an account was created or updated successfully"
     },
-    "ServerSaveMessage"           : {
-        "message"    : "Cambiamenti applicati con successo",
+    "ServerSaveMessage": {
+        "message": "Cambiamenti applicati con successo",
         "description": "Message of the toast notification in the extension settings after an account was created successfully"
     },
-    "ServerSaveErrorTitle"        : {
-        "message"    : "Salvataggio fallito",
+    "ServerSaveErrorTitle": {
+        "message": "Salvataggio fallito",
         "description": "Title of the toast notification in the extension settings after an account could not be updated or saved. The message will be the specific error message"
     },
-    "ServerCreatedMessage"        : {
-        "message"    : "L'account è stato creato ed è pronto per essere utilizzato",
+    "ServerCreatedMessage": {
+        "message": "L'account è stato creato ed è pronto per essere utilizzato",
         "description": "Message of the toast notification in the extension settings after an account was updated successfully"
     },
-    "ServerDisabledWarning"       : {
-        "message"    : "Questo account è disattivato. Verrà attivato quando verrà salvato.",
+    "ServerDisabledWarning": {
+        "message": "Questo account è disattivato. Verrà attivato quando verrà salvato.",
         "description": "Warning message which appears above the account details if the server was disabled. Usual reasons are invalid login data, unsupported extension version or permanent connection issues."
     },
-    "ServerLabel"                 : {
-        "message"    : "Nome",
+    "ServerLabel": {
+        "message": "Nome",
         "description": "Label of the account name field in account details in the extension settings"
     },
-    "ServerBaseUrl"               : {
-        "message"    : "Url",
+    "ServerBaseUrl": {
+        "message": "Url",
         "description": "Label of the server url field in account details in the extension settings"
     },
-    "ServerUser"                  : {
-        "message"    : "Utente",
+    "ServerUser": {
+        "message": "Utente",
         "description": "Label of the account login user field in account details in the extension settings"
     },
-    "ServerToken"                 : {
-        "message"    : "Token",
+    "ServerToken": {
+        "message": "Token",
         "description": "Label of the account login token field in account details in the extension settings"
     },
-    "TabRelated"                  : {
-        "message"    : "Suggerimenti",
+    "TabRelated": {
+        "message": "Suggerimenti",
         "description": "Label of the related passwords tab in the extension popup"
     },
-    "TabSearch"                   : {
-        "message"    : "Caratteri",
+    "TabSearch": {
+        "message": "Caratteri",
         "description": "Label of the search tab in the extension popup"
     },
-    "TabBrowse"                   : {
-        "message"    : "Sfoglia",
+    "TabBrowse": {
+        "message": "Sfoglia",
         "description": "Label of the browse servers tab in the extension popup"
     },
-    "TabCollected"                : {
-        "message"    : "Collezionate",
+    "TabCollected": {
+        "message": "Collezionate",
         "description": "Label of the new collected passwords tab in the extension popup"
     },
-    "TabTools"                    : {
-        "message"    : "Strumenti",
+    "TabTools": {
+        "message": "Strumenti",
         "description": "Label of the tools tab in the extension popup"
     },
-    "ValidationLabel"             : {
-        "message"    : "etichetta",
+    "ValidationLabel": {
+        "message": "etichetta",
         "description": "Name of the account label field in account validation message. This value is used when the user attempts to save an account with an invalid label"
     },
-    "ValidationUser"              : {
-        "message"    : "utente",
+    "ValidationUser": {
+        "message": "utente",
         "description": "Name of the account username field in account validation message. This value is used when the user attempts to save an account with an invalid username"
     },
-    "ValidationToken"             : {
-        "message"    : "token",
+    "ValidationToken": {
+        "message": "token",
         "description": "Name of the account token field in account validation message. This value is used when the user attempts to save an account with an invalid token"
     },
-    "ValidationBaseUrl"           : {
-        "message"    : "url base",
+    "ValidationBaseUrl": {
+        "message": "url base",
         "description": "Name of the account base url field in account validation message. This value is used when the user attempts to save an account with an invalid base url"
     },
-    "ValidationNotEmpty"          : {
-        "message"     : "Il campo $FIELD$ non può essere vuoto",
-        "description" : "Validation message when the user attempts to save something (like an account) but a required field is empty.",
+    "ValidationNotEmpty": {
+        "message": "Il campo $FIELD$ non può essere vuoto",
+        "description": "Validation message when the user attempts to save something (like an account) but a required field is empty.",
         "placeholders": {
             "field": {
                 "content": "$1",
@@ -185,49 +185,49 @@
             }
         }
     },
-    "ValidationMinLength"         : {
-        "message"     : "Il campo $FIELD$ deve essere lungo almeno $MIN$ caratteri",
-        "description" : "Validation message when the user attempts to save something (like an account) but a field is shorter than required",
-        "placeholders": {
-            "field": {
-                "content": "$1",
-                "example": "token"
-            },
-            "min"  : {
-                "content": "$2",
-                "example": "29"
-            }
-        }
-    },
-    "ValidationMaxLength"         : {
-        "message"     : "Il campo $FIELD$ deve essere più corto di $MAX$ caratteri",
-        "description" : "Validation message when the user attempts to save something (like an account) but a field is longer than allowed",
+    "ValidationMinLength": {
+        "message": "Il campo $FIELD$ deve essere lungo almeno $MIN$ caratteri",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is shorter than required",
         "placeholders": {
             "field": {
                 "content": "$1",
                 "example": "token"
             },
-            "max"  : {
+            "min": {
                 "content": "$2",
                 "example": "29"
             }
         }
     },
-    "ValidationNotAnUrl"          : {
-        "message"    : "L'url base deve essere un url valido",
+    "ValidationMaxLength": {
+        "message": "Il campo $FIELD$ deve essere più corto di $MAX$ caratteri",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is longer than allowed",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "token"
+            },
+            "max": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationNotAnUrl": {
+        "message": "L'url base deve essere un url valido",
         "description": "Validation message when the user attempts to save an account but the server url is not a valid url"
     },
-    "ValidationNotAToken"         : {
-        "message"    : "Il token deve essere un token Nextcloud valido",
+    "ValidationNotAToken": {
+        "message": "Il token deve essere un token Nextcloud valido",
         "description": "Validation message when the user attempts to save an account but the token does not match the Nextcloud token schema"
     },
-    "ValidationDuplicate"         : {
-        "message"    : "C'è già un account per questo utente su Nextcloud.",
+    "ValidationDuplicate": {
+        "message": "C'è già un account per questo utente su Nextcloud.",
         "description": "Validation message when the user attempts to save a new account, but a similar account with the same server and same user name already exists"
     },
-    "ValidationNoConnection"      : {
-        "message"     : "Impossibile connettersi a $URL$",
-        "description" : "Validation message when the user attempts to save an account but it is not possible to connect to this server with the given url",
+    "ValidationNoConnection": {
+        "message": "Impossibile connettersi a $URL$",
+        "description": "Validation message when the user attempts to save an account but it is not possible to connect to this server with the given url",
         "placeholders": {
             "url": {
                 "content": "$1",
@@ -235,9 +235,9 @@
             }
         }
     },
-    "ValidationUnauthorizedError" : {
-        "message"     : "Il server a $URL$ non ha accettato il login",
-        "description" : "Validation message when the user attempts to save an account but the server did not accept the user name and token",
+    "ValidationUnauthorizedError": {
+        "message": "Il server a $URL$ non ha accettato il login",
+        "description": "Validation message when the user attempts to save an account but the server did not accept the user name and token",
         "placeholders": {
             "url": {
                 "content": "$1",
@@ -245,11 +245,11 @@
             }
         }
     },
-    "ValidationHttpError"         : {
-        "message"     : "La connessione a $URL$ ha dato come errore $ERROR$",
-        "description" : "Validation message when the user attempts to save an account but the server responded with an unexpected HTTP status code",
+    "ValidationHttpError": {
+        "message": "La connessione a $URL$ ha dato come errore $ERROR$",
+        "description": "Validation message when the user attempts to save an account but the server responded with an unexpected HTTP status code",
         "placeholders": {
-            "url"  : {
+            "url": {
                 "content": "$1",
                 "example": "https://cloud.example.com/"
             },
@@ -259,11 +259,11 @@
             }
         }
     },
-    "ValidationConnectionError"   : {
-        "message"     : "La connessione a $URL$ ha dato come errore $ERROR$",
-        "description" : "Validation message when the user attempts to save an account but the connection attempt resulted in any kind of error (including internal extension errors)",
+    "ValidationConnectionError": {
+        "message": "La connessione a $URL$ ha dato come errore $ERROR$",
+        "description": "Validation message when the user attempts to save an account but the connection attempt resulted in any kind of error (including internal extension errors)",
         "placeholders": {
-            "url"  : {
+            "url": {
                 "content": "$1",
                 "example": "https://cloud.example.com/"
             },
@@ -273,41 +273,41 @@
             }
         }
     },
-    "ValidationServerVersion"     : {
-        "message"    : "La versione di App installata sul suo server è vecchia",
+    "ValidationServerVersion": {
+        "message": "La versione di App installata sul suo server è vecchia",
         "description": "Validation message when the user attempts to save an account but the version of the passwords app installed on the server is outdated"
     },
-    "NoRelatedPasswords"          : {
-        "message"    : "Nessuna password relativa trovata",
+    "NoRelatedPasswords": {
+        "message": "Nessuna password relativa trovata",
         "description": "Used in the related tab when no entries match the current website"
     },
-    "NoSearchResults"             : {
-        "message"    : "Nessuna password trovata con la tua ricerca",
+    "NoSearchResults": {
+        "message": "Nessuna password trovata con la tua ricerca",
         "description": "Used in the search tab when no entries match the search query"
     },
-    "NoSearchQuery"               : {
-        "message"    : "Scrivi nel campo di ricerca per trovare password",
+    "NoSearchQuery": {
+        "message": "Scrivi nel campo di ricerca per trovare password",
         "description": "Used in the search tab when there is no search query"
     },
-    "NoCollectedPasswords"        : {
-        "message"    : "Nessuna nuova password trovata",
+    "NoCollectedPasswords": {
+        "message": "Nessuna nuova password trovata",
         "description": "Used in the collected tab when no new passwords have been found"
     },
-    "NoServerItems"               : {
-        "message"    : "Nessun elemento trovato",
+    "NoServerItems": {
+        "message": "Nessun elemento trovato",
         "description": "Used in the browse tab when a server has no entries to list"
     },
-    "SearchPlaceholder"           : {
-        "message"    : "Cerca password",
+    "SearchPlaceholder": {
+        "message": "Cerca password",
         "description": "Placeholder text of the search box"
     },
-    "MiningItemIsNew"             : {
-        "message"    : "Questa è una nuova password",
+    "MiningItemIsNew": {
+        "message": "Questa è una nuova password",
         "description": "Text shown in a collected password that is new to tell the user that it is a new passwor"
     },
-    "MiningItemIsUpdate"          : {
-        "message"     : "Sembra essere una nuova versione di \"$PASSWORD$\"",
-        "description" : "Text shown in a collected password that is an update of an existing password",
+    "MiningItemIsUpdate": {
+        "message": "Sembra essere una nuova versione di \"$PASSWORD$\"",
+        "description": "Text shown in a collected password that is an update of an existing password",
         "placeholders": {
             "password": {
                 "content": "$1",
@@ -315,77 +315,77 @@
             }
         }
     },
-    "TitleClickToEdit"            : {
-        "message"    : "Doppio click per modificare",
+    "TitleClickToEdit": {
+        "message": "Doppio click per modificare",
         "description": "Tooltip used in the collected password form for any property of the password to inform the user that double clicking makes the text field editable"
     },
-    "TitleEnterToExit"            : {
-        "message"    : "Premi invio per salvare",
+    "TitleEnterToExit": {
+        "message": "Premi invio per salvare",
         "description": "Tooltip used in the collected password form to tell the user that the property can be saved by clicking enter"
     },
-    "LabelLabel"                  : {
-        "message"    : "Nome",
+    "LabelLabel": {
+        "message": "Nome",
         "description": "Label for the name of a password entry"
     },
-    "LabelPassword"               : {
-        "message"    : "Password",
+    "LabelPassword": {
+        "message": "Password",
         "description": "Label for the password of a password entry"
     },
-    "LabelUsername"               : {
-        "message"    : "Utente",
+    "LabelUsername": {
+        "message": "Utente",
         "description": "Label for the username of a password entry"
     },
-    "LabelUrl"                    : {
-        "message"    : "Url",
+    "LabelUrl": {
+        "message": "Url",
         "description": "Label for of a field that contains an url (used in collected password or server info)"
     },
-    "LabelUser"                   : {
-        "message"    : "Utente",
+    "LabelUser": {
+        "message": "Utente",
         "description": "Label for the username of in the server info in the browse tab"
     },
-    "LabelPasswords"              : {
-        "message"    : "Password",
+    "LabelPasswords": {
+        "message": "Password",
         "description": "Label for the password count in the server info in the browse tab"
     },
-    "LabelFolders"                : {
-        "message"    : "Cartella",
+    "LabelFolders": {
+        "message": "Cartella",
         "description": "Label for the folder count in the server info in the browse tab"
     },
-    "LabelTags"                   : {
-        "message"    : "Etichetta",
+    "LabelTags": {
+        "message": "Etichetta",
         "description": "Label for the tag count in the server info in the browse tab"
     },
-    "PlaceholderPassword"         : {
-        "message"    : "Password",
+    "PlaceholderPassword": {
+        "message": "Password",
         "description": "Placeholder text in the master password field of the server authorization dialog"
     },
-    "PlaceholderToken"            : {
-        "message"    : "Token 2FA",
+    "PlaceholderToken": {
+        "message": "Token 2FA",
         "description": "Placeholder text in the master password field of the server authorization dialog"
     },
-    "ButtonLogin"                 : {
-        "message"    : "Login",
+    "ButtonLogin": {
+        "message": "Login",
         "description": "The text of the login button of the server authorization dialog"
     },
-    "AuthorizationFailedTitle"    : {
-        "message"    : "Autorizzazione fallita",
+    "AuthorizationFailedTitle": {
+        "message": "Autorizzazione fallita",
         "description": "Title of the toast notification when the login attempt was unsuccessful"
     },
-    "AuthorizationFailedText"     : {
-        "message"    : "L'accesso al database con le seguenti credenziali ha fallito",
+    "AuthorizationFailedText": {
+        "message": "L'accesso al database con le seguenti credenziali ha fallito",
         "description": "Text of the toast notification when the login attempt was unsuccessful"
     },
-    "TokenRequestFailed"          : {
-        "message"    : "Richiesta token fallita",
+    "TokenRequestFailed": {
+        "message": "Richiesta token fallita",
         "description": "Title of the toast notification when the request for a two factor auth token failed. The text will be the error message."
     },
-    "NotifyNewPasswordTitle"      : {
-        "message"    : "Nuova password rilevata",
+    "NotifyNewPasswordTitle": {
+        "message": "Nuova password rilevata",
         "description": "Title of the system notification when a new password was detected"
     },
-    "NotifyNewPasswordText"       : {
-        "message"     : "Una nuova password per \"$LABEL$\" è stata rilevata.",
-        "description" : "Text of the system notification when a new password was detected. Used in Chrome where the notification has buttons to save or view the password",
+    "NotifyNewPasswordText": {
+        "message": "Una nuova password per \"$LABEL$\" è stata rilevata.",
+        "description": "Text of the system notification when a new password was detected. Used in Chrome where the notification has buttons to save or view the password",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -393,9 +393,9 @@
             }
         }
     },
-    "NotifyNewPasswordTextFF"     : {
-        "message"     : "Una nuova password per \"$LABEL$\" è stata rilevata. Clicca qui per modificarla e salvarla.",
-        "description" : "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+    "NotifyNewPasswordTextFF": {
+        "message": "Una nuova password per \"$LABEL$\" è stata rilevata. Clicca qui per modificarla e salvarla.",
+        "description": "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -403,17 +403,17 @@
             }
         }
     },
-    "ButtonSave"                  : {
-        "message"    : "Salva",
+    "ButtonSave": {
+        "message": "Salva",
         "description": "The save button of a password detection system notification"
     },
-    "ButtonMore"                  : {
-        "message"    : "Altre opzioni",
+    "ButtonMore": {
+        "message": "Altre opzioni",
         "description": "The more options button of a password detection system notification which opens the popup with the form which shows all password details"
     },
-    "ToastServerCheckTitle"       : {
-        "message"     : "$SERVER$ ha bisogno di essere aggiornato",
-        "description" : "Title of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+    "ToastServerCheckTitle": {
+        "message": "$SERVER$ ha bisogno di essere aggiornato",
+        "description": "Title of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
         "placeholders": {
             "server": {
                 "content": "$1",
@@ -421,9 +421,9 @@
             }
         }
     },
-    "ToastServerCheckMessage"     : {
-        "message"     : "L'account \"$SERVER$\" usa un server con una versione vecchia di Passwords. Il server deve essere aggiornato per poter riattivare questo account dalle impostazioni.",
-        "description" : "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+    "ToastServerCheckMessage": {
+        "message": "L'account \"$SERVER$\" usa un server con una versione vecchia di Passwords. Il server deve essere aggiornato per poter riattivare questo account dalle impostazioni.",
+        "description": "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
         "placeholders": {
             "server": {
                 "content": "$1",
@@ -431,9 +431,9 @@
             }
         }
     },
-    "PasswordPastedSuccess"       : {
-        "message"     : "$LABEL$ incollata con successo",
-        "description" : "Text of the toast notification when a password entry was pasted successfully into the current tab",
+    "PasswordPastedSuccess": {
+        "message": "$LABEL$ incollata con successo",
+        "description": "Text of the toast notification when a password entry was pasted successfully into the current tab",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -441,9 +441,9 @@
             }
         }
     },
-    "PasswordPastedError"         : {
-        "message"     : "Impossibile incollare $LABEL$",
-        "description" : "Text of the toast notification when a password could not be pasted into the current tab",
+    "PasswordPastedError": {
+        "message": "Impossibile incollare $LABEL$",
+        "description": "Text of the toast notification when a password could not be pasted into the current tab",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -451,9 +451,9 @@
             }
         }
     },
-    "PasswordPropertyCopied"      : {
-        "message"     : "Copiato $PROPERTY$",
-        "description" : "Text of the toast notification when a password property was copied successfully via one of the buttons",
+    "PasswordPropertyCopied": {
+        "message": "Copiato $PROPERTY$",
+        "description": "Text of the toast notification when a password property was copied successfully via one of the buttons",
         "placeholders": {
             "property": {
                 "content": "$1",
@@ -461,21 +461,21 @@
             }
         }
     },
-    "PropertyPassword"            : {
-        "message"    : "Password",
+    "PropertyPassword": {
+        "message": "Password",
         "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
     },
-    "PropertyUsername"            : {
-        "message"    : "Utente",
+    "PropertyUsername": {
+        "message": "Utente",
         "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
     },
-    "PropertyUrl"                 : {
-        "message"    : "Url",
+    "PropertyUrl": {
+        "message": "Url",
         "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
     },
-    "ServerConnectionErrorTitle"  : {
-        "message"     : "Impossibile connettersi a $SERVER$",
-        "description" : "Title of the toast notification when the connection to the server failed",
+    "ServerConnectionErrorTitle": {
+        "message": "Impossibile connettersi a $SERVER$",
+        "description": "Title of the toast notification when the connection to the server failed",
         "placeholders": {
             "server": {
                 "content": "$1",
@@ -483,13 +483,13 @@
             }
         }
     },
-    "ServerCredentialsRejected"   : {
-        "message"    : "Credenziali utente rifiutate. Perfavore aggiorna i dati di accesso nelle impostazioni.",
+    "ServerCredentialsRejected": {
+        "message": "Credenziali utente rifiutate. Perfavore aggiorna i dati di accesso nelle impostazioni.",
         "description": "Text of the toast notification when the server has rejected the login credentials"
     },
-    "ServerHttpError"             : {
-        "message"     : "Errore HTTP: $ERROR$",
-        "description" : "Text of the toast notification when the connection to the server failed with a HTTP error",
+    "ServerHttpError": {
+        "message": "Errore HTTP: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with a HTTP error",
         "placeholders": {
             "error": {
                 "content": "$1",
@@ -497,292 +497,292 @@
             }
         }
     },
-    "ServerNetworkError"          : {
-        "message"    : "Si è verificato un errore di rete. Controlla di essere online e che il server sia raggiungibile.",
+    "ServerNetworkError": {
+        "message": "Si è verificato un errore di rete. Controlla di essere online e che il server sia raggiungibile.",
         "description": "Text of the toast notification when the connection to the server failed with a network error"
     },
-    "ServerUnknownError"          : {
-        "message"    : "Errore sconosciuto.",
+    "ServerUnknownError": {
+        "message": "Errore sconosciuto.",
         "description": "Text of the toast notification when the connection to the server failed with an unknown error and no error message is present"
     },
-    "ServerGenericError"          : {
-        "message"     : "Errore: $ERROR$",
-        "description" : "Text of the toast notification when the connection to the server failed with an error",
+    "ServerGenericError": {
+        "message": "Errore: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with an error",
         "placeholders": {
             "error": {
-                "content"    : "$1",
+                "content": "$1",
                 "description": "The error message",
-                "example"    : "500 - Internal Server Error"
+                "example": "500 - Internal Server Error"
             }
         }
     },
-    "DemoInfoNotification"        : {
-        "message"    : "Notifica info",
+    "DemoInfoNotification": {
+        "message": "Notifica info",
         "description": "Text and title of the info notification in the theme preview"
     },
-    "DemoSuccessNotification"     : {
-        "message"    : "Notifica successo",
+    "DemoSuccessNotification": {
+        "message": "Notifica successo",
         "description": "Text and title of the success notification in the theme preview"
     },
-    "DemoWarningNotification"     : {
-        "message"    : "Notifica avviso",
+    "DemoWarningNotification": {
+        "message": "Notifica avviso",
         "description": "Text and title of the warning notification in the theme preview"
     },
-    "DemoErrorNotification"       : {
-        "message"    : "Notifica errore",
+    "DemoErrorNotification": {
+        "message": "Notifica errore",
         "description": "Text and title of the error notification in the theme preview"
     },
-    "DemoText"                    : {
-        "message"    : "Demo",
+    "DemoText": {
+        "message": "Demo",
         "description": "Demo text used in the theme preview"
     },
-    "SettingsThemeId"             : {
-        "message"    : "Tema attivo",
+    "SettingsThemeId": {
+        "message": "Tema attivo",
         "description": "Label of the option to choose the current theme in the extension settings"
     },
-    "ThemeDark"                   : {
-        "message"    : "Tema scuro",
+    "ThemeDark": {
+        "message": "Tema scuro",
         "description": "Label of the dark theme"
     },
-    "ThemeOledDark"               : {
-        "message"    : "Dark OLED",
+    "ThemeOledDark": {
+        "message": "Dark OLED",
         "description": "Label of the dark theme optimized for OLED-Displays"
     },
-    "ThemeLight"                  : {
-        "message"    : "Predefinito",
+    "ThemeLight": {
+        "message": "Predefinito",
         "description": "Label of the default light theme"
     },
-    "ThemeAdaptaLight"            : {
-        "message"    : "Adapta",
+    "ThemeAdaptaLight": {
+        "message": "Adapta",
         "description": "Label of the theme with the Adapta color scheme"
     },
-    "ThemeAdaptaTeal"             : {
-        "message"    : "Adapta teal",
+    "ThemeAdaptaTeal": {
+        "message": "Adapta teal",
         "description": "Label of the theme with the Adapta teal color scheme"
     },
-    "ThemeArcDark"                : {
-        "message"    : "Arc dark",
+    "ThemeArcDark": {
+        "message": "Arc dark",
         "description": "Label of the theme with the Arc dark scheme"
     },
-    "ThemeArcLight"               : {
-        "message"    : "Arc",
+    "ThemeArcLight": {
+        "message": "Arc",
         "description": "Label of the theme with the Arc color scheme"
     },
-    "ThemeHacker"                 : {
-        "message"    : "Hacker",
+    "ThemeHacker": {
+        "message": "Hacker",
         "description": "Label of the hacker style theme"
     },
-    "ThemeRGB"                    : {
-        "message"    : "Gaming RGB",
+    "ThemeRGB": {
+        "message": "Gaming RGB",
         "description": "Label of the gaming rgb animated theme"
     },
-    "ThemeCustom"                 : {
-        "message"    : "Tema personalizzato",
+    "ThemeCustom": {
+        "message": "Tema personalizzato",
         "description": "Label for the custom theme option"
     },
-    "CustomFont"                  : {
-        "message"    : "Font",
+    "CustomFont": {
+        "message": "Font",
         "description": "Headline for the font settings in the custom theme settings"
     },
-    "CustomDefaultElement"        : {
-        "message"    : "Elemento normale",
+    "CustomDefaultElement": {
+        "message": "Elemento normale",
         "description": "Headline for the default element styling settings in the custom theme settings"
     },
-    "CustomActiveElement"         : {
-        "message"    : "Elemento attivo",
+    "CustomActiveElement": {
+        "message": "Elemento attivo",
         "description": "Headline for the active element styling settings in the custom theme settings"
     },
-    "CustomButtons"               : {
-        "message"    : "Tasti",
+    "CustomButtons": {
+        "message": "Tasti",
         "description": "Headline for the button styling settings in the custom theme settings"
     },
-    "CustomToasts"                : {
-        "message"    : "Notifiche toast",
+    "CustomToasts": {
+        "message": "Notifiche toast",
         "description": "Headline for the toast notification styling settings in the custom theme settings"
     },
-    "CustomBadge"                 : {
-        "message"    : "Icona browser",
+    "CustomBadge": {
+        "message": "Icona browser",
         "description": "Headline for the browser toolbar icon styling settings in the custom theme settings"
     },
-    "BackgroundColorLabel"        : {
-        "message"    : "Colore di sfondo",
+    "BackgroundColorLabel": {
+        "message": "Colore di sfondo",
         "description": "Label of background color options in the custom theme settings"
     },
-    "ForegroundColorLabel"        : {
-        "message"    : "Colore primo piano",
+    "ForegroundColorLabel": {
+        "message": "Colore primo piano",
         "description": "Label of foreground / text color options in the custom theme settings"
     },
-    "BackgroundInheritLabel"      : {
-        "message"    : "Eredita sfondo",
+    "BackgroundInheritLabel": {
+        "message": "Eredita sfondo",
         "description": "Label of options to inherit the background color in the custom theme settings"
     },
-    "ForegroundInheritLabel"      : {
-        "message"    : "Eredita primo piano",
+    "ForegroundInheritLabel": {
+        "message": "Eredita primo piano",
         "description": "Label of options to inherit the foreground / text color in the custom theme settings"
     },
-    "BackgroundColorBaseTitle"    : {
-        "message"    : "Questo colore viene usato per lo sfondo",
+    "BackgroundColorBaseTitle": {
+        "message": "Questo colore viene usato per lo sfondo",
         "description": "Tooltip of the color input field in the custom theme settings for the default background color for an element"
     },
-    "BackgroundColorHoverTitle"   : {
-        "message"    : "Questo colore viene usato per lo sfondo degli elementi attivi. Viene usato anche per il bordo degli elementi non attivi",
+    "BackgroundColorHoverTitle": {
+        "message": "Questo colore viene usato per lo sfondo degli elementi attivi. Viene usato anche per il bordo degli elementi non attivi",
         "description": "Tooltip of the color input field in the custom theme settings for the mouse hover / active background color for an element"
     },
-    "ForegroundColorBaseTitle"    : {
-        "message"    : "Questo colore viene usato per testi e bordi",
+    "ForegroundColorBaseTitle": {
+        "message": "Questo colore viene usato per testi e bordi",
         "description": "Tooltip of the color input field in the custom theme settings for the default foreground / text color for an element"
     },
-    "ForegroundColorHoverTitle"   : {
-        "message"    : "Questo colore viene usato per testi e bordi degli elementi attivi",
+    "ForegroundColorHoverTitle": {
+        "message": "Questo colore viene usato per testi e bordi degli elementi attivi",
         "description": "Tooltip of the color input field in the custom theme settings for the hover / active foreground / text color for an element"
     },
-    "BackgroundInheritTitle"      : {
-        "message"    : "Se attivato, il valore verrà ereditato dall'elemento superiore",
+    "BackgroundInheritTitle": {
+        "message": "Se attivato, il valore verrà ereditato dall'elemento superiore",
         "description": "Tooltip for the checkbox to inherit the background color (from the parent element in the html) in the custom theme settings"
     },
-    "ForegroundInheritTitle"      : {
-        "message"    : "Se attivato, il valore verrà ereditato dall'elemento superiore",
+    "ForegroundInheritTitle": {
+        "message": "Se attivato, il valore verrà ereditato dall'elemento superiore",
         "description": "Tooltip for the checkbox to inherit the foreground / text color (from the parent element in the html) in the custom theme settings"
     },
-    "SettingsCustomFont"          : {
-        "message"    : "Font",
+    "SettingsCustomFont": {
+        "message": "Font",
         "description": "Label of the font option in the custom theme settings"
     },
-    "FontDefault"                 : {
-        "message"    : "Default",
+    "FontDefault": {
+        "message": "Default",
         "description": "Label of the default font option in the custom theme settings"
     },
-    "FontMono"                    : {
-        "message"    : "Monospace",
+    "FontMono": {
+        "message": "Monospace",
         "description": "Label of the monospaced font option in the custom theme settings"
     },
-    "FontSerif"                   : {
-        "message"    : "Serif",
+    "FontSerif": {
+        "message": "Serif",
         "description": "Label of the serif style (like Times New Roman) font option in the custom theme settings"
     },
-    "FontSans"                    : {
-        "message"    : "Sans serif",
+    "FontSans": {
+        "message": "Sans serif",
         "description": "Label of the sans serif (like Arial) font option in the custom theme settings"
     },
-    "FontLight"                   : {
-        "message"    : "Light",
+    "FontLight": {
+        "message": "Light",
         "description": "Label of the thin font option in the custom theme settings"
     },
-    "FontNextcloud"               : {
-        "message"    : "Nextcloud",
+    "FontNextcloud": {
+        "message": "Nextcloud",
         "description": "Label of the Nextcloud font option in the custom theme settings"
     },
-    "FontOpenDyslexic"            : {
-        "message"    : "Open Dyslexic",
+    "FontOpenDyslexic": {
+        "message": "Open Dyslexic",
         "description": "Label of the open dyslexic font option in the custom theme settings. This font is good for users with dyslexia"
     },
-    "FontCustom"                  : {
-        "message"    : "Personalizzato",
+    "FontCustom": {
+        "message": "Personalizzato",
         "description": "Label for unrecognized fonts in the custom theme settings. This option is usually not shown"
     },
-    "SettingsCustomFontSize"      : {
-        "message"    : "Dimensione font",
+    "SettingsCustomFontSize": {
+        "message": "Dimensione font",
         "description": "Label of the font size setting in the custom theme settings"
     },
-    "FontSizeVerySmall"           : {
-        "message"    : "Molto piccolo",
+    "FontSizeVerySmall": {
+        "message": "Molto piccolo",
         "description": "Label for the very small font size in the custom theme settings"
     },
-    "FontSizeSmall"               : {
-        "message"    : "Piccolo",
+    "FontSizeSmall": {
+        "message": "Piccolo",
         "description": "Label for the small font size in the custom theme settings"
     },
-    "FontSizeDefault"             : {
-        "message"    : "Normale",
+    "FontSizeDefault": {
+        "message": "Normale",
         "description": "Label for the default font size in the custom theme settings"
     },
-    "FontSizeMedium"              : {
-        "message"    : "Medio",
+    "FontSizeMedium": {
+        "message": "Medio",
         "description": "Label for the medium font size in the custom theme settings"
     },
-    "FontSizeLarge"               : {
-        "message"    : "Largo",
+    "FontSizeLarge": {
+        "message": "Largo",
         "description": "Label for the large font size in the custom theme settings"
     },
-    "FontSizeVeryLarge"           : {
-        "message"    : "Molto largo",
+    "FontSizeVeryLarge": {
+        "message": "Molto largo",
         "description": "Label for the very large font size in the custom theme settings"
     },
-    "ToastInfoColors"             : {
-        "message"    : "Toast info",
+    "ToastInfoColors": {
+        "message": "Toast info",
         "description": "Label of the setting in the custom theme settings to choose the colors of informational toast notifications"
     },
-    "ToastSuccessColors"          : {
-        "message"    : "Toast successo",
+    "ToastSuccessColors": {
+        "message": "Toast successo",
         "description": "Label of the setting in the custom theme settings to choose the colors of success toast notifications"
     },
-    "ToastWarningColors"          : {
-        "message"    : "Toast attenzione",
+    "ToastWarningColors": {
+        "message": "Toast attenzione",
         "description": "Label of the setting in the custom theme settings to choose the colors of warning toast notifications"
     },
-    "ToastErrorColors"            : {
-        "message"    : "Toast errore",
+    "ToastErrorColors": {
+        "message": "Toast errore",
         "description": "Label of the setting in the custom theme settings to choose the colors of error toast notifications"
     },
-    "ToastBackgroundTitle"        : {
-        "message"    : "Colore di sfondo per i messaggi popup",
+    "ToastBackgroundTitle": {
+        "message": "Colore di sfondo per i messaggi popup",
         "description": "Tooltip of the color input in the custom theme settings for a toast notification background color"
     },
-    "ToastForegroundTitle"        : {
-        "message"    : "Colore per pulsanti e testi",
+    "ToastForegroundTitle": {
+        "message": "Colore per pulsanti e testi",
         "description": "Tooltip of the color input in the custom theme settings for a toast notification foreground / text color"
     },
-    "SettingsBadgeIcon"           : {
-        "message"    : "Icona barra",
+    "SettingsBadgeIcon": {
+        "message": "Icona barra",
         "description": "Label of the setting to choose the toolbar icon in the custom theme settings"
     },
-    "BadgeIconAuto"               : {
-        "message"    : "Automatico",
+    "BadgeIconAuto": {
+        "message": "Automatico",
         "description": "Label of the automatic icon option for the toolbar icon in the custom theme settings"
     },
-    "BadgeIconLight"              : {
-        "message"    : "Icona chiara",
+    "BadgeIconLight": {
+        "message": "Icona chiara",
         "description": "Label of the light icon option for the toolbar icon in the custom theme settings"
     },
-    "BadgeIconMedium"             : {
-        "message"    : "Icona grigia",
+    "BadgeIconMedium": {
+        "message": "Icona grigia",
         "description": "Label of the grey icon option for the toolbar icon in the custom theme settings"
     },
-    "BadgeIconDark"               : {
-        "message"    : "Icona scura",
+    "BadgeIconDark": {
+        "message": "Icona scura",
         "description": "Label of the dark icon option for the toolbar icon in the custom theme settings"
     },
-    "BadgeIconNewLight"           : {
-        "message"    : "Icona moderna chiara",
+    "BadgeIconNewLight": {
+        "message": "Icona moderna chiara",
         "description": "Label of the light modern icon option for the toolbar icon in the custom theme settings"
     },
-    "BadgeIconNewMedium"          : {
-        "message"    : "Icona moderna grigia",
+    "BadgeIconNewMedium": {
+        "message": "Icona moderna grigia",
         "description": "Label of the grey modern icon option for the toolbar icon in the custom theme settings"
     },
-    "BadgeIconNewDark"            : {
-        "message"    : "Icona moderna scura",
+    "BadgeIconNewDark": {
+        "message": "Icona moderna scura",
         "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
     },
-    "CustomBadgeColors"           : {
-        "message"    : "Colori emblema",
+    "CustomBadgeColors": {
+        "message": "Colori emblema",
         "description": "Label of the settings for the toolbar icon badge colors in the custom theme settings"
     },
-    "BadgeBackgroundTitle"        : {
-        "message"    : "Colore sfondo emblema",
+    "BadgeBackgroundTitle": {
+        "message": "Colore sfondo emblema",
         "description": "Tooltip for the color input for the background color of the toolbar icon badge in the custom theme settings"
     },
-    "BadgeForegroundTitle"        : {
-        "message"    : "Colore testo emblema",
+    "BadgeForegroundTitle": {
+        "message": "Colore testo emblema",
         "description": "Tooltip for the color input for the text color of the toolbar icon badge in the custom theme settings"
     },
-    "PasslinkConnectCheckCodes"   : {
-        "message"    : "Controlla se i codici qui sotto corrispondono a quelli sull'app. In quel caso, conferma la connessione dall'app e hai finito.",
+    "PasslinkConnectCheckCodes": {
+        "message": "Controlla se i codici qui sotto corrispondono a quelli sull'app. In quel caso, conferma la connessione dall'app e hai finito.",
         "description": "Message during the PassLink Connect action telling the user to check if the codes below match the ones shown in the Nextcloud Passwords App. If so, the user just needs to confirm the connection in the Nextcloud app to add the account to the extension."
     },
-    "PasslinkConnectServer"       : {
-        "message"     : "La nuova connessione è stata salvata come \"$LABEL$\"",
-        "description" : "Confirmation message in the PassLink Connect action when a new account has been created successfully",
+    "PasslinkConnectServer": {
+        "message": "La nuova connessione è stata salvata come \"$LABEL$\"",
+        "description": "Confirmation message in the PassLink Connect action when a new account has been created successfully",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -790,32 +790,32 @@
             }
         }
     },
-    "PasslinkConnectNotFound"     : {
-        "message"    : "Questo link non è valido. Potrebbe essere scaduto o stato già usato.",
+    "PasslinkConnectNotFound": {
+        "message": "Questo link non è valido. Potrebbe essere scaduto o stato già usato.",
         "description": "Error message in PassLink when the link used has expired or was already used."
     },
-    "PasslinkConnectRejected"     : {
-        "message"    : "La richiesta di login è stata rifiutata dal server.",
+    "PasslinkConnectRejected": {
+        "message": "La richiesta di login è stata rifiutata dal server.",
         "description": "Error message when the server rejected the PassLink connect action was not confirmed by the server"
     },
-    "PasslinkConnectNetworkError" : {
-        "message"    : "La connessione al server è fallita. Controlla la tua rete.",
+    "PasslinkConnectNetworkError": {
+        "message": "La connessione al server è fallita. Controlla la tua rete.",
         "description": "Error message in PassLink when the connection to the Nextcloud server failed with a networking error"
     },
-    "PasslinkConnectSuccess"      : {
-        "message"    : "Connessione effettuata con successo",
+    "PasslinkConnectSuccess": {
+        "message": "Connessione effettuata con successo",
         "description": "Message in the PassLink window when the PassLink Connect action was successful"
     },
-    "PasslinkConnectFailed"       : {
-        "message"    : "Connessione fallita",
+    "PasslinkConnectFailed": {
+        "message": "Connessione fallita",
         "description": "Message in the PassLink window when the PassLink Connect action failed"
     },
-    "PasslinkConnectSettings"     : {
-        "message"    : "Apri impostazioni",
+    "PasslinkConnectSettings": {
+        "message": "Apri impostazioni",
         "description": "Text of the button to open the extension settings in the PassLink result window"
     },
-    "PasslinkConnectClose"        : {
-        "message"    : "Chiudi finestra",
+    "PasslinkConnectClose": {
+        "message": "Chiudi finestra",
         "description": "Text of the button  in the PassLink result window to close the window"
     }
 }

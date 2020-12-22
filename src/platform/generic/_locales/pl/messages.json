@@ -1,95 +1,66 @@
 {
-    "extensionName"              : {
-        "message": "Nextcloud Passwords"
+    "extensionName"       : {
+        "message"    : "Nextcloud Passwords",
+        "description": "Name of the extension."
     },
-    "extensionDescription"       : {
-        "message": "Klient aplikacji Nextcloud Passwords."
+    "extensionDescription": {
+        "message"    : "Klient aplikacji Nextcloud Passwords.",
+        "description": "Description of the extension."
     },
-    "browserActionTitle"         : {
-        "message": "Hasła"
+    "browserActionTitle"  : {
+        "message"    : "Hasła",
+        "description": "Title of the button in the browser bar"
     },
-    "contextMenuTitle"           : {
-        "message": "Hasła"
+    "contextMenuTitle"    : {
+        "message"    : "Hasła",
+        "description": "Title of the context menu item"
     },
-    "NoRelatedMatches"           : {
-        "message": "Nie znaleziono wyników"
+    "ServerBaseUrl"       : {
+        "message"    : "Url",
+        "description": "Label of the server url field in account details in the extension settings"
     },
-    "NoSearchMatches"            : {
-        "message": "Nie znaleziono wyników"
+    "ServerUser"          : {
+        "message"    : "Użytkownik",
+        "description": "Label of the account login user field in account details in the extension settings"
     },
-    "NoSearchQuery"              : {
-        "message": "Wpisz więcej niż dwa znaki"
+    "LabelPassword"       : {
+        "message"    : "Hasło",
+        "description": "Label for the password of a password entry"
     },
-    "PasswordRequestFailedTitle" : {
-        "message": "Zapytanie o hasło w usłudze Nextcloud nie powiodło się"
+    "LabelUsername"       : {
+        "message"    : "Użytkownik",
+        "description": "Label for the username of a password entry"
     },
-    "PasswordRequestFailedText"  : {
-        "message"     : "Lista haseł nie mogła zostać wyszukana.\nBłąd: $ERROR$",
-        "placeholders": {
-            "error": {
-                "content": "$1"
-            }
-        }
+    "LabelUser"           : {
+        "message"    : "Użytkownik",
+        "description": "Label for the username of in the server info in the browse tab"
     },
-    "PasswordEncodingFailedTitle": {
-        "message": "Właściwości hasła nie mogły zostać odczytane"
+    "LabelUrl"            : {
+        "message"    : "Url",
+        "description": "Label for of a field that contains an url (used in collected password or server info)"
     },
-    "PasswordEncodingFailedText" : {
-        "message"     : "Właściwości hasła #$ID$ nie zawierają ważnych danych JSON i nie mogą zostać przetworzone.",
-        "placeholders": {
-            "id": {
-                "content": "$1"
-            }
-        }
+    "LabelPasswords"      : {
+        "message"    : "Hasła",
+        "description": "Label for the password count in the server info in the browse tab"
     },
-    "NewLoginDetectedTitle"      : {
-        "message": "Znaleziono nowy identyfikator"
+    "PlaceholderPassword" : {
+        "message"    : "Hasło",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
     },
-    "NewLoginDetectedText"       : {
-        "message"     : "Kliknij tutaj, aby zapisać hasło dla \"$USER$\"",
-        "placeholders": {
-            "user": {
-                "content": "$1"
-            }
-        }
+    "PropertyPassword"    : {
+        "message"    : "Hasło",
+        "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
     },
-    "PasswordCreatedTitle"       : {
-        "message": "Hasło zapisane"
+    "PropertyUsername"    : {
+        "message"    : "Użytkownik",
+        "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
     },
-    "PasswordCreatedText"        : {
-        "message": "Hasło zostało zapisane"
+    "PropertyUrl"         : {
+        "message"    : "Url",
+        "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
     },
-    "CreatePasswordFailedTitle"  : {
-        "message": "Zapisanie hasła nie powiodło się"
-    },
-    "CreatePasswordFailedText"   : {
-        "message": "Hasło nie mogło zostać zapisane"
-    },
-    "UpdatedLoginDetectedTitle"  : {
-        "message": "Znaleziono uaktualniony identyfikator"
-    },
-    "UpdatedLoginDetectedText"   : {
-        "message"     : "Kliknij tutaj, aby zaktualizować hasło dla \"$USER$\"",
-        "placeholders": {
-            "user": {
-                "content": "$1"
-            }
-        }
-    },
-    "PasswordUpdatedTitle"       : {
-        "message": "Hasło zaktualizowane"
-    },
-    "PasswordUpdatedText"        : {
-        "message": "Hasło zaktualizowane z powodzeniem"
-    },
-    "UpdatePasswordFailedTitle"  : {
-        "message": "Aktualizacja hasła nie powiodła się"
-    },
-    "UpdatePasswordFailedText"   : {
-        "message": "Hasło nie mogło zostać zaktualizowane"
-    },
-    "Url"                        : { "message": "Url" },
-    "Password"                   : { "message": "Hasło" },
-    "User"                       : { "message": "Użytkownik" },
-    "Save"                       : { "message": "Zapisz" }
+    "ButtonSave"          : {
+        "message"    : "Zapisz",
+        "description": "The save button of a password detection system notification"
+    }
 }

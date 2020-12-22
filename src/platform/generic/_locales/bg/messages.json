@@ -1,170 +1,66 @@
 {
-    "extensionName"              : {
+    "extensionName"       : {
         "message"    : "Пароли за Nextcloud (Nextcloud Passwords)",
         "description": "Name of the extension."
     },
-    "extensionDescription"       : {
+    "extensionDescription": {
         "message"    : "Лек клиент за приложението Nextcloud Passwords",
         "description": "Description of the extension."
     },
-    "browserActionTitle"         : {
+    "browserActionTitle"  : {
         "message"    : "Пароли за Nextcloud",
         "description": "Title of the button in the browser bar"
     },
-    "contextMenuTitle"           : {
+    "contextMenuTitle"    : {
         "message"    : "Пароли за Nextcloud",
         "description": "Title of the context menu item"
     },
-    "NoRelatedMatches"           : {
-        "message"    : "Няма намерени регистрации",
-        "description": "Shown when the related page did not find any results"
+    "ServerBaseUrl"       : {
+        "message"    : "Адрес",
+        "description": "Label of the server url field in account details in the extension settings"
     },
-    "NoSearchMatches"            : {
-        "message"    : "Няма съвпадения",
-        "description": "Shown when the search did not find any results"
+    "ServerUser"          : {
+        "message"    : "Потребител",
+        "description": "Label of the account login user field in account details in the extension settings"
     },
-    "NoSearchQuery"              : {
-        "message"    : "Въведете поне два символа",
-        "description": "Shown when the search query is empty"
+    "LabelPassword"       : {
+        "message"    : "Contraseña",
+        "description": "Label for the password of a password entry"
     },
-    "PasswordRequestFailedTitle" : {
-        "message"    : "Грешка при получаване на пароли от Nextcloud",
-        "description": "Notification title when the password request fails"
+    "LabelUsername"       : {
+        "message"    : "Потребител",
+        "description": "Label for the username of a password entry"
     },
-    "PasswordRequestFailedText"  : {
-        "message"     : "Списъкът с пароли не може да бъде получен.\nГрешка: $ERROR$",
-        "description" : "Notification text when the password request fails",
-        "placeholders": {
-            "error": {
-                "content": "$1",
-                "example": "Unknown Error"
-            }
-        }
+    "LabelUser"           : {
+        "message"    : "Потребител",
+        "description": "Label for the username of in the server info in the browse tab"
     },
-    "PasswordEncodingFailedTitle": {
-        "message"    : "Грешка при разбора на пароли",
-        "description": "Notification title when the password properties can not be parsed"
+    "LabelUrl"            : {
+        "message"    : "Адрес",
+        "description": "Label for of a field that contains an url (used in collected password or server info)"
     },
-    "PasswordEncodingFailedText" : {
-        "message"     : "Атрибутите на парола #$ID$ не съдържат валиден JSON и не може да бъде обработена",
-        "description" : "Notification text when the password properties can not be parsed",
-        "placeholders": {
-            "id": {
-                "content": "$1",
-                "example": "0"
-            }
-        }
+    "LabelPasswords"      : {
+        "message"    : "Пароли",
+        "description": "Label for the password count in the server info in the browse tab"
     },
-    "NewLoginDetectedTitle"      : {
-        "message"    : "Нова регистрация",
-        "description": "Notification title when a new login is detected"
+    "PlaceholderPassword" : {
+        "message"    : "Парола",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
     },
-    "NewLoginDetectedText"       : {
-        "message"     : "Щракнете тук за запазване на парола за \"$USER$\"",
-        "description" : "Notification text when a new login is detected",
-        "placeholders": {
-            "user": {
-                "content": "$1",
-                "example": "username"
-            }
-        }
+    "PropertyPassword"    : {
+        "message"    : "Парола",
+        "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
     },
-    "PasswordCreatedTitle"       : {
-        "message"    : "Запазена парола",
-        "description": "Notification title when a password was saved"
+    "PropertyUsername"    : {
+        "message"    : "Потребител",
+        "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
     },
-    "PasswordCreatedText"        : {
-        "message"    : "Паролата е запазена успешно",
-        "description": "Notification text when a password was saved"
+    "PropertyUrl"         : {
+        "message"    : "Адрес",
+        "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
     },
-    "CreatePasswordFailedTitle"  : {
-        "message"    : "Грешка при запазване на парола",
-        "description": "Notification title when saving a password failed"
-    },
-    "CreatePasswordFailedText"   : {
-        "message"    : "Паролата не е запазена поради грешка",
-        "description": "Notification text when saving a password failed"
-    },
-    "UpdatedLoginDetectedTitle"  : {
-        "message"    : "Обновена регистрация",
-        "description": "Notification title when an updated login is detected"
-    },
-    "UpdatedLoginDetectedText"   : {
-        "message"     : "Щракнете тук за обновяване на парола за \"$USER$\"",
-        "description" : "Notification text when an updated login is detected",
-        "placeholders": {
-            "user": {
-                "content": "$1",
-                "example": "username"
-            }
-        }
-    },
-    "PasswordUpdatedTitle"       : {
-        "message"    : "Обновена парола",
-        "description": "Notification title when a password was updated"
-    },
-    "PasswordUpdatedText"        : {
-        "message"    : "Паролата е обновена успешно",
-        "description": "Notification text when a password was updated"
-    },
-    "UpdatePasswordFailedTitle"  : {
-        "message"    : "Грешка при обновяване на парола",
-        "description": "Notification title when updating a password failed"
-    },
-    "UpdatePasswordFailedText"   : {
-        "message"    : "Паролата не е обновена поради грешка",
-        "description": "Notification text when updating a password failed"
-    },
-    "ApiLogin200"   : {
-        "message"    : "Недействителен адрес на URL или изключен ППИ",
-        "description": "Error text when an api request could not be decoded"
-    },
-    "ApiLogin401"   : {
-        "message"    : "Грешка при удостоверяване",
-        "description": "Error text when an api request got a 401 Unauthorized response"
-    },
-    "ApiLogin403"   : {
-        "message"    : "Достъпът отказан",
-        "description": "Error text when an api request got a 403 Forbidden response"
-    },
-    "ApiLogin404"   : {
-        "message"    : "Недействителен адрес на URL",
-        "description": "Error text when an api request got a 404 Not Found response"
-    },
-    "ApiLogin500"   : {
-        "message"    : "Сървърът се срина при заявката",
-        "description": "Error text when an api request got a 50x Internal Server Error response"
-    },
-    "ApiLoginGeneric"   : {
-        "message"    : "Http Error $STATUS$: $MESSAGE$",
-        "description": "Generic error message for failed requests",
-        "placeholders": {
-            "status": {
-                "content": "$1",
-                "example": "HTTP status code"
-            },
-            "message": {
-                "content": "$2",
-                "example": "HTTP status text"
-            }
-        }
-    },
-    "SettingsInvalidUrl"   : {
-        "message"    : "Адресът $URL$ изглежда е недействителен.\n\nАко приложението се намира на\nhttps://example.com/index.php/apps/passwords\nвъведете\nhttps://localhost\n\nАко приложението се намира на\nhttps://example.com/nextcloud/index.php/apps/passwords\nвъведете\nhttps://localhost/nextcloud",
-        "description": "Generic error message for failed requests",
-        "placeholders": {
-            "url": {
-                "content": "$1",
-                "example": "The user input"
-            }
-        }
-    },
-    "DarkMode"                   : {
-        "message"    : "Тъмна тема",
-        "description": "Lable of the Dark Mode setting"
-    },
-    "Url"                        : { "message": "Адрес" },
-    "Password"                   : { "message": "Парола" },
-    "User"                       : { "message": "Потребител" },
-    "Save"                       : { "message": "Запазване" }
+    "ButtonSave"          : {
+        "message"    : "Запазване",
+        "description": "The save button of a password detection system notification"
+    }
 }

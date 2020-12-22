@@ -1,106 +1,66 @@
 {
-  "extensionName": {
-    "message": "Nextcloud Parolalar"
-  },
-  "extensionDescription": {
-    "message": "Nextcloud Parolalar uygulaması için basit bir istemci"
-  },
-  "browserActionTitle": {
-    "message": "Parolalar"
-  },
-  "contextMenuTitle": {
-    "message": "Parolalar"
-  },
-  "NoRelatedMatches": {
-    "message": "Hiç parola bulunamadı"
-  },
-  "NoSearchMatches": {
-    "message": "Eşleşme yok"
-  },
-  "NoSearchQuery": {
-    "message": "İkiden fazla karakter yazın"
-  },
-  "PasswordRequestFailedTitle": {
-    "message": "Nextcloud parola isteği başarısız oldu"
-  },
-  "PasswordRequestFailedText": {
-    "message": "Parola listesi alınamadı.\nHata: $ERROR$",
-    "placeholders": {
-      "error": {
-        "content": "$1"
-      }
+    "extensionName"       : {
+        "message"    : "Nextcloud Parolalar",
+        "description": "Name of the extension."
+    },
+    "extensionDescription": {
+        "message"    : "Nextcloud Parolalar uygulaması için basit bir istemci",
+        "description": "Description of the extension."
+    },
+    "browserActionTitle"  : {
+        "message"    : "Parolalar",
+        "description": "Title of the button in the browser bar"
+    },
+    "contextMenuTitle"    : {
+        "message"    : "Parolalar",
+        "description": "Title of the context menu item"
+    },
+    "ServerBaseUrl"       : {
+        "message"    : "Url",
+        "description": "Label of the server url field in account details in the extension settings"
+    },
+    "ServerUser"          : {
+        "message"    : "Kullanıcı",
+        "description": "Label of the account login user field in account details in the extension settings"
+    },
+    "LabelPassword"       : {
+        "message"    : "Parola",
+        "description": "Label for the password of a password entry"
+    },
+    "LabelUsername"       : {
+        "message"    : "Kullanıcı",
+        "description": "Label for the username of a password entry"
+    },
+    "LabelUser"           : {
+        "message"    : "Kullanıcı",
+        "description": "Label for the username of in the server info in the browse tab"
+    },
+    "LabelUrl"            : {
+        "message"    : "Url",
+        "description": "Label for of a field that contains an url (used in collected password or server info)"
+    },
+    "LabelPasswords"      : {
+        "message"    : "Parolalar",
+        "description": "Label for the password count in the server info in the browse tab"
+    },
+    "PlaceholderPassword" : {
+        "message"    : "Parola",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
+    },
+    "PropertyPassword"    : {
+        "message"    : "Parola",
+        "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
+    },
+    "PropertyUsername"    : {
+        "message"    : "Kullanıcı",
+        "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
+    },
+    "PropertyUrl"         : {
+        "message"    : "Url",
+        "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
+    },
+    "ButtonSave"          : {
+        "message"    : "Kaydet",
+        "description": "The save button of a password detection system notification"
     }
-  },
-  "PasswordEncodingFailedTitle": {
-    "message": "Parola özellikleri ayrıştırılamadı"
-  },
-  "PasswordEncodingFailedText": {
-    "message": "#$ID$ parolasının özellikleri geçerli JSON verileri içermiyor ve işlenemiyor",
-    "placeholders": {
-      "id": {
-        "content": "$1"
-      }
-    }
-  },
-  "NewLoginDetectedTitle": {
-    "message": "Yeni parola bulundu"
-  },
-  "NewLoginDetectedText": {
-    "message": "\"$USER$\" için parolayı kaydetmek üzere buraya tıklayın",
-    "placeholders": {
-      "user": {
-        "content": "$1"
-      }
-    }
-  },
-  "PasswordCreatedTitle": {
-    "message": "Parola kaydedildi"
-  },
-  "PasswordCreatedText": {
-    "message": "Parola başarıyla saklandı"
-  },
-  "CreatePasswordFailedTitle": {
-    "message": "Parolayı kaydetme başarısız oldu"
-  },
-  "CreatePasswordFailedText": {
-    "message": "Parola kaydedilemedi"
-  },
-  "UpdatedLoginDetectedTitle": {
-    "message": "Güncellenmiş parola bulundu"
-  },
-  "UpdatedLoginDetectedText": {
-    "message": "\"$USER$\" parolasını güncellemek için buraya tıklayın",
-    "placeholders": {
-      "user": {
-        "content": "$1"
-      }
-    }
-  },
-  "PasswordUpdatedTitle": {
-    "message": "Parola güncellendi"
-  },
-  "PasswordUpdatedText": {
-    "message": "Parola başarıyla güncellendi"
-  },
-  "UpdatePasswordFailedTitle": {
-    "message": "Parola güncelleme başarısız oldu"
-  },
-  "UpdatePasswordFailedText": {
-    "message": "Parola güncellenemedi"
-  },
-  "DarkMode": {
-    "message": "Karanlık Mod"
-  },
-  "Url": {
-    "message": "Url"
-  },
-  "Password": {
-    "message": "Parola"
-  },
-  "User": {
-    "message": "Kullanıcı"
-  },
-  "Save": {
-    "message": "Kaydet"
-  }
 }

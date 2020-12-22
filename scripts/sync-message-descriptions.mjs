@@ -1,13 +1,25 @@
 import LanguageTags from '../src/platform/generic/_locales/en/messages.json';
+import LanguageTagsBg from '../src/platform/generic/_locales/bg/messages.json';
 import LanguageTagsDe from '../src/platform/generic/_locales/de/messages.json';
+import LanguageTagsEs from '../src/platform/generic/_locales/es/messages.json';
+import LanguageTagsFr from '../src/platform/generic/_locales/fr/messages.json';
 import LanguageTagsIt from '../src/platform/generic/_locales/it/messages.json';
+import LanguageTagsPl from '../src/platform/generic/_locales/pl/messages.json';
+import LanguageTagsRu from '../src/platform/generic/_locales/ru/messages.json';
+import LanguageTagsTr from '../src/platform/generic/_locales/tr/messages.json';
 import fs from 'fs';
 import path from 'path';
 
 
 let languages = {
+        bg: LanguageTagsBg,
         de: LanguageTagsDe,
-        it: LanguageTagsIt
+        es: LanguageTagsEs,
+        fr: LanguageTagsFr,
+        it: LanguageTagsIt,
+        pl: LanguageTagsPl,
+        ru: LanguageTagsRu,
+        tr: LanguageTagsTr
     },
     changes   = {};
 
