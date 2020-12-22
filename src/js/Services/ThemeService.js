@@ -56,14 +56,16 @@ class ThemeService {
         this._repository = repository;
     }
 
-
     async getBadgeIcon() {
         let theme = await this.getCurrentTheme(),
             icon  = theme.getBadgeIcon();
 
         if(!icon) return null;
 
-        return await SystemService.getBrowserApi().runtime.getURL(`img/${icon}.svg`);
+        if(SystemService.getBrowserPlatform() === 'firefox') {
+            return await SystemService.getBrowserApi().runtime.getURL(`img/${icon}.svg`);
+        }
+        return await SystemService.getBrowserApi().runtime.getURL(`img/${icon}.png`);
     }
 
     async getBadgeTextColor() {

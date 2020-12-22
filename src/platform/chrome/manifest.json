@@ -20,34 +20,9 @@
         "browser_style": true,
         "theme_icons"  : [
             {
-                "light": "img/passwords-light.svg",
-                "dark" : "img/passwords-dark.svg",
-                "size" : 12
-            },
-            {
-                "light": "img/passwords-light.svg",
-                "dark" : "img/passwords-dark.svg",
+                "light": "img/passwords-light.png",
+                "dark" : "img/passwords-dark.png",
                 "size" : 16
-            },
-            {
-                "light": "img/passwords-light.svg",
-                "dark" : "img/passwords-dark.svg",
-                "size" : 32
-            },
-            {
-                "light": "img/passwords-light.svg",
-                "dark" : "img/passwords-dark.svg",
-                "size" : 64
-            },
-            {
-                "light": "img/passwords-light.svg",
-                "dark" : "img/passwords-dark.svg",
-                "size" : 96
-            },
-            {
-                "light": "img/passwords-light.svg",
-                "dark" : "img/passwords-dark.svg",
-                "size" : 128
             }
         ]
     },
