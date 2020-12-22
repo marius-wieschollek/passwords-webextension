@@ -320,8 +320,8 @@ class Preview {
         let label = LocalisationService.translate('DemoText');
 
         return [
-            new Password({id: 'pwd-1', label, username: '', password: '', folder}),
-            new Password({id: 'pwd-2', label, username: '', password: '', folder})
+            new Password({id: 'pwd-1', label, username: '', password: '', folder, status: 0}),
+            new Password({id: 'pwd-2', label, username: '', password: '', folder, status: 2})
         ];
     }
 
