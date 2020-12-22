@@ -1,3 +1,7 @@
 .mining-item {
     --element-active-fg-color : var(--element-fg-color);
 }
+
+.input-slider .input-slider-bar {
+    border: 1px solid var(--element-active-bg-color);
+}

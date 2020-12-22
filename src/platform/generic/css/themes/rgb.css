@@ -52,7 +52,9 @@ body #manager > .tab-container > .tabs .tab.active:hover:after {
 
 body div#manager .foldout-container .foldout-tab .options > .icon:hover,
 body div#manager .foldout-container .foldout-tab .options .option:hover,
-body div#manager .tab-container .tab-content .list .item .options .icon:hover {
+body div#manager .tab-container .tab-content .list .item .options .icon:hover,
+body #manager .tools-container .generate-password-container .options > .option:hover,
+body #manager .tools-container .generate-password-container .options > .icon:hover {
     background      : linear-gradient(290deg, var(--rgb-color-red), var(--rgb-color-blue), var(--rgb-color-green), var(--rgb-color-yellow), var(--rgb-color-red), var(--rgb-color-blue), var(--rgb-color-green), var(--rgb-color-yellow));
     background-size : 1600% 1600%;
     animation       : rgb-button 5s linear infinite;
@@ -87,7 +89,8 @@ body div#manager .foldout-container .foldout-tab.active:hover:after {
     animation-play-state : running;
 }
 
-body #manager .search-container input#query {
+body #manager .search-container input#query,
+body #manager .tools-container .generate-password-container {
     background           : linear-gradient(180deg, var(--element-active-hover-bg-color) 13.5rem, #0000 13.5rem), linear-gradient(315deg, var(--rgb-color-red), var(--rgb-color-blue), var(--rgb-color-green), var(--rgb-color-yellow), var(--rgb-color-red), var(--rgb-color-blue), var(--rgb-color-green), var(--rgb-color-yellow));
     background-size      : 800% 800%;
     animation            : rgb 5s linear infinite;
@@ -97,7 +100,10 @@ body #manager .search-container input#query {
 
 body #manager .search-container input#query:focus,
 body #manager .search-container input#query:hover,
-body #manager .search-container input#query:active {
+body #manager .search-container input#query:active,
+body #manager .tools-container .generate-password-container:focus,
+body #manager .tools-container .generate-password-container:hover,
+body #manager .tools-container .generate-password-container:active {
     animation-play-state : running;
 }
 
