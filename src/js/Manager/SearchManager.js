@@ -4,12 +4,16 @@ import SearchIndex from '@js/Search/Index/SearchIndex';
 import SearchQuery from '@js/Search/Query/SearchQuery';
 import ErrorManager from '@js/Manager/ErrorManager';
 import HiddenFolderHelper from "@js/Helper/HiddenFolderHelper";
+import EncryptionNotEnabledError from 'passwords-client/src/Exception/Encryption/EncryptionNotEnabledError';
 
 class SearchManager {
 
     init() {
         ServerManager.onAddServer.on(
             async (s) => { await this._addServer(s); }
+        );
+        ServerManager.onRemoveServer.on(
+            async (s) => { await this._removeServer(s); }
         );
         ServerManager.onDeleteServer.on(
             async (s) => { await this._removeServer(s); }
@@ -76,7 +80,16 @@ class SearchManager {
             );
             await this._loadHiddenPasswords(api);
         } catch(e) {
-            ErrorManager.logError(e);
+            if(e instanceof EncryptionNotEnabledError) {
+                try {
+                    await ServerManager.restartSession(api.getServer());
+                } catch(e2) {
+                    ErrorManager.logError(e);
+                    ErrorManager.logError(e2);
+                }
+            } else {
+                ErrorManager.logError(e);
+            }
         }
     }
 

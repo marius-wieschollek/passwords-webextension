@@ -148,10 +148,22 @@ class ServerManager {
      * @param {Server} server
      * @returns {Promise<void>}
      */
+    async restartSession(server) {
+        await this.removeServer(server);
+        let api = await ApiRepository.findById(server.getId());
+        api.renewSession();
+        await this.addServer(server);
+    }
+
+    /**
+     *
+     * @param {Server} server
+     * @returns {Promise<void>}
+     */
     async deleteServer(server) {
         await this.removeServer(server);
         let serverId = server.getId(),
-            api      = await ApiRepository.findById(server.getId());
+            api      = await ApiRepository.findById(serverId);
 
         await ApiRepository.delete(api);
         await ServerRepository.delete(server);

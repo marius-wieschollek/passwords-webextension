@@ -68,7 +68,7 @@ class ApiRepository {
 
         for(let server of servers) {
             if(!this._api.hasOwnProperty(server.getId())) {
-                let classes = new EnhancedClassLoader({model: {server: Server}});
+                let classes = new EnhancedClassLoader({'model.server': Server});
                 this._api[server.getId()] = new PasswordsClient(server, config, classes);
             }
         }
