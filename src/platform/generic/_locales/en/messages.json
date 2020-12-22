@@ -319,11 +319,11 @@
     },
     "MiningItemIsNew"               : {
         "message"    : "This is a new password",
-        "description": ""
+        "description": "Text shown in a collected password that is new to tell the user that it is a new passwor"
     },
     "MiningItemIsUpdate"            : {
         "message"     : "This seems to be an update of \"$PASSWORD$\"",
-        "description" : "",
+        "description" : "Text shown in a collected password that is an update of an existing password",
         "placeholders": {
             "password": {
                 "content": "$1",
@@ -333,79 +333,79 @@
     },
     "TitleClickToEdit"              : {
         "message"    : "Double click to edit",
-        "description": ""
+        "description": "Tooltip used in the collected password form for any property of the password to inform the user that double clicking makes the text field editable"
     },
     "TitleEnterToExit"              : {
         "message"    : "Press enter to save",
-        "description": ""
+        "description": "Tooltip used in the collected password form to tell the user that the property can be saved by clicking enter"
     },
     "LabelLabel"                    : {
         "message"    : "Name",
-        "description": ""
+        "description": "Label for the name of a password entry"
     },
     "LabelPassword"                 : {
         "message"    : "Password",
-        "description": ""
+        "description": "Label for the password of a password entry"
     },
     "LabelUsername"                 : {
         "message"    : "User",
-        "description": ""
-    },
-    "LabelUrl"                      : {
-        "message"    : "Url",
-        "description": ""
-    },
-    "LabelUser"                     : {
-        "message"    : "User",
-        "description": ""
-    },
-    "LabelPasswords"                : {
-        "message"    : "Passwords",
-        "description": ""
-    },
-    "LabelFolders"                  : {
-        "message"    : "Folders",
-        "description": ""
-    },
-    "LabelTags"                     : {
-        "message"    : "Tags",
-        "description": ""
+        "description": "Label for the username of a password entry"
     },
     "LabelHidden"                   : {
         "message"    : "Incognito Password",
-        "description": ""
+        "description": "Label for the checkbox to mark a password entry as private or hidden in the webapp"
+    },
+    "LabelUrl"                      : {
+        "message"    : "Url",
+        "description": "Label for of a field that contains an url (used in collected password or server info)"
+    },
+    "LabelUser"                     : {
+        "message"    : "User",
+        "description": "Label for the username of in the server info in the browse tab"
+    },
+    "LabelPasswords"                : {
+        "message"    : "Passwords",
+        "description": "Label for the password count in the server info in the browse tab"
+    },
+    "LabelFolders"                  : {
+        "message"    : "Folders",
+        "description": "Label for the folder count in the server info in the browse tab"
+    },
+    "LabelTags"                     : {
+        "message"    : "Tags",
+        "description": "Label for the tag count in the server info in the browse tab"
     },
     "PlaceholderPassword"           : {
         "message"    : "Password",
-        "description": ""
+        "description": "Placeholder text in the master password field of the server authorization dialog"
     },
     "PlaceholderToken"              : {
         "message"    : "Two-Factor Token",
-        "description": ""
+        "description": "Placeholder text in the master password field of the server authorization dialog"
     },
     "ButtonLogin"                   : {
         "message"    : "Login",
-        "description": ""
+        "description": "The text of the login button of the server authorization dialog"
     },
     "AuthorizationFailedTitle"      : {
         "message"    : "Authorization failed",
-        "description": ""
+        "description": "Title of the toast notification when the login attempt was unsuccessful"
     },
     "AuthorizationFailedText"       : {
         "message"    : "Access to the password database with the provided login was denied",
-        "description": ""
+        "description": "Text of the toast notification when the login attempt was unsuccessful"
     },
     "TokenRequestFailed"            : {
         "message"    : "Token request failed",
-        "description": ""
+        "description": "Title of the toast notification when the request for a two factor auth token failed. The text will be the error message."
     },
     "NotifyNewPasswordTitle"        : {
         "message"    : "New password detected",
-        "description": ""
+        "description": "Title of the system notification when a new password was detected"
     },
     "NotifyNewPasswordText"         : {
         "message"     : "A new password for \"$LABEL$\" was detected.",
-        "description" : "",
+        "description" : "Text of the system notification when a new password was detected. Used in Chrome where the notification has buttons to save or view the password",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -415,7 +415,7 @@
     },
     "NotifyNewPasswordTextFF"       : {
         "message"     : "A new password for \"$LABEL$\" was detected. Click the passwords icon to view and save it.",
-        "description" : "",
+        "description" : "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -425,11 +425,11 @@
     },
     "NotifyUpdatePasswordTitle"     : {
         "message"    : "Updated password detected",
-        "description": ""
+        "description": "Title of the system notification when an update for an existing password has been detected"
     },
     "NotifyUpdatePasswordText"      : {
         "message"     : "An update for \"$LABEL$\" was detected.",
-        "description" : "",
+        "description" : "Text of the system notification when an update for an existing password was detected. Used in Chrome where the notification has buttons to save or view the password",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -439,7 +439,7 @@
     },
     "NotifyUpdatePasswordTextFF"    : {
         "message"     : "An update for \"$LABEL$\" was detected. Click the passwords icon to view and save it.",
-        "description" : "",
+        "description" : "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -449,15 +449,15 @@
     },
     "ButtonSave"                    : {
         "message"    : "Save",
-        "description": "The save button of a password notification"
+        "description": "The save button of a password detection system notification"
     },
     "ButtonMore"                    : {
         "message"    : "More Options",
-        "description": "The more options button of a password notification which opens the popup"
+        "description": "The more options button of a password detection system notification which opens the popup with the form which shows all password details"
     },
     "ToastServerCheckTitle"         : {
         "message"     : "$SERVER$ needs to be upgraded",
-        "description" : "",
+        "description" : "Title of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
         "placeholders": {
             "server": {
                 "content": "$1",
@@ -466,8 +466,8 @@
         }
     },
     "ToastServerCheckMessage"       : {
-        "message"     : "The account \"$SERVER$\" uses a server running an outdated version of passwords. The server must be updated before the account can be reactivated in the settings.",
-        "description" : "",
+        "message"     : "The account \"$SERVER$\" uses a server running an outdated version of passwords. The server must be updated before the account can be reactivated in the extension settings.",
+        "description" : "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
         "placeholders": {
             "server": {
                 "content": "$1",
@@ -477,7 +477,7 @@
     },
     "PasswordPastedSuccess"         : {
         "message"     : "$LABEL$ pasted successfully",
-        "description" : "",
+        "description" : "Text of the toast notification when a password entry was pasted successfully into the current tab",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -487,7 +487,7 @@
     },
     "PasswordPastedError"           : {
         "message"     : "Could not paste $LABEL$",
-        "description" : "",
+        "description" : "Text of the toast notification when a password could not be pasted into the current tab",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -497,7 +497,7 @@
     },
     "PasswordPropertyCopied"        : {
         "message"     : "Copied $PROPERTY$",
-        "description" : "",
+        "description" : "Text of the toast notification when a password property was copied successfully via one of the buttons",
         "placeholders": {
             "property": {
                 "content": "$1",
@@ -507,19 +507,19 @@
     },
     "PropertyPassword"              : {
         "message"    : "Password",
-        "description": ""
+        "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
     },
     "PropertyUsername"              : {
         "message"    : "Username",
-        "description": ""
+        "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
     },
     "PropertyUrl"                   : {
         "message"    : "Url",
-        "description": ""
+        "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
     },
     "ServerConnectionErrorTitle"    : {
         "message"     : "Unable to connect to $SERVER$",
-        "description" : "",
+        "description" : "Title of the toast notification when the connection to the server failed",
         "placeholders": {
             "server": {
                 "content": "$1",
@@ -529,11 +529,11 @@
     },
     "ServerCredentialsRejected"     : {
         "message"    : "Server credentials rejected. Please update the login data in the settings.",
-        "description": ""
+        "description": "Text of the toast notification when the server has rejected the login credentials"
     },
     "ServerHttpError"               : {
         "message"     : "HTTP connection error: $ERROR$",
-        "description" : "",
+        "description" : "Text of the toast notification when the connection to the server failed with a HTTP error",
         "placeholders": {
             "error": {
                 "content": "$1",
@@ -543,41 +543,42 @@
     },
     "ServerNetworkError"            : {
         "message"    : "A network error occurred. Please check if you're online and the server is reachable.",
-        "description": ""
+        "description": "Text of the toast notification when the connection to the server failed with a network error"
     },
     "ServerUnknownError"            : {
         "message"    : "Unknown error.",
-        "description": ""
+        "description": "Text of the toast notification when the connection to the server failed with an unknown error and no error message is present"
     },
     "ServerGenericError"            : {
         "message"     : "Error: $ERROR$",
-        "description" : "",
+        "description" : "Text of the toast notification when the connection to the server failed with an error",
         "placeholders": {
             "error": {
-                "content": "$1",
-                "example": "500 - Internal Server Error"
+                "content"    : "$1",
+                "description": "The error message",
+                "example"    : "500 - Internal Server Error"
             }
         }
     },
     "DemoInfoNotification"          : {
         "message"    : "Info notification",
-        "description": ""
+        "description": "Text and title of the info notification in the theme preview"
     },
     "DemoSuccessNotification"       : {
         "message"    : "Success notification",
-        "description": ""
+        "description": "Text and title of the success notification in the theme preview"
     },
     "DemoWarningNotification"       : {
         "message"    : "Warning notification",
-        "description": ""
+        "description": "Text and title of the warning notification in the theme preview"
     },
     "DemoErrorNotification"         : {
         "message"    : "Error notification",
-        "description": ""
+        "description": "Text and title of the error notification in the theme preview"
     },
     "DemoText"                      : {
         "message"    : "Demo",
-        "description": ""
+        "description": "Demo text used in the theme preview"
     },
     "SettingsThemeId"               : {
         "message"    : "Active theme",
