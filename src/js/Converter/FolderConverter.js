@@ -1,4 +1,3 @@
-import Password from 'passwords-client/src/Model/Password/Password';
 import Folder from 'passwords-client/src/Model/Folder/Folder';
 
 export default class FolderConverter {
