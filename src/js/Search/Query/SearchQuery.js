@@ -159,7 +159,7 @@ export default class SearchQuery {
         }
 
         matches.sort(
-            (a, b) => { this._sortFunction(a, b); }
+            (a, b) => { return this._sortFunction(a, b); }
         );
 
         if(this._limit > 0 && matches.length > this._limit) {
