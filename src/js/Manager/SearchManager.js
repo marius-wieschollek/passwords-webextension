@@ -4,7 +4,6 @@ import SearchIndex from '@js/Search/Index/SearchIndex';
 import SearchQuery from '@js/Search/Query/SearchQuery';
 import ErrorManager from '@js/Manager/ErrorManager';
 import HiddenFolderHelper from "@js/Helper/HiddenFolderHelper";
-import EncryptionNotEnabledError from 'passwords-client/src/Exception/Encryption/EncryptionNotEnabledError';
 
 class SearchManager {
 
@@ -80,7 +79,7 @@ class SearchManager {
             );
             await this._loadHiddenPasswords(api);
         } catch(e) {
-            if(e instanceof EncryptionNotEnabledError) {
+            if(e.name === 'EncryptionNotEnabledError' || e.name === 'MissingEncryptionKeyError') {
                 try {
                     await ServerManager.restartSession(api.getServer());
                 } catch(e2) {
