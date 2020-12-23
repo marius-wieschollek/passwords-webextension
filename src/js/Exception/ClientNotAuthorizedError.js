@@ -1,6 +1,13 @@
 export default class ClientNotAuthorizedError extends Error {
 
     /**
+     * @returns {String}
+     */
+    get name() {
+        return 'ClientNotAuthorizedError';
+    }
+
+    /**
      * @returns {PasswordsClient}
      */
     get client() {
