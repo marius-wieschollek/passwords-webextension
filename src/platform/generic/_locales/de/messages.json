@@ -313,6 +313,10 @@
         "message": "Keine Elemente vorhanden",
         "description": "Used in the browse tab when a server has no entries to list"
     },
+    "BrowseNoServers"             : {
+        "message"    : "Keine Server vorhanden",
+        "description": "Used in the browse tab when no accounts/servers are available"
+    },
     "SearchPlaceholder": {
         "message": "Passwörter durchsuchen",
         "description": "Placeholder text of the search box"

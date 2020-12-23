@@ -1,21 +1,24 @@
 <template>
-    <foldout :tabs="serverNames" :translate="false" ref="foldout" v-on:switch="switchTab($event)">
-        <div v-for="server in servers" :key="`${server.getId()}-tab`" :slot="`${server.getId()}-tab`" class="options">
-            <div class="option" @click="reloadServer(server)">
-                <icon icon="sync" font="solid" :spin="reloading[server.getId()]"/>
+    <div class="browse-container">
+        <foldout :tabs="serverNames" :translate="false" ref="foldout" v-on:switch="switchTab($event)">
+            <div v-for="server in servers" :key="`${server.getId()}-tab`" :slot="`${server.getId()}-tab`" class="options">
+                <div class="option" @click="reloadServer(server)">
+                    <icon icon="sync" font="solid" :spin="reloading[server.getId()]"/>
+                </div>
             </div>
-        </div>
-        <div v-for="server in servers"
-             :key="`${server.getId()}-tab-open`"
-             :slot="`${server.getId()}-tab-open`"
-             class="options">
-            <icon icon="info-circle" font="solid" @click="showInfo(server)"/>
-        </div>
-        <div v-for="server in servers" :key="server.getId()" :slot="server.getId()">
-            <server-info :server="server" v-if="info"/>
-            <server-browser :server="server" :folder="getInitialFolder(server)" v-on:open="setFolder($event)" v-else/>
-        </div>
-    </foldout>
+            <div v-for="server in servers"
+                 :key="`${server.getId()}-tab-open`"
+                 :slot="`${server.getId()}-tab-open`"
+                 class="options">
+                <icon icon="info-circle" font="solid" @click="showInfo(server)"/>
+            </div>
+            <div v-for="server in servers" :key="server.getId()" :slot="server.getId()">
+                <server-info :server="server" v-if="info"/>
+                <server-browser :server="server" :folder="getInitialFolder(server)" v-on:open="setFolder($event)" v-else/>
+            </div>
+        </foldout>
+        <translate tag="div" class="browse-no-servers" say="BrowseNoServers" v-if="servers.length === 0"/>
+    </div>
 </template>
 
 <script>
@@ -24,9 +27,10 @@
     import MessageService from '@js/Services/MessageService';
     import ServerInfo from '@vue/Components/Browse/ServerInfo';
     import ServerBrowser from '@vue/Components/Browse/ServerBrowser';
+    import Translate from "@vue/Components/Translate";
 
     export default {
-        components: {ServerInfo, ServerBrowser, Icon, Foldout},
+        components: {Translate, ServerInfo, ServerBrowser, Icon, Foldout},
 
         props: {
             initialStatus: {
@@ -93,6 +97,7 @@
                 this.folder = null;
             },
             async reloadServer(server) {
+                if(this.reloading[server.getId()]) return;
                 this.reloading[server.getId()] = true;
                 this.$forceUpdate();
                 await MessageService.send({type: 'server.reload', payload: server.getId()});
@@ -134,10 +139,15 @@
 </script>
 
 <style lang="scss">
-    .tab-content-browse {
-        .foldout-tab.active {
-            position : sticky;
-            top      : 0;
-        }
+.tab-content-browse {
+    .foldout-tab.active {
+        position : sticky;
+        top      : 0;
     }
+
+    .browse-no-servers {
+        text-align : center;
+        padding    : 1rem;
+    }
+}
 </style>
