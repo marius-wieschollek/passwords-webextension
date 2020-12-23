@@ -1,28 +1,29 @@
 <template>
     <div class="settings-general">
         <translate tag="h3" say="AutofillSettings"/>
-        <div class="account-options">
+        <div class="setting">
+            <slider-field id="popup-autoclose" v-model="autoclose"/>
             <translate tag="label" for="popup-autoclose" say="SettingsPopupAutoclose"/>
-            <input type="checkbox" id="popup-autoclose" v-model="autoclose"/>
         </div>
-        <div class="account-options">
+        <div class="setting">
+            <slider-field id="popup-autosubmit" v-model="autosubmit"/>
             <translate tag="label" for="password-autosubmit" say="SettingsPasswordAutosubmit"/>
-            <input type="checkbox" id="password-autosubmit" v-model="autosubmit"/>
         </div>
 
         <translate tag="h3" say="NotificationSettings"/>
-        <div class="account-options">
+        <div class="setting">
+            <slider-field id="notification-password-new" v-model="notifyPwNew"/>
             <translate tag="label" for="notification-password-new" say="SettingsNotifyPasswordNew"/>
-            <input type="checkbox" id="notification-password-new" v-model="notifyPwNew"/>
-
+        </div>
+        <div class="setting">
+            <slider-field id="notification-password-update" v-model="notifyPwUpdate"/>
             <translate tag="label" for="notification-password-update" say="SettingsNotifyPasswordUpdate"/>
-            <input type="checkbox" id="notification-password-update" v-model="notifyPwUpdate"/>
         </div>
 
         <translate tag="h3" say="SearchSettings"/>
-        <div class="account-options">
+        <div class="setting">
+            <slider-field id="popup-related-search" v-model="relatedSearch"/>
             <translate tag="label" for="popup-related-search" say="SettingsPopupRelatedSearch"/>
-            <input type="checkbox" id="popup-related-search" v-model="relatedSearch"/>
         </div>
     </div>
 </template>
@@ -32,9 +33,10 @@
     import ErrorManager from '@js/Manager/ErrorManager';
     import SettingsService from '@js/Services/SettingsService';
     import ToastService from '@js/Services/ToastService';
+    import SliderField from "@vue/Components/Form/SliderField";
 
     export default {
-        components: {Translate},
+        components: {SliderField, Translate},
         data() {
             return {
                 autoclose     : false,
@@ -106,9 +108,27 @@
 </script>
 
 <style lang="scss">
-    .settings-general {
-        h3 {
-            margin : 1.5rem 1rem .5rem;
+.debug-settings,
+.settings-general {
+    h3 {
+        margin : 1.5rem 1rem .5rem;
+    }
+
+    .setting {
+        padding     : 0.5rem 1rem;
+        display     : flex;
+        align-items : center;
+        gap         : .25rem;
+
+        label {
+            line-height : 2rem;
+            flex-grow   : 1;
+            cursor      : pointer;
+        }
+
+        .input-slider {
+            flex-grow : 0;
         }
     }
+}
 </style>

@@ -19,9 +19,9 @@
         </div>
 
         <translate tag="h3" say="DebugSettings"/>
-        <div class="debug-info">
-            <translate tag="label" class="label" say="DebugLanguageTagsEnabled"/>
+        <div class="setting">
             <slider-field v-model="settings.localize"/>
+            <translate tag="label" class="label" say="DebugLanguageTagsEnabled"/>
         </div>
 
         <translate tag="h3" say="DebugErrorLog"/>
@@ -164,11 +164,6 @@
 }
 
 .debug-settings {
-
-    h3 {
-        margin : 1.5rem 1rem .5rem 1rem;
-    }
-
     .debug-info {
         padding : .25rem 1rem;
         display : flex;
