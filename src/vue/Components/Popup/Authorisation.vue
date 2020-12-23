@@ -67,11 +67,6 @@
 
         async mounted() {
             await this.loadNext();
-            if(this.hasPassword) {
-                this.$refs.password.$el.focus();
-            } else if(this.tokenField) {
-                this.$refs.token.$el.focus();
-            }
         },
 
         computed: {
@@ -115,8 +110,18 @@
                     this.label = this.authRequest.getLabel();
                     this.loadToken();
                     await this.loadTheme();
+                    this.$nextTick(() => {
+                        this.focus();
+                    });
                 } else {
                     this.$parent.authorized = true;
+                }
+            },
+            focus() {
+                if(this.hasPassword) {
+                    this.$refs.password.$el.focus();
+                } else if(this.tokenField) {
+                    this.$refs.token.$el.focus();
                 }
             },
             loadToken() {
