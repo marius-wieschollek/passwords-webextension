@@ -56,24 +56,33 @@ class ThemeService {
         this._repository = repository;
     }
 
+    /**
+     * @returns {Promise<String>}
+     */
     async getBadgeIcon() {
         let theme = await this.getCurrentTheme(),
             icon  = theme.getBadgeIcon();
 
-        if(!icon) return null;
-
+        if(!icon) icon = 'passwords';
         if(SystemService.getBrowserPlatform() === 'firefox') {
             return await SystemService.getBrowserApi().runtime.getURL(`img/${icon}.svg`);
         }
+
         return await SystemService.getBrowserApi().runtime.getURL(`img/${icon}.png`);
     }
 
+    /**
+     * @returns {Promise<String>}
+     */
     async getBadgeTextColor() {
         let theme = await this.getCurrentTheme();
 
         return theme.getBadgeForegroundColor();
     }
 
+    /**
+     * @returns {Promise<String>}
+     */
     async getBadgeBackgroundColor() {
         let theme = await this.getCurrentTheme();
 
@@ -86,7 +95,6 @@ class ThemeService {
     }
 
     /**
-     *
      * @param {Theme} theme
      */
     applyTheme(theme) {
@@ -99,7 +107,6 @@ class ThemeService {
     }
 
     /**
-     *
      * @return {Promise<Theme>}
      */
     async getCurrentTheme() {
