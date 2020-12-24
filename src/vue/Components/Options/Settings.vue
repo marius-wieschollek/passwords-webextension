@@ -2,12 +2,16 @@
     <div class="settings-general">
         <translate tag="h3" say="AutofillSettings"/>
         <div class="setting">
-            <slider-field id="popup-autoclose" v-model="autoclose"/>
-            <translate tag="label" for="popup-autoclose" say="SettingsPopupAutoclose"/>
+            <slider-field id="paste-autoclose" v-model="autoclose"/>
+            <translate tag="label" for="paste-autoclose" say="SettingsPastePopupClose"/>
         </div>
         <div class="setting">
-            <slider-field id="popup-autosubmit" v-model="autosubmit"/>
-            <translate tag="label" for="password-autosubmit" say="SettingsPasswordAutosubmit"/>
+            <slider-field id="paste-autosubmit" v-model="autosubmit"/>
+            <translate tag="label" for="paste-autosubmit" say="SettingsPasteFormSubmit"/>
+        </div>
+        <div class="setting">
+            <slider-field id="paste-compromised" v-model="compromised"/>
+            <translate tag="label" for="paste-compromised" say="SettingsPasteWarnCompromised"/>
         </div>
 
         <translate tag="h3" say="NotificationSettings"/>
@@ -41,6 +45,7 @@
             return {
                 autoclose     : false,
                 autosubmit    : false,
+                compromised   : false,
                 notifyPwNew   : false,
                 relatedSearch : false,
                 notifyPwUpdate: false
@@ -53,8 +58,9 @@
 
         methods: {
             loadData() {
-                this.getSetting('popup.autoclose', 'autoclose');
-                this.getSetting('password.autosubmit', 'autosubmit');
+                this.getSetting('paste.popup.close', 'autoclose');
+                this.getSetting('paste.form.submit', 'autosubmit');
+                this.getSetting('paste.compromised.warning', 'compromised');
                 this.getSetting('popup.related.search', 'relatedSearch');
                 this.getSetting('notification.password.new', 'notifyPwNew');
                 this.getSetting('notification.password.update', 'notifyPwUpdate');
@@ -80,12 +86,17 @@
         watch: {
             autosubmit(value, oldValue) {
                 if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('password.autosubmit', value);
+                    this.setSetting('paste.form.submit', value);
                 }
             },
             autoclose(value, oldValue) {
                 if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('popup.autoclose', value);
+                    this.setSetting('paste.popup.close', value);
+                }
+            },
+            compromised(value, oldValue) {
+                if(oldValue !== null && value !== oldValue) {
+                    this.setSetting('paste.compromised.warning', value);
                 }
             },
             relatedSearch(value, oldValue) {

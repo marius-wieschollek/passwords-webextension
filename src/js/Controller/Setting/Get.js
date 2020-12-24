@@ -6,11 +6,12 @@ export default class Get extends AbstractController {
     constructor() {
         super();
         this._readableSettings = [
-            'password.autosubmit',
             'password.generator.strength',
             'password.generator.numbers',
             'password.generator.special',
-            'popup.autoclose',
+            'paste.form.submit',
+            'paste.popup.close',
+            'paste.compromised.warning',
             'popup.related.search',
             'notification.password.new',
             'notification.password.update',
@@ -34,7 +35,7 @@ export default class Get extends AbstractController {
             if(this._readableSettings.indexOf(setting) !== -1) {
                 /** @type {Setting} **/
                 let model = await SettingsService.get(setting);
-                reply.setType('setting.value').setPayload({value:model.getValue(), scope:model.getScope()});
+                reply.setType('setting.value').setPayload({value: model.getValue(), scope: model.getScope()});
             } else {
                 reply.setPayload(
                     {

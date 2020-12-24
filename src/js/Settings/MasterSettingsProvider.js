@@ -15,10 +15,20 @@ class MasterSettingsProvider {
                 'local.server.default',
                 'sync.server.default'
             ],
-            'password.autosubmit'         : [
+            'paste.form.submit'           : [
                 'client.ext.password.autosubmit',
                 'local.password.autosubmit',
                 'sync.password.autosubmit'
+            ],
+            'paste.popup.close'           : [
+                'client.ext.password.autoclose',
+                'local.password.autoclose',
+                'sync.password.autoclose'
+            ],
+            'paste.compromised.warning'   : [
+                'client.ext.paste.compromised.warning',
+                'local.paste.compromised.warning',
+                'sync.paste.compromised.warning'
             ],
             'password.folder.private'     : [
                 'client.ext.folder.private'
@@ -31,11 +41,6 @@ class MasterSettingsProvider {
             ],
             'password.generator.special'  : [
                 'user.password.generator.special'
-            ],
-            'popup.autoclose'             : [
-                'client.ext.password.autoclose',
-                'local.password.autoclose',
-                'sync.password.autoclose'
             ],
             'popup.related.search'        : [
                 'client.ext.popup.related.search',
@@ -68,9 +73,10 @@ class MasterSettingsProvider {
             'theme.custom'                : null,
             'theme.current'               : 'light',
             'server.default'              : null,
-            'popup.autoclose'             : true,
+            'paste.popup.close'           : true,
+            'paste.form.submit'           : true,
+            'paste.compromised.warning'   : true,
             'popup.related.search'        : true,
-            'password.autosubmit'         : true,
             'password.folder.private'     : null,
             'notification.password.new'   : true,
             'notification.password.update': true,

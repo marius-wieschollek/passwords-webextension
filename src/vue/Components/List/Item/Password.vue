@@ -75,7 +75,7 @@
 
                 try {
                     await ToastService.success(['PasswordPastedSuccess', this.password.getLabel()]);
-                    if(await SettingsService.getValue('popup.autoclose') && this.active) {
+                    if(await SettingsService.getValue('paste.popup.close') && this.active) {
                         window.close();
                     }
                 } catch(e) {

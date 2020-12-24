@@ -6,14 +6,16 @@ export default class Reset extends AbstractController {
     constructor() {
         super();
         this._resettableSettings = [
-            'password.autosubmit',
-            'popup.autoclose',
+            'paste.form.submit',
+            'paste.popup.close',
+            'paste.compromised.warning',
             'popup.related.search',
             'notification.password.new',
             'notification.password.update',
             'server.default',
             'theme.current',
-            'theme.custom'
+            'theme.custom',
+            'debug.localisation.enabled'
         ];
     }
 

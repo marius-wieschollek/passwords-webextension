@@ -67,13 +67,17 @@
         "message"    : "Password autofill",
         "description": "Headline above the password autofill section in the other settings tab in the extension settings"
     },
-    "SettingsPopupAutoclose"        : {
-        "message"    : "Close popup after autofill",
-        "description": "Label of the setting in the extension settings to automatically close the extension popup after successfull autofill"
+    "SettingsPastePopupClose"       : {
+        "message"    : "Close popup after pasting password",
+        "description": "Label of the setting in the extension settings to automatically close the extension popup after successful pasting"
     },
-    "SettingsPasswordAutosubmit"    : {
+    "SettingsPasteFormSubmit"       : {
         "message"    : "Automatically submit login forms",
-        "description": "Label of the setting in the extension settings to automatically submit login forms after autofill"
+        "description": "Label of the setting in the extension settings to automatically submit login forms after pasting"
+    },
+    "SettingsPasteWarnCompromised"  : {
+        "message"    : "Warn when using compromised passwords",
+        "description": "Label of the setting in the extension settings to show a warning after pasting a compromised password"
     },
     "NotificationSettings"          : {
         "message"    : "Notifications",
@@ -313,7 +317,7 @@
         "message"    : "No elements found",
         "description": "Used in the browse tab when a server has no entries to list"
     },
-    "BrowseNoServers"             : {
+    "BrowseNoServers"               : {
         "message"    : "No servers available",
         "description": "Used in the browse tab when no accounts/servers are available"
     },
@@ -459,7 +463,7 @@
         "message"    : "More Options",
         "description": "The more options button of a password detection system notification which opens the popup with the form which shows all password details"
     },
-    "ButtonClose"                    : {
+    "ButtonClose"                   : {
         "message"    : "Close",
         "description": "The title of the close button of a toast notification"
     },
@@ -1027,9 +1031,9 @@
         "message"    : "Highlight Login Form Fields",
         "description": "Label of the button in the popup which triggers the option to highlight all login form fields in the current tab"
     },
-    "AutofillBadPasswordWarning"    : {
+    "PasteBadPasswordWarning"       : {
         "message"    : "This password is compromised and should be changed immediately",
-        "description": "Notification shown after the user used autofill for a password with the security status breached/compromised"
+        "description": "Notification shown after the user pasted a password with the security status breached/compromised"
     },
     "DebugInternalStats"            : {
         "message"    : "Internal Status",

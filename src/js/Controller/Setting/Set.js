@@ -8,8 +8,9 @@ export default class Set extends AbstractController {
     constructor() {
         super();
         this._booleanSettings = [
-            'popup.autoclose',
-            'password.autosubmit',
+            'paste.popup.close',
+            'paste.form.submit',
+            'paste.compromised.warning',
             'popup.related.search',
             'notification.password.new',
             'notification.password.update',

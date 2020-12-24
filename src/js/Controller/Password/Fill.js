@@ -35,14 +35,14 @@ export default class Fill extends AbstractController {
                     payload : {
                         user    : password.getUserName(),
                         password: password.getPassword(),
-                        submit  : await SettingsService.getValue('password.autosubmit')
+                        submit  : await SettingsService.getValue('paste.form.submit')
                     }
                 }
             );
 
-            if(password.getStatus() === 2) {
+            if(password.getStatus() === 2 && await SettingsService.getValue('paste.compromised.warning')) {
                 ToastService
-                    .warning('AutofillBadPasswordWarning')
+                    .warning('PasteBadPasswordWarning', null, 5)
                     .catch(ErrorManager.catchEvt);
             }
 
