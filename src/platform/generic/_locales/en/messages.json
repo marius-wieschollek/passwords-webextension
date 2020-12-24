@@ -459,6 +459,10 @@
         "message"    : "More Options",
         "description": "The more options button of a password detection system notification which opens the popup with the form which shows all password details"
     },
+    "ButtonClose"                    : {
+        "message"    : "Close",
+        "description": "The title of the close button of a toast notification"
+    },
     "ToastServerCheckTitle"         : {
         "message"     : "$SERVER$ needs to be upgraded",
         "description" : "Title of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
