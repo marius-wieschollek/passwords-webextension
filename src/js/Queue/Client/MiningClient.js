@@ -49,6 +49,12 @@ class MiningClient extends FeedbackClient {
     }
 
     /**
+     * @private
+     */
+    _fetchInitialItems() {
+    }
+
+    /**
      *
      * @param {MiningItem} item
      * @returns {Promise<MiningItem>}
@@ -96,7 +102,6 @@ class MiningClient extends FeedbackClient {
                 resolve,
                 reject
             };
-
         });
     }
 }

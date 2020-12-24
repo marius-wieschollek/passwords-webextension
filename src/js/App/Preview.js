@@ -30,7 +30,6 @@ class Preview {
         await this._popup.init();
         this._initVue().catch(ErrorManager.catch);
 
-
         MessageService.listen(
             'theme.preview',
             (message, reply) => {

@@ -17,7 +17,6 @@ import ThemeRepository from '@js/Repositories/ThemeRepository';
 import SettingsService from '@js/Services/SettingsService';
 import MasterSettingsProvider from '@js/Settings/MasterSettingsProvider';
 import LocalisationService from "@js/Services/LocalisationService";
-import ToastService from "@js/Services/ToastService";
 
 class Background {
     async init() {

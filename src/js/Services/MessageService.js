@@ -6,8 +6,9 @@ class MessageService {
 
     constructor() {
         this._api = SystemService.getBrowserApi();
-        this._enabled = false;
         this._sender = null;
+        this._enabled = true;
+        this._clients = {};
         this._messages = {};
         this._listeners = {};
         this._converters = {};
@@ -18,11 +19,12 @@ class MessageService {
             return this._receiveMessage(m, s);
         };
 
-        this._messageEnabler = () => {
+        this._messageEnabler = (client) => {
             console.log('messages.enabled', 'event');
             this._enabled = true;
+            this._clients[client.name] = true;
             this._sendMessages()
-                .catch(ErrorManager.catch());
+                .catch(ErrorManager.catchEvt);
         };
 
     }
@@ -33,14 +35,14 @@ class MessageService {
         if(defaultReceiver) this._defaultReceiver = defaultReceiver;
 
         this._api.runtime.onMessage.addListener(this._messageListener);
-        if(SystemService.getArea() === 'background') {
+        if(SystemService.getArea() === SystemService.AREA_BACKGROUND) {
             this._api.runtime.onConnect.addListener(this._messageEnabler);
             this._api.browserAction.onClicked.addListener(this._messageEnabler);
 
             window.inboxMessage = (m) => {
                 return this._receiveMessage(m);
             };
-        } else if(SystemService.getArea() !== 'client') {
+        } else if(SystemService.getArea() !== SystemService.AREA_CLIENT) {
             this._connector = await this._api.runtime.getBackgroundPage();
         }
 
@@ -65,9 +67,8 @@ class MessageService {
     enable() {
         console.log('messages.enabled', 'force');
         this._enabled = true;
-        this._api.runtime.onConnect.removeListener(this._messageEnabler);
         this._sendMessages()
-            .catch(ErrorManager.catch());
+            .catch(ErrorManager.catchEvt);
     }
 
     /**
@@ -117,14 +118,15 @@ class MessageService {
         message = this._validateMessage(message);
 
         return new Promise((resolve, reject) => {
+            let send = this._canSendMessage(message);
             this._messages[message.getId()] = {
                 message,
                 resolve,
                 reject,
-                sent: this._enabled === true
+                sent: send
             };
 
-            if(this._enabled) {
+            if(send) {
                 this._sendMessage(message.getId())
                     .catch(ErrorManager.catch());
             } else {
@@ -202,7 +204,7 @@ class MessageService {
         let promises = [];
 
         for(let id in this._messages) {
-            if(!this._messages.hasOwnProperty(id) || this._messages[id].sent) continue;
+            if(!this._messages.hasOwnProperty(id) || this._messages[id].sent || !this._canSendMessage(this._messages[id].message)) continue;
             promises.push(this._sendMessage(id));
         }
 
@@ -380,6 +382,21 @@ class MessageService {
         message = new Message(message);
 
         return message;
+    }
+
+    /**
+     * @param {Message} message
+     * @returns {boolean|*}
+     * @private
+     */
+    _canSendMessage(message) {
+        if(SystemService.getArea() !== SystemService.AREA_BACKGROUND || !this._enabled) return this._enabled;
+        let receiver = message.getReceiver();
+        if(receiver === null && this._defaultReceiver !== null) {
+            receiver = this._defaultReceiver;
+        }
+
+        return this._clients.hasOwnProperty(receiver) && this._clients[receiver];
     }
 }
 

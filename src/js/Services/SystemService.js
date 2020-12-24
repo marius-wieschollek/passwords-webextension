@@ -30,7 +30,7 @@ class SystemService {
             this.AREA_OPTIONS,
             this.AREA_CLIENT,
             this.AREA_POPUP
-        ]
+        ];
     }
 
     constructor() {
@@ -139,7 +139,10 @@ class SystemService {
      *
      */
     connect() {
-        this._api.runtime.connect();
+        this._api.runtime.connect(
+            this.getExtensionId(),
+            {name: this.getArea()}
+        );
     }
 
     /**
