@@ -15,7 +15,6 @@ export default class DebugData extends AbstractController {
     async execute(message, reply) {
         let data = {
             hidden  : {id: null},
-            errors  : [],
             settings: {localisations: false},
             app     : {
                 version    : process.env.APP_VERSION,
@@ -23,10 +22,6 @@ export default class DebugData extends AbstractController {
                 environment: process.env.NODE_ENV
             }
         };
-
-        for(let error of ErrorManager.errors) {
-            data.errors.unshift(error);
-        }
 
         try {
             let api    = await ServerManager.getDefaultApi(),

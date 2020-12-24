@@ -70,8 +70,8 @@
             this.loadData();
             if(!this.interval) {
                 this.interval = setInterval(() => {
-                    this.loadData();
-                }, 5000);
+                    this.loadErrors();
+                }, 3000);
             }
         },
 
@@ -84,8 +84,8 @@
             this.loadData();
             if(!this.interval) {
                 this.interval = setInterval(() => {
-                    this.loadData();
-                }, 5000);
+                    this.loadErrors();
+                }, 3000);
             }
         },
 
@@ -103,13 +103,15 @@
                         this.hidden = data.hidden;
                     }
 
-                    if(data.hasOwnProperty('errors')) {
-                        this.errors = data.errors;
-                    }
-
                     if(data.hasOwnProperty('settings')) {
                         this.settings = data.settings;
                     }
+                });
+                this.loadErrors();
+            },
+            loadErrors() {
+                MessageService.send('options.debug.errors').then((reply) => {
+                    this.errors = reply.getPayload();
                 });
             },
             getTitle(error) {

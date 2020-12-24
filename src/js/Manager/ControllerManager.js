@@ -173,6 +173,13 @@ class ControllerManager {
             }
         );
         MessageService.listen(
+            'options.debug.errors',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "DebugErrors" */ '@js/Controller/Options/DebugErrors');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
             'setting.set',
             async (message, reply) => {
                 let module = await import(/* webpackChunkName: "SettingSet" */ '@js/Controller/Setting/Set');
