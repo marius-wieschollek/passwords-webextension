@@ -392,9 +392,9 @@ class MessageService {
     _canSendMessage(message) {
         if(SystemService.getArea() !== SystemService.AREA_BACKGROUND || !this._enabled) return this._enabled;
         let receiver = message.getReceiver();
-        if(receiver === null && this._defaultReceiver !== null) {
-            receiver = this._defaultReceiver;
-        }
+
+        if(receiver === null && this._defaultReceiver !== null) receiver = this._defaultReceiver;
+        if(receiver === null) return this._enabled;
 
         return this._clients.hasOwnProperty(receiver) && this._clients[receiver];
     }
