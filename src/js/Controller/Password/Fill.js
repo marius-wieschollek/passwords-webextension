@@ -42,7 +42,7 @@ export default class Fill extends AbstractController {
 
             if(password.getStatus() === 2 && await SettingsService.getValue('paste.compromised.warning')) {
                 ToastService
-                    .warning('PasteBadPasswordWarning', null, 5)
+                    .warning('PasteBadPasswordWarning', null, 3)
                     .catch(ErrorManager.catchEvt);
             }
 
