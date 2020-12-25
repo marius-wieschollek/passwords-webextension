@@ -62,13 +62,13 @@
                     let response = await MessageService.send({type: 'password.fill', payload: this.password.getId()});
 
                     if(response.getPayload().success === false) {
-                        ToastService.error(['PasswordPastedError', this.password.getLabel()])
+                        ToastService.error(['PasswordPastedError', this.password.getLabel()], null, 3)
                                     .catch(ErrorManager.catchEvt);
                         return;
                     }
                 } catch(e) {
                     ErrorManager.logError(e);
-                    ToastService.error(['PasswordPastedError', this.password.getLabel()])
+                    ToastService.error(['PasswordPastedError', this.password.getLabel()], null, 3)
                                 .catch(ErrorManager.catchEvt);
                     return;
                 }
