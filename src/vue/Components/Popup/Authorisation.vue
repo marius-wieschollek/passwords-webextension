@@ -1,6 +1,6 @@
 <template>
     <form id="authorisation" @submit.prevent="submit" autocomplete="off" :style="theme" :class="className">
-        <h2>{{label}}</h2>
+        <h2>{{ label }}</h2>
         <div v-if="hasPassword" class="password-container">
             <input-field ref="password"
                          type="password"
@@ -129,11 +129,16 @@
                     for(let provider of this.authRequest.getProviders()) {
                         if(!provider.hasRequest) {
                             this.provider = provider.id;
+                            this.tokenField = provider.hasInput;
+                            this.tokenRequest = provider.hasRequest;
                             return;
                         }
                     }
 
-                    this.provider = this.authRequest.getProviders()[0].id;
+                    let provider = this.authRequest.getProviders()[0];
+                    this.provider = provider.id;
+                    this.tokenField = provider.hasInput;
+                    this.tokenRequest = provider.hasRequest;
                     this.requestToken();
                 }
             },
@@ -148,7 +153,8 @@
                 try {
                     await Popup.AuthorisationClient.solveCurrent();
                 } catch(e) {
-                    ToastService.error('AuthorizationFailedText', 'AuthorizationFailedTitle')
+                    ToastService
+                        .error('AuthorizationFailedText', 'AuthorizationFailedTitle', 3)
                         .catch(ErrorManager.catch);
                 }
 
@@ -170,11 +176,13 @@
                     );
 
                     if(!result.getPayload().success) {
-                        ToastService.error(result.getPayload().message, 'TokenRequestFailed')
+                        ToastService
+                            .error(result.getPayload().message, 'TokenRequestFailed')
                             .catch(ErrorManager.catch);
                     }
                 } catch(e) {
-                    ToastService.error(e.message, 'TokenRequestFailed')
+                    ToastService
+                        .error(e.message, 'TokenRequestFailed')
                         .catch(ErrorManager.catch);
                 }
 
@@ -183,18 +191,23 @@
             async loadTheme() {
                 let reply = await MessageService.send({type: 'server.theme', payload: this.authRequest.getServerId()});
                 this.theme = reply.getPayload();
+            },
+            getProvider(id) {
+                for(let provider of this.authRequest.getProviders()) {
+                    if(provider.id === id) return provider;
+                }
+                return null;
             }
         },
 
         watch: {
             provider(value) {
-                for(let provider of this.authRequest.getProviders()) {
-                    if(provider.id === value) {
-                        this.tokenField = provider.hasInput;
-                        this.tokenRequest = provider.hasRequest;
-                        break;
-                    }
+                let provider = this.getProvider(value);
+                if(provider) {
+                    this.tokenField = provider.hasInput;
+                    this.tokenRequest = provider.hasRequest;
                 }
+
                 this.token = null;
                 this.authRequest.setProvider(value);
                 if(this.tokenRequest && value) this.requestToken();
@@ -210,140 +223,140 @@
 </script>
 
 <style lang="scss">
-    #authorisation {
-        --color-primary      : #0082c9;
-        --color-text         : #ffffff;
-        --image-background   : linear-gradient(40deg, #0082c9 0%, #30b6ff 100%);
-        --image-logo         : '';
-        --border-radius      : var(--button-border-radius);
-        --border-radius-pill : var(--button-border-radius-large);
+#authorisation {
+    --color-primary      : #0082c9;
+    --color-text         : #fff;
+    --image-background   : linear-gradient(40deg, #0082c9 0%, #30b6ff 100%);
+    --image-logo         : "";
+    --border-radius      : var(--button-border-radius);
+    --border-radius-pill : var(--button-border-radius-large);
 
-        display              : flex;
-        flex-flow            : column;
-        align-items          : center;
-        justify-content      : center;
-        height               : 100vh;
-        width                : 100vw;
-        overflow             : hidden;
-        background-image     : var(--image-background);
-        background-position  : center;
-        background-size      : cover;
+    display              : flex;
+    flex-flow            : column;
+    align-items          : center;
+    justify-content      : center;
+    height               : 100vh;
+    width                : 100vw;
+    overflow             : hidden;
+    background-image     : var(--image-background);
+    background-position  : center;
+    background-size      : cover;
 
-        h2 {
-            text-align : center;
-            margin     : 0 0 2rem;
-            color      : #ffffff;
+    h2 {
+        text-align : center;
+        margin     : 0 0 2rem;
+        color      : #fff;
+    }
+
+    .token-container,
+    .login-container,
+    .password-container {
+        text-align : center;
+
+        select,
+        button,
+        input {
+            background-color : var(--element-bg-color);
+            color            : var(--element-fg-color);
+            width            : 70vw;
+            border           : 1px solid var(--element-hover-bg-color);
+            border-bottom    : none;
+            padding          : .75rem;
+            font-size        : 1.5rem;
+
+            &[disabled] {
+                opacity : .9;
+            }
+        }
+    }
+
+    .password-container {
+        button {
+            border-radius : var(--border-radius) var(--border-radius) 0 0;
+        }
+    }
+
+    .token-container {
+        .token-refresh {
+            position  : absolute;
+            padding   : .75rem 1rem;
+            font-size : 1.5rem;
+            color     : var(--color-text);
+            cursor    : pointer;
+            right     : 0;
         }
 
-        .token-container,
-        .login-container,
-        .password-container {
-            text-align : center;
+        select {
+            background-image    : url("/platform/generic/img/angle-down-solid.svg");
+            background-repeat   : no-repeat;
+            background-position : right 1rem center;
+            background-size     : 1rem;
+            cursor              : pointer;
 
-            select,
-            button,
+            -webkit-appearance  : none;
+            -moz-appearance     : none;
+        }
+
+        select:last-child,
+        input:last-child {
+            border-radius : 0 0 var(--border-radius) var(--border-radius);
+        }
+    }
+
+    &.no-token {
+        .password-container {
             input {
-                background-color : var(--element-bg-color);
-                color            : var(--element-fg-color);
-                width            : 70vw;
-                border           : 1px solid var(--element-hover-bg-color);
-                border-bottom    : none;
-                padding          : .75rem;
-                font-size        : 1.5rem;
-
-                &[disabled] {
-                    opacity : .9;
-                }
+                border-radius : var(--border-radius);
             }
         }
+    }
 
-        .password-container {
-            button {
-                border-radius : var(--border-radius) var(--border-radius) 0 0;
-            }
-        }
-
+    &.no-password {
         .token-container {
-            .token-refresh {
-                position  : absolute;
-                padding   : .75rem 1rem;
-                font-size : 1.5rem;
-                color     : var(--color-text);
-                cursor    : pointer;
-                right     : 0;
-            }
-
             select {
-                background-image    : url("/platform/generic/img/angle-down-solid.svg");
-                background-repeat   : no-repeat;
-                background-position : right 1rem center;
-                background-size     : 1rem;
-                cursor              : pointer;
+                border-radius : var(--border-radius) var(--border-radius) 0 0;
 
-                -webkit-appearance  : none;
-                -moz-appearance     : none;
-            }
-
-            select:last-child,
-            input:last-child {
-                border-radius : 0 0 var(--border-radius) var(--border-radius);
-            }
-        }
-
-        &.no-token {
-            .password-container {
-                input {
+                &:last-child {
                     border-radius : var(--border-radius);
                 }
             }
         }
+    }
 
-        &.no-password {
-            .token-container {
-                select {
-                    border-radius : var(--border-radius) var(--border-radius) 0 0;
+    .login-container {
+        margin   : 1rem 0;
+        position : relative;
 
-                    &:last-child {
-                        border-radius : var(--border-radius);
-                    }
-                }
-            }
+        button {
+            border           : 1px solid var(--color-text);
+            border-radius    : var(--border-radius-pill);
+            background-color : var(--color-primary);
+            color            : var(--color-text);
+            cursor           : pointer;
+            text-align       : center;
         }
 
-        .login-container {
-            margin   : 1rem 0;
-            position : relative;
+        .icon {
+            position  : absolute;
+            display   : block;
+            color     : var(--color-text);
+            top       : 2px;
+            right     : 0;
+            padding   : 1rem;
+            font-size : 1.5rem;
+        }
 
-            button {
-                border           : 1px solid var(--color-text);
-                border-radius    : var(--border-radius-pill);
-                background-color : var(--color-primary);
-                color            : var(--color-text);
-                cursor           : pointer;
-                text-align       : center;
-            }
-
+        &:not(.logging-in) {
             .icon {
-                position  : absolute;
-                display   : block;
-                color     : var(--color-text);
-                top       : 2px;
-                right     : 0;
-                padding   : 1rem;
-                font-size : 1.5rem;
+                transition : padding-right .25s ease-in-out;
             }
 
-            &:not(.logging-in) {
+            &:hover {
                 .icon {
-                    transition : padding-right .25s ease-in-out;
-                }
-
-                &:hover {
-                    .icon {
-                        padding-right : .5rem;
-                    }
+                    padding-right : .5rem;
                 }
             }
         }
     }
+}
 </style>
