@@ -12,23 +12,23 @@ class MasterSettingsProvider {
 
         this._mapping = {
             'server.default'              : [
-                'local.server.default',
-                'sync.server.default'
+                'sync.server.default',
+                'local.server.default'
             ],
             'paste.form.submit'           : [
-                'client.ext.password.autosubmit',
+                'sync.password.autosubmit',
                 'local.password.autosubmit',
-                'sync.password.autosubmit'
+                'client.ext.password.autosubmit'
             ],
             'paste.popup.close'           : [
-                'client.ext.password.autoclose',
+                'sync.password.autoclose',
                 'local.password.autoclose',
-                'sync.password.autoclose'
+                'client.ext.password.autoclose'
             ],
             'paste.compromised.warning'   : [
-                'client.ext.paste.compromised.warning',
+                'sync.paste.compromised.warning',
                 'local.paste.compromised.warning',
-                'sync.paste.compromised.warning'
+                'client.ext.paste.compromised.warning'
             ],
             'password.folder.private'     : [
                 'client.ext.folder.private'
@@ -43,19 +43,19 @@ class MasterSettingsProvider {
                 'user.password.generator.special'
             ],
             'popup.related.search'        : [
-                'client.ext.popup.related.search',
+                'sync.popup.related.search',
                 'local.popup.related.search',
-                'sync.popup.related.search'
+                'client.ext.popup.related.search'
             ],
             'notification.password.new'   : [
-                'client.ext.notification.password.new',
+                'sync.notification.password.new',
                 'local.notification.password.new',
-                'sync.notification.password.new'
+                'client.ext.notification.password.new'
             ],
             'notification.password.update': [
-                'client.ext.notification.password.update',
+                'sync.notification.password.update',
                 'local.notification.password.update',
-                'sync.notification.password.update'
+                'client.ext.notification.password.update'
             ],
             'theme.current'               : [
                 'sync.theme.current',
