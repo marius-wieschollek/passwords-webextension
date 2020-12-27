@@ -20,16 +20,21 @@ class MessageService {
         };
 
         this._messageEnabler = (client) => {
-            console.log('messages.enabled', 'event');
             this._enabled = true;
             this._clients[client.name] = true;
             this._sendMessages()
                 .catch(ErrorManager.catchEvt);
         };
-
     }
 
+    /**
+     *
+     * @param {Boolean} enabled
+     * @param {String} defaultReceiver
+     * @returns {Promise<MessageService>}
+     */
     async init(enabled = false, defaultReceiver = null) {
+        window.messageService = this;
         this._sender = SystemService.getArea();
 
         if(defaultReceiver) this._defaultReceiver = defaultReceiver;
@@ -65,7 +70,6 @@ class MessageService {
      *
      */
     enable() {
-        console.log('messages.enabled', 'force');
         this._enabled = true;
         this._sendMessages()
             .catch(ErrorManager.catchEvt);
@@ -80,8 +84,6 @@ class MessageService {
         if(!Array.isArray(types)) types = [types];
 
         for(let type of types) {
-            console.debug('message.listen', type);
-
             if(!this._listeners.hasOwnProperty(type)) {
                 this._listeners[type] = [];
             }
@@ -99,8 +101,6 @@ class MessageService {
         if(!Array.isArray(types)) types = [types];
 
         for(let type of types) {
-            console.debug('message.convert', type);
-
             if(!this._converters.hasOwnProperty(type)) {
                 this._converters[type] = [];
             }
@@ -129,8 +129,6 @@ class MessageService {
             if(send) {
                 this._sendMessage(message.getId())
                     .catch(ErrorManager.catch());
-            } else {
-                console.log('message.queued', message);
             }
         });
     }
@@ -141,7 +139,6 @@ class MessageService {
      */
     async sendLocal(message) {
         message = this._validateMessage(message);
-        console.log('message.local', message);
 
         return this._receiveMessage(JSON.stringify(message));
     }
@@ -160,7 +157,6 @@ class MessageService {
         }
 
         try {
-            console.debug('message.send', message);
             this._messages[id].sent = true;
             let data = JSON.stringify(message),
                 response;
@@ -183,11 +179,7 @@ class MessageService {
                 }
 
                 reply = await this._notifyConverters(reply);
-                console.debug('reply.receive', reply);
-
                 resolve(reply, message);
-            } else {
-                console.debug('message.response', response, message, resolve);
             }
         } catch(error) {
             ErrorManager.logError(error, message);
@@ -247,14 +239,8 @@ class MessageService {
             message = await this._notifyConverters(message);
             let reply = await this._processMessage(message);
 
-            if(reply) {
-                console.debug('reply.send', message, reply);
-                return JSON.stringify(reply);
-            } else if(message.getReceiver() !== null) {
-                console.debug('reply.empty', message);
-            }
+            if(reply) return JSON.stringify(reply);
         } catch(e) {
-            console.error('message processing failed');
             ErrorManager.logError(e, message);
             throw e;
         }
@@ -282,15 +268,8 @@ class MessageService {
     _createMessageFromJSON(data, fromTab = false) {
         let message = new Message(JSON.parse(data));
 
-        if(message.getReceiver() !== null && message.getReceiver() !== this._sender) {
-            console.debug('message.dismissed', message.getReceiver(), this._sender);
-            return;
-        }
-
-        if(fromTab && this._checkClientRestrictions(message)) {
-            console.debug('message.rejected', message, fromTab);
-            return;
-        }
+        if(message.getReceiver() !== null && message.getReceiver() !== this._sender) return;
+        if(fromTab && this._checkClientRestrictions(message)) return;
 
         return message;
     }
@@ -313,7 +292,6 @@ class MessageService {
      * @private
      */
     async _processMessage(message) {
-        console.debug('message.receive', message);
         if(message.getReply() !== null) {
             this._messages[message.getReply()].resolve(message);
         } else if(this._listeners.hasOwnProperty(message.getType())) {
@@ -329,7 +307,6 @@ class MessageService {
      */
     async _notifyConverters(message) {
         if(this._converters.hasOwnProperty(message.getType())) {
-            console.debug('message.convert', message);
             let converters = this._converters[message.getType()];
 
             for(let i = 0; i < converters.length; i++) {
