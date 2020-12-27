@@ -2,6 +2,7 @@ import FeedbackClient from '@js/Queue/Client/FeedbackClient';
 import MiningItem from '@js/Models/Queue/MiningItem';
 import EventQueue from '@js/Event/EventQueue';
 import ErrorManager from '@js/Manager/ErrorManager';
+import SystemService from "@js/Services/SystemService";
 
 class MiningClient extends FeedbackClient {
 
@@ -52,6 +53,9 @@ class MiningClient extends FeedbackClient {
      * @private
      */
     _fetchInitialItems() {
+        if(SystemService.getArea() !== SystemService.AREA_BACKGROUND) {
+            super._fetchInitialItems();
+        }
     }
 
     /**

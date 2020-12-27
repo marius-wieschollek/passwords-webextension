@@ -131,6 +131,7 @@ class MiningManager {
             .setUrl(task.getResultField('url'))
             .setHidden(task.getResultField('hidden'));
 
+        this._enforcePasswordPropertyLengths(password);
         if(password.isHidden()) {
             let helper = new HiddenFolderHelper();
             password.setFolder(await helper.getHiddenFolderId(api));
@@ -227,6 +228,26 @@ class MiningManager {
         }
 
         return null;
+    }
+
+    /**
+     *
+     * @param {Password} password
+     * @private
+     */
+    _enforcePasswordPropertyLengths(password) {
+        if(password.getLabel().length > 64) {
+            password.setLabel(password.getLabel().substr(0, 64));
+        }
+        if(password.getUserName().length > 64) {
+            password.setUserName(password.getUserName().substr(0, 64));
+        }
+        if(password.getPassword().length > 256) {
+            password.setPassword(password.getPassword().substr(0, 256));
+        }
+        if(password.getUrl().length > 2048) {
+            password.setUrl(password.getUrl().substr(0, 2048));
+        }
     }
 }
 
