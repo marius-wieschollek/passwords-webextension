@@ -2,7 +2,12 @@ import AbstractField from '@js/Search/Query/Field/AbstractField';
 
 export default class FieldContains extends AbstractField {
 
-
+    /**
+     *
+     * @param {String} name
+     * @param {String} value
+     * @param {Number} weight
+     */
     constructor(name, value, weight = 1) {
         super(name, value);
 

@@ -1,6 +1,6 @@
 <template>
     <li class="item password-item">
-        <div class="label" @click="sendPassword()" :title="password.getId()">
+        <div class="label" @click="sendPassword()" :title="title">
             <favicon :password="password.getId()" :size="22" v-if="favicon"/>
             {{ password.getLabel() }}
         </div>
@@ -45,6 +45,9 @@
                 let types = ['secure', 'warn', 'bad'];
 
                 return `security ${types[this.password.getStatus()]}`;
+            },
+            title() {
+                return LocalisationService.translate('PasswordItemTitle', this.password.getId(), this.password.getStatusCode());
             }
         },
 

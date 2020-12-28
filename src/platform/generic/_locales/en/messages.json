@@ -171,6 +171,20 @@
         "message"    : "Tools",
         "description": "Label of the tools tab in the extension popup"
     },
+    "PasswordItemTitle"             : {
+        "message"     : "Status: $STATUS$, Id: #$ID$",
+        "description" : "The tooltip of any password entry in the popup",
+        "placeholders": {
+            "id"    : {
+                "content": "$1",
+                "example": "1234-1234-1234-1234"
+            },
+            "status": {
+                "content": "$2",
+                "example": "DUPLICATE"
+            }
+        }
+    },
     "ValidationLabel"               : {
         "message"    : "label",
         "description": "Name of the account label field in account validation message. This value is used when the user attempts to save an account with an invalid label"
