@@ -15,6 +15,12 @@ export default class OrCondition extends AbstractCondition {
                 result.passed = true;
                 result.matches += partialResult.matches;
                 result.checks += partialResult.checks;
+            } else {
+                if(partialResult.checks) {
+                    result.checks += partialResult.checks;
+                } else {
+                    result.checks++;
+                }
             }
         }
 

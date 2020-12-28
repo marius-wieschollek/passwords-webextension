@@ -2,6 +2,14 @@ import AbstractField from '@js/Search/Query/Field/AbstractField';
 
 export default class FieldContains extends AbstractField {
 
+
+    constructor(name, value, weight = 1) {
+        super(name, value);
+
+        if(weight <= 0) weight = 1;
+        this._weight = weight;
+    }
+
     /**
      * @inheritDoc
      */
@@ -10,13 +18,20 @@ export default class FieldContains extends AbstractField {
 
         if(!values) return {passed: false};
 
-        let search = this._value.toLowerCase();
+        let search = this._value.toLowerCase(),
+            checks = 0,
+            matches = 0;
+
         for(let value of values) {
+            checks++;
             if(value.indexOf(search) !== -1) {
-                return  {matches: 1, checks: 1, passed: true};
+                matches += value.split(search).length - 1;
             }
         }
 
-        return {passed: false};
+        if(this._weight !== 1) matches *= this._weight;
+        if(matches > 0) return {matches, checks, passed: true};
+
+        return {checks, passed: false};
     }
 }

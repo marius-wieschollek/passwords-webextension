@@ -66,7 +66,11 @@ export default class TextQuery extends SearchQuery {
 
         for(let value of query.text) {
             condition.where(
-                this.field('text').contains(value)
+                this.or(
+                    this.field('label').contains(value, 4),
+                    this.field('username').contains(value, 2),
+                    this.field('text').contains(value)
+                )
             );
         }
 

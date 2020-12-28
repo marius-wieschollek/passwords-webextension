@@ -22,7 +22,7 @@ export default class SearchQuery {
         this._condition = this[condition]();
         this._hidden = false;
         this._sort = [];
-        this._score = 0.5;
+        this._score = 0.2;
         this._limit = 0;
         this._type = null;
     }

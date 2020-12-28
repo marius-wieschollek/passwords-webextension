@@ -33,15 +33,16 @@ export default class FieldFactory {
     /**
      *
      * @param {String} value
+     * @param {Number} [weight=null]
      * @param {String} [name=null]
      * @return {FieldContains}
      */
-    contains(value, name = null) {
+    contains(value, weight = null, name = null) {
         if(!name) {
             name = this._name;
         }
 
-        return new FieldContains(name, value);
+        return new FieldContains(name, value, weight);
     }
 
     /**

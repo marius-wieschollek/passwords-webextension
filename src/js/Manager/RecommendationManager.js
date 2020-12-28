@@ -75,7 +75,7 @@ class RecommendationManager {
                 query.field('url').contains(url.pathname.length > 1 ? url.host + url.pathname:url.host)
             )
             .type('password')
-            .score(0.4)
+            .score(0.3)
             .limit(8)
             .sortBy('favorite')
             .sortBy('shared')
