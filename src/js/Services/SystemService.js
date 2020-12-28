@@ -33,6 +33,14 @@ class SystemService {
         ];
     }
 
+    get PLATFORM_CHROME() {
+        return 'chrome';
+    }
+
+    get PLATFORM_FIREFOX() {
+        return 'firefox';
+    }
+
     constructor() {
         this._api = null;
         this._area = null;
