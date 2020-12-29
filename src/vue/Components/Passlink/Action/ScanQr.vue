@@ -1,7 +1,7 @@
 <template>
     <div class="passlink-scan-qr">
         <translate class="scan-instructions" say="PasslinkScanInstructions"/>
-        <qrcode-stream :torch="true" class="qr-code-scanner" @decode="checkQrCode"/>
+        <qrcode-stream :torch="true" class="qr-code-scanner" @decode="checkQrCode" @init="onInit"/>
         <translate class="scan-status" :say="status"/>
     </div>
 </template>
@@ -23,11 +23,11 @@
 
         methods: {
             checkQrCode(data) {
-                console.log(data);
                 if(data.match(/^(ext\+)?passlink:.+\/do\/(connect)\?.+$/)) {
                     this.status = 'PasslinkScanProcessingLink';
-                    Passlink.loadLink(data)
-                        .catch(ErrorManager.catch);
+                    Passlink
+                        .loadLink(data)
+                        .catch(ErrorManager.catchEvt);
                 } else {
                     this.status = 'PasslinkScanInvalidQrCode';
                 }

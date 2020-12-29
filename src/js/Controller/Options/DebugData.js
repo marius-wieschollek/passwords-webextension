@@ -18,9 +18,10 @@ export default class DebugData extends AbstractController {
             settings: {localisations: false},
             app     : {
                 version    : process.env.APP_VERSION,
-                platform   : process.env.APP_PLATFORM,
+                platform   : SystemService.getBrowserPlatform(),
                 environment: process.env.NODE_ENV
-            }
+            },
+            platform: await SystemService.getBrowserInfo(),
         };
 
         try {

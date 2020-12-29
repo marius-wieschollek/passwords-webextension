@@ -16,13 +16,19 @@ class BrowserApi {
     async getBrowserInfo() {
         let parser = new UaParser(navigator.userAgent),
             app    = parser.getBrowser(),
-            os     = await this.getBrowserApi().runtime.getPlatformInfo(),
-            device = os.os === 'android' ? 'mobile':'desktop';
+            os     = parser.getOS().name.toLowerCase(),
+            cpu    = parser.getCPU(),
+            arch   = cpu.architecture ? cpu.architecture.toLowerCase():'',
+            device = os === 'android' ? 'mobile':'desktop';
+
+        if(device === 'mobile' && app.name !== 'Yandex') {
+            app.name = 'Kiwi';
+        }
 
         return {
             device,
-            os     : os.os,
-            arch   : os.arch,
+            os,
+            arch,
             name   : app.name,
             vendor : 'Google',
             version: app.version

@@ -73,47 +73,49 @@
 </script>
 
 <style lang="scss">
-    .tab-container {
-        .tabs {
-            display  : flex;
-            overflow : hidden;
+.tab-container {
+    .tabs {
+        display         : flex;
+        overflow        : hidden;
+        overflow-x      : auto;
+        scrollbar-width : none;
+    }
+
+    .tab {
+        padding          : 1rem;
+        cursor           : pointer;
+        flex             : 1 1 auto;
+        text-align       : center;
+        display          : flex;
+        background-color : var(--element-bg-color);
+        color            : var(--element-fg-color);
+        box-shadow       : var(--tab-border);
+        white-space      : nowrap;
+        transition       : var(--element-transition);
+
+        &:hover {
+            background-color : var(--element-hover-bg-color);
+            color            : var(--element-hover-fg-color);
+            box-shadow       : var(--tab-border);
+            transition       : var(--element-transition);
         }
 
-        .tab {
-            padding          : 1rem;
-            cursor           : pointer;
-            flex             : 1 1 auto;
-            text-align       : center;
-            display          : flex;
-            background-color : var(--element-bg-color);
-            color            : var(--element-fg-color);
-            box-shadow       : var(--tab-border);
-            white-space      : nowrap;
-            transition       : var(--element-transition);
+        .icon {
+            width        : 1rem;
+            height       : 1rem;
+            margin-right : .5rem;
+        }
+
+        &.active {
+            background-color : var(--element-active-bg-color);
+            color            : var(--element-active-fg-color);
+            box-shadow       : var(--tab-active-border);
 
             &:hover {
-                background-color : var(--element-hover-bg-color);
-                color            : var(--element-hover-fg-color);
-                box-shadow       : var(--tab-border);
-                transition       : var(--element-transition);
-            }
-
-            .icon {
-                width        : 1rem;
-                height       : 1rem;
-                margin-right : .5rem;
-            }
-
-            &.active {
-                background-color : var(--element-active-bg-color);
-                color            : var(--element-active-fg-color);
-                box-shadow       : var(--tab-active-border);
-
-                &:hover {
-                    background-color : var(--element-active-hover-bg-color);
-                    color            : var(--element-active-hover-fg-color);
-                }
+                background-color : var(--element-active-hover-bg-color);
+                color            : var(--element-active-hover-fg-color);
             }
         }
     }
+}
 </style>

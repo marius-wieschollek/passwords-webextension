@@ -310,7 +310,7 @@
         "description": "Used in the collected tab when no new passwords have been found"
     },
     "AddPasswordForCurrentTab"      : {
-        "message"    : "Konto wür aktuellen Tab hinzufügen",
+        "message"    : "Konto für aktuellen Tab hinzufügen",
         "description": "Used in the collected tab for the option to add a blank entry with just the url of the current tab"
     },
     "NoServerItems"                 : {
@@ -1043,9 +1043,13 @@
         "message"    : "Extension Version",
         "description": "Description of the extension version in the internal status section in the debug tab in the extension settings"
     },
+    "DebugInfoExtensionBuild"       : {
+        "message"    : "Zielplatform",
+        "description": "Description of the extension build target (firefox or chrome) in the internal status section in the debug tab in the extension settings"
+    },
     "DebugInfoExtensionPlatform"    : {
-        "message"    : "Extension Plattform",
-        "description": "Description of the extension platform (firefox or chrome) in the internal status section in the debug tab in the extension settings"
+        "message"    : "User Agent",
+        "description": "Description of the browser user agent in the internal status section in the debug tab in the extension settings"
     },
     "DebugInfoExtensionEnvironment" : {
         "message"    : "Extension Modus",

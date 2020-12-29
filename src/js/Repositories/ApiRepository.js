@@ -78,13 +78,12 @@ class ApiRepository {
 
     /**
      *
-     * @return {Promise<{userAgent: string}>}
+     * @return {Promise<{userAgent: String}>}
      * @private
      */
     async _getApiConfig() {
         let bwInfo = await SystemService.getBrowserInfo(),
-            osInfo = await SystemService.getBrowserApi().runtime.getPlatformInfo(),
-            os     = osInfo.os ? `${osInfo.os[0].toUpperCase()}${osInfo.os.substr(1)}`:'';
+            os     = bwInfo.os ? `${bwInfo.os[0].toUpperCase()}${bwInfo.os.substr(1)}`:'';
 
         return {
             userAgent: LocalisationService.translate('UserAgent', [bwInfo.name, os])

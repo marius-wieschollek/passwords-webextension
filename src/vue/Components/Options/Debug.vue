@@ -6,12 +6,16 @@
             <span class="value">{{ app.version }}</span>
         </div>
         <div class="debug-info">
-            <translate class="label" say="DebugInfoExtensionPlatform"/>
+            <translate class="label" say="DebugInfoExtensionBuild"/>
             <span class="value">{{ app.platform | capitalize }}</span>
         </div>
         <div class="debug-info">
             <translate class="label" say="DebugInfoExtensionEnvironment"/>
             <span class="value">{{ app.environment | capitalize }}</span>
+        </div>
+        <div class="debug-info">
+            <translate class="label" say="DebugInfoExtensionPlatform"/>
+            <span class="value">{{ userAgent }}</span>
         </div>
         <div class="debug-info">
             <translate class="label" say="DebugInfoHiddenFolderId"/>
@@ -26,7 +30,7 @@
 
         <translate tag="h3" say="DebugErrorLog"/>
         <div class="debug-error-item" v-for="error in errors">
-            <div class="error-message" v-if="error.details && error.details.message" @click="showData">
+            <div class="error-message" @click="showData">
                 {{ getTitle(error) }}
                 <icon font="regular" icon="clipboard" @click.stop="copy(error)"/>
             </div>
@@ -62,6 +66,14 @@
                 settings: {
                     localize: false
                 },
+                platform: {
+                    device : '',
+                    os     : '',
+                    arch   : '',
+                    name   : '',
+                    vendor : '',
+                    version: ''
+                },
                 interval: null
             };
         },
@@ -94,6 +106,12 @@
             this.interval = null;
         },
 
+        computed: {
+            userAgent() {
+                return `${this.platform.vendor} ${this.platform.name} ${this.platform.version} / ${this.platform.device.capitalize()} ${this.platform.os.capitalize()} ${this.platform.arch}`;
+            }
+        },
+
         methods: {
             loadData() {
                 MessageService.send('options.debug.data').then((reply) => {
@@ -105,6 +123,14 @@
 
                     if(data.hasOwnProperty('settings')) {
                         this.settings = data.settings;
+                    }
+
+                    if(data.hasOwnProperty('app')) {
+                        this.app = data.app;
+                    }
+
+                    if(data.hasOwnProperty('platform')) {
+                        this.platform = data.platform;
                     }
                 });
                 this.loadErrors();
@@ -130,6 +156,8 @@
 
                     if(error.details.message) {
                         label += error.details.message;
+                    } else if(error.error && error.error.message) {
+                        label += error.error.message;
                     } else {
                         label += LocalisationService.translate('DebugErrorNoMessage');
                     }

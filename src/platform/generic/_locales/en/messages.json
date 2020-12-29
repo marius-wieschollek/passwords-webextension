@@ -1057,9 +1057,13 @@
         "message"    : "Extension Version",
         "description": "Description of the extension version in the internal status section in the debug tab in the extension settings"
     },
+    "DebugInfoExtensionBuild"       : {
+        "message"    : "Target Platform",
+        "description": "Description of the extension build target (firefox or chrome) in the internal status section in the debug tab in the extension settings"
+    },
     "DebugInfoExtensionPlatform"    : {
-        "message"    : "Extension Platform",
-        "description": "Description of the extension platform (firefox or chrome) in the internal status section in the debug tab in the extension settings"
+        "message"    : "User Agent",
+        "description": "Description of the browser user agent in the internal status section in the debug tab in the extension settings"
     },
     "DebugInfoExtensionEnvironment" : {
         "message"    : "Extension Mode",

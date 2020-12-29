@@ -29,6 +29,7 @@ class Options {
         ErrorManager.init();
         try {
             await SystemService.waitReady();
+            if(!await this._checkBrowser()) return;
             SystemService.connect();
             await MessageService.init(true, 'background');
             ConverterManager.init();
@@ -51,15 +52,30 @@ class Options {
     async _initVue() {
         let reply  = await MessageService.send('options.status'),
             status = reply.getPayload();
-        document.body.classList.add(status.device)
+        document.body.classList.add(status.device);
 
-        Vue.filter('capitalize', function (value) {
-            if (!value) return ''
-            value = value.toString()
-            return value.charAt(0).toUpperCase() + value.slice(1)
-        })
+        Vue.filter('capitalize', function(value) {
+            if(!value) return '';
+            value = value.toString();
+            return value.charAt(0).toUpperCase() + value.slice(1);
+        });
 
         this._app = new Vue({propsData: status, ...App});
+    }
+
+    /**
+     *
+     * @returns {Promise<Boolean>}
+     * @private
+     */
+    async _checkBrowser() {
+        let info = await SystemService.getBrowserInfo();
+        if(info.name === 'Kiwi' && location.href.indexOf('?newtab') === -1) {
+            window.open(location.href + '?newtab');
+            window.close();
+            return false;
+        }
+        return true;
     }
 }
 
