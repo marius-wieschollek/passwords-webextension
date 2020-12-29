@@ -1044,7 +1044,7 @@
         "description": "Description of the extension version in the internal status section in the debug tab in the extension settings"
     },
     "DebugInfoExtensionBuild"       : {
-        "message"    : "Zielplatform",
+        "message"    : "Zielplattform",
         "description": "Description of the extension build target (firefox or chrome) in the internal status section in the debug tab in the extension settings"
     },
     "DebugInfoExtensionPlatform"    : {
