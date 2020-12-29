@@ -50,9 +50,6 @@
             }
         ]
     },
-    "omnibox"                  : {
-        "keyword": "pwd"
-    },
     "options_ui"               : {
         "page"         : "html/options.html",
         "browser_style": true

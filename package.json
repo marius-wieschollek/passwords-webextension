@@ -9,6 +9,8 @@
         "build:firefox": "webpack --env.production",
         "build:chrome": "webpack --env.production --env.platform=chrome",
         "adb:firefox": "which web-ext||sudo npm i -g web-ext;a=$(adb devices|tr -d '\\n');b=${a##*ed};c=${b%dev*};web-ext run -t firefox-android -s build --adb-device=${c} --firefox-apk=org.mozilla.firefox",
+        "adb:firefox:beta": "which web-ext||sudo npm i -g web-ext;a=$(adb devices|tr -d '\\n');b=${a##*ed};c=${b%dev*};web-ext run -t firefox-android -s build --adb-device=${c} --firefox-apk=org.mozilla.firefox_beta",
+        "adb:firefox:nightly": "which web-ext||sudo npm i -g web-ext;a=$(adb devices|tr -d '\\n');b=${a##*ed};c=${b%dev*};web-ext run -t firefox-android -s build --adb-device=${c} --firefox-apk=org.mozilla.fenix",
         "msg:desc:sync": "node --experimental-json-modules scripts/message-description-sync.mjs"
     },
     "devDependencies": {
@@ -31,7 +33,7 @@
         "uuidv4": "^4.0.0",
         "vue": "^2.6.12",
         "vue-loader": "^15.9.6",
-        "vue-qrcode-reader": "^2.3.16",
+        "vue-qrcode-reader": "2.3.3",
         "vue-router": "^3.4.9",
         "vue-style-loader": "^4.1.2",
         "vue-template-compiler": "^2.6.12",
