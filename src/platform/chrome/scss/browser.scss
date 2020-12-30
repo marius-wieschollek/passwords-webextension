@@ -6,17 +6,23 @@ body {
         width     : 800px;
     }
 
-    &.mobile.options {
-        max-width : 360px;
-        width     : 100vw;
-        margin    : 0 auto
-    }
+    &.mobile {
+        &.popup {
+            min-width  : 360px;
+            min-height : 360px;
+            width      : 100vw;
+            margin     : 0 auto
+        }
 
-    &.mobile.popup {
-        min-width  : 360px;
-        min-height : 360px;
-        width      : 100vw;
-        margin     : 0 auto
+        &.options {
+            max-width : 360px;
+            width     : 100vw;
+            margin    : 0 auto;
+
+            #options .theming {
+                grid-template-columns : 1fr;
+            }
+        }
     }
 
     input:focus,
@@ -58,9 +64,5 @@ body {
                 }
             }
         }
-    }
-
-    &.mobile.theming {
-        grid-template-columns : 1fr;
     }
 }

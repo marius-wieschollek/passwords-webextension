@@ -10,9 +10,9 @@ export default class OpenSettings extends AbstractController {
 
         if(info.name === 'Kiwi' || SystemService.isCompatible(SystemService.PLATFORM_FENIX)) {
             let url = api.runtime.getURL('html/options.html') + '?newtab';
-            browser.tabs
-                   .create({url, active: true})
-                   .catch(ErrorManager.catchEvt);
+            api.tabs
+               .create({url, active: true})
+               .catch(ErrorManager.catchEvt);
         } else {
             api.runtime.openOptionsPage();
         }

@@ -5,7 +5,7 @@
         <ul class="sever-setup-options">
             <translate tag="li" say="FirstRunConnectLink" v-if="hasLinkHandler"/>
             <translate tag="li" say="FirstRunConnectScan" v-if="hasLinkHandler"/>
-            <translate tag="li" class="link" say="FirstRunConnectScanChrome" v-if="!hasLinkHandler" @click="scanQr" />
+            <translate tag="li" class="link" say="FirstRunConnectScanChrome" v-if="!hasLinkHandler" @click="scanQr"/>
             <translate tag="li" class="link" say="FirstRunConnectManual" @click="openSettings"/>
         </ul>
         <button-field value="FirstRunConnectScanButton" @click="scanQr"/>
@@ -33,7 +33,7 @@
         methods: {
             scanQr() {
                 MessageService.send({type: 'passlink.open', payload: {action: 'scan-qr'}})
-                    .catch(ErrorManager.catch);
+                              .catch(ErrorManager.catch);
                 window.close();
             },
             openSettings() {
@@ -44,43 +44,60 @@
 </script>
 
 <style lang="scss">
-    .server-setup-wizard {
-        h2 {
-            text-align : center;
-        }
+.server-setup-wizard {
+    h2 {
+        text-align : center;
+    }
 
-        .sever-setup-options {
-            padding-left : 1rem;
+    .sever-setup-options {
+        padding-left : 1rem;
 
-            li {
-                margin-bottom : .25rem;
+        li {
+            margin-bottom : .25rem;
 
-                &.link {
-                    cursor: pointer;
+            &.link {
+                cursor : pointer;
 
-                    &:hover {
-                        text-decoration: underline;
-                    }
+                &:hover {
+                    text-decoration : underline;
                 }
             }
         }
+    }
 
-        button {
-            background-color : var(--element-active-bg-color);
-            color            : var(--element-active-fg-color);
-            text-align       : center;
-            position         : absolute;
-            bottom           : .5rem;
-            width            : calc(100% - 1rem);
-            line-height      : 3rem;
-            border-radius    : var(--button-border-radius);
-            border           : none;
-            cursor           : pointer;
+    button {
+        background-color : var(--element-active-bg-color);
+        color            : var(--element-active-fg-color);
+        text-align       : center;
+        position         : absolute;
+        bottom           : .5rem;
+        width            : calc(100% - 1rem);
+        line-height      : 3rem;
+        border-radius    : var(--button-border-radius);
+        border           : none;
+        cursor           : pointer;
 
-            &:hover {
-                background-color : var(--element-active-hover-bg-color);
-                color            : var(--element-active-hover-fg-color);
-            }
+        &:hover {
+            background-color : var(--element-active-hover-bg-color);
+            color            : var(--element-active-hover-fg-color);
         }
     }
+}
+
+body.mobile {
+    .server-setup-wizard {
+        font-size   : 1.4rem;
+        line-height : 1.8rem;
+
+        .sever-setup-options {
+            padding-left : 1.5rem;
+        }
+
+        button {
+            font-size   : 1.5rem;
+            line-height : 4rem;
+            width       : calc(100% - 2rem);
+        }
+    }
+}
 </style>
