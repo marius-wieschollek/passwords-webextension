@@ -1,6 +1,5 @@
 import AbstractController from '@js/Controller/AbstractController';
 import SystemService from '@js/Services/SystemService';
-import LocalisationService from '@js/Services/LocalisationService';
 import HttpError from 'passwords-client/src/Exception/Http/HttpError';
 import NetworkError from 'passwords-client/src/Exception/NetworkError';
 import ServerValidation from '@js/Validation/Server';
@@ -65,7 +64,7 @@ export default class Analyze extends AbstractController {
         server.setEnabled(true);
         await ServerRepository.create(server);
         ServerManager.addServer(server)
-            .catch(ErrorManager.catch);
+                     .catch(ErrorManager.catch);
     }
 
 
@@ -90,11 +89,7 @@ export default class Analyze extends AbstractController {
      * @private
      */
     async _getClientLabel() {
-        let bwInfo = await SystemService.getBrowserInfo(),
-            osInfo = await SystemService.getBrowserApi().runtime.getPlatformInfo(),
-            os     = osInfo.os ? `${osInfo.os[0].toUpperCase()}${osInfo.os.substr(1)}`:'';
-
-        return LocalisationService.translate('UserAgent', [bwInfo.name, os]);
+        return await SystemService.getUserAgent();
     }
 
     /**

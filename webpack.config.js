@@ -42,7 +42,7 @@ module.exports = env => {
         );
     }
 
-    let jsPlatformDir = platform === 'firefox' ? `${__dirname}/src/js/Platform`:`${__dirname}/src/platform/${platform}/js/Platform`;
+    let jsPlatformDir = platform !== 'chrome' ? `${__dirname}/src/js/Platform`:`${__dirname}/src/platform/${platform}/js/Platform`;
     return {
         mode   : production ? 'production':'development',
         devtool: production ? 'none':'inline-source-map',

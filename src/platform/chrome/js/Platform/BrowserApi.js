@@ -66,6 +66,14 @@ class BrowserApi {
 
         return app.name !== 'Opera';
     }
+
+    /**
+     * @param {String} platform
+     * @returns {Boolean}
+     */
+    isCompatible(platform) {
+        return platform === 'chrome';
+    }
 }
 
 export default new BrowserApi();

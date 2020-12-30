@@ -56,6 +56,15 @@ class BrowserApi {
     hasNotificationButtons() {
         return false;
     }
+
+    /**
+     * @param {String} platform
+     * @returns {Boolean}
+     */
+    isCompatible(platform) {
+        if(platform === 'firefox') return true;
+        return platform === process.env.APP_PLATFORM;
+    }
 }
 
 export default new BrowserApi();

@@ -31,7 +31,7 @@
         <translate tag="h3" say="DebugErrorLog"/>
         <div class="debug-error-item" v-for="error in errors">
             <div class="error-message" @click="showData">
-                {{ getTitle(error) }}
+                <span class="title">{{ getTitle(error) }}</span>
                 <icon font="regular" icon="clipboard" @click.stop="copy(error)"/>
             </div>
             <pre class="error-data">{{ error }}</pre>
@@ -205,20 +205,20 @@
         .value {
             user-select : text;
             cursor      : text;
+            text-align  : right;
         }
     }
 
     .debug-error-item {
         .error-message {
-            overflow         : hidden;
             background-color : var(--element-bg-color);
             color            : var(--element-fg-color);
             box-shadow       : var(--tab-border);
             transition       : var(--element-transition);
             padding          : 1rem;
             white-space      : nowrap;
-            text-overflow    : ellipsis;
             cursor           : pointer;
+            display          : flex;
 
             &:hover {
                 background-color : var(--element-hover-bg-color);
@@ -226,12 +226,20 @@
                 box-shadow       : var(--tab-border);
             }
 
+            .title {
+                overflow: hidden;
+                flex-grow: 1;
+                text-overflow: ellipsis;
+                padding-right: 0.25rem;
+            }
+
             .icon {
-                float            : right;
                 width            : 3rem;
                 line-height      : 3rem;
                 text-align       : center;
                 margin           : -1rem;
+                flex-grow        : 0;
+                flex-shrink        : 0;
                 background-color : var(--button-bg-color);
                 color            : var(--button-fg-color);
                 transition       : var(--button-transition);

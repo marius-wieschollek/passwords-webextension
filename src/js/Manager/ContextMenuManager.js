@@ -89,7 +89,7 @@ class ContextMenuManager {
                 }
             );
 
-            if(SystemService.getBrowserPlatform() === SystemService.PLATFORM_FIREFOX) {
+            if(SystemService.isCompatible(SystemService.PLATFORM_FIREFOX)) {
                 this._loadIcons(password)
                     .catch(ErrorManager.catchEvt);
             }
@@ -102,7 +102,7 @@ class ContextMenuManager {
      * @private
      */
     _getContexts() {
-        if(SystemService.getBrowserPlatform() === SystemService.PLATFORM_FIREFOX) {
+        if(SystemService.isCompatible(SystemService.PLATFORM_FIREFOX)) {
             return ['page', 'password', 'editable', 'frame'];
         }
 
@@ -119,7 +119,7 @@ class ContextMenuManager {
         this._activeMenus.push(data.id);
 
         data.contexts = this._getContexts();
-        if(SystemService.getBrowserPlatform() === SystemService.PLATFORM_CHROME) {
+        if(SystemService.isCompatible(SystemService.PLATFORM_CHROME)) {
             delete data.icons;
 
             if(data.hasOwnProperty('command')) {

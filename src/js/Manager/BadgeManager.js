@@ -95,7 +95,7 @@ class BadgeManager {
     }
 
     async _setBadgeTheme() {
-        if(SystemService.getBrowserPlatform() === 'firefox') {
+        if(SystemService.isCompatible(SystemService.PLATFORM_FIREFOX)) {
             let color = await ThemeService.getBadgeTextColor();
             await this._api.browserAction.setBadgeTextColor({color});
         }

@@ -70,8 +70,8 @@ class Options {
      */
     async _checkBrowser() {
         let info = await SystemService.getBrowserInfo();
-        if(info.name === 'Kiwi' && location.href.indexOf('?newtab') === -1) {
-            window.open(location.href + '?newtab');
+        if(location.href.indexOf('?newtab') === -1 && (info.name === 'Kiwi' || SystemService.isCompatible(SystemService.PLATFORM_FENIX))) {
+            MessageService.send('popup.settings.open');
             window.close();
             return false;
         }

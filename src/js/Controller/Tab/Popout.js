@@ -38,7 +38,7 @@ export default class Popout extends AbstractController {
 
         let info = await api.windows.create({type: 'panel', tabId, top, left, width, height});
 
-        if(SystemService.getBrowserPlatform() === 'firefox') {
+        if(SystemService.isCompatible(SystemService.PLATFORM_FIREFOX)) {
             await api.windows.update(info.id, {top, left});
         }
     }

@@ -11,3 +11,9 @@ button::-moz-focus-inner,
 input::-moz-focus-inner {
     border : 0;
 }
+
+body #passlink,
+body #passlink .passlink-scan-qr,
+body #passlink .passlink-connect {
+    height: 92vh;
+}

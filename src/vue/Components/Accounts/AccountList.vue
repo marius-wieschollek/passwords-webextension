@@ -101,7 +101,7 @@
                 this.$refs[server.getId()][0].save();
             },
             async remove(server) {
-                if(SystemService.getBrowserPlatform() === 'chrome' || confirm(`Do you really want to delete ${server.getLabel()}?`)) {
+                if(SystemService.isCompatible(SystemService.PLATFORM_CHROME) || confirm(`Do you really want to delete ${server.getLabel()}?`)) {
                     let message = await MessageService.send(
                         {
                             type   : 'server.delete',

@@ -2,7 +2,6 @@ import Server from '@js/Models/Server/Server';
 import ServerRepository from '@js/Repositories/ServerRepository';
 import {EnhancedClassLoader, PasswordsClient} from 'passwords-client';
 import SystemService from '@js/Services/SystemService';
-import LocalisationService from '@js/Services/LocalisationService';
 
 /**
  * @typedef {PasswordsClient} PasswordsClient
@@ -82,11 +81,8 @@ class ApiRepository {
      * @private
      */
     async _getApiConfig() {
-        let bwInfo = await SystemService.getBrowserInfo(),
-            os     = bwInfo.os ? `${bwInfo.os[0].toUpperCase()}${bwInfo.os.substr(1)}`:'';
-
         return {
-            userAgent: LocalisationService.translate('UserAgent', [bwInfo.name, os])
+            userAgent: await SystemService.getUserAgent()
         };
     }
 }

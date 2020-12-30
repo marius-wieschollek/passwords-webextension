@@ -45,7 +45,7 @@
 
         methods: {
             async settings() {
-                await SystemService.getBrowserApi().runtime.openOptionsPage();
+                await MessageService.send('popup.settings.open');
                 this.close();
             },
             close() {

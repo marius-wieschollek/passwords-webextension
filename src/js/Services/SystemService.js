@@ -41,6 +41,10 @@ class SystemService {
         return 'firefox';
     }
 
+    get PLATFORM_FENIX() {
+        return 'fenix';
+    }
+
     constructor() {
         this._api = null;
         this._area = null;
@@ -76,6 +80,14 @@ class SystemService {
      */
     getBrowserPlatform() {
         return process.env.APP_PLATFORM;
+    }
+
+    /**
+     * @param {String} platform
+     * @returns {Boolean}
+     */
+    isCompatible(platform) {
+        return BrowserApi.isCompatible(platform);
     }
 
     /**
@@ -141,6 +153,23 @@ class SystemService {
      */
     hasNotificationOnShow() {
         return this.getBrowserApi().notifications.hasOwnProperty('onShown');
+    }
+
+    /**
+     * @returns {Boolean}
+     */
+    hasProtocolHandlers() {
+        return process.env.APP_PLATFORM === 'firefox';
+    }
+
+    /**
+     * @returns {Promise<String>}
+     */
+    async getUserAgent() {
+        let bwInfo = await this.getBrowserInfo(),
+            os     = bwInfo.os ? `${bwInfo.os[0].toUpperCase()}${bwInfo.os.substr(1)}`:'';
+
+        return this._api.i18n.getMessage('UserAgent', [bwInfo.name, os]);
     }
 
     /**

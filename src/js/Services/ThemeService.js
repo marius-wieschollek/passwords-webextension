@@ -64,7 +64,7 @@ class ThemeService {
             icon  = theme.getBadgeIcon();
 
         if(!icon) icon = 'passwords';
-        if(SystemService.getBrowserPlatform() === 'firefox') {
+        if(SystemService.isCompatible(SystemService.PLATFORM_FIREFOX)) {
             return await SystemService.getBrowserApi().runtime.getURL(`img/${icon}.svg`);
         }
 

@@ -3,9 +3,9 @@
         <translate tag="h2" say="FirstRunConnectTitle"/>
         <translate say="FirstRunConnectText"/>
         <ul class="sever-setup-options">
-            <translate tag="li" say="FirstRunConnectLink" v-if="platform !== 'chrome'"/>
-            <translate tag="li" say="FirstRunConnectScan" v-if="platform !== 'chrome'"/>
-            <translate tag="li" class="link" say="FirstRunConnectScanChrome" v-if="platform === 'chrome'" @click="scanQr" />
+            <translate tag="li" say="FirstRunConnectLink" v-if="hasLinkHandler"/>
+            <translate tag="li" say="FirstRunConnectScan" v-if="hasLinkHandler"/>
+            <translate tag="li" class="link" say="FirstRunConnectScanChrome" v-if="!hasLinkHandler" @click="scanQr" />
             <translate tag="li" class="link" say="FirstRunConnectManual" @click="openSettings"/>
         </ul>
         <button-field value="FirstRunConnectScanButton" @click="scanQr"/>
@@ -24,7 +24,7 @@
 
         data() {
             return {
-                platform: SystemService.getBrowserPlatform()
+                hasLinkHandler: SystemService.hasProtocolHandlers()
             };
         },
 
@@ -38,7 +38,6 @@
             },
             openSettings() {
                 MessageService.send('popup.settings.open');
-                //window.close();
             }
         }
     };
