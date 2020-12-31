@@ -1,75 +1,51 @@
 {
-    "manifest_version": 2,
-    "name"            : "__MSG_extensionName__",
-    "version"         : "1.10.0.0",
-    "version_name"    : "1.10.0",
-    "description"     : "__MSG_extensionDescription__",
-    "author"          : "Marius Wieschollek",
-    "default_locale"  : "en",
-    "icons"           : {
+    "manifest_version"       : 2,
+    "name"                   : "__MSG_extensionName__",
+    "version"                : "2.0.0.99999",
+    "version_name"           : "2.0.0",
+    "description"            : "__MSG_extensionDescription__",
+    "author"                 : "Marius Wieschollek",
+    "default_locale"         : "en",
+    "icons"                  : {
         "16" : "img/passwords-16.png",
         "32" : "img/passwords-32.png",
         "48" : "img/passwords-48.png",
         "96" : "img/passwords-96.png",
         "128": "img/passwords-128.png"
     },
-    "browser_action"  : {
+    "browser_action"         : {
         "default_icon" : "img/passwords-16.png",
         "default_title": "__MSG_browserActionTitle__",
-        "default_popup": "html/manager.html",
+        "default_popup": "html/popup.html",
         "browser_style": true,
         "theme_icons"  : [
             {
-                "light": "img/passwords-light.svg",
-                "dark" : "img/passwords-dark.svg",
-                "size" : 12
-            },
-            {
-                "light": "img/passwords-light.svg",
-                "dark" : "img/passwords-dark.svg",
+                "light": "img/passwords-light.png",
+                "dark" : "img/passwords-dark.png",
                 "size" : 16
-            },
-            {
-                "light": "img/passwords-light.svg",
-                "dark" : "img/passwords-dark.svg",
-                "size" : 32
-            },
-            {
-                "light": "img/passwords-light.svg",
-                "dark" : "img/passwords-dark.svg",
-                "size" : 64
-            },
-            {
-                "light": "img/passwords-light.svg",
-                "dark" : "img/passwords-dark.svg",
-                "size" : 96
-            },
-            {
-                "light": "img/passwords-light.svg",
-                "dark" : "img/passwords-dark.svg",
-                "size" : 128
             }
         ]
     },
-    "background"      : {
+    "background"             : {
         "scripts": [
-            "js/chrome-polyfill.js",
             "js/background.js"
         ]
     },
-    "content_scripts" : [
+    "options_ui"             : {
+        "page": "html/options.html"
+    },
+    "content_security_policy": "script-src 'self' 'wasm-eval' blob:; object-src 'self'",
+    "content_scripts"        : [
         {
-            "matches": [
+            "matches"   : [
                 "http://*/*",
                 "https://*/*"
             ],
-            "js"     : [
-                "js/chrome-polyfill.js",
-                "js/client.js"
-            ]
+            "js"        : [ "js/client.js" ],
+            "all_frames": true
         }
     ],
-    "permissions"     : [
+    "permissions"            : [
         "*://*/*",
         "tabs",
         "storage",

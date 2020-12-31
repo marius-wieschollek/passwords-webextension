@@ -1,0 +1,24 @@
+:root {
+    font-family : var(--font-family);
+    font-size   : var(--font-size);
+}
+
+body {
+    font-family      : var(--font-family);
+    font-size        : var(--font-size);
+    line-height      : 1.1em;
+    background-color : var(--element-bg-color);
+    color            : var(--element-fg-color);
+    margin           : 0;
+    display          : block;
+    box-sizing       : border-box;
+    scrollbar-width  : thin;
+    scrollbar-color  : var(--element-active-fg-color) var(--element-active-bg-color);
+
+    input,
+    select,
+    button, {
+        font-family : var(--font-family);
+        font-size   : 1rem;
+    }
+}

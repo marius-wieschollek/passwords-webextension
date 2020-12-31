@@ -1,0 +1,23 @@
+{
+    "id"           : {
+        "type": "string"
+    },
+    "label"        : {
+        "type": "string"
+    },
+    "enabled"      : {
+        "type": "boolean"
+    },
+    "rootFolder"   : {
+        "type": "string"
+    },
+    "inboxFolder"  : {
+        "type": "string"
+    },
+    "privateFolder": {
+        "type": "string"
+    },
+    "inboxTag"     : {
+        "type": "string"
+    }
+}

@@ -1,10 +1,10 @@
-let webpack            = require('webpack'),
-    CopyWebpackPlugin  = require('copy-webpack-plugin'),
-    UglifyJSPlugin     = require('uglifyjs-webpack-plugin'),
-    CleanWebpackPlugin = require('clean-webpack-plugin'),
-    ExtractTextPlugin  = require("extract-text-webpack-plugin"),
-    OptimizeCSSPlugin  = require('optimize-css-assets-webpack-plugin'),
-    ProgressBarPlugin  = require('progress-bar-webpack-plugin');
+let webpack              = require('webpack'),
+    config               = require('./package.json'),
+    CopyWebpackPlugin    = require('copy-webpack-plugin'),
+    {CleanWebpackPlugin} = require('clean-webpack-plugin'),
+    VueLoaderPlugin      = require('vue-loader/lib/plugin'),
+    MiniCssExtractPlugin = require('mini-css-extract-plugin'),
+    OptimizeCSSPlugin    = require('optimize-css-assets-webpack-plugin');
 
 module.exports = env => {
     let production = env.production === true,
@@ -17,97 +17,98 @@ module.exports = env => {
             {
                 'process.env': {
                     NODE_ENV    : production ? '"production"':'"development"',
+                    APP_VERSION : `"${config.version}"`,
+                    APP_NAME    : '"extension"',
+                    APP_PLATFORM: `"${platform}"`,
                     BUILD_TARGET: `"${platform}"`
                 }
             }
         ),
+        new VueLoaderPlugin(),
         new CopyWebpackPlugin(['src/platform/generic', 'src/platform/' + platform]),
-        new ExtractTextPlugin('css/passwords.css')
+        new MiniCssExtractPlugin({filename: 'css/[name].css'}),
+        new CleanWebpackPlugin(
+            {
+                cleanStaleWebpackAssets     : false,
+                cleanOnceBeforeBuildPatterns: ['**/*'],
+                cleanAfterEveryBuildPatterns: ['js/Platform', 'scss']
+            }
+        )
     ];
 
     if(env.production) {
         plugins.push(
             new OptimizeCSSPlugin({cssProcessorOptions: {safe: true}})
         );
-        plugins.push(
-            new UglifyJSPlugin(
-                {
-                    uglifyOptions: {
-                        beautify: false,
-                        ecma    : 6,
-                        compress: true,
-                        comments: false,
-                        ascii   : true
-                    },
-                    cache        : true,
-                    parallel     : true
-                }
-            )
-        );
-        plugins.push(new CleanWebpackPlugin(['dist']));
-        plugins.push(new ProgressBarPlugin());
     }
 
-
+    let jsPlatformDir = platform !== 'chrome' ? `${__dirname}/src/js/Platform`:`${__dirname}/src/platform/${platform}/js/Platform`;
     return {
+        mode   : production ? 'production':'development',
+        devtool: production ? 'none':'inline-source-map',
         entry  : {
-            app       : __dirname + '/src/js/app.js',
-            client    : __dirname + '/src/js/client.js',
-            background: __dirname + '/src/js/background.js'
+            client    : `${__dirname}/src/js/client.js`,
+            popup     : `${__dirname}/src/js/popup.js`,
+            options   : `${__dirname}/src/js/options.js`,
+            preview   : `${__dirname}/src/js/preview.js`,
+            passlink  : `${__dirname}/src/js/passlink.js`,
+            background: `${__dirname}/src/js/background.js`
         },
         output : {
-            path    : __dirname + '/dist/',
-            filename: "js/[name].js"
+            path         : `${__dirname}/build/`,
+            filename     : 'js/[name].js',
+            chunkFilename: 'js/[name].[hash].js'
         },
         resolve: {
             modules   : ['node_modules', 'src'],
             extensions: ['.js', '.vue', '.json'],
             alias     : {
-                'vue$': 'vue/dist/vue.esm.js',
-                '@vue': __dirname + '/src/vue',
-                '@js' : __dirname + '/src/js'
+                'vue$'        : 'vue/dist/vue.esm.js',
+                '@vue'        : `${__dirname}/src/vue`,
+                '@js/Platform': jsPlatformDir,
+                '@js'         : `${__dirname}/src/js`,
+                '@scss'       : `${__dirname}/src/scss`,
+                '@scssP'      : `${__dirname}/src/platform/${platform}/scss`
             }
         },
         module : {
-            loaders: [
+            rules: [
                 {
-                    test   : /\.vue$/,
-                    loader : 'vue-loader',
-                    options: {
-                        extractCSS: true,
-                        loaders   : {
-                            scss: ExtractTextPlugin.extract(
-                                {
-                                    use     : [
-                                        {
-                                            loader : 'css-loader',
-                                            options: {minimize: production}
-                                        }, {
-                                            loader : 'sass-loader',
-                                            options: {minimize: production}
-                                        }, {
-                                            loader : 'sass-resources-loader',
-                                            options: {resources: __dirname + '/src/scss/includes.scss'}
-                                        }
-                                    ],
-                                    fallback: 'vue-style-loader'
-                                }
-                            )
-                        }
-                    }
+                    test  : /\.vue$/,
+                    loader: 'vue-loader'
                 },
                 {
                     test   : /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
                     loader : 'url-loader',
                     options: {
-                        limit          : 2048,
+                        limit          : 256,
                         outputPath     : 'css/',
-                        publicPath     : './',
+                        publicPath     : '/css/',
                         useRelativePath: false
                     }
+                },
+                {
+                    test: /\.s?css$/,
+                    use : [
+                        {loader: 'vue-style-loader'},
+                        {
+                            loader: MiniCssExtractPlugin.loader
+                        },
+                        {
+                            loader: 'css-loader'
+                        },
+                        {
+                            loader : 'sass-loader',
+                            options: {
+                                sassOptions: {
+                                    outputStyle: 'compressed'
+                                }
+                            }
+                        }
+                    ]
                 }
             ]
         },
-        plugins: plugins
+        plugins
     };
 };

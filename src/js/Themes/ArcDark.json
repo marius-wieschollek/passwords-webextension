@@ -1,0 +1,35 @@
+{
+    "id": "arc-darker",
+    "label": "ThemeArcDark",
+    "badge" : {
+        "color-bg": "#5296E5",
+        "color-fg": "#D3DAE3",
+        "icon"    : "passwords-new-light"
+    },
+    "font"  : {
+        "family": "default",
+        "size"  : "d"
+    },
+    "colors": {
+        "element-bg"             : "#2F343F",
+        "element-fg"             : "#ABB4C2",
+        "element-hover-bg"       : "#383C4A",
+        "element-hover-fg"       : "#ABB4C2",
+        "element-active-bg"      : "#383C4A",
+        "element-active-fg"      : "#5296E5",
+        "element-active-hover-bg": "#383C4A",
+        "element-active-hover-fg": "#5296E5",
+        "button-bg"              : "inherit",
+        "button-fg"              : "inherit",
+        "button-hover-bg"        : "#5296E5",
+        "button-hover-fg"        : "#D3DAE3",
+        "info-bg"                : "#0c63db",
+        "info-fg"                : "#ffffff",
+        "warning-bg"             : "#eca700",
+        "warning-fg"             : "#ffffff",
+        "error-bg"               : "#e9322d",
+        "error-fg"               : "#ffffff",
+        "success-bg"             : "#46ba61",
+        "success-fg"             : "#ffffff"
+    }
+}

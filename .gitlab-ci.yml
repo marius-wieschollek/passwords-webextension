@@ -1,0 +1,83 @@
+stages:
+  - compiling
+  - publishing
+
+image: passwords-webextension-builder
+
+Compile Firefox:
+  stage: compiling
+  script:
+    - mkdir dist
+    - npm install
+    - npm run build:firefox
+    - if [ "${CI_COMMIT_REF_NAME}" == "stable" ] ; then sed -i -e "s|BUILD||g" ./build/manifest.json ; fi
+    - if [ "${CI_COMMIT_REF_NAME}" != "stable" ] ; then sed -i -e "s|BUILD|${CI_PIPELINE_ID}|g" ./build/manifest.json ; fi
+    - mv build dist/firefox-extension
+  artifacts:
+    paths:
+      - ./dist/firefox-extension
+
+Compile Chrome:
+  stage: compiling
+  script:
+    - mkdir dist
+    - npm install
+    - npm run build:chrome
+    - if [ "${CI_COMMIT_REF_NAME}" == "stable" ] ; then sed -i -e "s|99999||g" ./build/manifest.json ; fi
+    - if [ "${CI_COMMIT_REF_NAME}" != "stable" ] ; then sed -i -e "s|99999|${CI_PIPELINE_ID}|g" ./build/manifest.json ; fi
+    - mv build dist/chrome-extension
+  artifacts:
+    paths:
+      - ./dist/chrome-extension
+
+Publish Nightly Firefox:
+  stage: publishing
+  script:
+    - 'export ARTIFACT_URL=${CI_PROJECT_URL}/firefox/${CI_COMMIT_REF_NAME}/FILE'
+    - 'sed -i -e "s|\"gecko\": {|\"gecko\":{\"update_url\":\"ARTIFACT_URL\",|g" ./dist/firefox-extension/manifest.json'
+    - 'sed -i -e "s|ARTIFACT_URL|${ARTIFACT_URL}|g" ./dist/firefox-extension/manifest.json'
+    - 'sed -i -e "s|FILE|updates.json|g" ./dist/firefox-extension/manifest.json'
+    - 'web-ext sign --channel unlisted --ignore-files updates.json'
+    - 'export EXT_FILENAME=$(cd ./dist/firefox-extension/ && ls nextcloud_passwords_client*)'
+    - 'sed -i -e "s|BUILD|${CI_PIPELINE_ID}|g" ./dist/firefox-extension/updates.json'
+    - 'sed -i -e "s|ARTIFACT_URL|${ARTIFACT_URL}|g" ./dist/firefox-extension/updates.json'
+    - 'sed -i -e "s|FILE|${EXT_FILENAME}|g" ./dist/firefox-extension/updates.json'
+  environment:
+    name: Testing
+  only:
+    - testing
+  artifacts:
+    paths:
+      - ./dist/firefox-extension/updates.json
+      - ./dist/firefox-extension/*.xpi
+
+Publish Nightly Chrome:
+  stage: publishing
+  allow_failure: true
+  script:
+    - 'export WEXT_SHIPIT_CHROME_EXTENSION_ID=${CHROME_EXTENSION_ID_TESTING}'
+    - 'shipit chrome dist/chrome-extension'
+  environment:
+    name: Testing
+  only:
+    - testing
+
+Publish Stable Firefox:
+  stage: publishing
+  script:
+    - 'rm dist/firefox-extension/updates.json'
+    - 'shipit firefox dist/firefox-extension'
+  environment:
+    name: Stable
+  only:
+    - stable
+
+Publish Stable Chrome:
+  stage: publishing
+  script:
+    - 'export WEXT_SHIPIT_CHROME_EXTENSION_ID=${CHROME_EXTENSION_ID_STABLE}'
+    - 'shipit chrome dist/chrome-extension'
+  environment:
+    name: Stable
+  only:
+    - stable

@@ -1,0 +1,26 @@
+{
+    "id": {
+        "type": "string"
+    },
+    "label": {
+        "type": "string"
+    },
+    "type": {
+        "type": "string"
+    },
+    "font": {
+        "type": "object"
+    },
+    "variables": {
+        "type": "object"
+    },
+    "badge": {
+        "type": "object"
+    },
+    "colors": {
+        "type": "object"
+    },
+    "style": {
+        "type": "boolean"
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "id": "adapta-light",
+    "label": "ThemeAdaptaLight",
+    "badge" : {
+        "color-bg": "#5294E2",
+        "color-fg": "#FFFFFF",
+        "icon"    : "passwords-new-dark"
+    },
+    "font"  : {
+        "family": "default",
+        "size"  : "d"
+    },
+    "colors": {
+        "element-bg"             : "#F5F6F7",
+        "element-fg"             : "#5C616C",
+        "element-hover-bg"       : "#FFFFFF",
+        "element-hover-fg"       : "#5C616C",
+        "element-active-bg"      : "#FFFFFF",
+        "element-active-fg"      : "#5294E2",
+        "element-active-hover-bg": "#FFFFFF",
+        "element-active-hover-fg": "#5294E2",
+        "button-bg"              : "inherit",
+        "button-fg"              : "inherit",
+        "button-hover-bg"        : "#5294E2",
+        "button-hover-fg"        : "#FFFFFF",
+        "info-bg"                : "#0c63db",
+        "info-fg"                : "#ffffff",
+        "warning-bg"             : "#eca700",
+        "warning-fg"             : "#ffffff",
+        "error-bg"               : "#e9322d",
+        "error-fg"               : "#ffffff",
+        "success-bg"             : "#46ba61",
+        "success-fg"             : "#ffffff"
+    }
+}

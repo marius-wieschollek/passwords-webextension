@@ -1,98 +1,66 @@
 {
-    "extensionName"              : {
-        "message"    : "Пароли Nextcloud"
+    "extensionName"       : {
+        "message"    : "Пароли Nextcloud",
+        "description": "Name of the extension."
     },
-    "extensionDescription"       : {
-        "message"    : "Простой клиент для приложения Пароли в Nextcloud"
+    "extensionDescription": {
+        "message"    : "Простой клиент для приложения Пароли в Nextcloud",
+        "description": "Description of the extension."
     },
-    "browserActionTitle"         : {
-        "message"    : "Пароли"
+    "browserActionTitle"  : {
+        "message"    : "Пароли",
+        "description": "Title of the button in the browser bar"
     },
-    "contextMenuTitle"           : {
-        "message"    : "Пароли"
+    "contextMenuTitle"    : {
+        "message"    : "Пароли",
+        "description": "Title of the context menu item"
     },
-    "NoRelatedMatches"           : {
-        "message"    : "Логинов не найдено"
+    "ServerBaseUrl"       : {
+        "message"    : "Url",
+        "description": "Label of the server url field in account details in the extension settings"
     },
-    "NoSearchMatches"            : {
-        "message"    : "Ничего не найдено"
+    "ServerUser"          : {
+        "message"    : "Логин",
+        "description": "Label of the account login user field in account details in the extension settings"
     },
-    "NoSearchQuery"              : {
-        "message"    : "Введите больше 2-х символов"
+    "LabelPassword"       : {
+        "message"    : "Пароль",
+        "description": "Label for the password of a password entry"
     },
-    "PasswordRequestFailedTitle" : {
-        "message"    : "Неудалось запросить пароль из Nextcloud"
+    "LabelUsername"       : {
+        "message"    : "Логин",
+        "description": "Label for the username of a password entry"
     },
-    "PasswordRequestFailedText"  : {
-        "message"     : "Невозможно получить список паролей.\nОшибка: $ERROR$",
-        "placeholders": {
-            "error": {
-                "content": "$1"
-            }
-        }
+    "LabelUser"           : {
+        "message"    : "Логин",
+        "description": "Label for the username of in the server info in the browse tab"
     },
-    "PasswordEncodingFailedTitle": {
-        "message"    : "Невозможно распознать пароль"
+    "LabelUrl"            : {
+        "message"    : "Url",
+        "description": "Label for of a field that contains an url (used in collected password or server info)"
     },
-    "PasswordEncodingFailedText" : {
-        "message"     : "Пароль #$ID$ не может быть обработан, поскольку имеет неправильный JSON формат",
-        "placeholders": {
-            "id": {
-                "content": "$1"
-            }
-        }
+    "LabelPasswords"      : {
+        "message"    : "Пароли",
+        "description": "Label for the password count in the server info in the browse tab"
     },
-    "NewLoginDetectedTitle"      : {
-        "message"    : "Обнаружен новый логин"
+    "PlaceholderPassword" : {
+        "message"    : "Пароль",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
     },
-    "NewLoginDetectedText"       : {
-        "message"     : "Нажмите здесь чтобы сохранить пароль для \"$USER$\"",
-        "placeholders": {
-            "user": {
-                "content": "$1"
-            }
-        }
+    "PropertyPassword"    : {
+        "message"    : "Пароль",
+        "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
     },
-    "PasswordCreatedTitle"       : {
-        "message"    : "Пароль сохранен"
+    "PropertyUsername"    : {
+        "message"    : "Логин",
+        "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
     },
-    "PasswordCreatedText"        : {
-        "message"    : "Пароль был успешно сохранен"
+    "PropertyUrl"         : {
+        "message"    : "Url",
+        "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
     },
-    "CreatePasswordFailedTitle"  : {
-        "message"    : "Ошибка при сохранении"
-    },
-    "CreatePasswordFailedText"   : {
-        "message"    : "Пароль не может быть сохранен"
-    },
-    "UpdatedLoginDetectedTitle"  : {
-        "message"    : "Обнаружено обновление логина"
-    },
-    "UpdatedLoginDetectedText"   : {
-        "message"     : "Нажмите здесь чтобы обновить пароль для \"$USER$\"",
-        "placeholders": {
-            "user": {
-                "content": "$1"
-            }
-        }
-    },
-    "PasswordUpdatedTitle"       : {
-        "message"    : "Пароль обновлен"
-    },
-    "PasswordUpdatedText"        : {
-        "message"    : "Пароль успешно обновлен"
-    },
-    "UpdatePasswordFailedTitle"  : {
-        "message"    : "Ошибка при обновлении"
-    },
-    "UpdatePasswordFailedText"   : {
-        "message"    : "Пароль не может быть обновлен"
-    },
-    "DarkMode"                   : {
-        "message"    : "Темная тема"
-    },
-    "Url"                        : { "message": "Url" },
-    "Password"                   : { "message": "Пароль" },
-    "User"                       : { "message": "Логин" },
-    "Save"                       : { "message": "Сохранить" }
+    "ButtonSave"          : {
+        "message"    : "Сохранить",
+        "description": "The save button of a password detection system notification"
+    }
 }
