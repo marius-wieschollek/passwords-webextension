@@ -16,6 +16,15 @@ export default class QueueClient {
         this._callback = callback;
         /** @type {(Queue|null)} **/
         this._queue = null;
+
+        this._localCallback = async (items) => {
+            for(let item of items) {
+                await this
+                    ._processItem(item)
+                    .catch(ErrorManager.catchEvt);
+            }
+        };
+
         this._createListener();
         this._fetchInitialItems();
     }
@@ -42,13 +51,15 @@ export default class QueueClient {
      * @param {Boolean} processItems
      */
     setQueue(queue, processItems = true) {
+        if(this._queue !== null) this._queue.queue.off(this._localCallback);
         this._queue = queue;
+        if(this._queue !== null) this._queue.queue.on(this._localCallback);
 
         if(queue === null || !processItems) return;
         let items = queue.getItems();
         for(let item of items) {
             this._processItem(item.toJSON())
-                .catch(ErrorManager.catch());
+                .catch(ErrorManager.catchEvt);
         }
     }
 

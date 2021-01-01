@@ -1,5 +1,7 @@
 import Queue from '@js/Queue/Queue';
 import FeedbackQueue from '@js/Queue/FeedbackQueue';
+import QueueItem from "@js/Models/Queue/QueueItem";
+import FeedbackItem from "@js/Models/Queue/FeedbackItem";
 
 class QueueService {
 
@@ -11,9 +13,10 @@ class QueueService {
      *
      * @param {String} name
      * @param {(String|null)} [area=null]
+     * @param type
      * @returns {Queue}
      */
-    getQueue(name, area = null, type) {
+    getQueue(name, area = null, type = QueueItem) {
         if(!this._queues.hasOwnProperty(name)) {
             this._queues[name] = new Queue(name, area, type);
         }
@@ -28,7 +31,7 @@ class QueueService {
      * @param {FeedbackItem} [type=FeedbackItem]
      * @returns {FeedbackQueue}
      */
-    getFeedbackQueue(name, area = null, type) {
+    getFeedbackQueue(name, area = null, type = FeedbackItem) {
         if(!this._queues.hasOwnProperty(name)) {
             this._queues[name] = new FeedbackQueue(name, area, type);
         }

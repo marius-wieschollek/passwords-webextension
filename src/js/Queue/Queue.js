@@ -1,5 +1,4 @@
 import MessageService from '@js/Services/MessageService';
-import Message from '@js/Models/Message/Message';
 import QueueItem from '@js/Models/Queue/QueueItem';
 import EventQueue from '@js/Event/EventQueue';
 
@@ -10,6 +9,13 @@ export default class Queue {
      */
     get queue() {
         return this._event;
+    }
+
+    /**
+     * @returns {Number}
+     */
+    get length() {
+        return this._count;
     }
 
     /**
@@ -50,6 +56,7 @@ export default class Queue {
     getItems() {
         let items = [];
         for(let id in this._items) {
+            if(!this._items.hasOwnProperty(id)) continue;
             items.push(this._items[id].item);
         }
 

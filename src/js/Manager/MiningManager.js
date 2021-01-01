@@ -8,12 +8,43 @@ import SearchIndex from '@js/Search/Index/SearchIndex';
 import NotificationService from '@js/Services/NotificationService';
 import HiddenFolderHelper from "@js/Helper/HiddenFolderHelper";
 import Url from "url-parse";
+import EventQueue from "@js/Event/EventQueue";
+import SystemService from "@js/Services/SystemService";
+import QueueClient from "@js/Queue/Client/QueueClient";
 
 class MiningManager {
 
+    /**
+     * @returns {Number}
+     */
+    get queueSize() {
+        if(this._miningQueue === null) return 0;
+        return this._miningQueue.length;
+    }
+
+    /**
+     * @returns {EventQueue}
+     */
+    get addItem() {
+        return this._addItem;
+    }
+
+    /**
+     * @returns {EventQueue}
+     */
+    get solveItem() {
+        return this._solveItem;
+    }
+
+    /**
+     *
+     */
     constructor() {
         /** @type {FeedbackQueue} **/
         this._miningQueue = null;
+        this._addItem = new EventQueue();
+        this._solveItem = new EventQueue();
+        this._processingQueue = null;
     }
 
 
@@ -22,22 +53,30 @@ class MiningManager {
      */
     init() {
         this._miningQueue = QueueService.getFeedbackQueue('mining', null, MiningItem);
+        this._processingQueue = QueueService.getQueue('mine-process', SystemService.AREA_BACKGROUND);
+
+        this._client = new QueueClient('mine-process', /**@param {QueueItem} item**/(item) => {
+            let data = item.getTask();
+            this._processPasswordData(data);
+            item.setSuccess(true);
+        });
+
+        this._client.setQueue(this._processingQueue);
     }
 
     /**
      * @param {Object} data
      */
-    addPassword(data) {
-        this.validateData(data);
-        if(this.checkIfDuplicate(data)) return;
-        data.manual = false;
-        this.createItem(data);
+    async addPassword(data) {
+        this._processingQueue.push(
+            this._processingQueue.makeItem(data)
+        );
     }
 
     /**
      * @param {Object} data
      */
-    createItem(data) {
+    async createItem(data) {
         let hidden = TabManager.get().tab.incognito;
 
         let task = new MiningItem()
@@ -58,7 +97,9 @@ class MiningManager {
             }
         }
 
-        this.processTask(task);
+        await this._addItem.emit(task);
+
+        await this.processTask(task);
     }
 
     /**
@@ -79,6 +120,7 @@ class MiningManager {
                 await this.updatePassword(task);
             }
 
+            await this._solveItem.emit(task);
             await this._miningQueue.push(task);
         } catch(e) {
             ErrorManager.logError(e);
@@ -228,6 +270,19 @@ class MiningManager {
         }
 
         return null;
+    }
+
+    /**
+     *
+     * @param {Object} data
+     * @private
+     */
+    _processPasswordData(data) {
+        this.validateData(data);
+        if(this.checkIfDuplicate(data)) return;
+        data.manual = false;
+        this.createItem(data)
+            .catch(ErrorManager.catchEvt);
     }
 
     /**

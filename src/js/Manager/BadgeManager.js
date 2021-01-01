@@ -5,6 +5,7 @@ import ServerManager from '@js/Manager/ServerManager';
 import ErrorManager from '@js/Manager/ErrorManager';
 import LocalisationService from '@js/Services/LocalisationService';
 import ThemeService from '@js/Services/ThemeService';
+import MiningManager from "@js/Manager/MiningManager";
 
 class BadgeManager {
 
@@ -26,6 +27,18 @@ class BadgeManager {
             }
         );
         ServerManager.isAuthorized.onChange(
+            async (d) => {
+                let r = RecommendationManager.getRecommendations();
+                await this._updateBrowserAction(r);
+            }
+        );
+        MiningManager.addItem.on(
+            async (d) => {
+                let r = RecommendationManager.getRecommendations();
+                await this._updateBrowserAction(r);
+            }
+        );
+        MiningManager.solveItem.on(
             async (d) => {
                 let r = RecommendationManager.getRecommendations();
                 await this._updateBrowserAction(r);
@@ -57,13 +70,20 @@ class BadgeManager {
         if(tabId === 0) return;
 
         try {
+            let badgeText = [];
+
             if(!ServerManager.isAuthorized.get()) {
-                await this._api.browserAction.setBadgeText({text: '!', tabId});
-            } else if(recommended.length !== 0) {
-                await this._api.browserAction.setBadgeText({text: recommended.length.toString(), tabId});
+                badgeText.push('!');
             } else {
-                await this._api.browserAction.setBadgeText({text: '', tabId});
+                if(recommended.length !== 0) {
+                    badgeText.push(recommended.length.toString());
+                }
+                let miningQueue = MiningManager.queueSize;
+                if(miningQueue > 0) {
+                    badgeText.push(`+${miningQueue}`);
+                }
             }
+            await this._api.browserAction.setBadgeText({text: badgeText.join(' '), tabId});
 
             await this._setBadgeTheme();
         } catch(e) {
@@ -104,7 +124,7 @@ class BadgeManager {
         await this._api.browserAction.setBadgeBackgroundColor({color});
 
         let icon = await ThemeService.getBadgeIcon();
-        await this._api.browserAction.setIcon({path:icon});
+        await this._api.browserAction.setIcon({path: icon});
     }
 }
 
