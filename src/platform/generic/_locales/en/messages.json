@@ -324,7 +324,7 @@
         "description": "Used in the collected tab when no new passwords have been found"
     },
     "AddPasswordForCurrentTab"      : {
-        "message"    : "Add account for current tab",
+        "message"    : "Add credentials for current tab",
         "description": "Used in the collected tab for the option to add a blank entry with just the url of the current tab"
     },
     "NoServerItems"                 : {
