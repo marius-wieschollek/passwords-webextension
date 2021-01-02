@@ -14,7 +14,7 @@ export default class List extends AbstractController {
             )
             .type('password')
             .sortBy('favorite')
-            .sortBy('label')
+            .sortBy('label', true)
             .execute();
 
         let folders = query.type('folder').execute();
