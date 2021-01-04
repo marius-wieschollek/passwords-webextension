@@ -2,6 +2,7 @@ import Server from '@js/Models/Server/Server';
 import ServerRepository from '@js/Repositories/ServerRepository';
 import {EnhancedClassLoader, PasswordsClient} from 'passwords-client';
 import SystemService from '@js/Services/SystemService';
+import ErrorManager from "@js/Manager/ErrorManager";
 
 /**
  * @typedef {PasswordsClient} PasswordsClient
@@ -67,7 +68,7 @@ class ApiRepository {
 
         for(let server of servers) {
             if(!this._api.hasOwnProperty(server.getId())) {
-                let classes = new EnhancedClassLoader({'model.server': Server});
+                let classes = new EnhancedClassLoader({'model.server': Server, 'logger': ErrorManager});
                 this._api[server.getId()] = new PasswordsClient(server, config, classes);
             }
         }

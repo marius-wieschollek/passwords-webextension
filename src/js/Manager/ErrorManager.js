@@ -44,6 +44,51 @@ class ErrorManager {
     }
 
     /**
+     * @param {String} message
+     * @param {Object} [context={}]
+     */
+    debug(message, context = {}) {
+        context.level = 'debug';
+        this._addError(new Error(message), context);
+    }
+
+    /**
+     * @param {String} message
+     * @param {Object} [context={}]
+     */
+    info(message, context = {}) {
+        context.level = 'info';
+        this._addError(new Error(message), context);
+    }
+
+    /**
+     * @param {String} message
+     * @param {Object} [context={}]
+     */
+    log(message, context = {}) {
+        context.level = 'log';
+        this._addError(new Error(message), context);
+    }
+
+    /**
+     * @param {String} message
+     * @param {Object} [context={}]
+     */
+    warning(message, context = {}) {
+        context.level = 'warning';
+        this._addError(new Error(message), context);
+    }
+
+    /**
+     * @param {String} message
+     * @param {Object} [context={}]
+     */
+    error(message, context = {}) {
+        context.level = 'error';
+        this._addError(new Error(message), context);
+    }
+
+    /**
      *
      * @param {Error} error
      * @param {Object} [context]
@@ -191,7 +236,7 @@ class ErrorManager {
     async _sendError(data) {
         try {
             await SystemService.waitReady();
-            QueueService
+            await QueueService
                 .getQueue('error', 'background')
                 .push(data);
         } catch(e) {
