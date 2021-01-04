@@ -124,12 +124,13 @@
 
     > .label {
         flex-grow     : 1;
-        padding       : 0 .5rem;
-        min-width     : 100vw;
+        padding       : 0 .25rem 0 .5rem;
+        min-width     : calc(100vw - 3rem);
+        max-width     : calc(100vw - 3rem);
         white-space   : nowrap;
-        transition    : min-width .25s ease-in-out;
         overflow      : hidden;
         text-overflow : ellipsis;
+        transition    : min-width .25s ease-in-out;
 
         .favicon {
             vertical-align : middle;
@@ -153,7 +154,8 @@
         display          : flex;
         z-index          : 1;
         background-color : var(--element-bg-color);
-        transition       : opacity 0s linear .25s, var(--element-transition);
+        margin-left      : 3rem;
+        transition       : opacity 0s linear .25s, margin-left .125s linear, var(--element-transition);
 
         .icon {
             text-align : center;
@@ -196,7 +198,8 @@
         .options {
             background-color : var(--element-hover-bg-color);
             opacity          : 1;
-            transition       : none;
+            margin-left      : 0;
+            transition       : margin-left .125s linear;
 
             > .icon,
             > .option {
