@@ -20,14 +20,14 @@ export default class ShowFields extends AbstractController {
 
     _addDebugBorders(fieldPairs) {
         for(let fieldPair of fieldPairs) {
-            if(fieldPair.pass) fieldPair.pass.style.outline = '5px dashed #20bf6b';
-            if(fieldPair.tel) fieldPair.tel.style.outline = '5px dashed #a55eea';
-            if(fieldPair.email) fieldPair.email.style.outline = '5px dashed #0fb9b1';
-            if(fieldPair.secondGuess) fieldPair.secondGuess.style.outline = '5px dashed #f7b731';
-            if(fieldPair.firstGuess) fieldPair.firstGuess.style.outline = '5px dashed #fa8231';
-            if(fieldPair.user) fieldPair.user.style.outline = '5px dashed #eb3b5a';
-            if(fieldPair.submit) fieldPair.submit.style.outline = '5px dashed #3867d6';
-            if(fieldPair.remember) fieldPair.remember.style.outline = '5px dashed #4b6584';
+            if(fieldPair.pass) fieldPair.pass.style.outline = '5px dashed #20bf6b !important';
+            if(fieldPair.tel) fieldPair.tel.style.outline = '5px dashed #a55eea !important';
+            if(fieldPair.email) fieldPair.email.style.outline = '5px dashed #0fb9b1 !important';
+            if(fieldPair.secondGuess) fieldPair.secondGuess.style.outline = '5px dashed #f7b731 !important';
+            if(fieldPair.firstGuess) fieldPair.firstGuess.style.outline = '5px dashed #fa8231 !important';
+            if(fieldPair.user) fieldPair.user.style.outline = '5px dashed #eb3b5a !important';
+            if(fieldPair.submit) fieldPair.submit.style.outline = '5px dashed #3867d6 !important';
+            if(fieldPair.remember) fieldPair.remember.style.outline = '5px dashed #4b6584 !important';
             console.log(fieldPair);
         }
     }
