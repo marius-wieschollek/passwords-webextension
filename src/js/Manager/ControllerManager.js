@@ -166,16 +166,23 @@ class ControllerManager {
             }
         );
         MessageService.listen(
-            'options.debug.data',
+            'options.debug.info',
             async (message, reply) => {
-                let module = await import(/* webpackChunkName: "DebugData" */ '@js/Controller/Options/DebugData');
+                let module = await import(/* webpackChunkName: "DebugExtensionInfo" */ '@js/Controller/Options/Debug/ExtensionInfo');
                 await this._executeController(module, message, reply);
             }
         );
         MessageService.listen(
-            'options.debug.errors',
+            'options.debug.log.fetch',
             async (message, reply) => {
-                let module = await import(/* webpackChunkName: "DebugErrors" */ '@js/Controller/Options/DebugErrors');
+                let module = await import(/* webpackChunkName: "DebugFetchLog" */ '@js/Controller/Options/Debug/FetchLog');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
+            'options.debug.log.clear',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "DebugFetchLog" */ '@js/Controller/Options/Debug/ClearLog');
                 await this._executeController(module, message, reply);
             }
         );

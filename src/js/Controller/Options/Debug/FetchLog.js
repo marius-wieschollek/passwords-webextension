@@ -5,7 +5,7 @@ import ServerManager from "@js/Manager/ServerManager";
 import SettingsService from "@js/Services/SettingsService";
 import SystemService from "@js/Services/SystemService";
 
-export default class DebugData extends AbstractController {
+export default class FetchLog extends AbstractController {
 
     /**
      *

@@ -28,7 +28,9 @@
             <translate tag="label" class="label" say="DebugLanguageTagsEnabled"/>
         </div>
 
-        <translate tag="h3" say="DebugErrorLog"/>
+        <translate tag="h3" say="DebugErrorLog">
+            <icon icon="trash-alt" font="regular" @click="clearLog"/>
+        </translate>
         <div class="debug-error-item" v-for="error in errors">
             <div class="error-message" @click="showData">
                 <span class="title">{{ getTitle(error) }}</span>
@@ -114,7 +116,7 @@
 
         methods: {
             loadData() {
-                MessageService.send('options.debug.data').then((reply) => {
+                MessageService.send('options.debug.info').then((reply) => {
                     let data = reply.getPayload();
 
                     if(data.hasOwnProperty('hidden')) {
@@ -136,8 +138,13 @@
                 this.loadErrors();
             },
             loadErrors() {
-                MessageService.send('options.debug.errors').then((reply) => {
+                MessageService.send('options.debug.log.fetch').then((reply) => {
                     this.errors = reply.getPayload();
+                });
+            },
+            clearLog() {
+                MessageService.send('options.debug.log.clear').then((reply) => {
+                    this.errors = [];
                 });
             },
             getTitle(error) {
@@ -209,6 +216,25 @@
         }
     }
 
+
+    .icon-trash-alt {
+        cursor           : pointer;
+        float            : right;
+        margin-top       : -1.5rem;
+        margin-right     : -1rem;
+        padding          : 1rem;
+        display          : inline-block;
+        background-color : var(--button-bg-color);
+        color            : var(--button-fg-color);
+        transition       : var(--button-transition);
+
+        &:hover {
+            background-color : var(--button-hover-bg-color);
+            color            : var(--button-hover-fg-color);
+            box-shadow       : var(--tab-button-active-border);
+        }
+    }
+
     .debug-error-item {
         .error-message {
             background-color : var(--element-bg-color);
@@ -227,10 +253,10 @@
             }
 
             .title {
-                overflow: hidden;
-                flex-grow: 1;
-                text-overflow: ellipsis;
-                padding-right: 0.25rem;
+                overflow      : hidden;
+                flex-grow     : 1;
+                text-overflow : ellipsis;
+                padding-right : 0.25rem;
             }
 
             .icon {
@@ -239,7 +265,7 @@
                 text-align       : center;
                 margin           : -1rem;
                 flex-grow        : 0;
-                flex-shrink        : 0;
+                flex-shrink      : 0;
                 background-color : var(--button-bg-color);
                 color            : var(--button-fg-color);
                 transition       : var(--button-transition);

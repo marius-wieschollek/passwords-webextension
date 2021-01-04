@@ -110,6 +110,13 @@ class ErrorManager {
 
     /**
      *
+     */
+    clearLog() {
+        this._errors = [];
+    }
+
+    /**
+     *
      * @param {Error} error
      * @param {(String|Object)} [message]
      * @param {String} [file]
