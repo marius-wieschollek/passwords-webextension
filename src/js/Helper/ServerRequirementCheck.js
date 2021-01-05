@@ -32,7 +32,7 @@ export default class ServerRequirementCheck {
                 setting    = collection.get(0);
 
             if(setting.getValue() === null || !this._versionCompare(setting.getValue())) {
-                if(disable) await this._disableServer();
+                if(disable) await this._disableServer(setting.getValue());
                 return false;
             }
 
@@ -49,17 +49,18 @@ export default class ServerRequirementCheck {
      * @return {Promise<void>}
      * @private
      */
-    async _disableServer() {
+    async _disableServer(serverVersion) {
         let server = this._api.getServer();
         server.setEnabled(false);
         server.setStatus(server.STATUS_DISABLED);
         await ServerRepository.update(server);
+        let minVersion = this.MINIMUM_APP_VERSION.join('.');
 
         let toast = new Toast()
             .setTitle('ToastServerCheckTitle')
             .setMessage('ToastServerCheckMessage')
             .setTitleVars([server.getLabel()])
-            .setMessageVars([server.getLabel()])
+            .setMessageVars([server.getLabel(), minVersion, serverVersion])
             .setType('error')
             .setTags([this._api.getServer().getId(), 'server-error'])
             .setTtl(0);

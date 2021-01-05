@@ -492,12 +492,20 @@
         }
     },
     "ToastServerCheckMessage"       : {
-        "message"     : "The account \"$SERVER$\" uses a server running an outdated version of passwords. The server must be updated before the account can be reactivated in the extension settings.",
+        "message"     : "The account \"$SERVER$\" uses passwords $SERVERVERSION$, but this extension requires at least $MINVERSION$. The app needs to be updated before the account can be activated again in the settings.",
         "description" : "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
         "placeholders": {
             "server": {
                 "content": "$1",
                 "example": "My Nextcloud"
+            },
+            "minversion"   : {
+                "content": "$2",
+                "example": "2020.1"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2020.3"
             }
         }
     },
