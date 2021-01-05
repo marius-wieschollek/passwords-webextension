@@ -65,6 +65,8 @@ export default class ServerRequirementCheck {
             .setTags([this._api.getServer().getId(), 'server-error'])
             .setTtl(0);
 
+        ErrorManager.error('Disabled account with unsupported api version', {server: server.getLabel(), version: serverVersion, requiredVersion: minVersion});
+
         ToastService.create(toast)
             .then(() => {SystemService.getBrowserApi().tabs.create({active: true, url: server.getBaseUrl()});})
             .catch(ErrorManager.catch);
