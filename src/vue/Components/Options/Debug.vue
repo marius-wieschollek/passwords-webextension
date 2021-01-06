@@ -174,7 +174,7 @@
                 return LocalisationService.translate('DebugErrorNoDetails');
             },
             showData($event) {
-                $event.target.parentNode.classList.toggle('open');
+                $event.currentTarget.parentNode.classList.toggle('open');
             },
             copy(error) {
                 navigator.clipboard.writeText(JSON.stringify(error));
