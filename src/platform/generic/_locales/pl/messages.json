@@ -7,6 +7,10 @@
         "message"    : "Klient aplikacji Nextcloud Passwords.",
         "description": "Description of the extension."
     },
+    "locale"          : {
+        "message"    : "pl",
+        "description": "The language tag of this translation. Same as the folder name"
+    },
     "browserActionTitle"  : {
         "message"    : "Hasła",
         "description": "Title of the button in the browser bar"

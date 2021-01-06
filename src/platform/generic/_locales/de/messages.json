@@ -7,6 +7,10 @@
         "message"    : "Die offizielle Extension für die Passwörter App für Nextcloud",
         "description": "Description of the extension."
     },
+    "locale"          : {
+        "message"    : "de",
+        "description": "The language tag of this translation. Same as the folder name"
+    },
     "browserActionTitle"            : {
         "message"    : "Passwörter",
         "description": "Title of the button in the browser bar"
@@ -64,7 +68,7 @@
         "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
     },
     "AutofillSettings"              : {
-        "message"    : "Passwörter einfügen",
+        "message"    : "Zugangsdaten einfügen",
         "description": "Headline above the password autofill section in the other settings tab in the extension settings"
     },
     "SettingsPastePopupClose"       : {
@@ -72,12 +76,20 @@
         "description": "Label of the setting in the extension settings to automatically close the extension popup after successful pasting"
     },
     "SettingsPasteFormSubmit"       : {
-        "message"    : "Anmeldeformulare nach dem Einfügen abschicken",
+        "message"    : "Anmeldeformulare nach dem Einfügen über das Popup abschicken",
         "description": "Label of the setting in the extension settings to automatically submit login forms after pasting"
     },
     "SettingsPasteWarnCompromised"  : {
-        "message"    : "Bei der Verwendung kompromittierter Passwörter warnen",
-        "description": "Label of the setting in the extension settings to show a warning after pasting a compromised password"
+        "message"    : "Bei der Verwendung kompromittierter Zugangsdaten warnen",
+        "description": "Label of the setting in the extension settings to show a warning after pasting a compromised credentials"
+    },
+    "SettingsPasteAutofillEnabled"  : {
+        "message"    : "Anmeldeformulare automatisch ausfüllen",
+        "description": "Label of the setting in the extension settings to automatically paste credentials into login forms"
+    },
+    "HelpPasteAutofillEnabled"  : {
+        "message"    : "Fügt den ersten Eintrag der vorgeschlagenen Zugansdaten autmatisch in den aktuellen Tab ein. Dies bedeutet auch, dass alle Skripte in dem Tab auf das diese abgreifen können.",
+        "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
     },
     "NotificationSettings"          : {
         "message"    : "Benachrichtigungen",

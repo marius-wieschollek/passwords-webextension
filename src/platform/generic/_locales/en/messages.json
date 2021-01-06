@@ -7,6 +7,10 @@
         "message"    : "The official browser extension for Passwords for Nextcloud",
         "description": "Description of the extension."
     },
+    "locale"          : {
+        "message"    : "en",
+        "description": "The language tag of this translation. Same as the folder name"
+    },
     "browserActionTitle"            : {
         "message"    : "Passwords",
         "description": "Title of the button in the browser bar"
@@ -64,20 +68,28 @@
         "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
     },
     "AutofillSettings"              : {
-        "message"    : "Password autofill",
+        "message"    : "Pasting credentials",
         "description": "Headline above the password autofill section in the other settings tab in the extension settings"
     },
     "SettingsPastePopupClose"       : {
-        "message"    : "Close popup after pasting password",
+        "message"    : "Close popup after pasting credentials",
         "description": "Label of the setting in the extension settings to automatically close the extension popup after successful pasting"
     },
     "SettingsPasteFormSubmit"       : {
-        "message"    : "Automatically submit login forms",
+        "message"    : "Submit login forms when credentials pasted from popup",
         "description": "Label of the setting in the extension settings to automatically submit login forms after pasting"
     },
     "SettingsPasteWarnCompromised"  : {
-        "message"    : "Warn when using compromised passwords",
+        "message"    : "Warn when using compromised credentials",
         "description": "Label of the setting in the extension settings to show a warning after pasting a compromised password"
+    },
+    "SettingsPasteAutofillEnabled"  : {
+        "message"    : "Automatically fill in best matching login data",
+        "description": "Label of the setting in the extension settings to automatically paste credentials into login forms"
+    },
+    "HelpPasteAutofillEnabled"  : {
+        "message"    : "Automatically paste the first suggested credential into any login form in the tab. Be aware that this makes it accessible any script in the tab.",
+        "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
     },
     "NotificationSettings"          : {
         "message"    : "Notifications",

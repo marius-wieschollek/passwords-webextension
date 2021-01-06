@@ -73,6 +73,8 @@ class Passlink {
      * @private
      */
     async _initVue(action, data) {
+        document.body.lang = LocalisationService.getLocale();
+
         let reply  = await MessageService.send('passlink.status'),
             status = reply.getPayload();
         document.body.classList.add(status.device);

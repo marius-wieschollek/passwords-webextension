@@ -50,6 +50,8 @@ class Options {
      * @private
      */
     async _initVue() {
+        document.body.lang = LocalisationService.getLocale();
+
         let reply  = await MessageService.send('options.status'),
             status = reply.getPayload();
         document.body.classList.add(status.device);

@@ -7,6 +7,10 @@
         "message"    : "Простой клиент для приложения Пароли в Nextcloud",
         "description": "Description of the extension."
     },
+    "locale"          : {
+        "message"    : "ru",
+        "description": "The language tag of this translation. Same as the folder name"
+    },
     "browserActionTitle"  : {
         "message"    : "Пароли",
         "description": "Title of the button in the browser bar"

@@ -7,6 +7,10 @@
         "message"    : "Un cliente simple para Nextcloud Passwords",
         "description": "Description of the extension."
     },
+    "locale"          : {
+        "message"    : "es",
+        "description": "The language tag of this translation. Same as the folder name"
+    },
     "browserActionTitle"  : {
         "message"    : "Contraseñas",
         "description": "Title of the button in the browser bar"

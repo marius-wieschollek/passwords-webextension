@@ -7,6 +7,10 @@
         "message"    : "Лек клиент за приложението Nextcloud Passwords",
         "description": "Description of the extension."
     },
+    "locale"          : {
+        "message"    : "bg",
+        "description": "The language tag of this translation. Same as the folder name"
+    },
     "browserActionTitle"  : {
         "message"    : "Пароли за Nextcloud",
         "description": "Title of the button in the browser bar"

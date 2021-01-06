@@ -38,6 +38,13 @@ class LocalisationService {
 
         return translation ? translation:key;
     }
+
+    /**
+     * @returns {String}
+     */
+    getLocale() {
+        return this._browser.i18n.getMessage('locale');
+    }
 }
 
 export default new LocalisationService();

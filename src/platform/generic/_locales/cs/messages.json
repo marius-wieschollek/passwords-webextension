@@ -5,6 +5,10 @@
     "extensionDescription"       : {
         "message": "Klient pro aplikaci Nextcloud Passwords."
     },
+    "locale"          : {
+        "message"    : "cs",
+        "description": "The language tag of this translation. Same as the folder name"
+    },
     "browserActionTitle"         : {
         "message": "Hesla"
     },

@@ -56,6 +56,8 @@ class Popup {
     }
 
     async _initVue() {
+        document.body.lang = LocalisationService.getLocale();
+
         let reply  = await MessageService.send('popup.status.get'),
             status = reply.getPayload();
         document.body.classList.add(status.device);

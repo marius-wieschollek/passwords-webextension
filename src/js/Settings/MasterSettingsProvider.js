@@ -25,6 +25,11 @@ class MasterSettingsProvider {
                 'local.password.autoclose',
                 'client.ext.password.autoclose'
             ],
+            'paste.autofill'            : [
+                'sync.paste.autofill',
+                'local.paste.autofill',
+                'client.ext.paste.autofill'
+            ],
             'paste.compromised.warning'   : [
                 'sync.paste.compromised.warning',
                 'local.paste.compromised.warning',
@@ -76,6 +81,7 @@ class MasterSettingsProvider {
             'paste.popup.close'           : true,
             'paste.form.submit'           : true,
             'paste.compromised.warning'   : true,
+            'paste.autofill'            : false,
             'popup.related.search'        : true,
             'password.folder.private'     : null,
             'notification.password.new'   : true,

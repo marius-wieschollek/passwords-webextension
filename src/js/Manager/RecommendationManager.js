@@ -90,6 +90,7 @@ class RecommendationManager {
         if(recommendations.length !== 0) {
             tab.recommended = recommendations;
         }
+
         this._change.emit(recommendations);
     }
 

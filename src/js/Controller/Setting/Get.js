@@ -12,6 +12,7 @@ export default class Get extends AbstractController {
             'paste.form.submit',
             'paste.popup.close',
             'paste.compromised.warning',
+            'paste.autofill',
             'popup.related.search',
             'notification.password.new',
             'notification.password.update',

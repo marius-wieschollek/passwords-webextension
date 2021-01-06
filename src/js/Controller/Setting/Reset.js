@@ -9,6 +9,7 @@ export default class Reset extends AbstractController {
             'paste.form.submit',
             'paste.popup.close',
             'paste.compromised.warning',
+            'paste.autofill',
             'popup.related.search',
             'notification.password.new',
             'notification.password.update',

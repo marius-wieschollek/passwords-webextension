@@ -13,6 +13,11 @@
             <slider-field id="paste-compromised" v-model="compromised"/>
             <translate tag="label" for="paste-compromised" say="SettingsPasteWarnCompromised"/>
         </div>
+        <div class="setting">
+            <slider-field id="paste-autofill" v-model="autofill"/>
+            <translate tag="label" for="paste-autofill" say="SettingsPasteAutofillEnabled"/>
+            <help-text type="warning" text="HelpPasteAutofillEnabled"/>
+        </div>
 
         <translate tag="h3" say="NotificationSettings"/>
         <div class="setting">
@@ -38,13 +43,15 @@
     import SettingsService from '@js/Services/SettingsService';
     import ToastService from '@js/Services/ToastService';
     import SliderField from "@vue/Components/Form/SliderField";
+    import HelpText from "@vue/Components/Options/Setting/HelpText";
 
     export default {
-        components: {SliderField, Translate},
+        components: {HelpText, SliderField, Translate},
         data() {
             return {
                 autoclose     : false,
                 autosubmit    : false,
+                autofill      : false,
                 compromised   : false,
                 notifyPwNew   : false,
                 relatedSearch : false,
@@ -61,6 +68,7 @@
                 this.getSetting('paste.popup.close', 'autoclose');
                 this.getSetting('paste.form.submit', 'autosubmit');
                 this.getSetting('paste.compromised.warning', 'compromised');
+                this.getSetting('paste.autofill', 'autofill');
                 this.getSetting('popup.related.search', 'relatedSearch');
                 this.getSetting('notification.password.new', 'notifyPwNew');
                 this.getSetting('notification.password.update', 'notifyPwUpdate');
@@ -139,6 +147,10 @@
 
         .input-slider {
             flex-grow : 0;
+        }
+
+        .settings-help-text {
+            margin-right : -.5rem;
         }
     }
 }

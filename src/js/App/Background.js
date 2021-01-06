@@ -7,6 +7,7 @@ import ConverterManager from '@js/Manager/ConverterManager';
 import ControllerManager from '@js/Manager/ControllerManager';
 import RecommendationManager from '@js/Manager/RecommendationManager';
 import MessageService from '@js/Services/MessageService';
+import AutofillManager from '@js/Manager/AutofillManager';
 import TabManager from '@js/Manager/TabManager';
 import BadgeManager from '@js/Manager/BadgeManager';
 import ContextMenuManager from '@js/Manager/ContextMenuManager';
@@ -33,6 +34,7 @@ class Background {
             TabManager.init();
             NotificationService.init();
             RecommendationManager.init();
+            AutofillManager.init();
             ThemeService.init(ThemeRepository);
             BadgeManager.init();
             ContextMenuManager.init();
