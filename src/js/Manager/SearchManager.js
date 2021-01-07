@@ -123,7 +123,10 @@ class SearchManager {
             folder = await helper.getHiddenFolder(api);
 
         let passwords = await folder.fetchPasswords();
-        if(passwords.length !== 0) SearchIndex.addItems(passwords);
+        if(passwords.length !== 0) {
+            SearchIndex.addItem(folder);
+            SearchIndex.addItems(passwords);
+        }
     }
 }
 

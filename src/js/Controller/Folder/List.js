@@ -1,5 +1,6 @@
 import AbstractController from '@js/Controller/AbstractController';
 import SearchQuery from '@js/Search/Query/SearchQuery';
+import TabManager from "@js/Manager/TabManager";
 
 export default class List extends AbstractController {
 
@@ -7,17 +8,21 @@ export default class List extends AbstractController {
         let payload = message.getPayload(),
             query   = new SearchQuery();
 
-        let passwords = query
+        query
             .where(
                 query.field('folder').equals(payload.folder),
                 query.field('server').equals(payload.server)
             )
             .type('password')
             .sortBy('favorite')
-            .sortBy('label', true)
-            .execute();
+            .sortBy('label', true);
 
-        let folders = query.type('folder').execute();
+        if(TabManager.get().tab.incognito) {
+            query.hidden(true);
+        }
+
+        let passwords = query.execute(),
+            folders = query.type('folder').execute();
 
         reply.setType('folder.items').setPayload({passwords, folders});
     }
