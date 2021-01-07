@@ -3,6 +3,7 @@ import ErrorManager from "@js/Manager/ErrorManager";
 import NotFoundError from "passwords-client/src/Exception/Http/NotFoundError";
 import SettingsService from "@js/Services/SettingsService";
 import ClientNotAuthorizedError from "@js/Exception/ClientNotAuthorizedError";
+import LocalisationService from "@js/Services/LocalisationService";
 
 export default class HiddenFolderHelper {
 
@@ -70,7 +71,7 @@ export default class HiddenFolderHelper {
         let server = api.getServer(),
             folder = api
                 .getClass('model.folder')
-                .setLabel('BrowserExtensionPrivateFolder')
+                .setLabel(this._getLabel())
                 .setHidden(true);
 
         await api.getFolderRepository().create(folder);
@@ -96,12 +97,26 @@ export default class HiddenFolderHelper {
      */
     async _loadHiddenFolder(api, folderId) {
         try {
-            return await api.getFolderRepository().findById(folderId, 'model+passwords');
+            /** @type {Folder} **/
+            let folder = await api.getFolderRepository().findById(folderId, 'model+passwords');
+            if(folder.getLabel() !== this._getLabel()) {
+                folder.setLabel(this._getLabel());
+                await api.getFolderRepository().update(folder).catch(ErrorManager.catchEvt);
+            }
+            return folder;
         } catch(e) {
             if(e instanceof NotFoundError) {
                 return await this._createHiddenFolder(api);
             }
             throw e;
         }
+    }
+
+    /**
+     * @returns {String}
+     * @private
+     */
+    _getLabel() {
+        return LocalisationService.translate('PrivatePasswordsFolderLabel');
     }
 }

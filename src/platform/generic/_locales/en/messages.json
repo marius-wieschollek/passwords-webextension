@@ -47,6 +47,10 @@
         "message"    : "Nextcloud Account",
         "description": "Label assigned to the account used by the v1.x migration"
     },
+    "PrivatePasswordsFolderLabel"          : {
+        "message"    : "Private Passwords",
+        "description": "Label assigned to the hidden folder for private passwords. (folder is only visible when browsing in private mode)"
+    },
     "SettingsTabAccounts"           : {
         "message"    : "Accounts",
         "description": "Label of the user accounts tab in the extension settings"
