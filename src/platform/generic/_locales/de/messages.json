@@ -495,6 +495,10 @@
             }
         }
     },
+    "ToastErrorMessage"         : {
+        "message"     : "Es ist ein Fehler in Passwords aufgetreten. Weitere Details können im Log in den Debug-Optionen gefunden werden",
+        "description" : "Text of the toast notification for error messages from the passwords client. The error message is the title"
+    },
     "PasswordPastedSuccess"         : {
         "message"     : "$LABEL$ eingefügt",
         "description" : "Text of the toast notification when a password entry was pasted successfully into the current tab",

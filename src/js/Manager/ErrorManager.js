@@ -1,6 +1,7 @@
 import SystemService from '@js/Services/SystemService';
 import MessageService from '@js/Services/MessageService';
 import QueueService from '@js/Services/QueueService';
+import ToastService from "@js/Services/ToastService";
 
 class ErrorManager {
 
@@ -86,6 +87,16 @@ class ErrorManager {
     error(message, context = {}) {
         context.level = 'error';
         this._addError(new Error(message), context);
+        ToastService.error('ToastErrorMessage', message);
+    }
+
+    /**
+     * @param {Error} exception
+     * @param {Object} [context={}]
+     */
+    exception(exception, context = {}) {
+        this.logError(exception, context);
+        ToastService.error('ToastErrorMessage', exception.message);
     }
 
     /**
@@ -95,7 +106,7 @@ class ErrorManager {
      */
     logError(error, context) {
         if(error instanceof Object && error.previousError instanceof Object) {
-            this._addError(error.previousError);
+            this.logError(error.previousError);
         }
 
         this._addError(error, context);
