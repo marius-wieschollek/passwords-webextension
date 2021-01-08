@@ -525,6 +525,10 @@
             }
         }
     },
+    "ToastErrorMessage"         : {
+        "message"     : "An error occurred in the passwords client. Check the error log in the debug options for more details.",
+        "description" : "Text of the toast notification for error messages from the passwords client. The error message is the title"
+    },
     "PasswordPastedSuccess"         : {
         "message"     : "$LABEL$ pasted successfully",
         "description" : "Text of the toast notification when a password entry was pasted successfully into the current tab",

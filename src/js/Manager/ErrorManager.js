@@ -1,6 +1,7 @@
 import SystemService from '@js/Services/SystemService';
 import MessageService from '@js/Services/MessageService';
 import QueueService from '@js/Services/QueueService';
+import ToastService from "@js/Services/ToastService";
 
 class ErrorManager {
 
@@ -46,46 +47,74 @@ class ErrorManager {
     /**
      * @param {String} message
      * @param {Object} [context={}]
+     *
+     * @returns {ErrorManager}
      */
     debug(message, context = {}) {
         context.level = 'debug';
         this._addError(new Error(message), context);
+        return this;
     }
 
     /**
      * @param {String} message
      * @param {Object} [context={}]
+     *
+     * @returns {ErrorManager}
      */
     info(message, context = {}) {
         context.level = 'info';
         this._addError(new Error(message), context);
+        return this;
     }
 
     /**
      * @param {String} message
      * @param {Object} [context={}]
+     *
+     * @returns {ErrorManager}
      */
     log(message, context = {}) {
         context.level = 'log';
         this._addError(new Error(message), context);
+        return this;
     }
 
     /**
      * @param {String} message
      * @param {Object} [context={}]
+     *
+     * @returns {ErrorManager}
      */
     warning(message, context = {}) {
         context.level = 'warning';
         this._addError(new Error(message), context);
+        return this;
     }
 
     /**
      * @param {String} message
      * @param {Object} [context={}]
+     *
+     * @returns {ErrorManager}
      */
     error(message, context = {}) {
         context.level = 'error';
         this._addError(new Error(message), context);
+        ToastService.error('ToastErrorMessage', message);
+        return this;
+    }
+
+    /**
+     * @param {Error} exception
+     * @param {Object} [context={}]
+     *
+     * @returns {ErrorManager}
+     */
+    exception(exception, context = {}) {
+        this.logError(exception, context);
+        ToastService.error('ToastErrorMessage', exception.message);
+        return this;
     }
 
     /**
@@ -95,7 +124,7 @@ class ErrorManager {
      */
     logError(error, context) {
         if(error instanceof Object && error.previousError instanceof Object) {
-            this._addError(error.previousError);
+            this.logError(error.previousError);
         }
 
         this._addError(error, context);
