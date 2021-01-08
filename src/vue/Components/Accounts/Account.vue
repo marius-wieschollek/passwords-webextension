@@ -17,6 +17,8 @@
                    required
                    pattern="([A-Za-z0-9]{5}-?){5}"
                    placeholder="xxxxx-xxxxx-xxxxx-xxxxx-xxxxx" v-else/>
+            <input type="text" :id="`${id}-timeout`" v-model="user"/>
+            <translate tag="label" :for="`${id}-timeout`" say="ServerTimeout" required/>
         </fieldset>
     </form>
 </template>
@@ -45,6 +47,7 @@
                 label      : this.server.getLabel(),
                 url        : this.server.getBaseUrl(),
                 user       : this.server.getUser(),
+                timeout    : this.server.getTimeout(),
                 changeLabel: LocalisationService.translate('ServerTokenChange'),
                 token      : '',
                 submitting : false,
@@ -60,6 +63,7 @@
                 this.server
                     .setLabel(this.label)
                     .setBaseUrl(this.url)
+                    .setTimeout(this.timeout)
                     .setUser(this.user);
 
                 if(this.changeToken) {
@@ -90,7 +94,7 @@
                     this.$emit('change');
                 } else {
                     let payload = message.getPayload(),
-                        text = payload.message;
+                        text    = payload.message;
                     if(payload.errors) {
                         for(let key in payload.errors) {
                             if(payload.errors.hasOwnProperty(key)) text += ' ' + payload.errors[key];

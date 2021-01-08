@@ -2,6 +2,7 @@ import AuthorisationItem from '@js/Models/Queue/AuthorisationItem';
 import ErrorManager from '@js/Manager/ErrorManager';
 import ServerManager from '@js/Manager/ServerManager';
 import ConnectionErrorHelper from '@js/Helper/ConnectionErrorHelper';
+import ServerRepository from "@js/Repositories/ServerRepository";
 
 export default class SessionAuthorizationHelper {
 
@@ -21,7 +22,7 @@ export default class SessionAuthorizationHelper {
      * @return {Boolean}
      */
     needsAuthorization() {
-        return !this._api.getSession().getAuthorized();
+        return this._api.isAuthorized();
     }
 
     /**
@@ -72,6 +73,7 @@ export default class SessionAuthorizationHelper {
      */
     async _tryAutomaticAuth(authRequest) {
         if(!authRequest.requiresChallenge() && !authRequest.requiresToken()) {
+            this._updateServerLockableStatus(false);
             try {
                 await authRequest.authorize();
                 return true;
@@ -142,6 +144,7 @@ export default class SessionAuthorizationHelper {
      * @private
      */
     async _tryManualAuth(authRequest, item) {
+        this._updateServerLockableStatus(true);
         try {
             ServerManager.isAuthorized.set(false);
             await this._authQueue.push(item);
@@ -209,5 +212,21 @@ export default class SessionAuthorizationHelper {
      */
     _processError(error) {
         return this._connectionError.processError(error, this._api.getServer());
+    }
+
+    /**
+     *
+     * @param {Boolean} state
+     * @private
+     */
+    _updateServerLockableStatus(state) {
+        let server = this._api.getServer();
+
+        if(server.getLockable() !== state) {
+            server.setLockable(state);
+            ServerRepository
+                .update(server)
+                .catch(ErrorManager.catchEvt);
+        }
     }
 }

@@ -15,6 +15,8 @@
                    required
                    pattern="([A-Za-z0-9]{5}-?){5}"
                    placeholder="xxxxx-xxxxx-xxxxx-xxxxx-xxxxx"/>
+            <translate tag="label" for="new-timeout" say="ServerTimeout"/>
+            <input type="text" id="new-timeout" v-model="timeout" required/>
         </fieldset>
     </form>
 </template>
@@ -33,7 +35,8 @@
                 label     : '',
                 baseUrl   : '',
                 user      : '',
-                token     : ''
+                token     : '',
+                timeout   : 0
             };
         },
 
@@ -49,18 +52,19 @@
                     label  : this.label,
                     baseUrl: this.baseUrl,
                     user   : this.user,
-                    token  : this.token
+                    token  : this.token,
+                    timeout: this.timeout
                 };
 
                 try {
                     let message = await MessageService.send({type: 'server.create', payload});
                     if(message.getType() === 'server.item') {
                         ToastService.success('ServerCreatedMessage', 'ServerSaveTitle')
-                            .catch(ErrorManager.catch);
+                                    .catch(ErrorManager.catch);
                         this.$emit('create');
                     } else {
                         let payload = message.getPayload(),
-                            text = payload.message;
+                            text    = payload.message;
                         if(payload.errors) {
                             for(let key in payload.errors) {
                                 if(payload.errors.hasOwnProperty(key)) text += ' ' + payload.errors[key];
@@ -68,7 +72,7 @@
                         }
 
                         ToastService.error(text, 'ServerSaveErrorTitle')
-                            .catch(ErrorManager.catch);
+                                    .catch(ErrorManager.catch);
                     }
                 } catch(e) {
                     ErrorManager.logError(e);

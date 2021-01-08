@@ -50,6 +50,22 @@ export default class Server extends ServerModel {
         return this.setProperty('label', value);
     }
 
+    getLockable() {
+        return this.getProperty('lockable');
+    }
+
+    setLockable(value) {
+        return this.setProperty('lockable', value);
+    }
+
+    getTimeout() {
+        return this.getProperty('timeout');
+    }
+
+    setTimeout(value) {
+        return this.setProperty('timeout', value);
+    }
+
     getRootFolder() {
         return this.getProperty('rootFolder');
     }

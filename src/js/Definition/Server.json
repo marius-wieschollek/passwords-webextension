@@ -8,6 +8,9 @@
     "enabled"      : {
         "type": "boolean"
     },
+    "lockable"      : {
+        "type": "boolean"
+    },
     "rootFolder"   : {
         "type": "string"
     },
@@ -16,6 +19,9 @@
     },
     "privateFolder": {
         "type": "string"
+    },
+    "timeout": {
+        "type": "number"
     },
     "inboxTag"     : {
         "type": "string"
