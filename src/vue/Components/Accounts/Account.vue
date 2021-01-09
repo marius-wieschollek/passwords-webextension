@@ -17,8 +17,8 @@
                    required
                    pattern="([A-Za-z0-9]{5}-?){5}"
                    placeholder="xxxxx-xxxxx-xxxxx-xxxxx-xxxxx" v-else/>
-            <input type="text" :id="`${id}-timeout`" v-model="user"/>
-            <translate tag="label" :for="`${id}-timeout`" say="ServerTimeout" required/>
+            <translate tag="label" :for="`${id}-timeout`" say="ServerTimeout" required v-if="lockable"/>
+            <select-field :options="timeoutOptions" :id="`${id}-timeout`" v-model="timeout" v-if="lockable"/>
         </fieldset>
     </form>
 </template>
@@ -31,9 +31,10 @@
     import ErrorManager from '@js/Manager/ErrorManager';
     import Icon from '@vue/Components/Icon';
     import LocalisationService from "@js/Services/LocalisationService";
+    import SelectField from "@vue/Components/Form/SelectField";
 
     export default {
-        components: {Icon, Translate},
+        components: {SelectField, Icon, Translate},
 
         props: {
             server: {
@@ -47,12 +48,25 @@
                 label      : this.server.getLabel(),
                 url        : this.server.getBaseUrl(),
                 user       : this.server.getUser(),
+                lockable   : true || this.server.getLockable(),
                 timeout    : this.server.getTimeout(),
                 changeLabel: LocalisationService.translate('ServerTokenChange'),
                 token      : '',
                 submitting : false,
                 changeToken: false
             };
+        },
+
+        computed: {
+            timeoutOptions() {
+                let options = [{id: 0, label: 'ServerTimeoutOptionNever'}];
+
+                for(let i of [5, 10, 15, 30, 60]) {
+                    options.push({id: i * 60 * 1000, label: ['ServerTimeoutOptionMinutes', i]});
+                }
+
+                return options;
+            }
         },
 
         methods: {

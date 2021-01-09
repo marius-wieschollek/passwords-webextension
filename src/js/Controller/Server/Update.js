@@ -48,7 +48,8 @@ export default class Update extends AbstractController {
                 .setUser(server.getUser())
                 .setToken(server.getToken())
                 .setLabel(server.getLabel())
-                .setBaseUrl(server.getBaseUrl());
+                .setBaseUrl(server.getBaseUrl())
+                .setTimeout(server.getTimeout());
             await ServerRepository.update(realServer);
 
             return realServer;

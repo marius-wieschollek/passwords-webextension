@@ -15,8 +15,6 @@
                    required
                    pattern="([A-Za-z0-9]{5}-?){5}"
                    placeholder="xxxxx-xxxxx-xxxxx-xxxxx-xxxxx"/>
-            <translate tag="label" for="new-timeout" say="ServerTimeout"/>
-            <input type="text" id="new-timeout" v-model="timeout" required/>
         </fieldset>
     </form>
 </template>
@@ -35,8 +33,7 @@
                 label     : '',
                 baseUrl   : '',
                 user      : '',
-                token     : '',
-                timeout   : 0
+                token     : ''
             };
         },
 
@@ -52,8 +49,7 @@
                     label  : this.label,
                     baseUrl: this.baseUrl,
                     user   : this.user,
-                    token  : this.token,
-                    timeout: this.timeout
+                    token  : this.token
                 };
 
                 try {

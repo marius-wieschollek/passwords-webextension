@@ -167,6 +167,24 @@
         "message"    : "Token ändern",
         "description": "Label of the button to change the login token of an existing account in the account details in the extension settings"
     },
+    "ServerTimeout"             : {
+        "message"    : "Automatisch abmelden",
+        "description": "Label of the option to change the automatic logout time of an existing account in the account details in the extension settings"
+    },
+    "ServerTimeoutOptionNever"             : {
+        "message"    : "Nie",
+        "description": "Label of the option for the server timeout to never expire"
+    },
+    "ServerTimeoutOptionMinutes"             : {
+        "message"    : "Nach $MINUTES$ Minuten",
+        "description": "Label of the option for the server timeout to expire after a given amount of minutes",
+        "placeholders": {
+            "minutes": {
+                "content": "$1",
+                "example": "One of 5, 10, 15 30 or 60"
+            }
+        }
+    },
     "TabRelated"                    : {
         "message"    : "Vorschläge",
         "description": "Label of the related passwords tab in the extension popup"
@@ -252,6 +270,10 @@
     "ValidationNotAToken"           : {
         "message"    : "Das Token muss ein gültiges Nextcloud-Token sein.",
         "description": "Validation message when the user attempts to save an account but the token does not match the Nextcloud token schema"
+    },
+    "ValidationInvalidTimeout"           : {
+        "message"    : "Die Abmeldezeit muss eine der vorgegebenen Optionen sein",
+        "description": "Validation message when the user attempts to save an account but the timeout is not within the predefined range"
     },
     "ValidationDuplicate"           : {
         "message"    : "Es gibt bereits ein Konto für diesen Benutzer von dieser Nextcloud.",

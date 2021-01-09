@@ -41,6 +41,7 @@ export default class Server {
         if(!this._validateUser(data, result.errors)) result.ok = false;
         if(!this._validateBaseUrl(data, result.errors)) result.ok = false;
         if(!this._validateToken(data, result.errors)) result.ok = false;
+        if(!this._validateTimeout(data, result.errors)) result.ok = false;
 
         if(!result.ok) {
             result.message = LocalisationService.translate('ValidationFailed');
@@ -123,6 +124,25 @@ export default class Server {
         let tokenRegex = /^([A-Za-z0-9]{5}-?){5}$/;
         if(!tokenRegex.test(data.token)) {
             errors.token = LocalisationService.translate('ValidationNotAToken');
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     *
+     * @param {Object} data
+     * @param {Object} errors
+     * @returns {Boolean}
+     * @private
+     */
+    _validateTimeout(data, errors) {
+        if(!data.hasOwnProperty('timeout')) data.timeout = 0;
+        if(typeof data.timeout === 'string') data.timeout = parseInt(data.timeout);
+
+        if([0, 5*60*1000, 10*60*1000, 15*60*1000, 30*60*1000, 60*60*1000].indexOf(data.timeout) === -1) {
+            errors.timeout = LocalisationService.translate('ValidationInvalidTimeout');
             return false;
         }
 

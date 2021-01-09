@@ -1,4 +1,3 @@
-import Server from '@js/Models/Server/Server';
 import ServerRepository from '@js/Repositories/ServerRepository';
 import ServerManager from '@js/Manager/ServerManager';
 import ErrorManager from '@js/Manager/ErrorManager';
@@ -24,8 +23,9 @@ export default class Create extends AbstractController {
 
         let server = result.server;
         if(await this._createServer(server, result)) {
-            ServerManager.addServer(server)
-                .catch(ErrorManager.catch);
+            ServerManager
+                .addServer(server)
+                .catch(ErrorManager.catchEvt);
             reply.setType('server.item').setPayload(server);
         } else {
             reply.setType('validation.error').setPayload(result);
@@ -41,7 +41,9 @@ export default class Create extends AbstractController {
      */
     async _createServer(server, result) {
         try {
-            server.setEnabled(true);
+            server
+                .setEnabled(true)
+                .setTimeout(0);
             await ServerRepository.create(server);
             return true;
         } catch(e) {
