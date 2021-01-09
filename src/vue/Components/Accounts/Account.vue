@@ -48,7 +48,7 @@
                 label      : this.server.getLabel(),
                 url        : this.server.getBaseUrl(),
                 user       : this.server.getUser(),
-                lockable   : true || this.server.getLockable(),
+                lockable   : this.server.getLockable(),
                 timeout    : this.server.getTimeout(),
                 changeLabel: LocalisationService.translate('ServerTokenChange'),
                 token      : '',
