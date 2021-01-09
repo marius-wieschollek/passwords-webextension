@@ -121,7 +121,7 @@ export default class Server {
         }
 
         let tokenRegex = /^([A-Za-z0-9]{5}-?){5}$/;
-        if(tokenRegex.test(errors.token)) {
+        if(!tokenRegex.test(data.token)) {
             errors.token = LocalisationService.translate('ValidationNotAToken');
             return false;
         }
