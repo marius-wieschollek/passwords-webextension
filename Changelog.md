@@ -1,101 +1,144 @@
-#### Version 2.0.0
+## 2.0.1 - Bugfix Release
+### Fixed
+- Invalid custom field data stops password fetch
+- Compromised password warning stays after popup close
+- Sorting in server browser
+- Long password name overflow
+- Missing field markers in debug mode
+- Debug log entry details not opening
+### Changed
+- Server version notification now contains server version
+- Renamed "token" to app password in settings
+
+## 2.0.0 - Feature Release
+### Added
+- New user interface
+- Password generator
+- Support for multiple accounts
+- Theming support
+- Client side encryption support
+- 2FA support
+- Automatic server sync
+- Private/hidden passwords
+### Changed  
 - Extension completely rewritten
 - Use new passwords app api
-- New user interface
-- Added password generator
-- Added support for multiple accounts
-- Added theming support
-- Added client side encryption support
-- Added 2FA support
-- Added automatic server sync
-- Added private/hidden passwords
 - Improved new/updated account detection
 - Improved autofill feature
 - Improved search
 
-#### Version 1.10.0 / 26.05.2019
- - Added drag and drop for passwords
- - Fixed issue with "-" in Nextcloud domain name
+## 1.10.0 - Feature Release
+### Added
+- Drag and drop for passwords
+### Fixed
+- Issue with "-" in Nextcloud domain name
 
-#### Version 1.9.1 / 26.05.2019
- - Fixed improper autofill field selection
- - Fixed issues title overflow
+## 1.9.1 - Bugfix Release
+### Fixed
+ - Improper autofill field selection
+ - Issues title overflow
 
-#### Version 1.9.0 / 19.05.2019
- - Added password names support
- - Added bulgarian translation
- - Improved autofill
- - Improved search
+## 1.9.0 - Feature Release
+### Added
+- Password names support
+- Bulgarian translation
+### Changed   
+- Improved autofill
+- Improved search
 
-#### Version 1.8.0 / 03.02.2019
-- Added turkish translation
-- Added russian translation
-- Added more detailed error messages for connection issues
-- Fixed context menu in chrome
-- Fixed Base64 encoding for UTF-8 passwords
+## 1.8.0 - Feature Release
+### Added
+- Turkish translation
+- Russian translation
+- More detailed error messages for connection issues
+### Fixed
+- Context menu in chrome
+- Base64 encoding for UTF-8 passwords
 
-#### Version 1.7.1 / 26.12.2018
-- Fixed database refresh not working on Android
-- Fixed autofill not working on some pages
-- Fixed passwords without user names
-- Fixed double password update
+## 1.7.1 - Bugfix Release
+### Fixed
+- Database refresh not working on Android
+- Autofill not working on some pages
+- Passwords without user names
+- Double password update
 
-#### Version 1.7.0 / 22.12.2018
-- Added dark mode
-- Fixed settings reset bug
+## 1.7.0 - Feature Release
+### Added
+- Dark mode
+### Fixed
+- Settings reset bug
 
-#### Version 1.6.0 / 31.10.2018
+## 1.6.0 - Feature Release
+### Changed
 - Only submit forms with POST
-- Fixed password field in Firefox
-- Fixed badge text color
+### Fixed
+- Password field closes popup in Firefox
+- Badge text color
 
-#### Version 1.5.1 / 31.05.2018
-- Fix error in password update
+## 1.5.1 - Bugfix Release
+### Fixed
+- Error in password update
 
-#### Version 1.5.0 / 01.03.2018
+## 1.5.0 - Feature Release
+### Changed
 - Remove local password storage
 
-#### Version 1.4.3 / 22.02.2018
-- Fixed login settings issues
+## 1.4.3 - Bugfix Release
+### Fixed
+- Login settings issues
 
-#### Version 1.4.2 / 29.01.2018
-- Fixed issue in search and autodetection
+## 1.4.2 - Bugfix Release
+### Fixed
+- Issues in search and autodetection
 
-#### Version 1.4.1 / 21.01.2018
+## 1.4.1 - Bugfix Release
+## Changed
 - Improved polish translation (thanks to [Pafcioooo](https://github.com/pafcioooo))
+### Fixed
 - Fixed account suggestion not working if no url specified
 
-#### Version 1.4.0 / 18.01.2018
+## 1.4.0 - Feature Release
+### Added
 - Support API level 21 
-- Added polish translation
+- Polish translation
+### Fixed
 - Fixed duplicate on update bug
 
-#### Version 1.3.1 / 30.11.2017
+## 1.3.1 - Bugfix Release
+## Changed
 - Do not automatically close search
 - Improved API error handling
-- Fixed JSON parsing issues
-- Fixed incorrect badge counter
-- Fixed misleading search texts
+- Misleading search texts
+### Fixed
+- JSON parsing issues
+- Incorrect badge counter
 
-#### Version 1.3.0 / 20.11.2017
-- Added Chromium compatibility
-- Added context menu
-- Added related password counter
+## 1.3.0 - Feature Release
+### Added
+- Chromium compatibility
+- Context menu
+- Related password counter
+## Changed
 - Improved UI animation
 - Improved related passwords detection
 
-#### Version 1.2.0 / 19.11.2017
-- Added localisations
-- Added password miner
+## 1.2.0 - Feature Release
+### Added
+- Localisations
+- Password miner
+## Changed
 - Improved mobile ui
+## Fixed
 - Fixed Nextcloud Logout
 - Fixed request Loop
 
-#### Version 1.1.0 / 18.11.2017
-- Search tab added
-- Localisation added
+## 1.1.0 - Feature Release
+### Added
+- Search tab
+- Localisation
+## Changed
 - Mobile design improved
 - Error handling improved
 
-#### Version 1.0.0 / 16.11.2017
+## 1.0.0 - Feature Release
 - Inital Release

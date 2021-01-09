@@ -78,6 +78,13 @@
 
                 try {
                     await ToastService.success(['PasswordPastedSuccess', this.password.getLabel()]);
+
+                    if(this.password.getStatus() === 2 && await SettingsService.getValue('paste.compromised.warning')) {
+                        ToastService
+                            .warning('PasteBadPasswordWarning', null, 3)
+                            .catch(ErrorManager.catchEvt);
+                    }
+
                     if(await SettingsService.getValue('paste.popup.close') && this.active) {
                         window.close();
                     }

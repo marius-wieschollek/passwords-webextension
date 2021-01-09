@@ -160,11 +160,11 @@
         "description": "Label of the account login user field in account details in the extension settings"
     },
     "ServerToken"                   : {
-        "message"    : "Token",
+        "message"    : "App Password",
         "description": "Label of the account login token field in account details in the extension settings"
     },
     "ServerTokenChange"             : {
-        "message"    : "Change Token",
+        "message"    : "Change App Password",
         "description": "Label of the button to change the login token of an existing account in the account details in the extension settings"
     },
     "ServerTimeout"             : {
@@ -228,7 +228,7 @@
         "description": "Name of the account username field in account validation message. This value is used when the user attempts to save an account with an invalid username"
     },
     "ValidationToken"               : {
-        "message"    : "token",
+        "message"    : "app password",
         "description": "Name of the account token field in account validation message. This value is used when the user attempts to save an account with an invalid token"
     },
     "ValidationBaseUrl"             : {
@@ -241,7 +241,7 @@
         "placeholders": {
             "field": {
                 "content": "$1",
-                "example": "token"
+                "example": "user"
             }
         }
     },
@@ -251,7 +251,7 @@
         "placeholders": {
             "field": {
                 "content": "$1",
-                "example": "token"
+                "example": "user"
             },
             "min"  : {
                 "content": "$2",
@@ -265,7 +265,7 @@
         "placeholders": {
             "field": {
                 "content": "$1",
-                "example": "token"
+                "example": "user"
             },
             "max"  : {
                 "content": "$2",
@@ -282,7 +282,7 @@
         "description": "Validation message when the user attempts to save an account but the server url is not a valid url"
     },
     "ValidationNotAToken"           : {
-        "message"    : "The token must be a valid Nextcloud token.",
+        "message"    : "The app password must be a valid Nextcloud App Password.",
         "description": "Validation message when the user attempts to save an account but the token does not match the Nextcloud token schema"
     },
     "ValidationInvalidTimeout"           : {
