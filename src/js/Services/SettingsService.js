@@ -1,5 +1,6 @@
 import Setting from '@js/Models/Setting/Setting';
-import InvalidScopeError from "passwords-client/src/Exception/InvalidScopeError";
+import SystemService from "@js/Services/SystemService";
+import ErrorManager from "@js/Manager/ErrorManager";
 
 class SettingsService {
 
@@ -26,7 +27,7 @@ class SettingsService {
             return this._settings[name];
         }
 
-        let data   = await this._backend.get(name),
+        let data    = await this._backend.get(name),
             setting = new Setting(name, data.value, data.scope);
 
         this._settings[name] = setting;
@@ -62,6 +63,11 @@ class SettingsService {
         if(this._settings.hasOwnProperty(name)) {
             this._settings[name].setValue(value);
         }
+
+        if(name === 'server.default' && SystemService.getArea() === SystemService.AREA_BACKGROUND) {
+            this._reloadSettings()
+                .catch(ErrorManager.catchEvt);
+        }
     }
 
     /**
@@ -79,7 +85,24 @@ class SettingsService {
             this._settings[name].setValue(value);
         }
 
+        if(name === 'server.default' && SystemService.getArea() === SystemService.AREA_BACKGROUND) {
+            this._reloadSettings()
+                .catch(ErrorManager.catchEvt);
+        }
+
         return isSetting ? setting:value;
+    }
+
+    /**
+     * @return {Promise<void>}
+     * @private
+     */
+    async _reloadSettings() {
+        for(let name in this._settings) {
+            if(!this._settings.hasOwnProperty(name)) continue;
+            let data = await this._backend.get(name);
+            this._settings[name].setValue(data.value);
+        }
     }
 }
 
