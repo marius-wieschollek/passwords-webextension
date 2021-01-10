@@ -18,25 +18,35 @@ export default class ShowFields extends AbstractController {
         this._addDebugHelp(forms);
     }
 
+    /**
+     * @param {Object[]} fieldPairs
+     * @private
+     */
     _addDebugBorders(fieldPairs) {
         for(let fieldPair of fieldPairs) {
-            if(fieldPair.pass) fieldPair.pass.style.outline = '5px dashed #20bf6b !important';
-            if(fieldPair.tel) fieldPair.tel.style.outline = '5px dashed #a55eea !important';
-            if(fieldPair.email) fieldPair.email.style.outline = '5px dashed #0fb9b1 !important';
-            if(fieldPair.secondGuess) fieldPair.secondGuess.style.outline = '5px dashed #f7b731 !important';
-            if(fieldPair.firstGuess) fieldPair.firstGuess.style.outline = '5px dashed #fa8231 !important';
-            if(fieldPair.user) fieldPair.user.style.outline = '5px dashed #eb3b5a !important';
-            if(fieldPair.submit) fieldPair.submit.style.outline = '5px dashed #3867d6 !important';
-            if(fieldPair.remember) fieldPair.remember.style.outline = '5px dashed #4b6584 !important';
+            if(fieldPair.form) this._addDebugFieldDummy(fieldPair.form, '#54a0ff', 'LOGIN FORM');
+            if(fieldPair.pass) this._addDebugFieldDummy(fieldPair.pass, '#20bf6b', 'PASSWORD');
+            if(fieldPair.tel) this._addDebugFieldDummy(fieldPair.pass, '#a55eea', 'PHONE');
+            if(fieldPair.email) this._addDebugFieldDummy(fieldPair.email, '#0fb9b1', 'EMAIL');
+            if(fieldPair.secondGuess) this._addDebugFieldDummy(fieldPair.secondGuess, '#f7b731', 'SECOND GUESS');
+            if(fieldPair.firstGuess) this._addDebugFieldDummy(fieldPair.firstGuess, '#fa8231', 'FIRST GUESS');
+            if(fieldPair.user) this._addDebugFieldDummy(fieldPair.user, '#eb3b5a', 'USER');
+            if(fieldPair.submit) this._addDebugFieldDummy(fieldPair.submit, '#3867d6', 'SUBMIT');
+            if(fieldPair.remember) this._addDebugFieldDummy(fieldPair.remember, '#6c5ce7', 'REMEMBER');
             console.log(fieldPair);
         }
     }
 
+    /**
+     * @param {Object[]} forms
+     * @private
+     */
     _addDebugHelp(forms) {
         if(!document.getElementById('pw-form-highlight-help')) {
             let container = document.createElement('div');
             container.id = 'pw-form-highlight-help';
-            container.setAttribute('style', 'position:fixed;left:10px;bottom:10px;font-size:15px;font-family:"Ubuntu Mono",Verdana,sans-serif;z-index:999999999999;color:#303952;background-color:#fff');
+            container.setAttribute('style',
+                                   'position:fixed;left:10px;bottom:10px;font-size:15px;font-family:"Ubuntu Mono",Verdana,sans-serif;z-index:999999999999;color:#303952;background-color:#fff');
             container.dataset.position = 'bottom-left';
             container.innerHTML =
                 '<div style="background:#20bf6b;padding:.25em .5em">PASSWORD</div>' +
@@ -45,7 +55,8 @@ export default class ShowFields extends AbstractController {
                 '<div style="background:#f7b731;padding:.25em .5em">USER GUESS #2</div>' +
                 '<div style="background:#0fb9b1;padding:.25em .5em">EMAIL</div>' +
                 '<div style="background:#a55eea;padding:.25em .5em">PHONE</div>' +
-                '<div style="background:#4b6584;padding:.25em .5em">REMEMBER</div>' +
+                '<div style="background:#6c5ce7;padding:.25em .5em">REMEMBER</div>' +
+                '<div style="background:#54a0ff;padding:.25em .5em">LOGIN FORM</div>' +
                 '<div style="background:#3867d6;padding:.25em .5em">SUBMIT button</div>' +
                 '<div style="padding:.25em .5em" id="pw-form-highlight-help-forms">FOUND ' + forms.length + ' FORMS</div>';
 
@@ -64,7 +75,7 @@ export default class ShowFields extends AbstractController {
             document.body.appendChild(container);
         } else {
             let counter = document.getElementById('pw-form-highlight-help-forms');
-            counter.innerText = 'FOUND ' + forms.length + ' FORMS';
+            counter.innerText = `FOUND ${forms.length} FORMS`;
         }
     }
 
@@ -92,23 +103,85 @@ export default class ShowFields extends AbstractController {
     }
 
     _removeDebugUi() {
-        this._removeDebugBorders();
-        let element = document.getElementById('pw-form-highlight-help');
-        if(!element) return element;
+        let elements = document.getElementById('pw-form-highlight-elements');
+        if(elements) elements.remove();
 
-        element.remove();
+        let help = document.getElementById('pw-form-highlight-help');
+        if(help) help.remove();
     }
 
-    _removeDebugBorders() {
-        let fieldPairs = new FormService().getLoginFields();
-        for(let fieldPair of fieldPairs) {
-            if(fieldPair.pass) fieldPair.pass.style.outline = '';
-            if(fieldPair.tel) fieldPair.tel.style.outline = '';
-            if(fieldPair.email) fieldPair.email.style.outline = '';
-            if(fieldPair.secondGuess) fieldPair.secondGuess.style.outline = '';
-            if(fieldPair.firstGuess) fieldPair.firstGuess.style.outline = '';
-            if(fieldPair.user) fieldPair.user.style.outline = '';
-            if(fieldPair.submit) fieldPair.submit.style.outline = '';
+    /**
+     *
+     * @param {HTMLElement} element
+     * @param {string} color
+     * @param {string} title
+     * @private
+     */
+    _addDebugFieldDummy(element, color, title) {
+        let position = this._getAbsolutePosition(element),
+            div      = document.createElement('div'),
+            width    = element.offsetWidth < 24 ? 24:element.offsetWidth,
+            height   = element.offsetHeight < 24 ? 24:element.offsetHeight,
+            cursor   = 'text';
+
+        if(element.nodeName === 'BUTTON' || element.type && ['checkbox', 'submit', 'button', 'radio'].indexOf(element.type) !== -1) {
+            cursor = 'pointer';
+        }
+
+        div.setAttribute('style',
+                         `position:absolute !important;top:${position.top}px !important;left:${position.left}px !important;width:${width}px !important;height:${height}px !important;z-index:999999999 !important;outline:5px dashed ${color} !important;background-color:transparent !important;cursor:${cursor} !important;`);
+        div.setAttribute('title', title);
+
+        if(element.nodeName === 'INPUT' && (!element.type || (element.type !== 'button' && element.type !== 'submit'))) {
+            div.addEventListener('click', (e) => {
+                e.stopPropagation();
+                element.focus();
+            });
+        } else if(element.nodeName === 'BUTTON' || element.nodeName === 'INPUT' && element.type && (element.type === 'button' || element.type === 'submit')) {
+            div.addEventListener('click', (e) => {
+                e.stopPropagation();
+                element.click();
+            });
+        }
+
+        this._getDummyFieldContainer().appendChild(div);
+    }
+
+    /**
+     * @param element
+     * @return {{top: number, left: number}}
+     * @private
+     */
+    _getAbsolutePosition(element) {
+        let left = 0,
+            top  = 0;
+
+        if(element.offsetParent === null && element.parentNode && element.parentNode.offsetParent !== null) {
+            element = element.parentNode;
+        }
+
+        while(element.offsetParent) {
+            left += element.offsetLeft;
+            top += element.offsetTop;
+            element = element.offsetParent;
+        }
+
+        return {left, top};
+    }
+
+    /**
+     *
+     * @return {HTMLElement}
+     * @private
+     */
+    _getDummyFieldContainer() {
+        if(document.getElementById('pw-form-highlight-elements')) {
+            return document.getElementById('pw-form-highlight-elements');
+        } else {
+            let container = document.createElement('div');
+            container.id = 'pw-form-highlight-elements';
+            document.body.appendChild(container);
+            return container;
         }
     }
 }
