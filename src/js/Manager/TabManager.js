@@ -54,6 +54,9 @@ class TabManager {
         this._api.tabs.onUpdated.addListener(this._updatedEvent);
         this._api.tabs.onReplaced.addListener(this._refreshEvent);
         this._api.tabs.onHighlighted.addListener(this._refreshEvent);
+        this._api.windows.onCreated.addListener(this._refreshEvent);
+        this._api.windows.onRemoved.addListener(this._refreshEvent);
+        this._api.windows.onFocusChanged.addListener(this._refreshEvent);
         this._updateTabInfo().catch(ErrorManager.catch());
     }
 
@@ -151,6 +154,7 @@ class TabManager {
     async _updateTabInfo(tab) {
         if(!tab) tab = await this._getCurrentTab();
         if(!tab || !tab.active) return;
+        console.log(tab);
         let tabId = tab.id;
 
         if(!this._tabs.hasOwnProperty(tabId)) {
