@@ -3,6 +3,7 @@
 - Invalid custom field data stops password fetch
 - Compromised password warning stays after popup close
 - Sorting in server browser
+- No suggested passwords shown when switching the window
 - Long password name overflow
 - Missing field markers in debug mode
 - Debug log entry details not opening
