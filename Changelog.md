@@ -7,6 +7,7 @@
 - Long password name overflow
 - Missing field markers in debug mode
 - Debug log entry details not opening
+- Notification settings ignored
 ### Changed
 - Server version notification now contains server version
 - Renamed "token" to app password in settings
