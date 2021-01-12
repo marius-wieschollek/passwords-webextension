@@ -1,98 +1,76 @@
 {
-    "extensionName"              : {
+    "extensionName"       : {
         "message": "Nextcloud Passwords"
     },
-    "extensionDescription"       : {
+    "extensionDescription": {
         "message": "Klient pro aplikaci Nextcloud Passwords."
     },
-    "browserActionTitle"         : {
+    "locale"              : {
+        "message"    : "cs",
+        "description": "The language tag of this translation. Same as the folder name"
+    },
+    "browserActionTitle"  : {
         "message": "Hesla"
     },
-    "contextMenuTitle"           : {
+    "contextMenuTitle"    : {
         "message": "Hesla"
     },
-    "NoRelatedMatches"           : {
-        "message": "Nenalezeny žádné údaje"
+    "ServerBaseUrl"       : {
+        "message"    : "Url",
+        "description": "Label of the server url field in account details in the extension settings"
     },
-    "NoSearchMatches"            : {
-        "message": "Žádná shoda"
+    "ServerUser"          : {
+        "message"    : "Uživatel",
+        "description": "Label of the account login user field in account details in the extension settings"
     },
-    "NoSearchQuery"              : {
-        "message": "Napište alespoň 3 znaky"
+    "LabelPassword"       : {
+        "message"    : "Hesla",
+        "description": "Label for the password of a password entry"
     },
-    "PasswordRequestFailedTitle" : {
-        "message": "Požadavek selhal"
+    "LabelUsername"       : {
+        "message"    : "Uživatel",
+        "description": "Label for the username of a password entry"
     },
-    "PasswordRequestFailedText"  : {
-        "message"     : "Seznam údajů se nepodařilo stáhnout.\nChyba: $ERROR$",
+    "LabelUser"           : {
+        "message"    : "Uživatel",
+        "description": "Label for the username of in the server info in the browse tab"
+    },
+    "LabelUrl"            : {
+        "message"    : "Url",
+        "description": "Label for of a field that contains an url (used in collected password or server info)"
+    },
+    "AppLabelString"      : {
+        "message"     : "Hesla $VERSION$",
+        "description" : "Value for the passwords app version in the server info in the browse tab",
         "placeholders": {
-            "error": {
-                "content": "$1"
+            "version": {
+                "content": "$1",
+                "example": "20"
             }
         }
     },
-    "PasswordEncodingFailedTitle": {
-        "message": "Nepodařilo se zpracovat údaje"
+    "LabelPasswords"      : {
+        "message"    : "Hesla",
+        "description": "Label for the password count in the server info in the browse tab"
     },
-    "PasswordEncodingFailedText" : {
-        "message"     : "Údaje #$ID$ neobsahují validní JSON data a proto nemohly být zpracovány.",
-        "placeholders": {
-            "id": {
-                "content": "$1"
-            }
-        }
+    "PlaceholderPassword" : {
+        "message"    : "Hesla",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
     },
-    "NewLoginDetectedTitle"      : {
-        "message": "Nové přihlášení detekováno"
+    "PropertyPassword"    : {
+        "message"    : "Hesla",
+        "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
     },
-    "NewLoginDetectedText"       : {
-        "message"     : "Klikni zde pro uložení hesla pro \"$USER$\"",
-        "placeholders": {
-            "user": {
-                "content": "$1"
-            }
-        }
+    "PropertyUsername"    : {
+        "message"    : "Uživatel",
+        "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
     },
-    "PasswordCreatedTitle"       : {
-        "message": "Heslo uloženo"
+    "PropertyUrl"         : {
+        "message"    : "Url",
+        "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
     },
-    "PasswordCreatedText"        : {
-        "message": "Heslo bylo uloženo úspěšně"
-    },
-    "CreatePasswordFailedTitle"  : {
-        "message": "Heslo se neuložilo"
-    },
-    "CreatePasswordFailedText"   : {
-        "message": "Nepodařilo se uložit heslo"
-    },
-    "UpdatedLoginDetectedTitle"  : {
-        "message": "Aktualizované údaje byly detekovány"
-    },
-    "UpdatedLoginDetectedText"   : {
-        "message"     : "Klikni zde pro aktualizaci hesla pro \"$USER$\"",
-        "placeholders": {
-            "user": {
-                "content": "$1"
-            }
-        }
-    },
-    "PasswordUpdatedTitle"       : {
-        "message": "Heslo aktualizováno"
-    },
-    "PasswordUpdatedText"        : {
-        "message": "Heslo bylo aktualizováno úspěšně"
-    },
-    "UpdatePasswordFailedTitle"  : {
-        "message": "Heslo nezměněno"
-    },
-    "UpdatePasswordFailedText"   : {
-        "message": "Nepodařilo se uložit heslo"
-    },
-    "DarkMode"                   : {
-        "message"    : "Tmavý režim"
-    },
-    "Url"                        : { "message": "Url" },
-    "Password"                   : { "message": "Heslo" },
-    "User"                       : { "message": "Uživatel" },
-    "Save"                       : { "message": "Uložit" }
+    "ButtonSave"          : {
+        "message"    : "Uložit",
+        "description": "The save button of a password detection system notification"
+    }
 }
