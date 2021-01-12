@@ -26,12 +26,12 @@ class NotificationService {
     /**
      *
      * @param {MiningItem} item
-     * @return {NewPasswordNotification}
+     * @return {Promise<NewPasswordNotification>}
      */
-    newPasswordNotification(item) {
+    async newPasswordNotification(item) {
         let notification = new NewPasswordNotification(item);
 
-        if(SettingsService.getValue('notification.password.new')) {
+        if(await SettingsService.getValue('notification.password.new')) {
             this._sendNotification(notification);
         }
 
@@ -41,12 +41,12 @@ class NotificationService {
     /**
      *
      * @param {MiningItem} item
-     * @return {NewPasswordNotification}
+     * @return {Promise<UpdatePasswordNotification>}
      */
-    updatePasswordNotification(item) {
+    async updatePasswordNotification(item) {
         let notification = new UpdatePasswordNotification(item);
 
-        if(SettingsService.getValue('notification.password.update')) {
+        if(await SettingsService.getValue('notification.password.update')) {
             this._sendNotification(notification);
         }
 
