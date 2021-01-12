@@ -32,7 +32,7 @@
         display               : grid;
         grid-template-columns : 3fr 7fr;
         grid-row-gap          : .25rem;
-        padding               : .25rem;
+        padding               : 0 .25rem;
 
         a,
         span {

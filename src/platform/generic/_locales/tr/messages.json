@@ -47,6 +47,16 @@
         "message"    : "Parolalar",
         "description": "Label for the password count in the server info in the browse tab"
     },
+    "AppLabelString"                : {
+        "message"     : "Parolalar $VERSION$",
+        "description" : "Value for the passwords app version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
     "PlaceholderPassword" : {
         "message"    : "Parola",
         "description": "Placeholder text in the master password field of the server authorization dialog"

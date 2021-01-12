@@ -359,6 +359,16 @@
         "message"    : "Etichetta",
         "description": "Label for the tag count in the server info in the browse tab"
     },
+    "AppLabelString"                : {
+        "message"     : "Passwords $VERSION$",
+        "description" : "Value for the passwords app version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
     "PlaceholderPassword"         : {
         "message"    : "Password",
         "description": "Placeholder text in the master password field of the server authorization dialog"

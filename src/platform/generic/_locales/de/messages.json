@@ -421,6 +421,34 @@
         "message"    : "Tags",
         "description": "Label for the tag count in the server info in the browse tab"
     },
+    "LabelServerVersion"            : {
+        "message"    : "Server",
+        "description": "Label for the nextcloud server version in the server info in the browse tab"
+    },
+    "LabelAppVersion"               : {
+        "message"    : "API",
+        "description": "Label for the passwords app version in the server info in the browse tab"
+    },
+    "ServerLabelString"             : {
+        "message"     : "Nextcloud $VERSION$",
+        "description" : "Value for the nextcloud server version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "AppLabelString"                : {
+        "message"     : "Passwörter $VERSION$",
+        "description" : "Value for the passwords app version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
     "PlaceholderPassword"           : {
         "message"    : "Passwort",
         "description": "Placeholder text in the master password field of the server authorization dialog"

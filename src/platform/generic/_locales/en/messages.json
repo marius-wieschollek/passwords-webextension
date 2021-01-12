@@ -7,7 +7,7 @@
         "message"    : "The official browser extension for Passwords for Nextcloud",
         "description": "Description of the extension."
     },
-    "locale"          : {
+    "locale"                        : {
         "message"    : "en",
         "description": "The language tag of this translation. Same as the folder name"
     },
@@ -47,7 +47,7 @@
         "message"    : "Nextcloud Account",
         "description": "Label assigned to the account used by the v1.x migration"
     },
-    "PrivatePasswordsFolderLabel"          : {
+    "PrivatePasswordsFolderLabel"   : {
         "message"    : "Private Passwords",
         "description": "Label assigned to the hidden folder for private passwords. (folder is only visible when browsing in private mode)"
     },
@@ -91,7 +91,7 @@
         "message"    : "Automatically fill in best matching login data",
         "description": "Label of the setting in the extension settings to automatically paste credentials into login forms"
     },
-    "HelpPasteAutofillEnabled"  : {
+    "HelpPasteAutofillEnabled"      : {
         "message"    : "Automatically paste the first suggested credential into any login form in the tab. Be aware that this makes it accessible any script in the tab.",
         "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
     },
@@ -167,17 +167,17 @@
         "message"    : "Change App Password",
         "description": "Label of the button to change the login token of an existing account in the account details in the extension settings"
     },
-    "ServerTimeout"             : {
+    "ServerTimeout"                 : {
         "message"    : "Logout after",
         "description": "Label of the option to change the automatic logout time of an existing account in the account details in the extension settings"
     },
-    "ServerTimeoutOptionNever"             : {
+    "ServerTimeoutOptionNever"      : {
         "message"    : "Never",
         "description": "Label of the option for the server timeout to never expire"
     },
-    "ServerTimeoutOptionMinutes"             : {
-        "message"    : "After $MINUTES$ minutes",
-        "description": "Label of the option for the server timeout to expire after a given amount of minutes",
+    "ServerTimeoutOptionMinutes"    : {
+        "message"     : "After $MINUTES$ minutes",
+        "description" : "Label of the option for the server timeout to expire after a given amount of minutes",
         "placeholders": {
             "minutes": {
                 "content": "$1",
@@ -285,7 +285,7 @@
         "message"    : "The app password must be a valid Nextcloud App Password.",
         "description": "Validation message when the user attempts to save an account but the token does not match the Nextcloud token schema"
     },
-    "ValidationInvalidTimeout"           : {
+    "ValidationInvalidTimeout"      : {
         "message"    : "The logout time must be one of the given options.",
         "description": "Validation message when the user attempts to save an account but the timeout is not within the predefined range"
     },
@@ -435,6 +435,34 @@
         "message"    : "Tags",
         "description": "Label for the tag count in the server info in the browse tab"
     },
+    "LabelServerVersion"            : {
+        "message"    : "Server",
+        "description": "Label for the nextcloud server version in the server info in the browse tab"
+    },
+    "LabelAppVersion"               : {
+        "message"    : "API",
+        "description": "Label for the passwords app version in the server info in the browse tab"
+    },
+    "ServerLabelString"             : {
+        "message"     : "Nextcloud $VERSION$",
+        "description" : "Value for the nextcloud server version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "AppLabelString"                : {
+        "message"     : "Passwords $VERSION$",
+        "description" : "Value for the passwords app version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
     "PlaceholderPassword"           : {
         "message"    : "Password",
         "description": "Placeholder text in the master password field of the server authorization dialog"
@@ -533,7 +561,7 @@
         "message"     : "The account \"$SERVER$\" uses passwords $SERVERVERSION$, but this extension requires at least $MINVERSION$. The app needs to be updated before the account can be activated again in the settings.",
         "description" : "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
         "placeholders": {
-            "server": {
+            "server"       : {
                 "content": "$1",
                 "example": "My Nextcloud"
             },
@@ -547,9 +575,9 @@
             }
         }
     },
-    "ToastErrorMessage"         : {
-        "message"     : "An error occurred in the passwords client. Check the error log in the debug options for more details.",
-        "description" : "Text of the toast notification for error messages from the passwords client. The error message is the title"
+    "ToastErrorMessage"             : {
+        "message"    : "An error occurred in the passwords client. Check the error log in the debug options for more details.",
+        "description": "Text of the toast notification for error messages from the passwords client. The error message is the title"
     },
     "PasswordPastedSuccess"         : {
         "message"     : "$LABEL$ pasted successfully",
