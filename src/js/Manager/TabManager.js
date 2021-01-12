@@ -154,7 +154,6 @@ class TabManager {
     async _updateTabInfo(tab) {
         if(!tab) tab = await this._getCurrentTab();
         if(!tab || !tab.active) return;
-        console.log(tab);
         let tabId = tab.id;
 
         if(!this._tabs.hasOwnProperty(tabId)) {
