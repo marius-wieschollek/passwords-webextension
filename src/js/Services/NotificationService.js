@@ -46,7 +46,7 @@ class NotificationService {
     updatePasswordNotification(item) {
         let notification = new UpdatePasswordNotification(item);
 
-        if(SettingsService.getValue('notification.password.new')) {
+        if(SettingsService.getValue('notification.password.update')) {
             this._sendNotification(notification);
         }
 
