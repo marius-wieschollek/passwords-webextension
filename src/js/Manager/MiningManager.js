@@ -66,8 +66,8 @@ class MiningManager {
      */
     async processTask(task) {
         try {
-            if(task.isNew() && !task.isManual()) NotificationService.newPasswordNotification(task);
-            if(!task.isNew() && !task.isManual()) NotificationService.updatePasswordNotification(task);
+            if(task.isNew() && !task.isManual()) NotificationService.newPasswordNotification(task).catch(ErrorManager.catchEvt);
+            if(!task.isNew() && !task.isManual()) NotificationService.updatePasswordNotification(task).catch(ErrorManager.catchEvt);
             task = await this._miningQueue.push(task);
 
             if(task.isDiscarded()) {
