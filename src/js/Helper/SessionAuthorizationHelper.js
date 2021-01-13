@@ -22,7 +22,7 @@ export default class SessionAuthorizationHelper {
      * @return {Boolean}
      */
     needsAuthorization() {
-        return this._api.isAuthorized();
+        return !this._api.isAuthorized();
     }
 
     /**
