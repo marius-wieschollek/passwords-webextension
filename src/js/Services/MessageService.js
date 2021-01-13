@@ -24,6 +24,12 @@ class MessageService {
             this._clients[client.name] = true;
             this._sendMessages()
                 .catch(ErrorManager.catchEvt);
+
+            if(client.name === SystemService.AREA_POPUP) {
+                client.onDisconnect.addListener(() => {
+                    this._clients[client.name] = false;
+                })
+            }
         };
     }
 
