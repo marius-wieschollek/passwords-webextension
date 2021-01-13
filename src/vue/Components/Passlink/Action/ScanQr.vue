@@ -33,7 +33,6 @@
                 }
             },
             async onInit(promise) {
-                alert(Promise.toSource());
                 try {
                     await promise;
                 } catch(error) {
