@@ -1,3 +1,8 @@
+## 2.0.2 - Bugfix Release
+### Fixed
+- Alert in PassLink dialog
+- Czech translation
+
 ## 2.0.1 - Bugfix Release
 ### Fixed
 - Invalid custom field data stops password fetch
