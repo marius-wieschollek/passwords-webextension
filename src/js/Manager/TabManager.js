@@ -54,9 +54,11 @@ class TabManager {
         this._api.tabs.onUpdated.addListener(this._updatedEvent);
         this._api.tabs.onReplaced.addListener(this._refreshEvent);
         this._api.tabs.onHighlighted.addListener(this._refreshEvent);
-        this._api.windows.onCreated.addListener(this._refreshEvent);
-        this._api.windows.onRemoved.addListener(this._refreshEvent);
-        this._api.windows.onFocusChanged.addListener(this._refreshEvent);
+        if(this._api.windows) {
+            this._api.windows.onCreated.addListener(this._refreshEvent);
+            this._api.windows.onRemoved.addListener(this._refreshEvent);
+            this._api.windows.onFocusChanged.addListener(this._refreshEvent);
+        }
         this._updateTabInfo().catch(ErrorManager.catch());
     }
 
