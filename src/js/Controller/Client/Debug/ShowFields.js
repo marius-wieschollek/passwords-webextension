@@ -9,13 +9,31 @@ export default class ShowFields extends AbstractController {
      * @param {Message} reply
      */
     async execute(message, reply) {
+        this._updateScheduled = false;
+        this._updateEvent = () => {
+            if(!this._updateScheduled) {
+                this._updateScheduled = true;
+                window.requestAnimationFrame(() => {
+                    this._addDebugUi();
+                });
+            }
+        };
         this._addDebugUi();
     }
 
     _addDebugUi() {
+        let elements = document.getElementById('pw-form-highlight-elements');
+        if(elements) {
+            elements.remove();
+        } else {
+            window.addEventListener('resize', this._updateEvent);
+            window.addEventListener('scroll', this._updateEvent);
+        }
+
         let forms = new FormService().getLoginFields();
         this._addDebugBorders(forms);
         this._addDebugHelp(forms);
+        this._updateScheduled = false;
     }
 
     /**
@@ -108,6 +126,10 @@ export default class ShowFields extends AbstractController {
 
         let help = document.getElementById('pw-form-highlight-help');
         if(help) help.remove();
+
+
+        window.removeEventListener('resize', this._updateEvent);
+        window.removeEventListener('scroll', this._updateEvent);
     }
 
     /**
@@ -120,8 +142,8 @@ export default class ShowFields extends AbstractController {
     _addDebugFieldDummy(element, color, title) {
         let position = this._getAbsolutePosition(element),
             div      = document.createElement('div'),
-            width    = element.offsetWidth < 24 ? 24:element.offsetWidth,
-            height   = element.offsetHeight < 24 ? 24:element.offsetHeight,
+            width    = element.offsetWidth < 16 ? 16:element.offsetWidth,
+            height   = element.offsetHeight < 16 ? 16:element.offsetHeight,
             cursor   = 'text';
 
         if(element.nodeName === 'BUTTON' || element.type && ['checkbox', 'submit', 'button', 'radio'].indexOf(element.type) !== -1) {
@@ -153,18 +175,9 @@ export default class ShowFields extends AbstractController {
      * @private
      */
     _getAbsolutePosition(element) {
-        let left = 0,
-            top  = 0;
-
-        if(element.offsetParent === null && element.parentNode && element.parentNode.offsetParent !== null) {
-            element = element.parentNode;
-        }
-
-        while(element.offsetParent) {
-            left += element.offsetLeft;
-            top += element.offsetTop;
-            element = element.offsetParent;
-        }
+        let position = element.getBoundingClientRect(),
+            left     = window.pageXOffset + position.left,
+            top      = window.pageYOffset + position.top;
 
         return {left, top};
     }
