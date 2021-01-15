@@ -12,18 +12,20 @@ export default class DomMiner {
 
         let forms = new FormService().getLoginFields();
         for(let form of forms) {
-            form.form.addEventListener(
-                'submit',
-                () => {this._checkFormForPassword(form);},
-                {passive: true}
-            );
+            if(form.form) {
+                form.form.addEventListener(
+                    'submit',
+                    () => {this._checkFormForPassword(form);},
+                    {passive: true}
+                );
+            }
 
             if(form.submit) {
                 form.submit.addEventListener(
                     'click',
                     () => {this._checkFormForPassword(form);},
                     {passive: true}
-                )
+                );
             }
         }
     }

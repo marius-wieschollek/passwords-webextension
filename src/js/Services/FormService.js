@@ -1,7 +1,23 @@
 export default class FormService {
 
     getPasswordFields() {
-        return document.querySelectorAll('input[type="password"]');
+        let fields         = document.querySelectorAll('input[type="password"]'),
+            excludes       = ['fake', 'hidden'],
+            passwordFields = [];
+
+        loop: for(let field of fields) {
+            let pl   = field.placeholder.toLowerCase(),
+                name = field.name.toLowerCase(),
+                id   = field.id.toLowerCase();
+
+            for(let exclude of excludes) {
+                if(name.indexOf(exclude) !== -1 || id.indexOf(exclude) !== -1 || pl.indexOf(exclude) !== -1) continue loop;
+            }
+
+            passwordFields.push(field);
+        }
+
+        return passwordFields;
     }
 
     /**
@@ -42,7 +58,7 @@ export default class FormService {
             let current = passwords[i],
                 form    = this.getParentForm(current);
             if(form && this.checkIfFormVisible(form)) {
-                let fields        = form.getElementsByTagName('input'),
+                let fields        = form.querySelectorAll('input, button'),
                     lastUserGuess = null,
                     pair          = {form: form, pass: current};
 
@@ -70,7 +86,7 @@ export default class FormService {
                             if(!pair.secondGuess) pair.secondGuess = field;
                             lastUserGuess = field;
                         }
-                    } else if(!pair.submit && field.type === 'submit') {
+                    } else if(!pair.submit && this.isSubmitButton(field)) {
                         pair.submit = field;
                     } else if(!pair.tel && field.type === 'tel') {
                         pair.tel = field;
@@ -96,6 +112,8 @@ export default class FormService {
 
                 pair.secure = form.method !== 'get';
                 fieldPairs.push(pair);
+            } else {
+                fieldPairs.push({secure: false, pass: current});
             }
         }
 
@@ -108,7 +126,7 @@ export default class FormService {
      * @return {Boolean}
      */
     isQualifiedField(field) {
-        return !field.readOnly && !field.disabled && ['text', 'email', 'tel', 'submit', 'checkbox'].indexOf(field.type) !== -1;
+        return !field.readOnly && !field.disabled && ['text', 'email', 'tel', 'submit', 'button', 'checkbox'].indexOf(field.type) !== -1;
     }
 
     /**
@@ -117,14 +135,14 @@ export default class FormService {
      * @return {Boolean}
      */
     isUserNameField(field) {
-        if(['checkbox', 'submit'].indexOf(field.type) !== -1) return false;
+        if(['checkbox', 'submit', 'button'].indexOf(field.type) !== -1) return false;
         if(field.type === 'email') return true;
 
         let includes = ['user', 'login', 'email'],
             excludes = ['fake', 'hidden'],
-            pl     = field.placeholder.toLowerCase(),
-            name   = field.name.toLowerCase(),
-            id     = field.id.toLowerCase();
+            pl       = field.placeholder.toLowerCase(),
+            name     = field.name.toLowerCase(),
+            id       = field.id.toLowerCase();
 
         for(let exclude of excludes) {
             if(name.indexOf(exclude) !== -1 || id.indexOf(exclude) !== -1 || pl.indexOf(exclude) !== -1) return false;
@@ -137,8 +155,40 @@ export default class FormService {
         return false;
     }
 
+    /**
+     * @param {HTMLInputElement} field
+     * @return {Boolean}
+     */
     isRememberField(field) {
-        return field.type === 'checkbox' &&
-               (field.name && field.name.indexOf('remember') !== -1 || field.id && field.id.indexOf('remember') !== -1);
+        if(field.type !== 'checkbox') return false;
+
+        let includes = ['remember', 'autologin', 'permanent'],
+            name     = field.name.toLowerCase(),
+            id       = field.id.toLowerCase();
+
+        for(let include of includes) {
+            if(name.indexOf(include) !== -1 || id.indexOf(include) !== -1) return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @param {HTMLInputElement} field
+     * @return {Boolean}
+     */
+    isSubmitButton(field) {
+        if(field.type === 'submit') return true;
+        if(field.type !== 'button') return false;
+
+        let includes = ['submit', 'login'],
+            name     = field.name.toLowerCase(),
+            id       = field.id.toLowerCase();
+
+        for(let include of includes) {
+            if(name.indexOf(include) !== -1 || id.indexOf(include) !== -1) return true;
+        }
+
+        return false;
     }
 }
