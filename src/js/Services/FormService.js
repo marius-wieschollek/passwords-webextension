@@ -117,15 +117,21 @@ export default class FormService {
      * @return {Boolean}
      */
     isUserNameField(field) {
+        if(['checkbox', 'submit'].indexOf(field.type) !== -1) return false;
         if(field.type === 'email') return true;
 
-        let search = ['user', 'login', 'email'],
+        let includes = ['user', 'login', 'email'],
+            excludes = ['fake', 'hidden'],
             pl     = field.placeholder.toLowerCase(),
             name   = field.name.toLowerCase(),
             id     = field.id.toLowerCase();
 
-        for(let i = 0; i < search.length; i++) {
-            if(name.indexOf(search[i]) !== -1 || id.indexOf(search[i]) !== -1 || pl.indexOf(search[i]) !== -1) return true;
+        for(let exclude of excludes) {
+            if(name.indexOf(exclude) !== -1 || id.indexOf(exclude) !== -1 || pl.indexOf(exclude) !== -1) return false;
+        }
+
+        for(let include of includes) {
+            if(name.indexOf(include) !== -1 || id.indexOf(include) !== -1 || pl.indexOf(include) !== -1) return true;
         }
 
         return false;
