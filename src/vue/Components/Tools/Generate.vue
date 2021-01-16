@@ -82,28 +82,22 @@
         },
 
         mounted() {
-            Promise.all(
-                [
-                    this.loadSetting('strength'),
-                    this.loadSetting('numbers'),
-                    this.loadSetting('special')
-                ]
-            ).then(() => {
+            let promises = [
+                this.loadSetting('strength'),
+                this.loadSetting('numbers'),
+                this.loadSetting('special')
+            ];
+
+            Promise.all(promises).then(() => {
                 this.generating = false;
                 this.generatePassword();
             });
         },
 
         methods: {
-            loadSetting(type) {
-                new Promise((resolve) => {
-                    SettingsService
-                        .getValue(`password.generator.${type}`)
-                        .then((v) => {
-                            this[type] = v;
-                            resolve();
-                        });
-                });
+            async loadSetting(type) {
+                this[type] = await SettingsService.getValue(`password.generator.${type}`);
+                console.log(this[type]);
             },
             copy() {
                 let data  = this.password,
@@ -120,6 +114,7 @@
             async generatePassword() {
                 if(this.generating) return;
                 this.generating = true;
+                console.trace({numbers: this.numbers, special: this.special, strength: this.strength});
                 let response = /** @type {Message} **/ await MessageService
                     .send({type: 'password.generate', payload: {numbers: this.numbers, special: this.special, strength: this.strength}});
                 let data = response.getPayload();
