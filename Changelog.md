@@ -1,3 +1,11 @@
+## 2.0.4 - Bugfix Release
+### Fixed
+- Missing session id in api requests
+
+## 2.0.3 - Bugfix Release
+### Fixed
+- Broken password fetch in Firefox Android
+
 ## 2.0.2 - Bugfix Release
 ### Fixed
 - Alert in PassLink dialog
