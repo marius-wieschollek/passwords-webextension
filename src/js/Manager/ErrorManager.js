@@ -16,6 +16,7 @@ class ErrorManager {
     constructor() {
         this._errors = [];
         this._mode = 'client';
+        this._sending = true;
     }
 
     /**
@@ -263,12 +264,14 @@ class ErrorManager {
      * @private
      */
     async _sendError(data) {
+        if(!this._sending) return;
         try {
             await SystemService.waitReady();
             await QueueService
                 .getQueue('error', 'background')
                 .push(data);
         } catch(e) {
+            this._sending = false;
             this.logError(e);
         }
     }
