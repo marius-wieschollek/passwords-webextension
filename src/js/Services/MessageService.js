@@ -7,7 +7,7 @@ class MessageService {
     constructor() {
         this._api = SystemService.getBrowserApi();
         this._sender = null;
-        this._enabled = true;
+        this._enabled = false;
         this._clients = {};
         this._messages = {};
         this._listeners = {};
@@ -381,7 +381,7 @@ class MessageService {
         let receiver = message.getReceiver();
 
         if(receiver === null && this._defaultReceiver !== null) receiver = this._defaultReceiver;
-        if(receiver === null) return this._enabled;
+        if(receiver === null || receiver === this._sender) return this._enabled;
 
         return this._clients.hasOwnProperty(receiver) && this._clients[receiver];
     }
