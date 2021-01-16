@@ -97,7 +97,6 @@
         methods: {
             async loadSetting(type) {
                 this[type] = await SettingsService.getValue(`password.generator.${type}`);
-                console.log(this[type]);
             },
             copy() {
                 let data  = this.password,
@@ -114,7 +113,6 @@
             async generatePassword() {
                 if(this.generating) return;
                 this.generating = true;
-                console.trace({numbers: this.numbers, special: this.special, strength: this.strength});
                 let response = /** @type {Message} **/ await MessageService
                     .send({type: 'password.generate', payload: {numbers: this.numbers, special: this.special, strength: this.strength}});
                 let data = response.getPayload();

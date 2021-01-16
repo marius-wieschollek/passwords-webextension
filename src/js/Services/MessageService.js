@@ -7,7 +7,7 @@ class MessageService {
     constructor() {
         this._api = SystemService.getBrowserApi();
         this._sender = null;
-        this._enabled = true;
+        this._enabled = false;
         this._clients = {};
         this._messages = {};
         this._listeners = {};
