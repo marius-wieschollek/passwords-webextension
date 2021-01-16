@@ -1,6 +1,7 @@
 ## 2.0.4 - Bugfix Release
 ### Fixed
 - Missing session id in api requests
+- Password generator ignores settings at first try
 
 ## 2.0.3 - Bugfix Release
 ### Fixed
