@@ -87,6 +87,8 @@
         "menus",
         "storage",
         "notifications",
-        "clipboardWrite"
+        "clipboardWrite",
+        "webRequest",
+        "webRequestBlocking"
     ]
 }

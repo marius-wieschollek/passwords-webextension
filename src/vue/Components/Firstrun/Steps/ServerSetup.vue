@@ -3,9 +3,8 @@
         <translate tag="h2" say="FirstRunConnectTitle"/>
         <translate say="FirstRunConnectText"/>
         <ul class="sever-setup-options">
-            <translate tag="li" say="FirstRunConnectLink" v-if="hasLinkHandler"/>
-            <translate tag="li" say="FirstRunConnectScan" v-if="hasLinkHandler"/>
-            <translate tag="li" class="link" say="FirstRunConnectScanChrome" v-if="!hasLinkHandler" @click="scanQr"/>
+            <translate tag="li" say="FirstRunConnectLink" />
+            <translate tag="li" say="FirstRunConnectScan" />
             <translate tag="li" class="link" say="FirstRunConnectManual" @click="openSettings"/>
         </ul>
         <button-field value="FirstRunConnectScanButton" @click="scanQr"/>
@@ -21,14 +20,6 @@
 
     export default {
         components: {ButtonField, Translate},
-
-        data() {
-            return {
-                hasLinkHandler: SystemService.hasProtocolHandlers()
-            };
-        },
-
-        computed: {},
 
         methods: {
             scanQr() {

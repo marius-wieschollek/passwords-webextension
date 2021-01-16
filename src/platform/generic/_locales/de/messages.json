@@ -1024,10 +1024,6 @@
         "message"    : "Falls das hier ein Gerät ist, klicke auf die Schaltfläche unten und scanne den Code",
         "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
     },
-    "FirstRunConnectScanChrome"     : {
-        "message"    : "Klicke auf die Schaltfläche unten und scanne den PassLink Code",
-        "description": "Text shown to chrome in the first run wizard users that they can scan the QR-Code in the PassLink Connect dialog in the Nextcloud app to start the connection process"
-    },
     "FirstRunConnectManual"         : {
         "message"    : "In den Addon-Einstellungen ist es auch möglich, ein Konto manuell anzulegen",
         "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."

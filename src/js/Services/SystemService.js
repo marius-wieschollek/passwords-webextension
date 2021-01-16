@@ -156,13 +156,6 @@ class SystemService {
     }
 
     /**
-     * @returns {Boolean}
-     */
-    hasProtocolHandlers() {
-        return process.env.APP_PLATFORM === 'firefox';
-    }
-
-    /**
      * @returns {Promise<String>}
      */
     async getUserAgent() {

@@ -50,6 +50,8 @@
         "tabs",
         "storage",
         "contextMenus",
-        "notifications"
+        "notifications",
+        "webRequest",
+        "webRequestBlocking"
     ]
 }

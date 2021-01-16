@@ -18,6 +18,7 @@ import ThemeRepository from '@js/Repositories/ThemeRepository';
 import SettingsService from '@js/Services/SettingsService';
 import MasterSettingsProvider from '@js/Settings/MasterSettingsProvider';
 import LocalisationService from "@js/Services/LocalisationService";
+import PassLinkManager from "@js/Manager/PassLinkManager";
 
 class Background {
     async init() {
@@ -28,6 +29,7 @@ class Background {
             await MessageService.init();
             SettingsService.init(MasterSettingsProvider);
             await UpgradeManager.run();
+            PassLinkManager.init();
             ControllerManager.init();
             ConverterManager.init();
             SearchManager.init();

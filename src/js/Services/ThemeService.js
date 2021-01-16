@@ -65,10 +65,10 @@ class ThemeService {
 
         if(!icon) icon = 'passwords';
         if(SystemService.isCompatible(SystemService.PLATFORM_FIREFOX)) {
-            return await SystemService.getBrowserApi().runtime.getURL(`img/${icon}.svg`);
+            return SystemService.getBrowserApi().runtime.getURL(`img/${icon}.svg`);
         }
 
-        return await SystemService.getBrowserApi().runtime.getURL(`img/${icon}.png`);
+        return SystemService.getBrowserApi().runtime.getURL(`img/${icon}.png`);
     }
 
     /**
