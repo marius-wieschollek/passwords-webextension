@@ -25,8 +25,14 @@ export default new class AutofillManager {
      * @private
      */
     async _sendAutofillPassword(recommendations) {
-        if(recommendations.length === 0 || await SettingsService.getValue('paste.autofill')) return;
+        if(recommendations.length === 0 || await SettingsService.getValue('paste.autofill') === false) return;
         let password = recommendations[0];
+
+        let ids = TabManager.get('autofill.ids', []);
+        if(ids.indexOf(password.getId()) === -1) {
+            ids.push(password.getId());
+            TabManager.set('autofill.ids', ids);
+        }
 
         MessageService.send(
             {
