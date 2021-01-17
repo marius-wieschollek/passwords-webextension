@@ -18,6 +18,7 @@ import ThemeRepository from '@js/Repositories/ThemeRepository';
 import SettingsService from '@js/Services/SettingsService';
 import MasterSettingsProvider from '@js/Settings/MasterSettingsProvider';
 import LocalisationService from "@js/Services/LocalisationService";
+import PasswordStatisticsService from "@js/Services/PasswordStatisticsService";
 import PassLinkManager from "@js/Manager/PassLinkManager";
 
 class Background {
@@ -41,6 +42,7 @@ class Background {
             BadgeManager.init();
             ContextMenuManager.init();
             MiningManager.init();
+            await PasswordStatisticsService.init();
             await ServerManager.init();
             await LocalisationService.init();
         } catch(e) {

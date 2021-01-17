@@ -41,7 +41,7 @@ export default class AbstractSort {
     _getFieldValue(item) {
         let values = [];
         if(item.hasOwnProperty(this._field)) {
-            if(this._field === 'id' || this._field === 'type' || this._field === 'score') {
+            if(this._field === 'id' || this._field === 'type' || this._field === 'score' || this._field === 'hidden' || this._field === 'uses') {
                 return item[this._field];
             }
 

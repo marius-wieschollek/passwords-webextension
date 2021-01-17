@@ -78,6 +78,7 @@ class RecommendationManager {
             .score(0.3)
             .limit(8)
             .sortBy('favorite')
+            .sortBy('uses')
             .sortBy('shared')
             .sortBy('score')
             .sortBy('label');

@@ -1,5 +1,7 @@
 import Url from 'url-parse';
 import AbstractIndexer from '@js/Search/Indexer/AbstractIndexer';
+import PasswordStatisticsService from "@js/Services/PasswordStatisticsService";
+import ErrorManager from "@js/Manager/ErrorManager";
 
 export default class PasswordIndexer extends AbstractIndexer {
 
@@ -28,6 +30,7 @@ export default class PasswordIndexer extends AbstractIndexer {
             id      : password.getId(),
             type    : 'password',
             hidden  : password.isHidden(),
+            uses    : 0,
             text    : [],
             tag     : [],
             folder  : [],
@@ -37,6 +40,13 @@ export default class PasswordIndexer extends AbstractIndexer {
             host    : [],
             fields  : {}
         };
+
+        PasswordStatisticsService
+            .getUses(index.id)
+            .then((uses) => {
+                index.uses = uses;
+            })
+            .catch(ErrorManager.catchEvt)
 
         this._indexServer(password, index);
         this._indexTextFields(password, index);

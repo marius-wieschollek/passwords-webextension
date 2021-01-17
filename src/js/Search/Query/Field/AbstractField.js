@@ -43,7 +43,7 @@ export default class AbstractField {
      */
     _getFieldValues(item) {
         if(item.hasOwnProperty(this._name)) {
-            if(this._name === 'id' || this._name === 'type') {
+            if(this._name === 'id' || this._name === 'type' || this._name === 'hidden' || this._name === 'uses') {
                 return [item[this._name]];
             }
 

@@ -4,7 +4,7 @@ import AbstractController from '@js/Controller/AbstractController';
 import TabManager from '@js/Manager/TabManager';
 import SettingsService from '@js/Services/SettingsService';
 import ErrorManager from '@js/Manager/ErrorManager';
-import ToastService from "@js/Services/ToastService";
+import PasswordStatisticsService from "@js/Services/PasswordStatisticsService";
 import Message from "@js/Models/Message/Message";
 
 export default class Fill extends AbstractController {
@@ -23,6 +23,8 @@ export default class Fill extends AbstractController {
             ids.push(password.getId());
             TabManager.set('autofill.ids', ids);
         }
+
+        PasswordStatisticsService.registerUse(password.getId()).catch(ErrorManager.catchEvt)
 
         try {
             let response = await MessageService.send(
