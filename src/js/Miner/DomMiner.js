@@ -43,7 +43,7 @@ export default class DomMiner {
      * @private
      */
     _checkFormForPassword(form) {
-        if(form.pass.value.length !== 0) {
+        if(form.pass.value.length !== 0 && form.pass.value.trim().length !== 0) {
             let info = {
                 url     : this._getUrl(),
                 title   : this._getTitle(),
