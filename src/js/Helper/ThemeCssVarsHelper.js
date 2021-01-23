@@ -10,6 +10,7 @@ class ThemeCssVarsHelper {
             '--border-radius-pill' : '100px'
         };
 
+        if(theme === null) return vars;
         if(theme.hasOwnProperty('color.primary')) {
             vars['--color-primary'] = theme['color.primary'];
         }
