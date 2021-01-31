@@ -1,13 +1,13 @@
 {
     "extensionName"                 : {
-        "message"    : "Passwörter für Nextcloud Client",
+        "message"    : "Passwörter für Nextcloud Browser Extension",
         "description": "Name of the extension."
     },
     "extensionDescription"          : {
-        "message"    : "Die offizielle Extension für die Passwörter App für Nextcloud",
+        "message"    : "Die offizielle Browsererweiterung für die Passwörter App für Nextcloud",
         "description": "Description of the extension."
     },
-    "locale"          : {
+    "locale"                        : {
         "message"    : "de",
         "description": "The language tag of this translation. Same as the folder name"
     },
@@ -47,7 +47,7 @@
         "message"    : "Nextcloud Konto",
         "description": "Label assigned to the account used by the v1.x migration"
     },
-    "PrivatePasswordsFolderLabel"          : {
+    "PrivatePasswordsFolderLabel"   : {
         "message"    : "Private Passwörter",
         "description": "Label assigned to the hidden folder for private passwords. (folder is only visible when browsing in private mode)"
     },
@@ -85,13 +85,13 @@
     },
     "SettingsPasteWarnCompromised"  : {
         "message"    : "Bei der Verwendung kompromittierter Zugangsdaten warnen",
-        "description": "Label of the setting in the extension settings to show a warning after pasting a compromised credentials"
+        "description": "Label of the setting in the extension settings to show a warning after pasting a compromised password"
     },
     "SettingsPasteAutofillEnabled"  : {
         "message"    : "Anmeldeformulare automatisch ausfüllen",
         "description": "Label of the setting in the extension settings to automatically paste credentials into login forms"
     },
-    "HelpPasteAutofillEnabled"  : {
+    "HelpPasteAutofillEnabled"      : {
         "message"    : "Fügt den ersten Eintrag der vorgeschlagenen Zugansdaten autmatisch in den aktuellen Tab ein. Dies bedeutet auch, dass alle Skripte in dem Tab auf das diese abgreifen können.",
         "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
     },
@@ -167,17 +167,17 @@
         "message"    : "App-Passwort ändern",
         "description": "Label of the button to change the login token of an existing account in the account details in the extension settings"
     },
-    "ServerTimeout"             : {
+    "ServerTimeout"                 : {
         "message"    : "Automatisch abmelden",
         "description": "Label of the option to change the automatic logout time of an existing account in the account details in the extension settings"
     },
-    "ServerTimeoutOptionNever"             : {
+    "ServerTimeoutOptionNever"      : {
         "message"    : "Nie",
         "description": "Label of the option for the server timeout to never expire"
     },
-    "ServerTimeoutOptionMinutes"             : {
-        "message"    : "Nach $MINUTES$ Minuten",
-        "description": "Label of the option for the server timeout to expire after a given amount of minutes",
+    "ServerTimeoutOptionMinutes"    : {
+        "message"     : "Nach $MINUTES$ Minuten",
+        "description" : "Label of the option for the server timeout to expire after a given amount of minutes",
         "placeholders": {
             "minutes": {
                 "content": "$1",
@@ -271,7 +271,7 @@
         "message"    : "Das App-Passwort muss ein gültiges Nextcloud-App-Passwort sein.",
         "description": "Validation message when the user attempts to save an account but the token does not match the Nextcloud token schema"
     },
-    "ValidationInvalidTimeout"           : {
+    "ValidationInvalidTimeout"      : {
         "message"    : "Die Abmeldezeit muss eine der vorgegebenen Optionen sein",
         "description": "Validation message when the user attempts to save an account but the timeout is not within the predefined range"
     },
@@ -561,9 +561,9 @@
             }
         }
     },
-    "ToastErrorMessage"         : {
-        "message"     : "Es ist ein Fehler in Passwords aufgetreten. Weitere Details können im Log in den Debug-Optionen gefunden werden",
-        "description" : "Text of the toast notification for error messages from the passwords client. The error message is the title"
+    "ToastErrorMessage"             : {
+        "message"    : "Es ist ein Fehler in Passwords aufgetreten. Weitere Details können im Log in den Debug-Optionen gefunden werden",
+        "description": "Text of the toast notification for error messages from the passwords client. The error message is the title"
     },
     "PasswordPastedSuccess"         : {
         "message"     : "$LABEL$ eingefügt",

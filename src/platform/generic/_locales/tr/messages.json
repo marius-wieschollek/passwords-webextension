@@ -7,7 +7,7 @@
         "message"    : "Nextcloud Parolalar uygulaması için basit bir istemci",
         "description": "Description of the extension."
     },
-    "locale"          : {
+    "locale"              : {
         "message"    : "tr",
         "description": "The language tag of this translation. Same as the folder name"
     },
@@ -47,7 +47,7 @@
         "message"    : "Parolalar",
         "description": "Label for the password count in the server info in the browse tab"
     },
-    "AppLabelString"                : {
+    "AppLabelString"      : {
         "message"     : "Parolalar $VERSION$",
         "description" : "Value for the passwords app version in the server info in the browse tab",
         "placeholders": {

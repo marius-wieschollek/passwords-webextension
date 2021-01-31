@@ -1,13 +1,13 @@
 {
     "extensionName"       : {
-        "message"    : "Nextcloud Passwords",
+        "message"    : "Passwords for Nextcloud Browser Extension",
         "description": "Name of the extension."
     },
     "extensionDescription": {
         "message"    : "Un cliente simple para Nextcloud Passwords",
         "description": "Description of the extension."
     },
-    "locale"          : {
+    "locale"              : {
         "message"    : "es",
         "description": "The language tag of this translation. Same as the folder name"
     },
@@ -47,7 +47,7 @@
         "message"    : "Contraseñas",
         "description": "Label for the password count in the server info in the browse tab"
     },
-    "AppLabelString"                : {
+    "AppLabelString"      : {
         "message"     : "Contraseñas $VERSION$",
         "description" : "Value for the passwords app version in the server info in the browse tab",
         "placeholders": {

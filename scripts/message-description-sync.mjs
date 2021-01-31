@@ -1,5 +1,6 @@
 import LanguageTags from '../src/platform/generic/_locales/en/messages.json';
 import LanguageTagsBg from '../src/platform/generic/_locales/bg/messages.json';
+import LanguageTagsCs from '../src/platform/generic/_locales/cs/messages.json';
 import LanguageTagsDe from '../src/platform/generic/_locales/de/messages.json';
 import LanguageTagsEs from '../src/platform/generic/_locales/es/messages.json';
 import LanguageTagsFr from '../src/platform/generic/_locales/fr/messages.json';
@@ -13,6 +14,7 @@ import path from 'path';
 
 let languages = {
         bg: LanguageTagsBg,
+        cs: LanguageTagsCs,
         de: LanguageTagsDe,
         es: LanguageTagsEs,
         fr: LanguageTagsFr,

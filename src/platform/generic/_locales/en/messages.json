@@ -1,6 +1,6 @@
 {
     "extensionName"                 : {
-        "message"    : "Passwords for Nextcloud Client",
+        "message"    : "Passwords for Nextcloud Browser Extension",
         "description": "Name of the extension."
     },
     "extensionDescription"          : {

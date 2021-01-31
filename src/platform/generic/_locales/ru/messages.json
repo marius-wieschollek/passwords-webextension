@@ -7,7 +7,7 @@
         "message"    : "Простой клиент для приложения Пароли в Nextcloud",
         "description": "Description of the extension."
     },
-    "locale"          : {
+    "locale"              : {
         "message"    : "ru",
         "description": "The language tag of this translation. Same as the folder name"
     },
@@ -47,7 +47,7 @@
         "message"    : "Пароли",
         "description": "Label for the password count in the server info in the browse tab"
     },
-    "AppLabelString"                : {
+    "AppLabelString"      : {
         "message"     : "Пароли $VERSION$",
         "description" : "Value for the passwords app version in the server info in the browse tab",
         "placeholders": {

@@ -1,13 +1,13 @@
 {
     "extensionName"               : {
-        "message"    : "Password per Nextcloud",
+        "message"    : "Passwords for Nextcloud Browser Extension",
         "description": "Name of the extension."
     },
     "extensionDescription"        : {
         "message"    : "L'estensione ufficiale dell'applicazione Passwords di Nextcloud",
         "description": "Description of the extension."
     },
-    "locale"          : {
+    "locale"                      : {
         "message"    : "it",
         "description": "The language tag of this translation. Same as the folder name"
     },
@@ -185,7 +185,7 @@
         "placeholders": {
             "field": {
                 "content": "$1",
-                "example": "token"
+                "example": "user"
             }
         }
     },
@@ -195,7 +195,7 @@
         "placeholders": {
             "field": {
                 "content": "$1",
-                "example": "token"
+                "example": "user"
             },
             "min"  : {
                 "content": "$2",
@@ -209,7 +209,7 @@
         "placeholders": {
             "field": {
                 "content": "$1",
-                "example": "token"
+                "example": "user"
             },
             "max"  : {
                 "content": "$2",
@@ -359,7 +359,7 @@
         "message"    : "Etichetta",
         "description": "Label for the tag count in the server info in the browse tab"
     },
-    "AppLabelString"                : {
+    "AppLabelString"              : {
         "message"     : "Passwords $VERSION$",
         "description" : "Value for the passwords app version in the server info in the browse tab",
         "placeholders": {
@@ -439,9 +439,17 @@
         "message"     : "L'account \"$SERVER$\" usa un server con una versione vecchia di Passwords. Il server deve essere aggiornato per poter riattivare questo account dalle impostazioni.",
         "description" : "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
         "placeholders": {
-            "server": {
+            "server"       : {
                 "content": "$1",
                 "example": "My Nextcloud"
+            },
+            "minversion"   : {
+                "content": "$2",
+                "example": "2020.1"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2020.3"
             }
         }
     },
