@@ -40,7 +40,7 @@ Publish Nightly Firefox:
     - 'sed -i -e "s|ARTIFACT_URL|${ARTIFACT_URL}|g" ./dist/firefox-extension/updates.json'
     - 'export EXT_FILENAME=$(cd ./dist/firefox-extension/ && ls *.xpi)'
     - 'sed -i -e "s|FILENAME|${EXT_FILENAME}|g" ./dist/firefox-extension/updates.json'
-    - 'export EXT_VERSION=$(node -p -e "require(\"./package.json\").version")'
+    - 'export EXT_VERSION=$(node -p -e "require(\"./dist/firefox-extension/manifest.json\").version")'
     - 'sed -i -e "s|VERSION|${EXT_VERSION}|g" ./dist/firefox-extension/updates.json'
     - 'export SHA_512=$(sha512sum ./dist/firefox-extension/${EXT_FILENAME} | cut -d\  -f 1)'
     - 'sed -i -e "s|SHA_512|${SHA_512}|g" ./dist/firefox-extension/updates.json'
