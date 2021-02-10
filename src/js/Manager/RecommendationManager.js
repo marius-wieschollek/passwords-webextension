@@ -55,18 +55,13 @@ class RecommendationManager {
     }
 
     /**
-     *
-     * @param {Object} tab
-     * @private
+     * @param {String} url
+     * @param {Boolean} incognito
+     * @return {Password[]}
      */
-    _updateRecommended(tab) {
-        let url = Url(tab.url);
-
-        delete tab.recommended;
-        if(url.host.length === 0) {
-            this._change.emit([]);
-            return;
-        }
+    getRecommendationsByUrl(url, incognito = false) {
+        url = Url(url);
+        if(url.host.length === 0) return [];
 
         let query = new SearchQuery('or');
         query
@@ -83,11 +78,20 @@ class RecommendationManager {
             .sortBy('score')
             .sortBy('label');
 
-        if(tab.tab.incognito) {
-            query.hidden(true);
-        }
+        if(incognito) query.hidden(true);
 
-        let recommendations = query.execute();
+        return query.execute();
+    }
+
+    /**
+     *
+     * @param {Object} tab
+     * @private
+     */
+    _updateRecommended(tab) {
+        delete tab.recommended;
+
+        let recommendations = this.getRecommendationsByUrl(tab.url, tab.tab.incognito);
         if(recommendations.length !== 0) {
             tab.recommended = recommendations;
         }

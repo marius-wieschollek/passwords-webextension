@@ -20,6 +20,7 @@ import MasterSettingsProvider from '@js/Settings/MasterSettingsProvider';
 import LocalisationService from "@js/Services/LocalisationService";
 import PasswordStatisticsService from "@js/Services/PasswordStatisticsService";
 import PassLinkManager from "@js/Manager/PassLinkManager";
+import BasicAuthAutofillManager from "@js/Manager/BasicAuthAutofillManager";
 
 class Background {
     async init() {
@@ -38,6 +39,7 @@ class Background {
             NotificationService.init();
             RecommendationManager.init();
             AutofillManager.init();
+            BasicAuthAutofillManager.init();
             ThemeService.init(ThemeRepository);
             BadgeManager.init();
             ContextMenuManager.init();
