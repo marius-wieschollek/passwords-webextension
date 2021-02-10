@@ -3,8 +3,10 @@
         "ncpasswords@mdns.eu": {
             "updates": [
                 {
-                    "version": "2.0.0.BUILD",
+                    "version": "VERSION",
                     "update_link": "ARTIFACT_URL",
+                    "update_hash": "sha512:SHA_512",
+                    "update_info_url": "CHANGELOG_URL",
                     "browser_specific_settings": {
                         "gecko": { "strict_min_version": "57" }
                     }
