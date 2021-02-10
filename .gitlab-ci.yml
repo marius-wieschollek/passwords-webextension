@@ -38,7 +38,7 @@ Publish Nightly Firefox:
     - 'sed -i -e "s|FILENAME|updates.json|g" ./dist/firefox-extension/manifest.json'
     - 'web-ext sign --channel unlisted --ignore-files updates.json'
     - 'sed -i -e "s|ARTIFACT_URL|${ARTIFACT_URL}|g" ./dist/firefox-extension/updates.json'
-    - 'export EXT_FILENAME=$(cd ./dist/firefox-extension/ && ls nextcloud_passwords_client*)'
+    - 'export EXT_FILENAME=$(cd ./dist/firefox-extension/ && ls *.xpi)'
     - 'sed -i -e "s|FILENAME|${EXT_FILENAME}|g" ./dist/firefox-extension/updates.json'
     - 'export EXT_VERSION=$(node -p -e "require(\"./package.json\").version")'
     - 'sed -i -e "s|VERSION|${EXT_VERSION}|g" ./dist/firefox-extension/updates.json'
