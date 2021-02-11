@@ -89,11 +89,19 @@
     },
     "SettingsPasteAutofillEnabled"  : {
         "message"    : "Automatically fill in best matching login data",
-        "description": "Label of the setting in the extension settings to automatically paste credentials into login forms"
+        "description": "Label of the setting in the extension settings to automatically paste the first recommended credential into login forms"
     },
-    "HelpPasteAutofillEnabled"      : {
+    "HelpPasteAutofill"             : {
         "message"    : "Automatically paste the first suggested credential into any login form in the tab. Be aware that this makes it accessible any script in the tab.",
         "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
+    },
+    "SettingsPasteBasicAuth"     : {
+        "message"    : "Automatically respond to HTTP basic authentication requests",
+        "description": "Label of the setting in the extension settings to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "HelpPasteBasicAuth"         : {
+        "message"    : "Automatically respond to http basic authentication requests with the first suggested credential. Be aware that this may expose credentials to untrustworthy servers.",
+        "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http basic authentication request"
     },
     "NotificationSettings"          : {
         "message"    : "Notifications",

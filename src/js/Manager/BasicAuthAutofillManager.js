@@ -1,5 +1,6 @@
-import SystemService from "@js/Services/SystemService";
+import SystemService         from "@js/Services/SystemService";
 import RecommendationManager from "@js/Manager/RecommendationManager";
+import SettingsService       from '@js/Services/SettingsService';
 
 export default new class BasicAuthAutofillManager {
 
@@ -8,13 +9,16 @@ export default new class BasicAuthAutofillManager {
      */
     constructor() {
         this._pendingRequests = [];
+        this._setting = null;
     }
 
     /**
      *
      */
-    init() {
+    async init() {
         let api = SystemService.getBrowserApi();
+
+        this._setting = await SettingsService.get('paste.basic-auth');
 
         api.webRequest.onAuthRequired.addListener(
             (d) => { return this._provideAuthData(d); },
@@ -36,10 +40,11 @@ export default new class BasicAuthAutofillManager {
     /**
      *
      * @param requestDetails
-     * @return {{authCredentials: {password: String, username: String}}}
+     * @return {(void|{authCredentials: {password: String, username: String}})}
      * @private
      */
     _provideAuthData(requestDetails) {
+        if(!this._setting.getValue()) return;
         let recommendations = RecommendationManager.getRecommendationsByUrl(`https://${requestDetails.challenger.host}`, requestDetails.incognito);
 
         if(recommendations.length !== 0 && this._pendingRequests.indexOf(requestDetails.requestId) === -1) {

@@ -91,9 +91,17 @@
         "message"    : "Anmeldeformulare automatisch ausfüllen",
         "description": "Label of the setting in the extension settings to automatically paste credentials into login forms"
     },
-    "HelpPasteAutofillEnabled"      : {
-        "message"    : "Fügt den ersten Eintrag der vorgeschlagenen Zugansdaten autmatisch in den aktuellen Tab ein. Dies bedeutet auch, dass alle Skripte in dem Tab auf das diese abgreifen können.",
+    "HelpPasteAutofill"      : {
+        "message"    : "Fügt den ersten Eintrag der vorgeschlagenen Zugangsdaten autmatisch in den aktuellen Tab ein. Dies bedeutet auch, dass alle Skripte in dem Tab auf das diese abgreifen können.",
         "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
+    },
+    "SettingsPasteBasicAuth"     : {
+        "message"    : "HTTP-Authentifizierungsanfragen automatisch beantworten",
+        "description": "Label of the setting in the extension settings to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "HelpPasteBasicAuth"         : {
+        "message"    : "Antwortet auf HTTP Basic Authentication Anfragen mit dem ersten Eintrag der vorgeschlagenen Zugangsdaten. Dadurch können Zugangsdaten ungewollt an nicht vertrauenswürdige Server übermittelt werden.",
+        "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http authentication auth request"
     },
     "NotificationSettings"          : {
         "message"    : "Benachrichtigungen",

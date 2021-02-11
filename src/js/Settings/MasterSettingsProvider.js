@@ -29,6 +29,11 @@ class MasterSettingsProvider {
                 'local.paste.autofill',
                 'client.ext.paste.autofill'
             ],
+            'paste.basic-auth' : [
+                'sync.paste.basic-auth',
+                'local.paste.basic-auth',
+                'client.ext.paste.basic-auth'
+            ],
             'paste.compromised.warning'   : [
                 'sync.paste.compromised.warning',
                 'local.paste.compromised.warning',
@@ -80,7 +85,8 @@ class MasterSettingsProvider {
             'paste.popup.close'           : true,
             'paste.form.submit'           : true,
             'paste.compromised.warning'   : true,
-            'paste.autofill'            : false,
+            'paste.autofill'              : false,
+            'paste.basic-auth'   : false,
             'popup.related.search'        : true,
             'password.folder.private'     : null,
             'notification.password.new'   : true,

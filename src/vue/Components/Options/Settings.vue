@@ -16,7 +16,12 @@
         <div class="setting">
             <slider-field id="paste-autofill" v-model="autofill"/>
             <translate tag="label" for="paste-autofill" say="SettingsPasteAutofillEnabled"/>
-            <help-text type="warning" text="HelpPasteAutofillEnabled"/>
+            <help-text type="warning" text="HelpPasteAutofill"/>
+        </div>
+        <div class="setting">
+            <slider-field id="paste-basic-auth" v-model="basicAuth"/>
+            <translate tag="label" for="paste-basic-auth" say="SettingsPasteBasicAuth"/>
+            <help-text type="warning" text="HelpPasteBasicAuth"/>
         </div>
 
         <translate tag="h3" say="NotificationSettings"/>
@@ -52,6 +57,7 @@
                 autoclose     : false,
                 autosubmit    : false,
                 autofill      : false,
+                basicAuth     : false,
                 compromised   : false,
                 notifyPwNew   : false,
                 relatedSearch : false,
@@ -69,6 +75,7 @@
                 this.getSetting('paste.form.submit', 'autosubmit');
                 this.getSetting('paste.compromised.warning', 'compromised');
                 this.getSetting('paste.autofill', 'autofill');
+                this.getSetting('paste.basic-auth', 'basicAuth');
                 this.getSetting('popup.related.search', 'relatedSearch');
                 this.getSetting('notification.password.new', 'notifyPwNew');
                 this.getSetting('notification.password.update', 'notifyPwUpdate');
@@ -105,6 +112,16 @@
             compromised(value, oldValue) {
                 if(oldValue !== null && value !== oldValue) {
                     this.setSetting('paste.compromised.warning', value);
+                }
+            },
+            autofill(value, oldValue) {
+                if(oldValue !== null && value !== oldValue) {
+                    this.setSetting('paste.autofill', value);
+                }
+            },
+            basicAuth(value, oldValue) {
+                if(oldValue !== null && value !== oldValue) {
+                    this.setSetting('paste.basic-auth', value);
                 }
             },
             relatedSearch(value, oldValue) {
