@@ -57,7 +57,7 @@ module.exports = env => {
         output : {
             path         : `${__dirname}/build/`,
             filename     : 'js/[name].js',
-            chunkFilename: 'js/[name].[hash].js'
+            chunkFilename: production ? 'js/[name].js':'js/[name].[hash].js'
         },
         resolve: {
             modules   : ['node_modules', 'src'],
