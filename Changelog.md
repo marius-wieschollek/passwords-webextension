@@ -1,3 +1,12 @@
+## 2.1.0 - Feature Release
+### Added
+- Autofill for login forms
+- Automatic logout
+- Basic Authorization Support
+- View private passwords in browse  tab
+- Integrated instructions to reproduce builds
+- Clear debug logs
+
 ## 2.0.4 - Bugfix Release
 ### Fixed
 - Missing session id in api requests
