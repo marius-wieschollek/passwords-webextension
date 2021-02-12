@@ -26,7 +26,16 @@
             <li><a href="https://git-scm.com/" target="_blank" rel="noreferrer noopener">git</a></li>
         </ul>
         <h1>Initialize the build environment</h1>
+        <p>
+            You need to clone the repository and initialize the submodules to in order to build the extension.
+        </p>
         <code>
+            git clone CI_REPOSITORY_URL
+            <br>
+            cd CI_PROJECT_NAME
+            <br>
+            git checkout CI_COMMIT_SHA
+            <br>
             git submodule sync --recursive
             <br>
             git submodule update --init --recursive
@@ -40,6 +49,16 @@
             npm run build:firefox
             <br>
             sed -i -e "s|.BUILD||g" ./build/manifest.json
+            <br>
+            sed -i -e "s|CI__REPOSITORY_URL|${CI_REPOSITORY_URL}|g" ./build/html/build.html
+            <br>
+            sed -i -e "s|CI__PROJECT_NAME|${CI_PROJECT_NAME}|g" ./build/html/build.html
+            <br>
+            sed -i -e "s|CI__PROJECT_URL|${CI_PROJECT_URL}|g" ./build/html/build.html
+            <br>
+            sed -i -e "s|CI__PIPELINE_ID|${CI_PIPELINE_ID}|g" ./build/html/build.html
+            <br>
+            sed -i -e "s|CI__COMMIT_SHA|${CI_COMMIT_SHA}|g" ./build/html/build.html
         </code>
         <h1>Build for Chrome</h1>
         <code>
@@ -48,6 +67,16 @@
             npm run build:chrome
             <br>
             sed -i -e "s|99999|CI_PIPELINE_ID|g" ./build/manifest.json
+            <br>
+            sed -i -e "s|CI__REPOSITORY_URL|${CI_REPOSITORY_URL}|g" ./build/html/build.html
+            <br>
+            sed -i -e "s|CI__PROJECT_NAME|${CI_PROJECT_NAME}|g" ./build/html/build.html
+            <br>
+            sed -i -e "s|CI__PROJECT_URL|${CI_PROJECT_URL}|g" ./build/html/build.html
+            <br>
+            sed -i -e "s|CI__PIPELINE_ID|${CI_PIPELINE_ID}|g" ./build/html/build.html
+            <br>
+            sed -i -e "s|CI__COMMIT_SHA|${CI_COMMIT_SHA}|g" ./build/html/build.html
         </code>
     </body>
 </html>

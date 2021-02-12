@@ -14,9 +14,12 @@ Compile Firefox:
     - npm run build:firefox
     - if [ "${CI_COMMIT_REF_NAME}" == "stable" ] ; then sed -i -e "s|.BUILD||g" ./build/manifest.json ; fi
     - if [ "${CI_COMMIT_REF_NAME}" != "stable" ] ; then sed -i -e "s|BUILD|${CI_PIPELINE_ID}|g" ./build/manifest.json ; fi
+    - sed -i -e "s|CI_REPOSITORY_URL|${CI_REPOSITORY_URL}|g" ./build/html/build.html
+    - sed -i -e "s|CI_PROJECT_NAME|${CI_PROJECT_NAME}|g" ./build/html/build.html
     - sed -i -e "s|CI_PROJECT_URL|${CI_PROJECT_URL}|g" ./build/html/build.html
     - sed -i -e "s|CI_PIPELINE_ID|${CI_PIPELINE_ID}|g" ./build/html/build.html
     - sed -i -e "s|CI_COMMIT_SHA|${CI_COMMIT_SHA}|g" ./build/html/build.html
+    - sed -i -e "s|CI__|CI_|g" ./build/html/build.html
     - mv build dist/firefox-extension
   artifacts:
     paths:
@@ -31,9 +34,12 @@ Compile Chrome:
     - npm ci
     - npm run build:chrome
     - sed -i -e "s|99999|${CI_PIPELINE_ID}|g" ./build/manifest.json
+    - sed -i -e "s|CI_REPOSITORY_URL|${CI_REPOSITORY_URL}|g" ./build/html/build.html
+    - sed -i -e "s|CI_PROJECT_NAME|${CI_PROJECT_NAME}|g" ./build/html/build.html
     - sed -i -e "s|CI_PROJECT_URL|${CI_PROJECT_URL}|g" ./build/html/build.html
     - sed -i -e "s|CI_PIPELINE_ID|${CI_PIPELINE_ID}|g" ./build/html/build.html
     - sed -i -e "s|CI_COMMIT_SHA|${CI_COMMIT_SHA}|g" ./build/html/build.html
+    - sed -i -e "s|CI__|CI_|g" ./build/html/build.html
     - mv build dist/chrome-extension
   artifacts:
     paths:
