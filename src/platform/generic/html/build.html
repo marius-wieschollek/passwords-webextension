@@ -59,6 +59,8 @@
             sed -i -e "s|CI__PIPELINE_ID|${CI_PIPELINE_ID}|g" ./build/html/build.html
             <br>
             sed -i -e "s|CI__COMMIT_SHA|${CI_COMMIT_SHA}|g" ./build/html/build.html
+            <br>
+            sed -i -e "s|CI__|CI_|g" ./build/html/build.html
         </code>
         <h1>Build for Chrome</h1>
         <code>
@@ -77,6 +79,8 @@
             sed -i -e "s|CI__PIPELINE_ID|${CI_PIPELINE_ID}|g" ./build/html/build.html
             <br>
             sed -i -e "s|CI__COMMIT_SHA|${CI_COMMIT_SHA}|g" ./build/html/build.html
+            <br>
+            sed -i -e "s|CI__|CI_|g" ./build/html/build.html
         </code>
     </body>
 </html>
