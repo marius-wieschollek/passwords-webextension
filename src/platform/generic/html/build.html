@@ -29,7 +29,7 @@
         <p>
             You need to clone the repository and initialize the submodules to in order to build the extension.
             <br>
-            The finished extension files will be placed in the "build" folder.
+            The compiled extension files will be placed in the "build" folder.
         </p>
         <code>
             git clone CI_PROJECT_URL.git
@@ -52,6 +52,8 @@
             <br>
             if [ "CI_COMMIT_REF_NAME" != "stable" ] ; then sed -i -e "s|BUILD|CI_PIPELINE_ID|g" ./build/manifest.json ; fi
             <br>
+            if [ "CI_COMMIT_REF_NAME" != "stable" ] ; then sed -i -e "s|\"gecko\": {|\"gecko\":{\"update_url\":\"CI_PROJECT_URL/firefox/CI_COMMIT_REF_NAME/updates.json\",|g" ./build/manifest.json ; fi
+            <br>
             sed -i -e "s|CI__COMMIT_REF_NAME|CI_COMMIT_REF_NAME|g" ./build/html/build.html
             <br>
             sed -i -e "s|CI__PROJECT_NAME|CI_PROJECT_NAME|g" ./build/html/build.html
@@ -63,6 +65,8 @@
             sed -i -e "s|CI__COMMIT_SHA|CI_COMMIT_SHA|g" ./build/html/build.html
             <br>
             sed -i -e "s|CI___|CI_|g" ./build/html/build.html
+            <br>
+            rm ./build/updates.json
         </code>
         <h1>Build for Chrome</h1>
         <code>
