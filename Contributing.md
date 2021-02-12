@@ -8,6 +8,8 @@ _Using a test account is recommended_
 
 ### Building from source
 ##### Project Setup
+1. Run `git submodule sync --recursive` from the command line
+1. Run `git submodule update --init --recursive` from the command line
 1. Run `npm install` from the command line
 
 ##### For Firefox
