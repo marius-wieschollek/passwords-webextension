@@ -1,0 +1,3 @@
+[submodule ".node_modules/passwords-client"]
+	path = .node_modules/passwords-client
+	url = https://git.mdns.eu/nextcloud/passwords-client.git

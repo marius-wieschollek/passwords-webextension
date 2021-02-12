@@ -6,6 +6,8 @@ image: passwords-webextension-builder
 
 Compile Firefox:
   stage: compiling
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
   script:
     - mkdir dist
     - npm ci
@@ -19,6 +21,8 @@ Compile Firefox:
 
 Compile Chrome:
   stage: compiling
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
   script:
     - mkdir dist
     - npm ci
