@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Passwords Extension Build Instructions</title>
+        <style>
+            body {
+                font-family: Ubuntu, sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            This version of the browser extension for Passwords for Nextcloud was created
+            <a href="https://git.mdns.eu/nextcloud/passwords-webextension/pipelines/CI_PIPELINE_ID" target="_blank" rel="noreferrer noopener">automatically by our build server</a>.
+            <br>
+            You can download the source code for commit
+            <a href="https://git.mdns.eu/nextcloud/passwords-webextension/tree/CI_COMMIT_SHA" target="_blank" rel="noreferrer noopener">CI_COMMIT_SHA</a>
+            as
+            <a href="https://git.mdns.eu/nextcloud/passwords-webextension/-/archive/CI_COMMIT_SHA/passwords-webextension-CI_COMMIT_SHA.tar.gz" target="_blank" rel="noreferrer noopener">tar.gz file</a>
+            or
+            <a href="https://git.mdns.eu/nextcloud/passwords-webextension/-/archive/CI_COMMIT_SHA/passwords-webextension-CI_COMMIT_SHA.zip" target="_blank" rel="noreferrer noopener">zip file</a>.
+        </p>
+        <h1>Build Requirements</h1>
+        <ul>
+            <li><a href="https://ubuntu.com/" target="_blank" rel="noreferrer noopener">Ubuntu</a> or any other system with mkdir and sed</li>
+            <li><a href="https://nodejs.org/" target="_blank" rel="noreferrer noopener">npm</a></li>
+            <li><a href="https://git-scm.com/" target="_blank" rel="noreferrer noopener">git</a></li>
+        </ul>
+        <h1>Initialize the build environment</h1>
+        <code>
+            git submodule sync --recursive
+            <br>
+            git submodule update --init --recursive
+            <br>
+            mkdir dist
+        </code>
+        <h1>Build for Firefox</h1>
+        <code>
+            npm ci
+            <br>
+            npm run build:firefox
+            <br>
+            sed -i -e "s|.BUILD||g" ./build/manifest.json
+        </code>
+        <h1>Build for Chrome</h1>
+        <code>
+            npm ci
+            <br>
+            npm run build:chrome
+            <br>
+            sed -i -e "s|99999|CI_PIPELINE_ID|g" ./build/manifest.json
+        </code>
+    </body>
+</html>

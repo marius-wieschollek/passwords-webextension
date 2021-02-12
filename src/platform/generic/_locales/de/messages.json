@@ -1149,6 +1149,14 @@
         "message"    : "Sprach-Tags anzeigen",
         "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
     },
+    "DebugBuild"                    : {
+        "message"    : "Build Informationen",
+        "description": "Headline above the section for the build instructions in the debug tab in the extension settings"
+    },
+    "DebugSourceAndBuild"           : {
+        "message"    : "Anleitung zum kompilieren der Extension und Herunterladen des Quelltextes.",
+        "description": "Label of the link to open the page with build instructions and links to the source code in the debug tab in the extension settings"
+    },
     "DebugErrorLog"                 : {
         "message"    : "Fehlerberichte",
         "description": "Headline above the error logs section in the extension settings in the debug tab"

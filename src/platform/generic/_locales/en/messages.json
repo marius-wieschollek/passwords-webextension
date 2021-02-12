@@ -95,11 +95,11 @@
         "message"    : "Automatically paste the first suggested credential into any login form in the tab. Be aware that this makes it accessible any script in the tab.",
         "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
     },
-    "SettingsPasteBasicAuth"     : {
+    "SettingsPasteBasicAuth"        : {
         "message"    : "Automatically respond to HTTP basic authentication requests",
         "description": "Label of the setting in the extension settings to automatically respond with the first recommended credential to any http basic authentication request"
     },
-    "HelpPasteBasicAuth"         : {
+    "HelpPasteBasicAuth"            : {
         "message"    : "Automatically respond to http basic authentication requests with the first suggested credential. Be aware that this may expose credentials to untrustworthy servers.",
         "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http basic authentication request"
     },
@@ -1162,6 +1162,14 @@
     "DebugLanguageTagsEnabled"      : {
         "message"    : "Show language keys",
         "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
+    },
+    "DebugBuild"                    : {
+        "message"    : "Build Information",
+        "description": "Headline above the section for the build instructions in the debug tab in the extension settings"
+    },
+    "DebugSourceAndBuild"           : {
+        "message"    : "Build instructions and source code download",
+        "description": "Label of the link to open the page with build instructions and links to the source code in the debug tab in the extension settings"
     },
     "DebugErrorLog"                 : {
         "message"    : "Error Log",
