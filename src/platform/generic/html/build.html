@@ -52,7 +52,7 @@
             <br>
             if [ "CI_COMMIT_REF_NAME" != "stable" ] ; then sed -i -e "s|BUILD|CI_PIPELINE_ID|g" ./build/manifest.json ; fi
             <br>
-            if [ "CI_COMMIT_REF_NAME" != "stable" ] ; then sed -i -e "s|\"gecko\": {|\"gecko\":{\"update_url\":\"CI_PROJECT_URL/firefox/CI_COMMIT_REF_NAME/updates.json\",|g" ./build/manifest.json ; fi
+            if [ "CI_COMMIT_REF_NAME" == "testing" ] ; then sed -i -e "s|\"gecko\": {|\"gecko\":{\"update_url\":\"CI_PROJECT_URL/firefox/CI_COMMIT_REF_NAME/updates.json\",|g" ./build/manifest.json ; fi
             <br>
             sed -i -e "s|CI__COMMIT_REF_NAME|CI_COMMIT_REF_NAME|g" ./build/html/build.html
             <br>
@@ -75,6 +75,8 @@
             npm run build:chrome
             <br>
             sed -i -e "s|99999|CI_PIPELINE_ID|g" ./build/manifest.json
+            <br>
+            sed -i -e "s|CI_COMMIT_REF_NAME|${CI_COMMIT_REF_NAME}|g" ./build/html/build.html
             <br>
             sed -i -e "s|CI__PROJECT_NAME|CI_PROJECT_NAME|g" ./build/html/build.html
             <br>

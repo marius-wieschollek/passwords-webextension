@@ -34,6 +34,7 @@ Compile Chrome:
     - npm ci
     - npm run build:chrome
     - sed -i -e "s|99999|${CI_PIPELINE_ID}|g" ./build/manifest.json
+    - sed -i -e "s|CI_COMMIT_REF_NAME|${CI_COMMIT_REF_NAME}|g" ./build/html/build.html
     - sed -i -e "s|CI_PROJECT_NAME|${CI_PROJECT_NAME}|g" ./build/html/build.html
     - sed -i -e "s|CI_PROJECT_URL|${CI_PROJECT_URL}|g" ./build/html/build.html
     - sed -i -e "s|CI_PIPELINE_ID|${CI_PIPELINE_ID}|g" ./build/html/build.html
