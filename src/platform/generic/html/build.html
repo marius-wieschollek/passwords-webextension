@@ -76,7 +76,7 @@
             <br>
             sed -i -e "s|99999|CI_PIPELINE_ID|g" ./build/manifest.json
             <br>
-            sed -i -e "s|CI_COMMIT_REF_NAME|${CI_COMMIT_REF_NAME}|g" ./build/html/build.html
+            sed -i -e "s|CI_COMMIT_REF_NAME|CI_COMMIT_REF_NAME|g" ./build/html/build.html
             <br>
             sed -i -e "s|CI__PROJECT_NAME|CI_PROJECT_NAME|g" ./build/html/build.html
             <br>
