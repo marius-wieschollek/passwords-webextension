@@ -67,7 +67,6 @@ class RecommendationManager {
         query
             .where(
                 query.field('host').equals(url.host),
-                query.field('url').contains(url.pathname.length > 1 ? url.host + url.pathname:url.host)
             )
             .type('password')
             .score(0.3)
