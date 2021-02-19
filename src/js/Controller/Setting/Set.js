@@ -36,6 +36,8 @@ export default class Set extends AbstractController {
                 await this._setDefaultServer(value);
             } else if(setting === 'theme.current') {
                 await this._setCurrentTheme(value);
+            } else if(setting === 'search.recommendation.option') {
+                await this._setSearchRecommendationOption(value);
             } else if(this._booleanSettings.indexOf(setting) !== -1) {
                 await this._setBoolean(setting, value);
             } else {
@@ -79,6 +81,16 @@ export default class Set extends AbstractController {
     async _setCurrentTheme(value) {
         await ThemeRepository.findById(value);
         await SettingsService.set('theme.current', value);
+    }
+
+    /**
+     *
+     * @param {String} value
+     * @return {Promise<void>}
+     * @private
+     */
+    async _setSearchRecommendationOption(value) {
+        await SettingsService.set('search.recommendation.option', value);
     }
 
     /**

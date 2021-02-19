@@ -76,7 +76,11 @@ class MasterSettingsProvider {
             ],
             'debug.localisation.enabled'  : [
                 'local.localisation.enabled'
-            ]
+            ],
+            'search.recommendation.option'               : [
+                'sync.search.recommendation.option',
+                'local.search.recommendation.option'
+            ],
         };
         this._defaults = {
             'theme.custom'                : null,
@@ -91,7 +95,8 @@ class MasterSettingsProvider {
             'password.folder.private'     : null,
             'notification.password.new'   : true,
             'notification.password.update': true,
-            'debug.localisation.enabled'  : true
+            'debug.localisation.enabled'  : true,
+            'search.recommendation.option': 'host'
         };
     }
 

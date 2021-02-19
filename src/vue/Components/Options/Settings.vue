@@ -39,6 +39,10 @@
             <slider-field id="popup-related-search" v-model="relatedSearch"/>
             <translate tag="label" for="popup-related-search" say="SettingsPopupRelatedSearch"/>
         </div>
+        <div class="setting dropdown">
+            <translate tag="label" for="search-recommendation-option" say="SettingsSearchRecommendationOption"/>
+            <select-field id="search-recommendation-option" :options="recommendationOptions" v-model="searchOption"/>
+        </div>
     </div>
 </template>
 
@@ -48,10 +52,11 @@
     import SettingsService from '@js/Services/SettingsService';
     import ToastService from '@js/Services/ToastService';
     import SliderField from "@vue/Components/Form/SliderField";
+    import SelectField from "@vue/Components/Form/SelectField";
     import HelpText from "@vue/Components/Options/Setting/HelpText";
 
     export default {
-        components: {HelpText, SliderField, Translate},
+        components: {HelpText, SliderField, SelectField, Translate},
         data() {
             return {
                 autoclose     : false,
@@ -61,12 +66,36 @@
                 compromised   : false,
                 notifyPwNew   : false,
                 relatedSearch : false,
-                notifyPwUpdate: false
+                notifyPwUpdate: false,
+                searchOption  : 'host'
             };
         },
 
         created() {
             this.loadData();
+        },
+
+        computed: {
+            recommendationOptions() {
+                return [
+                    {
+                        id   : 'domain',
+                        label: 'LabelSearchRecommendationDomain'
+                    },
+                    {
+                        id   : 'host',
+                        label: 'LabelSearchRecommendationHost'
+                    },
+                    {
+                        id   : 'hostport',
+                        label: 'LabelSearchRecommendationHostPort'
+                    },
+                    {
+                        id   : 'exact',
+                        label: 'LabelSearchRecommendationExact'
+                    }
+                ];
+            }
         },
 
         methods: {
@@ -79,6 +108,7 @@
                 this.getSetting('popup.related.search', 'relatedSearch');
                 this.getSetting('notification.password.new', 'notifyPwNew');
                 this.getSetting('notification.password.update', 'notifyPwUpdate');
+                this.getSetting('search.recommendation.option', 'searchOption');
             },
             async getSetting(name, variable) {
                 try {
@@ -138,6 +168,14 @@
                 if(oldValue !== null && value !== oldValue) {
                     this.setSetting('notification.password.update', value);
                 }
+            },
+            searchOption(value, oldValue) {
+                console.log("value   : " + value);
+                console.log("oldvalue: " + oldValue);
+                if(oldValue !== null && value !== oldValue) {
+                    console.log("yeah");
+                    this.setSetting('search.recommendation.option', value);
+                }
             }
         }
     };
@@ -168,6 +206,10 @@
 
         .settings-help-text {
             margin-right : -.5rem;
+        }
+
+        .dropdown {
+            align-items: flex-start
         }
     }
 }

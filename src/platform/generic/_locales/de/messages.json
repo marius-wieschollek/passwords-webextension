@@ -1176,5 +1176,25 @@
     "DebugNoErrors"                 : {
         "message"    : "Keine Fehlerberichte vorhanden",
         "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
+    },
+    "SettingsSearchRecommendationOption"     : {
+        "message"    : "Suche Passwort empfehlungen auf Basis von dieser Option.",
+        "description": "Label of the setting in the extension settings to define how password recommendations are searched."
+    },    
+    "LabelSearchRecommendationDomain"                 : {
+        "message"    : "Domain",
+        "description": "Find password recommendations by domain. So on page mail.example.com you will see all passwords for the domain and sumdomains of example.com."
+    },    
+    "LabelSearchRecommendationHost"                 : {
+        "message"    : "Host",
+        "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
+    },    
+    "LabelSearchRecommendationHostPort"                 : {
+        "message"    : "Host + Port",
+        "description": "Find password recommendations for the specific server and port."
+    },    
+    "LabelSearchRecommendationExact"                 : {
+        "message"    : "Exakte URL",
+        "description": "Find only passwords where th url matches exact to the current browser url."
     }
 }
