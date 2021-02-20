@@ -23,7 +23,7 @@
 
         methods: {
             checkQrCode(data) {
-                if(data.match(/^(ext\+)?passlink:.+\/do\/(connect)\?.+$/)) {
+                if(data.match(/^(ext\+)?passlink:.+\/do\/connect[\/?].+$/)) {
                     this.status = 'PasslinkScanProcessingLink';
                     Passlink
                         .loadLink(data)
