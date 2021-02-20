@@ -1,3 +1,8 @@
+## 2.1.1 - Bugfix Release
+### Fixed
+- PassLink QR Code not scanned
+- Build instructions for Chrome incorrect
+
 ## 2.1.0 - Feature Release
 ### Added
 - Autofill for login forms
