@@ -39,11 +39,17 @@ class RecommendationManager {
     }
 
     initRecommendationOptions() {
-        this.options = { searchQuery: "Host", maxResults: 8 }
+        this.options = { searchQuery: "", maxResults: 8 }
         SettingsService.getValue('search.recommendation.option')
         .then((value) => {
             if(value) {
                 this.options.searchQuery = value;
+            }
+        });
+        SettingsService.getValue('search.recommendation.maxRows')
+        .then((value) => {
+            if(value) {
+                this.options.maxRows = Number(value);
             }
         });
     }
@@ -93,7 +99,7 @@ class RecommendationManager {
             )
             .type('password')
             .score(0.3)
-            .limit(8)
+            .limit(this.options.maxRows)
             .sortBy('favorite')
             .sortBy('uses')
             .sortBy('shared')

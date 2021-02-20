@@ -39,9 +39,16 @@
             <slider-field id="popup-related-search" v-model="relatedSearch"/>
             <translate tag="label" for="popup-related-search" say="SettingsPopupRelatedSearch"/>
         </div>
-        <div class="setting dropdown">
+
+        <translate tag="h3" say="RecommendationSettings"/>
+        <translate tag="p" say="RecommendationSettingsHelp"/>
+        <div class="setting">
             <translate tag="label" for="search-recommendation-option" say="SettingsSearchRecommendationOption"/>
-            <select-field id="search-recommendation-option" :options="recommendationOptions" v-model="searchOption"/>
+            <select-field id="search-recommendation-option" :options="recommendationOptions" v-model="recSearchOption"/>
+        </div>
+        <div class="setting">
+            <translate tag="label" for="search-recommendation-maxRows" say="SettingsSearchRecommendationMaxRows"/>
+            <select-field id="search-recommendation-maxRows" :options="recommendationMaxRows" v-model="recSearchRows"/>
         </div>
     </div>
 </template>
@@ -59,15 +66,16 @@
         components: {HelpText, SliderField, SelectField, Translate},
         data() {
             return {
-                autoclose     : false,
-                autosubmit    : false,
-                autofill      : false,
-                basicAuth     : false,
-                compromised   : false,
-                notifyPwNew   : false,
-                relatedSearch : false,
-                notifyPwUpdate: false,
-                searchOption  : 'host'
+                autoclose        : false,
+                autosubmit       : false,
+                autofill         : false,
+                basicAuth        : false,
+                compromised      : false,
+                notifyPwNew      : false,
+                relatedSearch    : false,
+                notifyPwUpdate   : false,
+                recSearchOption  : 'host',
+                recSearchRows    : 8
             };
         },
 
@@ -95,6 +103,14 @@
                         label: 'LabelSearchRecommendationExact'
                     }
                 ];
+            },
+            recommendationMaxRows() {
+                var i = 1;
+                var result = [];
+                for(i =1; i <= 20; i++) {
+                    result.push({id: i, label: "LabelSearchRecommendationRows" + i.toString()})
+                }
+                return result;               
             }
         },
 
@@ -108,7 +124,8 @@
                 this.getSetting('popup.related.search', 'relatedSearch');
                 this.getSetting('notification.password.new', 'notifyPwNew');
                 this.getSetting('notification.password.update', 'notifyPwUpdate');
-                this.getSetting('search.recommendation.option', 'searchOption');
+                this.getSetting('search.recommendation.option', 'recSearchOption');
+                this.getSetting('search.recommendation.maxRows', 'recSearchRows');
             },
             async getSetting(name, variable) {
                 try {
@@ -169,12 +186,14 @@
                     this.setSetting('notification.password.update', value);
                 }
             },
-            searchOption(value, oldValue) {
-                console.log("value   : " + value);
-                console.log("oldvalue: " + oldValue);
+            recSearchOption(value, oldValue) {
                 if(oldValue !== null && value !== oldValue) {
-                    console.log("yeah");
                     this.setSetting('search.recommendation.option', value);
+                }
+            },
+            recSearchRows(value, oldValue) {
+                if(oldValue !== null && value !== oldValue) {
+                    this.setSetting('search.recommendation.maxRows', value);
                 }
             }
         }
@@ -185,6 +204,9 @@
 .debug-settings,
 .settings-general {
     h3 {
+        margin : 1.5rem 1rem .5rem;
+    }
+    p {
         margin : 1.5rem 1rem .5rem;
     }
 
@@ -206,10 +228,6 @@
 
         .settings-help-text {
             margin-right : -.5rem;
-        }
-
-        .dropdown {
-            align-items: flex-start
         }
     }
 }

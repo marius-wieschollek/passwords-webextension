@@ -21,7 +21,8 @@ export default class Get extends AbstractController {
             'theme.current',
             'theme.custom',
             'debug.localisation.enabled',
-            'search.recommendation.option'
+            'search.recommendation.option',
+            'search.recommendation.maxRows'
         ];
     }
 

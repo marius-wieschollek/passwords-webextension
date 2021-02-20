@@ -1191,6 +1191,14 @@
         "message"    : "No errors in log",
         "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
     },
+    "RecommendationSettings"     : {
+        "message"    : "Password recommendations",
+        "description": "Label of the section password recommendations in the extension settings."
+    },
+    "RecommendationSettingsHelp"     : {
+        "message"    : "If you change the settings below you will need to restart the extension. This can be done by disabling/enabling the extension or with a browser restart.",
+        "description": "Label of the help text for section password recommendations in the extension settings."
+    },
     "SettingsSearchRecommendationOption"     : {
         "message"    : "Search passwords based on the following option.",
         "description": "Label of the setting in the extension settings to define how password recommendations are searched."
@@ -1210,5 +1218,89 @@
     "LabelSearchRecommendationExact"                 : {
         "message"    : "Exact url",
         "description": "Find only passwords where th url matches exact to the current browser url."
+    },
+    "SettingsSearchRecommendationMaxRows"     : {
+        "message"    : "Maximum number of results for the password recommendation.",
+        "description": "Label of the setting in the extension settings to define the maximum number of results for the password recommendation."
+    },    
+    "LabelSearchRecommendationRows1"                 : {
+        "message"    : "1",
+        "description": "Number of results that should be displayed for password recommendations."
+    },    
+    "LabelSearchRecommendationRows2"                 : {
+        "message"    : "2",
+        "description": "Number of results that should be displayed for password recommendations."
+    },    
+    "LabelSearchRecommendationRows3"                 : {
+        "message"    : "3",
+        "description": "Number of results that should be displayed for password recommendations."
+    },    
+    "LabelSearchRecommendationRows4"                 : {
+        "message"    : "4",
+        "description": "Number of results that should be displayed for password recommendations."
+    },    
+    "LabelSearchRecommendationRows5"                 : {
+        "message"    : "5",
+        "description": "Number of results that should be displayed for password recommendations."
+    },    
+    "LabelSearchRecommendationRows6"                 : {
+        "message"    : "6",
+        "description": "Number of results that should be displayed for password recommendations."
+    },    
+    "LabelSearchRecommendationRows7"                 : {
+        "message"    : "7",
+        "description": "Number of results that should be displayed for password recommendations."
+    },    
+    "LabelSearchRecommendationRows8"                 : {
+        "message"    : "8",
+        "description": "Number of results that should be displayed for password recommendations."
+    },    
+    "LabelSearchRecommendationRows9"                 : {
+        "message"    : "9",
+        "description": "Number of results that should be displayed for password recommendations."
+    },    
+    "LabelSearchRecommendationRows10"                 : {
+        "message"    : "10",
+        "description": "Number of results that should be displayed for password recommendations."
+    },    
+    "LabelSearchRecommendationRows11"                 : {
+        "message"    : "11",
+        "description": "Number of results that should be displayed for password recommendations."
+    },    
+    "LabelSearchRecommendationRows12"                 : {
+        "message"    : "12",
+        "description": "Number of results that should be displayed for password recommendations."
+    },    
+    "LabelSearchRecommendationRows13"                 : {
+        "message"    : "13",
+        "description": "Number of results that should be displayed for password recommendations."
+    },    
+    "LabelSearchRecommendationRows14"                 : {
+        "message"    : "14",
+        "description": "Number of results that should be displayed for password recommendations."
+    },    
+    "LabelSearchRecommendationRows15"                 : {
+        "message"    : "15",
+        "description": "Number of results that should be displayed for password recommendations."
+    },    
+    "LabelSearchRecommendationRows16"                 : {
+        "message"    : "16",
+        "description": "Number of results that should be displayed for password recommendations."
+    },    
+    "LabelSearchRecommendationRows17"                 : {
+        "message"    : "17",
+        "description": "Number of results that should be displayed for password recommendations."
+    },    
+    "LabelSearchRecommendationRows18"                 : {
+        "message"    : "18",
+        "description": "Number of results that should be displayed for password recommendations."
+    },    
+    "LabelSearchRecommendationRows19"                 : {
+        "message"    : "19",
+        "description": "Number of results that should be displayed for password recommendations."
+    },    
+    "LabelSearchRecommendationRows20"                 : {
+        "message"    : "20",
+        "description": "Number of results that should be displayed for password recommendations."
     }
 }
