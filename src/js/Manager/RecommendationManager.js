@@ -39,7 +39,7 @@ class RecommendationManager {
     }
 
     initRecommendationOptions() {
-        this.options = { searchQuery: "", maxResults: 8 }
+        this.options = { searchQuery: "host", maxResults: 8 }
         SettingsService.getValue('search.recommendation.option')
         .then((value) => {
             if(value) {
