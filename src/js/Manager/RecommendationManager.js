@@ -40,7 +40,7 @@ class RecommendationManager {
 
     initRecommendationOptions() {
         this.options = { searchQuery: "host", maxResults: 8 }
-        SettingsService.getValue('search.recommendation.option')
+        SettingsService.getValue('search.recommendation.mode')
         .then((value) => {
             if(value) {
                 this.options.searchQuery = value;
@@ -83,20 +83,7 @@ class RecommendationManager {
 
         let query = new SearchQuery('or');
         query
-            .where(
-                // search by domain
-                (this.options.searchQuery === "domain" ? query.field('host').contains(this.getSearchDomainFromHost(url.host)): 
-                    // search by hostname
-                    (this.options.searchQuery === "host" ? query.field('host').startsWith(url.host.split(':')[0]): 
-                        // search by hostname and port
-                        (this.options.searchQuery === "hostport" ? query.field('host').equals(url.host): 
-                            // search exact
-                            (this.options.searchQuery === "exact" ? query.field('url').equals(url.protocol + "//" + url.host + (url.pathname.length > 1 ? url.pathname: "")):
-                            "")
-                        )
-                    )
-                )
-            )
+            .where(this.getFilterQuery(query, url))
             .type('password')
             .score(0.3)
             .limit(this.options.maxRows)
@@ -110,6 +97,24 @@ class RecommendationManager {
 
         return query.execute();
     }
+
+    /**
+     * @param {SearchQuery} query
+     * @param {String} url
+     */
+    getFilterQuery(query, url) {
+        let mode = this.options.searchQuery;
+        if(mode === 'domain') {
+            return query.field('host').contains(this.getSearchDomainFromHost(url.host));
+        } else if(mode === 'host') {
+            return query.field('host').startsWith(url.host.split(':')[0]);
+        } else if(mode === 'hostport') {
+            return query.field('host').equals(url.host);
+        } else {
+            return query.field('url').equals(url.protocol + "//" + url.host + (url.pathname.length > 1 ? url.pathname: ""));
+        }
+      }
+
 
     /**
      * @param {String} host

@@ -44,7 +44,7 @@
         <translate tag="p" say="RecommendationSettingsHelp"/>
         <div class="setting">
             <translate tag="label" for="search-recommendation-option" say="SettingsSearchRecommendationOption"/>
-            <select-field id="search-recommendation-option" :options="recommendationOptions" v-model="recSearchOption"/>
+            <select-field id="search-recommendation-option" :options="recommendationOptions" v-model="recSearchMode"/>
         </div>
         <div class="setting">
             <translate tag="label" for="search-recommendation-maxRows" say="SettingsSearchRecommendationMaxRows"/>
@@ -74,7 +74,7 @@
                 notifyPwNew      : false,
                 relatedSearch    : false,
                 notifyPwUpdate   : false,
-                recSearchOption  : 'host',
+                recSearchMode    : 'host',
                 recSearchRows    : 8
             };
         },
@@ -108,7 +108,7 @@
                 var i = 1;
                 var result = [];
                 for(i =1; i <= 20; i++) {
-                    result.push({id: i, label: "LabelSearchRecommendationRows" + i.toString()})
+                    result.push({id: i, label: ['SearchRecommendationMaxRowsNumber', i]});
                 }
                 return result;               
             }
@@ -124,7 +124,7 @@
                 this.getSetting('popup.related.search', 'relatedSearch');
                 this.getSetting('notification.password.new', 'notifyPwNew');
                 this.getSetting('notification.password.update', 'notifyPwUpdate');
-                this.getSetting('search.recommendation.option', 'recSearchOption');
+                this.getSetting('search.recommendation.mode', 'recSearchMode');
                 this.getSetting('search.recommendation.maxRows', 'recSearchRows');
             },
             async getSetting(name, variable) {
@@ -186,9 +186,9 @@
                     this.setSetting('notification.password.update', value);
                 }
             },
-            recSearchOption(value, oldValue) {
+            recSearchMode(value, oldValue) {
                 if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('search.recommendation.option', value);
+                    this.setSetting('search.recommendation.mode', value);
                 }
             },
             recSearchRows(value, oldValue) {

@@ -1208,85 +1208,15 @@
     "SettingsSearchRecommendationMaxRows"     : {
         "message"    : "Maximale Anzahl an Ergebnissen für die Password Empfehlung.",
         "description": "Label of the setting in the extension settings to define the maximum number of results for the password recommendation."
-    },    
-    "LabelSearchRecommendationRows1"                 : {
-        "message"    : "1",
-        "description": "Number of results that should be displayed for password recommendations."
-    },    
-    "LabelSearchRecommendationRows2"                 : {
-        "message"    : "2",
-        "description": "Number of results that should be displayed for password recommendations."
-    },    
-    "LabelSearchRecommendationRows3"                 : {
-        "message"    : "3",
-        "description": "Number of results that should be displayed for password recommendations."
-    },    
-    "LabelSearchRecommendationRows4"                 : {
-        "message"    : "4",
-        "description": "Number of results that should be displayed for password recommendations."
-    },    
-    "LabelSearchRecommendationRows5"                 : {
-        "message"    : "5",
-        "description": "Number of results that should be displayed for password recommendations."
-    },    
-    "LabelSearchRecommendationRows6"                 : {
-        "message"    : "6",
-        "description": "Number of results that should be displayed for password recommendations."
-    },    
-    "LabelSearchRecommendationRows7"                 : {
-        "message"    : "7",
-        "description": "Number of results that should be displayed for password recommendations."
-    },    
-    "LabelSearchRecommendationRows8"                 : {
-        "message"    : "8",
-        "description": "Number of results that should be displayed for password recommendations."
-    },    
-    "LabelSearchRecommendationRows9"                 : {
-        "message"    : "9",
-        "description": "Number of results that should be displayed for password recommendations."
-    },    
-    "LabelSearchRecommendationRows10"                 : {
-        "message"    : "10",
-        "description": "Number of results that should be displayed for password recommendations."
-    },    
-    "LabelSearchRecommendationRows11"                 : {
-        "message"    : "11",
-        "description": "Number of results that should be displayed for password recommendations."
-    },    
-    "LabelSearchRecommendationRows12"                 : {
-        "message"    : "12",
-        "description": "Number of results that should be displayed for password recommendations."
-    },    
-    "LabelSearchRecommendationRows13"                 : {
-        "message"    : "13",
-        "description": "Number of results that should be displayed for password recommendations."
-    },    
-    "LabelSearchRecommendationRows14"                 : {
-        "message"    : "14",
-        "description": "Number of results that should be displayed for password recommendations."
-    },    
-    "LabelSearchRecommendationRows15"                 : {
-        "message"    : "15",
-        "description": "Number of results that should be displayed for password recommendations."
-    },    
-    "LabelSearchRecommendationRows16"                 : {
-        "message"    : "16",
-        "description": "Number of results that should be displayed for password recommendations."
-    },    
-    "LabelSearchRecommendationRows17"                 : {
-        "message"    : "17",
-        "description": "Number of results that should be displayed for password recommendations."
-    },    
-    "LabelSearchRecommendationRows18"                 : {
-        "message"    : "18",
-        "description": "Number of results that should be displayed for password recommendations."
-    },    
-    "LabelSearchRecommendationRows19"                 : {
-        "message"    : "19",
-        "description": "Number of results that should be displayed for password recommendations."
-    },    
-    "LabelSearchRecommendationRows20"                 : {
-        "message"    : "20",
-        "description": "Number of results that should be displayed for password recommendations."
+    },
+    "SearchRecommendationMaxRowsNumber"    : {
+        "message"     : "$ROW$",
+        "description" : "Number of results that should be displayed for password recommendations.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 1, 5, 10, 15 or 20"
+            }
+        }
     }
 }

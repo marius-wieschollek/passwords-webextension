@@ -81,9 +81,9 @@ class MasterSettingsProvider {
                 'sync.search.recommendation.maxRows',
                 'local.search.recommendation.maxRows'
             ],
-            'search.recommendation.option': [
-                'sync.search.recommendation.option',
-                'local.search.recommendation.option'
+            'search.recommendation.mode': [
+                'sync.search.recommendation.mode',
+                'local.search.recommendation.mode'
             ],
         };
         this._defaults = {
@@ -100,7 +100,7 @@ class MasterSettingsProvider {
             'notification.password.new'    : true,
             'notification.password.update' : true,
             'debug.localisation.enabled'   : true,
-            'search.recommendation.option' : 'host',
+            'search.recommendation.mode'   : 'host',
             'search.recommendation.maxRows': 8
         };
     }

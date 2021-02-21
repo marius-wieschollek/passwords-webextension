@@ -36,8 +36,8 @@ export default class Set extends AbstractController {
                 await this._setDefaultServer(value);
             } else if(setting === 'theme.current') {
                 await this._setCurrentTheme(value);
-            } else if(setting === 'search.recommendation.option') {
-                await this._setSearchRecommendationOption(value);
+            } else if(setting === 'search.recommendation.mode') {
+                await this._setSearchRecommendationMode(value);
             } else if(setting === 'search.recommendation.maxRows') {
                 await this._setSearchRecommendationMaxRows(Number(value));
             } else if(this._booleanSettings.indexOf(setting) !== -1) {
@@ -91,8 +91,8 @@ export default class Set extends AbstractController {
      * @return {Promise<void>}
      * @private
      */
-    async _setSearchRecommendationOption(value) {
-        await SettingsService.set('search.recommendation.option', value);
+    async _setSearchRecommendationMode(value) {
+        await SettingsService.set('search.recommendation.mode', value);
     }
 
     /**
