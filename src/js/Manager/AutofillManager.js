@@ -10,6 +10,9 @@ export default new class AutofillManager {
         this._recommendationListener = (recommendations) => {
             this._sendAutofillPassword(recommendations);
         };
+        this._sendPasswordToMessageService = (recommendations) => {
+            this._sendPwdToMessageService(recommendations);
+        };
     }
 
     /**
@@ -27,13 +30,24 @@ export default new class AutofillManager {
     async _sendAutofillPassword(recommendations) {
         if(recommendations.length === 0 || await SettingsService.getValue('paste.autofill') === false) return;
         let password = recommendations[0];
+        var self = this;
 
-        let ids = TabManager.get('autofill.ids', []);
-        if(ids.indexOf(password.getId()) === -1) {
-            ids.push(password.getId());
-            TabManager.set('autofill.ids', ids);
-        }
+        setTimeout(function () {
+            let ids = TabManager.get('autofill.ids', []);
+            if(ids.indexOf(password.getId()) === -1) {
+                ids.push(password.getId());
+                TabManager.set('autofill.ids', ids);
+            }
+            self._sendPasswordToMessageService(password);
+        }, 2500);
+    }
 
+    /**
+     *
+     * @param {Password[]} recommendations
+     * @private
+     */
+    _sendPwdToMessageService(password) {
         MessageService.send(
             {
                 type    : 'autofill.password',
