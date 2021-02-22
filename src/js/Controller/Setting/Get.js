@@ -20,7 +20,9 @@ export default class Get extends AbstractController {
             'server.default',
             'theme.current',
             'theme.custom',
-            'debug.localisation.enabled'
+            'debug.localisation.enabled',
+            'clipboard.clear.delay',
+            'clipboard.clear.passwords'
         ];
     }
 

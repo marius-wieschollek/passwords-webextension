@@ -49,6 +49,8 @@
         "*://*/*",
         "tabs",
         "storage",
+        "clipboardRead",
+        "clipboardWrite",
         "contextMenus",
         "notifications",
         "webRequest",

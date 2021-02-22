@@ -23,6 +23,15 @@
             <translate tag="label" for="paste-basic-auth" say="SettingsPasteBasicAuth"/>
             <help-text type="warning" text="HelpPasteBasicAuth"/>
         </div>
+        <div class="setting">
+            <slider-field id="clipboard-clear-passwords" v-model="clearClipboard"/>
+            <translate tag="label" for="clipboard-clear-passwords" say="SettingsClearClipboardPasswords"/>
+            <help-text type="warning" text="HelpClearClipboardPasswords"/>
+        </div>
+        <div class="setting">
+            <translate tag="label" for="clipboard-clear-delay" say="SettingsClearClipboardDelay"/>
+            <select-field id="clipboard-clear-delay" :options="clearClipboardDelayOptions" v-model="clearClipboardDelay"/>
+        </div>
 
         <translate tag="h3" say="NotificationSettings"/>
         <div class="setting">
@@ -48,10 +57,11 @@
     import SettingsService from '@js/Services/SettingsService';
     import ToastService from '@js/Services/ToastService';
     import SliderField from "@vue/Components/Form/SliderField";
+    import SelectField from "@vue/Components/Form/SelectField";
     import HelpText from "@vue/Components/Options/Setting/HelpText";
 
     export default {
-        components: {HelpText, SliderField, Translate},
+        components: {HelpText, SliderField, SelectField, Translate},
         data() {
             return {
                 autoclose     : false,
@@ -61,12 +71,25 @@
                 compromised   : false,
                 notifyPwNew   : false,
                 relatedSearch : false,
-                notifyPwUpdate: false
+                notifyPwUpdate: false,
+                clearClipboard: true,
+                clearClipboardDelay: 60
             };
         },
 
         created() {
             this.loadData();
+        },
+
+        computed: {
+            clearClipboardDelayOptions() {
+                var i = 1;
+                var result = [];
+                for(let i of [15, 30, 45, 60, 90]) {
+                    result.push({id: i, label: ['SettingsClipboardClearDelayOptions', i]});
+                }
+                return result;               
+            }
         },
 
         methods: {
@@ -79,6 +102,8 @@
                 this.getSetting('popup.related.search', 'relatedSearch');
                 this.getSetting('notification.password.new', 'notifyPwNew');
                 this.getSetting('notification.password.update', 'notifyPwUpdate');
+                this.getSetting('clipboard.clear.passwords', 'clearClipboard');
+                this.getSetting('clipboard.clear.delay', 'clearClipboardDelay');
             },
             async getSetting(name, variable) {
                 try {
@@ -122,6 +147,16 @@
             basicAuth(value, oldValue) {
                 if(oldValue !== null && value !== oldValue) {
                     this.setSetting('paste.basic-auth', value);
+                }
+            },
+            clearClipboard(value, oldValue) {
+                if(oldValue !== null && value !== oldValue) {
+                    this.setSetting('clipboard.clear.passwords', value);
+                }
+            },
+            clearClipboardDelay(value, oldValue) {
+                if(oldValue !== null && value !== oldValue) {
+                    this.setSetting('clipboard.clear.delay', value);
                 }
             },
             relatedSearch(value, oldValue) {

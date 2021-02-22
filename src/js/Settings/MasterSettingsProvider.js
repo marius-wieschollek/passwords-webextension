@@ -76,6 +76,14 @@ class MasterSettingsProvider {
             ],
             'debug.localisation.enabled'  : [
                 'local.localisation.enabled'
+            ],
+            'clipboard.clear.passwords' : [
+                'sync.clipboard.clear.passwords',
+                'local.clipboard.clear.passwords',
+            ],
+            'clipboard.clear.delay' : [
+                'sync.clipboard.clear.delay',
+                'local.clipboard.clear.delay',
             ]
         };
         this._defaults = {
@@ -91,7 +99,9 @@ class MasterSettingsProvider {
             'password.folder.private'     : null,
             'notification.password.new'   : true,
             'notification.password.update': true,
-            'debug.localisation.enabled'  : true
+            'debug.localisation.enabled'  : true,
+            'clipboard.clear.passwords'   : true,
+            'clipboard.clear.delay'       : 60
         };
     }
 

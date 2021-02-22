@@ -87,6 +87,7 @@
         "menus",
         "storage",
         "notifications",
+        "clipboardRead",
         "clipboardWrite",
         "webRequest",
         "webRequestBlocking"

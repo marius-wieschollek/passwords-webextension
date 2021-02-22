@@ -79,6 +79,7 @@
         "tabs",
         "storage",
         "notifications",
+        "clipboardRead",
         "clipboardWrite",
         "webRequest",
         "webRequestBlocking"

@@ -103,6 +103,28 @@
         "message"    : "Automatically respond to http basic authentication requests with the first suggested credential. Be aware that this may expose credentials to untrustworthy servers.",
         "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http basic authentication request"
     },
+    "SettingsClearClipboardPasswords"        : {
+        "message"    : "Automatically empty clipboard after a certain time",
+        "description": "Label of the setting in the extension settings to automatically clear passwords from clipboard after a certain time."
+    },
+    "HelpClearClipboardPasswords"            : {
+        "message"    : "This feature will not clear the clipboard if you close all browser windows before the timeout is reached!",
+        "description": "Help text in the extension settings for the setting to automatically clean passwords from clipboard after a certain time."
+    },
+    "SettingsClearClipboardDelay"     : {
+        "message"    : "Empty clipboard after the defined time (seconds)",
+        "description": "Label of the setting in the extension settings to define the time when the clipboard content will be removed."
+    },
+    "SettingsClipboardClearDelayOptions"    : {
+        "message"     : "$ROW$",
+        "description" : "Time in seconds until clipboard will get empty.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 15, 30, 45, 60, 90"
+            }
+        }
+    },
     "NotificationSettings"          : {
         "message"    : "Notifications",
         "description": "Headline above the notification section in the other settings tab in the extension settings"

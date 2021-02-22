@@ -16,7 +16,8 @@ export default class Set extends AbstractController {
             'popup.related.search',
             'notification.password.new',
             'notification.password.update',
-            'debug.localisation.enabled'
+            'debug.localisation.enabled',
+            'clipboard.clear.passwords'
         ];
     }
 
@@ -36,6 +37,8 @@ export default class Set extends AbstractController {
                 await this._setDefaultServer(value);
             } else if(setting === 'theme.current') {
                 await this._setCurrentTheme(value);
+            } else if(setting === 'clipboard.clear.delay') {
+                await this._setClipboardClearDelay(Number(value));
             } else if(this._booleanSettings.indexOf(setting) !== -1) {
                 await this._setBoolean(setting, value);
             } else {
@@ -90,5 +93,15 @@ export default class Set extends AbstractController {
      */
     async _setBoolean(setting, value) {
         await SettingsService.set(setting, value === true);
+    }
+
+    /**
+     *
+     * @param {Number} value
+     * @return {Promise<void>}
+     * @private
+     */
+    async _setClipboardClearDelay(value) {
+        await SettingsService.set('clipboard.clear.delay', value);
     }
 }
