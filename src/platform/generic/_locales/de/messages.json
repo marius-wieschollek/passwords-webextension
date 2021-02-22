@@ -104,7 +104,7 @@
         "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http authentication auth request"
     },
     "SettingsClearClipboardPasswords"        : {
-        "message"    : "Kopierte Passwörter automatisch aus der Zwischenablage löschen",
+        "message"    : "Zwischenablage nach einer bestimmten Zeit automatisch löschen",
         "description": "Label of the setting in the extension settings to automatically clear passwords from clipboard after a certain time."
     },
     "HelpClearClipboardPasswords"            : {
