@@ -6,7 +6,6 @@ class ClipboardManager {
 
     /**
      *
-     * @return {String}
      */
     async requestReadPermission() {
         try {
@@ -20,7 +19,6 @@ class ClipboardManager {
 
     /**
      *
-     * @return {String}
      */
     async getReadPermissions() {
         try {
