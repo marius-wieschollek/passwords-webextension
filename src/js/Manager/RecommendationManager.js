@@ -126,6 +126,7 @@ class RecommendationManager {
         }
         else {
             var domain = host.split(':')[0];
+            if(domain === domain.split('.')[0]) return domain;
             return domain.split('.').reverse()[1] + "." + domain.split('.').reverse()[0];
         }
     }
