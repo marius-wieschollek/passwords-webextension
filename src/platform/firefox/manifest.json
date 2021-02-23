@@ -87,9 +87,11 @@
         "menus",
         "storage",
         "notifications",
-        "clipboardRead",
         "clipboardWrite",
         "webRequest",
         "webRequestBlocking"
+    ],
+    "optional_permissions"   : [
+        "clipboardRead"
     ]
 }

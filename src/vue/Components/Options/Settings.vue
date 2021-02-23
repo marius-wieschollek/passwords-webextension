@@ -150,6 +150,7 @@
                 }
             },
             clearClipboard(value, oldValue) {
+                if(value === true) ClipboardManager.requestReadPermission();
                 if(oldValue !== null && value !== oldValue) {
                     this.setSetting('clipboard.clear.passwords', value);
                 }
