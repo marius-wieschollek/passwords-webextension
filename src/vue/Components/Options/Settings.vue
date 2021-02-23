@@ -59,6 +59,8 @@
     import SliderField from "@vue/Components/Form/SliderField";
     import SelectField from "@vue/Components/Form/SelectField";
     import HelpText from "@vue/Components/Options/Setting/HelpText";
+    import ClipboardManager from '@js/Manager/ClipboardManager';
+
 
     export default {
         components: {HelpText, SliderField, SelectField, Translate},

@@ -6,6 +6,7 @@ class ClipboardManager {
 
     /**
      *
+     * @return {Boolean}
      */
     async requestReadPermission() {
         try {
@@ -19,6 +20,7 @@ class ClipboardManager {
 
     /**
      *
+     * @return {Boolean}
      */
     async getReadPermissions() {
         try {
@@ -41,7 +43,8 @@ class ClipboardManager {
             }
             if(permissions === true || await this.getReadPermissions()) {
                 var element = this._createDOMElement();
-                var result = await navigator.clipboard.readText();
+                await document.execCommand('paste');
+                var result = element.value;
                 this._removeDOMElement(element);
                 return result;
             }
@@ -72,7 +75,7 @@ class ClipboardManager {
     writeText(value) {
         try {
             var element = this._createDOMElement(value);
-            navigator.clipboard.writeText(element.value);
+            document.execCommand('copy', false, element.value);
             this._removeDOMElement(element);            
         } catch (e) {
             ErrorManager.logError(e);
@@ -88,7 +91,7 @@ class ClipboardManager {
         if(await SettingsService.getValue('clipboard.clear.passwords') == true) {
             setTimeout(async () => {
                 var current = await this.readText();
-                if(current === undefined || current === value) {
+                if(current === undefined || current === "" || current === value) {
                     this.writeText(" ");
                 }
             }, Number(await SettingsService.getValue('clipboard.clear.delay')) * 1000)
@@ -103,7 +106,6 @@ class ClipboardManager {
         var element = document.createElement("INPUT");
         element.setAttribute("type", type);
         element.setAttribute("value", value);
-        element.readOnly = true;
         document.body.appendChild(element);
         element.select();
         return element;
