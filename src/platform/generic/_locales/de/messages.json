@@ -1178,15 +1178,15 @@
         "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
     },
     "RecommendationSettings"     : {
-        "message"    : "Password empfehlungen",
+        "message"    : "Passwort Empfehlung",
         "description": "Label of the section password recommendations in the extension settings."
     },
     "RecommendationSettingsHelp"     : {
-        "message"    : "Beim ändern doeser Einstellungen muss die Erweiterung neu gestartet werden. Entweder durch deaktivieren und aktivieren der Erweiterung oder mit einem Browser neustart.",
+        "message"    : "Beim Ändern dieser Einstellungen muss die Erweiterung neu gestartet werden. Entweder durch deaktivieren und aktivieren der Erweiterung oder mit einem Browser Neustart.",
         "description": "Label of the help text for section password recommendations in the extension settings."
     },
     "SettingsSearchRecommendationOption"     : {
-        "message"    : "Suche Passwort empfehlungen auf Basis von dieser Option.",
+        "message"    : "Suche Passwort Empfehlung auf Basis von dieser Option.",
         "description": "Label of the setting in the extension settings to define how password recommendations are searched."
     },    
     "LabelSearchRecommendationDomain"                 : {
@@ -1206,7 +1206,7 @@
         "description": "Find only passwords where th url matches exact to the current browser url."
     },
     "SettingsSearchRecommendationMaxRows"     : {
-        "message"    : "Maximale Anzahl an Ergebnissen für die Password Empfehlung.",
+        "message"    : "Maximale Anzahl an Ergebnissen für die Passwort Empfehlung.",
         "description": "Label of the setting in the extension settings to define the maximum number of results for the password recommendation."
     },
     "SearchRecommendationMaxRowsNumber"    : {
