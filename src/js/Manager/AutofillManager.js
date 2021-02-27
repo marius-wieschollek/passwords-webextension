@@ -8,15 +8,54 @@ export default new class AutofillManager {
 
     constructor() {
         this._recommendationListener = (recommendations) => {
-            this._sendAutofillPassword(recommendations);
+            this.recommendations = recommendations;
+            this.currentURL =TabManager.getAll()[TabManager.currentTabId].url
         };
+        this.recommendations = [];  
+        this.currentURL = null;      
     }
 
     /**
      *
      */
-    init() {
+    async init() {
         RecommendationManager.listen.on(this._recommendationListener);
+        MessageService.listen(
+            'autofill.page.ready',
+            (message, reply) => {
+                if(message.url = this.currentURL) {
+                    this._sendAutofillPassword(this.recommendations);
+                }
+            }
+        );
+    }
+
+    /**
+     *
+     */
+    initClient() {
+        if (document.readyState === "complete" 
+            || document.readyState === "loaded" 
+            || document.readyState === "interactive") {
+            this._sendBrowserPageReadyMessage()
+       } else {
+        window.addEventListener("domcontentloaded", this._sendBrowserPageReadyMessage());
+       }
+    }
+
+    /**
+     *
+     */
+    _sendBrowserPageReadyMessage() {
+        MessageService.send(
+            {
+                type    : 'autofill.page.ready',
+                payload : {
+                    url: window.location.href
+                },
+                receiver: 'background'
+            }
+        );
     }
 
     /**
@@ -28,12 +67,22 @@ export default new class AutofillManager {
         if(recommendations.length === 0 || await SettingsService.getValue('paste.autofill') === false) return;
         let password = recommendations[0];
 
-        let ids = TabManager.get('autofill.ids', []);
-        if(ids.indexOf(password.getId()) === -1) {
-            ids.push(password.getId());
-            TabManager.set('autofill.ids', ids);
-        }
+        setTimeout(() => {
+            let ids = TabManager.get('autofill.ids', []);
+            if(ids.indexOf(password.getId()) === -1) {
+                ids.push(password.getId());
+                TabManager.set('autofill.ids', ids);
+            }
+            this._sendPwdToMessageService(password);
+        }, 500);
+    }
 
+    /**
+     *
+     * @param {Password[]} recommendations
+     * @private
+     */
+    _sendPwdToMessageService(password) {
         MessageService.send(
             {
                 type    : 'autofill.password',

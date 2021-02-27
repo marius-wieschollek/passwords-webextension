@@ -3,6 +3,7 @@ import ErrorManager from '@js/Manager/ErrorManager';
 import MessageService from '@js/Services/MessageService';
 import ConverterManager from '@js/Manager/ConverterManager';
 import ClientControllerManager from '@js/Manager/ClientControllerManager';
+import AutofillManager from '@js/Manager/AutofillManager';
 import DomMiner from '@js/Miner/DomMiner';
 
 class Client {
@@ -17,6 +18,7 @@ class Client {
             ClientControllerManager.init();
             let miner = new DomMiner();
             miner.init();
+            AutofillManager.initClient();
         } catch(e) {
             ErrorManager.logError(e);
         }
