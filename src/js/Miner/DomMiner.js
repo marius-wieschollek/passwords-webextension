@@ -3,6 +3,13 @@ import MessageService from '@js/Services/MessageService';
 
 export default class DomMiner {
 
+    /**
+     *
+     */
+    constructor() {
+        this._knownForms = [];
+    }
+
     init() {
         window.addEventListener(
             'beforeunload',
@@ -35,6 +42,27 @@ export default class DomMiner {
         for(let form of forms) {
             this._checkFormForPassword(form);
         }
+        this._knownForms = [];
+    }
+
+    _checkForDuplication(form) {
+        var exists = false;
+        this._knownForms.forEach(element => {
+            if((element.pass == form.pass.value) &&
+                (element.user == form.user.value) &&
+                (element.url == this._getUrl())) {
+                exists = true;
+            }            
+        });      
+        if(exists === false) {
+            this._knownForms.push(
+            {
+                pass: form.pass.value, 
+                user: form.user.value,
+                url: this._getUrl()
+            });  
+        }
+        return exists;
     }
 
     /**
@@ -43,6 +71,7 @@ export default class DomMiner {
      * @private
      */
     _checkFormForPassword(form) {
+        if(this._checkForDuplication(form)) return;
         if(form.pass.value.length !== 0 && form.pass.value.trim().length !== 0) {
             let info = {
                 url     : this._getUrl(),
