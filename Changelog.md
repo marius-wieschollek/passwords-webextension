@@ -1,5 +1,8 @@
 ## 2.1.1 - Bugfix Release
 ### Fixed
+- Incorrect last edit time for updated passwords
+- Updated password detected multiple times
+- Autofill not working on initial page load 
 - PassLink QR Code not scanned
 - Build instructions for Chrome incorrect
 
