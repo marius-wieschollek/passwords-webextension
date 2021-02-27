@@ -171,6 +171,7 @@ class MiningManager {
             .setUserName(task.getResultField('username'))
             .setPassword(task.getResultField('password'))
             .setUrl(task.getResultField('url'))
+            .setEdited(new Date())
             .setHidden(task.getResultField('hidden'));
 
         this._enforcePasswordPropertyLengths(password);
