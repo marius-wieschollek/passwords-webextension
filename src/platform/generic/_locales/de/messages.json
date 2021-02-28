@@ -1203,10 +1203,6 @@
         "message"    : "Passwort Empfehlung",
         "description": "Label of the section password recommendations in the extension settings."
     },
-    "RecommendationSettingsHelp"     : {
-        "message"    : "Beim Ändern dieser Einstellungen muss die Erweiterung neu gestartet werden. Entweder durch deaktivieren und aktivieren der Erweiterung oder mit einem Browser Neustart.",
-        "description": "Label of the help text for section password recommendations in the extension settings."
-    },
     "SettingsSearchRecommendationOption"     : {
         "message"    : "Suche Passwort Empfehlung auf Basis von dieser Option.",
         "description": "Label of the setting in the extension settings to define how password recommendations are searched."

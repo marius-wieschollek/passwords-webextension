@@ -33,6 +33,16 @@
             <select-field id="clipboard-clear-delay" :options="clearClipboardDelayOptions" v-model="clearClipboardDelay"/>
         </div>
 
+        <translate tag="h3" say="RecommendationSettings"/>
+        <div class="setting">
+            <translate tag="label" for="search-recommendation-option" say="SettingsSearchRecommendationOption"/>
+            <select-field id="search-recommendation-option" :options="recommendationOptions" v-model="recSearchMode"/>
+        </div>
+        <div class="setting">
+            <translate tag="label" for="search-recommendation-maxRows" say="SettingsSearchRecommendationMaxRows"/>
+            <select-field id="search-recommendation-maxRows" :options="recommendationMaxRows" v-model="recSearchRows"/>
+        </div>
+
         <translate tag="h3" say="NotificationSettings"/>
         <div class="setting">
             <slider-field id="notification-password-new" v-model="notifyPwNew"/>
@@ -47,17 +57,6 @@
         <div class="setting">
             <slider-field id="popup-related-search" v-model="relatedSearch"/>
             <translate tag="label" for="popup-related-search" say="SettingsPopupRelatedSearch"/>
-        </div>
-
-        <translate tag="h3" say="RecommendationSettings"/>
-        <translate tag="p" say="RecommendationSettingsHelp"/>
-        <div class="setting">
-            <translate tag="label" for="search-recommendation-option" say="SettingsSearchRecommendationOption"/>
-            <select-field id="search-recommendation-option" :options="recommendationOptions" v-model="recSearchMode"/>
-        </div>
-        <div class="setting">
-            <translate tag="label" for="search-recommendation-maxRows" say="SettingsSearchRecommendationMaxRows"/>
-            <select-field id="search-recommendation-maxRows" :options="recommendationMaxRows" v-model="recSearchRows"/>
         </div>
     </div>
 </template>

@@ -1217,10 +1217,6 @@
         "message"    : "Password recommendations",
         "description": "Label of the section password recommendations in the extension settings."
     },
-    "RecommendationSettingsHelp"     : {
-        "message"    : "If you change the settings below you will need to restart the extension. This can be done by disabling/enabling the extension or with a browser restart.",
-        "description": "Label of the help text for section password recommendations in the extension settings."
-    },
     "SettingsSearchRecommendationOption"     : {
         "message"    : "Search passwords based on the following option.",
         "description": "Label of the setting in the extension settings to define how password recommendations are searched."
