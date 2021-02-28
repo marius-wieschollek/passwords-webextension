@@ -1,13 +1,15 @@
 <template>
-    <select @change="handleChange" v-on="listeners">
-        <option v-for="option in optionList"
-                :key="option.id"
-                :value="option.id"
-                :disabled="option.disabled"
-                :selected="option.id === value"
-                :title="getTranslated(option.description)">{{getTranslated(option.label)}}
-        </option>
-    </select>
+    <div class="select-field" :class="{disabled:disabled}">
+        <select @change="handleChange" v-on="listeners" v-bind="$attrs" :disabled="disabled">
+            <option v-for="option in optionList"
+                    :key="option.id"
+                    :value="option.id"
+                    :disabled="option.disabled"
+                    :selected="option.id === value"
+                    :title="getTranslated(option.description)">{{ getTranslated(option.label) }}
+            </option>
+        </select>
+    </div>
 </template>
 
 <script>
@@ -26,6 +28,10 @@
             translate: {
                 type   : Boolean,
                 default: true
+            },
+            disabled : {
+                type   : Boolean,
+                default: false
             }
         },
 
@@ -81,9 +87,44 @@
 </script>
 
 <style lang="scss">
-select {
-    &[disabled] {
-        opacity: 0.5;
+.select-field {
+    cursor           : pointer;
+    background-color : var(--element-hover-bg-color);
+    border-radius    : var(--button-border-radius);
+    position         : relative;
+
+    select {
+        border           : 0;
+        cursor           : pointer;
+        appearance       : none;
+        background-color : rgba(0, 0, 0, 0);
+        padding          : .25rem 1.75rem .25rem .25rem;
+        position         : relative;
+        width            : 100%;
+        z-index          : 1;
+    }
+
+    &.disabled {
+        opacity : 0.5;
+        cursor  : not-allowed;
+
+        select {
+            cursor : not-allowed;
+        }
+    }
+
+    &:after {
+        font-family : var(--font-family-icon);
+        font-weight : var(--font-weight-icon);
+        content     : "\f078";
+        position    : absolute;
+        right       : .5rem;
+        top         : 0;
+        bottom      : 0;
+        display     : flex;
+        align-items : center;
+        z-index     : 0;
+        opacity     : 0.5;
     }
 }
 </style>
