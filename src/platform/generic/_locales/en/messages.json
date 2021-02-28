@@ -1190,5 +1190,47 @@
     "DebugNoErrors"                 : {
         "message"    : "No errors in log",
         "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
+    },
+    "RecommendationSettings"     : {
+        "message"    : "Password recommendations",
+        "description": "Label of the section password recommendations in the extension settings."
+    },
+    "RecommendationSettingsHelp"     : {
+        "message"    : "If you change the settings below you will need to restart the extension. This can be done by disabling/enabling the extension or with a browser restart.",
+        "description": "Label of the help text for section password recommendations in the extension settings."
+    },
+    "SettingsSearchRecommendationOption"     : {
+        "message"    : "Search passwords based on the following option.",
+        "description": "Label of the setting in the extension settings to define how password recommendations are searched."
+    },    
+    "LabelSearchRecommendationDomain"                 : {
+        "message"    : "Domain",
+        "description": "Find password recommendations by domain. So on page mail.example.com you will see all passwords for the domain and sumdomains of example.com."
+    },    
+    "LabelSearchRecommendationHost"                 : {
+        "message"    : "Host",
+        "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
+    },    
+    "LabelSearchRecommendationHostPort"                 : {
+        "message"    : "Host + Port",
+        "description": "Find password recommendations for the specific server and port."
+    },    
+    "LabelSearchRecommendationExact"                 : {
+        "message"    : "Exact url",
+        "description": "Find only passwords where th url matches exact to the current browser url."
+    },
+    "SettingsSearchRecommendationMaxRows"     : {
+        "message"    : "Maximum number of results for the password recommendation.",
+        "description": "Label of the setting in the extension settings to define the maximum number of results for the password recommendation."
+    },
+    "SearchRecommendationMaxRowsNumber"    : {
+        "message"     : "$ROW$",
+        "description" : "Number of results that should be displayed for password recommendations.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 1, 5, 10, 15 or 20"
+            }
+        }
     }
 }

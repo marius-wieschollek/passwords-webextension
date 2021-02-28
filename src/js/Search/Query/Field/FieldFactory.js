@@ -1,6 +1,7 @@
 import FieldEquals from '@js/Search/Query/Field/FieldEquals';
 import FieldContains from '@js/Search/Query/Field/FieldContains';
 import FieldMatches from '@js/Search/Query/Field/FieldMatches';
+import FieldStartsWith from '@js/Search/Query/Field/FieldStartsWith';
 import FieldIn from '@js/Search/Query/Field/FieldIn';
 import FieldNotEquals from '@js/Search/Query/Field/FieldNotEquals';
 import FieldNotIn from '@js/Search/Query/Field/FieldNotIn';
@@ -59,6 +60,21 @@ export default class FieldFactory {
         return new FieldMatches(name, value);
     }
 
+    /**
+     *
+     * @param {String} value
+     * @param {Number} [weight=null]
+     * @param {String} [name=null]
+     * @return {FieldContains}
+     */
+    startsWith(value, weight = null, name = null) {
+        if(!name) {
+            name = this._name;
+        }
+
+        return new FieldStartsWith(name, value, weight);
+    }
+    
     /**
      *
      * @param {String[]} value

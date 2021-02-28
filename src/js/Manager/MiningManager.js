@@ -3,6 +3,7 @@ import MiningItem from '@js/Models/Queue/MiningItem';
 import ServerManager from '@js/Manager/ServerManager';
 import ErrorManager from '@js/Manager/ErrorManager';
 import TabManager from '@js/Manager/TabManager';
+import RecommendationManager from '@js/Manager/RecommendationManager';
 import SearchQuery from '@js/Search/Query/SearchQuery';
 import SearchIndex from '@js/Search/Index/SearchIndex';
 import NotificationService from '@js/Services/NotificationService';
@@ -93,6 +94,8 @@ class MiningManager {
             if(basePassword !== null) {
                 task.setTaskField('id', basePassword.getId())
                     .setTaskField('label', basePassword.getLabel())
+                    .setTaskField('url', basePassword.getUrl())
+                    .setTaskField('hidden', basePassword.getHidden())
                     .setTaskNew(false);
             }
         }
@@ -221,7 +224,8 @@ class MiningManager {
         items = query
             .where(
                 query.field('password').equals(data.password.value),
-                query.field('username').equals(data.user.value)
+                query.field('username').equals(data.user.value),
+                RecommendationManager.getFilterQuery(query, Url(data.url))
             )
             .type('password')
             .hidden(tab.tab.incognito)
@@ -258,7 +262,7 @@ class MiningManager {
             items = query
                 .where(
                     query.field('username').equals(data.user.value),
-                    query.field('host').contains(url.host)
+                    RecommendationManager.getFilterQuery(query, Url(data.url))
                 )
                 .type('password')
                 .hidden(tab.tab.incognito)

@@ -76,22 +76,32 @@ class MasterSettingsProvider {
             ],
             'debug.localisation.enabled'  : [
                 'local.localisation.enabled'
-            ]
+            ],
+            'search.recommendation.maxRows': [
+                'sync.search.recommendation.maxRows',
+                'local.search.recommendation.maxRows'
+            ],
+            'search.recommendation.mode': [
+                'sync.search.recommendation.mode',
+                'local.search.recommendation.mode'
+            ],
         };
         this._defaults = {
-            'theme.custom'                : null,
-            'theme.current'               : 'light',
-            'server.default'              : null,
-            'paste.popup.close'           : true,
-            'paste.form.submit'           : true,
-            'paste.compromised.warning'   : true,
-            'paste.autofill'              : false,
-            'paste.basic-auth'   : false,
-            'popup.related.search'        : true,
-            'password.folder.private'     : null,
-            'notification.password.new'   : true,
-            'notification.password.update': true,
-            'debug.localisation.enabled'  : true
+            'theme.custom'                 : null,
+            'theme.current'                : 'light',
+            'server.default'               : null,
+            'paste.popup.close'            : true,
+            'paste.form.submit'            : true,
+            'paste.compromised.warning'    : true,
+            'paste.autofill'               : false,
+            'paste.basic-auth'             : false,
+            'popup.related.search'         : true,
+            'password.folder.private'      : null,
+            'notification.password.new'    : true,
+            'notification.password.update' : true,
+            'debug.localisation.enabled'   : true,
+            'search.recommendation.mode'   : 'host',
+            'search.recommendation.maxRows': 8
         };
     }
 
