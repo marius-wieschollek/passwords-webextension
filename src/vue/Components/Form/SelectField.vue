@@ -79,3 +79,11 @@
         }
     };
 </script>
+
+<style lang="scss">
+select {
+    &[disabled] {
+        opacity: 0.5;
+    }
+}
+</style>

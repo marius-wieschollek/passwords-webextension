@@ -30,7 +30,7 @@
         </div>
         <div class="setting">
             <translate tag="label" for="clipboard-clear-delay" say="SettingsClearClipboardDelay"/>
-            <select-field id="clipboard-clear-delay" :options="clearClipboardDelayOptions" v-model="clearClipboardDelay"/>
+            <select-field id="clipboard-clear-delay" :options="clearClipboardDelayOptions" v-model="clearClipboardDelay" :disabled="!clearClipboard"/>
         </div>
 
         <translate tag="h3" say="RecommendationSettings"/>
