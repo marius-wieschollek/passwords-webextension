@@ -298,6 +298,13 @@ class ControllerManager {
                 await this._executeController(module, message, reply);
             }
         );
+        MessageService.listen(
+            'clipboard.write',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "WriteClipboard" */ '@js/Controller/Clipboard/WriteClipboard');
+                await this._executeController(module, message, reply);
+            }
+        ); 
     }
 
     /**

@@ -103,6 +103,28 @@
         "message"    : "Antwortet auf HTTP Basic Authentication Anfragen mit dem ersten Eintrag der vorgeschlagenen Zugangsdaten. Dadurch können Zugangsdaten ungewollt an nicht vertrauenswürdige Server übermittelt werden.",
         "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http authentication auth request"
     },
+    "SettingsClearClipboardPasswords"        : {
+        "message"    : "Zwischenablage nach einer bestimmten Zeit automatisch löschen",
+        "description": "Label of the setting in the extension settings to automatically clear passwords from clipboard after a certain time."
+    },
+    "HelpClearClipboardPasswords"            : {
+        "message"    : "Die Zwischenablage kann nur geleert werden, wenn noch mindestens ein Browserfenster offen ist.",
+        "description": "Help text in the extension settings for the setting to automatically clean passwords from clipboard after a certain time."
+    },
+    "SettingsClearClipboardDelay"     : {
+        "message"    : "Zwischenablage nach Ablauf folgender Zeit leeren (Sekunden)",
+        "description": "Label of the setting in the extension settings to define the time when the clipboard content will be removed."
+    },
+    "SettingsClipboardClearDelayOptions"    : {
+        "message"     : "$ROW$",
+        "description" : "Time in seconds until clipboard will get empty.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 15, 30, 45, 60, 90"
+            }
+        }
+    },
     "NotificationSettings"          : {
         "message"    : "Benachrichtigungen",
         "description": "Headline above the notification section in the other settings tab in the extension settings"

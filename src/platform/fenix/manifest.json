@@ -82,5 +82,8 @@
         "clipboardWrite",
         "webRequest",
         "webRequestBlocking"
+    ],
+    "optional_permissions"   : [
+        "clipboardRead"
     ]
 }

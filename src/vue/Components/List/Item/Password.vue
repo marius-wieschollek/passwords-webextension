@@ -5,8 +5,8 @@
             {{ password.getLabel() }}
         </div>
         <div class="options">
-            <icon icon="user" hover-icon="clipboard" @click="copy('username')" draggable="true" @dragstart="drag($event, 'username')"/>
-            <icon icon="key" font="solid" hover-icon="clipboard" hover-font="regular" @click="copy('password')" draggable="true" @dragstart="drag($event, 'password')"/>
+            <icon icon="user" hover-icon="clipboard" @click="copy('username', 'text')" draggable="true" @dragstart="drag($event, 'username')"/>
+            <icon icon="key" font="solid" hover-icon="clipboard" hover-font="regular" @click="copy('password', 'password')" draggable="true" @dragstart="drag($event, 'password')"/>
         </div>
         <icon :class="securityClass" icon="shield-alt" font="solid"/>
     </li>
@@ -92,9 +92,9 @@
                     ErrorManager.logError(e);
                 }
             },
-            copy(property) {
+            copy(property, type) {
                 let data = this.password.getProperty(property);
-                navigator.clipboard.writeText(data);
+                MessageService.send({type: 'clipboard.write', payload: {type: type, value: data}}).catch(ErrorManager.catch);
 
                 let label = property.capitalize();
                 if(['password', 'username', 'url'].indexOf(property) === -1) {
