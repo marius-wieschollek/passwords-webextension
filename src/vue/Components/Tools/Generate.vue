@@ -101,7 +101,7 @@
             copy() {
                 let data  = this.password,
                     label = LocalisationService.translate('PropertyPassword');
-                navigator.clipboard.writeText(data);
+                    MessageService.send({type: 'clipboard.write', payload: {type: 'password', value: data}}).catch(ErrorManager.catch);
 
                 ToastService
                     .success(['PasswordPropertyCopied', label])

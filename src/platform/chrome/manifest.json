@@ -49,9 +49,13 @@
         "*://*/*",
         "tabs",
         "storage",
+        "clipboardWrite",
         "contextMenus",
         "notifications",
         "webRequest",
         "webRequestBlocking"
+    ],
+    "optional_permissions"   : [
+        "clipboardRead"
     ]
 }

@@ -21,6 +21,8 @@ export default class Get extends AbstractController {
             'theme.current',
             'theme.custom',
             'debug.localisation.enabled',
+            'clipboard.clear.delay',
+            'clipboard.clear.passwords',
             'search.recommendation.mode',
             'search.recommendation.maxRows'
         ];
