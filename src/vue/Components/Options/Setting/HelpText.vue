@@ -52,12 +52,15 @@
     position         : relative;
     background-color : var(--button-bg-color);
     color            : var(--button-fg-color);
-    transition       : var(--button-transition);
+    transition       : var(--button-transition), z-index 0s ease-in-out 1s;
+    z-index          : 1;
 
     &.open,
     &:hover {
         background-color : var(--button-hover-bg-color);
         color            : var(--button-hover-fg-color);
+        transition       : var(--button-transition);
+        z-index          : 2;
 
         .text {
             background-color : var(--button-hover-bg-color);
@@ -65,12 +68,17 @@
             max-height       : 12rem;
             transition       : max-height .25s ease-in-out;
         }
+
+        .icon-info-circle {
+            color : var(--button-hover-fg-color);
+        }
     }
 
     .icon {
         padding : .5rem;
         display : block;
         cursor  : pointer;
+        color   : var(--info-bg-color);
     }
 
     .icon-exclamation-triangle {
@@ -87,13 +95,13 @@
         transition : background-color 0s .25s linear, color 0s .25s linear, max-height .25s ease-in-out;
 
         span {
-            padding    : .5rem;
-            display    : block;
-            text-align : justify;
-            -webkit-hyphens: auto;
-            -moz-hyphens: auto;
-            -ms-hyphens: auto;
-            hyphens: auto;
+            padding         : .5rem;
+            display         : block;
+            text-align      : justify;
+            -webkit-hyphens : auto;
+            -moz-hyphens    : auto;
+            -ms-hyphens     : auto;
+            hyphens         : auto;
         }
     }
 }

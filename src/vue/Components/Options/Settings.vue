@@ -26,7 +26,7 @@
         <div class="setting">
             <slider-field id="clipboard-clear-passwords" v-model="clearClipboard"/>
             <translate tag="label" for="clipboard-clear-passwords" say="SettingsClearClipboardPasswords"/>
-            <help-text type="warning" text="HelpClearClipboardPasswords"/>
+            <help-text type="info" text="HelpClearClipboardPasswords"/>
         </div>
         <div class="setting">
             <translate tag="label" for="clipboard-clear-delay" say="SettingsClearClipboardDelay"/>

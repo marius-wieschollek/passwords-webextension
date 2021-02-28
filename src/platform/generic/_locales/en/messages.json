@@ -1250,5 +1250,13 @@
                 "example": "One of 1, 5, 10, 15 or 20"
             }
         }
+    },
+    "InputSliderOn"    : {
+        "message"     : "Currently on",
+        "description" : "Tooltip of any slider input element that is currently in the active/enabled state"
+    },
+    "InputSliderOff"    : {
+        "message"     : "Currently off",
+        "description" : "Tooltip of any slider input element that is currently in the inactive/disabled state"
     }
 }
