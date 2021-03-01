@@ -153,6 +153,7 @@
                 this.getSetting('search.recommendation.maxRows', 'recSearchRows');
                 this.getSetting('clipboard.clear.passwords', 'clearClipboard');
                 this.getSetting('clipboard.clear.delay', 'clearClipboardDelay');
+                this.getSetting('password.list.show.user', 'showUserInList');
             },
             async getSetting(name, variable) {
                 try {

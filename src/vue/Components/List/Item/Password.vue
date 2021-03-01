@@ -95,7 +95,7 @@
             },
             getLabel() {
                 var result = this.password.getLabel();
-                if(PasswordSettingsManager.getShowUserInList()) {
+                if(PasswordSettingsManager.getShowUserInList() && this.password.getUserName() !== "") {
                     result = result + " - " + this.password.getUserName();
                 }
                 return result;
