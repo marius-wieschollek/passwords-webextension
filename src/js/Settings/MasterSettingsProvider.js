@@ -92,6 +92,10 @@ class MasterSettingsProvider {
             'clipboard.clear.delay' : [
                 'sync.clipboard.clear.delay',
                 'local.clipboard.clear.delay',
+            ],
+            'password.list.show.user' : [
+                'sync.password.list.show.user',
+                'local.password.list.show.user',
             ]
         };
         this._defaults = {
@@ -111,7 +115,8 @@ class MasterSettingsProvider {
             'search.recommendation.mode'   : 'host',
             'search.recommendation.maxRows': 8,
             'clipboard.clear.passwords'    : false,
-            'clipboard.clear.delay'        : 60
+            'clipboard.clear.delay'        : 60,
+            'password.list.show.user'      : false,
         };
     }
 

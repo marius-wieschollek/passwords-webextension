@@ -1258,5 +1258,9 @@
     "InputSliderOff"    : {
         "message"     : "Currently off",
         "description" : "Tooltip of any slider input element that is currently in the inactive/disabled state"
+    },
+    "SettingsShowUsernameInList"  : {
+        "message"    : "Show username next to title",
+        "description": "Label of the setting in the extension settings to show the username next to the title in password lists."
     }
 }

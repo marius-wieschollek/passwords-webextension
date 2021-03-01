@@ -2,6 +2,10 @@
     <div class="settings-general">
         <translate tag="h3" say="AutofillSettings"/>
         <div class="setting">
+            <slider-field id="show-username-in-list" v-model="showUserInList"/>
+            <translate tag="label" for="show-username-in-list" say="SettingsShowUsernameInList"/>
+        </div>
+        <div class="setting">
             <slider-field id="paste-autoclose" v-model="autoclose"/>
             <translate tag="label" for="paste-autoclose" say="SettingsPastePopupClose"/>
         </div>
@@ -87,7 +91,8 @@
                 recSearchMode    : 'host',
                 recSearchRows    : 8,
                 clearClipboard   : false,
-                clearClipboardDelay: 60
+                clearClipboardDelay: 60,
+                showUserInList   : false,
             };
         },
 
@@ -227,6 +232,11 @@
             recSearchRows(value, oldValue) {
                 if(oldValue !== null && value !== oldValue) {
                     this.setSetting('search.recommendation.maxRows', value);
+                }
+            },
+            showUserInList(value, oldValue) {
+                if(oldValue !== null && value !== oldValue) {
+                    this.setSetting('password.list.show.user', value);
                 }
             }
         }

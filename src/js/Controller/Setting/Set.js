@@ -17,7 +17,8 @@ export default class Set extends AbstractController {
             'notification.password.new',
             'notification.password.update',
             'debug.localisation.enabled',
-            'clipboard.clear.passwords'
+            'clipboard.clear.passwords',
+            'password.list.show.user'
         ];
     }
 

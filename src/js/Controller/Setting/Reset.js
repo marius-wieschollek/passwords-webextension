@@ -21,7 +21,8 @@ export default class Reset extends AbstractController {
             'search.recommendation.mode',
             'search.recommendation.maxRows',
             'clipboard.clear.passwords',
-            'clipboard.clear.delay'
+            'clipboard.clear.delay',
+            'password.list.show.user'
         ];
     }
 
