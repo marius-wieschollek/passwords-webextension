@@ -6,24 +6,24 @@
             </div>
             <div class="options">
                 <div class="option" @click="generatePassword">
-                    <icon icon="redo" font="solid" :spin="generating"/>
+                    <icon icon="redo" font="solid" :spin="generating" />
                 </div>
-                <icon icon="clipboard" @click="copy()" draggable="true" @dragstart="drag($event)"/>
+                <icon icon="clipboard" @click="copy()" draggable="true" @dragstart="drag($event)" />
                 <!--                <icon icon="paste" font="solid"/>-->
             </div>
         </div>
         <div class="generate-password-options">
-            <div class="option">
-                <slider-field id="generate-add-numbers" v-model=" numbers"/>
-                <translate tag="label" for="generate-add-numbers" say="LabelGenerateAddNumbers"/>
+            <div class="option numbers">
+                <slider-field id="generate-add-numbers" v-model=" numbers" />
+                <translate tag="label" for="generate-add-numbers" say="LabelGenerateAddNumbers" />
             </div>
-            <div class="option">
-                <slider-field id="generate-add-special" v-model="special"/>
-                <translate tag="label" for="generate-add-special" say="LabelGenerateAddSpecial"/>
+            <div class="option special">
+                <slider-field id="generate-add-special" v-model="special" />
+                <translate tag="label" for="generate-add-special" say="LabelGenerateAddSpecial" />
             </div>
-            <div class="option">
-                <translate tag="label" for="generate-add-strength" say="LabelGenerateStrength"/>
-                <select-field id="generate-add-strength" v-model="strength" :options="strengthOptions"/>
+            <div class="option strength">
+                <translate tag="label" for="generate-add-strength" say="LabelGenerateStrength" />
+                <select-field id="generate-add-strength" v-model="strength" :options="strengthOptions" />
             </div>
         </div>
     </div>
@@ -31,14 +31,14 @@
 
 <script>
     import LocalisationService from '@js/Services/LocalisationService';
-    import Icon from '@vue/Components/Icon';
-    import ToastService from '@js/Services/ToastService';
-    import ErrorManager from '@js/Manager/ErrorManager';
-    import SliderField from '@vue/Components/Form/SliderField';
-    import Translate from '@vue/Components/Translate';
-    import SelectField from '@vue/Components/Form/SelectField';
-    import MessageService from '@js/Services/MessageService';
-    import SettingsService from "@js/Services/SettingsService";
+    import Icon                from '@vue/Components/Icon';
+    import ToastService        from '@js/Services/ToastService';
+    import ErrorManager        from '@js/Manager/ErrorManager';
+    import SliderField         from '@vue/Components/Form/SliderField';
+    import Translate           from '@vue/Components/Translate';
+    import SelectField         from '@vue/Components/Form/SelectField';
+    import MessageService      from '@js/Services/MessageService';
+    import SettingsService     from '@js/Services/SettingsService';
 
     export default {
         components: {SelectField, Translate, SliderField, Icon},
@@ -101,7 +101,7 @@
             copy() {
                 let data  = this.password,
                     label = LocalisationService.translate('PropertyPassword');
-                    MessageService.send({type: 'clipboard.write', payload: {type: 'password', value: data}}).catch(ErrorManager.catch);
+                MessageService.send({type: 'clipboard.write', payload: {type: 'password', value: data}}).catch(ErrorManager.catch);
 
                 ToastService
                     .success(['PasswordPropertyCopied', label])
@@ -187,35 +187,38 @@
     }
 
     .generate-password-options {
-        display        : grid;
-        margin         : .75rem .5rem 0;
-        grid-auto-flow : column;
+        display             : grid;
+        margin              : .75rem .5rem 0;
+        grid-template-areas : "numbers special" "strength strength";
+        grid-row-gap        : .5rem;
 
         .option {
             display     : flex;
             align-items : center;
+            gap         : .25rem;
 
             label {
-                cursor : pointer;
+                cursor    : pointer;
+                flex-grow : 1;
             }
 
             .input-slider {
-                margin-right : .25rem;
+                font-size : 14px;
             }
 
-            #generate-add-strength {
-                padding       : 0;
-                border        : 0;
-                background    : var(--button-bg-color);
-                color         : var(--button-fg-color);
-                border-radius : var(--button-border-radius);
-                width         : 5rem;
-                margin-left   : .25rem;
+            &.numbers {
+                grid-area : numbers;
+            }
 
-                &:hover,
-                &:active {
-                    background : var(--button-hover-bg-color);
-                    color      : var(--button-hover-fg-color);
+            &.special {
+                grid-area : special;
+            }
+
+            &.strength {
+                grid-area : strength;
+
+                .input-select {
+                    flex-grow : 1;
                 }
             }
         }

@@ -29,6 +29,17 @@
     --button-border-radius-large    : 100px;
 
     /**
+     * Slider
+     */
+    --slider-bg-color               : #eeeeee;
+    --slider-fg-color               : #ffffff;
+    --slider-br-color               : #dcdddd;
+    --slider-active-bg-color        : #0060df;
+    --slider-active-fg-color        : #ffffff;
+    --slider-active-br-color        : #003eaa;
+    --slider-border-radius          : .6em;
+
+    /**
      * Tab borders (box-shadow)
      */
     --tab-border                    : 0 -1px 0 var(--element-hover-bg-color) inset;

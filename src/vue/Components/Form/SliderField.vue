@@ -7,7 +7,7 @@
                :id="id"
                :name="name"
                v-model="model"
-               v-on="listeners"/>
+               v-on="listeners" />
     </span>
 </template>
 
@@ -42,11 +42,11 @@
 
         computed: {
             getClassNames() {
-                return 'input-slider ' + (this.value ? 'on':'off');
+                return 'input-slider ' + (this.value ? 'on' : 'off');
             },
             getTitle() {
                 if(this.title.length === 0) {
-                    return LocalisationService.translate(this.value ? 'InputSliderOn':'InputSliderOff');
+                    return LocalisationService.translate(this.value ? 'InputSliderOn' : 'InputSliderOff');
                 }
 
                 return LocalisationService.translate(this.title);
@@ -90,39 +90,46 @@
     display     : inline-flex;
     align-items : center;
     width       : 1.75em;
-    height      : 1em;
+    height      : 1.1em;
+    min-width   : 1.75em;
     cursor      : pointer;
+    flex-shrink : 0;
+    flex-grow   : 0;
 
     .input-slider-bar {
         margin           : 0;
-        background-color : var(--element-hover-bg-color);
-        border-radius    : var(--button-border-radius-large);
-        border           : 2px solid var(--element-hover-bg-color);
+        background-color : var(--slider-bg-color);
+        border-radius    : var(--slider-border-radius);
+        border           : 1px solid var(--slider-br-color);
         width            : 100%;
         display          : inline-block;
         height           : 100%;
     }
 
     .input-slider-button {
-        background-color : var(--element-fg-color);
-        border-radius    : var(--button-border-radius-large);
+        background-color : var(--slider-fg-color);
+        border-radius    : var(--slider-border-radius);
+        border           : 1px solid var(--slider-br-color);
         position         : absolute;
         top              : 2px;
         left             : 2px;
-        height           : calc(1em - 4px);
-        width            : calc(1em - 4px);
+        height           : calc(1.1em - 4px);
+        width            : calc(1.1em - 4px);
         transition       : left .15s ease-in-out;
         box-sizing       : border-box;
+        overflow         : hidden;
     }
 
     &.on {
         .input-slider-bar {
-            background-color : var(--element-active-fg-color);
-            border           : 2px solid var(--element-active-fg-color);
+            background-color : var(--slider-active-bg-color);
+            border-color     : var(--slider-active-br-color);
         }
 
         .input-slider-button {
-            left : calc(100% - 1em + 2px);
+            left             : calc(100% - 1.1em + 2px);
+            background-color : var(--slider-active-fg-color);
+            border-color     : var(--slider-active-br-color);
         }
     }
 

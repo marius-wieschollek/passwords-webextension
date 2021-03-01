@@ -16,12 +16,16 @@
         props: {
             name  : String,
             type  : String,
-            colors: Object
+            colors: Object,
+            second: {
+                type: String,
+                default: 'hover'
+            }
         },
 
         data() {
             let keyBase  = `${this.name}-${this.type}`,
-                keyHover = `${this.name}-hover-${this.type}`;
+                keyHover = `${this.name}-${this.second}-${this.type}`;
 
             return {
                 defaultBase : this.colors[keyBase],
@@ -35,12 +39,18 @@
 
         computed: {
             label() {
+                if(this.type === 'br') return 'BorderColorLabel';
+
                 return this.type === 'bg' ? 'BackgroundColorLabel':'ForegroundColorLabel';
             },
             baseTitle() {
+                if(this.type === 'br') return 'BorderColorBaseTitle';
+
                 return this.type === 'bg' ? 'BackgroundColorBaseTitle':'ForegroundColorBaseTitle';
             },
             hoverTitle() {
+                if(this.type === 'br') return 'BorderColorHoverTitle';
+
                 return this.type === 'bg' ? 'BackgroundColorHoverTitle':'ForegroundColorHoverTitle';
             },
             baseDisabled() {

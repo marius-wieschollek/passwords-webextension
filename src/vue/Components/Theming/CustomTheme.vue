@@ -14,6 +14,10 @@
         <custom-color-set name="button" type="bg" :colors="colors" v-on:update="update"/>
         <custom-color-inherit name="button" type="fg" :colors="colors" v-on:update="update"/>
         <custom-color-set name="button" type="fg" :colors="colors" v-on:update="update"/>
+        <translate tag="h4" say="CustomSliderElement"/>
+        <custom-color-set name="slider" type="bg" second="active" :colors="colors" v-on:update="update"/>
+        <custom-color-set name="slider" type="fg" second="active" :colors="colors" v-on:update="update"/>
+        <custom-color-set name="slider" type="br" second="active" :colors="colors" v-on:update="update"/>
         <translate tag="h4" say="CustomToasts"/>
         <custom-color-toast name="info" label="ToastInfoColors" :colors="colors" v-on:update="update"/>
         <custom-color-toast name="success" label="ToastSuccessColors" :colors="colors" v-on:update="update"/>

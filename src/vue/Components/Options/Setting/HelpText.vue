@@ -52,7 +52,7 @@
     position         : relative;
     background-color : var(--button-bg-color);
     color            : var(--button-fg-color);
-    transition       : var(--button-transition), z-index 0s ease-in-out 1s;
+    transition       : var(--button-transition), z-index 0s ease-in-out .25s;
     z-index          : 1;
 
     &.open,

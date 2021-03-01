@@ -2,6 +2,15 @@
     --element-active-fg-color : var(--element-fg-color);
 }
 
-.input-slider .input-slider-bar {
-    border: 1px solid var(--element-active-bg-color);
+.input-select,
+.input-select select {
+    color : var(--element-hover-fg-color);
+}
+
+.input-select::after {
+    opacity: 1;
+}
+
+.input-slider.on .input-slider-button {
+    border-color : var(--slider-active-fg-color);
 }

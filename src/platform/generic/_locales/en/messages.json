@@ -774,6 +774,10 @@
         "message"    : "Buttons",
         "description": "Headline for the button styling settings in the custom theme settings"
     },
+    "CustomSliderElement"           : {
+        "message"    : "Switches",
+        "description": "Headline for the switch styling settings in the custom theme settings"
+    },
     "CustomToasts"                  : {
         "message"    : "Toast notifications",
         "description": "Headline for the toast notification styling settings in the custom theme settings"
@@ -789,6 +793,10 @@
     "ForegroundColorLabel"          : {
         "message"    : "Foreground color",
         "description": "Label of foreground / text color options in the custom theme settings"
+    },
+    "BorderColorLabel"          : {
+        "message"    : "Border color",
+        "description": "Label of border color options in the custom theme settings"
     },
     "BackgroundInheritLabel"        : {
         "message"    : "Inherit background",
@@ -813,6 +821,14 @@
     "ForegroundColorHoverTitle"     : {
         "message"    : "This color is used for texts and borders if the element is active",
         "description": "Tooltip of the color input field in the custom theme settings for the hover / active foreground / text color for an element"
+    },
+    "BorderColorBaseTitle"      : {
+        "message"    : "This color is usually used for borders",
+        "description": "Tooltip of the color input field in the custom theme settings for the default border color for an element"
+    },
+    "BorderColorHoverTitle"     : {
+        "message"    : "This color is used for borders if the element is active",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active border color for an element"
     },
     "BackgroundInheritTitle"        : {
         "message"    : "If activated, the value will be inherited from the parent element",

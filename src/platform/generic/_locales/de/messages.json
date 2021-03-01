@@ -760,6 +760,10 @@
         "message"    : "Schaltflächen",
         "description": "Headline for the button styling settings in the custom theme settings"
     },
+    "CustomSliderElement"           : {
+        "message"    : "Schalter",
+        "description": "Headline for the switch styling settings in the custom theme settings"
+    },
     "CustomToasts"                  : {
         "message"    : "Mini-Benachrichtigungen",
         "description": "Headline for the toast notification styling settings in the custom theme settings"
@@ -775,6 +779,10 @@
     "ForegroundColorLabel"          : {
         "message"    : "Vordergrundfarbe",
         "description": "Label of foreground / text color options in the custom theme settings"
+    },
+    "BorderColorLabel"          : {
+        "message"    : "Umrandungsfarbe",
+        "description": "Label of border color options in the custom theme settings"
     },
     "BackgroundInheritLabel"        : {
         "message"    : "Hintergrund erben",
@@ -799,6 +807,14 @@
     "ForegroundColorHoverTitle"     : {
         "message"    : "Diese Farbe wird für den Vordergrund und Umrandungen verwendet wenn das Element mit der Maus überfahren wird",
         "description": "Tooltip of the color input field in the custom theme settings for the hover / active foreground / text color for an element"
+    },
+    "BorderColorBaseTitle"      : {
+        "message"    : "Diese Farbe wird für Umrandungen verwendet",
+        "description": "Tooltip of the color input field in the custom theme settings for the default border color for an element"
+    },
+    "BorderColorHoverTitle"     : {
+        "message"    : "Diese Farbe wird für Umrandungen verwendet wenn das Element aktiv ist",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active border color for an element"
     },
     "BackgroundInheritTitle"        : {
         "message"    : "Falls aktiviert wird die Farbe des übergeordneten Elements übernommen",

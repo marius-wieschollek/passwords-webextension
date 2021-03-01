@@ -1,6 +1,6 @@
 import ObjectClone from 'passwords-client/src/Utility/ObjectClone';
 import ServerTheme from '@js/Themes/Server';
-import Theme from '@js/Models/Theme/Theme';
+import Theme       from '@js/Models/Theme/Theme';
 
 class ServerThemeHelper {
 
@@ -19,6 +19,7 @@ class ServerThemeHelper {
         this._setBadgeColors(theme, colors);
         this._setElementColors(colors, theme);
         this._setButtonColors(theme, colors);
+        this._setSliderColors(theme, colors);
         this._setTabColors(theme, colors);
 
         return new Theme(theme);
@@ -62,8 +63,22 @@ class ServerThemeHelper {
      * @param {Object} colors
      * @private
      */
+    _setSliderColors(theme, colors) {
+        theme.colors['slider-bg'] = colors.primary.fg;
+        theme.colors['slider-fg'] = colors.primary.bg;
+        theme.colors['slider-br'] = colors.primary.bg;
+        theme.colors['slider-active-bg'] = colors.primary.bg;
+        theme.colors['slider-active-fg'] = colors.primary.fg;
+        theme.colors['slider-active-br'] = colors.primary.fg;
+    }
+
+    /**
+     * @param {Object} theme
+     * @param {Object} colors
+     * @private
+     */
     _setElementColors(colors, theme) {
-        let fgPrimary = parseInt(colors.primary.bg.replace('#', ''), 16) <= 8355711 ? colors.primary.bg:this._lighten(colors.primary.bg, -30);
+        let fgPrimary = parseInt(colors.primary.bg.replace('#', ''), 16) <= 8355711 ? colors.primary.bg : this._lighten(colors.primary.bg, -30);
         theme.colors['element-bg'] = colors.background.bg;
         theme.colors['element-fg'] = this._lighten(colors.background.fg, 30);
         theme.colors['element-hover-bg'] = this._lighten(colors.background.bg, -7);
@@ -86,7 +101,11 @@ class ServerThemeHelper {
         let textColor = collection.get('theme.color.text').getValue();
         let primaryColor = collection.get('theme.color.primary').getValue();
         let backgroundColor = collection.get('theme.color.background').getValue();
-        let backgroundTextColor = backgroundColor === '#ffffff' ? '#000000':'#ffffff';
+
+        /** "Fix" for PHPStorm reformatting colors on its own **/
+        let b               = '000',
+            w               = 'fff',
+            backgroundTextColor = backgroundColor === `#${w}` || backgroundColor === `#${w}${w}` ? `#${b}${b}` : `#${w}${w}`;
 
         return {primary: {bg: primaryColor, fg: textColor}, background: {bg: backgroundColor, fg: backgroundTextColor}};
     }
@@ -102,13 +121,15 @@ class ServerThemeHelper {
      */
     _lighten(color, percent) {
         color = color.replace('#', '');
+        if(color.length === 3) color = color[0]+color[0]+color[1]+color[1]+color[2]+color[2];
+
         let num = parseInt(color, 16),
             amt = Math.round(2.55 * percent),
             R   = (num >> 16) + amt,
             B   = (num >> 8 & 0x00FF) + amt,
             G   = (num & 0x0000FF) + amt;
 
-        return '#' + (0x1000000 + (R < 255 ? R < 1 ? 0:R:255) * 0x10000 + (B < 255 ? B < 1 ? 0:B:255) * 0x100 + (G < 255 ? G < 1 ? 0:G:255)).toString(16).slice(1);
+        return '#' + (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 + (B < 255 ? B < 1 ? 0 : B : 255) * 0x100 + (G < 255 ? G < 1 ? 0 : G : 255)).toString(16).slice(1);
     }
 }
 

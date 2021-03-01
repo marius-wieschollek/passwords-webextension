@@ -26,3 +26,11 @@ body #manager > .tab-container > .tabs > .tab.active {
     background : none;
     color      : var(--tabs-active-fg-color);
 }
+
+body .input-slider.off .input-slider-button {
+    border-color : var(--slider-bg-color);
+}
+
+body .input-slider.on .input-slider-button {
+    border-color : var(--slider-active-bg-color);
+}

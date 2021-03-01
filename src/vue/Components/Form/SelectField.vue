@@ -1,6 +1,6 @@
 <template>
-    <div class="select-field" :class="{disabled:disabled}">
-        <select @change="handleChange" v-on="listeners" v-bind="$attrs" :disabled="disabled">
+    <div class="input-select" :class="{disabled:disabled}">
+        <select @change="handleChange" v-on="listeners" v-bind="$attrs" :id="id" :disabled="disabled">
             <option v-for="option in optionList"
                     :key="option.id"
                     :value="option.id"
@@ -32,6 +32,10 @@
             disabled : {
                 type   : Boolean,
                 default: false
+            },
+            id       : {
+                type   : String,
+                default: ''
             }
         },
 
@@ -47,10 +51,10 @@
                         options.push({id, label: config, disabled: false, description: null});
                     } else {
                         let option = {
-                            id         : config.hasOwnProperty('id') ? config.id:id,
+                            id         : config.hasOwnProperty('id') ? config.id : id,
                             label      : config.label,
-                            disabled   : config.hasOwnProperty('disabled') ? config.disabled === true:false,
-                            description: config.hasOwnProperty('description') ? config.description:null
+                            disabled   : config.hasOwnProperty('disabled') ? config.disabled === true : false,
+                            description: config.hasOwnProperty('description') ? config.description : null
                         };
 
                         options.push(option);
@@ -87,7 +91,7 @@
 </script>
 
 <style lang="scss">
-.select-field {
+.input-select {
     cursor           : pointer;
     background-color : var(--element-hover-bg-color);
     border-radius    : var(--button-border-radius);
@@ -102,6 +106,9 @@
         position         : relative;
         width            : 100%;
         z-index          : 1;
+        overflow         : hidden;
+        text-overflow    : ellipsis;
+        color            : var(--element-fg-color);
     }
 
     &.disabled {
