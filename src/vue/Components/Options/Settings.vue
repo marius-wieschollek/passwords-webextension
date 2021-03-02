@@ -24,7 +24,7 @@
             <help-text type="warning" text="HelpPasteBasicAuth"/>
         </div>
         <div class="setting">
-            <slider-field id="clipboard-clear-passwords" v-model="clearClipboard"/>
+            <slider-field id="clipboard-clear-passwords" v-model="clearClipboard" @change="requestClipboardReadPermission(clearClipboard)"/>
             <translate tag="label" for="clipboard-clear-passwords" say="SettingsClearClipboardPasswords"/>
             <help-text type="info" text="HelpClearClipboardPasswords"/>
         </div>
@@ -164,6 +164,9 @@
                     ErrorManager.logError(e);
                     ToastService.error(e.message).catch(ErrorManager.catch);
                 }
+            },
+            requestClipboardReadPermission(oldValue) {
+                if(oldValue !== true) ClipboardManager.requestReadPermission();
             }
         },
 
@@ -194,7 +197,6 @@
                 }
             },
             clearClipboard(value, oldValue) {
-                if(value === true) ClipboardManager.requestReadPermission();
                 if(oldValue !== null && value !== oldValue) {
                     this.setSetting('clipboard.clear.passwords', value);
                 }
