@@ -2,7 +2,7 @@
     <li class="item password-item">
         <div class="label" @click="sendPassword()" :title="title">
             <favicon :password="password.getId()" :size="22" v-if="favicon"/>
-            {{ getLabel() }}
+            {{ label }}
         </div>
         <div class="options">
             <icon icon="user" hover-icon="clipboard" @click="copy('username', 'text')" draggable="true" @dragstart="drag($event, 'username')"/>
@@ -49,6 +49,13 @@
             },
             title() {
                 return LocalisationService.translate('PasswordItemTitle', this.password.getId(), this.password.getStatusCode());
+            },
+            label() {
+                var result = this.password.getLabel();
+                if(PasswordSettingsManager.getShowUserInList() && this.password.getUserName() !== "") {
+                    result = result + " - " + this.password.getUserName();
+                }
+                return result;
             }
         },
 
@@ -92,13 +99,6 @@
                 } catch(e) {
                     ErrorManager.logError(e);
                 }
-            },
-            getLabel() {
-                var result = this.password.getLabel();
-                if(PasswordSettingsManager.getShowUserInList() && this.password.getUserName() !== "") {
-                    result = result + " - " + this.password.getUserName();
-                }
-                return result;
             },
             copy(property, type) {
                 let data = this.password.getProperty(property);
