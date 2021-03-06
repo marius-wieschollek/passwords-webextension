@@ -2,7 +2,7 @@
     <li class="item password-item">
         <div class="label" @click="sendPassword()" :title="title">
             <favicon :password="password.getId()" :size="22" v-if="favicon"/>
-            {{ password.getLabel() }}
+            {{ label }}
         </div>
         <div class="options">
             <icon icon="user" hover-icon="clipboard" @click="copy('username', 'text')" draggable="true" @dragstart="drag($event, 'username')"/>
@@ -21,6 +21,7 @@
     import ErrorManager from '@js/Manager/ErrorManager';
     import LocalisationService from '@js/Services/LocalisationService';
     import SettingsService from '@js/Services/SettingsService';
+    import PasswordSettingsManager from '@js/Manager/PasswordSettingsManager';
 
     export default {
         components: {Favicon, Icon},
@@ -48,6 +49,13 @@
             },
             title() {
                 return LocalisationService.translate('PasswordItemTitle', this.password.getId(), this.password.getStatusCode());
+            },
+            label() {
+                var result = this.password.getLabel();
+                if(PasswordSettingsManager.getShowUserInList() && this.password.getUserName() !== "") {
+                    result = result + " - " + this.password.getUserName();
+                }
+                return result;
             }
         },
 

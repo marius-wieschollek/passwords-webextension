@@ -10,6 +10,7 @@ import ThemeService from '@js/Services/ThemeService';
 import SettingsService from '@js/Services/SettingsService';
 import ClientSettingsProvider from '@js/Settings/ClientSettingsProvider';
 import LocalisationService from "@js/Services/LocalisationService";
+import PasswordSettingsManager from '@js/Manager/PasswordSettingsManager';
 
 class Popup {
 
@@ -44,6 +45,7 @@ class Popup {
             await MessageService.init(true, 'background');
             ConverterManager.init();
             SettingsService.init(ClientSettingsProvider);
+            await PasswordSettingsManager.init();
             this._authClient = new AuthorisationClient();
 
             await ThemeService.apply();

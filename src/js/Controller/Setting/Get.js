@@ -24,7 +24,8 @@ export default class Get extends AbstractController {
             'clipboard.clear.delay',
             'clipboard.clear.passwords',
             'search.recommendation.mode',
-            'search.recommendation.maxRows'
+            'search.recommendation.maxRows',
+            'password.list.show.user'
         ];
     }
 
