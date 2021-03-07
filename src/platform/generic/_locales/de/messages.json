@@ -1202,10 +1202,6 @@
     "RecommendationSettings"     : {
         "message"    : "Passwort Empfehlung",
         "description": "Label of the section password recommendations in the extension settings."
-    },
-    "SettingsSearchRecommendationOption"     : {
-        "message"    : "Suche Passwort Empfehlung auf Basis von dieser Option.",
-        "description": "Label of the setting in the extension settings to define how password recommendations are searched."
     },    
     "LabelSearchRecommendationDomain"                 : {
         "message"    : "Domain",

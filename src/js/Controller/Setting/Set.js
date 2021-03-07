@@ -37,8 +37,6 @@ export default class Set extends AbstractController {
                 await this._setDefaultServer(value);
             } else if(setting === 'theme.current') {
                 await this._setCurrentTheme(value);
-            } else if(setting === 'search.recommendation.mode') {
-                await this._setSearchRecommendationMode(value);
             } else if(setting === 'search.recommendation.maxRows') {
                 await this._setSearchRecommendationMaxRows(Number(value));
             } else if(setting === 'clipboard.clear.delay') {
@@ -86,16 +84,6 @@ export default class Set extends AbstractController {
     async _setCurrentTheme(value) {
         await ThemeRepository.findById(value);
         await SettingsService.set('theme.current', value);
-    }
-
-    /**
-     *
-     * @param {String} value
-     * @return {Promise<void>}
-     * @private
-     */
-    async _setSearchRecommendationMode(value) {
-        await SettingsService.set('search.recommendation.mode', value);
     }
 
     /**

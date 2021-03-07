@@ -81,10 +81,6 @@ class MasterSettingsProvider {
                 'sync.search.recommendation.maxRows',
                 'local.search.recommendation.maxRows'
             ],
-            'search.recommendation.mode': [
-                'sync.search.recommendation.mode',
-                'local.search.recommendation.mode'
-            ],
             'clipboard.clear.passwords' : [
                 'sync.clipboard.clear.passwords',
                 'local.clipboard.clear.passwords',
@@ -92,6 +88,9 @@ class MasterSettingsProvider {
             'clipboard.clear.delay' : [
                 'sync.clipboard.clear.delay',
                 'local.clipboard.clear.delay',
+            ],
+            'domain.mapping.list' : [
+                'server.domain.mapping'
             ]
         };
         this._defaults = {
@@ -108,7 +107,6 @@ class MasterSettingsProvider {
             'notification.password.new'    : true,
             'notification.password.update' : true,
             'debug.localisation.enabled'   : true,
-            'search.recommendation.mode'   : 'host',
             'search.recommendation.maxRows': 8,
             'clipboard.clear.passwords'    : false,
             'clipboard.clear.delay'        : 60

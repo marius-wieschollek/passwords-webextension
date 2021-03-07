@@ -35,10 +35,6 @@
 
         <translate tag="h3" say="RecommendationSettings"/>
         <div class="setting">
-            <translate tag="label" for="search-recommendation-option" say="SettingsSearchRecommendationOption"/>
-            <select-field id="search-recommendation-option" :options="recommendationOptions" v-model="recSearchMode"/>
-        </div>
-        <div class="setting">
             <translate tag="label" for="search-recommendation-maxRows" say="SettingsSearchRecommendationMaxRows"/>
             <select-field id="search-recommendation-maxRows" :options="recommendationMaxRows" v-model="recSearchRows"/>
         </div>
@@ -84,7 +80,6 @@
                 notifyPwNew      : false,
                 relatedSearch    : false,
                 notifyPwUpdate   : false,
-                recSearchMode    : 'host',
                 recSearchRows    : 8,
                 clearClipboard   : false,
                 clearClipboardDelay: 60
@@ -144,7 +139,6 @@
                 this.getSetting('popup.related.search', 'relatedSearch');
                 this.getSetting('notification.password.new', 'notifyPwNew');
                 this.getSetting('notification.password.update', 'notifyPwUpdate');
-                this.getSetting('search.recommendation.mode', 'recSearchMode');
                 this.getSetting('search.recommendation.maxRows', 'recSearchRows');
                 this.getSetting('clipboard.clear.passwords', 'clearClipboard');
                 this.getSetting('clipboard.clear.delay', 'clearClipboardDelay');
@@ -217,11 +211,6 @@
             notifyPwUpdate(value, oldValue) {
                 if(oldValue !== null && value !== oldValue) {
                     this.setSetting('notification.password.update', value);
-                }
-            },
-            recSearchMode(value, oldValue) {
-                if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('search.recommendation.mode', value);
                 }
             },
             recSearchRows(value, oldValue) {

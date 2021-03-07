@@ -206,7 +206,7 @@ class MiningManager {
                 .execute();
 
         for(let item of items) {
-            if(data.password.value === item.getPassword()) return true;
+            if(data.user.value === item.getUserName() && data.password.value === item.getPassword()) return true;
         }
 
         /** @type {MiningItem[]}**/
@@ -219,21 +219,30 @@ class MiningManager {
             }
         }
 
-        let tab = TabManager.get();
-        query = new SearchQuery();
-        items = query
-            .where(
-                query.field('password').equals(data.password.value),
-                query.field('username').equals(data.user.value),
-                RecommendationManager.getFilterQuery(query, Url(data.url))
-            )
-            .type('password')
-            .hidden(tab.tab.incognito)
-            .limit(1)
-            .score(0.1)
-            .execute();
+        if(this._findMatchingRecommendations(data.url, data.user.value, data.password.value).length > 0) {
+            return true;
+        }
 
-        return items.length > 0;
+        return false;
+    }
+
+   /**
+    * @param {String} url
+    * @param {String} user
+    * @param {String} password
+    * @return {Array} 
+    */
+    _findMatchingRecommendations(url, user = null, password = null) {
+        let tab = TabManager.get();
+        var recommendations = RecommendationManager.getRecommendationsByUrl(url, tab.tab.incognito);
+        if(user === null || password === null) {
+            return recommendations;
+        }
+        var elements = recommendations.filter(e => 
+            e.getUserName() == user && 
+            e.getPassword() == password);
+
+        return elements;
     }
 
     /**
@@ -258,20 +267,11 @@ class MiningManager {
             return null;
         }
 
-        let query = new SearchQuery(),
-            items = query
-                .where(
-                    query.field('username').equals(data.user.value),
-                    RecommendationManager.getFilterQuery(query, Url(data.url))
-                )
-                .type('password')
-                .hidden(tab.tab.incognito)
-                .limit(1)
-                .score(0.1)
-                .execute();
+        let items = this._findMatchingRecommendations(data.url);
+        var item = items.find(item => item._data.username === data.user.value);
 
-        if(items.length !== 0) {
-            return items[0];
+        if(item !== undefined) {
+            return item;
         }
 
         return null;

@@ -39,14 +39,19 @@ class RecommendationManager {
     }
 
     initRecommendationOptions() {
-        this.options = { mode: "host", maxRows: 8 }
-        SettingsService.get('search.recommendation.mode')
-        .then((value) => {
-            this.options.mode = value;
-        });
+        this.options = 
+        { 
+            conditions    : [ "exact", "hostport", "host", "domain" ],
+            maxRows       : 8,
+            domainMappings: undefined 
+        }
         SettingsService.get('search.recommendation.maxRows')
         .then((value) => {
             this.options.maxRows = value;
+        });
+        SettingsService.get('domain.mapping.list')
+        .then((value) => {
+            this.options.domainMappings = value;
         });
     }
 
@@ -77,52 +82,112 @@ class RecommendationManager {
         url = Url(url);
         if(url.host.length === 0) return [];
 
-        let query = new SearchQuery('or');
+        var result = [];
+        this.options.conditions.forEach((condition) => {
+            var recommendations = this._getRecommendationsByCondition(url, incognito, condition);
+           
+            recommendations.forEach((recommendation) => {
+                result.push(recommendation)
+            });
+        });
+        result = result.filter((item, pos) => result.indexOf(item) === pos);
+
+        return result.slice(0, this._getMaxRowsValue());
+    }
+
+    /**
+     * @return {Integer}
+     */
+     _getMaxRowsValue() {
+        if(!Number.isInteger(this.options.maxRows)) {
+            return this.options.maxRows.getValue();
+        }
+        return this.options.maxRows
+     }
+
+    /**
+     * @param {String} url
+     * @param {Boolean} incognito
+     * @param {String} condition
+     * @return {Password[]}
+     */
+     _getRecommendationsByCondition(url, incognito, condition) {
+        let query = this._getFilterQuery(url, condition)
         query
-            .where(this.getFilterQuery(query, url))
             .type('password')
             .score(0.3)
-            .limit(this.options.maxRows.getValue())
             .sortBy('favorite')
             .sortBy('uses')
             .sortBy('shared')
-            .sortBy('score')
-            .sortBy('label');
-
-        if(incognito) query.hidden(true);
+            .sortBy('label', true)
+            .sortBy('username', true)
+            .hidden(incognito);
 
         return query.execute();
     }
 
     /**
+     * @param {URL} url
+     * @param {String} condition
+     * @return {SearchQuery}
+     */
+     _getFilterQuery(url, condition) {
+       let query = new SearchQuery('or');
+       
+       if(condition === 'domain') {
+            return this._getFilterDomainMappingQuery(query, url)
+        } else if(condition === 'host') {
+            return query.where(query.field('host').startsWith(url.host.split(':')[0]));
+        } else if(condition === 'hostport') {
+            return query.where(query.field('host').equals(url.host));
+        } else {
+            return query.where(query.field('url').equals(url.protocol + "//" + url.host + (url.pathname.length > 1 ? url.pathname: "")));
+        }
+      }
+
+    /**
      * @param {SearchQuery} query
      * @param {URL} url
+     * @return {SearchQuery}
      */
-    getFilterQuery(query, url) {
-        let mode = this.options.mode.getValue();
-        if(mode === 'domain') {
-            return query.field('host').contains(this.getSearchDomainFromHost(url.host));
-        } else if(mode === 'host') {
-            return query.field('host').startsWith(url.host.split(':')[0]);
-        } else if(mode === 'hostport') {
-            return query.field('host').equals(url.host);
-        } else {
-            return query.field('url').equals(url.protocol + "//" + url.host + (url.pathname.length > 1 ? url.pathname: ""));
+    _getFilterDomainMappingQuery(query, url) {
+        let searchDomain = this._getSearchDomainFromHost(url.host);
+        query.where(query.field('host').contains(this._getSearchDomainFromHost(url.host)));
+
+        if(this.options.domainMappings !== undefined &&
+            this.options.domainMappings.getValue() !== undefined) {
+                
+            let mappings = this.options.domainMappings.getValue();
+            mappings.forEach((mapping) => {
+                if(mapping.indexOf(searchDomain) > -1) {
+                    mapping.forEach((domain) => {
+                        query.where(query.field('host').contains(domain));
+                    })
+                }
+            })
         }
+
+        return query;
       }
 
 
     /**
      * @param {String} host
      */
-    getSearchDomainFromHost(host) {
+    _getSearchDomainFromHost(host) {
         let regIPAdress = /((^\s*((([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]))\s*$)|(^\s*((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))(%.+)?\s*$))/;
         if (regIPAdress.test(host)) {
             return host;
         } else {
             let domain = host.split(':')[0];
-            if(domain === domain.split('.')[0]) return domain;
-            return domain.split('.').reverse()[1] + "." + domain.split('.').reverse()[0];
+            let domainArray = domain.split('.').reverse();
+            if(domain === domainArray[0]) return domain;
+
+            if(domainArray[1].length <= 2 && domainArray.length > 2) {
+                return domainArray[2] + "." + domainArray[1] + "." + domainArray[0]
+            }
+
+            return domainArray[1] + "." + domainArray[0];
         }
     }
 

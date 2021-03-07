@@ -1216,11 +1216,7 @@
     "RecommendationSettings"     : {
         "message"    : "Password recommendations",
         "description": "Label of the section password recommendations in the extension settings."
-    },
-    "SettingsSearchRecommendationOption"     : {
-        "message"    : "Search passwords based on the following option.",
-        "description": "Label of the setting in the extension settings to define how password recommendations are searched."
-    },    
+    },  
     "LabelSearchRecommendationDomain"                 : {
         "message"    : "Domain",
         "description": "Find password recommendations by domain. So on page mail.example.com you will see all passwords for the domain and sumdomains of example.com."

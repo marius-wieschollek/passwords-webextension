@@ -23,8 +23,8 @@ export default class Get extends AbstractController {
             'debug.localisation.enabled',
             'clipboard.clear.delay',
             'clipboard.clear.passwords',
-            'search.recommendation.mode',
-            'search.recommendation.maxRows'
+            'search.recommendation.maxRows',
+            'domain.mapping.list'
         ];
     }
 

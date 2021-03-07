@@ -18,7 +18,6 @@ export default class Reset extends AbstractController {
             'theme.current',
             'theme.custom',
             'debug.localisation.enabled',
-            'search.recommendation.mode',
             'search.recommendation.maxRows',
             'clipboard.clear.passwords',
             'clipboard.clear.delay'
