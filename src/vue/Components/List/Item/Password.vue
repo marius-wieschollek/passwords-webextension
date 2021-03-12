@@ -7,7 +7,9 @@
         <div class="options">
             <icon icon="user" hover-icon="clipboard" @click="copy('username', 'text')" draggable="true" @dragstart="drag($event, 'username')"/>
             <icon icon="key" font="solid" hover-icon="clipboard" hover-font="regular" @click="copy('password', 'password')" draggable="true" @dragstart="drag($event, 'password')"/>
+            <icon icon="bars" hover-icon="bars" font="solid" @click="toggleMenu($event)"/>
         </div>
+        <advancedOptions :password="password" v-if="showMenu" :show="showMenu"/>
         <icon :class="securityClass" icon="shield-alt" font="solid"/>
     </li>
 </template>
@@ -15,6 +17,7 @@
 <script>
     import Password from 'passwords-client/src/Model/Password/Password';
     import Icon from '@vue/Components/Icon';
+    import AdvancedOptions from '@vue/Components/List/Item/AdvancedOptions';
     import MessageService from '@js/Services/MessageService';
     import Favicon from '@vue/Components/List/Item/Favicon';
     import ToastService from '@js/Services/ToastService';
@@ -24,7 +27,7 @@
     import PasswordSettingsManager from '@js/Manager/PasswordSettingsManager';
 
     export default {
-        components: {Favicon, Icon},
+        components: {Favicon, Icon, AdvancedOptions },
         props     : {
             password: {
                 type: Password
@@ -37,7 +40,8 @@
 
         data() {
             return {
-                active: true
+                active: true,
+                showMenu: false
             };
         },
 
@@ -115,6 +119,10 @@
             drag(event, property) {
                 let data = this.password.getProperty(property);
                 event.dataTransfer.setData('text/plain', data);
+            },
+            toggleMenu(event){
+                this.showMenu = !this.showMenu;
+                event.stopPropagation();
             }
         }
     };

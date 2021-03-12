@@ -1264,5 +1264,13 @@
     "SettingsShowUsernameInList"  : {
         "message"    : "Zeige Benutzername neben dem Titel",
         "description": "Label of the setting in the extension settings to show the username next to the title in password lists."
+    },
+    "ContextMenuOpenPasswordUrl"    : {
+        "message"     : "Öffnen",
+        "description" : "Label of the context menu option to open the url of a password."
+    },
+    "ContextMenuCopyPasswordUrl"    : {
+        "message"     : "Kopiere Url",
+        "description" : "Label of the context menu option to copy the url of a password."
     }
 }

@@ -1,5 +1,6 @@
 import MessageService from '@js/Services/MessageService';
 import FillPassword from '@js/Controller/Client/FillPassword';
+import OpenUrl from '@js/Controller/Client/OpenUrl';
 import ErrorManager from '@js/Manager/ErrorManager';
 import ShowFields from "@js/Controller/Client/Debug/ShowFields";
 
@@ -25,6 +26,17 @@ class ClientControllerManager {
             async (message, reply) => {
                 try {
                     let controller = new ShowFields();
+                    await controller.execute(message, reply);
+                } catch(e) {
+                    ErrorManager.logError(e, {message, reply});
+                }
+            }
+        );
+        MessageService.listen(
+            'url.open',
+            async (message, reply) => {
+                try {
+                    let controller = new OpenUrl();
                     await controller.execute(message, reply);
                 } catch(e) {
                     ErrorManager.logError(e, {message, reply});

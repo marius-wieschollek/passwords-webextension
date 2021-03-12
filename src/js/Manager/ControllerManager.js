@@ -305,6 +305,13 @@ class ControllerManager {
                 await this._executeController(module, message, reply);
             }
         ); 
+        MessageService.listen(
+            'password.url.open',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "OpenUrl" */ '@js/Controller/Password/OpenUrl');
+                await this._executeController(module, message, reply);
+            }
+        ); 
     }
 
     /**
