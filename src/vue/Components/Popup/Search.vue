@@ -1,7 +1,7 @@
 <template>
     <div class="search-container">
         <input ref="query" type="search" id="query" v-model="query" :placeholder="placeholder">
-        <password-list :passwords="passwords"/>
+        <password-list :passwords="passwords" v-on:delete="search(query)" />
         <translate tag="div" class="no-results" say="NoSearchQuery" @click="focus" v-if="query.length === 0"/>
         <translate tag="div"
                    class="no-results"

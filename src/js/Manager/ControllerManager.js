@@ -61,6 +61,13 @@ class ControllerManager {
             }
         );
         MessageService.listen(
+            'password.delete',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "PasswordDelete" */ '@js/Controller/Password/Delete');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
             'folder.list',
             async (message, reply) => {
                 let module = await import(/* webpackChunkName: "FolderList" */ '@js/Controller/Folder/List');
@@ -288,6 +295,13 @@ class ControllerManager {
             'tab.close',
             async (message, reply) => {
                 let module = await import(/* webpackChunkName: "TabClose" */ '@js/Controller/Tab/Close');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
+            'tab.create',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "TabCreate" */ '@js/Controller/Tab/Create');
                 await this._executeController(module, message, reply);
             }
         );

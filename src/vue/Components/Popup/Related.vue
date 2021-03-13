@@ -1,6 +1,6 @@
 <template>
     <div class="related-container">
-        <password-list :passwords="passwords"/>
+        <password-list :passwords="passwords" :menus="false"/>
         <translate tag="div" class="no-results" say="NoRelatedPasswords" v-if="passwords.length === 0"/>
     </div>
 </template>

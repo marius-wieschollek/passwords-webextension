@@ -2,7 +2,7 @@
     <div class="browse-container">
         <parent-folder :folder="folderId" v-on:open="open($event)" v-if="!isHomeFolder"/>
         <folder-list :folders="folders" v-on:open="open($event)"/>
-        <password-list :passwords="passwords" :favicons="true"/>
+        <password-list :passwords="passwords" :favicons="true" v-on:delete="loadFolders"/>
         <translate tag="div"
                    class="no-results"
                    say="NoServerItems"
