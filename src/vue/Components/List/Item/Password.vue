@@ -146,10 +146,6 @@
         flex-shrink : 0;
     }
 
-    span.icon {
-        background-color : var(--element-bg-color);
-    }
-
     > .label {
         flex-grow     : 1;
         padding       : 0 .25rem 0 .5rem;
@@ -214,6 +210,7 @@
         display     : inline-block;
         line-height : 3rem;
         z-index     : 0;
+        background-color : inherit;
 
         &.secure {
             color : var(--success-bg-color)
