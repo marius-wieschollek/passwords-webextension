@@ -29,6 +29,7 @@ class ClipboardManager {
             });
         } catch (e) {
             ErrorManager.logError(e, "ClipboardManager.getReadPermission()");
+            return  false;
         }
     }
 
@@ -38,18 +39,19 @@ class ClipboardManager {
      */
     async readText() {
         try {
+            let permissions = false
             if(await SystemService.getBrowserApi().extension.getBackgroundPage() !== window) {
-                var permissions = await this.requestReadPermission();
+                permissions = await this.requestReadPermission();
             }
             if(permissions === true || await this.getReadPermissions()) {
-                var element = this._createDOMElement();
+                let element = this._createDOMElement();
                 await document.execCommand('paste');
-                var result = element.value;
+                let result = element.value;
                 this._removeDOMElement(element);
                 return result;
             }
         } catch (e) {
-            ErrorManager.logError(e, "ClipboardManager.readText()");
+            ErrorManager.logError(e, 'ClipboardManager.readText()');
         }
     }
 
@@ -59,7 +61,7 @@ class ClipboardManager {
      * @param {String} value
      */
     write(type, value) {
-        if(type === "password") {
+        if(type === 'password') {
             this.writePassword(value);
         }
         else {
@@ -70,13 +72,12 @@ class ClipboardManager {
     /**
      *
      * @param {String} value
-     * @param {String} type
      */
     writeText(value) {
         try {
-            var element = this._createDOMElement(value);
+            let element = this._createDOMElement(value);
             document.execCommand('copy', false, element.value);
-            this._removeDOMElement(element);            
+            this._removeDOMElement(element);
         } catch (e) {
             ErrorManager.logError(e);
         }
@@ -88,11 +89,11 @@ class ClipboardManager {
      */
     async writePassword(value) {
         this.writeText(value);
-        if(await SettingsService.getValue('clipboard.clear.passwords') == true) {
+        if(await SettingsService.getValue('clipboard.clear.passwords') === true) {
             setTimeout(async () => {
-                var current = await this.readText();
-                if(current === undefined || current === "" || current === value) {
-                    this.writeText(" ");
+                let current = await this.readText();
+                if(current === undefined || current === '' || current === value) {
+                    this.writeText(' ');
                 }
             }, Number(await SettingsService.getValue('clipboard.clear.delay')) * 1000)
         }
@@ -100,12 +101,13 @@ class ClipboardManager {
 
     /**
      *
+     * @param {String} value
      * @param {String} type
      */
-    _createDOMElement(value = "", type = "text") {
-        var element = document.createElement("INPUT");
-        element.setAttribute("type", type);
-        element.setAttribute("value", value);
+    _createDOMElement(value = '', type = 'text') {
+        let element = document.createElement('INPUT');
+        element.setAttribute('type', type);
+        element.setAttribute('value', value);
         document.body.appendChild(element);
         element.select();
         return element;
@@ -113,7 +115,7 @@ class ClipboardManager {
 
     /**
      *
-     * @param {String} type
+     * @param {Element} element
      */
     _removeDOMElement(element) {
         element.blur();
