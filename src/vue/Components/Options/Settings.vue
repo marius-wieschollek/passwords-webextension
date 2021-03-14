@@ -2,10 +2,6 @@
     <div class="settings-general">
         <translate tag="h3" say="AutofillSettings"/>
         <div class="setting">
-            <slider-field id="show-username-in-list" v-model="showUserInList"/>
-            <translate tag="label" for="show-username-in-list" say="SettingsShowUsernameInList"/>
-        </div>
-        <div class="setting">
             <slider-field id="paste-autoclose" v-model="autoclose"/>
             <translate tag="label" for="paste-autoclose" say="SettingsPastePopupClose"/>
         </div>
@@ -47,6 +43,12 @@
             <select-field id="search-recommendation-maxRows" :options="recommendationMaxRows" v-model="recSearchRows"/>
         </div>
 
+        <translate tag="h3" say="UiSettings"/>
+        <div class="setting">
+            <slider-field id="show-username-in-list" v-model="showUserInList"/>
+            <translate tag="label" for="show-username-in-list" say="SettingsShowUsernameInList"/>
+        </div>
+
         <translate tag="h3" say="NotificationSettings"/>
         <div class="setting">
             <slider-field id="notification-password-new" v-model="notifyPwNew"/>
@@ -80,19 +82,19 @@
         components: {HelpText, SliderField, SelectField, Translate},
         data() {
             return {
-                autoclose        : false,
-                autosubmit       : false,
-                autofill         : false,
-                basicAuth        : false,
-                compromised      : false,
-                notifyPwNew      : false,
-                relatedSearch    : false,
-                notifyPwUpdate   : false,
-                recSearchMode    : 'host',
-                recSearchRows    : 8,
-                clearClipboard   : false,
+                autoclose          : false,
+                autosubmit         : false,
+                autofill           : false,
+                basicAuth          : false,
+                compromised        : false,
+                notifyPwNew        : false,
+                relatedSearch      : false,
+                notifyPwUpdate     : false,
+                recSearchMode      : 'host',
+                recSearchRows      : 8,
+                clearClipboard     : false,
                 clearClipboardDelay: 60,
-                showUserInList   : false,
+                showUserInList     : false
             };
         },
 
@@ -122,20 +124,20 @@
                 ];
             },
             recommendationMaxRows() {
-                var i = 1;
-                var result = [];
-                for(i =1; i <= 20; i++) {
-                    result.push({id: i, label: ['SearchRecommendationMaxRowsNumber', i]});
+                let options = [];
+                for(let i = 1; i <= 20; i++) {
+                    if(i % 5 === 0 || i % 2 === 0 || i === 1) {
+                        options.push({id: i, label: ['SearchRecommendationMaxRowsNumber', i]});
+                    }
                 }
-                return result;
+                return options;
             },
             clearClipboardDelayOptions() {
-                var i = 1;
-                var result = [];
-                for(let i of [15, 30, 45, 60, 90]) {
-                    result.push({id: i, label: ['SettingsClipboardClearDelayOptions', i]});
+                let options = [];
+                for(let i of [15, 30, 45, 60, 90, 120]) {
+                    options.push({id: i, label: ['SettingsClipboardClearDelayOptions', i]});
                 }
-                return result;
+                return options;
             }
         },
 
@@ -252,6 +254,7 @@
     h3 {
         margin : 1.5rem 1rem .5rem;
     }
+
     p {
         margin : 1.5rem 1rem .5rem;
     }

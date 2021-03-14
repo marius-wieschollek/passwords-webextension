@@ -87,7 +87,7 @@
 
     .text {
         position   : absolute;
-        width      : 12rem;
+        width      : 16rem;
         right      : 0;
         top        : 100%;
         overflow   : hidden;
