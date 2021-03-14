@@ -43,7 +43,7 @@
         },
 
         mounted(){ 
-            if(this.$refs.title.offsetWidth < this.$refs.title.scrollWidth) {
+            if(this.$refs.title.offsetWidth - 100 < this.$refs.title.scrollWidth) {
                 this.titleClass = "scroll-on-hover"
             } else {
                 this.titleClass = "";
@@ -146,6 +146,10 @@
         flex-shrink : 0;
     }
 
+    span.icon {
+        background-color : var(--element-bg-color);
+    }
+
     > .label {
         flex-grow     : 1;
         padding       : 0 .25rem 0 .5rem;
@@ -167,7 +171,7 @@
         }
 
         .scroll-on-hover:hover {
-            transform: translateX(calc(100vw - 6.5rem - 100%));
+            transform: translateX(calc(100vw - 9.5rem - 100%));
         }
         
         .favicon {
