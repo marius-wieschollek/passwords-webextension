@@ -3,15 +3,21 @@ import ApiRepository from "@js/Repositories/ApiRepository";
 import ServerManager from "@js/Manager/ServerManager";
 import MessageService from "@js/Services/MessageService";
 
-export default class ServerTimeoutManager {
+export default new class ServerTimeoutManager {
 
     constructor() {
-        this._interval = setInterval(() => {
-            this._checkAllClientTimeouts()
-                .catch(ErrorManager.catchEvt);
-        }, 5 * 60 * 1000);
-        this._lastInteraction = Date.now();
-        this._setUpActivityTriggers();
+        this._interval = null;
+    }
+
+    init() {
+        if(this._interval === null) {
+            this._interval = setInterval(() => {
+                this._checkAllClientTimeouts()
+                    .catch(ErrorManager.catchEvt);
+            }, 60 * 1000);
+            this._lastInteraction = Date.now();
+            this._setUpActivityTriggers();
+        }
     }
 
     trigger() {

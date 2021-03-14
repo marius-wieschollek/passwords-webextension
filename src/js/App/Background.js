@@ -21,6 +21,7 @@ import LocalisationService from "@js/Services/LocalisationService";
 import PasswordStatisticsService from "@js/Services/PasswordStatisticsService";
 import PassLinkManager from "@js/Manager/PassLinkManager";
 import BasicAuthAutofillManager from "@js/Manager/BasicAuthAutofillManager";
+import ServerTimeoutManager from "@js/Manager/ServerTimeoutManager";
 
 class Background {
     async init() {
@@ -38,12 +39,13 @@ class Background {
             TabManager.init();
             NotificationService.init();
             RecommendationManager.init();
-            AutofillManager.init();
-            BasicAuthAutofillManager.init();
+            await AutofillManager.init();
+            await BasicAuthAutofillManager.init();
             ThemeService.init(ThemeRepository);
             BadgeManager.init();
             ContextMenuManager.init();
             MiningManager.init();
+            ServerTimeoutManager.init();
             await PasswordStatisticsService.init();
             await ServerManager.init();
             await LocalisationService.init();
