@@ -60,7 +60,7 @@ Publish Nightly Firefox:
     - 'sed -i -e "s|VERSION|${EXT_VERSION}|g" ./dist/firefox-extension/updates.json'
     - 'export SHA_512=$(sha512sum ./dist/firefox-extension/${EXT_FILENAME} | cut -d\  -f 1)'
     - 'sed -i -e "s|SHA_512|${SHA_512}|g" ./dist/firefox-extension/updates.json'
-    - 'export CHANGELOG_URL=${CI_PROJECT_URL}/blob/${CI_COMMIT_REF_NAME}/Changelog.md'
+    - 'export CHANGELOG_URL=${CI_PROJECT_URL}/raw/${CI_COMMIT_SHA}/Changelog.md'
     - 'sed -i -e "s|CHANGELOG_URL|${CHANGELOG_URL}|g" ./dist/firefox-extension/updates.json'
   environment:
     name: Testing
