@@ -68,6 +68,13 @@ class ControllerManager {
             }
         );
         MessageService.listen(
+            'password.update',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "PasswordUpdate" */ '@js/Controller/Password/Update');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
             'folder.list',
             async (message, reply) => {
                 let module = await import(/* webpackChunkName: "FolderList" */ '@js/Controller/Folder/List');

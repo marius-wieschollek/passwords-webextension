@@ -6,6 +6,7 @@
                ref="checkbox"
                :id="id"
                :name="name"
+               :readonly="readonly"
                v-model="model"
                v-on="listeners" />
     </span>
@@ -31,6 +32,10 @@
             name : {
                 type   : String,
                 default: undefined
+            },
+            readonly: {
+                type   : Boolean,
+                default: false
             }
         },
 
@@ -66,7 +71,9 @@
 
         methods: {
             toggleSwitch() {
-                this.model = !this.model;
+                if(this.readonly === false) {
+                    this.model = !this.model;
+                }
             }
         },
 

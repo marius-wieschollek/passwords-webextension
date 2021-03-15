@@ -257,6 +257,10 @@
         "message"    : "Move to trash",
         "description": "Title of the menu option to move a password to the trash"
     },
+    "PasswordItemViewEdit"               : {
+        "message"    : "View/edit password",
+        "description": "Title of the menu option to view and edit a password"
+    },
     "ValidationLabel"                    : {
         "message"    : "label",
         "description": "Name of the account label field in account validation message. This value is used when the user attempts to save an account with an invalid label"
@@ -469,6 +473,22 @@
         "message"    : "Folders",
         "description": "Label for the folder count in the server info in the browse tab"
     },
+    "LabelFolder"                  : {
+        "message"    : "Folder",
+        "description": "Label for the folder of this password."
+    },
+    "LabelCreated"                  : {
+        "message"    : "Created",
+        "description": "Label for the creation time of this password."
+    },
+    "LabelEdited"                  : {
+        "message"    : "Modified",
+        "description": "Label for the last edit time of this password."
+    },
+    "LabelNotes"                  : {
+        "message"    : "Notes",
+        "description": "Label for the notes of this password."
+    },
     "LabelTags"                          : {
         "message"    : "Tags",
         "description": "Label for the tag count in the server info in the browse tab"
@@ -664,6 +684,14 @@
                 "example": "Nextcloud account"
             }
         }
+    },
+    "ToastPasswordUpdated"          : {
+        "message"    : "Password updated",
+        "description": "Text of the toast notification when password was updated"
+    },
+    "ToastPasswordUpdateFailed"          : {
+        "message"    : "Password update failed",
+        "description": "Text of the toast notification when password update failed"
     },
     "PasswordPastedError"                : {
         "message"     : "Could not paste $LABEL$",
@@ -1324,5 +1352,21 @@
     "SettingsShowUsernameInList"         : {
         "message"    : "Show username next to title",
         "description": "Label of the setting in the extension settings to show the username next to the title in password lists."
+    },
+    "PasswordCustomFieldsTypeText"         : {
+        "message"    : "Text",
+        "description": "Label of the password custom setting type 'text'."
+    },
+    "PasswordCustomFieldsTypeSecret"         : {
+        "message"    : "Secret",
+        "description": "Label of the password custom setting type 'secret'."
+    },
+    "PasswordCustomFieldsTypeEmail"         : {
+        "message"    : "Email",
+        "description": "Label of the password custom setting type 'email'."
+    },
+    "PasswordCustomFieldsTypeUrl"         : {
+        "message"    : "Link",
+        "description": "Label of the password custom setting type 'url'."
     }
 }

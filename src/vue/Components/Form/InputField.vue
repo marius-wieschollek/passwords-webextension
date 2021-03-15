@@ -1,9 +1,21 @@
 <template>
-    <input :type="type"
+    <textarea v-if="type === 'textarea'"
+           :value="value"
+           :placeholder="getPlaceholder"
+           :title="getTitle"
+           :readonly="readonly"
+           filled
+           auto-grow
+           v-on="listeners"
+           @input="handleInput"
+           @change="handleChange"/>
+    <input v-else
+           :type="type"
            :value="value"
            :checked="isChecked"
            :placeholder="getPlaceholder"
            :title="getTitle"
+           :readonly="readonly"
            v-on="listeners"
            @input="handleInput"
            @change="handleChange"/>
@@ -34,6 +46,10 @@
             title      : {
                 type   : String,
                 default: ''
+            },
+            readonly : {
+                type   : Boolean,
+                default: false
             }
         },
 

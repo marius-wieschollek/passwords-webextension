@@ -50,7 +50,6 @@
                 let icon  = this.hover && this.hoverIcon !== null ? this.hoverIcon:this.icon,
                     font  = this.hover && this.hoverFont !== null ? this.hoverFont:this.font,
                     style = font === 'solid' ? 'fas':'far';
-
                 if(this.spin) style += ' fa-spin';
 
                 return `icon icon-${icon} font-${font} ${style} fa-${icon}`;
