@@ -1,33 +1,35 @@
 <template>
     <li class="item password-item">
         <div class="item-main" :class="{'has-menu':showMenu}">
-            <div class="label" @click="sendPassword()" :title="title">
-                <favicon :password="password.getId()" :size="22" v-if="favicon"/>
-                <span ref="title" :class="titleClass">{{ label }}</span>
+            <div class="label" @click="sendPassword()" :title="title" v-on:transitionend="calculateOverflow">
+                <favicon :password="password.getId()" :size="32" v-if="favicon" />
+                <div ref="scrollContainer" class="scroll-container" :style="titleVars">
+                    <span ref="scrollElement" class="scroll-element" :class="titleClass">{{ label }}</span>
+                </div>
             </div>
             <div class="options">
-                <icon icon="user" hover-icon="clipboard" @click="copy('username')" draggable="true" @dragstart="drag($event, 'username')"/>
-                <icon icon="key" font="solid" hover-icon="clipboard" hover-font="regular" @click="copy('password')" draggable="true" @dragstart="drag($event, 'password')"/>
-                <icon icon="ellipsis-h" font="solid" @click="showMenu = !showMenu"/>
+                <icon icon="user" hover-icon="clipboard" @click="copy('username')" draggable="true" @dragstart="drag($event, 'username')" />
+                <icon icon="key" font="solid" hover-icon="clipboard" hover-font="regular" @click="copy('password')" draggable="true" @dragstart="drag($event, 'password')" />
+                <icon icon="ellipsis-h" font="solid" @click="showMenu = !showMenu" />
             </div>
-            <icon :class="securityClass" icon="shield-alt" font="solid"/>
+            <icon :class="securityClass" icon="shield-alt" font="solid" />
         </div>
-        <password-menu :show="showMenu" :password="password" v-on:copy="copy($event)" v-on:delete="$emit('delete', password)"/>
+        <password-menu :show="showMenu" :password="password" v-on:copy="copy($event)" v-on:delete="$emit('delete', password)" />
     </li>
 </template>
 
 <script>
-    import Password from 'passwords-client/src/Model/Password/Password';
-    import Icon from '@vue/Components/Icon';
-    import MessageService from '@js/Services/MessageService';
-    import Favicon from '@vue/Components/List/Item/Favicon';
-    import ToastService from '@js/Services/ToastService';
-    import ErrorManager from '@js/Manager/ErrorManager';
-    import LocalisationService from '@js/Services/LocalisationService';
-    import SettingsService from '@js/Services/SettingsService';
+    import Password                from 'passwords-client/src/Model/Password/Password';
+    import Icon                    from '@vue/Components/Icon';
+    import MessageService          from '@js/Services/MessageService';
+    import Favicon                 from '@vue/Components/List/Item/Favicon';
+    import ToastService            from '@js/Services/ToastService';
+    import ErrorManager            from '@js/Manager/ErrorManager';
+    import LocalisationService     from '@js/Services/LocalisationService';
+    import SettingsService         from '@js/Services/SettingsService';
     import PasswordSettingsManager from '@js/Manager/PasswordSettingsManager';
-    import Translate from "@vue/Components/Translate";
-    import PasswordMenu from "@vue/Components/List/Item/Menu/PasswordMenu";
+    import Translate               from '@vue/Components/Translate';
+    import PasswordMenu            from '@vue/Components/List/Item/Menu/PasswordMenu';
 
     export default {
         components: {PasswordMenu, Translate, Favicon, Icon},
@@ -47,18 +49,10 @@
 
         data() {
             return {
-                active: true,
+                active  : true,
                 showMenu: false,
-                titleClass: ''
+                overflow: 0
             };
-        },
-
-        mounted(){
-            if(this.$refs.title.offsetWidth - 100 < this.$refs.title.scrollWidth) {
-                this.titleClass = "scroll-on-hover"
-            } else {
-                this.titleClass = "";
-            }
         },
 
         computed: {
@@ -72,9 +66,15 @@
             },
             label() {
                 if(PasswordSettingsManager.getShowUserInList() && this.password.getUserName() !== '') {
-                    return this.password.getLabel() + " - " + this.password.getUserName();
+                    return this.password.getLabel() + ' - ' + this.password.getUserName();
                 }
                 return this.password.getLabel();
+            },
+            titleClass() {
+                return this.overflow > 0 ? 'scroll-on-hover' : '';
+            },
+            titleVars() {
+                return `--overflow-size:-${this.overflow}px`;
             }
         },
 
@@ -87,6 +87,10 @@
         },
 
         methods: {
+            calculateOverflow() {
+                let overflow = this.$refs.scrollElement.scrollWidth - this.$refs.scrollContainer.offsetWidth;
+                this.overflow = overflow > 5 ? overflow : 0;
+            },
             async sendPassword() {
                 try {
                     let response = await MessageService.send({type: 'password.fill', payload: this.password.getId()});
@@ -122,7 +126,7 @@
             },
             copy(property) {
                 let data = this.password.getProperty(property),
-                    type = property === 'password' ? 'password':'text';
+                    type = property === 'password' ? 'password' : 'text';
                 MessageService.send({type: 'clipboard.write', payload: {type, value: data}}).catch(ErrorManager.catch);
 
                 let label = property.capitalize();
@@ -161,6 +165,7 @@
 
         > .label {
             flex-grow     : 1;
+            display       : flex;
             padding       : 0 .25rem 0 .5rem;
             min-width     : calc(100vw - 3rem);
             max-width     : calc(100vw - 3rem);
@@ -170,26 +175,35 @@
             transition    : min-width .25s ease-in-out;
 
             span {
-                display: block;
-                width : inherit;
+                display : block;
+                width   : inherit;
             }
 
-            .scroll-on-hover {
-                position: absolute;
-                transform: translateX(0);
-                transition: 2s;
-            }
+            .scroll-container {
+                overflow  : hidden;
+                flex-grow : 1;
+                position  : relative;
 
-            .scroll-on-hover:hover {
-                transform: translateX(calc(100vw - 9.5rem - 100%));
+                .scroll-element {
+                    position : absolute;
+
+                    &.scroll-on-hover {
+                        transform  : translateX(0);
+                        transition : 2s;
+                    }
+                }
+
+                &:hover .scroll-element.scroll-on-hover {
+                    transform : translateX(var(--overflow-size));
+                }
             }
 
             .favicon {
                 vertical-align : middle;
                 border-radius  : 3px;
                 padding        : .5rem;
-                width          : 1.5rem;
-                height         : 1.5rem;
+                width          : 2rem;
+                height         : 2rem;
                 box-sizing     : content-box;
                 margin-left    : -.5rem;
 
@@ -217,13 +231,13 @@
         }
 
         .security {
-            position    : absolute;
-            right       : 0;
-            text-align  : center;
-            width       : 3rem;
-            display     : inline-block;
-            line-height : 3rem;
-            z-index     : 0;
+            position         : absolute;
+            right            : 0;
+            text-align       : center;
+            width            : 3rem;
+            display          : inline-block;
+            line-height      : 3rem;
+            z-index          : 0;
             background-color : inherit;
 
             &.secure {
