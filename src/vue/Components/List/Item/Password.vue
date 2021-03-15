@@ -3,7 +3,7 @@
         <div class="item-main" :class="{'has-menu':showMenu}">
             <div class="label" @click="sendPassword()" :title="title">
                 <favicon :password="password.getId()" :size="22" v-if="favicon"/>
-                {{ label }}
+                <span ref="title" :class="titleClass">{{ label }}</span>
             </div>
             <div class="options">
                 <icon icon="user" hover-icon="clipboard" @click="copy('username')" draggable="true" @dragstart="drag($event, 'username')"/>
@@ -47,9 +47,18 @@
 
         data() {
             return {
-                active  : true,
-                showMenu: false
+                active: true,
+                showMenu: false,
+                titleClass: ''
             };
+        },
+
+        mounted(){
+            if(this.$refs.title.offsetWidth - 100 < this.$refs.title.scrollWidth) {
+                this.titleClass = "scroll-on-hover"
+            } else {
+                this.titleClass = "";
+            }
         },
 
         computed: {
@@ -160,6 +169,21 @@
             text-overflow : ellipsis;
             transition    : min-width .25s ease-in-out;
 
+            span {
+                display: block;
+                width : inherit;
+            }
+
+            .scroll-on-hover {
+                position: absolute;
+                transform: translateX(0);
+                transition: 2s;
+            }
+
+            .scroll-on-hover:hover {
+                transform: translateX(calc(100vw - 9.5rem - 100%));
+            }
+
             .favicon {
                 vertical-align : middle;
                 border-radius  : 3px;
@@ -200,6 +224,7 @@
             display     : inline-block;
             line-height : 3rem;
             z-index     : 0;
+            background-color : inherit;
 
             &.secure {
                 color : var(--success-bg-color)
