@@ -4,17 +4,14 @@
             <label class="property-label">{{ label }}</label>
             <slider-field v-model="value" :readonly="!canEdit" :class="activeClassName"/>
         </div>
-        <div v-else>
-            <label class="property-label">{{ label }}</label>
-            <div class="property-value">
-                <a v-if="field.type === 'url' && !canEdit" :href="value">{{text}}</a>
-                <input-field v-else-if="field.type === 'datetime' || field.type === 'folder'" v-model="text" :readonly="true" class="readonly"/>
-                <input-field v-else v-model="value" :type="getInputType" @click="copyProperty(field.name)" @dblclick="copyNotes(field.name)" :readonly="!canEdit" :class="activeClassName"/>
-                <div class="password-eye">
-                    <icon v-if="field.type === 'password'" @click="plainText = !plainText" :icon="passwordIcon" font="solid"/>
-                </div>
-            </div>
+        <label v-if="field.type !== 'checkbox'" class="property-label">{{ label }}</label>
+        <div v-if="field.type !== 'checkbox'" class="property-value">
+            <a v-if="field.type === 'url' && !canEdit" :href="value">{{text}}</a>
+            <input-field v-else-if="field.type === 'datetime' || field.type === 'folder'" v-model="text" :readonly="true" class="readonly"/>
+            <input-field v-else v-model="value" :type="getInputType" @click="copyProperty(field.name)" @dblclick="copyNotes(field.name)" :readonly="!canEdit" :class="activeClassName"/>
+            <icon class="password-eye" v-if="field.type === 'password'" @click="plainText = !plainText" :icon="passwordIcon" font="solid"/>
         </div>
+        <label v-if="valueError" class="error">{{valueErrorText}}</label>
     </div>
 </template>
 
@@ -46,7 +43,8 @@
             return {
                 value  : this.password.getProperty(this.field.name),
                 plainText: false,
-                folder: undefined
+                folder: undefined,
+                valueError: false
             };
         },
 
@@ -109,6 +107,12 @@
                     return "eye-slash";
                 }
                 return "eye";
+            },
+            valueErrorText() {
+                if(!this.validateUrl()) {
+                    return LocalisationService.translate(`PasswordEditInvalidValue`);
+                }
+                return LocalisationService.translate([`PasswordEditMaxAllowedCharacter`, this.field.maxLength]);
             }
         },
 
@@ -128,13 +132,37 @@
             copyNotes(property) {
                 if(this.editable === true || property !== 'notes') return;
                 this.copy(property);
-            }
-        },
-        
+            },
+            validateLength() {
+                if(this.field.maxLength === undefined) return true;
+                if(this.field.maxLength <= this.value.length) {
+                    return false;
+                }
+                return true;
+            },
+            validateUrl() {
+                if(this.field.type !== "url") return true;
+                var urlRegex = /^(https?|ftps?|ssh):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i
+                var uncRegex = /^\\\\([^\\:\|\[\]\/";<>+=,?* _]+)\\([\u0020-\u0021\u0023-\u0029\u002D-\u002E\u0030-\u0039\u0040-\u005A\u005E-\u007B\u007E-\u00FF]{1,80})(((?:\\[\u0020-\u0021\u0023-\u0029\u002D-\u002E\u0030-\u0039\u0040-\u005A\u005E-\u007B\u007E-\u00FF]{1,255})+?|)(?:\\((?:[\u0020-\u0021\u0023-\u0029\u002B-\u002E\u0030-\u0039\u003B\u003D\u0040-\u005B\u005D-\u007B]{1,255}){1}(?:\:(?=[\u0001-\u002E\u0030-\u0039\u003B-\u005B\u005D-\u00FF]|\:)(?:([\u0001-\u002E\u0030-\u0039\u003B-\u005B\u005D-\u00FF]+(?!\:)|[\u0001-\u002E\u0030-\u0039\u003B-\u005B\u005D-\u00FF]*)(?:\:([\u0001-\u002E\u0030-\u0039\u003B-\u005B\u005D-\u00FF]+)|))|)))|)$/;
+                
+                if(urlRegex.test(this.value) || uncRegex.test(this.value)) {
+                    return true;
+                }
+                return false;
+            }            
+        },  
+                
         watch  : {
             value(value) {
                 if(value === undefined || value === null) return;
-                this.$emit('updateField', this.field.name, value);
+                if(this.validateLength() && this.validateUrl()) {
+                    this.valueError = false;
+                    this.$emit('updateField', this.field.name, value);
+                    this.$emit('error', this.field, false);
+                } else {
+                    this.$emit('error', this.field, true)
+                    this.valueError = true;
+                }
             },
             editable(value) {
                 if(value === false) {
@@ -167,39 +195,30 @@
     }
 
     .password-eye {
-        width            : 0;
         cursor           : pointer;
-
-        .icon {
-            position     : absolute;
-            right        : 1rem;
-            top          : .7rem;
-        }
-    }
-
-    input, textarea {
-        width            : 100%;
-        padding          : .25rem;
-        box-sizing       : border-box;
-        border-radius    : 3px;
-        border           : none;
-        line-height      : 2rem;
+        position         : absolute;
+        right            : 0rem;
+        top              : .7rem;
         background-color : var(--element-hover-bg-color);
-        color            : var(--element-fg-color);
-        scrollbar-width  : thin;
     }
 
+    
     input.active, textarea.active, .label.active {
         box-shadow       : 0 0 0 1px var(--element-active-fg-color);
         
+        &.error{
+            box-shadow   : 1px 1px 1px 0px var(--error-bg-color);
+            border       : solid;
+            border-width : .3px;
+            border-color : var(--error-bg-color);
+        }
     }
-    
-    a {
-        width            : 100%;
+
+    label.error {
         padding          : .25rem;
-        line-height      : 2rem;
-        background-color : var(--element-hover-bg-color);
-        color            : var(--element-active-fg-color);
+        color            : var(--error-bg-color);
+        line-height      : 1.5rem;
+
     }
 
     .readonly {

@@ -489,6 +489,10 @@
         "message"    : "Notes",
         "description": "Label for the notes of this password."
     },
+    "LabelCustomFields"                          : {
+        "message"    : "Custom Fields",
+        "description": "Label for the custom fields of this password"
+    },
     "LabelTags"                          : {
         "message"    : "Tags",
         "description": "Label for the tag count in the server info in the browse tab"
@@ -1353,20 +1357,34 @@
         "message"    : "Show username next to title",
         "description": "Label of the setting in the extension settings to show the username next to the title in password lists."
     },
-    "PasswordCustomFieldsTypeText"         : {
+    "PasswordCustomFieldsTypeText"       : {
         "message"    : "Text",
         "description": "Label of the password custom setting type 'text'."
     },
-    "PasswordCustomFieldsTypeSecret"         : {
+    "PasswordCustomFieldsTypeSecret"     : {
         "message"    : "Secret",
         "description": "Label of the password custom setting type 'secret'."
     },
-    "PasswordCustomFieldsTypeEmail"         : {
+    "PasswordCustomFieldsTypeEmail"      : {
         "message"    : "Email",
         "description": "Label of the password custom setting type 'email'."
     },
-    "PasswordCustomFieldsTypeUrl"         : {
+    "PasswordCustomFieldsTypeUrl"        : {
         "message"    : "Link",
         "description": "Label of the password custom setting type 'url'."
+    },
+    "PasswordEditInvalidValue"           : {
+        "message"    : "Invalid value",
+        "description": "Label of the password edit 'invalid value' message."
+    },
+    "PasswordEditMaxAllowedCharacter"    : {
+        "message"    : "Only $CHARACTERS$ characters allowed",
+        "description": "Label of the password edit max allowed character message.",
+        "placeholders": {
+            "characters": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
     }
 }
