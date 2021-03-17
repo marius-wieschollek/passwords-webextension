@@ -21,7 +21,7 @@ export default class Update extends AbstractController {
         model.setProperties(data);       
 
         if(model !== null && !model.isTrashed()) {
-            await this._updatePassword(model, data.customFields === undefined ? false:true);
+            await this._updatePassword(model);
             reply.setPayload({success: true, data: data});
         } else {
             reply.setPayload({success: false});
@@ -35,17 +35,14 @@ export default class Update extends AbstractController {
      * @param {EnhancedPassword} password
      * @private
      */
-     async _updatePassword(password, reloadServer) {
+     async _updatePassword(password) {
         let api = /** @type {PasswordsClient} **/ await ApiRepository.findById(password.getServer().getId());
         let repository = /** @type {PasswordRepository} **/ api.getInstance('repository.password');
         await repository.update(password);
+        password = await repository.findById(password.getId());
         
-        if(reloadServer === true) {
-            ServerManager.reloadServer(password.getServer());
-        } else {
-            SearchIndex.removeItem(password);
-            SearchIndex.addItem(password, true);
-        }
+        SearchIndex.removeItem(password);
+        SearchIndex.addItem(password, true);
         ToastService.success('ToastPasswordUpdated')
                 .catch(ErrorManager.catch);
     }

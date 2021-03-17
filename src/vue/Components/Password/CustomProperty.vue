@@ -6,7 +6,7 @@
         </div>
         <label v-if="labelError" class="error">{{labelErrorText}}</label>
         <div class="property-value">
-            <a v-if="type === 'url' && !editable" :href="value">{{text}}</a>
+            <a v-if="type === 'url' && !editable" :href="value">{{value}}</a>
             <input-field ref="value" v-else :class="valueClassName" @click="copy(field.name)" :type="getInputType" v-model="value" :readonly="!editable"/>
             <icon class="password-eye" v-if="type === 'secret'" @click="plainText = !plainText" :icon="passwordIcon" font="solid"/>
         </div>

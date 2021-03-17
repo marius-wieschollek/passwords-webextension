@@ -9,7 +9,7 @@
             </div>
             <icon :icon="actionIcon" @click="toggleAction()" :class="actionClassList"/>
         </div>
-        <property :password="password" :editable="editable" :field="field" v-for="field in defaultFields" :key="field" v-on:updateField="updateField" v-on:error="handleValidationError"/>
+        <property :editable="editable" :field="field" v-for="field in defaultFields" :key="field" v-on:updateField="updateField" v-on:error="handleValidationError"/>
         <label v-if="customFields.length > 1" class="custom-fields">{{customFieldsLabel}}</label>
         <custom-property :field="field" :editable="editable" v-for="field in customFields" :key="field" v-on:updateField="updateCustomField" v-on:error="handleValidationError" :maxLength="customFieldLength"/>
     </div>
@@ -112,6 +112,7 @@
                 return {
                     name     : property,
                     type     : type,
+                    value    : this.password.getProperty(property),
                     editable : editable,
                     allowCopy: allowCopy,
                     maxLength: maxLength
@@ -186,9 +187,9 @@
                 if(this.updatedFields.customFields === undefined) return;
                 this.updatedFields.customFields.forEach((e) => {
                     if(e.label === "" && e.value === "" && e.type !== "data" && e.type !== "file") {
-                            var i = this.updatedFields.customFields.indexOf(e)
-                            this.updatedFields.customFields.splice(i, 1);
-                        }
+                        var i = this.updatedFields.customFields.indexOf(e)
+                        this.updatedFields.customFields.splice(i, 1);
+                    }
                 })
             },
             handleValidationError(field, error) {

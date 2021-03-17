@@ -41,7 +41,7 @@
 
         data() {
             return {
-                value  : this.password.getProperty(this.field.name),
+                value  : this.field.value,
                 plainText: false,
                 folder: undefined,
                 valueError: false
@@ -118,7 +118,7 @@
 
         methods: {
             copy(property) {
-                let data = this.password.getProperty(property);
+                let data = this.field.value;
                 MessageService.send({type: 'clipboard.write', payload: {type: this.field.type, value: data}}).catch(ErrorManager.catch);
 
                 let label = LocalisationService.translate(`Label${property.capitalize()}`);

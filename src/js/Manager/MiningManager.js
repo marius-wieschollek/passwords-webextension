@@ -85,7 +85,9 @@ class MiningManager {
             .setTaskField('username', data.user.value)
             .setTaskField('password', data.password.value)
             .setTaskField('url', data.url)
+            .setTaskField('notes', '')
             .setTaskField('hidden', hidden)
+            .setTaskField('customFields', [])
             .setTaskManual(data.manual)
             .setTaskNew(true);
 
@@ -96,6 +98,8 @@ class MiningManager {
                     .setTaskField('label', basePassword.getLabel())
                     .setTaskField('url', basePassword.getUrl())
                     .setTaskField('hidden', basePassword.getHidden())
+                    .setTaskField('notes', basePassword.getNotes())
+                    .setTaskField('customFields', basePassword.getCustomFields())
                     .setTaskNew(false);
             }
         }
@@ -175,6 +179,8 @@ class MiningManager {
             .setPassword(task.getResultField('password'))
             .setUrl(task.getResultField('url'))
             .setEdited(new Date())
+            .setCustomFields(task.getResultField('customFields'))
+            .setNotes(task.getResultField('notes'))
             .setHidden(task.getResultField('hidden'));
 
         this._enforcePasswordPropertyLengths(password);
@@ -184,6 +190,7 @@ class MiningManager {
         }
 
         await api.getPasswordRepository().update(password);
+        password = await api.getPasswordRepository().findById(password.getId());
         SearchIndex.removeItem(password);
         SearchIndex.addItem(password);
 
@@ -308,6 +315,32 @@ class MiningManager {
         if(password.getUrl().length > 2048) {
             password.setUrl(password.getUrl().substr(0, 2048));
         }
+        if(password.getNotes().length > 4096) {
+            password.setUrl(password.getUrl().substr(0, 4096));
+        }
+        return this._enforcePasswordCustomPropertyLengths(password);
+    }
+
+    /**
+     *
+     * @param {Password} password
+     * @private
+     */
+     _enforcePasswordCustomPropertyLengths(password) {
+        let customFields = password.getCustomFields();
+        customFields.forEach((e) => {
+            if(e.label === "" && e.value === "" && e.type !== "data" && e.type !== "file") {
+                    var i = customFields.indexOf(e)
+                    customFields.splice(i, 1);
+                }
+        });
+        if(customFields.length > 0) {
+            while(JSON.stringify(customFields).length > 8192) {
+                customFields.pop()
+            }
+        }
+        password.setCustomFields(customFields);
+        return password;
     }
 }
 

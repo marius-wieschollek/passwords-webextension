@@ -5,7 +5,7 @@
                 <icon icon="trash-alt" @click="discard(item)"/>
                 <icon icon="save" @click="save(item)"/>
             </div>
-            <mining-item :item="item" :slot="item.getId()" :key="item.getId()" v-for="item of items"/>
+            <password-mining :item="item" :slot="item.getId()" :key="item.getId()" v-for="item of items"/>
         </foldout>
         <translate tag="div" class="no-results" say="NoCollectedPasswords" v-if="items.length === 0"/>
         <translate class="collected-add-blank" say="AddPasswordForCurrentTab" @click="addBlankPassword" v-if="items.length === 0">
@@ -19,12 +19,12 @@
     import Foldout from '@vue/Components/Foldout';
     import Translate from '@vue/Components/Translate';
     import MiningClient from '@js/Queue/Client/MiningClient';
-    import MiningItem from '@vue/Components/Collected/MiningItem';
+    import PasswordMining from '@vue/Components/Password/Mining';
     import MessageService from '@js/Services/MessageService';
     import ErrorManager from '@js/Manager/ErrorManager';
 
     export default {
-        components: {MiningItem, Translate, Foldout, Icon},
+        components: {Translate, Foldout, Icon, PasswordMining},
 
         props: {
             initialStatus: {
