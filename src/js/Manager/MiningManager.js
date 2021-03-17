@@ -87,6 +87,8 @@ class MiningManager {
             .setTaskField('url', data.url)
             .setTaskField('notes', '')
             .setTaskField('hidden', hidden)
+            .setTaskField('created', '')
+            .setTaskField('edited', '')
             .setTaskField('customFields', [])
             .setTaskManual(data.manual)
             .setTaskNew(true);
@@ -99,6 +101,8 @@ class MiningManager {
                     .setTaskField('url', basePassword.getUrl())
                     .setTaskField('hidden', basePassword.getHidden())
                     .setTaskField('notes', basePassword.getNotes())
+                    .setTaskField('created', basePassword.getCreated())
+                    .setTaskField('edited', basePassword.getEdited())
                     .setTaskField('customFields', basePassword.getCustomFields())
                     .setTaskNew(false);
             }
@@ -316,7 +320,7 @@ class MiningManager {
             password.setUrl(password.getUrl().substr(0, 2048));
         }
         if(password.getNotes().length > 4096) {
-            password.setUrl(password.getUrl().substr(0, 4096));
+            password.setNotes(password.getNotes().substr(0, 4096));
         }
         return this._enforcePasswordCustomPropertyLengths(password);
     }

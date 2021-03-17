@@ -65,6 +65,9 @@
                     if(property === "password") {
                         fields.push(this.getFieldObject(property, "password", true, true, 256));
                     }
+                    if(!this.item.isNew() && (property === "edited" || property === "created")) {
+                        fields.push(this.getFieldObject(property, "datetime", false, false, undefined));
+                    }
                     if(property === "label") {
                         fields.push(this.getFieldObject(property, "text", true, false, 64));
                     } 

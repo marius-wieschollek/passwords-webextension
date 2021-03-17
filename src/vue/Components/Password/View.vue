@@ -7,7 +7,9 @@
                 <icon class="favorite" @click="updateFavorite()" icon="star" :font="favoriteIconSolid"/>
                 <icon :icon="sharedIcon" font="solid"/>
             </div>
-            <icon :icon="actionIcon" @click="toggleAction()" :class="actionClassList"/>
+            <div class="action-icon">
+                <icon v-if="password.getProperty('editable')" :icon="actionIcon" @click="toggleAction()" :class="actionClassList"/>
+            </div>
         </div>
         <property :editable="editable" :field="field" v-for="field in defaultFields" :key="field" v-on:updateField="updateField" v-on:error="handleValidationError"/>
         <label v-if="customFields.length > 1" class="custom-fields">{{customFieldsLabel}}</label>
@@ -224,7 +226,7 @@
         justify-content: space-between;
         margin-bottom  : -1rem;
 
-        .left-space{
+        .left-space, .action-icon {
             width       : 3rem
         }
 

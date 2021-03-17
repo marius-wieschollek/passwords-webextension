@@ -69,7 +69,11 @@
             text() {
                 var type = this.field.type;
                 if(type === 'datetime') {
-                    return new Date(this.value * 1000).toLocaleString();
+                    if(typeof this.value === "number") {
+                        return new Date(this.value * 1000).toLocaleString();
+                    } else {
+                        return new Date(this.value.toString()).toLocaleString();
+                    }
                 }
                 if(type === 'folder') {
                     if(this.folder === undefined) {
