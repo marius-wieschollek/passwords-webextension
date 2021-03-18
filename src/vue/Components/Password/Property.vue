@@ -8,7 +8,7 @@
         <div v-if="field.type !== 'checkbox'" class="property-value">
             <a v-if="field.type === 'url' && !canEdit" :href="value">{{text}}</a>
             <input-field v-else-if="field.type === 'datetime' || field.type === 'folder'" v-model="text" :readonly="true" class="readonly"/>
-            <input-field v-else v-model="value" :type="getInputType" @click="copyProperty(field.name)" @dblclick="copyNotes(field.name)" :readonly="!canEdit" :class="activeClassName"/>
+            <input-field class="password-edit" v-else v-model="value" :type="getInputType" @click="copyProperty(field.name)" @dblclick="copyNotes(field.name)" :readonly="!canEdit" :class="activeClassName"/>
             <div class="password-icon">
                 <icon v-if="editable && field.type === 'password'" @click="generatePassword" icon="sync" font="solid" :spin="generating"/>
                 <icon v-if="field.type === 'password'" @click="plainText = !plainText" :icon="passwordIcon" font="solid"/>
@@ -238,7 +238,15 @@
         background-color : var(--element-hover-bg-color);
 
         span.icon {
-            width        : 1.5rem;
+            width        : 1.75rem;
+        }
+    }
+
+    input.password-edit {
+        padding-right: 2.5rem !important;
+        
+        &.active {
+            padding-right: 4.5rem !important;
         }
     }
 
