@@ -18,6 +18,14 @@ export default class DomMiner {
         );
 
         let forms = new FormService().getLoginFields();
+        if(forms.length > 0) {
+            this._addFormsListener(forms);
+        } else {
+            this._addBodyListener();
+        }        
+    }
+
+    _addFormsListener(forms) {
         for(let form of forms) {
             if(form.form) {
                 form.form.addEventListener(
@@ -35,6 +43,22 @@ export default class DomMiner {
                 );
             }
         }
+    }
+
+    _addBodyListener() {
+        const bodyObserver = new MutationObserver((mutations) => {
+            for (const mutation of mutations) {
+                if (mutation.type === "childList") {
+                    for (const added of mutation.addedNodes) {
+                        if (new FormService().getPasswordFields(added).length > 0) {
+                            bodyObserver.disconnect();
+                            this._addFormsListener(new FormService().getLoginFields());
+                        }
+                    }
+                }
+            }
+        });
+        bodyObserver.observe(document.body, { childList: true, subtree: true });
     }
 
     _checkForNewPassword() {
