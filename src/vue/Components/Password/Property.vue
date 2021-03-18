@@ -9,7 +9,10 @@
             <a v-if="field.type === 'url' && !canEdit" :href="value">{{text}}</a>
             <input-field v-else-if="field.type === 'datetime' || field.type === 'folder'" v-model="text" :readonly="true" class="readonly"/>
             <input-field v-else v-model="value" :type="getInputType" @click="copyProperty(field.name)" @dblclick="copyNotes(field.name)" :readonly="!canEdit" :class="activeClassName"/>
-            <icon class="password-eye" v-if="field.type === 'password'" @click="plainText = !plainText" :icon="passwordIcon" font="solid"/>
+            <div class="password-icon">
+                <icon v-if="editable && field.type === 'password'" @click="generatePassword" icon="sync" font="solid" :spin="generating"/>
+                <icon v-if="field.type === 'password'" @click="plainText = !plainText" :icon="passwordIcon" font="solid"/>
+            </div>
         </div>
         <label v-if="valueError" class="error">{{valueErrorText}}</label>
     </div>
@@ -23,6 +26,7 @@
     import MessageService      from '@js/Services/MessageService';
     import ErrorManager        from '@js/Manager/ErrorManager';
     import LocalisationService from '@js/Services/LocalisationService';
+    import SettingsService     from '@js/Services/SettingsService';
     import Icon                from "@vue/Components/Icon";
     
     export default {
@@ -41,10 +45,14 @@
 
         data() {
             return {
-                value  : this.field.value,
-                plainText: false,
-                folder: undefined,
-                valueError: false
+                value      : this.field.value,
+                plainText  : false,
+                folder     : undefined,
+                valueError : false,
+                generating : true,
+                numbers    : false,
+                special    : false,
+                strength   : 1,
             };
         },
 
@@ -54,6 +62,16 @@
             if(payload !== undefined && payload !== null ) {
                 this.folder = payload;
             }
+
+            let promises = [
+                this.loadSetting('strength'),
+                this.loadSetting('numbers'),
+                this.loadSetting('special')
+            ];
+
+            Promise.all(promises).then(() => {
+                this.generating = false;
+            });
         },
 
         computed: {
@@ -137,6 +155,20 @@
                 if(this.editable === true || property !== 'notes') return;
                 this.copy(property);
             },
+            async loadSetting(type) {
+                this[type] = await SettingsService.getValue(`password.generator.${type}`);
+            },
+            async generatePassword() {
+                if(this.generating) return;
+                this.generating = true;
+                let response = /** @type {Message} **/ await MessageService
+                    .send({type: 'password.generate', payload: {numbers: this.numbers, special: this.special, strength: this.strength}});
+                let data = response.getPayload();
+                if(data.success) {
+                    this.value = data.password;
+                }
+                this.generating = false;
+            },
             validateLength() {
                 if(this.field.maxLength === undefined) return true;
                 if(this.field.maxLength <= this.value.length) {
@@ -198,12 +230,16 @@
         position         : relative;
     }
 
-    .password-eye {
+    .password-icon {
         cursor           : pointer;
         position         : absolute;
-        right            : 0rem;
-        top              : .7rem;
+        right            : .5rem;
+        top              : .75rem;
         background-color : var(--element-hover-bg-color);
+
+        span.icon {
+            width        : 1.5rem;
+        }
     }
 
     
