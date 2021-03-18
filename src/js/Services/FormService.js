@@ -1,7 +1,7 @@
 export default class FormService {
 
-    getPasswordFields() {
-        let fields         = document.querySelectorAll('input[type="password"]'),
+    getPasswordFields(rootNode = document) {
+        let fields         = rootNode.querySelectorAll('input[type="password"]'),
             excludes       = ['fake', 'hidden'],
             passwordFields = [];
 
