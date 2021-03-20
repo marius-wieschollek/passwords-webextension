@@ -186,6 +186,7 @@ class MiningManager {
             .setEdited(new Date())
             .setCustomFields(task.getResultField('customFields'))
             .setNotes(task.getResultField('notes'))
+            .setFolder(await this._setFolder(api, task, password))
             .setHidden(task.getResultField('hidden'));
 
         password = this._enforcePasswordPropertyLengths(password);
@@ -202,6 +203,29 @@ class MiningManager {
         task.setAccepted(true)
             .setFeedback('MiningPasswordUpdated');
     }
+
+    /**
+     *
+     * @param {String} property
+     * @param {MiningItem} task
+     * @param {EnhancedPassword} password
+     * @returns {EnhancedPassword}
+      * @private
+     */
+     async _setFolder(api, task, password) {
+        if(task.getResultField('hidden') === password.getHidden()) {
+            return password.getFolder();
+        }
+        
+        let helper = new HiddenFolderHelper();
+        var hiddenFolder = await helper.getHiddenFolderId(api);
+        if(task.getResultField('hidden') && password.getFolder() !== hiddenFolder) {
+            return hiddenFolder;
+        } else if(!task.getResultField('hidden') && password.getFolder() === hiddenFolder) {
+            return "00000000-0000-0000-0000-000000000000";
+        }
+        return password.getFolder();
+     }
 
     /**
      * @param {Object} data

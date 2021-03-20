@@ -288,6 +288,14 @@
         flex-direction   : row;
         justify-content  : space-between;
         padding-right    : 1rem;
+
+        .input-slider {
+            cursor       : default;
+
+            &.active {
+                cursor   : pointer;
+            }
+        }
     }
 }
 </style>
