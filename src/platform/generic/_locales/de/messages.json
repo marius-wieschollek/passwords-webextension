@@ -1359,6 +1359,10 @@
         "message"    : "Link",
         "description": "Label of the password custom setting type 'url'."
     },
+    "PasswordCustomFieldsTypeFormField"  : {
+        "message"    : "Form Feld",
+        "description": "Label of the password custom setting form field to insert custom values to a web page."
+    },
     "PasswordEditInvalidValue"           : {
         "message"    : "Ungültiger Wert",
         "description": "Label of the password edit 'invalid value' message."

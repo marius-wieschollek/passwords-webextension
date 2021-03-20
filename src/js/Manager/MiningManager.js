@@ -159,6 +159,7 @@ class MiningManager {
             password.setFolder(await helper.getHiddenFolderId(api));
         }
 
+        password = this._enforcePasswordPropertyLengths(password);
         await api.getPasswordRepository().create(password);
         SearchIndex.addItem(password);
 
@@ -187,7 +188,7 @@ class MiningManager {
             .setNotes(task.getResultField('notes'))
             .setHidden(task.getResultField('hidden'));
 
-        this._enforcePasswordPropertyLengths(password);
+        password = this._enforcePasswordPropertyLengths(password);
         if(password.isHidden()) {
             let helper = new HiddenFolderHelper();
             password.setFolder(await helper.getHiddenFolderId(api));
@@ -304,6 +305,7 @@ class MiningManager {
     /**
      *
      * @param {Password} password
+     * @returns {Password}
      * @private
      */
     _enforcePasswordPropertyLengths(password) {
@@ -328,23 +330,63 @@ class MiningManager {
     /**
      *
      * @param {Password} password
+     * @returns {Password}
      * @private
      */
      _enforcePasswordCustomPropertyLengths(password) {
         let customFields = password.getCustomFields();
-        customFields.forEach((e) => {
-            if(e.label === "" && e.value === "" && e.type !== "data" && e.type !== "file") {
-                    var i = customFields.indexOf(e)
-                    customFields.splice(i, 1);
-                }
-        });
-        if(customFields.length > 0) {
-            while(JSON.stringify(customFields).length > 8192) {
-                customFields.pop()
+        if(Array.isArray(customFields._elements)) {
+            password.setCustomFields(this._enforcePasswordCustomPropertyLengthsInObject(customFields));
+        } else {
+            password.setCustomFields(this._enforcePasswordCustomPropertyLengthsInArray(customFields));
+        }
+        return password;
+    }
+
+    /**
+     *
+     * @param {Array} fields
+     * @returns {Array}
+     * @private
+     */
+     _enforcePasswordCustomPropertyLengthsInArray(fields) {
+        for(var i = 0; i < fields.length; i++) {
+            if((fields[i].label === "" && fields[i].value === "" && fields[i].type !== "data" && fields[i].type !== "file")
+            || fields[i].label === "ext:field/" && fields[i].type === 'data') {
+                
+                fields.splice(i, 1);
+                i--;
             }
         }
-        password.setCustomFields(customFields);
-        return password;
+        if(fields.length > 0) {
+            while(JSON.stringify(fields).length > 8192) {
+                fields.pop()
+            }
+        }
+        return fields;
+    }
+
+    /**
+     *
+     * @param {Object} fields
+     * @returns {Object}
+     * @private
+     */
+     _enforcePasswordCustomPropertyLengthsInObject(fields) {
+        for(var i = 0; i < fields.length; i++) {
+            var field = fields.get(i);
+            if((field.getLabel() === "" && field.getValue() === "" && field.getType() !== "data" && field.getType() !== "file")
+                || field.getLabel() === "ext:field/" && field.getType() === 'data') {
+                    fields._elements.splice(i, 1);
+                    i--;
+                }
+        }
+        if(fields.length > 0) {
+            while(JSON.stringify(fields).length > 8192) {
+                fields._elements.splice(fields.length -1, 1);
+            }
+        }
+        return fields;
     }
 }
 

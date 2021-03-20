@@ -6,6 +6,7 @@ import SettingsService from '@js/Services/SettingsService';
 import ErrorManager from '@js/Manager/ErrorManager';
 import PasswordStatisticsService from "@js/Services/PasswordStatisticsService";
 import Message from "@js/Models/Message/Message";
+import AutofillManager from "@js/Manager/AutofillManager";
 
 export default class Fill extends AbstractController {
 
@@ -37,6 +38,7 @@ export default class Fill extends AbstractController {
                     payload : {
                         user    : password.getUserName(),
                         password: password.getPassword(),
+                        formFields: AutofillManager.getCustomFormFields(password),
                         submit  : await SettingsService.getValue('paste.form.submit')
                     }
                 }

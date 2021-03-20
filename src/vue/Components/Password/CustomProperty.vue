@@ -40,8 +40,8 @@
         data() {
             return {
                 value     : this.field.value,
-                label     : this.field.label,
-                type      : this.field.type,
+                label     : this.getLabel(),
+                type      : this.getType(),
                 plainText : false,
                 labelError: false,
                 valueError: false
@@ -66,6 +66,10 @@
                     {
                         id   : 'url',
                         label: 'PasswordCustomFieldsTypeUrl',
+                    },
+                    {
+                        id   : 'formfield',
+                        label: 'PasswordCustomFieldsTypeFormField',
                     }
                 ];
             },
@@ -85,7 +89,7 @@
             },
             showField() {
                 if(this.type === "file") return false;
-                if(this.type === "data") return false;
+                if(this.type === "data" && !this.value.startsWith("ext:field/")) return false;
                 if(this.editable || this.value !== '') {
                     return true;
                 }
@@ -134,6 +138,18 @@
                 ToastService.success(['PasswordPropertyCopied', this.field.label])
                             .catch(ErrorManager.catch);
             },
+            getType() {
+                if(this.field.type === 'data' && this.field.label.startsWith('ext:field/')) {
+                    return 'formfield';
+                }
+                return this.field.type;
+            },
+            getLabel() {
+                if(this.field.type === 'data' && this.field.label.startsWith('ext:field/')) {
+                    return this.field.label.replace('ext:field/', '');
+                }
+                return this.field.label;
+            },
             validateUrl(url) {
                 if(this.type !== "url") return true;
                 var urlRegex = /^(https?|ftps?|ssh):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i
@@ -180,7 +196,13 @@
             },
             updateInput() {
                 if(this.updateValue() && this.updateLabel()) {
-                    this.field.type = this.type;
+                    if(this.type === 'formfield') {
+                        this.field.label = 'ext:field/' + this.label.replace('ext:field/', '');
+                        this.field.type = 'data';
+                    } else {
+                        this.field.type = this.type;
+                    }
+                    
                     this.$emit('updateField');
                     this.$emit('error', this.field, false);
                 } else {
@@ -189,6 +211,7 @@
 
             }
         },
+        
         watch  : {
             value(value) {
                 if(value === undefined || value === null) return;

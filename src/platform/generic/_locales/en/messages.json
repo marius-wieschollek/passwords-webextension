@@ -1373,6 +1373,10 @@
         "message"    : "Link",
         "description": "Label of the password custom setting type 'url'."
     },
+    "PasswordCustomFieldsTypeFormField"  : {
+        "message"    : "Form field",
+        "description": "Label of the password custom setting form field to insert custom values to a web page."
+    },
     "PasswordEditInvalidValue"           : {
         "message"    : "Invalid value",
         "description": "Label of the password edit 'invalid value' message."

@@ -11,7 +11,7 @@ export default class FillPassword extends AbstractController {
      */
     async execute(message, reply) {
         try {
-            let result = this._fillPassword(message.getPayload().user, message.getPayload().password, message.getPayload().submit);
+            let result = this._fillPassword(message.getPayload().user, message.getPayload().password, message.getPayload().submit, message.getPayload().formFields);
 
             if(result) reply.setPayload(true);
         } catch(e) {
@@ -24,11 +24,14 @@ export default class FillPassword extends AbstractController {
      * @param {String} user
      * @param {String} password
      * @param {Boolean} trySubmit
+     * @param {Array} formFields
      * @returns {Boolean}
      */
-    _fillPassword(user, password, trySubmit) {
+    _fillPassword(user, password, trySubmit, formFields) {
         let forms = new FormService().getLoginFields();
         if(forms.length === 0) return false;
+
+        this._fillCustomForms(formFields);
 
         for(let i = 0; i < forms.length; i++) {
             let form = forms[i];
@@ -44,6 +47,22 @@ export default class FillPassword extends AbstractController {
         }
 
         return true;
+    }
+
+     /**
+     *
+     * @param {Array} formFields
+     */
+      _fillCustomForms(formFields) {
+        formFields.forEach((field) => {
+            var element = document.getElementById(field.id);
+            if(element !== null && element !== undefined) {
+            if(!element.readOnly && !element.disabled && !element.hidden) {
+                    this._insertTextIntoField(element, field.value);
+                }
+            }
+        })
+        
     }
 
     /**

@@ -188,7 +188,9 @@
             removeEmptyCustomFields(){
                 if(this.updatedFields.customFields === undefined) return;
                 this.updatedFields.customFields.forEach((e) => {
-                    if(e.label === "" && e.value === "" && e.type !== "data" && e.type !== "file") {
+                    if((e.label === "" && e.value === "" && e.type !== "data" && e.type !== "file") 
+                        || e.label === "ext:field/" && e.type === 'data') {
+
                         var i = this.updatedFields.customFields.indexOf(e)
                         this.updatedFields.customFields.splice(i, 1);
                     }
