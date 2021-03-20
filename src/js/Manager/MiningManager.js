@@ -176,6 +176,7 @@ class MiningManager {
             query    = new SearchQuery(),
             password = /** @type {EnhancedPassword} **/ query
                 .where(query.field('id').equals(task.getResultField('id')))
+                .hidden(true|false)
                 .execute()[0];
 
         password
