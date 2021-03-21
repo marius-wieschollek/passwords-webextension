@@ -13,12 +13,13 @@ export default class Update extends AbstractController {
             query    = new SearchQuery(),
             password = /** @type {EnhancedPassword} **/ query
                 .where(query.field('id').equals(data.id))
-                .hidden(true||false)
+                .hidden(true|false)
                 .execute()[0],
             api = /** @type {PasswordsClient} **/ await ApiRepository.findById(password.getServer().getId());
 
         if(password !== null && !password.isTrashed()) {
             password
+                .setFavorite(this._setProperty('favorite', data, password))
                 .setLabel(this._setProperty('label', data, password))
                 .setUserName(this._setProperty('username', data, password))
                 .setPassword(this._setProperty('password', data, password))
@@ -42,7 +43,7 @@ export default class Update extends AbstractController {
      * @param {String} property
      * @param {JSON} data
      * @param {EnhancedPassword} password
-     * @returns {EnhancedPassword}
+     * @returns {*}
      * @private
      */
      _setProperty(property, data, password) {
@@ -57,7 +58,7 @@ export default class Update extends AbstractController {
      *
      * @param {JSON} data
      * @param {EnhancedPassword} password
-     * @returns {EnhancedPassword}
+     * @returns {Date}
      * @private
      */
       _setEdited(data, password) {
@@ -75,8 +76,8 @@ export default class Update extends AbstractController {
      * @param {String} property
      * @param {JSON} data
      * @param {EnhancedPassword} password
-     * @returns {EnhancedPassword}
-      * @private
+     * @returns {String}
+     * @private
      */
      async _setFolder(api, data, password) {
         if(!data.hasOwnProperty('hidden')) {
