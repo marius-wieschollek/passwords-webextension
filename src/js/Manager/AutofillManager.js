@@ -91,11 +91,34 @@ export default new class AutofillManager {
                 tab     : TabManager.currentTabId,
                 silent  : true,
                 payload : {
-                    user    : password.getUserName(),
-                    password: password.getPassword(),
-                    submit  : false
+                    user      : password.getUserName(),
+                    password  : password.getPassword(),
+                    formFields: this.getCustomFormFields(password),
+                    submit    : false
                 }
             }
         ).catch(ErrorManager.catchEvt);
+    }
+
+    /**
+     *
+     * @param {Password} password
+     * @returns {Array}
+     * @private
+     */
+    getCustomFormFields(password) {
+        var formFields = [];
+        var customFields = password.getCustomFields();
+        customFields._elements.forEach((e) => {
+            if(e.getType() === 'data' && e.getLabel().startsWith('ext:field/')) {
+                formFields.push(
+                    {
+                        id   : e.getLabel().replace('ext:field/', ''),
+                        value: e.getValue()
+                    }
+                )
+            }
+        })
+        return formFields;
     }
 };

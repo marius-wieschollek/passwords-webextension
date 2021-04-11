@@ -112,8 +112,11 @@
                     .send({type: 'popup.status.set', payload: {tab}});
             },
             searchEvent($event) {
-                this.search.query = $event;
-                this.$refs.tabs.setActive('search');
+                var pwdViews = document.getElementsByClassName("password-view")
+                if(pwdViews.length === 0) {
+                    this.search.query = $event;
+                    this.$refs.tabs.setActive('search');
+                }
             }
         }
     };

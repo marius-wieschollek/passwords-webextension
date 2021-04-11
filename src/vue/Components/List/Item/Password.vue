@@ -1,6 +1,6 @@
 <template>
     <li class="item password-item">
-        <div class="item-main" :class="{'has-menu':showMenu}">
+        <div class="item-main" :class="{'has-menu':(showMenu || showEntry ? true : false)}">
             <div class="label" @click="sendPassword()" :title="title" v-on:transitionend="calculateOverflow">
                 <favicon :password="password.getId()" :size="32" v-if="favicon" />
                 <div ref="scrollContainer" class="scroll-container" :style="titleVars">
@@ -10,11 +10,12 @@
             <div class="options">
                 <icon icon="user" hover-icon="clipboard" @click="copy('username')" draggable="true" @dragstart="drag($event, 'username')" />
                 <icon icon="key" font="solid" hover-icon="clipboard" hover-font="regular" @click="copy('password')" draggable="true" @dragstart="drag($event, 'password')" />
-                <icon icon="ellipsis-h" font="solid" @click="showMenu = !showMenu" />
+                <icon icon="ellipsis-h" font="solid" @click="toggleMenu()" />
             </div>
             <icon :class="securityClass" icon="shield-alt" font="solid" />
         </div>
-        <password-menu :show="showMenu" :password="password" v-on:copy="copy($event)" v-on:delete="$emit('delete', password)" />
+        <password-menu :show="showMenu" :password="password" v-on:copy="copy($event)" v-on:delete="$emit('delete', password)" v-on:toggleEntry="toggleEntry()"/>
+        <password-view v-if="showEntry" :password="password" v-on:toggleEntry="toggleEntry()"/>
     </li>
 </template>
 
@@ -30,9 +31,10 @@
     import PasswordSettingsManager from '@js/Manager/PasswordSettingsManager';
     import Translate               from '@vue/Components/Translate';
     import PasswordMenu            from '@vue/Components/List/Item/Menu/PasswordMenu';
+    import PasswordView        from '@vue/Components/Password/View';
 
     export default {
-        components: {PasswordMenu, Translate, Favicon, Icon},
+        components: {PasswordMenu, Translate, Favicon, Icon, PasswordView},
         props     : {
             password: {
                 type: Password
@@ -51,7 +53,8 @@
             return {
                 active  : true,
                 showMenu: false,
-                overflow: 0
+                overflow: 0,
+                showEntry: false
             };
         },
 
@@ -140,6 +143,17 @@
             drag(event, property) {
                 let data = this.password.getProperty(property);
                 event.dataTransfer.setData('text/plain', data);
+            },
+            toggleMenu() {
+                if(this.showEntry === true) {
+                    this.showEntry = false;
+                } else {
+                    this.showMenu = !this.showMenu;
+                }
+            },
+            toggleEntry() {
+                this.showMenu = false;
+                this.showEntry = !this.showEntry;
             }
         }
     };

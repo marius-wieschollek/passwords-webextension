@@ -85,7 +85,11 @@ class MiningManager {
             .setTaskField('username', data.user.value)
             .setTaskField('password', data.password.value)
             .setTaskField('url', data.url)
+            .setTaskField('notes', '')
             .setTaskField('hidden', hidden)
+            .setTaskField('created', '')
+            .setTaskField('edited', '')
+            .setTaskField('customFields', [])
             .setTaskManual(data.manual)
             .setTaskNew(true);
 
@@ -96,6 +100,10 @@ class MiningManager {
                     .setTaskField('label', basePassword.getLabel())
                     .setTaskField('url', basePassword.getUrl())
                     .setTaskField('hidden', basePassword.getHidden())
+                    .setTaskField('notes', basePassword.getNotes())
+                    .setTaskField('created', basePassword.getCreated())
+                    .setTaskField('edited', basePassword.getEdited())
+                    .setTaskField('customFields', basePassword.getCustomFields())
                     .setTaskNew(false);
             }
         }
@@ -151,6 +159,7 @@ class MiningManager {
             password.setFolder(await helper.getHiddenFolderId(api));
         }
 
+        password = this._enforcePasswordPropertyLengths(password);
         await api.getPasswordRepository().create(password);
         SearchIndex.addItem(password);
 
@@ -167,6 +176,7 @@ class MiningManager {
             query    = new SearchQuery(),
             password = /** @type {EnhancedPassword} **/ query
                 .where(query.field('id').equals(task.getResultField('id')))
+                .hidden(true|false)
                 .execute()[0];
 
         password
@@ -175,21 +185,48 @@ class MiningManager {
             .setPassword(task.getResultField('password'))
             .setUrl(task.getResultField('url'))
             .setEdited(new Date())
+            .setCustomFields(task.getResultField('customFields'))
+            .setNotes(task.getResultField('notes'))
+            .setFolder(await this._setFolder(api, task, password))
             .setHidden(task.getResultField('hidden'));
 
-        this._enforcePasswordPropertyLengths(password);
+        password = this._enforcePasswordPropertyLengths(password);
         if(password.isHidden()) {
             let helper = new HiddenFolderHelper();
             password.setFolder(await helper.getHiddenFolderId(api));
         }
 
         await api.getPasswordRepository().update(password);
+        password = await api.getPasswordRepository().findById(password.getId());
         SearchIndex.removeItem(password);
         SearchIndex.addItem(password);
 
         task.setAccepted(true)
             .setFeedback('MiningPasswordUpdated');
     }
+
+    /**
+     *
+     * @param {String} property
+     * @param {MiningItem} task
+     * @param {EnhancedPassword} password
+     * @returns {EnhancedPassword}
+      * @private
+     */
+     async _setFolder(api, task, password) {
+        if(task.getResultField('hidden') === password.getHidden()) {
+            return password.getFolder();
+        }
+        
+        let helper = new HiddenFolderHelper();
+        var hiddenFolder = await helper.getHiddenFolderId(api);
+        if(task.getResultField('hidden') && password.getFolder() !== hiddenFolder) {
+            return hiddenFolder;
+        } else if(!task.getResultField('hidden') && password.getFolder() === hiddenFolder) {
+            return "00000000-0000-0000-0000-000000000000";
+        }
+        return password.getFolder();
+     }
 
     /**
      * @param {Object} data
@@ -293,6 +330,7 @@ class MiningManager {
     /**
      *
      * @param {Password} password
+     * @returns {Password}
      * @private
      */
     _enforcePasswordPropertyLengths(password) {
@@ -308,6 +346,72 @@ class MiningManager {
         if(password.getUrl().length > 2048) {
             password.setUrl(password.getUrl().substr(0, 2048));
         }
+        if(password.getNotes().length > 4096) {
+            password.setNotes(password.getNotes().substr(0, 4096));
+        }
+        return this._enforcePasswordCustomPropertyLengths(password);
+    }
+
+    /**
+     *
+     * @param {Password} password
+     * @returns {Password}
+     * @private
+     */
+     _enforcePasswordCustomPropertyLengths(password) {
+        let customFields = password.getCustomFields();
+        if(Array.isArray(customFields._elements)) {
+            password.setCustomFields(this._enforcePasswordCustomPropertyLengthsInObject(customFields));
+        } else {
+            password.setCustomFields(this._enforcePasswordCustomPropertyLengthsInArray(customFields));
+        }
+        return password;
+    }
+
+    /**
+     *
+     * @param {Array} fields
+     * @returns {Array}
+     * @private
+     */
+     _enforcePasswordCustomPropertyLengthsInArray(fields) {
+        for(var i = 0; i < fields.length; i++) {
+            if((fields[i].label === "" && fields[i].value === "" && fields[i].type !== "data" && fields[i].type !== "file")
+            || fields[i].label === "ext:field/" && fields[i].type === 'data') {
+                
+                fields.splice(i, 1);
+                i--;
+            }
+        }
+        if(fields.length > 0) {
+            while(JSON.stringify(fields).length > 8192) {
+                fields.pop()
+            }
+        }
+        return fields;
+    }
+
+    /**
+     *
+     * @param {Object} fields
+     * @returns {Object}
+     * @private
+     */
+     _enforcePasswordCustomPropertyLengthsInObject(fields) {
+        for(var i = 0; i < fields.length; i++) {
+            var field = fields.get(i);
+            if((field.getLabel() === "" && field.getValue() === "" && field.getType() !== "data" && field.getType() !== "file")
+                || field.getLabel() === "ext:field/" && field.getType() === 'data') {
+                    fields._elements.splice(i, 1);
+                    i--;
+                }
+        }
+        if(fields.length > 0) {
+            while(JSON.stringify(fields).length > 8192) {
+                fields._elements.splice(fields.length -1, 1);
+            }
+        }
+        return fields;
     }
 }
 
