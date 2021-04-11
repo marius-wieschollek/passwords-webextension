@@ -1,3 +1,6 @@
+## 2.2.0 - Feature Release
+- Edit passwords
+
 ## 2.1.1 - Bugfix Release
 ### Fixed
 - Incorrect last edit time for updated passwords
