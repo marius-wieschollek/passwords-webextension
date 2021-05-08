@@ -4,7 +4,7 @@
             <icon icon="globe-europe" font="solid" slot="before"/>
             <icon class="option" icon="clipboard" slot="after" @click.stop="$emit('copy', 'url')"/>
         </translate>
-        <translate tag="div" class="menu-item" say="PasswordItemViewEdit" @click="$emit('details')">
+        <translate tag="div" class="menu-item" say="PasswordItemDetails" @click="$emit('details')">
             <icon icon="file-alt" font="solid" slot="before"/>
         </translate>
         <translate tag="div" class="menu-item" say="PasswordItemToTrash" @click="moveToTrash">

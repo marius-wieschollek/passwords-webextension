@@ -40,7 +40,7 @@
         bottom   : 0;
         left     : 0;
         overflow : hidden;
-        z-index  : 1;
+        z-index  : 999;
 
         .toast-leave-active {
             animation : toast-leave .5s;

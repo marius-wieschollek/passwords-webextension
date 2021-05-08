@@ -9,15 +9,27 @@ import SearchQuery from '@js/Search/Query/SearchQuery';
 export default class Update extends AbstractController {
 
     async execute(message, reply) {
-        let {data} = message.getPayload(),
-            query    = new SearchQuery(),
-            password = /** @type {EnhancedPassword} **/ query
+        let {data}    = message.getPayload(),
+            query     = new SearchQuery(),
+            passwords = query
                 .where(query.field('id').equals(data.id))
-                .hidden(true|false)
-                .execute()[0],
-            api = /** @type {PasswordsClient} **/ await ApiRepository.findById(password.getServer().getId());
+                .hidden(true)
+                .execute();
 
-        if(password !== null && !password.isTrashed()) {
+        if(passwords.length === 0) {
+            reply.setPayload({success: false, message: 'ToastPasswordUpdateFailed'});
+            return;
+        }
+
+        /** @type {EnhancedPassword} **/
+        let password = passwords[0];
+        if(password.isTrashed()) {
+            reply.setPayload({success: false, message: 'ToastPasswordUpdateFailed'});
+            return;
+        }
+
+        let api = /** @type {PasswordsClient} **/ await ApiRepository.findById(password.getServer().getId());
+        try {
             password
                 .setFavorite(this._setProperty('favorite', data, password))
                 .setLabel(this._setProperty('label', data, password))
@@ -32,9 +44,9 @@ export default class Update extends AbstractController {
 
             await this._updatePassword(api, password);
             reply.setPayload({success: true, data: data});
-        } else {
-            reply.setPayload({success: false});
-            this._returnError()
+        } catch(e) {
+            ErrorManager.logError(e);
+            reply.setPayload({success: false, message: 'ToastPasswordUpdateFailed'});
         }
     }
 
@@ -46,79 +58,61 @@ export default class Update extends AbstractController {
      * @returns {*}
      * @private
      */
-     _setProperty(property, data, password) {
+    _setProperty(property, data, password) {
         if(data.hasOwnProperty(property)) {
             return data[property];
         } else {
             return password.getProperty(property);
         }
-     }
+    }
 
-     /**
+    /**
      *
      * @param {JSON} data
      * @param {EnhancedPassword} password
      * @returns {Date}
      * @private
      */
-      _setEdited(data, password) {
-        var updateEdited = false;
-        for(var item in data) {
-            if(item !== 'id' && item !== 'favorite') {
-                updateEdited = true;
-            }
-        }
+    _setEdited(data, password) {
+        let updateEdited = data.hasOwnProperty('password') && data.password !== password.getPassword();
         return updateEdited ? new Date():password.getEdited();
-     }
+    }
 
     /**
      *
-     * @param {String} property
+     * @param {PasswordsClient} api
      * @param {JSON} data
      * @param {EnhancedPassword} password
      * @returns {String}
      * @private
      */
-     async _setFolder(api, data, password) {
+    async _setFolder(api, data, password) {
         if(!data.hasOwnProperty('hidden')) {
             return password.getFolder();
         }
-        
+
         let helper = new HiddenFolderHelper();
-        var hiddenFolder = await helper.getHiddenFolderId(api);
+        let hiddenFolder = await helper.getHiddenFolderId(api);
         if(data.hidden && password.getFolder() !== hiddenFolder) {
             return hiddenFolder;
         } else if(!data.hidden && password.getFolder() === hiddenFolder) {
-            return "00000000-0000-0000-0000-000000000000";
+            return '00000000-0000-0000-0000-000000000000';
         }
         return password.getFolder();
-     }
-    
+    }
+
     /**
      *
      * @param {PasswordsClient} api
      * @param {EnhancedPassword} password
      * @private
      */
-     async _updatePassword(api, password) {
+    async _updatePassword(api, password) {
         let repository = /** @type {PasswordRepository} **/ api.getInstance('repository.password');
         await repository.update(password);
         password = await repository.findById(password.getId());
-        
+
         SearchIndex.removeItem(password);
         SearchIndex.addItem(password, true);
-        ToastService.success('ToastPasswordUpdated')
-                .catch(ErrorManager.catch);
     }
-
-    /**
-     *
-     * @private
-     */
-    _returnError() {
-        ToastService
-                .error('ToastPasswordUpdateFailed')
-                .catch(ErrorManager.catch);
-    }
-
 }

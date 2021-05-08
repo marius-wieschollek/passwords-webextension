@@ -57,8 +57,8 @@
         },
 
         async mounted() {
-            var response = await MessageService.send({type: 'folder.show', payload: this.value});
-            var payload = response.getPayload();
+            let response = await MessageService.send({type: 'folder.show', payload: this.value}),
+                payload = response.getPayload();
             if(payload !== undefined && payload !== null) {
                 this.folder = payload;
             }
@@ -76,16 +76,14 @@
 
         computed: {
             canEdit() {
-                if(this.editable && this.field.editable) {
-                    return true;
-                }
-                return false;
+                return !!(this.editable && this.field.editable);
+
             },
             label() {
                 return LocalisationService.translate(`Label${this.field.name.capitalize()}`);
             },
             text() {
-                var type = this.field.type;
+                let type = this.field.type;
                 if(type === 'datetime') {
                     if(typeof this.value === "number") {
                         return new Date(this.value * 1000).toLocaleString();
@@ -103,7 +101,7 @@
                 return this.value;
             },
             classList() {
-                var result = "password-view-property";
+                let result = "password-view-property";
                 if(!this.canEdit) {
                     result += " readonly";
                 }
@@ -122,7 +120,7 @@
                 return "text";
             },
             activeClassName() {
-                var result = this.editable === true ? " active":"";
+                let result = this.editable === true ? " active":"";
                 result += this.field.type === 'password' ? ' password-edit':'';
                 return result;
             },
@@ -134,9 +132,12 @@
             },
             valueErrorText() {
                 if(!this.validateUrl()) {
-                    return LocalisationService.translate(`PasswordEditInvalidValue`);
+                    return LocalisationService.translate('PasswordEditValidationInvalidValue');
                 }
-                return LocalisationService.translate([`PasswordEditMaxAllowedCharacter`, this.field.maxLength]);
+                if(this.field.maxLength < this.value.length) {
+                    return LocalisationService.translate(['PasswordEditValidationMaxLength', this.field.maxLength]);
+                }
+                return LocalisationService.translate(['PasswordEditValidationRequired']);
             }
         },
 
@@ -150,7 +151,7 @@
                             .catch(ErrorManager.catch);
             },
             copyProperty(property) {
-                if(this.field.allowCopy == false || this.editable === true || property === 'notes') return;
+                if(this.field.allowCopy === false || this.editable === true || property === 'notes') return;
                 this.copy(property);
             },
             copyNotes(property) {
@@ -173,20 +174,17 @@
             },
             validateLength() {
                 if(this.field.maxLength === undefined) return true;
-                if(this.field.maxLength <= this.value.length) {
-                    return false;
-                }
-                return true;
+                if(this.field.maxLength  < this.value.length) return false;
+                if(!this.field.required) return true;
+                return this.value.length > 0;
             },
             validateUrl() {
-                if(this.field.type !== "url") return true;
-                var urlRegex = /^(https?|ftps?|ssh):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;
-                var uncRegex = /^\\\\([^\\:\|\[\]\/";<>+=,?* _]+)\\([\u0020-\u0021\u0023-\u0029\u002D-\u002E\u0030-\u0039\u0040-\u005A\u005E-\u007B\u007E-\u00FF]{1,80})(((?:\\[\u0020-\u0021\u0023-\u0029\u002D-\u002E\u0030-\u0039\u0040-\u005A\u005E-\u007B\u007E-\u00FF]{1,255})+?|)(?:\\((?:[\u0020-\u0021\u0023-\u0029\u002B-\u002E\u0030-\u0039\u003B\u003D\u0040-\u005B\u005D-\u007B]{1,255}){1}(?:\:(?=[\u0001-\u002E\u0030-\u0039\u003B-\u005B\u005D-\u00FF]|\:)(?:([\u0001-\u002E\u0030-\u0039\u003B-\u005B\u005D-\u00FF]+(?!\:)|[\u0001-\u002E\u0030-\u0039\u003B-\u005B\u005D-\u00FF]*)(?:\:([\u0001-\u002E\u0030-\u0039\u003B-\u005B\u005D-\u00FF]+)|))|)))|)$/;
+                if(this.field.type !== 'url') return true;
+                let urlRegex = /^(https?|ftps?|ssh):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;
+                let uncRegex = /^\\\\([^\\:\|\[\]\/";<>+=,?* _]+)\\([\u0020-\u0021\u0023-\u0029\u002D-\u002E\u0030-\u0039\u0040-\u005A\u005E-\u007B\u007E-\u00FF]{1,80})(((?:\\[\u0020-\u0021\u0023-\u0029\u002D-\u002E\u0030-\u0039\u0040-\u005A\u005E-\u007B\u007E-\u00FF]{1,255})+?|)(?:\\((?:[\u0020-\u0021\u0023-\u0029\u002B-\u002E\u0030-\u0039\u003B\u003D\u0040-\u005B\u005D-\u007B]{1,255}){1}(?:\:(?=[\u0001-\u002E\u0030-\u0039\u003B-\u005B\u005D-\u00FF]|\:)(?:([\u0001-\u002E\u0030-\u0039\u003B-\u005B\u005D-\u00FF]+(?!\:)|[\u0001-\u002E\u0030-\u0039\u003B-\u005B\u005D-\u00FF]*)(?:\:([\u0001-\u002E\u0030-\u0039\u003B-\u005B\u005D-\u00FF]+)|))|)))|)$/;
 
-                if(urlRegex.test(this.value) || uncRegex.test(this.value)) {
-                    return true;
-                }
-                return false;
+                return urlRegex.test(this.value) || uncRegex.test(this.value);
+
             }
         },
 
@@ -254,7 +252,7 @@
         box-shadow : 0 0 0 1px var(--element-active-fg-color);
 
         &.error {
-            box-shadow   : 1px 1px 1px 0px var(--error-bg-color);
+            box-shadow   : 1px 1px 1px 0 var(--error-bg-color);
             border       : solid;
             border-width : .3px;
             border-color : var(--error-bg-color);

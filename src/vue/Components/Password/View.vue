@@ -21,16 +21,19 @@
                              v-on:updateField="updateCustomField"
                              v-on:error="handleValidationError"
                              :maxLength="customFieldLength"/>
+            <property :editable="false" :field="field" v-for="field in statFields" :key="field.name"/>
         </div>
     </div>
 </template>
 
 <script>
-    import Icon from "@vue/Components/Icon";
-    import Password from "passwords-client/src/Model/Password/Password";
+    import Icon from '@vue/Components/Icon';
+    import Password from 'passwords-client/src/Model/Password/Password';
     import Property from '@vue/Components/Password/Property';
     import CustomProperty from '@vue/Components/Password/CustomProperty';
-    import MessageService from "@js/Services/MessageService";
+    import MessageService from '@js/Services/MessageService';
+    import ToastService from "@js/Services/ToastService";
+    import ErrorManager from "@js/Manager/ErrorManager";
 
     export default {
         components: {Icon, Property, CustomProperty},
@@ -59,15 +62,15 @@
             },
             favoriteFont() {
                 if(this.password.getProperty('favorite') === true) {
-                    return "solid";
+                    return 'solid';
                 }
-                return "reqular";
+                return 'reqular';
             },
             sharedIcon() {
                 if(this.password.getProperty('shared') === true) {
-                    return "users";
+                    return 'users';
                 }
-                return "user-shield";
+                return 'user-shield';
             },
             showNewCustomField() {
                 return this.allowNewCustomField();
@@ -77,6 +80,13 @@
             },
             canSave() {
                 return this.errorQueue.length > 0 ? 'disabled':'';
+            },
+            statFields() {
+                return [
+                    this.getFieldObject('folder', 'folder', false, false, false, undefined),
+                    this.getFieldObject('edited', 'datetime', false, false, false, undefined),
+                    this.getFieldObject('created', 'datetime', false, false, false, undefined)
+                ];
             }
         },
 
@@ -84,40 +94,30 @@
             getDefaultFields() {
                 let fields = [];
                 for(let property in this.password.getProperties()) {
-                    if(property === "password") {
-                        fields.push(this.getFieldObject(property, "password", true, true, 256));
-                    }
-                    if(property === "edited" || property === "created") {
-                        fields.push(this.getFieldObject(property, "datetime", false, false, undefined));
-                    }
-                    if(property === "label") {
-                        fields.push(this.getFieldObject(property, "text", true, false, 64));
-                    }
-                    if(property === "folder") {
-                        fields.push(this.getFieldObject(property, "folder", false, false, undefined));
-                    }
-                    if(property === "notes") {
-                        fields.push(this.getFieldObject(property, "textarea", true, true, 4096));
-                    }
-                    if(property === "url") {
-                        fields.push(this.getFieldObject(property, "url", true, true, 2048));
-                    }
-                    if(property === "username") {
-                        fields.push(this.getFieldObject(property, "text", true, true, 64));
-                    }
-                    if(property === "hidden") {
-                        fields.push(this.getFieldObject(property, "checkbox", true, false, undefined));
+                    if(property === 'password') {
+                        fields.push(this.getFieldObject(property, 'password', true, true, true, 256));
+                    } else if(property === 'label') {
+                        fields.push(this.getFieldObject(property, 'text', true, true, false, 64));
+                    } else if(property === 'notes') {
+                        fields.push(this.getFieldObject(property, 'textarea', true, false, true, 4096));
+                    } else if(property === 'url') {
+                        fields.push(this.getFieldObject(property, 'url', true, false, true, 2048));
+                    } else if(property === 'username') {
+                        fields.push(this.getFieldObject(property, 'text', true, false, true, 64));
+                    } else if(property === 'hidden') {
+                        fields.push(this.getFieldObject(property, 'checkbox', true, false, false, undefined));
                     }
                 }
                 return fields;
             },
-            getFieldObject(property, type, editable, allowCopy, maxLength) {
+            getFieldObject(property, type, editable, required, allowCopy, maxLength) {
                 return {
                     name     : property,
                     type     : type,
                     value    : this.password.getProperty(property),
                     editable : editable,
                     allowCopy: allowCopy,
+                    required : required,
                     maxLength: maxLength
                 };
             },
@@ -130,9 +130,9 @@
             getNewCustomField() {
                 return (
                     {
-                        label: "",
-                        value: "",
-                        type : "text"
+                        label: '',
+                        value: '',
+                        type : 'text'
                     }
                 );
             },
@@ -153,9 +153,12 @@
                     id      : this.password.getId(),
                     favorite: !this.password.getFavorite()
                 };
-                let result = await MessageService.send({type: 'password.update', payload: {data: data}});
-                if(result.getPayload().success === true) {
-                    this.password.setProperties(result.getPayload().data);
+                let response = await MessageService.send({type: 'password.update', payload: {data: data}});
+                if(response.getPayload().success) {
+                    ToastService.success('ToastPasswordUpdated').catch(ErrorManager.catch);
+                    this.password.setProperties(response.getPayload().data);
+                } else {
+                    ToastService.error(response.getPayload().message).catch(ErrorManager.catch);
                 }
             },
             toggleAction() {
@@ -165,11 +168,18 @@
                 }
                 this.isEditMode = !this.isEditMode;
             },
-            save() {
+            async save() {
                 if(Object.keys(this.updatedFields).length !== 0) {
                     this.removeEmptyCustomFields();
                     this.updatedFields.id = this.password.getId();
-                    MessageService.send({type: 'password.update', payload: {data: this.updatedFields}});
+                    let response = await MessageService.send({type: 'password.update', payload: {data: this.updatedFields}});
+                    if(response.getPayload().success) {
+                        ToastService.success('ToastPasswordUpdated').catch(ErrorManager.catch);
+                        this.password.setProperties(response.getPayload().data);
+                    } else {
+                        ToastService.error(response.getPayload().message).catch(ErrorManager.catch);
+                    }
+
                     this.updatedFields = {};
                 }
             },
@@ -182,7 +192,7 @@
                 if(!this.allowNewCustomField()) return;
                 let emptyFieldAvailable = false;
                 this.updatedFields.customFields.forEach((e) => {
-                    if(e.label === "" && e.value === "" && e.type !== "data" && e.type !== "file") {
+                    if(e.label === '' && e.value === '' && e.type !== 'data' && e.type !== 'file') {
                         emptyFieldAvailable = true;
                     }
                 });
@@ -193,8 +203,8 @@
             removeEmptyCustomFields() {
                 if(this.updatedFields.customFields === undefined) return;
                 this.updatedFields.customFields.forEach((e) => {
-                    if((e.label === "" && e.value === "" && e.type !== "data" && e.type !== "file")
-                       || e.label === "ext:field/" && e.type === 'data') {
+                    if((e.label === '' && e.value === '' && e.type !== 'data' && e.type !== 'file')
+                       || e.label === 'ext:field/' && e.type === 'data') {
 
                         let i = this.updatedFields.customFields.indexOf(e);
                         this.updatedFields.customFields.splice(i, 1);
