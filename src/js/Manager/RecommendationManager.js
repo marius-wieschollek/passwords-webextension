@@ -13,6 +13,7 @@ class RecommendationManager {
 
     constructor() {
         this._change = new EventQueue();
+        this._options = { initialized: false, mode: "host", maxRows: 8 }
 
         this._tabEvent = (tab) => {
             if(!tab.hasOwnProperty('recommended') || tab.lastUrl !== tab.url) {
@@ -32,21 +33,22 @@ class RecommendationManager {
     }
 
     init() {
+        this.initRecommendationOptions();
         TabManager.tabChanged.on(this._tabEvent);
         TabManager.urlChanged.on(this._tabEvent);
         SearchIndex.listen.on(this._searchEvent);
-        this.initRecommendationOptions();
     }
 
     initRecommendationOptions() {
-        this.options = { mode: "host", maxRows: 8 }
         SettingsService.get('search.recommendation.mode')
         .then((value) => {
-            this.options.mode = value;
+            this._options.initialized = true;
+            this._options.mode = value;
         });
         SettingsService.get('search.recommendation.maxRows')
         .then((value) => {
-            this.options.maxRows = value;
+            this._options.initialized = true;
+            this._options.maxRows = value;
         });
     }
 
@@ -74,6 +76,7 @@ class RecommendationManager {
      * @return {Password[]}
      */
     getRecommendationsByUrl(url, incognito = false) {
+        if(!this._options.initialized) return [];
         url = Url(url);
         if(url.host.length === 0) return [];
 
@@ -82,7 +85,7 @@ class RecommendationManager {
             .where(this.getFilterQuery(query, url))
             .type('password')
             .score(0.3)
-            .limit(this.options.maxRows.getValue())
+            .limit(this._options.maxRows.getValue())
             .sortBy('favorite')
             .sortBy('uses')
             .sortBy('shared')
@@ -99,7 +102,7 @@ class RecommendationManager {
      * @param {URL} url
      */
     getFilterQuery(query, url) {
-        let mode = this.options.mode.getValue();
+        let mode = this._options.mode.getValue();
         if(mode === 'domain') {
             return query.field('host').contains(this.getSearchDomainFromHost(url.host));
         } else if(mode === 'host') {
