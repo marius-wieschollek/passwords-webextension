@@ -1,37 +1,37 @@
 <template>
     <li class="item password-item">
-        <div class="item-main" :class="{'has-menu':(showMenu || showEntry ? true : false)}">
+        <div class="item-main" :class="{'has-menu':showMenu}">
             <div class="label" @click="sendPassword()" :title="title" v-on:transitionend="calculateOverflow">
-                <favicon :password="password.getId()" :size="32" v-if="favicon" />
+                <favicon :password="password.getId()" :size="32" v-if="favicon"/>
                 <div ref="scrollContainer" class="scroll-container" :style="titleVars">
                     <span ref="scrollElement" class="scroll-element" :class="titleClass">{{ label }}</span>
                 </div>
             </div>
             <div class="options">
-                <icon icon="user" hover-icon="clipboard" @click="copy('username')" draggable="true" @dragstart="drag($event, 'username')" />
-                <icon icon="key" font="solid" hover-icon="clipboard" hover-font="regular" @click="copy('password')" draggable="true" @dragstart="drag($event, 'password')" />
-                <icon icon="ellipsis-h" font="solid" @click="toggleMenu()" />
+                <icon icon="user" hover-icon="clipboard" @click="copy('username')" draggable="true" @dragstart="drag($event, 'username')"/>
+                <icon icon="key" font="solid" hover-icon="clipboard" hover-font="regular" @click="copy('password')" draggable="true" @dragstart="drag($event, 'password')"/>
+                <icon icon="ellipsis-h" font="solid" @click="toggleMenu()"/>
             </div>
-            <icon :class="securityClass" icon="shield-alt" font="solid" />
+            <icon :class="securityClass" icon="shield-alt" font="solid"/>
         </div>
-        <password-menu :show="showMenu" :password="password" v-on:copy="copy($event)" v-on:delete="$emit('delete', password)" v-on:toggleEntry="toggleEntry()"/>
-        <password-view v-if="showEntry" :password="password" v-on:toggleEntry="toggleEntry()"/>
+        <password-menu :show="showMenu" :password="password" v-on:copy="copy($event)" v-on:delete="$emit('delete', password)" v-on:details="showDetails()"/>
+        <password-view v-if="showEntry" :password="password" v-on:close="closeDetails()"/>
     </li>
 </template>
 
 <script>
-    import Password                from 'passwords-client/src/Model/Password/Password';
-    import Icon                    from '@vue/Components/Icon';
-    import MessageService          from '@js/Services/MessageService';
-    import Favicon                 from '@vue/Components/List/Item/Favicon';
-    import ToastService            from '@js/Services/ToastService';
-    import ErrorManager            from '@js/Manager/ErrorManager';
-    import LocalisationService     from '@js/Services/LocalisationService';
-    import SettingsService         from '@js/Services/SettingsService';
+    import Password from 'passwords-client/src/Model/Password/Password';
+    import Icon from '@vue/Components/Icon';
+    import MessageService from '@js/Services/MessageService';
+    import Favicon from '@vue/Components/List/Item/Favicon';
+    import ToastService from '@js/Services/ToastService';
+    import ErrorManager from '@js/Manager/ErrorManager';
+    import LocalisationService from '@js/Services/LocalisationService';
+    import SettingsService from '@js/Services/SettingsService';
     import PasswordSettingsManager from '@js/Manager/PasswordSettingsManager';
-    import Translate               from '@vue/Components/Translate';
-    import PasswordMenu            from '@vue/Components/List/Item/Menu/PasswordMenu';
-    import PasswordView        from '@vue/Components/Password/View';
+    import Translate from '@vue/Components/Translate';
+    import PasswordMenu from '@vue/Components/List/Item/Menu/PasswordMenu';
+    import PasswordView from '@vue/Components/Password/View';
 
     export default {
         components: {PasswordMenu, Translate, Favicon, Icon, PasswordView},
@@ -51,9 +51,9 @@
 
         data() {
             return {
-                active  : true,
-                showMenu: false,
-                overflow: 0,
+                active   : true,
+                showMenu : false,
+                overflow : 0,
                 showEntry: false
             };
         },
@@ -74,7 +74,7 @@
                 return this.password.getLabel();
             },
             titleClass() {
-                return this.overflow > 0 ? 'scroll-on-hover' : '';
+                return this.overflow > 0 ? 'scroll-on-hover':'';
             },
             titleVars() {
                 return `--overflow-size:-${this.overflow}px`;
@@ -92,7 +92,7 @@
         methods: {
             calculateOverflow() {
                 let overflow = this.$refs.scrollElement.scrollWidth - this.$refs.scrollContainer.offsetWidth;
-                this.overflow = overflow > 5 ? overflow : 0;
+                this.overflow = overflow > 5 ? overflow:0;
             },
             async sendPassword() {
                 try {
@@ -129,7 +129,7 @@
             },
             copy(property) {
                 let data = this.password.getProperty(property),
-                    type = property === 'password' ? 'password' : 'text';
+                    type = property === 'password' ? 'password':'text';
                 MessageService.send({type: 'clipboard.write', payload: {type, value: data}}).catch(ErrorManager.catch);
 
                 let label = property.capitalize();
@@ -151,9 +151,13 @@
                     this.showMenu = !this.showMenu;
                 }
             },
-            toggleEntry() {
+            showDetails() {
                 this.showMenu = false;
-                this.showEntry = !this.showEntry;
+                this.showEntry = true;
+            },
+            closeDetails() {
+                this.showMenu = false;
+                this.showEntry = false;
             }
         }
     };

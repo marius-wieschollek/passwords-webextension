@@ -1,19 +1,27 @@
 <template>
-    <div class="item-menu password-view">
-        <div class="password-header">
-            <div class="left-space"/>
-            <div class="badge-container">
-                <icon :class="securityClass" icon="shield-alt" font="solid"/>
-                <icon class="favorite" @click="updateFavorite()" icon="star" :font="favoriteIconSolid"/>
-                <icon :icon="sharedIcon" font="solid"/>
+    <div class="password-details-view">
+        <div class="password-details-header">
+            <icon class="close" icon="chevron-left" font="solid" @click="$emit('close')"/>
+            <div class="title">
+                {{ password.getLabel() }}
             </div>
-            <div class="action-icon">
-                <icon v-if="password.getProperty('editable')" :icon="actionIcon" @click="toggleAction()" :class="actionClassList"/>
+            <div class="options">
+                <icon :class="securityClass" icon="shield-alt" font="solid"/>
+                <icon class="favorite" @click="updateFavorite()" icon="star" :font="favoriteFont"/>
+                <icon v-if="canEdit" class="option" icon="pen" font="solid" @click="toggleAction()"/>
+                <icon v-if="isEditMode" class="option" icon="save" @click="toggleAction()" :class="canSave"/>
             </div>
         </div>
-        <property :editable="editable" :field="field" v-for="field in defaultFields" :key="field" v-on:updateField="updateField" v-on:error="handleValidationError"/>
-        <label v-if="customFields.length > 1" class="custom-fields">{{customFieldsLabel}}</label>
-        <custom-property :field="field" :editable="editable" v-for="field in customFields" :key="field" v-on:updateField="updateCustomField" v-on:error="handleValidationError" :maxLength="customFieldLength"/>
+        <div class="password-details-fields">
+            <property :editable="isEditMode" :field="field" v-for="field in defaultFields" :key="field.name" v-on:updateField="updateField" v-on:error="handleValidationError"/>
+            <custom-property :field="field"
+                             :editable="isEditMode"
+                             v-for="field in customFields"
+                             :key="field.label"
+                             v-on:updateField="updateCustomField"
+                             v-on:error="handleValidationError"
+                             :maxLength="customFieldLength"/>
+        </div>
     </div>
 </template>
 
@@ -23,8 +31,7 @@
     import Property from '@vue/Components/Password/Property';
     import CustomProperty from '@vue/Components/Password/CustomProperty';
     import MessageService from "@js/Services/MessageService";
-    import LocalisationService from '@js/Services/LocalisationService';
-    
+
     export default {
         components: {Icon, Property, CustomProperty},
         props     : {
@@ -35,13 +42,13 @@
 
         data() {
             return {
-                editable         : false,
+                isEditMode       : false,
                 defaultFields    : this.getDefaultFields(),
                 customFields     : this.getCustomFields(),
                 updatedFields    : {},
                 errorQueue       : [],
                 customFieldLength: 8192
-            }
+            };
         },
 
         computed: {
@@ -50,7 +57,7 @@
 
                 return `security ${types[this.password.getStatus()]}`;
             },
-            favoriteIconSolid() {
+            favoriteFont() {
                 if(this.password.getProperty('favorite') === true) {
                     return "solid";
                 }
@@ -63,26 +70,20 @@
                 return "user-shield";
             },
             showNewCustomField() {
-                if(this.allowNewCustomField()) {
-                    return true;
-                }
-                return false;
+                return this.allowNewCustomField();
             },
-            actionClassList() {
-                return this.editable === true && this.errorQueue.length > 0 ? "action-icon disabled":"action-icon";
+            canEdit() {
+                return !this.isEditMode && this.password.isEditable();
             },
-            actionIcon() {
-                return this.editable ? "save":"edit";
-            },
-            customFieldsLabel() {
-                return LocalisationService.translate(`LabelCustomFields`);
+            canSave() {
+                return this.errorQueue.length > 0 ? 'disabled':'';
             }
         },
 
-        methods   : {
+        methods: {
             getDefaultFields() {
-                var fields = [];
-                for (var property in this.password.getProperties()) {
+                let fields = [];
+                for(let property in this.password.getProperties()) {
                     if(property === "password") {
                         fields.push(this.getFieldObject(property, "password", true, true, 256));
                     }
@@ -91,13 +92,13 @@
                     }
                     if(property === "label") {
                         fields.push(this.getFieldObject(property, "text", true, false, 64));
-                    } 
+                    }
                     if(property === "folder") {
                         fields.push(this.getFieldObject(property, "folder", false, false, undefined));
                     }
                     if(property === "notes") {
                         fields.push(this.getFieldObject(property, "textarea", true, true, 4096));
-                    } 
+                    }
                     if(property === "url") {
                         fields.push(this.getFieldObject(property, "url", true, true, 2048));
                     }
@@ -118,47 +119,51 @@
                     editable : editable,
                     allowCopy: allowCopy,
                     maxLength: maxLength
-                }
+                };
             },
             getCustomFields() {
-                var result = this.password.getProperty('customFields');
+                let result = this.password.getProperty('customFields');
                 result.push(this.getNewCustomField());
                 this.customFieldLength = 8192 - JSON.stringify(result).length;
                 return result;
             },
             getNewCustomField() {
-               return (
+                return (
                     {
-                        label : "",
-                        value : "",
-                        type  : "text"
+                        label: "",
+                        value: "",
+                        type : "text"
                     }
-                )
+                );
             },
             allowNewCustomField() {
-                if(this.customFields === undefined 
-                    || this.customFields.length >= 20) return false;
-                if(this.updatedFields !== undefined 
-                    && this.updatedFields.customFields !== undefined 
-                    && this.updatedFields.customFields.length >=20) return false;
+                if(this.customFields === undefined
+                   || this.customFields.length >= 20) {
+                    return false;
+                }
+                if(this.updatedFields !== undefined
+                   && this.updatedFields.customFields !== undefined
+                   && this.updatedFields.customFields.length >= 20) {
+                    return false;
+                }
                 return true;
             },
             async updateFavorite() {
-                var data = {
-                    id: this.password.getId(),
+                let data = {
+                    id      : this.password.getId(),
                     favorite: !this.password.getFavorite()
-                }
-                var result = await MessageService.send({type: 'password.update', payload: {data: data}});
+                };
+                let result = await MessageService.send({type: 'password.update', payload: {data: data}});
                 if(result.getPayload().success === true) {
                     this.password.setProperties(result.getPayload().data);
                 }
             },
             toggleAction() {
                 if(this.errorQueue.length > 0) return;
-                if(this.editable === true) {
+                if(this.isEditMode === true) {
                     this.save();
                 }
-                this.editable = !this.editable;
+                this.isEditMode = !this.isEditMode;
             },
             save() {
                 if(Object.keys(this.updatedFields).length !== 0) {
@@ -175,26 +180,26 @@
                 this.updatedFields.customFields = this.customFields;
                 this.customFieldLength = 8192 - JSON.stringify(this.customFields).length;
                 if(!this.allowNewCustomField()) return;
-                var emptyFieldAvailable = false;
+                let emptyFieldAvailable = false;
                 this.updatedFields.customFields.forEach((e) => {
                     if(e.label === "" && e.value === "" && e.type !== "data" && e.type !== "file") {
-                            emptyFieldAvailable = true;
-                        }
-                })
+                        emptyFieldAvailable = true;
+                    }
+                });
                 if(!emptyFieldAvailable) {
                     this.customFields.push(this.getNewCustomField());
                 }
             },
-            removeEmptyCustomFields(){
+            removeEmptyCustomFields() {
                 if(this.updatedFields.customFields === undefined) return;
                 this.updatedFields.customFields.forEach((e) => {
-                    if((e.label === "" && e.value === "" && e.type !== "data" && e.type !== "file") 
-                        || e.label === "ext:field/" && e.type === 'data') {
+                    if((e.label === "" && e.value === "" && e.type !== "data" && e.type !== "file")
+                       || e.label === "ext:field/" && e.type === 'data') {
 
-                        var i = this.updatedFields.customFields.indexOf(e)
+                        let i = this.updatedFields.customFields.indexOf(e);
                         this.updatedFields.customFields.splice(i, 1);
                     }
-                })
+                });
             },
             handleValidationError(field, error) {
                 if(this.errorQueue.indexOf(field) !== -1) {
@@ -203,7 +208,7 @@
                     }
                 } else {
                     if(error === true) {
-                        this.errorQueue.push(field)
+                        this.errorQueue.push(field);
                     }
                 }
             }
@@ -212,27 +217,42 @@
 </script>
 
 <style lang="scss">
-.item-menu.password-view {
-    background-color : var(--element-hover-bg-color);
-    color            : var(--element-hover-fg-color);
+.password-details-view {
+    position         : absolute;
+    top              : 0;
+    left             : 0;
+    bottom           : 0;
+    right            : 0;
+    z-index          : 2;
+    background-color : var(--element-bg-color);
+    color            : var(--element-fg-color);
+    display          : flex;
+    flex-direction   : column;
 
-    .icon {
-        text-align : center;
-        width      : 3rem;
-        display    : inline-block;
-    }
+    .password-details-header {
+        line-height      : 3rem;
+        display          : flex;
+        box-shadow       : var(--tab-active-border);
+        background-color : var(--element-hover-bg-color);
+        color            : var(--element-hover-fg-color);
 
-    .password-header {
-        line-height    : 3rem;
-        display        : flex;
-        justify-content: space-between;
-        margin-bottom  : -1rem;
+        .icon {
+            width      : 3rem;
+            text-align : center;
+            display    : inline-block;
 
-        .left-space, .action-icon {
-            width       : 3rem
+            &.close {
+                width  : 2rem;
+                cursor : pointer;
+            }
         }
 
-        .badge-container {
+        .title {
+            font-size : 1.25rem;
+            flex-grow : 1;
+        }
+
+        .options {
             .security {
                 &.secure {
                     color : var(--success-bg-color)
@@ -248,68 +268,66 @@
             }
 
             .favorite {
-                cursor    : pointer;
-                color     : var(--warning-bg-color);
-                font-size : calc(var(--font-size) + 1rem);
-                position  : relative;
-                bottom    : -.25rem;
+                cursor : pointer;
+                color  : var(--warning-bg-color);
             }
-        }
 
-        .action-icon {
+            .icon.option {
+                cursor : pointer;
 
-            &.icon.disabled {
-                opacity   : .5;
-                
-                &:hover {
-                    cursor           : initial;
-                    background-color : initial;
-                    color            : initial;
+                &:not(.disabled) {
+                    &:hover {
+                        background-color : var(--button-hover-bg-color);
+                        color            : var(--button-hover-fg-color);
+                    }
+                }
+
+                &.disabled {
+                    opacity : .5;
                 }
             }
-
-            &.icon:hover {
-                cursor           : pointer;
-                background-color : var(--button-hover-bg-color);
-                color            : var(--button-hover-fg-color);
-            }
         }
     }
 
-    label.custom-fields {
-        display           : block;
-        font-weight       : 550;
-        line-height       : 1rem;;
-        padding-left      : .5rem;
-        padding-bottom    : .25rem;
-    }
+    .password-details-fields {
+        scrollbar-width : thin;
+        overflow        : auto;
+        flex-grow       : 1;
 
-    input, textarea {
-        width            : 100%;
-        padding          : .25rem;
-        box-sizing       : border-box;
-        border-radius    : 3px;
-        border           : none;
-        line-height      : 2rem;
-        background-color : var(--element-hover-bg-color);
-        color            : var(--element-fg-color);
-        scrollbar-width  : thin;
-    }
-    
-    input:focus,
-    select:focus,
-    textarea:focus,
-    button:focus {
-        outline: none;
-    }
-    
-    a {
-        width            : 100%;
-        padding          : .25rem;
-        line-height      : 2rem;
-        background-color : var(--element-hover-bg-color);
-        color            : var(--element-active-fg-color);
-    }
+        label.custom-fields {
+            display        : block;
+            font-weight    : 550;
+            line-height    : 1rem;;
+            padding-left   : .5rem;
+            padding-bottom : .25rem;
+        }
 
+        input, textarea {
+            width            : 100%;
+            padding          : .25rem;
+            box-sizing       : border-box;
+            border-radius    : 3px;
+            border           : none;
+            line-height      : 2rem;
+            background-color : var(--element-hover-bg-color);
+            color            : var(--element-fg-color);
+            scrollbar-width  : thin;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus,
+        button:focus {
+            outline : none;
+        }
+
+        a {
+            width            : 100%;
+            padding          : .25rem;
+            line-height      : 2rem;
+            background-color : var(--element-hover-bg-color);
+            color            : var(--element-active-fg-color);
+        }
+    }
 }
 </style>

@@ -440,7 +440,7 @@
         "description": "Label for the username of a password entry"
     },
     "LabelHidden"                        : {
-        "message"    : "Verstecktes Passwort",
+        "message"    : "Privates Passwort",
         "description": "Label for the checkbox to mark a password entry as private or hidden in the webapp"
     },
     "LabelUrl"                           : {
