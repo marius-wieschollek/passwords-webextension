@@ -81,15 +81,20 @@ class MiningManager {
         let hidden = TabManager.get().tab.incognito;
 
         let task = new MiningItem()
-            .setTaskField('label', data.title)
-            .setTaskField('username', data.user.value)
+            .setTaskField('label', data.title);
+
+        if(hidden) {
+            task.setTaskField('hidden', hidden);
+        }
+
+        task.setTaskField('username', data.user.value)
             .setTaskField('password', data.password.value)
             .setTaskField('url', data.url)
-            .setTaskField('notes', '')
             .setTaskField('hidden', hidden)
+            .setTaskField('notes', '')
+            .setTaskField('customFields', [])
             .setTaskField('created', '')
             .setTaskField('edited', '')
-            .setTaskField('customFields', [])
             .setTaskManual(data.manual)
             .setTaskNew(true);
 
@@ -176,7 +181,7 @@ class MiningManager {
             query    = new SearchQuery(),
             password = /** @type {EnhancedPassword} **/ query
                 .where(query.field('id').equals(task.getResultField('id')))
-                .hidden(true|false)
+                .hidden(true | false)
                 .execute()[0];
 
         password
@@ -211,13 +216,13 @@ class MiningManager {
      * @param {MiningItem} task
      * @param {EnhancedPassword} password
      * @returns {EnhancedPassword}
-      * @private
+     * @private
      */
-     async _setFolder(api, task, password) {
+    async _setFolder(api, task, password) {
         if(task.getResultField('hidden') === password.getHidden()) {
             return password.getFolder();
         }
-        
+
         let helper = new HiddenFolderHelper();
         var hiddenFolder = await helper.getHiddenFolderId(api);
         if(task.getResultField('hidden') && password.getFolder() !== hiddenFolder) {
@@ -226,7 +231,7 @@ class MiningManager {
             return "00000000-0000-0000-0000-000000000000";
         }
         return password.getFolder();
-     }
+    }
 
     /**
      * @param {Object} data
@@ -358,7 +363,7 @@ class MiningManager {
      * @returns {Password}
      * @private
      */
-     _enforcePasswordCustomPropertyLengths(password) {
+    _enforcePasswordCustomPropertyLengths(password) {
         let customFields = password.getCustomFields();
         if(Array.isArray(customFields._elements)) {
             password.setCustomFields(this._enforcePasswordCustomPropertyLengthsInObject(customFields));
@@ -374,18 +379,18 @@ class MiningManager {
      * @returns {Array}
      * @private
      */
-     _enforcePasswordCustomPropertyLengthsInArray(fields) {
+    _enforcePasswordCustomPropertyLengthsInArray(fields) {
         for(var i = 0; i < fields.length; i++) {
             if((fields[i].label === "" && fields[i].value === "" && fields[i].type !== "data" && fields[i].type !== "file")
-            || fields[i].label === "ext:field/" && fields[i].type === 'data') {
-                
+               || fields[i].label === "ext:field/" && fields[i].type === 'data') {
+
                 fields.splice(i, 1);
                 i--;
             }
         }
         if(fields.length > 0) {
             while(JSON.stringify(fields).length > 8192) {
-                fields.pop()
+                fields.pop();
             }
         }
         return fields;
@@ -397,18 +402,18 @@ class MiningManager {
      * @returns {Object}
      * @private
      */
-     _enforcePasswordCustomPropertyLengthsInObject(fields) {
+    _enforcePasswordCustomPropertyLengthsInObject(fields) {
         for(var i = 0; i < fields.length; i++) {
             var field = fields.get(i);
             if((field.getLabel() === "" && field.getValue() === "" && field.getType() !== "data" && field.getType() !== "file")
-                || field.getLabel() === "ext:field/" && field.getType() === 'data') {
-                    fields._elements.splice(i, 1);
-                    i--;
-                }
+               || field.getLabel() === "ext:field/" && field.getType() === 'data') {
+                fields._elements.splice(i, 1);
+                i--;
+            }
         }
         if(fields.length > 0) {
             while(JSON.stringify(fields).length > 8192) {
-                fields._elements.splice(fields.length -1, 1);
+                fields._elements.splice(fields.length - 1, 1);
             }
         }
         return fields;
