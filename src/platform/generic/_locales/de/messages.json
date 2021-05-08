@@ -472,7 +472,7 @@
         "description": "Label for the last edit time of this password."
     },
     "LabelNotes"                  : {
-        "message"    : "Notitzen",
+        "message"    : "Notizen",
         "description": "Label for the notes of this password."
     },
     "LabelCustomFields"                          : {
@@ -550,7 +550,7 @@
         }
     },
     "NotifyNewPasswordTextFF"            : {
-        "message"     : "Ein neues Passwort für \"$LABEL$\" wurde erkannt. Klicke auf das \"Passwörter\" icon um es anzusehen und zu speichern.",
+        "message"     : "Ein neues Passwort für \"$LABEL$\" wurde erkannt. Klicke auf das \"Passwörter\" icon in der Menüleiste um es anzusehen und zu speichern.",
         "description" : "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
         "placeholders": {
             "label": {
@@ -574,7 +574,7 @@
         }
     },
     "NotifyUpdatePasswordTextFF"         : {
-        "message"     : "Eine Aktualisierung für \"$LABEL$\" wurde erkannt. Klicke auf das \"Passwörter\" icon sie anzusehen und zu speichern.",
+        "message"     : "Eine Aktualisierung für \"$LABEL$\" wurde erkannt. Klicke auf das \"Passwörter\" icon in der Menüleiste um sie anzusehen und zu speichern.",
         "description" : "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
         "placeholders": {
             "label": {

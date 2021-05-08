@@ -564,7 +564,7 @@
         }
     },
     "NotifyNewPasswordTextFF"            : {
-        "message"     : "A new password for \"$LABEL$\" was detected. Click the passwords icon to view and save it.",
+        "message"     : "A new password for \"$LABEL$\" was detected. Click the passwords icon in the toolbar to view and save it.",
         "description" : "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
         "placeholders": {
             "label": {
@@ -588,7 +588,7 @@
         }
     },
     "NotifyUpdatePasswordTextFF"         : {
-        "message"     : "An update for \"$LABEL$\" was detected. Click the passwords icon to view and save it.",
+        "message"     : "An update for \"$LABEL$\" was detected. Click the passwords icon in the toolbar to view and save it.",
         "description" : "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
         "placeholders": {
             "label": {
