@@ -1,66 +1,67 @@
 <template>
     <div class="debug-settings">
-        <translate tag="h3" say="DebugInternalStats" />
+        <translate tag="h3" say="DebugInternalStats"/>
         <div class="debug-info">
-            <translate class="label" say="DebugInfoExtensionVersion" />
+            <translate class="label" say="DebugInfoExtensionVersion"/>
             <span class="value">{{ app.version }}</span>
         </div>
         <div class="debug-info">
-            <translate class="label" say="DebugInfoExtensionBuild" />
+            <translate class="label" say="DebugInfoExtensionBuild"/>
             <span class="value">{{ app.platform | capitalize }}</span>
         </div>
         <div class="debug-info">
-            <translate class="label" say="DebugInfoExtensionEnvironment" />
+            <translate class="label" say="DebugInfoExtensionEnvironment"/>
             <span class="value">{{ app.environment | capitalize }}</span>
         </div>
         <div class="debug-info">
-            <translate class="label" say="DebugInfoExtensionPlatform" />
+            <translate class="label" say="DebugInfoExtensionPlatform"/>
             <span class="value">{{ userAgent }}</span>
         </div>
         <div class="debug-info">
-            <translate class="label" say="DebugInfoHiddenFolderId" />
-            <span class="value">{{ hidden.id }}</span>
+            <translate class="label" say="DebugInfoHiddenFolderId"/>
+            <a :href="hidden.link" target="_blank" class="link">{{ hidden.id }}</a>
         </div>
 
-        <translate tag="h3" say="DebugSettings" />
+        <translate tag="h3" say="DebugSettings"/>
         <div class="setting">
-            <slider-field v-model="settings.localize" />
-            <translate tag="label" class="label" say="DebugLanguageTagsEnabled" />
+            <slider-field v-model="settings.localize"/>
+            <translate tag="label" class="label" say="DebugLanguageTagsEnabled"/>
         </div>
 
-        <translate tag="h3" say="DebugBuild" />
-        <translate class="debug-source-and-build" say="DebugSourceAndBuild" tag="a" href="./build.html" target="_blank" />
+        <translate tag="h3" say="DebugBuild"/>
+        <translate class="debug-source-and-build" say="DebugSourceAndBuild" tag="a" href="./build.html" target="_blank"/>
 
         <translate tag="h3" say="DebugErrorLog">
-            <icon icon="trash-alt" font="regular" @click="clearLog" />
+            <icon icon="trash-alt" font="regular" @click="clearLog"/>
         </translate>
         <div class="debug-error-item" v-for="error in errors">
             <div class="error-message" @click="showData">
                 <span class="title">{{ getTitle(error) }}</span>
-                <icon font="regular" icon="clipboard" @click.stop="copy(error)" />
+                <icon font="regular" icon="clipboard" @click.stop="copy(error)"/>
             </div>
             <pre class="error-data">{{ error }}</pre>
         </div>
-        <translate class="debug-no-errors" say="DebugNoErrors" v-if="errors.length === 0" />
+        <translate class="debug-no-errors" say="DebugNoErrors" v-if="errors.length === 0"/>
     </div>
 </template>
 
 <script>
-    import MessageService      from '@js/Services/MessageService';
-    import Translate           from '@vue/Components/Translate';
-    import Icon                from '@vue/Components/Icon';
-    import ToastService        from '@js/Services/ToastService';
-    import ErrorManager        from '@js/Manager/ErrorManager';
+    import MessageService from '@js/Services/MessageService';
+    import Translate from '@vue/Components/Translate';
+    import Icon from '@vue/Components/Icon';
+    import ToastService from '@js/Services/ToastService';
+    import ErrorManager from '@js/Manager/ErrorManager';
     import LocalisationService from '@js/Services/LocalisationService';
-    import SliderField         from '@vue/Components/Form/SliderField';
-    import SettingsService     from '@js/Services/SettingsService';
+    import SliderField from '@vue/Components/Form/SliderField';
+    import SettingsService from '@js/Services/SettingsService';
 
     export default {
         components: {SliderField, Icon, Translate},
         data() {
             return {
                 hidden  : {
-                    id: ''
+                    id  : '',
+                    link: ''
                 },
                 errors  : [],
                 app     : {
@@ -216,6 +217,19 @@
             user-select : text;
             cursor      : text;
             text-align  : right;
+        }
+
+        .link {
+            cursor          : pointer;
+            text-align      : right;
+            color           : var(--element-active-fg-color);
+            text-decoration : none;
+
+            &:hover,
+            &:active {
+                color           : var(--element-active-hover-fg-color);
+                text-decoration : underline;
+            }
         }
     }
 

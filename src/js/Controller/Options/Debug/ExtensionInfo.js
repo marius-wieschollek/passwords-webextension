@@ -14,21 +14,22 @@ export default class ExtensionInfo extends AbstractController {
      */
     async execute(message, reply) {
         let data = {
-            hidden  : {id: null},
+            hidden  : {id: null, link: null},
             settings: {localisations: false},
             app     : {
                 version    : process.env.APP_VERSION,
                 platform   : SystemService.getBrowserPlatform(),
                 environment: process.env.NODE_ENV
             },
-            platform: await SystemService.getBrowserInfo(),
+            platform: await SystemService.getBrowserInfo()
         };
 
         try {
-            let api    = await ServerManager.getDefaultApi(),
+            let api    = /** @type {PasswordsClient} **/ await ServerManager.getDefaultApi(),
                 helper = new HiddenFolderHelper();
             if(api.isAuthorized()) {
                 data.hidden.id = await helper.getHiddenFolderId(api);
+                data.hidden.link = `${api.getServer().getBaseUrl()}apps/passwords/#/folders/${data.hidden.id}`;
             } else {
                 data.hidden.id = '-';
             }
@@ -45,7 +46,7 @@ export default class ExtensionInfo extends AbstractController {
 
         try {
             let manifest = SystemService.getBrowserApi().runtime.getManifest();
-            if(manifest.hasOwnProperty('version')) data.app.version = manifest.version
+            if(manifest.hasOwnProperty('version')) data.app.version = manifest.version;
         } catch(e) {
             ErrorManager.logError(e);
         }
