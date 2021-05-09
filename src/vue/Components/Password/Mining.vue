@@ -6,22 +6,28 @@
         <translate say="MiningItemIsUpdate" class="create-info" :variables="updateVariables" v-else>
             <icon slot="before" icon="info-circle" font="solid"/>
         </translate>
-        
-        <property :password="password" :editable="editable" :field="field" v-for="field in defaultFields" :key="field" v-on:updateField="updateField" v-on:error="handleValidationError"/>
-        <label class="custom-fields">{{customFieldsLabel}}</label>
-        <custom-property :field="field" :editable="editable" v-for="field in customFields" :key="field" v-on:updateField="updateCustomField" v-on:error="handleValidationError" :maxLength="customFieldLength"/>
+
+        <property :editable="editable" :field="field" v-for="field in defaultFields" :key="field.name" v-on:updateField="updateField" v-on:error="handleValidationError"/>
+        <label class="custom-fields">{{ customFieldsLabel }}</label>
+        <custom-property :field="field"
+                         :editable="editable"
+                         v-for="field in customFields"
+                         :key="field.name"
+                         v-on:updateField="updateCustomField"
+                         v-on:error="handleValidationError"
+                         :maxLength="customFieldLength"/>
     </div>
 </template>
 
 <script>
-    import Icon from "@vue/Components/Icon";
+    import Icon from '@vue/Components/Icon';
     import MiningItem from '@js/Models/Queue/MiningItem';
     import Property from '@vue/Components/Password/Property';
     import CustomProperty from '@vue/Components/Password/CustomProperty';
     import Translate from '@vue/Components/Translate';
     import LocalisationService from '@js/Services/LocalisationService';
     import MessageService from '@js/Services/MessageService';
-    
+
     export default {
         components: {Icon, Translate, Property, CustomProperty},
         props     : {
@@ -38,7 +44,7 @@
                 updatedFields    : {},
                 errorQueue       : [],
                 customFieldLength: 8192
-            }
+            };
         },
 
         computed: {
@@ -48,87 +54,85 @@
                 ];
             },
             showNewCustomField() {
-                if(this.allowNewCustomField()) {
-                    return true;
-                }
-                return false;
+                return this.allowNewCustomField();
+
             },
             customFieldsLabel() {
                 return LocalisationService.translate(`LabelCustomFields`);
             }
         },
 
-        methods   : {
+        methods: {
             getDefaultFields() {
-                var fields = [];
+                let fields = [];
                 this.item.listResultFields().forEach((property) => {
-                    if(property === "password") {
-                        fields.push(this.getFieldObject(property, "password", true, true, 256));
+                    if(property === 'password') {
+                        fields.push(this.getFieldObject(property, 'password', true, true, true, 256));
                     }
-                    if(!this.item.isNew() && (property === "edited" || property === "created")) {
-                        fields.push(this.getFieldObject(property, "datetime", false, false, undefined));
+                    if(property === 'label') {
+                        fields.push(this.getFieldObject(property, 'text', true, true, false, 64));
                     }
-                    if(property === "label") {
-                        fields.push(this.getFieldObject(property, "text", true, false, 64));
-                    } 
-                    if(property === "notes") {
-                        fields.push(this.getFieldObject(property, "textarea", true, true, 4096));
-                    } 
-                    if(property === "url") {
-                        fields.push(this.getFieldObject(property, "url", true, true, 2048));
+                    if(property === 'notes') {
+                        fields.push(this.getFieldObject(property, 'textarea', true, false, true, 4096));
                     }
-                    if(property === "username") {
-                        fields.push(this.getFieldObject(property, "text", true, true, 64));
+                    if(property === 'url') {
+                        fields.push(this.getFieldObject(property, 'url', true, false, true, 2048));
                     }
-                    if(property === "hidden") {
-                        fields.push(this.getFieldObject(property, "checkbox", true, false, undefined));
+                    if(property === 'username') {
+                        fields.push(this.getFieldObject(property, 'text', true, false, true, 64));
                     }
-                })
+                    if(property === 'hidden') {
+                        fields.push(this.getFieldObject(property, 'checkbox', true, false, false, undefined));
+                    }
+                });
                 return fields;
             },
-            getFieldObject(property, type, editable, allowCopy, maxLength) {
+            getFieldObject(property, type, editable, required, allowCopy, maxLength) {
                 return {
-                    name     : property,
-                    type     : type,
-                    value    : this.item.getResultField(property),
-                    editable : editable,
-                    allowCopy: allowCopy,
-                    maxLength: maxLength
-                }
+                    name : property,
+                    type,
+                    value: this.item.getResultField(property),
+                    editable,
+                    required,
+                    allowCopy,
+                    maxLength
+                };
             },
             getCustomFields() {
-                var result = this.item.getResultField('customFields');
+                let result = this.item.getResultField('customFields');
                 result.push(this.getNewCustomField());
                 this.customFieldLength = 8192 - JSON.stringify(result).length;
                 return result;
             },
             getNewCustomField() {
-               return (
+                return (
                     {
-                        label : "",
-                        value : "",
-                        type  : "text"
+                        label: '',
+                        value: '',
+                        type : 'text'
                     }
-                )
+                );
             },
             allowNewCustomField() {
-                if(this.customFields === undefined 
-                    || this.customFields.length >= 20) return false;
-                var allowNew = true;
+                if(this.customFields === undefined
+                   || this.customFields.length >= 20) {
+                    return false;
+                }
+                let allowNew = true;
                 this.customFields.forEach((e) => {
-                    if(e.label === "" && e.value === "" && e.type !== "data" && e.type !== "file") {
-                            allowNew = false;
-                        }
-                })
-                
+                    if(e.label === '' && e.value === '' && e.type !== 'data' && e.type !== 'file') {
+                        allowNew = false;
+                    }
+                });
+
                 return allowNew;
             },
             updateField(field, value) {
-                this.item.setResultField(field, value)
+                this.item.setResultField(field, value);
                 this.update();
             },
             updateCustomField() {
-                this.item.setResultField('customFields', this.customFields)
+                this.item.setResultField('customFields', this.customFields);
                 this.update();
                 this.customFieldLength = 8192 - JSON.stringify(this.customFields).length;
                 if(this.allowNewCustomField()) {
@@ -137,7 +141,7 @@
             },
             update() {
                 MessageService
-                        .send({type: 'popup.mining.update', payload: this.item});
+                    .send({type: 'popup.mining.update', payload: this.item});
             },
             handleValidationError(field, error) {
                 if(this.errorQueue.indexOf(field) !== -1) {
@@ -146,7 +150,7 @@
                     }
                 } else {
                     if(error === true) {
-                        this.errorQueue.push(field)
+                        this.errorQueue.push(field);
                     }
                 }
             }
@@ -156,8 +160,8 @@
 
 <style lang="scss">
 .item-menu.password-mining {
-    background-color : var(--element-hover-bg-color);
-    color            : var(--element-hover-fg-color);
+    background-color : var(--element-bg-color);
+    color            : var(--element-fg-color);
 
     .create-info {
         display : block;
@@ -172,11 +176,11 @@
     }
 
     label.custom-fields {
-        display           : block;
-        font-weight       : 550;
-        line-height       : 1rem;;
-        padding-left      : .5rem;
-        padding-bottom    : .25rem;
+        display        : block;
+        font-weight    : 550;
+        line-height    : 1rem;;
+        padding-left   : .5rem;
+        padding-bottom : .25rem;
     }
 
     input, textarea {
@@ -190,14 +194,14 @@
         color            : var(--element-fg-color);
         scrollbar-width  : thin;
     }
-    
+
     input:focus,
     select:focus,
     textarea:focus,
     button:focus {
-        outline: none;
+        outline : none;
     }
-    
+
     a {
         width            : 100%;
         padding          : .25rem;

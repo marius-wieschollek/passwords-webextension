@@ -22,20 +22,11 @@
     import PasswordMining from '@vue/Components/Password/Mining';
     import MessageService from '@js/Services/MessageService';
     import ErrorManager from '@js/Manager/ErrorManager';
+    import PopupStateService from "@js/Services/PopupStateService";
+    import ToastService from "@js/Services/ToastService";
 
     export default {
         components: {Translate, Foldout, Icon, PasswordMining},
-
-        props: {
-            initialStatus: {
-                type   : Object,
-                default: () => {
-                    return {
-                        current: null
-                    };
-                }
-            }
-        },
 
         data() {
             return {
@@ -54,8 +45,9 @@
         },
 
         async mounted() {
-            if(this.initialStatus.current !== null && this.tabs.hasOwnProperty(this.initialStatus.current)) {
-                this.$refs.foldout.setActive(this.initialStatus.current);
+            let current = PopupStateService.get('current');
+            if(current !== null && this.tabs.hasOwnProperty(current)) {
+                this.$refs.foldout.setActive(current);
             }
         },
 
@@ -77,8 +69,8 @@
              * @return {Promise<void>}
              */
             async save(item) {
-                await MiningClient.solveItem(item);
-                this.items = MiningClient.getItems();
+                let response = await MiningClient.solveItem(item);
+                this.processResponse(response);
             },
 
             /**
@@ -88,7 +80,23 @@
              */
             async discard(item) {
                 item.setDiscarded(true);
-                await MiningClient.solveItem(item);
+                let response = await MiningClient.solveItem(item);
+                this.processResponse(response);
+            },
+
+            /**
+             * @param {MiningItem} response
+             */
+            processResponse(response) {
+                if(response.getSuccess()) {
+                    ToastService
+                        .success(response.getFeedback())
+                        .catch(ErrorManager.catch);
+                } else {
+                    ToastService
+                        .error(response.getFeedback())
+                        .catch(ErrorManager.catch);
+                }
                 this.items = MiningClient.getItems();
             },
 
@@ -114,12 +122,7 @@
             },
 
             sendStatus() {
-                let status = {
-                    current: this.current
-                };
-                MessageService
-                    .send({type: 'popup.status.set', payload: {tab: 'collected', status}})
-                    .catch(ErrorManager.catchEvt);
+                PopupStateService.set('current', this.current);
             }
         },
 

@@ -96,7 +96,12 @@ export default class UpdatePasswordNotification extends AbstractNotification {
      */
     _openBrowserAction() {
         RegistryService.set('popup.tab', 'collected');
-        RegistryService.set('popup.collected.status', {current: this._item.getId()});
+
+        let data = RegistryService.get('popup.data');
+        if(data === undefined) data = {};
+        data.collected = {current: this._item.getId()};
+        RegistryService.set('popup.data', data);
+
         SystemService.getBrowserApi().browserAction.openPopup();
     }
 

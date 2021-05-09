@@ -34,6 +34,11 @@ class MiningClient extends FeedbackClient {
         return items;
     }
 
+    /**
+     *
+     * @param {MiningItem} item
+     * @returns {Promise<MiningItem>}
+     */
     solveItem(item) {
         return new Promise((resolve, reject) => {
             let current = this._items[item.getId()];
