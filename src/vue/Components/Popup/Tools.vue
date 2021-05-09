@@ -1,6 +1,6 @@
 <template>
     <div class="tools-container">
-        <foldout :tabs="tabs" :initial-open="true" ref="foldout">
+        <foldout :tabs="tabs" :initial-open="true" :initial-tab="initialTab" v-on:switch="switchTab" ref="foldout">
             <generate slot="generate"/>
             <debug slot="debug"/>
         </foldout>
@@ -17,11 +17,15 @@
     import Foldout from "@vue/Components/Foldout";
     import Debug from "@vue/Components/Tools/Debug";
     import Generate from "@vue/Components/Tools/Generate";
+    import PopupStateService from "@js/Services/PopupStateService";
 
     export default {
         components: {Generate, Debug, Foldout, Icon, Translate},
 
         computed: {
+            initialTab() {
+                return PopupStateService.get('current');
+            },
             tabs() {
                 return {
                     generate: {
@@ -37,10 +41,14 @@
                 };
             }
         },
-        methods : {
+
+        methods: {
             openSettings() {
                 MessageService.send('popup.settings.open');
                 window.close();
+            },
+            switchTab($event) {
+                PopupStateService.set('current', $event.tab);
             }
         }
     };

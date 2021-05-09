@@ -52,7 +52,7 @@
                     });
             },
             search(event) {
-                if(event.key.length === 1) {
+                if(event.target.tagName !== 'INPUT' && event.target.tagName !== 'TEXTAREA' && event.key.length === 1) {
                     this.$emit('search', event.key);
                 }
             }

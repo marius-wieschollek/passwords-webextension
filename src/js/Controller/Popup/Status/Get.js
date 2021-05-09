@@ -9,13 +9,13 @@ export default class Get extends AbstractController {
 
     async execute(message, reply) {
         let status = {
-            tab       : this._getCurrentTab(),
-            search    : this._getSearchStatus(),
-            browse    : this._getBrowseStatus(),
-            collected : this._getCollectedStatus(),
-            device    : await this._getDevice(),
-            authorized: this._isAuthorized(),
-            firstRun: await this._isFirstRun()
+            tab   : this._getCurrentTab(),
+            data  : this._getTabData(),
+            status: {
+                device    : await this._getDevice(),
+                authorized: this._isAuthorized(),
+                firstRun  : await this._isFirstRun()
+            }
         };
 
         reply
@@ -23,51 +23,12 @@ export default class Get extends AbstractController {
             .setPayload(status);
     }
 
-    /**
-     *
-     * @returns {{query: string}}
-     * @private
-     */
-    _getSearchStatus() {
-        if(RegistryService.has('popup.search.status')) {
-            return RegistryService.get('popup.search.status');
+    _getTabData() {
+        if(RegistryService.has('popup.data')) {
+            return RegistryService.get('popup.data');
         }
 
-        return {
-            query: ''
-        };
-    }
-
-    /**
-     *
-     * @returns {{server: (null|String), info: (null|Boolean), folder: (null|String)}}
-     * @private
-     */
-    _getBrowseStatus() {
-        if(RegistryService.has('popup.browse.status')) {
-            return RegistryService.get('popup.browse.status');
-        }
-
-        return {
-            server: null,
-            info  : false,
-            folder: null
-        };
-    }
-
-    /**
-     *
-     * @returns {{current: (null|String)}}
-     * @private
-     */
-    _getCollectedStatus() {
-        if(RegistryService.has('popup.collected.status')) {
-            return RegistryService.get('popup.collected.status');
-        }
-
-        return {
-            current: null
-        };
+        return {};
     }
 
     /**
@@ -115,6 +76,6 @@ export default class Get extends AbstractController {
     async _isFirstRun() {
         let servers = await ServerRepository.findAll();
 
-        return servers.length === 0
+        return servers.length === 0;
     }
 }

@@ -112,13 +112,13 @@
             },
             getFieldObject(property, type, editable, required, allowCopy, maxLength) {
                 return {
-                    name     : property,
-                    type     : type,
-                    value    : this.password.getProperty(property),
-                    editable : editable,
-                    allowCopy: allowCopy,
-                    required : required,
-                    maxLength: maxLength
+                    name : property,
+                    type,
+                    value: this.password.getProperty(property),
+                    editable,
+                    allowCopy,
+                    required,
+                    maxLength
                 };
             },
             getCustomFields() {

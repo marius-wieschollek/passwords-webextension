@@ -32,9 +32,6 @@
     export default {
         components: {Icon, InputField, SliderField},
         props     : {
-            password: {
-                type: Password
-            },
             field   : {
                 type: Object
             },
@@ -235,7 +232,8 @@
         background-color : var(--element-hover-bg-color);
 
         span.icon {
-            width : 1.75rem;
+            width: 1.5rem;
+            display: inline-block;
         }
     }
 

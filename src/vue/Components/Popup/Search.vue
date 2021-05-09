@@ -15,24 +15,14 @@
     import PasswordList from '@vue/Components/List/PasswordList';
     import Translate from '@vue/Components/Translate';
     import LocalisationService from '@js/Services/LocalisationService';
+    import PopupStateService from "@js/Services/PopupStateService";
 
     export default {
         components: {Translate, PasswordList},
 
-        props: {
-            initialStatus: {
-                type   : Object,
-                default: () => {
-                    return {
-                        query: ''
-                    };
-                }
-            }
-        },
-
         data() {
             return {
-                query      : this.initialStatus.query,
+                query      : PopupStateService.get('query'),
                 passwords  : [],
                 placeholder: LocalisationService.translate('SearchPlaceholder')
             };
@@ -68,17 +58,13 @@
                         if(this.query === query) this.passwords = r.getPayload();
                     });
 
-                MessageService
-                    .send({type: 'popup.status.set', payload: {tab: 'search', status: {query}}});
+                PopupStateService.set('query', query);
             }
         },
 
         watch: {
             query(query) {
                 this.search(query);
-            },
-            "initialStatus.query"(query) {
-                this.query = query;
             }
         }
     };

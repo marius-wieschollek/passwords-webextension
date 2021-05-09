@@ -1384,5 +1384,17 @@
     "PasswordEditValidationRequired"     : {
         "message"    : "This field is required",
         "description": "The validation error message in the password edit form if a required field is empty"
+    },
+    "MiningPasswordDiscarded"            : {
+        "message"    : "Passwort verworfen",
+        "description": "The toast notification after the user has successfully discarded a mined password"
+    },
+    "MiningPasswordCreated"              : {
+        "message"    : "Passwort gespeichert",
+        "description": "The toast notification after the password was successfully saved"
+    },
+    "MiningPasswordUpdated"              : {
+        "message"    : "Passwort aktualisiert",
+        "description": "The toast notification after the password was successfully saved"
     }
 }

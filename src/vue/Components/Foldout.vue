@@ -40,12 +40,22 @@
             initialOpen: {
                 type   : Boolean,
                 default: false
+            },
+            initialTab: {
+                type   : String,
+                default: null
             }
         },
 
         data() {
             let tab = null;
-            if(this.initialOpen) tab = Object.keys(this.tabs)[0];
+            if(this.initialOpen) {
+                if(this.initialTab && this.tabs.hasOwnProperty(this.initialTab)) {
+                    tab = this.initialTab;
+                } else {
+                    tab = Object.keys(this.tabs)[0];
+                }
+            }
 
             return {tab};
         },

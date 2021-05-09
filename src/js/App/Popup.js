@@ -11,6 +11,7 @@ import SettingsService from '@js/Services/SettingsService';
 import ClientSettingsProvider from '@js/Settings/ClientSettingsProvider';
 import LocalisationService from "@js/Services/LocalisationService";
 import PasswordSettingsManager from '@js/Manager/PasswordSettingsManager';
+import PopupStateService from '@js/Services/PopupStateService';
 
 class Popup {
 
@@ -50,6 +51,7 @@ class Popup {
 
             await ThemeService.apply();
             await LocalisationService.init();
+            await PopupStateService.init();
             await this._initVue();
             await ToastService.init();
         } catch(e) {
@@ -60,9 +62,8 @@ class Popup {
     async _initVue() {
         document.body.lang = LocalisationService.getLocale();
 
-        let reply  = await MessageService.send('popup.status.get'),
-            status = reply.getPayload();
-        document.body.classList.add(status.device);
+        let status = PopupStateService.getPayload();
+        document.body.classList.add(PopupStateService.getStatus('device'));
 
         this._app = new Vue({propsData: status, ...App});
     }

@@ -1,6 +1,6 @@
 <template>
     <div class="browse-container">
-        <foldout :tabs="serverNames" :translate="false" ref="foldout" v-on:switch="switchTab($event)">
+        <foldout :tabs="serverNames" :translate="false" ref="foldout" v-on:switch="switchTab($event)" v-if="servers.length !== 0">
             <div v-for="server in servers" :key="`${server.getId()}-tab`" :slot="`${server.getId()}-tab`" class="options">
                 <div class="option" @click="reloadServer(server)">
                     <icon icon="sync" font="solid" :spin="reloading[server.getId()]"/>
@@ -14,10 +14,10 @@
             </div>
             <div v-for="server in servers" :key="server.getId()" :slot="server.getId()">
                 <server-info :server="server" v-if="info"/>
-                <server-browser :server="server" :folder="getInitialFolder(server)" v-on:open="setFolder($event)" v-else/>
+                <server-browser :server="server" :folder="folder" v-on:open="setFolder($event)" v-else/>
             </div>
         </foldout>
-        <translate tag="div" class="browse-no-servers" say="BrowseNoServers" v-if="servers.length === 0"/>
+        <translate tag="div" class="browse-no-servers" say="BrowseNoServers" v-else/>
     </div>
 </template>
 
@@ -27,39 +27,29 @@
     import MessageService from '@js/Services/MessageService';
     import ServerInfo from '@vue/Components/Browse/ServerInfo';
     import ServerBrowser from '@vue/Components/Browse/ServerBrowser';
-    import Translate from "@vue/Components/Translate";
+    import Translate from '@vue/Components/Translate';
+    import PopupStateService from '@js/Services/PopupStateService';
 
     export default {
         components: {Translate, ServerInfo, ServerBrowser, Icon, Foldout},
-
-        props: {
-            initialStatus: {
-                type   : Object,
-                default: () => {
-                    return {
-                        server: null,
-                        info  : false,
-                        folder: null
-                    };
-                }
-            }
-        },
 
         data() {
             return {
                 servers  : [],
                 reloading: {},
                 info     : false,
-                current  : null,
+                current  : PopupStateService.get('current'),
                 folder   : null
             };
         },
 
         async mounted() {
             await this.loadServers();
-            if(this.initialStatus.server !== null && this.serverNames.hasOwnProperty(this.initialStatus.server)) {
-                this.$refs.foldout.setActive(this.initialStatus.server);
-                if(this.initialStatus.info) this.info = true;
+            if(this.current !== null && this.serverNames.hasOwnProperty(this.current)) {
+                let {folder, info} = PopupStateService.get(['folder', 'info']);
+                this.$refs.foldout.setActive(this.current);
+                this.folder = folder;
+                this.info = info;
             }
         },
 
@@ -85,16 +75,8 @@
                 let message = await MessageService.send('server.list');
                 this.servers = message.getPayload();
             },
-            getInitialFolder(server) {
-                if(server.getId() === this.initialStatus.server) {
-                    return this.initialStatus.folder;
-                }
-
-                return null;
-            },
             showInfo() {
                 this.info = !this.info;
-                this.folder = null;
             },
             async reloadServer(server) {
                 if(this.reloading[server.getId()]) return;
@@ -114,13 +96,12 @@
                 this.folder = $event.folder;
             },
             sendStatus() {
-                let status = {
-                    server: this.current,
-                    info  : this.info,
-                    folder: this.folder
-                };
-                MessageService
-                    .send({type: 'popup.status.set', payload: {tab: 'browse', status}});
+                PopupStateService
+                    .set({
+                             current: this.current,
+                             info   : this.info,
+                             folder : this.folder
+                         });
             }
         },
 

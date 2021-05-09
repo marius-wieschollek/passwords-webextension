@@ -33,7 +33,7 @@
                 type: Boolean
             },
             maxLength: {
-                type: Boolean
+                type: Number
             }
         },
 
