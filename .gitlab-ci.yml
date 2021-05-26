@@ -82,6 +82,20 @@ Publish Nightly Chrome:
   only:
     - testing
 
+Publish Nightly Edge:
+  stage: publishing
+  allow_failure: true
+  script:
+    - 'cd dist/chrome-extension'
+    - 'zip -r -9 ../../edge-extension.zip ./*'
+  environment:
+    name: Testing
+  only:
+    - testing
+  artifacts:
+    paths:
+      - ./edge-extension.zip
+
 Publish Stable Firefox:
   stage: publishing
   script:
@@ -101,3 +115,17 @@ Publish Stable Chrome:
     name: Stable
   only:
     - stable
+
+Publish Stable Edge:
+  stage: publishing
+  allow_failure: true
+  script:
+    - 'cd dist/chrome-extension'
+    - 'zip -r -9 ../../edge-extension.zip ./*'
+  environment:
+    name: Stable
+  only:
+    - stable
+  artifacts:
+    paths:
+      - ./edge-extension.zip
