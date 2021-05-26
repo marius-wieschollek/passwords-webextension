@@ -1,6 +1,11 @@
 ## 2.2.0 - Feature Release
 - Edit passwords
 
+## 2.1.2 - Bugfix Release
+### Fixed
+- Extension popup rendered incorrectly in Chrome 91
+- Settings sized incorrectly in Edge
+
 ## 2.1.1 - Bugfix Release
 ### Fixed
 - Incorrect last edit time for updated passwords

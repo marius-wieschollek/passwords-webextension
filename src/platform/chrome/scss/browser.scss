@@ -4,6 +4,16 @@ body {
     &.options {
         max-width : 800px;
         width     : 800px;
+
+        &.edge {
+            max-width : 375px;
+            width     : 375px;
+        }
+    }
+
+    &.popup {
+        min-width  : 360px;
+        min-height : 360px;
     }
 
     &.mobile {
