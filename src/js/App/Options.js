@@ -54,7 +54,7 @@ class Options {
 
         let reply  = await MessageService.send('options.status'),
             status = reply.getPayload();
-        document.body.classList.add(status.device);
+        document.body.classList.add(status.device, status.browser);
 
         Vue.filter('capitalize', function(value) {
             if(!value) return '';

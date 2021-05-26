@@ -10,7 +10,7 @@ export default class Status extends AbstractController {
      */
     async execute(message, reply) {
         let info   = await SystemService.getBrowserInfo(),
-            status = {device: info.device};
+            status = {device: info.device, browser: info.name.replace(/\W+/g, '-').toLowerCase() };
 
         reply
             .setType('options.data')
