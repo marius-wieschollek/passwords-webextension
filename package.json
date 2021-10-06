@@ -31,7 +31,7 @@
         "search-query-parser": "^1.5.5",
         "ua-parser-js": "^0.7.23",
         "url-loader": "^4.1.1",
-        "url-parse": "^1.4.7",
+        "url-parse": "^1.5.2",
         "uuidv4": "^4.0.0",
         "vue": "^2.6.12",
         "vue-loader": "^15.9.6",
