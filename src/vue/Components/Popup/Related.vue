@@ -52,7 +52,7 @@
                     });
             },
             search(event) {
-                if(event.target.tagName !== 'INPUT' && event.target.tagName !== 'TEXTAREA' && event.key.length === 1) {
+                if(document.getElementsByClassName("password-details-view").length == 0) {
                     this.$emit('search', event.key);
                 }
             }

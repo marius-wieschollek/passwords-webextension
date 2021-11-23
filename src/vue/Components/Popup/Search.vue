@@ -49,7 +49,9 @@
 
         methods: {
             focus() {
-               this.$refs.query.focus();
+                if(document.getElementsByClassName("password-details-view").length == 0) {
+                    this.$refs.query.focus();
+                }
             },
             search(query) {
                 MessageService
