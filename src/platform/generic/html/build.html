@@ -43,6 +43,9 @@
             git submodule update --init --recursive
         </code>
         <h1>Build for Firefox</h1>
+        <p>
+            Extensions signed by Mozilla contain a "META-INF" folder which can not be verified as it is not part of the original source code.
+        </p>
         <code>
             npm ci
             <br>
@@ -69,6 +72,11 @@
             rm ./build/updates.json
         </code>
         <h1>Build for Chrome</h1>
+        <p>
+            The chrome web store edits the "manifest.json" and adds a "_metadata" folder.
+            <br>
+            Therefore the contents of these files can not be verified as they are not part of the original source code.
+        </p>
         <code>
             npm ci
             <br>

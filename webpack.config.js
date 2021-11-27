@@ -4,10 +4,10 @@ let webpack              = require('webpack'),
     {CleanWebpackPlugin} = require('clean-webpack-plugin'),
     VueLoaderPlugin      = require('vue-loader/lib/plugin'),
     MiniCssExtractPlugin = require('mini-css-extract-plugin'),
-    OptimizeCSSPlugin    = require('optimize-css-assets-webpack-plugin');
+    CssMinimizerPlugin   = require('css-minimizer-webpack-plugin');
 
-module.exports = env => {
-    let production = env.production === true,
+module.exports = (env, argv) => {
+    let production = argv.mode === 'production',
         platform   = env.platform ? env.platform:'firefox';
     console.log('Production: ', production);
     console.log('Platform  : ', platform);
@@ -25,7 +25,14 @@ module.exports = env => {
             }
         ),
         new VueLoaderPlugin(),
-        new CopyWebpackPlugin(['src/platform/generic', 'src/platform/' + platform]),
+        new CopyWebpackPlugin(
+            {
+                patterns: [
+                    {from: `${__dirname}/src/platform/generic`, to: `${__dirname}/build`},
+                    {from: `${__dirname}/src/platform/${platform}`, to: `${__dirname}/build`}
+                ]
+            }
+        ),
         new MiniCssExtractPlugin({filename: 'css/[name].css'}),
         new CleanWebpackPlugin(
             {
@@ -36,17 +43,11 @@ module.exports = env => {
         )
     ];
 
-    if(env.production) {
-        plugins.push(
-            new OptimizeCSSPlugin({cssProcessorOptions: {safe: true}})
-        );
-    }
-
     let jsPlatformDir = platform !== 'chrome' ? `${__dirname}/src/js/Platform`:`${__dirname}/src/platform/${platform}/js/Platform`;
     return {
-        mode   : production ? 'production':'development',
-        devtool: production ? 'none':'inline-source-map',
-        entry  : {
+        mode        : production ? 'production':'development',
+        devtool     : production ? undefined:'inline-source-map',
+        entry       : {
             client    : `${__dirname}/src/js/client.js`,
             popup     : `${__dirname}/src/js/popup.js`,
             options   : `${__dirname}/src/js/options.js`,
@@ -54,16 +55,32 @@ module.exports = env => {
             passlink  : `${__dirname}/src/js/passlink.js`,
             background: `${__dirname}/src/js/background.js`
         },
-        output : {
+        output      : {
             path         : `${__dirname}/build/`,
             filename     : 'js/[name].js',
             chunkFilename: production ? 'js/[name].js':'js/[name].[hash].js'
         },
-        resolve: {
+        optimization: {
+            minimize : production,
+            minimizer: [
+                `...`,
+                new CssMinimizerPlugin(
+                    {
+                        parallel: true
+                    }
+                )
+            ]
+        },
+        resolve     : {
             modules   : ['node_modules', 'src'],
             extensions: ['.js', '.vue', '.json'],
+            fallback  : {
+                path  : false,
+                crypto: false
+            },
             alias     : {
                 'vue$'        : 'vue/dist/vue.esm.js',
+                '@'           : `${__dirname}/src`,
                 '@vue'        : `${__dirname}/src/vue`,
                 '@js/Platform': jsPlatformDir,
                 '@js'         : `${__dirname}/src/js`,
@@ -71,41 +88,46 @@ module.exports = env => {
                 '@scssP'      : `${__dirname}/src/platform/${platform}/scss`
             }
         },
-        module : {
+        module      : {
             rules: [
                 {
                     test  : /\.vue$/,
                     loader: 'vue-loader'
                 },
                 {
-                    test   : /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-                    loader : 'url-loader',
-                    options: {
-                        limit          : 256,
-                        outputPath     : 'css/',
-                        publicPath     : '/css/',
-                        useRelativePath: false
-                    }
-                },
-                {
                     test: /\.s?css$/,
                     use : [
                         {loader: 'vue-style-loader'},
                         {
-                            loader: MiniCssExtractPlugin.loader
+                            loader : MiniCssExtractPlugin.loader,
+                            options: {
+                                esModule: true
+                            }
                         },
                         {
-                            loader: 'css-loader'
+                            loader : 'css-loader',
+                            options: {
+                                esModule: true,
+                                modules : 'global'
+                            }
                         },
                         {
                             loader : 'sass-loader',
                             options: {
                                 sassOptions: {
-                                    outputStyle: 'compressed'
+                                    sourceMap  : !production,
+                                    outputStyle: production ? 'compressed':null
                                 }
                             }
                         }
                     ]
+                },
+                {
+                    test     : /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+                    type     : 'asset',
+                    generator: {
+                        filename: 'css/[contenthash][ext][query]'
+                    }
                 }
             ]
         },

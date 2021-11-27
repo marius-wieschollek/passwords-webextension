@@ -40,7 +40,7 @@
         height           : calc(100% - 2rem);
         background-color : var(--element-active-hover-fg-color);
         color            : var(--element-active-hover-bg-color);
-        background-image : url("/img/background.png"), linear-gradient(40deg, #0082c9 0%, #30b6ff 100%);
+        background-image : url("@/platform/generic/img/background.png"), linear-gradient(40deg, #0082c9 0%, #30b6ff 100%);
         background-size  : contain;
         border-radius    : var(--element-border-radius);
         padding          : .5rem;

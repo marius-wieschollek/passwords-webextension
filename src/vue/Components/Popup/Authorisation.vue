@@ -287,7 +287,7 @@
         }
 
         select {
-            background-image    : url("/platform/generic/img/angle-down-solid.svg");
+            background-image    : url("@/platform/generic/img/angle-down-solid.svg");
             background-repeat   : no-repeat;
             background-position : right 1rem center;
             background-size     : 1rem;
