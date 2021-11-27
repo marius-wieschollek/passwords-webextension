@@ -88,8 +88,8 @@
                 PopupStateService.setTab($event.tab);
             },
             searchEvent($event) {
-                this.search.query = $event;
                 this.$refs.tabs.setActive('search');
+                setTimeout(() => document.getElementById('query').value += $event, 10);
             }
         }
     };
