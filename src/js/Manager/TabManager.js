@@ -29,6 +29,9 @@ class TabManager {
         this._tabUpdate = new EventQueue();
 
         this._updatedEvent = (tabId, changeInfo, tab) => {
+			if (changeInfo.sharingState) {
+				return;
+			}
             this._updateTabInfo(tab)
                 .catch(ErrorManager.catch());
         };
