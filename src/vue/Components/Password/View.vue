@@ -17,9 +17,9 @@
             <custom-property :field="field"
                              :editable="isEditMode"
                              v-for="field in customFields"
-                             :key="field.label"
-                             v-on:updateField="updateCustomField"
+                             :key="field.id"
                              v-on:error="handleValidationError"
+                             v-on:updated="handleFieldUpdate"
                              :maxLength="customFieldLength"/>
             <property :editable="false" :field="field" v-for="field in statFields" :key="field.name"/>
         </div>
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+    import {v4 as uuid} from 'uuid';
     import Icon from '@vue/Components/Icon';
     import {Password} from 'passwords-client/models';
     import Property from '@vue/Components/Password/Property';
@@ -45,12 +46,11 @@
 
         data() {
             return {
-                isEditMode       : false,
-                defaultFields    : this.getDefaultFields(),
-                customFields     : this.getCustomFields(),
-                updatedFields    : {},
-                errorQueue       : [],
-                customFieldLength: 8192
+                isEditMode   : false,
+                defaultFields: this.getDefaultFields(),
+                customFields : this.getCustomFields(),
+                updatedValues: {},
+                errorQueue   : []
             };
         },
 
@@ -66,14 +66,8 @@
                 }
                 return 'reqular';
             },
-            sharedIcon() {
-                if(this.password.getProperty('shared') === true) {
-                    return 'users';
-                }
-                return 'user-shield';
-            },
-            showNewCustomField() {
-                return this.allowNewCustomField();
+            customFieldLength() {
+                return 8192 - JSON.stringify(this.getValidatedCustomFields()).length;
             },
             canEdit() {
                 return !this.isEditMode && this.password.isEditable();
@@ -110,6 +104,33 @@
                 }
                 return fields;
             },
+            getCustomFields() {
+                let editFields = [];
+
+                for(let field of this.password.getCustomFields()) {
+                    editFields.push(
+                        {
+                            id   : uuid(),
+                            label: field.label,
+                            value: field.value,
+                            type : field.type
+                        }
+                    );
+                }
+
+                if(editFields.length < 20) {
+                    editFields.push(
+                        {
+                            id   : uuid(),
+                            label: '',
+                            value: '',
+                            type : 'text'
+                        }
+                    );
+                }
+
+                return editFields;
+            },
             getFieldObject(property, type, editable, required, allowCopy, maxLength) {
                 return {
                     name : property,
@@ -120,33 +141,6 @@
                     required,
                     maxLength
                 };
-            },
-            getCustomFields() {
-                let result = this.password.getProperty('customFields');
-                result.push(this.getNewCustomField());
-                this.customFieldLength = 8192 - JSON.stringify(result).length;
-                return result;
-            },
-            getNewCustomField() {
-                return (
-                    {
-                        label: '',
-                        value: '',
-                        type : 'text'
-                    }
-                );
-            },
-            allowNewCustomField() {
-                if(this.customFields === undefined
-                   || this.customFields.length >= 20) {
-                    return false;
-                }
-                if(this.updatedFields !== undefined
-                   && this.updatedFields.customFields !== undefined
-                   && this.updatedFields.customFields.length >= 20) {
-                    return false;
-                }
-                return true;
             },
             async updateFavorite() {
                 let data = {
@@ -169,10 +163,14 @@
                 this.isEditMode = !this.isEditMode;
             },
             async save() {
-                if(Object.keys(this.updatedFields).length !== 0) {
-                    this.removeEmptyCustomFields();
-                    this.updatedFields.id = this.password.getId();
-                    let response = await MessageService.send({type: 'password.update', payload: {data: this.updatedFields}});
+                let customFields = this.getValidatedCustomFields();
+                if(JSON.stringify(customFields) !== JSON.stringify(this.password.getCustomFields())) {
+                    this.updatedValues.customFields = customFields;
+                }
+
+                if(Object.keys(this.updatedValues).length !== 0) {
+                    this.updatedValues.id = this.password.getId();
+                    let response = await MessageService.send({type: 'password.update', payload: {data: this.updatedValues}});
                     if(response.getPayload().success) {
                         ToastService.success('ToastPasswordUpdated').catch(ErrorManager.catch);
                         this.password.setProperties(response.getPayload().data);
@@ -180,36 +178,32 @@
                         ToastService.error(response.getPayload().message).catch(ErrorManager.catch);
                     }
 
-                    this.updatedFields = {};
+                    this.updatedValues = {};
                 }
             },
             updateField(field, value) {
-                this.updatedFields[field] = value;
+                this.updatedValues[field] = value;
             },
-            updateCustomField() {
-                this.updatedFields.customFields = this.customFields;
-                this.customFieldLength = 8192 - JSON.stringify(this.customFields).length;
-                if(!this.allowNewCustomField()) return;
-                let emptyFieldAvailable = false;
-                this.updatedFields.customFields.forEach((e) => {
-                    if(e.label === '' && e.value === '' && e.type !== 'data' && e.type !== 'file') {
-                        emptyFieldAvailable = true;
-                    }
-                });
-                if(!emptyFieldAvailable) {
-                    this.customFields.push(this.getNewCustomField());
-                }
-            },
-            removeEmptyCustomFields() {
-                if(this.updatedFields.customFields === undefined) return;
-                this.updatedFields.customFields.forEach((e) => {
-                    if((e.label === '' && e.value === '' && e.type !== 'data' && e.type !== 'file')
-                       || e.label === 'ext:field/' && e.type === 'data') {
+            getValidatedCustomFields() {
+                let json = [];
 
-                        let i = this.updatedFields.customFields.indexOf(e);
-                        this.updatedFields.customFields.splice(i, 1);
-                    }
-                });
+                for(let field of this.customFields) {
+                    if(field.label === '' || field.value === '' || ['text', 'secret', 'email', 'url', ' file', 'data'].indexOf(field.type) === -1) continue;
+
+                    json.push(
+                        {
+                            label: field.label,
+                            type : field.type,
+                            value: field.value
+                        }
+                    );
+                }
+
+                if(json.length > 20) {
+                    json = json.slice(0, 20);
+                }
+
+                return json;
             },
             handleValidationError(field, error) {
                 if(this.errorQueue.indexOf(field) !== -1) {
@@ -221,6 +215,28 @@
                         this.errorQueue.push(field);
                     }
                 }
+            },
+            handleFieldUpdate(field) {
+                let hasEmpty = false;
+                for(let customField of this.customFields) {
+                    if(customField.id === field.id) {
+                        customField.type = field.type;
+                        customField.label = field.label;
+                        customField.value = field.value;
+                    }
+
+                    if(customField.label === '' || customField.value === '') hasEmpty = true;
+                }
+
+                if(hasEmpty) return;
+                this.customFields.push(
+                    {
+                        id   : uuid(),
+                        label: '',
+                        value: '',
+                        type : 'text'
+                    }
+                );
             }
         }
     };

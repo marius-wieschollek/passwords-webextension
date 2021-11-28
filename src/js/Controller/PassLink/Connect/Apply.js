@@ -74,10 +74,15 @@ export default class Analyze extends AbstractController {
      * @return {Promise<String>}
      */
     async _getServerName(login, action) {
-        let theme = await action.getTheme();
-        if(theme.hasOwnProperty('label')) {
-            return `${theme.label} - ${login.login}`;
+        try {
+            let theme = await action.getTheme();
+            if(theme.hasOwnProperty('label')) {
+                return `${theme.label} - ${login.login}`;
+            }
+        } catch(e) {
+            ErrorManager.logError(e);
         }
+
         let host = new URL(action.getParameter('baseUrl')).host;
         return `${login.login}@${host}`;
     }

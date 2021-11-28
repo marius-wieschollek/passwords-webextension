@@ -91,10 +91,7 @@
             showField() {
                 if(this.type === 'file') return false;
                 if(this.type === 'data' && !this.value.startsWith('ext:field/')) return false;
-                if(this.editable || this.value !== '') {
-                    return true;
-                }
-                return false;
+                return this.editable || this.value !== '';
             },
             classList() {
                 let result = "password-view-customproperty";
@@ -115,24 +112,30 @@
                 }
                 return 'text';
             },
+            labelMaxLength() {
+                return 368 - this.value.length;
+            },
+            valueMaxLength() {
+                return 368 - this.value.length;
+            },
             labelErrorText() {
-                return LocalisationService.translate(['PasswordEditMaxAllowedCharacter', this.getMaxLength('label', this.label.length)]);
+                return LocalisationService.translate(['PasswordEditValidationMaxLength', this.labelMaxLength]);
             },
             valueErrorText() {
                 if(!this.validateUrl()) {
-                    return LocalisationService.translate('PasswordEditInvalidValue');
+                    return LocalisationService.translate('PasswordEditValidationInvalidValue');
                 }
                 if(!this.validateEmail()) {
-                    return LocalisationService.translate('PasswordEditInvalidValue');
+                    return LocalisationService.translate('PasswordEditValidationInvalidValue');
                 }
-                return LocalisationService.translate(['PasswordEditMaxAllowedCharacter', this.getMaxLength(this.type, this.value.length)]);
+                return LocalisationService.translate(['PasswordEditValidationMaxLength', this.valueMaxLength]);
             }
         },
 
         methods: {
             copy() {
                 if(this.editable) return;
-                var type = (this.type === "secret" ? "password":"text");
+                let type = (this.type === "secret" ? "password":"text");
                 let data = this.value;
                 MessageService.send({type: 'clipboard.write', payload: {type: type, value: data}}).catch(ErrorManager.catch);
 
@@ -151,38 +154,20 @@
                 }
                 return this.field.label;
             },
-            validateUrl(url) {
+            validateUrl() {
                 if(this.type !== "url") return true;
-                var urlRegex = /^(https?|ftps?|ssh):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;
-                var uncRegex = /^\\\\([^\\:\|\[\]\/";<>+=,?* _]+)\\([\u0020-\u0021\u0023-\u0029\u002D-\u002E\u0030-\u0039\u0040-\u005A\u005E-\u007B\u007E-\u00FF]{1,80})(((?:\\[\u0020-\u0021\u0023-\u0029\u002D-\u002E\u0030-\u0039\u0040-\u005A\u005E-\u007B\u007E-\u00FF]{1,255})+?|)(?:\\((?:[\u0020-\u0021\u0023-\u0029\u002B-\u002E\u0030-\u0039\u003B\u003D\u0040-\u005B\u005D-\u007B]{1,255}){1}(?:\:(?=[\u0001-\u002E\u0030-\u0039\u003B-\u005B\u005D-\u00FF]|\:)(?:([\u0001-\u002E\u0030-\u0039\u003B-\u005B\u005D-\u00FF]+(?!\:)|[\u0001-\u002E\u0030-\u0039\u003B-\u005B\u005D-\u00FF]*)(?:\:([\u0001-\u002E\u0030-\u0039\u003B-\u005B\u005D-\u00FF]+)|))|)))|)$/;
+                let urlRegex = /^(https?|ftps?|ssh):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;
+                let uncRegex = /^\\\\([^\\:\|\[\]\/";<>+=,?* _]+)\\([\u0020-\u0021\u0023-\u0029\u002D-\u002E\u0030-\u0039\u0040-\u005A\u005E-\u007B\u007E-\u00FF]{1,80})(((?:\\[\u0020-\u0021\u0023-\u0029\u002D-\u002E\u0030-\u0039\u0040-\u005A\u005E-\u007B\u007E-\u00FF]{1,255})+?|)(?:\\((?:[\u0020-\u0021\u0023-\u0029\u002B-\u002E\u0030-\u0039\u003B\u003D\u0040-\u005B\u005D-\u007B]{1,255}){1}(?:\:(?=[\u0001-\u002E\u0030-\u0039\u003B-\u005B\u005D-\u00FF]|\:)(?:([\u0001-\u002E\u0030-\u0039\u003B-\u005B\u005D-\u00FF]+(?!\:)|[\u0001-\u002E\u0030-\u0039\u003B-\u005B\u005D-\u00FF]*)(?:\:([\u0001-\u002E\u0030-\u0039\u003B-\u005B\u005D-\u00FF]+)|))|)))|)$/;
 
-                if(urlRegex.test(this.value) || uncRegex.test(this.value)) {
-                    return true;
-                }
-                return false;
+                return urlRegex.test(this.value) || uncRegex.test(this.value);
             },
             validateEmail() {
                 if(this.type !== "email") return true;
-                const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-                return re.test(String(this.value).toLowerCase());
-            },
-            getMaxLength(type, length) {
-                switch(type) {
-                    case 'secret':
-                        var typeLength = 256;
-                        break;
-                    case 'label':
-                        var typeLength = 48;
-                        break;
-                    default:
-                        var typeLength = 320;
-                }
-                var maxAllowedField = typeLength - length;
-                maxAllowedField = (maxAllowedField < this.maxLength ? maxAllowedField:this.maxLength);
-                return maxAllowedField + length;
+                const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return emailRegex.test(String(this.value).toLowerCase());
             },
             updateLabel() {
-                if(this.getMaxLength('label', this.label.length) >= this.label.length) {
+                if(this.labelMaxLength >= this.label.length) {
                     this.labelError = false;
                     this.field.label = this.label;
                     return true;
@@ -192,7 +177,7 @@
             },
             updateValue() {
                 if(this.validateEmail() && this.validateUrl()) {
-                    if(this.getMaxLength(this.type, this.value.length) >= this.value.length) {
+                    if(this.valueMaxLength >= this.value.length) {
                         this.valueError = false;
                     }
                     this.field.value = this.value;
@@ -210,12 +195,11 @@
                         this.field.type = this.type;
                     }
 
-                    this.$emit('updateField');
+                    this.$emit('updated', this.field);
                     this.$emit('error', this.field, false);
                 } else {
                     this.$emit('error', this.field, true);
                 }
-
             }
         },
 
@@ -238,7 +222,6 @@
                 }
             }
         }
-
     };
 </script>
 
