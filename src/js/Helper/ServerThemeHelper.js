@@ -1,4 +1,4 @@
-import ObjectClone from 'passwords-client/src/Utility/ObjectClone';
+import {ObjectClone} from 'passwords-client/utility';
 import ServerTheme from '@js/Themes/Server';
 import Theme       from '@js/Models/Theme/Theme';
 

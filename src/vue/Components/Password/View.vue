@@ -28,7 +28,7 @@
 
 <script>
     import Icon from '@vue/Components/Icon';
-    import Password from 'passwords-client/src/Model/Password/Password';
+    import {Password} from 'passwords-client/models';
     import Property from '@vue/Components/Password/Property';
     import CustomProperty from '@vue/Components/Password/CustomProperty';
     import MessageService from '@js/Services/MessageService';

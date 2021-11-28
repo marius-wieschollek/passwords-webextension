@@ -1,6 +1,6 @@
 import AbstractController from '@js/Controller/AbstractController';
 import SearchIndex from '@js/Search/Index/SearchIndex';
-import Folder from 'passwords-client/src/Model/Folder/Folder';
+import {Folder} from 'passwords-client/models';
 
 export default class Show extends AbstractController {
     async execute(message, reply) {

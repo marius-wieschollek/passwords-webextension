@@ -20,7 +20,7 @@
 </template>
 
 <script>
-    import Password from 'passwords-client/src/Model/Password/Password';
+    import {Password} from 'passwords-client/models';
     import Icon from '@vue/Components/Icon';
     import MessageService from '@js/Services/MessageService';
     import Favicon from '@vue/Components/List/Item/Favicon';

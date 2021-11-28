@@ -1,4 +1,4 @@
-import Password from 'passwords-client/src/Model/Password/Password';
+import {Password} from 'passwords-client/models';
 
 export default class PasswordConverter {
 

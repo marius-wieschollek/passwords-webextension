@@ -46,9 +46,13 @@ module.exports = (env, argv) => {
     let jsPlatformDir = platform !== 'chrome' ? `${__dirname}/src/js/Platform`:`${__dirname}/src/platform/${platform}/js/Platform`;
     return {
         mode        : production ? 'production':'development',
-        devtool     : production ? undefined:'inline-source-map',
+        devtool     : production ? undefined:'source-map',
         entry       : {
-            client    : `${__dirname}/src/js/client.js`,
+            client    : {
+                publicPath: '/',
+                import    : `${__dirname}/src/js/client.js`,
+                runtime   : false
+            },
             popup     : `${__dirname}/src/js/popup.js`,
             options   : `${__dirname}/src/js/options.js`,
             preview   : `${__dirname}/src/js/preview.js`,

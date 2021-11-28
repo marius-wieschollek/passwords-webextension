@@ -1,11 +1,10 @@
 import LocalisationService from '@js/Services/LocalisationService';
 import ErrorManager from '@js/Manager/ErrorManager';
 import {PasswordsClient} from 'passwords-client';
-import HttpError from 'passwords-client/src/Exception/Http/HttpError';
+import {HttpError, UnauthorizedError} from 'passwords-client/errors';
 import ServerRepository from '@js/Repositories/ServerRepository';
 import ServerModel from '@js/Models/Server/Server';
 import ServerRequirementCheck from '@js/Helper/ServerRequirementCheck';
-import UnauthorizedError from 'passwords-client/src/Exception/Http/UnauthorizedError';
 
 export default class Server {
 

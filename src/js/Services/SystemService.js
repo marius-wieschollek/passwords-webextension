@@ -1,4 +1,4 @@
-import BooleanState from 'passwords-client/src/State/BooleanState';
+import BooleanState from 'passwords-client/boolean-state';
 import BrowserApi from '@js/Platform/BrowserApi';
 
 class SystemService {

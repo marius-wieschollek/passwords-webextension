@@ -5,9 +5,8 @@ import MessageService from '@js/Services/MessageService';
 import ThemeService from '@js/Services/ThemeService';
 import SystemService from '@js/Services/SystemService';
 import Message from '@js/Models/Message/Message';
-import Password from 'passwords-client/src/Model/Password/Password';
 import Server from '@js/Models/Server/Server';
-import Folder from 'passwords-client/src/Model/Folder/Folder';
+import {Folder, Password} from 'passwords-client/models';
 import LocalisationService from '@js/Services/LocalisationService';
 import MiningItem from '@js/Models/Queue/MiningItem';
 

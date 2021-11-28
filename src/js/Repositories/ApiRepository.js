@@ -1,6 +1,7 @@
 import Server from '@js/Models/Server/Server';
 import ServerRepository from '@js/Repositories/ServerRepository';
-import {EnhancedClassLoader, PasswordsClient} from 'passwords-client';
+import PasswordsClient from 'passwords-client';
+import EnhancedClassLoader from 'passwords-client/enhanced-class-loader';
 import SystemService from '@js/Services/SystemService';
 import ErrorManager from "@js/Manager/ErrorManager";
 

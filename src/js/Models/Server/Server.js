@@ -1,5 +1,5 @@
-import ServerModel from 'passwords-client/src/Model/Server/Server';
-import Properties from '../../Definition/Server';
+import {Server as ServerModel} from 'passwords-client/models';
+import Properties from '@js/Definition/Server';
 
 export default class Server extends ServerModel {
 

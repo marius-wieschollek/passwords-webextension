@@ -19,7 +19,6 @@
 </template>
 
 <script>
-    import Password from 'passwords-client/src/Model/Password/Password';
     import InputField from '@vue/Components/Form/InputField';
     import SliderField from '@vue/Components/Form/SliderField';
     import ToastService from '@js/Services/ToastService';

@@ -2,11 +2,10 @@ import FieldFactory from '@js/Search/Query/Field/FieldFactory';
 import AndCondition from '@js/Search/Query/Condition/AndCondition';
 import OrCondition from '@js/Search/Query/Condition/OrCondition';
 import XorCondition from '@js/Search/Query/Condition/XorCondition';
-import AbstractField from '@js/Search/Query/Field/AbstractField';
 import SearchIndex from '@js/Search/Index/SearchIndex';
 import SortAscending from '@js/Search/Query/Sort/SortAscending';
 import SortDescending from '@js/Search/Query/Sort/SortDescending';
-import ObjectMerger from 'passwords-client/src/Utility/ObjectMerger';
+import {ObjectMerger} from 'passwords-client/utility';
 
 export default class SearchQuery {
 

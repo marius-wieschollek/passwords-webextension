@@ -1,7 +1,6 @@
 import AbstractController from '@js/Controller/AbstractController';
 import SystemService from '@js/Services/SystemService';
-import HttpError from 'passwords-client/src/Exception/Http/HttpError';
-import NetworkError from 'passwords-client/src/Exception/NetworkError';
+import {HttpError, NetworkError} from 'passwords-client/errors';
 import ServerValidation from '@js/Validation/Server';
 import ServerRepository from '@js/Repositories/ServerRepository';
 import ServerManager from '@js/Manager/ServerManager';

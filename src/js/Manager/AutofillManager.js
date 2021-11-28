@@ -9,10 +9,10 @@ export default new class AutofillManager {
     constructor() {
         this._recommendationListener = (recommendations) => {
             this.recommendations = recommendations;
-            this.currentURL =TabManager.getAll()[TabManager.currentTabId].url
+            this.currentURL = TabManager.getAll()[TabManager.currentTabId].url;
         };
-        this.recommendations = [];  
-        this.currentURL = null;      
+        this.recommendations = [];
+        this.currentURL = null;
     }
 
     /**
@@ -26,34 +26,6 @@ export default new class AutofillManager {
                 if(message.url = this.currentURL) {
                     this._sendAutofillPassword(this.recommendations);
                 }
-            }
-        );
-    }
-
-    /**
-     *
-     */
-    initClient() {
-        if (document.readyState === "complete" 
-            || document.readyState === "loaded" 
-            || document.readyState === "interactive") {
-            this._sendBrowserPageReadyMessage()
-       } else {
-        window.addEventListener("domcontentloaded", this._sendBrowserPageReadyMessage());
-       }
-    }
-
-    /**
-     *
-     */
-    _sendBrowserPageReadyMessage() {
-        MessageService.send(
-            {
-                type    : 'autofill.page.ready',
-                payload : {
-                    url: window.location.href
-                },
-                receiver: 'background'
             }
         );
     }
@@ -116,9 +88,9 @@ export default new class AutofillManager {
                         id   : e.getLabel().replace('ext:field/', ''),
                         value: e.getValue()
                     }
-                )
+                );
             }
-        })
+        });
         return formFields;
     }
 };

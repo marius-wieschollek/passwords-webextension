@@ -3,7 +3,6 @@ import ErrorManager from '@js/Manager/ErrorManager';
 import MessageService from '@js/Services/MessageService';
 import ConverterManager from '@js/Manager/ConverterManager';
 import ClientControllerManager from '@js/Manager/ClientControllerManager';
-import AutofillManager from '@js/Manager/AutofillManager';
 import DomMiner from '@js/Miner/DomMiner';
 
 class Client {
@@ -18,10 +17,44 @@ class Client {
             ClientControllerManager.init();
             let miner = new DomMiner();
             miner.init();
-            AutofillManager.initClient();
+            this._initAutofill();
         } catch(e) {
             ErrorManager.logError(e);
         }
+    }
+
+
+    /**
+     *
+     */
+    _initAutofill() {
+        if(document.readyState === "complete"
+           || document.readyState === "loaded"
+           || document.readyState === "interactive") {
+            this._sendAutofillReadyMessage();
+        } else {
+            window.addEventListener(
+                'DOMContentLoaded',
+                () => {
+                    this._sendAutofillReadyMessage();
+                }
+            );
+        }
+    }
+
+    /**
+     *
+     */
+    _sendAutofillReadyMessage() {
+        MessageService.send(
+            {
+                type    : 'autofill.page.ready',
+                payload : {
+                    url: window.location.href
+                },
+                receiver: 'background'
+            }
+        );
     }
 }
 

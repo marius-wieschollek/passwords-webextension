@@ -1,5 +1,5 @@
-import AbstractModel from 'passwords-client/src/Model/AbstractModel';
-import Properties from '../../Definition/Toast';
+import {AbstractModel} from 'passwords-client/models';
+import Properties from '@js/Definition/Toast';
 
 export default class Toast extends AbstractModel {
 

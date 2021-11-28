@@ -16,7 +16,7 @@
 <script>
     import Translate from "@vue/Components/Translate";
     import Icon from "@vue/Components/Icon";
-    import Password from "passwords-client/src/Model/Password/Password";
+    import {Password} from "passwords-client/models";
     import MessageService from "@js/Services/MessageService";
     import ErrorManager from "@js/Manager/ErrorManager";
     import ToastService from "@js/Services/ToastService";

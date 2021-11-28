@@ -1,5 +1,5 @@
 import PasswordIndexer from '@js/Search/Indexer/PasswordIndexer';
-import {Password, Folder, Tag} from 'passwords-client';
+import {Password, Folder, Tag} from 'passwords-client/models';
 import Server from '@js/Models/Server/Server';
 import EventQueue from '@js/Event/EventQueue';
 import ErrorManager from '@js/Manager/ErrorManager';

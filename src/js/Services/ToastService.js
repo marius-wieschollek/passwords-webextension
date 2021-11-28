@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import uuid from 'uuidv4';
+import { v4 as uuid } from 'uuid';
 import QueueService from '@js/Services/QueueService';
 import SystemService from '@js/Services/SystemService';
 import QueueClient from '@js/Queue/Client/QueueClient';
@@ -38,6 +38,7 @@ class ToastService {
         if(SystemService.getArea() === SystemService.AREA_POPUP) {
             this._consumer = new QueueClient('toasts', (item) => { return this._processQueueItem(item); });
         }
+        ErrorManager.toastService = this;
     }
 
     /**

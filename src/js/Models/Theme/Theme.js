@@ -1,4 +1,4 @@
-import AbstractModel from 'passwords-client/src/Model/AbstractModel';
+import {AbstractModel} from 'passwords-client/models';
 import Properties from '@js/Definition/Theme';
 
 export default class Theme extends AbstractModel {

@@ -1,4 +1,4 @@
-import uuid from 'uuidv4';
+import { v4 as uuid } from 'uuid';
 import LocalisationService from '@js/Services/LocalisationService';
 import SystemService from '@js/Services/SystemService';
 

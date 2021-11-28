@@ -1,7 +1,6 @@
 import SystemService from '@js/Services/SystemService';
 import MessageService from '@js/Services/MessageService';
 import QueueService from '@js/Services/QueueService';
-import ToastService from "@js/Services/ToastService";
 
 class ErrorManager {
 
@@ -13,10 +12,15 @@ class ErrorManager {
         return this.catch();
     }
 
+    set toastService(toastService) {
+        this._toastService = toastService;
+    }
+
     constructor() {
         this._errors = [];
         this._mode = 'client';
         this._sending = true;
+        this._toastService = null;
     }
 
     /**
@@ -102,7 +106,7 @@ class ErrorManager {
     error(message, context = {}) {
         context.level = 'error';
         this._addError(new Error(message), context);
-        ToastService.error('ToastErrorMessage', message);
+        if(this._toastService) this._toastService.error('ToastErrorMessage', message);
         return this;
     }
 
@@ -114,7 +118,7 @@ class ErrorManager {
      */
     exception(exception, context = {}) {
         this.logError(exception, context);
-        ToastService.error('ToastErrorMessage', exception.message);
+        if(this._toastService) this._toastService.error('ToastErrorMessage', exception.message);
         return this;
     }
 

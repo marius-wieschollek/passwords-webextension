@@ -3,7 +3,7 @@ import QueueService from '@js/Services/QueueService';
 import AuthorisationItem from '@js/Models/Queue/AuthorisationItem';
 import ErrorManager from '@js/Manager/ErrorManager';
 import ApiRepository from '@js/Repositories/ApiRepository';
-import BooleanState from 'passwords-client/src/State/BooleanState';
+import BooleanState from 'passwords-client/boolean-state';
 import EventQueue from '@js/Event/EventQueue';
 import StorageService from '@js/Services/StorageService';
 import SettingsService from '@js/Services/SettingsService';

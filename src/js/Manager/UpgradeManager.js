@@ -1,6 +1,6 @@
 import StorageService from '@js/Services/StorageService';
 import Server from '@js/Models/Server/Server';
-import uuid from 'uuidv4';
+import { v4 as uuid } from 'uuid';
 import LocalisationService from '@js/Services/LocalisationService';
 import ServerRepository from '@js/Repositories/ServerRepository';
 import SettingsService from '@js/Services/SettingsService';

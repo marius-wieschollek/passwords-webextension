@@ -10,6 +10,7 @@ export default class FillPassword extends AbstractController {
      * @param {Message} reply
      */
     async execute(message, reply) {
+        console.log('fill password', message);
         try {
             let result = this._fillPassword(message.getPayload().user, message.getPayload().password, message.getPayload().submit, message.getPayload().formFields);
 

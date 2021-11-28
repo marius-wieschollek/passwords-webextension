@@ -1,7 +1,7 @@
 import EventQueue from '@js/Event/EventQueue';
 import ErrorManager from '@js/Manager/ErrorManager';
-import SettingModel from 'passwords-client/src/Model/Setting/Setting';
-import InvalidScopeError from "passwords-client/src/Exception/InvalidScopeError";
+import {Setting as SettingModel} from 'passwords-client/models';
+import {InvalidScopeError} from 'passwords-client/errors';
 
 export default class Setting extends SettingModel {
 

@@ -1,9 +1,8 @@
 import ServerRepository from '@js/Repositories/ServerRepository';
 import ErrorManager from '@js/Manager/ErrorManager';
-import UnauthorizedError from 'passwords-client/src/Exception/Http/UnauthorizedError';
+import {HttpError, UnauthorizedError} from 'passwords-client/errors';
 import ToastService from '@js/Services/ToastService';
 import SystemService from '@js/Services/SystemService';
-import HttpError from 'passwords-client/src/Exception/Http/HttpError';
 
 export default class ConnectionErrorHelper {
 

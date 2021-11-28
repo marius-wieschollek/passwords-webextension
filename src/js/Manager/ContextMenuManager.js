@@ -1,7 +1,7 @@
 import SystemService from '@js/Services/SystemService';
 import RecommendationManager from '@js/Manager/RecommendationManager';
 import LocalisationService from '@js/Services/LocalisationService';
-import uuid from 'uuidv4';
+import { v4 as uuid } from 'uuid';
 import MessageService from '@js/Services/MessageService';
 import TabManager from '@js/Manager/TabManager';
 import ErrorManager from "@js/Manager/ErrorManager";

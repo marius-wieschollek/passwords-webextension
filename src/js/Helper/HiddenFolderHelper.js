@@ -1,9 +1,9 @@
 import ServerRepository from "@js/Repositories/ServerRepository";
 import ErrorManager from "@js/Manager/ErrorManager";
-import NotFoundError from "passwords-client/src/Exception/Http/NotFoundError";
 import SettingsService from "@js/Services/SettingsService";
 import ClientNotAuthorizedError from "@js/Exception/ClientNotAuthorizedError";
 import LocalisationService from "@js/Services/LocalisationService";
+import {NotFoundError} from 'passwords-client/errors';
 
 export default class HiddenFolderHelper {
 

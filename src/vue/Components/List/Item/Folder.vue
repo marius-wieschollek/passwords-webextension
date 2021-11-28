@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import Folder from 'passwords-client/src/Model/Folder/Folder';
+    import {Folder} from 'passwords-client/models';
     import Icon from '@vue/Components/Icon';
 
     export default {

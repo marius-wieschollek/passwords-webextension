@@ -1,7 +1,7 @@
 import StorageService from '@js/Services/StorageService';
 import Server from '@js/Models/Server/Server';
-import uuid from 'uuidv4';
-import ServerNotFoundError from '@js/Exception/ServerNotFoundError';
+import { v4 as uuid } from 'uuid';
+import ServerNotFoundError from "@js/Exception/ServerNotFoundError";
 
 class ServerRepository {
 
