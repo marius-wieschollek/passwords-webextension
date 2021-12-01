@@ -70,11 +70,11 @@ export default class DomMiner {
     }
 
     _checkForDuplication(form) {
-        var exists = false;
+        let exists = false;
         this._knownForms.forEach(element => {
-            if((element.pass == form.pass.value) &&
-                (element.user == form.user.value) &&
-                (element.url == this._getUrl())) {
+            if((element.pass === form.pass.value) &&
+                (element.user === form.user.value) &&
+                (element.url === this._getUrl())) {
                 exists = true;
             }            
         });      
