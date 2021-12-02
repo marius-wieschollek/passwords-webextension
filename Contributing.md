@@ -3,7 +3,7 @@ A running Nextcloud instance with the passwords app installed.
 You can find instructions to set up a test server in the [main project](https://github.com/marius-wieschollek/passwords)
 Firefox and Chromium are required.
 _Using a test account is recommended_
-
+A [test server can be found here](https://test.passwordsapp.org/apps/cms_pico/pico/passwords_test).
 
 
 ### Building from source
