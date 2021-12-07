@@ -1,470 +1,470 @@
 {
-  "extensionName": {
-    "message": "Пароли за Nextcloud (Passwords for Nextcloud Browser Extension)",
-    "description": "Name of the extension."
-  },
-  "extensionDescription": {
-    "message": "Официално разширение за Passwords for Nextcloud",
-    "description": "Description of the extension."
-  },
-  "locale": {
-    "message": "bg",
-    "description": "The language tag of this translation. Same as the folder name"
-  },
-  "browserActionTitle": {
-    "message": "Пароли",
-    "description": "Title of the button in the browser bar"
-  },
-  "contextMenuTitle": {
-    "message": "Пароли",
-    "description": "Title of the context menu item"
-  },
-  "BrowserActionTitleCounter": {
-    "message": "Пароли ($COUNTER$)",
-    "description": "Title of the button in the browser bar with suggestion counter",
-    "placeholders": {
-      "counter": {
-        "content": "$1",
-        "example": "2"
-      }
+    "extensionName": {
+        "message": "Пароли за Nextcloud (Passwords for Nextcloud Browser Extension)",
+        "description": "Name of the extension."
+    },
+    "extensionDescription": {
+        "message": "Официално разширение за Passwords for Nextcloud",
+        "description": "Description of the extension."
+    },
+    "locale": {
+        "message": "bg",
+        "description": "The language tag of this translation. Same as the folder name"
+    },
+    "browserActionTitle": {
+        "message": "Пароли",
+        "description": "Title of the button in the browser bar"
+    },
+    "contextMenuTitle": {
+        "message": "Пароли",
+        "description": "Title of the context menu item"
+    },
+    "BrowserActionTitleCounter": {
+        "message": "Пароли ($COUNTER$)",
+        "description": "Title of the button in the browser bar with suggestion counter",
+        "placeholders": {
+            "counter": {
+                "content": "$1",
+                "example": "2"
+            }
+        }
+    },
+    "MigrationAccountName": {
+        "message": "Сметка в Nextcloud",
+        "description": "Label assigned to the account used by the v1.x migration"
+    },
+    "PrivatePasswordsFolderLabel": {
+        "message": "Поверителни пароли",
+        "description": "Label assigned to the hidden folder for private passwords. (folder is only visible when browsing in private mode)"
+    },
+    "SettingsTabAccounts": {
+        "message": "Сметки",
+        "description": "Label of the user accounts tab in the extension settings"
+    },
+    "SettingsTabTheming": {
+        "message": "Теми",
+        "description": "Label of the themes tab in the extension settings"
+    },
+    "SettingsTabOther": {
+        "message": "Други настройки",
+        "description": "Label of the general settings tab in the extension settings"
+    },
+    "SettingsTabDebug": {
+        "message": "Дефекти",
+        "description": "Label of the extension debugging tab in the extension settings"
+    },
+    "SettingsAccountsMain": {
+        "message": "Сметка по подразбиране за нови пароли",
+        "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
+    },
+    "AutofillSettings": {
+        "message": "Въвеждане на удостоверявания",
+        "description": "Headline above the password autofill section in the other settings tab in the extension settings"
+    },
+    "SettingsPastePopupClose": {
+        "message": "",
+        "description": "Label of the setting in the extension settings to automatically close the extension popup after successful pasting"
+    },
+    "SearchSettings": {
+        "message": "Търсене",
+        "description": "Headline above the search section in the other settings tab in the extension settings"
+    },
+    "AccountList": {
+        "message": "Сметки",
+        "description": "Headline above the user accounts section in the accounts tab in the extension settings"
+    },
+    "ServerLabel": {
+        "message": "Име",
+        "description": "Label of the account name field in account details in the extension settings"
+    },
+    "ServerBaseUrl": {
+        "message": "Адрес",
+        "description": "Label of the server url field in account details in the extension settings"
+    },
+    "ServerUser": {
+        "message": "Потребител",
+        "description": "Label of the account login user field in account details in the extension settings"
+    },
+    "ServerToken": {
+        "message": "Парола за приложение",
+        "description": "Label of the account login token field in account details in the extension settings"
+    },
+    "TabRelated": {
+        "message": "Предположения",
+        "description": "Label of the related passwords tab in the extension popup"
+    },
+    "TabSearch": {
+        "message": "Търсене",
+        "description": "Label of the search tab in the extension popup"
+    },
+    "TabBrowse": {
+        "message": "Разглеждане",
+        "description": "Label of the browse servers tab in the extension popup"
+    },
+    "TabCollected": {
+        "message": "Събрани",
+        "description": "Label of the new collected passwords tab in the extension popup"
+    },
+    "TabTools": {
+        "message": "Инструменти",
+        "description": "Label of the tools tab in the extension popup"
+    },
+    "PasswordItemTitle": {
+        "message": "Състояние: $STATUS$, Id: #$ID$",
+        "description": "The tooltip of any password entry in the popup",
+        "placeholders": {
+            "id": {
+                "content": "$1",
+                "example": "1234-1234-1234-1234"
+            },
+            "status": {
+                "content": "$2",
+                "example": "DUPLICATE"
+            }
+        }
+    },
+    "ValidationLabel": {
+        "message": "име",
+        "description": "Name of the account label field in account validation message. This value is used when the user attempts to save an account with an invalid label"
+    },
+    "ValidationUser": {
+        "message": "потребител",
+        "description": "Name of the account username field in account validation message. This value is used when the user attempts to save an account with an invalid username"
+    },
+    "ValidationToken": {
+        "message": "парола за приложение",
+        "description": "Name of the account token field in account validation message. This value is used when the user attempts to save an account with an invalid token"
+    },
+    "ValidationBaseUrl": {
+        "message": "адрес",
+        "description": "Name of the account base url field in account validation message. This value is used when the user attempts to save an account with an invalid base url"
+    },
+    "ValidationNotEmpty": {
+        "message": "Полето „$FIELD$“ не трябва да е празно.",
+        "description": "Validation message when the user attempts to save something (like an account) but a required field is empty.",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            }
+        }
+    },
+    "ValidationMinLength": {
+        "message": "Полето „$FIELD$“ трябва да бъде дълго поне $MIN$ знака.",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is shorter than required",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "min": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationMaxLength": {
+        "message": "Полето „$FIELD$“ трябва да бъде по-късо от $MAX$ знака.",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is longer than allowed",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "max": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationFailed": {
+        "message": "Грешка при валидиране.",
+        "description": "Validation message when the user attempts to save something (like an account) but there were validation errors"
+    },
+    "NoRelatedPasswords": {
+        "message": "Липсват предположения за парола",
+        "description": "Used in the related tab when no entries match the current website"
+    },
+    "NoSearchResults": {
+        "message": "Няма пароли, отговарящи на търсенето",
+        "description": "Used in the search tab when no entries match the search query"
+    },
+    "NoSearchQuery": {
+        "message": "Въвеждайте в полето за търсене",
+        "description": "Used in the search tab when there is no search query"
+    },
+    "NoCollectedPasswords": {
+        "message": "Няма нови пароли",
+        "description": "Used in the collected tab when no new passwords have been found"
+    },
+    "AddPasswordForCurrentTab": {
+        "message": "Добавяне удостоверяване към раздела",
+        "description": "Used in the collected tab for the option to add a blank entry with just the url of the current tab"
+    },
+    "SearchPlaceholder": {
+        "message": "Търсете пароли",
+        "description": "Placeholder text of the search box"
+    },
+    "TitleClickToEdit": {
+        "message": "Щракнете двойно с мишката, за да променяте",
+        "description": "Tooltip used in the collected password form for any property of the password to inform the user that double clicking makes the text field editable"
+    },
+    "TitleEnterToExit": {
+        "message": "Натиснете „Enter“ за запазване",
+        "description": "Tooltip used in the collected password form to tell the user that the property can be saved by clicking enter"
+    },
+    "LabelLabel": {
+        "message": "Име",
+        "description": "Label for the name of a password entry"
+    },
+    "LabelPassword": {
+        "message": "Парола",
+        "description": "Label for the password of a password entry"
+    },
+    "LabelUsername": {
+        "message": "Потребител",
+        "description": "Label for the username of a password entry"
+    },
+    "LabelHidden": {
+        "message": "Поверителна парола",
+        "description": "Label for the checkbox to mark a password entry as private or hidden in the webapp"
+    },
+    "LabelUrl": {
+        "message": "Адрес",
+        "description": "Label for of a field that contains an url (used in collected password or server info)"
+    },
+    "LabelUser": {
+        "message": "Потребител",
+        "description": "Label for the username of in the server info in the browse tab"
+    },
+    "LabelPasswords": {
+        "message": "Пароли",
+        "description": "Label for the password count in the server info in the browse tab"
+    },
+    "LabelFolders": {
+        "message": "Папки",
+        "description": "Label for the folder count in the server info in the browse tab"
+    },
+    "LabelTags": {
+        "message": "Етикети",
+        "description": "Label for the tag count in the server info in the browse tab"
+    },
+    "LabelServerVersion": {
+        "message": "Сървър",
+        "description": "Label for the nextcloud server version in the server info in the browse tab"
+    },
+    "LabelAppVersion": {
+        "message": "ППИ",
+        "description": "Label for the passwords app version in the server info in the browse tab"
+    },
+    "AppLabelString": {
+        "message": "Пароли $VERSION$",
+        "description": "Value for the passwords app version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "PlaceholderPassword": {
+        "message": "Парола",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
+    },
+    "PlaceholderToken": {
+        "message": "Код за двустъпково удостоверяване",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
+    },
+    "ButtonLogin": {
+        "message": "Вход",
+        "description": "The text of the login button of the server authorization dialog"
+    },
+    "NotifyNewPasswordTitle": {
+        "message": "Нова парола е открита",
+        "description": "Title of the system notification when a new password was detected"
+    },
+    "NotifyNewPasswordText": {
+        "message": "Нова парола за „$LABEL$“ е открита.",
+        "description": "Text of the system notification when a new password was detected. Used in Chrome where the notification has buttons to save or view the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyNewPasswordTextFF": {
+        "message": "Нова парола за „$LABEL$“ е открита. Посетете иконата за пароли, за да я прегледате и запазите.",
+        "description": "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTitle": {
+        "message": "Обновена парола е открита",
+        "description": "Title of the system notification when an update for an existing password has been detected"
+    },
+    "NotifyUpdatePasswordText": {
+        "message": "Обновена парола за „$LABEL$“ е открита.",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Chrome where the notification has buttons to save or view the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTextFF": {
+        "message": "Обновена парола за „$LABEL$“ е открита. Посетете иконата за пароли, за да я прегледате и запазите.",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "ButtonSave": {
+        "message": "Запазване",
+        "description": "The save button of a password detection system notification"
+    },
+    "ButtonMore": {
+        "message": "Още настройки",
+        "description": "The more options button of a password detection system notification which opens the popup with the form which shows all password details"
+    },
+    "ButtonClose": {
+        "message": "Затваряне",
+        "description": "The title of the close button of a toast notification"
+    },
+    "PasswordPropertyCopied": {
+        "message": "$PROPERTY$",
+        "description": "Text of the toast notification when a password property was copied successfully via one of the buttons",
+        "placeholders": {
+            "property": {
+                "content": "$1",
+                "example": "Username"
+            }
+        }
+    },
+    "PropertyPassword": {
+        "message": "Паролата е копирана",
+        "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
+    },
+    "PropertyUsername": {
+        "message": "Потребителят е копиран",
+        "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
+    },
+    "PropertyUrl": {
+        "message": "Адресът е копиран",
+        "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
+    },
+    "ServerConnectionErrorTitle": {
+        "message": "Грешка при свързване към $SERVER$",
+        "description": "Title of the toast notification when the connection to the server failed",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "ServerGenericError": {
+        "message": "Грешка: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with an error",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "description": "The error message",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "DemoText": {
+        "message": "Демо",
+        "description": "Demo text used in the theme preview"
+    },
+    "SettingsThemeId": {
+        "message": "Текуща тема",
+        "description": "Label of the option to choose the current theme in the extension settings"
+    },
+    "OpenSettings": {
+        "message": "Настройки на разширение",
+        "description": "Label of the button to open the extension settings in the tools tab of the popup"
+    },
+    "ToolsTabGeneratePassword": {
+        "message": "Генериране на парола",
+        "description": "Label of the generate password section in the tools tab of the popup"
+    },
+    "ToolsTabDebugTools": {
+        "message": "Отстраняване на дефекти",
+        "description": "Label of the debugging tools section in the tools tab of the popup"
+    },
+    "GeneratedPasswordPlaceholder": {
+        "message": "Генерирана парола",
+        "description": "Placeholder of the field for the generated password in the tools tab of the popup"
+    },
+    "GeneratedPasswordTitle": {
+        "message": "Думи в паролата: $WORDS$",
+        "description": "Title of the input field for the generated password in the tools tab of the popup. It shows the words used to generate the password",
+        "placeholders": {
+            "words": {
+                "content": "$1",
+                "description": "The words used for the password",
+                "example": "First Second Third"
+            }
+        }
+    },
+    "LabelGenerateAddNumbers": {
+        "message": "Числа",
+        "description": "Label of the option to include numbers in the password generator in the tools tab"
+    },
+    "LabelGenerateAddSpecial": {
+        "message": "Знаци",
+        "description": "Label of the option to include special characters in the password generator in the tools tab"
+    },
+    "LabelGenerateStrength": {
+        "message": "Сложност",
+        "description": "Label of the option to set the strength in the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthLow": {
+        "message": "слаба",
+        "description": "Label of the low (0) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthStandard": {
+        "message": "стандартна",
+        "description": "Label of the default (1) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthMedium": {
+        "message": "нормална",
+        "description": "Label of the medium (2) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthHigh": {
+        "message": "висока",
+        "description": "Label of the high (3) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthUltra": {
+        "message": "много висока",
+        "description": "Label of the very high (4) strength option for the password generator in the tools tab"
+    },
+    "PasswordGenerateError": {
+        "message": "Грешка при генериране на парола: $ERROR$",
+        "description": "Notification shown when the generation of a password fails",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "Unexpected data type"
+            }
+        }
+    },
+    "DebugErrorLog": {
+        "message": "Журнал с грешки",
+        "description": "Headline above the error logs section in the extension settings in the debug tab"
+    },
+    "DebugNoErrors": {
+        "message": "Няма грешки в журлана",
+        "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
     }
-  },
-  "MigrationAccountName": {
-    "message": "Сметка в Nextcloud",
-    "description": "Label assigned to the account used by the v1.x migration"
-  },
-  "PrivatePasswordsFolderLabel": {
-    "message": "Поверителни пароли",
-    "description": "Label assigned to the hidden folder for private passwords. (folder is only visible when browsing in private mode)"
-  },
-  "SettingsTabAccounts": {
-    "message": "Сметки",
-    "description": "Label of the user accounts tab in the extension settings"
-  },
-  "SettingsTabTheming": {
-    "message": "Теми",
-    "description": "Label of the themes tab in the extension settings"
-  },
-  "SettingsTabOther": {
-    "message": "Други настройки",
-    "description": "Label of the general settings tab in the extension settings"
-  },
-  "SettingsTabDebug": {
-    "message": "Дефекти",
-    "description": "Label of the extension debugging tab in the extension settings"
-  },
-  "SettingsAccountsMain": {
-    "message": "Сметка по подразбиране за нови пароли",
-    "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
-  },
-  "AutofillSettings": {
-    "message": "Въвеждане на удостоверявания",
-    "description": "Headline above the password autofill section in the other settings tab in the extension settings"
-  },
-  "SettingsPastePopupClose": {
-    "message": "Close popup after pasting credentials",
-    "description": "Label of the setting in the extension settings to automatically close the extension popup after successful pasting"
-  },
-  "SearchSettings": {
-    "message": "Търсене",
-    "description": "Headline above the search section in the other settings tab in the extension settings"
-  },
-  "AccountList": {
-    "message": "Сметки",
-    "description": "Headline above the user accounts section in the accounts tab in the extension settings"
-  },
-  "ServerLabel": {
-    "message": "Име",
-    "description": "Label of the account name field in account details in the extension settings"
-  },
-  "ServerBaseUrl": {
-    "message": "Адрес",
-    "description": "Label of the server url field in account details in the extension settings"
-  },
-  "ServerUser": {
-    "message": "Потребител",
-    "description": "Label of the account login user field in account details in the extension settings"
-  },
-  "ServerToken": {
-    "message": "Парола за приложение",
-    "description": "Label of the account login token field in account details in the extension settings"
-  },
-  "TabRelated": {
-    "message": "Предположения",
-    "description": "Label of the related passwords tab in the extension popup"
-  },
-  "TabSearch": {
-    "message": "Търсене",
-    "description": "Label of the search tab in the extension popup"
-  },
-  "TabBrowse": {
-    "message": "Разглеждане",
-    "description": "Label of the browse servers tab in the extension popup"
-  },
-  "TabCollected": {
-    "message": "Събрани",
-    "description": "Label of the new collected passwords tab in the extension popup"
-  },
-  "TabTools": {
-    "message": "Инструменти",
-    "description": "Label of the tools tab in the extension popup"
-  },
-  "PasswordItemTitle": {
-    "message": "Състояние: $STATUS$, Id: #$ID$",
-    "description": "The tooltip of any password entry in the popup",
-    "placeholders": {
-      "id": {
-        "content": "$1",
-        "example": "1234-1234-1234-1234"
-      },
-      "status": {
-        "content": "$2",
-        "example": "DUPLICATE"
-      }
-    }
-  },
-  "ValidationLabel": {
-    "message": "име",
-    "description": "Name of the account label field in account validation message. This value is used when the user attempts to save an account with an invalid label"
-  },
-  "ValidationUser": {
-    "message": "потребител",
-    "description": "Name of the account username field in account validation message. This value is used when the user attempts to save an account with an invalid username"
-  },
-  "ValidationToken": {
-    "message": "парола за приложение",
-    "description": "Name of the account token field in account validation message. This value is used when the user attempts to save an account with an invalid token"
-  },
-  "ValidationBaseUrl": {
-    "message": "адрес",
-    "description": "Name of the account base url field in account validation message. This value is used when the user attempts to save an account with an invalid base url"
-  },
-  "ValidationNotEmpty": {
-    "message": "Полето „$FIELD$“ не трябва да е празно.",
-    "description": "Validation message when the user attempts to save something (like an account) but a required field is empty.",
-    "placeholders": {
-      "field": {
-        "content": "$1",
-        "example": "user"
-      }
-    }
-  },
-  "ValidationMinLength": {
-    "message": "Полето „$FIELD$“ трябва да бъде дълго поне $MIN$ знака.",
-    "description": "Validation message when the user attempts to save something (like an account) but a field is shorter than required",
-    "placeholders": {
-      "field": {
-        "content": "$1",
-        "example": "user"
-      },
-      "min": {
-        "content": "$2",
-        "example": "29"
-      }
-    }
-  },
-  "ValidationMaxLength": {
-    "message": "Полето „$FIELD$“ трябва да бъде по-късо от $MAX$ знака.",
-    "description": "Validation message when the user attempts to save something (like an account) but a field is longer than allowed",
-    "placeholders": {
-      "field": {
-        "content": "$1",
-        "example": "user"
-      },
-      "max": {
-        "content": "$2",
-        "example": "29"
-      }
-    }
-  },
-  "ValidationFailed": {
-    "message": "Грешка при валидиране.",
-    "description": "Validation message when the user attempts to save something (like an account) but there were validation errors"
-  },
-  "NoRelatedPasswords": {
-    "message": "Липсват предположения за парола",
-    "description": "Used in the related tab when no entries match the current website"
-  },
-  "NoSearchResults": {
-    "message": "Няма пароли, отговарящи на търсенето",
-    "description": "Used in the search tab when no entries match the search query"
-  },
-  "NoSearchQuery": {
-    "message": "Въвеждайте в полето за търсене",
-    "description": "Used in the search tab when there is no search query"
-  },
-  "NoCollectedPasswords": {
-    "message": "Няма нови пароли",
-    "description": "Used in the collected tab when no new passwords have been found"
-  },
-  "AddPasswordForCurrentTab": {
-    "message": "Добавяне удостоверяване към раздела",
-    "description": "Used in the collected tab for the option to add a blank entry with just the url of the current tab"
-  },
-  "SearchPlaceholder": {
-    "message": "Търсете пароли",
-    "description": "Placeholder text of the search box"
-  },
-  "TitleClickToEdit": {
-    "message": "Щракнете двойно с мишката, за да променяте",
-    "description": "Tooltip used in the collected password form for any property of the password to inform the user that double clicking makes the text field editable"
-  },
-  "TitleEnterToExit": {
-    "message": "Натиснете „Enter“ за запазване",
-    "description": "Tooltip used in the collected password form to tell the user that the property can be saved by clicking enter"
-  },
-  "LabelLabel": {
-    "message": "Име",
-    "description": "Label for the name of a password entry"
-  },
-  "LabelPassword": {
-    "message": "Парола",
-    "description": "Label for the password of a password entry"
-  },
-  "LabelUsername": {
-    "message": "Потребител",
-    "description": "Label for the username of a password entry"
-  },
-  "LabelHidden": {
-    "message": "Поверителна парола",
-    "description": "Label for the checkbox to mark a password entry as private or hidden in the webapp"
-  },
-  "LabelUrl": {
-    "message": "Адрес",
-    "description": "Label for of a field that contains an url (used in collected password or server info)"
-  },
-  "LabelUser": {
-    "message": "Потребител",
-    "description": "Label for the username of in the server info in the browse tab"
-  },
-  "LabelPasswords": {
-    "message": "Пароли",
-    "description": "Label for the password count in the server info in the browse tab"
-  },
-  "LabelFolders": {
-    "message": "Папки",
-    "description": "Label for the folder count in the server info in the browse tab"
-  },
-  "LabelTags": {
-    "message": "Етикети",
-    "description": "Label for the tag count in the server info in the browse tab"
-  },
-  "LabelServerVersion": {
-    "message": "Сървър",
-    "description": "Label for the nextcloud server version in the server info in the browse tab"
-  },
-  "LabelAppVersion": {
-    "message": "ППИ",
-    "description": "Label for the passwords app version in the server info in the browse tab"
-  },
-  "AppLabelString": {
-    "message": "Пароли $VERSION$",
-    "description": "Value for the passwords app version in the server info in the browse tab",
-    "placeholders": {
-      "version": {
-        "content": "$1",
-        "example": "20"
-      }
-    }
-  },
-  "PlaceholderPassword": {
-    "message": "Парола",
-    "description": "Placeholder text in the master password field of the server authorization dialog"
-  },
-  "PlaceholderToken": {
-    "message": "Код за двустъпково удостоверяване",
-    "description": "Placeholder text in the master password field of the server authorization dialog"
-  },
-  "ButtonLogin": {
-    "message": "Вход",
-    "description": "The text of the login button of the server authorization dialog"
-  },
-  "NotifyNewPasswordTitle": {
-    "message": "Нова парола е открита",
-    "description": "Title of the system notification when a new password was detected"
-  },
-  "NotifyNewPasswordText": {
-    "message": "Нова парола за „$LABEL$“ е открита.",
-    "description": "Text of the system notification when a new password was detected. Used in Chrome where the notification has buttons to save or view the password",
-    "placeholders": {
-      "label": {
-        "content": "$1",
-        "example": "Nextcloud Community Forum"
-      }
-    }
-  },
-  "NotifyNewPasswordTextFF": {
-    "message": "Нова парола за „$LABEL$“ е открита. Посетете иконата за пароли, за да я прегледате и запазите.",
-    "description": "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
-    "placeholders": {
-      "label": {
-        "content": "$1",
-        "example": "Nextcloud Community Forum"
-      }
-    }
-  },
-  "NotifyUpdatePasswordTitle": {
-    "message": "Обновена парола е открита",
-    "description": "Title of the system notification when an update for an existing password has been detected"
-  },
-  "NotifyUpdatePasswordText": {
-    "message": "Обновена парола за „$LABEL$“ е открита.",
-    "description": "Text of the system notification when an update for an existing password was detected. Used in Chrome where the notification has buttons to save or view the password",
-    "placeholders": {
-      "label": {
-        "content": "$1",
-        "example": "Nextcloud Community Forum"
-      }
-    }
-  },
-  "NotifyUpdatePasswordTextFF": {
-    "message": "Обновена парола за „$LABEL$“ е открита. Посетете иконата за пароли, за да я прегледате и запазите.",
-    "description": "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
-    "placeholders": {
-      "label": {
-        "content": "$1",
-        "example": "Nextcloud Community Forum"
-      }
-    }
-  },
-  "ButtonSave": {
-    "message": "Запазване",
-    "description": "The save button of a password detection system notification"
-  },
-  "ButtonMore": {
-    "message": "Още настройки",
-    "description": "The more options button of a password detection system notification which opens the popup with the form which shows all password details"
-  },
-  "ButtonClose": {
-    "message": "Затваряне",
-    "description": "The title of the close button of a toast notification"
-  },
-  "PasswordPropertyCopied": {
-    "message": "$PROPERTY$",
-    "description": "Text of the toast notification when a password property was copied successfully via one of the buttons",
-    "placeholders": {
-      "property": {
-        "content": "$1",
-        "example": "Username"
-      }
-    }
-  },
-  "PropertyPassword": {
-    "message": "Паролата е копирана",
-    "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
-  },
-  "PropertyUsername": {
-    "message": "Потребителят е копиран",
-    "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
-  },
-  "PropertyUrl": {
-    "message": "Адресът е копиран",
-    "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
-  },
-  "ServerConnectionErrorTitle": {
-    "message": "Грешка при свързване към $SERVER$",
-    "description": "Title of the toast notification when the connection to the server failed",
-    "placeholders": {
-      "server": {
-        "content": "$1",
-        "example": "My Nextcloud"
-      }
-    }
-  },
-  "ServerGenericError": {
-    "message": "Грешка: $ERROR$",
-    "description": "Text of the toast notification when the connection to the server failed with an error",
-    "placeholders": {
-      "error": {
-        "content": "$1",
-        "description": "The error message",
-        "example": "500 - Internal Server Error"
-      }
-    }
-  },
-  "DemoText": {
-    "message": "Демо",
-    "description": "Demo text used in the theme preview"
-  },
-  "SettingsThemeId": {
-    "message": "Текуща тема",
-    "description": "Label of the option to choose the current theme in the extension settings"
-  },
-  "OpenSettings": {
-    "message": "Настройки на разширение",
-    "description": "Label of the button to open the extension settings in the tools tab of the popup"
-  },
-  "ToolsTabGeneratePassword": {
-    "message": "Генериране на парола",
-    "description": "Label of the generate password section in the tools tab of the popup"
-  },
-  "ToolsTabDebugTools": {
-    "message": "Отстраняване на дефекти",
-    "description": "Label of the debugging tools section in the tools tab of the popup"
-  },
-  "GeneratedPasswordPlaceholder": {
-    "message": "Генерирана парола",
-    "description": "Placeholder of the field for the generated password in the tools tab of the popup"
-  },
-  "GeneratedPasswordTitle": {
-    "message": "Думи в паролата: $WORDS$",
-    "description": "Title of the input field for the generated password in the tools tab of the popup. It shows the words used to generate the password",
-    "placeholders": {
-      "words": {
-        "content": "$1",
-        "description": "The words used for the password",
-        "example": "First Second Third"
-      }
-    }
-  },
-  "LabelGenerateAddNumbers": {
-    "message": "Числа",
-    "description": "Label of the option to include numbers in the password generator in the tools tab"
-  },
-  "LabelGenerateAddSpecial": {
-    "message": "Знаци",
-    "description": "Label of the option to include special characters in the password generator in the tools tab"
-  },
-  "LabelGenerateStrength": {
-    "message": "Сложност",
-    "description": "Label of the option to set the strength in the password generator in the tools tab"
-  },
-  "LabelGeneratorStrengthLow": {
-    "message": "слаба",
-    "description": "Label of the low (0) strength option for the password generator in the tools tab"
-  },
-  "LabelGeneratorStrengthStandard": {
-    "message": "стандартна",
-    "description": "Label of the default (1) strength option for the password generator in the tools tab"
-  },
-  "LabelGeneratorStrengthMedium": {
-    "message": "нормална",
-    "description": "Label of the medium (2) strength option for the password generator in the tools tab"
-  },
-  "LabelGeneratorStrengthHigh": {
-    "message": "висока",
-    "description": "Label of the high (3) strength option for the password generator in the tools tab"
-  },
-  "LabelGeneratorStrengthUltra": {
-    "message": "много висока",
-    "description": "Label of the very high (4) strength option for the password generator in the tools tab"
-  },
-  "PasswordGenerateError": {
-    "message": "Грешка при генериране на парола: $ERROR$",
-    "description": "Notification shown when the generation of a password fails",
-    "placeholders": {
-      "error": {
-        "content": "$1",
-        "example": "Unexpected data type"
-      }
-    }
-  },
-  "DebugErrorLog": {
-    "message": "Журнал с грешки",
-    "description": "Headline above the error logs section in the extension settings in the debug tab"
-  },
-  "DebugNoErrors": {
-    "message": "Няма грешки в журлана",
-    "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
-  }
 }
