@@ -1,3 +1,7 @@
+### Translations
+You can help to translate the extension in [Weblate](https://weblate.passwordsapp.org/projects/passwords-webextension/extension/).
+If you want to add a new language, please [file an issue](https://github.com/marius-wieschollek/passwords-webextension/issues) to add it to Weblate.
+
 ### Development requirements
 A running Nextcloud instance with the passwords app installed.
 You can find instructions to set up a test server in the [main project](https://github.com/marius-wieschollek/passwords)
@@ -81,10 +85,3 @@ A [test server can be found here](https://test.passwordsapp.org/apps/cms_pico/pi
 2. Execute the synchronisation action in the extension interface
 3. Network activity should appear in the "Network" tab
 4. Failed requests should be logged in the "Console"
-
-
-
-### Tasks for starters
-You can always help translating the app.
-The translation files can be found in `src/platform/generic/_locales/<language>`.
-Use the english language for reference.

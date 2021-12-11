@@ -1,5 +1,12 @@
 ## 2.2.0 - Feature Release
+### Added
 - Edit passwords
+- Delete passwords
+- Menu option to open website
+- Option to show usernames in title
+- Support for new passlink domains
+### Fixed
+- Missing server reset after timeout
 
 ## 2.1.2 - Bugfix Release
 ### Fixed
