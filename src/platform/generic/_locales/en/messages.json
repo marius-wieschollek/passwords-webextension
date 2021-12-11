@@ -1,27 +1,27 @@
 {
-    "extensionName"                      : {
-        "message"    : "Passwords for Nextcloud Browser Extension",
+    "extensionName": {
+        "message": "Passwords for Nextcloud Browser Extension",
         "description": "Name of the extension."
     },
-    "extensionDescription"               : {
-        "message"    : "The official browser extension for Passwords for Nextcloud",
+    "extensionDescription": {
+        "message": "The official browser extension for Passwords for Nextcloud",
         "description": "Description of the extension."
     },
-    "locale"                             : {
-        "message"    : "en",
+    "locale": {
+        "message": "en",
         "description": "The language tag of this translation. Same as the folder name"
     },
-    "browserActionTitle"                 : {
-        "message"    : "Passwords",
+    "browserActionTitle": {
+        "message": "Passwords",
         "description": "Title of the button in the browser bar"
     },
-    "contextMenuTitle"                   : {
-        "message"    : "Passwords",
+    "contextMenuTitle": {
+        "message": "Passwords",
         "description": "Title of the context menu item"
     },
-    "BrowserActionTitleCounter"          : {
-        "message"     : "Passwords ($COUNTER$)",
-        "description" : "Title of the button in the browser bar with suggestion counter",
+    "BrowserActionTitleCounter": {
+        "message": "Passwords ($COUNTER$)",
+        "description": "Title of the button in the browser bar with suggestion counter",
         "placeholders": {
             "counter": {
                 "content": "$1",
@@ -29,95 +29,95 @@
             }
         }
     },
-    "UserAgent"                          : {
-        "message"     : "Official Passwords Client for $BROWSER$ on $OS$",
-        "description" : "The user agent used for api requests. Only ASCII characters allowed",
+    "UserAgent": {
+        "message": "Official Passwords Client for $BROWSER$ on $OS$",
+        "description": "The user agent used for api requests. Only ASCII characters allowed",
         "placeholders": {
             "browser": {
                 "content": "$1",
                 "example": "Firefox"
             },
-            "os"     : {
+            "os": {
                 "content": "$2",
                 "example": "Linux"
             }
         }
     },
-    "MigrationAccountName"               : {
-        "message"    : "Nextcloud Account",
+    "MigrationAccountName": {
+        "message": "Nextcloud Account",
         "description": "Label assigned to the account used by the v1.x migration"
     },
-    "PrivatePasswordsFolderLabel"        : {
-        "message"    : "Private Passwords",
+    "PrivatePasswordsFolderLabel": {
+        "message": "Private Passwords",
         "description": "Label assigned to the hidden folder for private passwords. (folder is only visible when browsing in private mode)"
     },
-    "SettingsTabAccounts"                : {
-        "message"    : "Accounts",
+    "SettingsTabAccounts": {
+        "message": "Accounts",
         "description": "Label of the user accounts tab in the extension settings"
     },
-    "SettingsTabTheming"                 : {
-        "message"    : "Theming",
+    "SettingsTabTheming": {
+        "message": "Theming",
         "description": "Label of the themes tab in the extension settings"
     },
-    "SettingsTabOther"                   : {
-        "message"    : "Other Settings",
+    "SettingsTabOther": {
+        "message": "Other Settings",
         "description": "Label of the general settings tab in the extension settings"
     },
-    "SettingsTabDebug"                   : {
-        "message"    : "Debug",
+    "SettingsTabDebug": {
+        "message": "Debug",
         "description": "Label of the extension debugging tab in the extension settings"
     },
-    "SettingsAccountsMain"               : {
-        "message"    : "Default account for new passwords",
+    "SettingsAccountsMain": {
+        "message": "Default account for new passwords",
         "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
     },
-    "AutofillSettings"                   : {
-        "message"    : "Pasting credentials",
+    "AutofillSettings": {
+        "message": "Pasting credentials",
         "description": "Headline above the password autofill section in the other settings tab in the extension settings"
     },
-    "SettingsPastePopupClose"            : {
-        "message"    : "Close popup after pasting credentials",
+    "SettingsPastePopupClose": {
+        "message": "Close popup after pasting credentials",
         "description": "Label of the setting in the extension settings to automatically close the extension popup after successful pasting"
     },
-    "SettingsPasteFormSubmit"            : {
-        "message"    : "Submit login forms when credentials pasted from popup",
+    "SettingsPasteFormSubmit": {
+        "message": "Submit login forms when credentials pasted from popup",
         "description": "Label of the setting in the extension settings to automatically submit login forms after pasting"
     },
-    "SettingsPasteWarnCompromised"       : {
-        "message"    : "Warn when using compromised credentials",
+    "SettingsPasteWarnCompromised": {
+        "message": "Warn when using compromised credentials",
         "description": "Label of the setting in the extension settings to show a warning after pasting a compromised password"
     },
-    "SettingsPasteAutofillEnabled"       : {
-        "message"    : "Automatically fill in best matching login data",
+    "SettingsPasteAutofillEnabled": {
+        "message": "Automatically fill in best matching login data",
         "description": "Label of the setting in the extension settings to automatically paste the first recommended credential into login forms"
     },
-    "HelpPasteAutofill"                  : {
-        "message"    : "Automatically paste the first suggested credential into any login form in the tab. Be aware that this makes it accessible any script in the tab.",
+    "HelpPasteAutofill": {
+        "message": "Automatically paste the first suggested credential into any login form in the tab. Be aware that this makes it accessible any script in the tab.",
         "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
     },
-    "SettingsPasteBasicAuth"             : {
-        "message"    : "Automatically respond to HTTP basic authentication requests",
+    "SettingsPasteBasicAuth": {
+        "message": "Automatically respond to HTTP basic authentication requests",
         "description": "Label of the setting in the extension settings to automatically respond with the first recommended credential to any http basic authentication request"
     },
-    "HelpPasteBasicAuth"                 : {
-        "message"    : "Automatically respond to http basic authentication requests with the first suggested credential. Be aware that this may expose credentials to untrustworthy servers.",
+    "HelpPasteBasicAuth": {
+        "message": "Automatically respond to http basic authentication requests with the first suggested credential. Be aware that this may expose credentials to untrustworthy servers.",
         "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http basic authentication request"
     },
-    "SettingsClearClipboardPasswords"    : {
-        "message"    : "Delete passwords from clipboard automatically",
+    "SettingsClearClipboardPasswords": {
+        "message": "Delete passwords from clipboard automatically",
         "description": "Label of the setting in the extension settings to automatically clear passwords from clipboard after a certain time."
     },
-    "HelpClearClipboardPasswords"        : {
-        "message"    : "The clipboard will only be cleared if the browser ist still open. If the optional permission to read the clipboard is granted, it will only be cleared if the password is still in there",
+    "HelpClearClipboardPasswords": {
+        "message": "The clipboard will only be cleared if the browser is still open. If the optional permission to read the clipboard is granted, it will only be cleared if the password is still in there.",
         "description": "Help text in the extension settings for the setting to automatically clean passwords from clipboard after a certain time."
     },
-    "SettingsClearClipboardDelay"        : {
-        "message"    : "Empty clipboard after",
+    "SettingsClearClipboardDelay": {
+        "message": "Empty clipboard after",
         "description": "Label of the setting in the extension settings to define the time when the clipboard content will be removed."
     },
-    "SettingsClipboardClearDelayOptions" : {
-        "message"     : "$ROW$ seconds",
-        "description" : "Time in seconds until clipboard will get empty.",
+    "SettingsClipboardClearDelayOptions": {
+        "message": "$ROW$ seconds",
+        "description": "Time in seconds until clipboard will get empty.",
         "placeholders": {
             "row": {
                 "content": "$1",
@@ -125,89 +125,89 @@
             }
         }
     },
-    "NotificationSettings"               : {
-        "message"    : "Notifications",
+    "NotificationSettings": {
+        "message": "Notifications",
         "description": "Headline above the notification section in the other settings tab in the extension settings"
     },
-    "SettingsNotifyPasswordNew"          : {
-        "message"    : "Notification for new passwords",
+    "SettingsNotifyPasswordNew": {
+        "message": "Notification for new passwords",
         "description": "Label of the setting in the extension settings to enable or disable the notification for new detected passwords"
     },
-    "SettingsNotifyPasswordUpdate"       : {
-        "message"    : "Notification for updated passwords",
+    "SettingsNotifyPasswordUpdate": {
+        "message": "Notification for updated passwords",
         "description": "Label of the setting in the extension settings to enable or disable the notification for detected password updates"
     },
-    "SearchSettings"                     : {
-        "message"    : "Search",
+    "SearchSettings": {
+        "message": "Search",
         "description": "Headline above the search section in the other settings tab in the extension settings"
     },
-    "SettingsPopupRelatedSearch"         : {
-        "message"    : "Start search when i type in \"Related\"",
+    "SettingsPopupRelatedSearch": {
+        "message": "Start search when i type in \"Related\"",
         "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
     },
-    "AccountList"                        : {
-        "message"    : "User accounts",
+    "AccountList": {
+        "message": "User accounts",
         "description": "Headline above the user accounts section in the accounts tab in the extension settings"
     },
-    "NoAccounts"                         : {
-        "message"    : "There are no accounts yet. Click here to create one.",
+    "NoAccounts": {
+        "message": "There are no accounts yet. Click here to create one.",
         "description": "Message in place of the user accounts list in the extension settings if there are no user accounts yet. The user can click the message to create an account"
     },
-    "NewAccountFormLabel"                : {
-        "message"    : "Create account",
+    "NewAccountFormLabel": {
+        "message": "Create account",
         "description": "Label of the new account form in the extension settings"
     },
-    "ServerSaveTitle"                    : {
-        "message"    : "Account saved",
+    "ServerSaveTitle": {
+        "message": "Account saved",
         "description": "Title of the toast notification in the extension settings after an account was created or updated successfully"
     },
-    "ServerSaveMessage"                  : {
-        "message"    : "All changes were applied successfully",
+    "ServerSaveMessage": {
+        "message": "All changes were applied successfully",
         "description": "Message of the toast notification in the extension settings after an account was created successfully"
     },
-    "ServerCreatedMessage"               : {
-        "message"    : "The account has been created and is ready to be used",
+    "ServerCreatedMessage": {
+        "message": "The account has been created and is ready to be used",
         "description": "Message of the toast notification in the extension settings after an account was updated successfully"
     },
-    "ServerSaveErrorTitle"               : {
-        "message"    : "Saving failed",
+    "ServerSaveErrorTitle": {
+        "message": "Saving failed",
         "description": "Title of the toast notification in the extension settings after an account could not be updated or saved. The message will be the specific error message"
     },
-    "ServerDisabledWarning"              : {
-        "message"    : "This account is deactivated. It will be activated after it was saved successfully.",
+    "ServerDisabledWarning": {
+        "message": "This account is deactivated. It will be activated after it was saved successfully.",
         "description": "Warning message which appears above the account details if the server was disabled. Usual reasons are invalid login data, unsupported extension version or permanent connection issues."
     },
-    "ServerLabel"                        : {
-        "message"    : "Name",
+    "ServerLabel": {
+        "message": "Name",
         "description": "Label of the account name field in account details in the extension settings"
     },
-    "ServerBaseUrl"                      : {
-        "message"    : "Url",
+    "ServerBaseUrl": {
+        "message": "Url",
         "description": "Label of the server url field in account details in the extension settings"
     },
-    "ServerUser"                         : {
-        "message"    : "User",
+    "ServerUser": {
+        "message": "User",
         "description": "Label of the account login user field in account details in the extension settings"
     },
-    "ServerToken"                        : {
-        "message"    : "App Password",
+    "ServerToken": {
+        "message": "App Password",
         "description": "Label of the account login token field in account details in the extension settings"
     },
-    "ServerTokenChange"                  : {
-        "message"    : "Change App Password",
+    "ServerTokenChange": {
+        "message": "Change App Password",
         "description": "Label of the button to change the login token of an existing account in the account details in the extension settings"
     },
-    "ServerTimeout"                      : {
-        "message"    : "Logout after",
+    "ServerTimeout": {
+        "message": "Logout after",
         "description": "Label of the option to change the automatic logout time of an existing account in the account details in the extension settings"
     },
-    "ServerTimeoutOptionNever"           : {
-        "message"    : "Never",
+    "ServerTimeoutOptionNever": {
+        "message": "Never",
         "description": "Label of the option for the server timeout to never expire"
     },
-    "ServerTimeoutOptionMinutes"         : {
-        "message"     : "After $MINUTES$ minutes",
-        "description" : "Label of the option for the server timeout to expire after a given amount of minutes",
+    "ServerTimeoutOptionMinutes": {
+        "message": "After $MINUTES$ minutes",
+        "description": "Label of the option for the server timeout to expire after a given amount of minutes",
         "placeholders": {
             "minutes": {
                 "content": "$1",
@@ -215,31 +215,31 @@
             }
         }
     },
-    "TabRelated"                         : {
-        "message"    : "Suggestions",
+    "TabRelated": {
+        "message": "Suggestions",
         "description": "Label of the related passwords tab in the extension popup"
     },
-    "TabSearch"                          : {
-        "message"    : "Search",
+    "TabSearch": {
+        "message": "Search",
         "description": "Label of the search tab in the extension popup"
     },
-    "TabBrowse"                          : {
-        "message"    : "Browse",
+    "TabBrowse": {
+        "message": "Browse",
         "description": "Label of the browse servers tab in the extension popup"
     },
-    "TabCollected"                       : {
-        "message"    : "Collected",
+    "TabCollected": {
+        "message": "Collected",
         "description": "Label of the new collected passwords tab in the extension popup"
     },
-    "TabTools"                           : {
-        "message"    : "Tools",
+    "TabTools": {
+        "message": "Tools",
         "description": "Label of the tools tab in the extension popup"
     },
-    "PasswordItemTitle"                  : {
-        "message"     : "Status: $STATUS$, Id: #$ID$",
-        "description" : "The tooltip of any password entry in the popup",
+    "PasswordItemTitle": {
+        "message": "Status: $STATUS$, Id: #$ID$",
+        "description": "The tooltip of any password entry in the popup",
         "placeholders": {
-            "id"    : {
+            "id": {
                 "content": "$1",
                 "example": "1234-1234-1234-1234"
             },
@@ -249,37 +249,37 @@
             }
         }
     },
-    "PasswordItemOpenUrl"                : {
-        "message"    : "Open Website",
+    "PasswordItemOpenUrl": {
+        "message": "Open Website",
         "description": "Title of the menu option to open the password url in a new tab"
     },
-    "PasswordItemToTrash"                : {
-        "message"    : "Move to trash",
+    "PasswordItemToTrash": {
+        "message": "Move to trash",
         "description": "Title of the menu option to move a password to the trash"
     },
-    "PasswordItemDetails"                : {
-        "message"    : "View details",
+    "PasswordItemDetails": {
+        "message": "View details",
         "description": "Title of the menu option to view and edit a password"
     },
-    "ValidationLabel"                    : {
-        "message"    : "label",
+    "ValidationLabel": {
+        "message": "label",
         "description": "Name of the account label field in account validation message. This value is used when the user attempts to save an account with an invalid label"
     },
-    "ValidationUser"                     : {
-        "message"    : "user",
+    "ValidationUser": {
+        "message": "user",
         "description": "Name of the account username field in account validation message. This value is used when the user attempts to save an account with an invalid username"
     },
-    "ValidationToken"                    : {
-        "message"    : "app password",
+    "ValidationToken": {
+        "message": "app password",
         "description": "Name of the account token field in account validation message. This value is used when the user attempts to save an account with an invalid token"
     },
-    "ValidationBaseUrl"                  : {
-        "message"    : "base url",
+    "ValidationBaseUrl": {
+        "message": "base url",
         "description": "Name of the account base url field in account validation message. This value is used when the user attempts to save an account with an invalid base url"
     },
-    "ValidationNotEmpty"                 : {
-        "message"     : "The $FIELD$ can not be empty.",
-        "description" : "Validation message when the user attempts to save something (like an account) but a required field is empty.",
+    "ValidationNotEmpty": {
+        "message": "The $FIELD$ can not be empty.",
+        "description": "Validation message when the user attempts to save something (like an account) but a required field is empty.",
         "placeholders": {
             "field": {
                 "content": "$1",
@@ -287,57 +287,57 @@
             }
         }
     },
-    "ValidationMinLength"                : {
-        "message"     : "The $FIELD$ must be at least $MIN$ characters long.",
-        "description" : "Validation message when the user attempts to save something (like an account) but a field is shorter than required",
-        "placeholders": {
-            "field": {
-                "content": "$1",
-                "example": "user"
-            },
-            "min"  : {
-                "content": "$2",
-                "example": "29"
-            }
-        }
-    },
-    "ValidationMaxLength"                : {
-        "message"     : "The $FIELD$ must be shorter than $MAX$ characters.",
-        "description" : "Validation message when the user attempts to save something (like an account) but a field is longer than allowed",
+    "ValidationMinLength": {
+        "message": "The $FIELD$ must be at least $MIN$ characters long.",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is shorter than required",
         "placeholders": {
             "field": {
                 "content": "$1",
                 "example": "user"
             },
-            "max"  : {
+            "min": {
                 "content": "$2",
                 "example": "29"
             }
         }
     },
-    "ValidationFailed"                   : {
-        "message"    : "Validation failed.",
+    "ValidationMaxLength": {
+        "message": "The $FIELD$ must be shorter than $MAX$ characters.",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is longer than allowed",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "max": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationFailed": {
+        "message": "Validation failed.",
         "description": "Validation message when the user attempts to save something (like an account) but there were validation errors"
     },
-    "ValidationNotAnUrl"                 : {
-        "message"    : "The base url must be a valid url.",
+    "ValidationNotAnUrl": {
+        "message": "The base url must be a valid url.",
         "description": "Validation message when the user attempts to save an account but the server url is not a valid url"
     },
-    "ValidationNotAToken"                : {
-        "message"    : "The app password must be a valid Nextcloud App Password.",
+    "ValidationNotAToken": {
+        "message": "The app password must be a valid Nextcloud App Password.",
         "description": "Validation message when the user attempts to save an account but the token does not match the Nextcloud token schema"
     },
-    "ValidationInvalidTimeout"           : {
-        "message"    : "The logout time must be one of the given options.",
+    "ValidationInvalidTimeout": {
+        "message": "The logout time must be one of the given options.",
         "description": "Validation message when the user attempts to save an account but the timeout is not within the predefined range"
     },
-    "ValidationDuplicate"                : {
-        "message"    : "There is already an account for this user on this Nextcloud.",
+    "ValidationDuplicate": {
+        "message": "There is already an account for this user on this Nextcloud.",
         "description": "Validation message when the user attempts to save a new account, but a similar account with the same server and same user name already exists"
     },
-    "ValidationNoConnection"             : {
-        "message"     : "Unable to connect to $URL$.",
-        "description" : "Validation message when the user attempts to save an account but it is not possible to connect to this server with the given url",
+    "ValidationNoConnection": {
+        "message": "Unable to connect to $URL$.",
+        "description": "Validation message when the user attempts to save an account but it is not possible to connect to this server with the given url",
         "placeholders": {
             "url": {
                 "content": "$1",
@@ -345,9 +345,9 @@
             }
         }
     },
-    "ValidationUnauthorizedError"        : {
-        "message"     : "The server at $URL$ did not accept the login data.",
-        "description" : "Validation message when the user attempts to save an account but the server did not accept the user name and token",
+    "ValidationUnauthorizedError": {
+        "message": "The server at $URL$ did not accept the login data.",
+        "description": "Validation message when the user attempts to save an account but the server did not accept the user name and token",
         "placeholders": {
             "url": {
                 "content": "$1",
@@ -355,11 +355,11 @@
             }
         }
     },
-    "ValidationHttpError"                : {
-        "message"     : "Trying to connect to $URL$ resulted in $ERROR$.",
-        "description" : "Validation message when the user attempts to save an account but the server responded with an unexpected HTTP status code",
+    "ValidationHttpError": {
+        "message": "Trying to connect to $URL$ resulted in $ERROR$.",
+        "description": "Validation message when the user attempts to save an account but the server responded with an unexpected HTTP status code",
         "placeholders": {
-            "url"  : {
+            "url": {
                 "content": "$1",
                 "example": "https://cloud.example.com/"
             },
@@ -369,11 +369,11 @@
             }
         }
     },
-    "ValidationConnectionError"          : {
-        "message"     : "Trying to connect to $URL$ resulted in $ERROR$.",
-        "description" : "Validation message when the user attempts to save an account but the connection attempt resulted in any kind of error (including internal extension errors)",
+    "ValidationConnectionError": {
+        "message": "Trying to connect to $URL$ resulted in $ERROR$.",
+        "description": "Validation message when the user attempts to save an account but the connection attempt resulted in any kind of error (including internal extension errors)",
         "placeholders": {
-            "url"  : {
+            "url": {
                 "content": "$1",
                 "example": "https://cloud.example.com/"
             },
@@ -383,49 +383,49 @@
             }
         }
     },
-    "ValidationServerVersion"            : {
-        "message"    : "The app version installed on the server is outdated.",
+    "ValidationServerVersion": {
+        "message": "The app version installed on the server is outdated.",
         "description": "Validation message when the user attempts to save an account but the version of the passwords app installed on the server is outdated"
     },
-    "NoRelatedPasswords"                 : {
-        "message"    : "Did not find any related passwords",
+    "NoRelatedPasswords": {
+        "message": "Did not find any related passwords",
         "description": "Used in the related tab when no entries match the current website"
     },
-    "NoSearchResults"                    : {
-        "message"    : "Did not find any passwords matching your query",
+    "NoSearchResults": {
+        "message": "Did not find any passwords matching your query",
         "description": "Used in the search tab when no entries match the search query"
     },
-    "NoSearchQuery"                      : {
-        "message"    : "Write into the search box to find passwords",
+    "NoSearchQuery": {
+        "message": "Write into the search box to find passwords",
         "description": "Used in the search tab when there is no search query"
     },
-    "NoCollectedPasswords"               : {
-        "message"    : "No new passwords found",
+    "NoCollectedPasswords": {
+        "message": "No new passwords found",
         "description": "Used in the collected tab when no new passwords have been found"
     },
-    "AddPasswordForCurrentTab"           : {
-        "message"    : "Add credentials for current tab",
+    "AddPasswordForCurrentTab": {
+        "message": "Add credentials for current tab",
         "description": "Used in the collected tab for the option to add a blank entry with just the url of the current tab"
     },
-    "NoServerItems"                      : {
-        "message"    : "No elements found",
+    "NoServerItems": {
+        "message": "No elements found",
         "description": "Used in the browse tab when a server has no entries to list"
     },
-    "BrowseNoServers"                    : {
-        "message"    : "No servers available",
+    "BrowseNoServers": {
+        "message": "No servers available",
         "description": "Used in the browse tab when no accounts/servers are available"
     },
-    "SearchPlaceholder"                  : {
-        "message"    : "Find passwords",
+    "SearchPlaceholder": {
+        "message": "Find passwords",
         "description": "Placeholder text of the search box"
     },
-    "MiningItemIsNew"                    : {
-        "message"    : "This is a new password",
+    "MiningItemIsNew": {
+        "message": "This is a new password",
         "description": "Text shown in a collected password that is new to tell the user that it is a new passwor"
     },
-    "MiningItemIsUpdate"                 : {
-        "message"     : "This seems to be an update of \"$PASSWORD$\"",
-        "description" : "Text shown in a collected password that is an update of an existing password",
+    "MiningItemIsUpdate": {
+        "message": "This seems to be an update of \"$PASSWORD$\"",
+        "description": "Text shown in a collected password that is an update of an existing password",
         "placeholders": {
             "password": {
                 "content": "$1",
@@ -433,81 +433,81 @@
             }
         }
     },
-    "TitleClickToEdit"                   : {
-        "message"    : "Double click to edit",
+    "TitleClickToEdit": {
+        "message": "Double click to edit",
         "description": "Tooltip used in the collected password form for any property of the password to inform the user that double clicking makes the text field editable"
     },
-    "TitleEnterToExit"                   : {
-        "message"    : "Press enter to save",
+    "TitleEnterToExit": {
+        "message": "Press enter to save",
         "description": "Tooltip used in the collected password form to tell the user that the property can be saved by clicking enter"
     },
-    "LabelLabel"                         : {
-        "message"    : "Name",
+    "LabelLabel": {
+        "message": "Name",
         "description": "Label for the name of a password entry"
     },
-    "LabelPassword"                      : {
-        "message"    : "Password",
+    "LabelPassword": {
+        "message": "Password",
         "description": "Label for the password of a password entry"
     },
-    "LabelUsername"                      : {
-        "message"    : "User",
+    "LabelUsername": {
+        "message": "User",
         "description": "Label for the username of a password entry"
     },
-    "LabelHidden"                        : {
-        "message"    : "Private Password",
+    "LabelHidden": {
+        "message": "Private Password",
         "description": "Label for the checkbox to mark a password entry as private or hidden in the webapp"
     },
-    "LabelUrl"                           : {
-        "message"    : "Url",
+    "LabelUrl": {
+        "message": "Url",
         "description": "Label for of a field that contains an url (used in collected password or server info)"
     },
-    "LabelUser"                          : {
-        "message"    : "User",
+    "LabelUser": {
+        "message": "User",
         "description": "Label for the username of in the server info in the browse tab"
     },
-    "LabelPasswords"                     : {
-        "message"    : "Passwords",
+    "LabelPasswords": {
+        "message": "Passwords",
         "description": "Label for the password count in the server info in the browse tab"
     },
-    "LabelFolders"                       : {
-        "message"    : "Folders",
+    "LabelFolders": {
+        "message": "Folders",
         "description": "Label for the folder count in the server info in the browse tab"
     },
-    "LabelFolder"                        : {
-        "message"    : "Folder",
+    "LabelFolder": {
+        "message": "Folder",
         "description": "Label for the folder of this password."
     },
-    "LabelCreated"                       : {
-        "message"    : "Created",
+    "LabelCreated": {
+        "message": "Created",
         "description": "Label for the creation time of this password."
     },
-    "LabelEdited"                        : {
-        "message"    : "Modified",
+    "LabelEdited": {
+        "message": "Modified",
         "description": "Label for the last edit time of this password."
     },
-    "LabelNotes"                         : {
-        "message"    : "Notes",
+    "LabelNotes": {
+        "message": "Notes",
         "description": "Label for the notes of this password."
     },
-    "LabelCustomFields"                  : {
-        "message"    : "Custom Fields",
+    "LabelCustomFields": {
+        "message": "Custom Fields",
         "description": "Label for the custom fields of this password"
     },
-    "LabelTags"                          : {
-        "message"    : "Tags",
+    "LabelTags": {
+        "message": "Tags",
         "description": "Label for the tag count in the server info in the browse tab"
     },
-    "LabelServerVersion"                 : {
-        "message"    : "Server",
+    "LabelServerVersion": {
+        "message": "Server",
         "description": "Label for the nextcloud server version in the server info in the browse tab"
     },
-    "LabelAppVersion"                    : {
-        "message"    : "API",
+    "LabelAppVersion": {
+        "message": "API",
         "description": "Label for the passwords app version in the server info in the browse tab"
     },
-    "ServerLabelString"                  : {
-        "message"     : "Nextcloud $VERSION$",
-        "description" : "Value for the nextcloud server version in the server info in the browse tab",
+    "ServerLabelString": {
+        "message": "Nextcloud $VERSION$",
+        "description": "Value for the nextcloud server version in the server info in the browse tab",
         "placeholders": {
             "version": {
                 "content": "$1",
@@ -515,9 +515,9 @@
             }
         }
     },
-    "AppLabelString"                     : {
-        "message"     : "Passwords $VERSION$",
-        "description" : "Value for the passwords app version in the server info in the browse tab",
+    "AppLabelString": {
+        "message": "Passwords $VERSION$",
+        "description": "Value for the passwords app version in the server info in the browse tab",
         "placeholders": {
             "version": {
                 "content": "$1",
@@ -525,37 +525,37 @@
             }
         }
     },
-    "PlaceholderPassword"                : {
-        "message"    : "Password",
+    "PlaceholderPassword": {
+        "message": "Password",
         "description": "Placeholder text in the master password field of the server authorization dialog"
     },
-    "PlaceholderToken"                   : {
-        "message"    : "Two-Factor Token",
+    "PlaceholderToken": {
+        "message": "Two-Factor Token",
         "description": "Placeholder text in the master password field of the server authorization dialog"
     },
-    "ButtonLogin"                        : {
-        "message"    : "Login",
+    "ButtonLogin": {
+        "message": "Login",
         "description": "The text of the login button of the server authorization dialog"
     },
-    "AuthorizationFailedTitle"           : {
-        "message"    : "Authorization failed",
+    "AuthorizationFailedTitle": {
+        "message": "Authorization failed",
         "description": "Title of the toast notification when the login attempt was unsuccessful"
     },
-    "AuthorizationFailedText"            : {
-        "message"    : "Access to the password database with the provided login was denied",
+    "AuthorizationFailedText": {
+        "message": "Access to the password database with the provided login was denied",
         "description": "Text of the toast notification when the login attempt was unsuccessful"
     },
-    "TokenRequestFailed"                 : {
-        "message"    : "Token request failed",
+    "TokenRequestFailed": {
+        "message": "Token request failed",
         "description": "Title of the toast notification when the request for a two factor auth token failed. The text will be the error message."
     },
-    "NotifyNewPasswordTitle"             : {
-        "message"    : "New password detected",
+    "NotifyNewPasswordTitle": {
+        "message": "New password detected",
         "description": "Title of the system notification when a new password was detected"
     },
-    "NotifyNewPasswordText"              : {
-        "message"     : "A new password for \"$LABEL$\" was detected.",
-        "description" : "Text of the system notification when a new password was detected. Used in Chrome where the notification has buttons to save or view the password",
+    "NotifyNewPasswordText": {
+        "message": "A new password for \"$LABEL$\" was detected.",
+        "description": "Text of the system notification when a new password was detected. Used in Chrome where the notification has buttons to save or view the password",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -563,9 +563,9 @@
             }
         }
     },
-    "NotifyNewPasswordTextFF"            : {
-        "message"     : "A new password for \"$LABEL$\" was detected. Click the passwords icon in the toolbar to view and save it.",
-        "description" : "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+    "NotifyNewPasswordTextFF": {
+        "message": "A new password for \"$LABEL$\" was detected. Click the passwords icon in the toolbar to view and save it.",
+        "description": "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -573,13 +573,13 @@
             }
         }
     },
-    "NotifyUpdatePasswordTitle"          : {
-        "message"    : "Updated password detected",
+    "NotifyUpdatePasswordTitle": {
+        "message": "Updated password detected",
         "description": "Title of the system notification when an update for an existing password has been detected"
     },
-    "NotifyUpdatePasswordText"           : {
-        "message"     : "An update for \"$LABEL$\" was detected.",
-        "description" : "Text of the system notification when an update for an existing password was detected. Used in Chrome where the notification has buttons to save or view the password",
+    "NotifyUpdatePasswordText": {
+        "message": "An update for \"$LABEL$\" was detected.",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Chrome where the notification has buttons to save or view the password",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -587,9 +587,9 @@
             }
         }
     },
-    "NotifyUpdatePasswordTextFF"         : {
-        "message"     : "An update for \"$LABEL$\" was detected. Click the passwords icon in the toolbar to view and save it.",
-        "description" : "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+    "NotifyUpdatePasswordTextFF": {
+        "message": "An update for \"$LABEL$\" was detected. Click the passwords icon in the toolbar to view and save it.",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -597,21 +597,21 @@
             }
         }
     },
-    "ButtonSave"                         : {
-        "message"    : "Save",
+    "ButtonSave": {
+        "message": "Save",
         "description": "The save button of a password detection system notification"
     },
-    "ButtonMore"                         : {
-        "message"    : "More Options",
+    "ButtonMore": {
+        "message": "More Options",
         "description": "The more options button of a password detection system notification which opens the popup with the form which shows all password details"
     },
-    "ButtonClose"                        : {
-        "message"    : "Close",
+    "ButtonClose": {
+        "message": "Close",
         "description": "The title of the close button of a toast notification"
     },
-    "ToastServerCheckTitle"              : {
-        "message"     : "$SERVER$ needs to be upgraded",
-        "description" : "Title of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+    "ToastServerCheckTitle": {
+        "message": "$SERVER$ needs to be upgraded",
+        "description": "Title of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
         "placeholders": {
             "server": {
                 "content": "$1",
@@ -619,15 +619,15 @@
             }
         }
     },
-    "ToastServerCheckMessage"            : {
-        "message"     : "The account \"$SERVER$\" uses passwords $SERVERVERSION$, but this extension requires at least $MINVERSION$. The app needs to be updated before the account can be activated again in the settings.",
-        "description" : "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+    "ToastServerCheckMessage": {
+        "message": "The account \"$SERVER$\" uses passwords $SERVERVERSION$, but this extension requires at least $MINVERSION$. The app needs to be updated before the account can be activated again in the settings.",
+        "description": "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
         "placeholders": {
-            "server"       : {
+            "server": {
                 "content": "$1",
                 "example": "My Nextcloud"
             },
-            "minversion"   : {
+            "minversion": {
                 "content": "$2",
                 "example": "2020.1"
             },
@@ -637,13 +637,13 @@
             }
         }
     },
-    "ToastErrorMessage"                  : {
-        "message"    : "An error occurred in the passwords client. Check the error log in the debug options for more details.",
+    "ToastErrorMessage": {
+        "message": "An error occurred in the passwords client. Check the error log in the debug options for more details.",
         "description": "Text of the toast notification for error messages from the passwords client. The error message is the title"
     },
-    "ToastPasswordTrashed"               : {
-        "message"     : "$LABEL$ was moved to the trash. You can delete it permanently in the app or restore it",
-        "description" : "Text of the toast notification after a password was moved to the trash",
+    "ToastPasswordTrashed": {
+        "message": "$LABEL$ was moved to the trash. You can delete it permanently in the app or restore it",
+        "description": "Text of the toast notification after a password was moved to the trash",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -651,9 +651,9 @@
             }
         }
     },
-    "ToastPasswordHiddenTrashed"         : {
-        "message"     : "$LABEL$ was deleted. If this was an accident you can still restore it below before it is deleted permanently",
-        "description" : "Text of the toast notification after a hidden password was moved to the trash. Users can restore it within the notification but afterwards the password is lost for good",
+    "ToastPasswordHiddenTrashed": {
+        "message": "$LABEL$ was deleted. If this was an accident you can still restore it below before it is deleted permanently",
+        "description": "Text of the toast notification after a hidden password was moved to the trash. Users can restore it within the notification but afterwards the password is lost for good",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -661,17 +661,17 @@
             }
         }
     },
-    "ToastPasswordTrashedRestore"        : {
-        "message"    : "Restore",
+    "ToastPasswordTrashedRestore": {
+        "message": "Restore",
         "description": "Text of the toast notification option to restore a password from the trash"
     },
-    "ToastPasswordDeleteFailed"          : {
-        "message"    : "Deleting password failed",
+    "ToastPasswordDeleteFailed": {
+        "message": "Deleting password failed",
         "description": "Text of the toast notification when deleting the password failed"
     },
-    "ToastPasswordRestored"              : {
-        "message"     : "$LABEL$ was restored from trash. It will reappear after you reopen the popup",
-        "description" : "Text of the toast notification after a password was restored from the trash",
+    "ToastPasswordRestored": {
+        "message": "$LABEL$ was restored from trash. It will reappear after you reopen the popup",
+        "description": "Text of the toast notification after a password was restored from the trash",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -679,9 +679,9 @@
             }
         }
     },
-    "PasswordPastedSuccess"              : {
-        "message"     : "$LABEL$ pasted successfully",
-        "description" : "Text of the toast notification when a password entry was pasted successfully into the current tab",
+    "PasswordPastedSuccess": {
+        "message": "$LABEL$ pasted successfully",
+        "description": "Text of the toast notification when a password entry was pasted successfully into the current tab",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -689,17 +689,17 @@
             }
         }
     },
-    "ToastPasswordUpdated"               : {
-        "message"    : "Password updated",
+    "ToastPasswordUpdated": {
+        "message": "Password updated",
         "description": "Text of the toast notification when password was updated"
     },
-    "ToastPasswordUpdateFailed"          : {
-        "message"    : "Password update failed",
+    "ToastPasswordUpdateFailed": {
+        "message": "Password update failed",
         "description": "Text of the toast notification when password update failed"
     },
-    "PasswordPastedError"                : {
-        "message"     : "Could not paste $LABEL$",
-        "description" : "Text of the toast notification when a password could not be pasted into the current tab",
+    "PasswordPastedError": {
+        "message": "Could not paste $LABEL$",
+        "description": "Text of the toast notification when a password could not be pasted into the current tab",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -707,9 +707,9 @@
             }
         }
     },
-    "PasswordPropertyCopied"             : {
-        "message"     : "Copied $PROPERTY$",
-        "description" : "Text of the toast notification when a password property was copied successfully via one of the buttons",
+    "PasswordPropertyCopied": {
+        "message": "Copied $PROPERTY$",
+        "description": "Text of the toast notification when a password property was copied successfully via one of the buttons",
         "placeholders": {
             "property": {
                 "content": "$1",
@@ -717,21 +717,21 @@
             }
         }
     },
-    "PropertyPassword"                   : {
-        "message"    : "Password",
+    "PropertyPassword": {
+        "message": "Password",
         "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
     },
-    "PropertyUsername"                   : {
-        "message"    : "Username",
+    "PropertyUsername": {
+        "message": "Username",
         "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
     },
-    "PropertyUrl"                        : {
-        "message"    : "Website",
+    "PropertyUrl": {
+        "message": "Website",
         "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
     },
-    "ServerConnectionErrorTitle"         : {
-        "message"     : "Unable to connect to $SERVER$",
-        "description" : "Title of the toast notification when the connection to the server failed",
+    "ServerConnectionErrorTitle": {
+        "message": "Unable to connect to $SERVER$",
+        "description": "Title of the toast notification when the connection to the server failed",
         "placeholders": {
             "server": {
                 "content": "$1",
@@ -739,13 +739,13 @@
             }
         }
     },
-    "ServerCredentialsRejected"          : {
-        "message"    : "Server credentials rejected. Please update the login data in the settings.",
+    "ServerCredentialsRejected": {
+        "message": "Server credentials rejected. Please update the login data in the settings.",
         "description": "Text of the toast notification when the server has rejected the login credentials"
     },
-    "ServerHttpError"                    : {
-        "message"     : "HTTP connection error: $ERROR$",
-        "description" : "Text of the toast notification when the connection to the server failed with a HTTP error",
+    "ServerHttpError": {
+        "message": "HTTP connection error: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with a HTTP error",
         "placeholders": {
             "error": {
                 "content": "$1",
@@ -753,324 +753,324 @@
             }
         }
     },
-    "ServerNetworkError"                 : {
-        "message"    : "A network error occurred. Please check if you're online and the server is reachable.",
+    "ServerNetworkError": {
+        "message": "A network error occurred. Please check if you're online and the server is reachable.",
         "description": "Text of the toast notification when the connection to the server failed with a network error"
     },
-    "ServerUnknownError"                 : {
-        "message"    : "Unknown error.",
+    "ServerUnknownError": {
+        "message": "Unknown error.",
         "description": "Text of the toast notification when the connection to the server failed with an unknown error and no error message is present"
     },
-    "ServerGenericError"                 : {
-        "message"     : "Error: $ERROR$",
-        "description" : "Text of the toast notification when the connection to the server failed with an error",
+    "ServerGenericError": {
+        "message": "Error: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with an error",
         "placeholders": {
             "error": {
-                "content"    : "$1",
+                "content": "$1",
                 "description": "The error message",
-                "example"    : "500 - Internal Server Error"
+                "example": "500 - Internal Server Error"
             }
         }
     },
-    "DemoInfoNotification"               : {
-        "message"    : "Info notification",
+    "DemoInfoNotification": {
+        "message": "Info notification",
         "description": "Text and title of the info notification in the theme preview"
     },
-    "DemoSuccessNotification"            : {
-        "message"    : "Success notification",
+    "DemoSuccessNotification": {
+        "message": "Success notification",
         "description": "Text and title of the success notification in the theme preview"
     },
-    "DemoWarningNotification"            : {
-        "message"    : "Warning notification",
+    "DemoWarningNotification": {
+        "message": "Warning notification",
         "description": "Text and title of the warning notification in the theme preview"
     },
-    "DemoErrorNotification"              : {
-        "message"    : "Error notification",
+    "DemoErrorNotification": {
+        "message": "Error notification",
         "description": "Text and title of the error notification in the theme preview"
     },
-    "DemoText"                           : {
-        "message"    : "Demo",
+    "DemoText": {
+        "message": "Demo",
         "description": "Demo text used in the theme preview"
     },
-    "SettingsThemeId"                    : {
-        "message"    : "Active theme",
+    "SettingsThemeId": {
+        "message": "Active theme",
         "description": "Label of the option to choose the current theme in the extension settings"
     },
-    "ThemeDark"                          : {
-        "message"    : "Dark theme",
+    "ThemeDark": {
+        "message": "Dark theme",
         "description": "Label of the dark theme"
     },
-    "ThemeOledDark"                      : {
-        "message"    : "Dark OLED",
+    "ThemeOledDark": {
+        "message": "Dark OLED",
         "description": "Label of the dark theme optimized for OLED-Displays"
     },
-    "ThemeLight"                         : {
-        "message"    : "Default",
+    "ThemeLight": {
+        "message": "Default",
         "description": "Label of the default light theme"
     },
-    "ThemeAdaptaLight"                   : {
-        "message"    : "Adapta",
+    "ThemeAdaptaLight": {
+        "message": "Adapta",
         "description": "Label of the theme with the Adapta color scheme"
     },
-    "ThemeAdaptaTeal"                    : {
-        "message"    : "Adapta teal",
+    "ThemeAdaptaTeal": {
+        "message": "Adapta teal",
         "description": "Label of the theme with the Adapta teal color scheme"
     },
-    "ThemeArcDark"                       : {
-        "message"    : "Arc dark",
+    "ThemeArcDark": {
+        "message": "Arc dark",
         "description": "Label of the theme with the Arc dark scheme"
     },
-    "ThemeArcLight"                      : {
-        "message"    : "Arc",
+    "ThemeArcLight": {
+        "message": "Arc",
         "description": "Label of the theme with the Arc color scheme"
     },
-    "ThemeHacker"                        : {
-        "message"    : "Hacker",
+    "ThemeHacker": {
+        "message": "Hacker",
         "description": "Label of the hacker style theme"
     },
-    "ThemeRGB"                           : {
-        "message"    : "Gaming RGB",
+    "ThemeRGB": {
+        "message": "Gaming RGB",
         "description": "Label of the gaming rgb animated theme"
     },
-    "ThemeCustom"                        : {
-        "message"    : "Custom theme",
+    "ThemeCustom": {
+        "message": "Custom theme",
         "description": "Label for the custom theme option"
     },
-    "CustomFont"                         : {
-        "message"    : "Font",
+    "CustomFont": {
+        "message": "Font",
         "description": "Headline for the font settings in the custom theme settings"
     },
-    "CustomDefaultElement"               : {
-        "message"    : "Default element",
+    "CustomDefaultElement": {
+        "message": "Default element",
         "description": "Headline for the default element styling settings in the custom theme settings"
     },
-    "CustomActiveElement"                : {
-        "message"    : "Active element",
+    "CustomActiveElement": {
+        "message": "Active element",
         "description": "Headline for the active element styling settings in the custom theme settings"
     },
-    "CustomButtons"                      : {
-        "message"    : "Buttons",
+    "CustomButtons": {
+        "message": "Buttons",
         "description": "Headline for the button styling settings in the custom theme settings"
     },
-    "CustomSliderElement"                : {
-        "message"    : "Switches",
+    "CustomSliderElement": {
+        "message": "Switches",
         "description": "Headline for the switch styling settings in the custom theme settings"
     },
-    "CustomToasts"                       : {
-        "message"    : "Toast notifications",
+    "CustomToasts": {
+        "message": "Toast notifications",
         "description": "Headline for the toast notification styling settings in the custom theme settings"
     },
-    "CustomBadge"                        : {
-        "message"    : "Browser icon",
+    "CustomBadge": {
+        "message": "Browser icon",
         "description": "Headline for the browser toolbar icon styling settings in the custom theme settings"
     },
-    "BackgroundColorLabel"               : {
-        "message"    : "Background color",
+    "BackgroundColorLabel": {
+        "message": "Background color",
         "description": "Label of background color options in the custom theme settings"
     },
-    "ForegroundColorLabel"               : {
-        "message"    : "Foreground color",
+    "ForegroundColorLabel": {
+        "message": "Foreground color",
         "description": "Label of foreground / text color options in the custom theme settings"
     },
-    "BorderColorLabel"                   : {
-        "message"    : "Border color",
+    "BorderColorLabel": {
+        "message": "Border color",
         "description": "Label of border color options in the custom theme settings"
     },
-    "BackgroundInheritLabel"             : {
-        "message"    : "Inherit background",
+    "BackgroundInheritLabel": {
+        "message": "Inherit background",
         "description": "Label of options to inherit the background color in the custom theme settings"
     },
-    "ForegroundInheritLabel"             : {
-        "message"    : "Inherit foreground",
+    "ForegroundInheritLabel": {
+        "message": "Inherit foreground",
         "description": "Label of options to inherit the foreground / text color in the custom theme settings"
     },
-    "BackgroundColorBaseTitle"           : {
-        "message"    : "This color is usually used for the background",
+    "BackgroundColorBaseTitle": {
+        "message": "This color is usually used for the background",
         "description": "Tooltip of the color input field in the custom theme settings for the default background color for an element"
     },
-    "BackgroundColorHoverTitle"          : {
-        "message"    : "This color is used for the background if the element is active. It can also be used for the border of an inactive element",
+    "BackgroundColorHoverTitle": {
+        "message": "This color is used for the background if the element is active. It can also be used for the border of an inactive element",
         "description": "Tooltip of the color input field in the custom theme settings for the mouse hover / active background color for an element"
     },
-    "ForegroundColorBaseTitle"           : {
-        "message"    : "This color is usually used for texts and borders",
+    "ForegroundColorBaseTitle": {
+        "message": "This color is usually used for texts and borders",
         "description": "Tooltip of the color input field in the custom theme settings for the default foreground / text color for an element"
     },
-    "ForegroundColorHoverTitle"          : {
-        "message"    : "This color is used for texts and borders if the element is active",
+    "ForegroundColorHoverTitle": {
+        "message": "This color is used for texts and borders if the element is active",
         "description": "Tooltip of the color input field in the custom theme settings for the hover / active foreground / text color for an element"
     },
-    "BorderColorBaseTitle"               : {
-        "message"    : "This color is usually used for borders",
+    "BorderColorBaseTitle": {
+        "message": "This color is usually used for borders",
         "description": "Tooltip of the color input field in the custom theme settings for the default border color for an element"
     },
-    "BorderColorHoverTitle"              : {
-        "message"    : "This color is used for borders if the element is active",
+    "BorderColorHoverTitle": {
+        "message": "This color is used for borders if the element is active",
         "description": "Tooltip of the color input field in the custom theme settings for the hover / active border color for an element"
     },
-    "BackgroundInheritTitle"             : {
-        "message"    : "If activated, the value will be inherited from the parent element",
+    "BackgroundInheritTitle": {
+        "message": "If activated, the value will be inherited from the parent element",
         "description": "Tooltip for the checkbox to inherit the background color (from the parent element in the html) in the custom theme settings"
     },
-    "ForegroundInheritTitle"             : {
-        "message"    : "If activated, the value will be inherited from the parent element",
+    "ForegroundInheritTitle": {
+        "message": "If activated, the value will be inherited from the parent element",
         "description": "Tooltip for the checkbox to inherit the foreground / text color (from the parent element in the html) in the custom theme settings"
     },
-    "SettingsCustomFont"                 : {
-        "message"    : "Font family",
+    "SettingsCustomFont": {
+        "message": "Font family",
         "description": "Label of the font option in the custom theme settings"
     },
-    "FontDefault"                        : {
-        "message"    : "Default",
+    "FontDefault": {
+        "message": "Default",
         "description": "Label of the default font option in the custom theme settings"
     },
-    "FontMono"                           : {
-        "message"    : "Monospace",
+    "FontMono": {
+        "message": "Monospace",
         "description": "Label of the monospaced font option in the custom theme settings"
     },
-    "FontSerif"                          : {
-        "message"    : "Serif",
+    "FontSerif": {
+        "message": "Serif",
         "description": "Label of the serif style (like Times New Roman) font option in the custom theme settings"
     },
-    "FontSans"                           : {
-        "message"    : "Sans serif",
+    "FontSans": {
+        "message": "Sans serif",
         "description": "Label of the sans serif (like Arial) font option in the custom theme settings"
     },
-    "FontLight"                          : {
-        "message"    : "Light",
+    "FontLight": {
+        "message": "Light",
         "description": "Label of the thin font option in the custom theme settings"
     },
-    "FontNextcloud"                      : {
-        "message"    : "Nextcloud",
+    "FontNextcloud": {
+        "message": "Nextcloud",
         "description": "Label of the Nextcloud font option in the custom theme settings"
     },
-    "FontOpenDyslexic"                   : {
-        "message"    : "Open Dyslexic",
+    "FontOpenDyslexic": {
+        "message": "Open Dyslexic",
         "description": "Label of the open dyslexic font option in the custom theme settings. This font is good for users with dyslexia"
     },
-    "FontCustom"                         : {
-        "message"    : "Custom",
+    "FontCustom": {
+        "message": "Custom",
         "description": "Label for unrecognized fonts in the custom theme settings. This option is usually not shown"
     },
-    "SettingsCustomFontSize"             : {
-        "message"    : "Font size",
+    "SettingsCustomFontSize": {
+        "message": "Font size",
         "description": "Label of the font size setting in the custom theme settings"
     },
-    "FontSizeVerySmall"                  : {
-        "message"    : "Very small",
+    "FontSizeVerySmall": {
+        "message": "Very small",
         "description": "Label for the very small font size in the custom theme settings"
     },
-    "FontSizeSmall"                      : {
-        "message"    : "Small",
+    "FontSizeSmall": {
+        "message": "Small",
         "description": "Label for the small font size in the custom theme settings"
     },
-    "FontSizeDefault"                    : {
-        "message"    : "Default",
+    "FontSizeDefault": {
+        "message": "Default",
         "description": "Label for the default font size in the custom theme settings"
     },
-    "FontSizeMedium"                     : {
-        "message"    : "Medium",
+    "FontSizeMedium": {
+        "message": "Medium",
         "description": "Label for the medium font size in the custom theme settings"
     },
-    "FontSizeLarge"                      : {
-        "message"    : "Large",
+    "FontSizeLarge": {
+        "message": "Large",
         "description": "Label for the large font size in the custom theme settings"
     },
-    "FontSizeVeryLarge"                  : {
-        "message"    : "Very large",
+    "FontSizeVeryLarge": {
+        "message": "Very large",
         "description": "Label for the very large font size in the custom theme settings"
     },
-    "ToastInfoColors"                    : {
-        "message"    : "Info toast",
+    "ToastInfoColors": {
+        "message": "Info toast",
         "description": "Label of the setting in the custom theme settings to choose the colors of informational toast notifications"
     },
-    "ToastSuccessColors"                 : {
-        "message"    : "Success toast",
+    "ToastSuccessColors": {
+        "message": "Success toast",
         "description": "Label of the setting in the custom theme settings to choose the colors of success toast notifications"
     },
-    "ToastWarningColors"                 : {
-        "message"    : "Warning toast",
+    "ToastWarningColors": {
+        "message": "Warning toast",
         "description": "Label of the setting in the custom theme settings to choose the colors of warning toast notifications"
     },
-    "ToastErrorColors"                   : {
-        "message"    : "Error toast",
+    "ToastErrorColors": {
+        "message": "Error toast",
         "description": "Label of the setting in the custom theme settings to choose the colors of error toast notifications"
     },
-    "ToastBackgroundTitle"               : {
-        "message"    : "Background color for the toast notification",
+    "ToastBackgroundTitle": {
+        "message": "Background color for the toast notification",
         "description": "Tooltip of the color input in the custom theme settings for a toast notification background color"
     },
-    "ToastForegroundTitle"               : {
-        "message"    : "Color for text and button backgrounds of the toast notification",
+    "ToastForegroundTitle": {
+        "message": "Color for text and button backgrounds of the toast notification",
         "description": "Tooltip of the color input in the custom theme settings for a toast notification foreground / text color"
     },
-    "SettingsBadgeIcon"                  : {
-        "message"    : "Toolbar icon",
+    "SettingsBadgeIcon": {
+        "message": "Toolbar icon",
         "description": "Label of the setting to choose the toolbar icon in the custom theme settings"
     },
-    "BadgeIconAuto"                      : {
-        "message"    : "Automatic",
+    "BadgeIconAuto": {
+        "message": "Automatic",
         "description": "Label of the automatic icon option for the toolbar icon in the custom theme settings"
     },
-    "BadgeIconLight"                     : {
-        "message"    : "Light icon",
+    "BadgeIconLight": {
+        "message": "Light icon",
         "description": "Label of the light icon option for the toolbar icon in the custom theme settings"
     },
-    "BadgeIconMedium"                    : {
-        "message"    : "Grey icon",
+    "BadgeIconMedium": {
+        "message": "Grey icon",
         "description": "Label of the grey icon option for the toolbar icon in the custom theme settings"
     },
-    "BadgeIconDark"                      : {
-        "message"    : "Dark icon",
+    "BadgeIconDark": {
+        "message": "Dark icon",
         "description": "Label of the dark icon option for the toolbar icon in the custom theme settings"
     },
-    "BadgeIconNewLight"                  : {
-        "message"    : "Light modern icon",
+    "BadgeIconNewLight": {
+        "message": "Light modern icon",
         "description": "Label of the light modern icon option for the toolbar icon in the custom theme settings"
     },
-    "BadgeIconNewMedium"                 : {
-        "message"    : "Grey modern icon",
+    "BadgeIconNewMedium": {
+        "message": "Grey modern icon",
         "description": "Label of the grey modern icon option for the toolbar icon in the custom theme settings"
     },
-    "BadgeIconNewDark"                   : {
-        "message"    : "Dark modern icon",
+    "BadgeIconNewDark": {
+        "message": "Dark modern icon",
         "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
     },
-    "CustomBadgeColors"                  : {
-        "message"    : "Badge colors",
+    "CustomBadgeColors": {
+        "message": "Badge colors",
         "description": "Label of the settings for the toolbar icon badge colors in the custom theme settings"
     },
-    "BadgeBackgroundTitle"               : {
-        "message"    : "Background color of the badge",
+    "BadgeBackgroundTitle": {
+        "message": "Background color of the badge",
         "description": "Tooltip for the color input for the background color of the toolbar icon badge in the custom theme settings"
     },
-    "BadgeForegroundTitle"               : {
-        "message"    : "Text color of the badge",
+    "BadgeForegroundTitle": {
+        "message": "Text color of the badge",
         "description": "Tooltip for the color input for the text color of the toolbar icon badge in the custom theme settings"
     },
-    "PasslinkErrorNoMessage"             : {
-        "message"    : "There has been an error but no error message was provided",
+    "PasslinkErrorNoMessage": {
+        "message": "There has been an error but no error message was provided",
         "description": "Error message shown in the PassLink popup window when and error happened but no error message was provided"
     },
-    "PasslinkNoLinkProvided"             : {
-        "message"    : "No link or action is missing",
+    "PasslinkNoLinkProvided": {
+        "message": "No link or action is missing",
         "description": "Error message shown in the PassLink popup window when the window was opened but no action or link to process was provided"
     },
-    "PasslinkErrorClose"                 : {
-        "message"    : "Close",
+    "PasslinkErrorClose": {
+        "message": "Close",
         "description": "Text of the close button in the PassLink error window"
     },
-    "PasslinkNoActiveAction"             : {
-        "message"    : "There is no active PassLink action of this type",
+    "PasslinkNoActiveAction": {
+        "message": "There is no active PassLink action of this type",
         "description": "Error message when an active PassLink action is required for a request but no active action can be found. (Example: Request to view the second step of the PassLink connect step, but no PassLink connect was started at all)"
     },
-    "PasslinkConnectCheckCodes"          : {
-        "message"    : "Check if the codes below match with the ones you see in the app. If they do, confirm the connection in the app and you're done.",
+    "PasslinkConnectCheckCodes": {
+        "message": "Check if the codes below match with the ones you see in the app. If they do, confirm the connection in the app and you're done.",
         "description": "Message during the PassLink Connect action telling the user to check if the codes below match the ones shown in the Nextcloud Passwords App. If so, the user just needs to confirm the connection in the Nextcloud app to add the account to the extension."
     },
-    "PasslinkConnectServer"              : {
-        "message"     : "The new account was saved as \"$LABEL$\"",
-        "description" : "Confirmation message in the PassLink Connect action when a new account has been created successfully",
+    "PasslinkConnectServer": {
+        "message": "The new account was saved as \"$LABEL$\"",
+        "description": "Confirmation message in the PassLink Connect action when a new account has been created successfully",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -1078,160 +1078,160 @@
             }
         }
     },
-    "PasslinkConnectNotFound"            : {
-        "message"    : "This link is invalid. It may have been used already or is expired.",
+    "PasslinkConnectNotFound": {
+        "message": "This link is invalid. It may have been used already or is expired.",
         "description": "Error message in PassLink when the link used has expired or was already used."
     },
-    "PasslinkConnectRejected"            : {
-        "message"    : "The connection request was rejected by the server.",
+    "PasslinkConnectRejected": {
+        "message": "The connection request was rejected by the server.",
         "description": "Error message when the server rejected the PassLink connect action was not confirmed by the server"
     },
-    "PasslinkConnectNetworkError"        : {
-        "message"    : "The connection to the server failed. Please check your network.",
+    "PasslinkConnectNetworkError": {
+        "message": "The connection to the server failed. Please check your network.",
         "description": "Error message in PassLink when the connection to the Nextcloud server failed with a networking error"
     },
-    "PasslinkConnectSuccess"             : {
-        "message"    : "Connection successful",
+    "PasslinkConnectSuccess": {
+        "message": "Connection successful",
         "description": "Message in the PassLink window when the PassLink Connect action was successful"
     },
-    "PasslinkConnectFailed"              : {
-        "message"    : "Connection failed",
+    "PasslinkConnectFailed": {
+        "message": "Connection failed",
         "description": "Message in the PassLink window when the PassLink Connect action failed"
     },
-    "PasslinkConnectSettings"            : {
-        "message"    : "Open settings",
+    "PasslinkConnectSettings": {
+        "message": "Open settings",
         "description": "Text of the button to open the extension settings in the PassLink result window"
     },
-    "PasslinkConnectClose"               : {
-        "message"    : "Close the window",
+    "PasslinkConnectClose": {
+        "message": "Close the window",
         "description": "Text of the button  in the PassLink result window to close the window"
     },
-    "PasslinkScanInstructions"           : {
-        "message"    : "Point your camera to the QR code and wait for it to be recognized and scanned.",
+    "PasslinkScanInstructions": {
+        "message": "Point your camera to the QR code and wait for it to be recognized and scanned.",
         "description": "Instructions shown above the PassLink QR scanner telling the use to point his camera at the qr code he wants to scan"
     },
-    "PasslinkScanScanning"               : {
-        "message"    : "Looking for a QR Code",
+    "PasslinkScanScanning": {
+        "message": "Looking for a QR Code",
         "description": "Message used by the PassLink QR scanner while the camera feed is scanned for a qr code"
     },
-    "PasslinkScanProcessingLink"         : {
-        "message"    : "Processing QR Code",
+    "PasslinkScanProcessingLink": {
+        "message": "Processing QR Code",
         "description": "Message used by the PassLink QR scanner when a valid code was found and is now being analyzed"
     },
-    "PasslinkScanInvalidQrCode"          : {
-        "message"    : "This QR Code is not supported",
+    "PasslinkScanInvalidQrCode": {
+        "message": "This QR Code is not supported",
         "description": "Message used by the PassLink QR scanner when the user scans a code that does not contain a valid and supported uri of Passlink"
     },
-    "QrNotAllowedError"                  : {
-        "message"    : "Access to the camera was not granted",
+    "QrNotAllowedError": {
+        "message": "Access to the camera was not granted",
         "description": "Message used by the PassLink QR scanner when the user did not allow camera access"
     },
-    "QrNotFoundError"                    : {
-        "message"    : "No cameras were found on this device",
+    "QrNotFoundError": {
+        "message": "No cameras were found on this device",
         "description": "Message used by the PassLink QR scanner when the device has no cameras"
     },
-    "QrNotSupportedError"                : {
-        "message"    : "Insecure Context",
+    "QrNotSupportedError": {
+        "message": "Insecure Context",
         "description": "Message used by the PassLink QR scanner when the page was opened in an insecure context (http://). This should never happen"
     },
-    "QrNotReadableError"                 : {
-        "message"    : "Camera not accessible. Maybe it is already in use?",
+    "QrNotReadableError": {
+        "message": "Camera not accessible. Maybe it is already in use?",
         "description": "Message used by the PassLink QR scanner when the camera stream can not be read"
     },
-    "QrOverconstrainedError"             : {
-        "message"    : "Camera not suitable to be used",
+    "QrOverconstrainedError": {
+        "message": "Camera not suitable to be used",
         "description": "Message used by the PassLink QR scanner when the camera is faulty"
     },
-    "QrStreamApiNotSupportedError"       : {
-        "message"    : "The Stream API is not supported by this browser",
+    "QrStreamApiNotSupportedError": {
+        "message": "The Stream API is not supported by this browser",
         "description": "Message used by the PassLink QR scanner when the browser does not support the required streaming api. This should never happen"
     },
-    "FirstRunConnectTitle"               : {
-        "message"    : "Connect to Nextcloud",
+    "FirstRunConnectTitle": {
+        "message": "Connect to Nextcloud",
         "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
     },
-    "FirstRunConnectText"                : {
-        "message"    : "Open the passwords app, click on \"More\", open \"Apps & Extensions\" and open the PassLink Connect dialog.",
+    "FirstRunConnectText": {
+        "message": "Open the passwords app, click on \"More\", open \"Apps & Extensions\" and open the PassLink Connect dialog.",
         "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
     },
-    "FirstRunConnectLink"                : {
-        "message"    : "If the PassLink dialog is open on the same device, use the connect via link option",
+    "FirstRunConnectLink": {
+        "message": "If the PassLink dialog is open on the same device, use the connect via link option",
         "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
     },
-    "FirstRunConnectScan"                : {
-        "message"    : "If this is a different device, scan the PassLink Connect Code with the button below",
+    "FirstRunConnectScan": {
+        "message": "If this is a different device, scan the PassLink Connect Code with the button below",
         "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
     },
-    "FirstRunConnectManual"              : {
-        "message"    : "You can also create the account manually in the extension settings",
+    "FirstRunConnectManual": {
+        "message": "You can also create the account manually in the extension settings",
         "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
     },
-    "FirstRunConnectScanButton"          : {
-        "message"    : "Scan PassLink Code",
+    "FirstRunConnectScanButton": {
+        "message": "Scan PassLink Code",
         "description": "Text of the button to scan a PassLink QR Code"
     },
-    "OpenSettings"                       : {
-        "message"    : "Open Extension Settings",
+    "OpenSettings": {
+        "message": "Open Extension Settings",
         "description": "Label of the button to open the extension settings in the tools tab of the popup"
     },
-    "ToolsTabGeneratePassword"           : {
-        "message"    : "Generate Password",
+    "ToolsTabGeneratePassword": {
+        "message": "Generate Password",
         "description": "Label of the generate password section in the tools tab of the popup"
     },
-    "ToolsTabDebugTools"                 : {
-        "message"    : "Debug Tools",
+    "ToolsTabDebugTools": {
+        "message": "Debug Tools",
         "description": "Label of the debugging tools section in the tools tab of the popup"
     },
-    "GeneratedPasswordPlaceholder"       : {
-        "message"    : "Generated Password",
+    "GeneratedPasswordPlaceholder": {
+        "message": "Generated Password",
         "description": "Placeholder of the field for the generated password in the tools tab of the popup"
     },
-    "GeneratedPasswordTitle"             : {
-        "message"     : "Password words: $WORDS$",
-        "description" : "Title of the input field for the generated password in the tools tab of the popup. It shows the words used to generate the password",
+    "GeneratedPasswordTitle": {
+        "message": "Password words: $WORDS$",
+        "description": "Title of the input field for the generated password in the tools tab of the popup. It shows the words used to generate the password",
         "placeholders": {
             "words": {
-                "content"    : "$1",
+                "content": "$1",
                 "description": "The words used for the password",
-                "example"    : "First Second Third"
+                "example": "First Second Third"
             }
         }
     },
-    "LabelGenerateAddNumbers"            : {
-        "message"    : "Numbers",
+    "LabelGenerateAddNumbers": {
+        "message": "Numbers",
         "description": "Label of the option to include numbers in the password generator in the tools tab"
     },
-    "LabelGenerateAddSpecial"            : {
-        "message"    : "Symbols",
+    "LabelGenerateAddSpecial": {
+        "message": "Symbols",
         "description": "Label of the option to include special characters in the password generator in the tools tab"
     },
-    "LabelGenerateStrength"              : {
-        "message"    : "Strength",
+    "LabelGenerateStrength": {
+        "message": "Strength",
         "description": "Label of the option to set the strength in the password generator in the tools tab"
     },
-    "LabelGeneratorStrengthLow"          : {
-        "message"    : "Low",
+    "LabelGeneratorStrengthLow": {
+        "message": "Low",
         "description": "Label of the low (0) strength option for the password generator in the tools tab"
     },
-    "LabelGeneratorStrengthStandard"     : {
-        "message"    : "Standard",
+    "LabelGeneratorStrengthStandard": {
+        "message": "Standard",
         "description": "Label of the default (1) strength option for the password generator in the tools tab"
     },
-    "LabelGeneratorStrengthMedium"       : {
-        "message"    : "Medium",
+    "LabelGeneratorStrengthMedium": {
+        "message": "Medium",
         "description": "Label of the medium (2) strength option for the password generator in the tools tab"
     },
-    "LabelGeneratorStrengthHigh"         : {
-        "message"    : "High",
+    "LabelGeneratorStrengthHigh": {
+        "message": "High",
         "description": "Label of the high (3) strength option for the password generator in the tools tab"
     },
-    "LabelGeneratorStrengthUltra"        : {
-        "message"    : "Ultra",
+    "LabelGeneratorStrengthUltra": {
+        "message": "Ultra",
         "description": "Label of the very high (4) strength option for the password generator in the tools tab"
     },
-    "PasswordGenerateError"              : {
-        "message"     : "Failed to generate a password: $ERROR$",
-        "description" : "Notification shown when the generation of a password fails",
+    "PasswordGenerateError": {
+        "message": "Failed to generate a password: $ERROR$",
+        "description": "Notification shown when the generation of a password fails",
         "placeholders": {
             "error": {
                 "content": "$1",
@@ -1239,105 +1239,105 @@
             }
         }
     },
-    "DebugHighlightLoginForms"           : {
-        "message"    : "Highlight Login Form Fields",
+    "DebugHighlightLoginForms": {
+        "message": "Highlight Login Form Fields",
         "description": "Label of the button in the popup which triggers the option to highlight all login form fields in the current tab"
     },
-    "PasteBadPasswordWarning"            : {
-        "message"    : "This password is compromised and should be changed immediately",
+    "PasteBadPasswordWarning": {
+        "message": "This password is compromised and should be changed immediately",
         "description": "Notification shown after the user pasted a password with the security status breached/compromised"
     },
-    "DebugInternalStats"                 : {
-        "message"    : "Internal Status",
+    "DebugInternalStats": {
+        "message": "Internal Status",
         "description": "Headline above the internal status section in the extension settings in the debug tab"
     },
-    "DebugInfoExtensionVersion"          : {
-        "message"    : "Extension Version",
+    "DebugInfoExtensionVersion": {
+        "message": "Extension Version",
         "description": "Description of the extension version in the internal status section in the debug tab in the extension settings"
     },
-    "DebugInfoExtensionBuild"            : {
-        "message"    : "Target Platform",
+    "DebugInfoExtensionBuild": {
+        "message": "Target Platform",
         "description": "Description of the extension build target (firefox or chrome) in the internal status section in the debug tab in the extension settings"
     },
-    "DebugInfoExtensionPlatform"         : {
-        "message"    : "User Agent",
+    "DebugInfoExtensionPlatform": {
+        "message": "User Agent",
         "description": "Description of the browser user agent in the internal status section in the debug tab in the extension settings"
     },
-    "DebugInfoExtensionEnvironment"      : {
-        "message"    : "Extension Mode",
+    "DebugInfoExtensionEnvironment": {
+        "message": "Extension Mode",
         "description": "Description of the extension mode (production or development) in the internal status section in the debug tab in the extension settings"
     },
-    "DebugInfoHiddenFolderId"            : {
-        "message"    : "Hidden Passwords Folder ID",
+    "DebugInfoHiddenFolderId": {
+        "message": "Hidden Passwords Folder ID",
         "description": "Description of the id of the folder used to store hidden/private passwords in the internal status section in the debug tab in the extension settings"
     },
-    "DebugSettings"                      : {
-        "message"    : "Debugging Settings",
+    "DebugSettings": {
+        "message": "Debugging Settings",
         "description": "Headline above the debugging settings section in the extension settings in the debug tab"
     },
-    "DebugLanguageTagsEnabled"           : {
-        "message"    : "Show language keys",
+    "DebugLanguageTagsEnabled": {
+        "message": "Show language keys",
         "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
     },
-    "DebugBuild"                         : {
-        "message"    : "Build Information",
+    "DebugBuild": {
+        "message": "Build Information",
         "description": "Headline above the section for the build instructions in the debug tab in the extension settings"
     },
-    "DebugSourceAndBuild"                : {
-        "message"    : "Build instructions and source code download",
+    "DebugSourceAndBuild": {
+        "message": "Build instructions and source code download",
         "description": "Label of the link to open the page with build instructions and links to the source code in the debug tab in the extension settings"
     },
-    "DebugErrorLog"                      : {
-        "message"    : "Error Log",
+    "DebugErrorLog": {
+        "message": "Error Log",
         "description": "Headline above the error logs section in the extension settings in the debug tab"
     },
-    "DebugErrorNoMessage"                : {
-        "message"    : "No error message",
+    "DebugErrorNoMessage": {
+        "message": "No error message",
         "description": "Used as error message for errors with no error message (but have a timestamp) in the error logs section in the extension settings in the debug tab"
     },
-    "DebugErrorNoDetails"                : {
-        "message"    : "No error details",
+    "DebugErrorNoDetails": {
+        "message": "No error details",
         "description": "Used as error message for errors with no details at all in the error logs section in the extension settings in the debug tab"
     },
-    "DebugErrorDataCopied"               : {
-        "message"    : "Error details copied to clipboard",
+    "DebugErrorDataCopied": {
+        "message": "Error details copied to clipboard",
         "description": "Success notification when you copy an error report to the clipboard in the error logs section in the extension settings in the debug tab"
     },
-    "DebugNoErrors"                      : {
-        "message"    : "No errors in log",
+    "DebugNoErrors": {
+        "message": "No errors in log",
         "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
     },
-    "RecommendationSettings"             : {
-        "message"    : "Recommending credentials",
+    "RecommendationSettings": {
+        "message": "Recommending credentials",
         "description": "Label of the section password recommendations in the extension settings."
     },
-    "SettingsSearchRecommendationOption" : {
-        "message"    : "Search credentials with",
+    "SettingsSearchRecommendationOption": {
+        "message": "Search credentials with",
         "description": "Label of the setting in the extension settings to define how password recommendations are searched."
     },
-    "LabelSearchRecommendationDomain"    : {
-        "message"    : "same domain",
+    "LabelSearchRecommendationDomain": {
+        "message": "same domain",
         "description": "Find password recommendations by domain. So on page mail.example.com you will see all passwords for the domain and sumdomains of example.com."
     },
-    "LabelSearchRecommendationHost"      : {
-        "message"    : "same host",
+    "LabelSearchRecommendationHost": {
+        "message": "same host",
         "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
     },
-    "LabelSearchRecommendationHostPort"  : {
-        "message"    : "same host & port",
+    "LabelSearchRecommendationHostPort": {
+        "message": "same host & port",
         "description": "Find password recommendations for the specific server and port."
     },
-    "LabelSearchRecommendationExact"     : {
-        "message"    : "same exact url",
+    "LabelSearchRecommendationExact": {
+        "message": "same exact url",
         "description": "Find only passwords where th url matches exact to the current browser url."
     },
     "SettingsSearchRecommendationMaxRows": {
-        "message"    : "Maximum number of recommendations",
+        "message": "Maximum number of recommendations",
         "description": "Label of the setting in the extension settings to define the maximum number of results for the password recommendation."
     },
-    "SearchRecommendationMaxRowsNumber"  : {
-        "message"     : "$ROW$",
-        "description" : "Number of results that should be displayed for password recommendations.",
+    "SearchRecommendationMaxRowsNumber": {
+        "message": "$ROW$",
+        "description": "Number of results that should be displayed for password recommendations.",
         "placeholders": {
             "row": {
                 "content": "$1",
@@ -1345,49 +1345,49 @@
             }
         }
     },
-    "UiSettings"                         : {
-        "message"    : "User Interface",
+    "UiSettings": {
+        "message": "User Interface",
         "description": "Label of the user interface section in the extension settings."
     },
-    "SettingsShowUsernameInList"         : {
-        "message"    : "Show username next to title",
+    "SettingsShowUsernameInList": {
+        "message": "Show username next to title",
         "description": "Label of the setting in the extension settings to show the username next to the title in password lists."
     },
-    "InputSliderOn"                      : {
-        "message"    : "Currently on",
+    "InputSliderOn": {
+        "message": "Currently on",
         "description": "Tooltip of any slider input element that is currently in the active/enabled state"
     },
-    "InputSliderOff"                     : {
-        "message"    : "Currently off",
+    "InputSliderOff": {
+        "message": "Currently off",
         "description": "Tooltip of any slider input element that is currently in the inactive/disabled state"
     },
-    "PasswordCustomFieldsTypeText"       : {
-        "message"    : "Text",
+    "PasswordCustomFieldsTypeText": {
+        "message": "Text",
         "description": "Label of the password custom setting type 'text'."
     },
-    "PasswordCustomFieldsTypeSecret"     : {
-        "message"    : "Secret",
+    "PasswordCustomFieldsTypeSecret": {
+        "message": "Secret",
         "description": "Label of the password custom setting type 'secret'."
     },
-    "PasswordCustomFieldsTypeEmail"      : {
-        "message"    : "Email",
+    "PasswordCustomFieldsTypeEmail": {
+        "message": "Email",
         "description": "Label of the password custom setting type 'email'."
     },
-    "PasswordCustomFieldsTypeUrl"        : {
-        "message"    : "Link",
+    "PasswordCustomFieldsTypeUrl": {
+        "message": "Link",
         "description": "Label of the password custom setting type 'url'."
     },
-    "PasswordCustomFieldsTypeFormField"  : {
-        "message"    : "Form field",
+    "PasswordCustomFieldsTypeFormField": {
+        "message": "Form field",
         "description": "Label of the password custom setting form field to insert custom values to a web page."
     },
-    "PasswordEditValidationInvalidValue" : {
-        "message"    : "Invalid value",
+    "PasswordEditValidationInvalidValue": {
+        "message": "Invalid value",
         "description": "The validation error message in the password edit form if the value is invalid"
     },
-    "PasswordEditValidationMaxLength"    : {
-        "message"     : "Only $CHARACTERS$ characters allowed",
-        "description" : "The validation error message in the password edit form if the value is longer than allowed",
+    "PasswordEditValidationMaxLength": {
+        "message": "Only $CHARACTERS$ characters allowed",
+        "description": "The validation error message in the password edit form if the value is longer than allowed",
         "placeholders": {
             "characters": {
                 "content": "$1",
@@ -1395,20 +1395,20 @@
             }
         }
     },
-    "PasswordEditValidationRequired"     : {
-        "message"    : "This field is required",
+    "PasswordEditValidationRequired": {
+        "message": "This field is required",
         "description": "The validation error message in the password edit form if a required field is empty"
     },
-    "MiningPasswordDiscarded"            : {
-        "message"    : "Password discarded",
+    "MiningPasswordDiscarded": {
+        "message": "Password discarded",
         "description": "The toast notification after the user has successfully discarded a mined password"
     },
-    "MiningPasswordCreated"              : {
-        "message"    : "Password saved",
+    "MiningPasswordCreated": {
+        "message": "Password saved",
         "description": "The toast notification after the password was successfully saved"
     },
-    "MiningPasswordUpdated"              : {
-        "message"    : "Password updated",
+    "MiningPasswordUpdated": {
+        "message": "Password updated",
         "description": "The toast notification after the password was successfully saved"
     }
 }
