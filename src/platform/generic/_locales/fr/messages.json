@@ -1,55 +1,55 @@
 {
-    "extensionName"       : {
-        "message"    : "Passwords for Nextcloud Browser Extension",
+    "extensionName": {
+        "message": "Passwords for Nextcloud Browser Extension",
         "description": "Name of the extension."
     },
     "extensionDescription": {
-        "message"    : "Un client simple pour Nextcloud Passwords",
+        "message": "Un client simple pour Nextcloud Passwords",
         "description": "Description of the extension."
     },
-    "locale"              : {
-        "message"    : "fr",
+    "locale": {
+        "message": "fr",
         "description": "The language tag of this translation. Same as the folder name"
     },
-    "browserActionTitle"  : {
-        "message"    : "Mots de passe",
+    "browserActionTitle": {
+        "message": "Mots de passe",
         "description": "Title of the button in the browser bar"
     },
-    "contextMenuTitle"    : {
-        "message"    : "Mots de passe",
+    "contextMenuTitle": {
+        "message": "Mots de passe",
         "description": "Title of the context menu item"
     },
-    "ServerBaseUrl"       : {
-        "message"    : "Url",
+    "ServerBaseUrl": {
+        "message": "Url",
         "description": "Label of the server url field in account details in the extension settings"
     },
-    "ServerUser"          : {
-        "message"    : "Utilisateur·ice",
+    "ServerUser": {
+        "message": "Utilisateur·ice",
         "description": "Label of the account login user field in account details in the extension settings"
     },
-    "LabelPassword"       : {
-        "message"    : "Mot de passe",
+    "LabelPassword": {
+        "message": "Mot de passe",
         "description": "Label for the password of a password entry"
     },
-    "LabelUsername"       : {
-        "message"    : "Utilisateur·ice",
+    "LabelUsername": {
+        "message": "Utilisateur·ice",
         "description": "Label for the username of a password entry"
     },
-    "LabelUser"           : {
-        "message"    : "Utilisateur·ice",
+    "LabelUser": {
+        "message": "Utilisateur·ice",
         "description": "Label for the username of in the server info in the browse tab"
     },
-    "LabelUrl"            : {
-        "message"    : "Url",
+    "LabelUrl": {
+        "message": "Url",
         "description": "Label for of a field that contains an url (used in collected password or server info)"
     },
-    "LabelPasswords"      : {
-        "message"    : "Mots de passe",
+    "LabelPasswords": {
+        "message": "Mots de passe",
         "description": "Label for the password count in the server info in the browse tab"
     },
-    "AppLabelString"      : {
-        "message"     : "Mots de passe $VERSION$",
-        "description" : "Value for the passwords app version in the server info in the browse tab",
+    "AppLabelString": {
+        "message": "Mots de passe $VERSION$",
+        "description": "Value for the passwords app version in the server info in the browse tab",
         "placeholders": {
             "version": {
                 "content": "$1",
@@ -57,24 +57,88 @@
             }
         }
     },
-    "PlaceholderPassword" : {
-        "message"    : "Mot de passe",
+    "PlaceholderPassword": {
+        "message": "Mot de passe",
         "description": "Placeholder text in the master password field of the server authorization dialog"
     },
-    "PropertyPassword"    : {
-        "message"    : "Mot de passe",
+    "PropertyPassword": {
+        "message": "Mot de passe",
         "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
     },
-    "PropertyUsername"    : {
-        "message"    : "Utilisateur·ice",
+    "PropertyUsername": {
+        "message": "Utilisateur·ice",
         "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
     },
-    "PropertyUrl"         : {
-        "message"    : "Url",
+    "PropertyUrl": {
+        "message": "Url",
         "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
     },
-    "ButtonSave"          : {
-        "message"    : "Sauvegarder",
+    "ButtonSave": {
+        "message": "Sauvegarder",
         "description": "The save button of a password detection system notification"
+    },
+    "BrowserActionTitleCounter": {
+        "message": "Mots de passe ($COUNTER$)",
+        "description": "Title of the button in the browser bar with suggestion counter",
+        "placeholders": {
+            "counter": {
+                "content": "$1",
+                "example": "2"
+            }
+        }
+    },
+    "SettingsTabDebug": {
+        "message": "Déboguer",
+        "description": "Label of the extension debugging tab in the extension settings"
+    },
+    "HelpPasteAutofill": {
+        "message": "Collez automatiquement le premier identifiant suggéré dans tout formulaire de connexion de l'onglet. Sachez que cela rend l'identifiant accessible à tout script dans l'onglet.",
+        "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
+    },
+    "UserAgent": {
+        "message": "Client officiel des mots de passe pour $BROWSER$ sur $OS$",
+        "description": "The user agent used for api requests. Only ASCII characters allowed",
+        "placeholders": {
+            "browser": {
+                "content": "$1",
+                "example": "Firefox"
+            },
+            "os": {
+                "content": "$2",
+                "example": "Linux"
+            }
+        }
+    },
+    "MigrationAccountName": {
+        "message": "Compte Nextcloud",
+        "description": "Label assigned to the account used by the v1.x migration"
+    },
+    "PrivatePasswordsFolderLabel": {
+        "message": "Mots de passe privés",
+        "description": "Label assigned to the hidden folder for private passwords. (folder is only visible when browsing in private mode)"
+    },
+    "SettingsTabAccounts": {
+        "message": "Comptes",
+        "description": "Label of the user accounts tab in the extension settings"
+    },
+    "SettingsTabTheming": {
+        "message": "Design",
+        "description": "Label of the themes tab in the extension settings"
+    },
+    "SettingsTabOther": {
+        "message": "Autres options",
+        "description": "Label of the general settings tab in the extension settings"
+    },
+    "SettingsAccountsMain": {
+        "message": "Compte par défaut pour les nouveaux mots de passe",
+        "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
+    },
+    "SettingsPasteWarnCompromised": {
+        "message": "Alerte en cas d'utilisation d'informations d'identification compromises",
+        "description": "Label of the setting in the extension settings to show a warning after pasting a compromised password"
+    },
+    "SettingsPasteAutofillEnabled": {
+        "message": "Remplir automatiquement les données de login les mieux adaptées",
+        "description": "Label of the setting in the extension settings to automatically paste the first recommended credential into login forms"
     }
 }
