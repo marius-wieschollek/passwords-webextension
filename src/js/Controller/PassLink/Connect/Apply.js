@@ -77,14 +77,15 @@ export default class Analyze extends AbstractController {
         try {
             let theme = await action.getTheme();
             if(theme.hasOwnProperty('label')) {
-                return `${theme.label} - ${login.login}`;
+                let label = `${theme.label} - ${login.login}`;
+                if(label.length <= 48) return label;
             }
         } catch(e) {
             ErrorManager.logError(e);
         }
 
         let host = new URL(action.getParameter('baseUrl')).host;
-        return `${login.login}@${host}`;
+        return `${login.login}@${host}`.substr(0,48);
     }
 
     /**
