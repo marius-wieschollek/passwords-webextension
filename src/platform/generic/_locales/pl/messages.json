@@ -1,55 +1,55 @@
 {
-    "extensionName"       : {
-        "message"    : "Passwords for Nextcloud Browser Extension",
+    "extensionName": {
+        "message": "Passwords for Nextcloud Browser Extension",
         "description": "Name of the extension."
     },
     "extensionDescription": {
-        "message"    : "Klient aplikacji Nextcloud Passwords.",
+        "message": "Klient aplikacji Nextcloud Passwords",
         "description": "Description of the extension."
     },
-    "locale"              : {
-        "message"    : "pl",
+    "locale": {
+        "message": "pl",
         "description": "The language tag of this translation. Same as the folder name"
     },
-    "browserActionTitle"  : {
-        "message"    : "Hasła",
+    "browserActionTitle": {
+        "message": "Hasła",
         "description": "Title of the button in the browser bar"
     },
-    "contextMenuTitle"    : {
-        "message"    : "Hasła",
+    "contextMenuTitle": {
+        "message": "Hasła",
         "description": "Title of the context menu item"
     },
-    "ServerBaseUrl"       : {
-        "message"    : "Url",
+    "ServerBaseUrl": {
+        "message": "Url",
         "description": "Label of the server url field in account details in the extension settings"
     },
-    "ServerUser"          : {
-        "message"    : "Użytkownik",
+    "ServerUser": {
+        "message": "Użytkownik",
         "description": "Label of the account login user field in account details in the extension settings"
     },
-    "LabelPassword"       : {
-        "message"    : "Hasło",
+    "LabelPassword": {
+        "message": "Hasło",
         "description": "Label for the password of a password entry"
     },
-    "LabelUsername"       : {
-        "message"    : "Użytkownik",
+    "LabelUsername": {
+        "message": "Użytkownik",
         "description": "Label for the username of a password entry"
     },
-    "LabelUser"           : {
-        "message"    : "Użytkownik",
+    "LabelUser": {
+        "message": "Użytkownik",
         "description": "Label for the username of in the server info in the browse tab"
     },
-    "LabelUrl"            : {
-        "message"    : "Url",
+    "LabelUrl": {
+        "message": "Url",
         "description": "Label for of a field that contains an url (used in collected password or server info)"
     },
-    "LabelPasswords"      : {
-        "message"    : "Hasła",
+    "LabelPasswords": {
+        "message": "Hasła",
         "description": "Label for the password count in the server info in the browse tab"
     },
-    "AppLabelString"      : {
-        "message"     : "Hasła $VERSION$",
-        "description" : "Value for the passwords app version in the server info in the browse tab",
+    "AppLabelString": {
+        "message": "Hasła $VERSION$",
+        "description": "Value for the passwords app version in the server info in the browse tab",
         "placeholders": {
             "version": {
                 "content": "$1",
@@ -57,24 +57,24 @@
             }
         }
     },
-    "PlaceholderPassword" : {
-        "message"    : "Hasło",
+    "PlaceholderPassword": {
+        "message": "Hasło",
         "description": "Placeholder text in the master password field of the server authorization dialog"
     },
-    "PropertyPassword"    : {
-        "message"    : "Hasło",
+    "PropertyPassword": {
+        "message": "Hasło",
         "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
     },
-    "PropertyUsername"    : {
-        "message"    : "Użytkownik",
+    "PropertyUsername": {
+        "message": "Użytkownik",
         "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
     },
-    "PropertyUrl"         : {
-        "message"    : "Url",
+    "PropertyUrl": {
+        "message": "Url",
         "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
     },
-    "ButtonSave"          : {
-        "message"    : "Zapisz",
+    "ButtonSave": {
+        "message": "Zapisz",
         "description": "The save button of a password detection system notification"
     }
 }
