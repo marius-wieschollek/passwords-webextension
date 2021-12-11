@@ -16,7 +16,7 @@ export default new class PassLinkManager {
     init() {
         SystemService.getBrowserApi().webRequest.onBeforeRequest.addListener(
             this._beforeRequestListener,
-            {urls: ['https://passlink.mdns.eu/open/*', 'https://link.passwordsapp.org/open/*']},
+            {urls: ['https://link.passwordsapp.org/open/*']},
             ['blocking']
         );
     }
@@ -29,8 +29,7 @@ export default new class PassLinkManager {
      */
     _redirectRequest(requestDetails) {
         let passlinkUrl = SystemService.getBrowserApi().runtime.getURL('html/passlink.html'),
-            eventUrl    = requestDetails.url.replace('https://passlink.mdns.eu/open/', 'ext+passlink:');
-        eventUrl    = eventUrl.replace('https://link.passwordsapp.org/open/', 'ext+passlink:');
+            eventUrl    = requestDetails.url.replace('https://link.passwordsapp.org/open/', 'ext+passlink:');
 
         passlinkUrl += '?link=' + encodeURIComponent(eventUrl);
         SystemService.getBrowserApi().tabs.update(requestDetails.tabId, {url: passlinkUrl});

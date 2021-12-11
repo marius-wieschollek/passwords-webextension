@@ -8,7 +8,7 @@ import ConnectionErrorHelper from '@js/Helper/ConnectionErrorHelper';
 export default class ServerRequirementCheck {
 
     get MINIMUM_APP_VERSION() {
-        return [2020, 3];
+        return [2021, 12];
     }
 
     /**
