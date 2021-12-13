@@ -47,15 +47,22 @@
             }
         },
 
+        data() {
+            PopupStateService.status.on((data) => {
+                if(data.key === 'authorized') this.authorized = data.value;
+            });
+
+            return {
+                authorized: PopupStateService.getStatus('authorized')
+            }
+        },
+
         computed: {
             tab() {
                 return PopupStateService.getTab();
             },
             firstRun() {
                 return PopupStateService.getStatus('firstRun');
-            },
-            authorized() {
-                return PopupStateService.getStatus('authorized');
             },
             tabs() {
                 return {

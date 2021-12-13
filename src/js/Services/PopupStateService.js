@@ -1,12 +1,23 @@
 import MessageService from "@js/Services/MessageService";
-import ErrorManager from "@js/Manager/ErrorManager";
+import ErrorManager   from "@js/Manager/ErrorManager";
+import EventQueue     from '@js/Event/EventQueue';
 
 export default new class PopupStateService {
+
+    get change() {
+        return this._dataEvents;
+    }
+
+    get status() {
+        return this._statusEvents;
+    }
 
     constructor() {
         this._tab = 'related';
         this._data = {};
         this._status = {};
+        this._dataEvents = new EventQueue();
+        this._statusEvents = new EventQueue();
 
         this._defaults = {
             'search.query': ''
@@ -53,6 +64,15 @@ export default new class PopupStateService {
      */
     getStatus(item) {
         return this._status.hasOwnProperty(item) ? this._status[item]:null;
+    }
+
+    /**
+     * @param {String} key
+     * @param {*} value
+     */
+    setStatus(key, value) {
+        this._status[key] = [value];
+        this._statusEvents.emit({key, value});
     }
 
     /**
@@ -133,6 +153,7 @@ export default new class PopupStateService {
         if(tab === null) tab = this._tab;
         if(!this._data.hasOwnProperty(tab)) this._data[tab] = {};
         this._data[tab][key] = value;
+        this._dataEvents.emit({tab, key, value});
     }
 
     /**
