@@ -3,10 +3,10 @@ export default class FormService {
     getPasswordFields(rootNode = document) {
         let fields;
         try {
-            if(!rootNode || rootNode.querySelectorAll) rootNode = document;
+            if(!rootNode || !rootNode.querySelectorAll) rootNode = document;
             fields = rootNode.querySelectorAll('input[type="password"]');
         } catch(e) {
-            console.error(e);
+            console.error(rootNode, e);
             return [];
         }
 
