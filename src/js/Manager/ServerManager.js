@@ -212,6 +212,7 @@ class ServerManager {
      * @private
      */
     _removeAuthItems(serverId) {
+        if(!this._authQueue) return;
         /** @type {AuthorisationItem[]} **/
         let items = this._authQueue.getItems();
 
