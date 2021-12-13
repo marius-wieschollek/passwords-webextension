@@ -56,7 +56,7 @@ export default class FillPassword extends AbstractController {
      */
       _fillCustomForms(formFields) {
         formFields.forEach((field) => {
-            var element = document.getElementById(field.id);
+            let element = document.getElementById(field.id);
             if(element !== null && element !== undefined) {
             if(!element.readOnly && !element.disabled && !element.hidden) {
                     this._insertTextIntoField(element, field.value);

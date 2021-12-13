@@ -1,12 +1,13 @@
-import SystemService from '@js/Services/SystemService';
+import SystemService         from '@js/Services/SystemService';
 import RecommendationManager from '@js/Manager/RecommendationManager';
-import LocalisationService from '@js/Services/LocalisationService';
-import { v4 as uuid } from 'uuid';
-import MessageService from '@js/Services/MessageService';
-import TabManager from '@js/Manager/TabManager';
-import ErrorManager from "@js/Manager/ErrorManager";
-import ThemeService from "@js/Services/ThemeService";
-import BlobToBase64Helper from "@js/Helper/BlobToBase64Helper";
+import LocalisationService   from '@js/Services/LocalisationService';
+import {v4 as uuid}          from 'uuid';
+import MessageService        from '@js/Services/MessageService';
+import TabManager            from '@js/Manager/TabManager';
+import ErrorManager          from '@js/Manager/ErrorManager';
+import ThemeService          from '@js/Services/ThemeService';
+import BlobToBase64Helper    from '@js/Helper/BlobToBase64Helper';
+import AutofillManager       from '@js/Manager/AutofillManager';
 
 class ContextMenuManager {
 
@@ -146,8 +147,10 @@ class ContextMenuManager {
                 channel : 'tabs',
                 tab     : TabManager.currentTabId,
                 payload : {
-                    user    : password.getUserName(),
-                    password: password.getPassword()
+                    user      : password.getUserName(),
+                    password  : password.getPassword(),
+                    formFields: AutofillManager.getCustomFormFields(password),
+                    submit    : false
                 }
             }
         );
