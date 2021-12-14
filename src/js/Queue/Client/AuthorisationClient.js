@@ -1,6 +1,6 @@
-import Popup from '@js/App/Popup';
 import AuthorisationItem from '@js/Models/Queue/AuthorisationItem';
-import FeedbackClient from '@js/Queue/Client/FeedbackClient';
+import FeedbackClient    from '@js/Queue/Client/FeedbackClient';
+import PopupStateService from '@js/Services/PopupStateService';
 
 export default class AuthorisationClient extends FeedbackClient {
 
@@ -61,7 +61,7 @@ export default class AuthorisationClient extends FeedbackClient {
                 reject
             };
 
-            if(Popup.app) Popup.app.authorized = false;
+            PopupStateService.setStatus('authorized', false);
         });
     }
 
@@ -87,7 +87,7 @@ export default class AuthorisationClient extends FeedbackClient {
                 resolve();
 
                 if(Object.keys(this._items).length === 0) {
-                    if(Popup.app) Popup.app.authorized = true;
+                    PopupStateService.setStatus('authorized', true);
                 }
 
                 return;
@@ -100,7 +100,7 @@ export default class AuthorisationClient extends FeedbackClient {
                 reject
             };
 
-            if(Popup.app) Popup.app.authorized = false;
+            PopupStateService.setStatus('authorized', false);
         });
     }
 }

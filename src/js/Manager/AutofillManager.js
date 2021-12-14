@@ -76,11 +76,11 @@ export default new class AutofillManager {
      *
      * @param {Password} password
      * @returns {Array}
-     * @private
      */
     getCustomFormFields(password) {
-        var formFields = [];
-        var customFields = password.getCustomFields();
+        let formFields = [],
+            customFields = password.getCustomFields();
+
         customFields._elements.forEach((e) => {
             if(e.getType() === 'data' && e.getLabel().startsWith('ext:field/')) {
                 formFields.push(
@@ -91,6 +91,7 @@ export default new class AutofillManager {
                 );
             }
         });
+
         return formFields;
     }
 };

@@ -36,15 +36,16 @@
 </template>
 
 <script>
-    import MessageService from '@js/Services/MessageService';
-    import Translate from '@vue/Components/Translate';
-    import Icon from '@vue/Components/Icon';
-    import Popup from '@js/App/Popup';
-    import ToastService from '@js/Services/ToastService';
-    import InputField from '@vue/Components/Form/InputField';
-    import ButtonField from '@vue/Components/Form/ButtonField';
-    import SelectField from '@vue/Components/Form/SelectField';
-    import ErrorManager from '@js/Manager/ErrorManager';
+    import MessageService    from '@js/Services/MessageService';
+    import Translate         from '@vue/Components/Translate';
+    import Icon              from '@vue/Components/Icon';
+    import Popup             from '@js/App/Popup';
+    import ToastService      from '@js/Services/ToastService';
+    import InputField        from '@vue/Components/Form/InputField';
+    import ButtonField       from '@vue/Components/Form/ButtonField';
+    import SelectField       from '@vue/Components/Form/SelectField';
+    import ErrorManager      from '@js/Manager/ErrorManager';
+    import PopupStateService from '@js/Services/PopupStateService';
 
     export default {
         components: {SelectField, ButtonField, InputField, Icon, Translate},
@@ -114,7 +115,7 @@
                         this.focus();
                     });
                 } else {
-                    this.$parent.authorized = true;
+                    PopupStateService.setStatus('authorized', true);
                 }
             },
             focus() {
@@ -202,21 +203,23 @@
 
         watch: {
             provider(value) {
-                let provider = this.getProvider(value);
-                if(provider) {
-                    this.tokenField = provider.hasInput;
-                    this.tokenRequest = provider.hasRequest;
+                if(value) {
+                    let provider = this.getProvider(value);
+                    if(provider) {
+                        this.tokenField = provider.hasInput;
+                        this.tokenRequest = provider.hasRequest;
+                    }
                 }
 
                 this.token = null;
-                this.authRequest.setProvider(value);
+                if(this.authRequest) this.authRequest.setProvider(value);
                 if(this.tokenRequest && value) this.requestToken();
             },
             token(value) {
-                this.authRequest.setToken(value);
+                if(this.authRequest) this.authRequest.setToken(value);
             },
             password(value) {
-                this.authRequest.setPassword(value);
+                if(this.authRequest) this.authRequest.setPassword(value);
             }
         }
     };
