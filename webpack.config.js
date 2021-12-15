@@ -12,6 +12,11 @@ module.exports = (env, argv) => {
     console.log('Production: ', production);
     console.log('Platform  : ', platform);
 
+
+    let replaceVersion = (content) => {
+        return content.toString('utf8').replaceAll('X.X.X', config.version);
+    };
+
     let plugins = [
         new webpack.DefinePlugin(
             {
@@ -29,7 +34,7 @@ module.exports = (env, argv) => {
             {
                 patterns: [
                     {from: `${__dirname}/src/platform/generic`, to: `${__dirname}/build`},
-                    {from: `${__dirname}/src/platform/${platform}`, to: `${__dirname}/build`}
+                    {from: `${__dirname}/src/platform/${platform}`, to: `${__dirname}/build`, transform: replaceVersion}
                 ]
             }
         ),
