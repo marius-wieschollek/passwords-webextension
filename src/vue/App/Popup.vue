@@ -125,6 +125,7 @@ body {
     height   : 100vh;
     display  : block;
     overflow : hidden;
+    user-select : none;
 
     > .tab-container > .tabs .tab {
         overflow    : hidden;

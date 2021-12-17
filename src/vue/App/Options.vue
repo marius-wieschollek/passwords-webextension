@@ -51,7 +51,9 @@
 @import "@scssP/browser.scss";
 
 body {
-    min-height : 600px;
+    overflow : hidden;
+    height : 400px;
+    user-select : none;
 
     select,
     input[type=text] {
@@ -92,4 +94,14 @@ body {
         }
     }
 }
+.tab-content {
+        overflow-y:scroll;
+        height:100%;
+        margin:0;
+}
+
+h4 {
+    margin-bottom: 0.5rem;
+}
+
 </style>
