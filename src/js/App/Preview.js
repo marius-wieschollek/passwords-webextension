@@ -318,8 +318,8 @@ class Preview {
         let label = LocalisationService.translate('DemoText');
 
         return [
-            new Password({id: 'pwd-1', label, username: label, password: '', url: 'https://example.com', folder, status: 0}),
-            new Password({id: 'pwd-2', label, username: label, password: '', url: 'https://example.com', folder, status: 2})
+            new Password({id: 'pwd-1', label, username: label, password: label, notes: label, url: 'https://example.com', customFields: [], folder, hidden:false, status: 0, created: new Date(), edited: new Date()}),
+            new Password({id: 'pwd-2', label, username: label, password: label, notes: label, url: 'https://example.com', customFields: [], folder, hidden: false, status: 2, created: new Date(), edited: new Date()})
         ];
     }
 

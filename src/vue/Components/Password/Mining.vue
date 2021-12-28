@@ -53,10 +53,6 @@
                     this.item.getTask().fields.label
                 ];
             },
-            showNewCustomField() {
-                return this.allowNewCustomField();
-
-            },
             customFieldsLabel() {
                 return LocalisationService.translate(`LabelCustomFields`);
             }
