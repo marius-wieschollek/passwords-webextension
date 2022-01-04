@@ -79,7 +79,7 @@ class SearchManager {
             );
             await this._loadHiddenPasswords(api);
         } catch(e) {
-            if(e.name === 'EncryptionNotEnabledError' || e.name === 'MissingEncryptionKeyError') {
+            if(e.name === 'EncryptionNotEnabledError' || e.name === 'MissingEncryptionKeyError' || e.name === 'PreconditionFailedError') {
                 try {
                     await ServerManager.restartSession(api.getServer());
                 } catch(e2) {

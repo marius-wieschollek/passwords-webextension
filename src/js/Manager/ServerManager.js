@@ -9,6 +9,7 @@ import StorageService from '@js/Services/StorageService';
 import SettingsService from '@js/Services/SettingsService';
 import SessionAuthorizationHelper from '@js/Helper/SessionAuthorizationHelper';
 import ServerRequirementCheck from '@js/Helper/ServerRequirementCheck';
+import {PreconditionFailedError} from 'passwords-client/errors';
 
 class ServerManager {
 
@@ -246,7 +247,14 @@ class ServerManager {
             .getRequest()
             .setPath('1.0/session/keepalive')
             .send()
-            .catch(ErrorManager.catch);
+            .catch(
+                (e) => {
+                    ErrorManager.logError(e);
+                    if(e.type === 'PreconditionFailedError') {
+                        this.restartSession(api.getServer())
+                            .catch(ErrorManager.catch);
+                    }
+                });
     }
 
     /**
