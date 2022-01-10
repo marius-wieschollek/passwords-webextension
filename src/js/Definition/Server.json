@@ -25,5 +25,8 @@
     },
     "inboxTag"     : {
         "type": "string"
+    },
+    "flags"     : {
+        "type": "array"
     }
 }
