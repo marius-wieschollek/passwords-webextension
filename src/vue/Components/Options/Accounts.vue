@@ -1,10 +1,11 @@
 <template>
     <div>
-        <div class="account-options">
-            <translate tag="label" for="master-account" say="SettingsAccountsMain"/>
-            <select-field id="master-account" v-model="defaultServer" :options="serverOptions"/>
+        <div class="account-options" v-if="serverOptions.length > 2">
+            <div>
+                <translate tag="label" for="master-account" say="SettingsAccountsMain"/><select-field id="master-account" v-model="defaultServer" :options="serverOptions" :required="true" />
+            </div>
         </div>
-        <account-list :servers="servers" v-on:change="loadData"/>
+        <account-list :servers="servers" :defaultServer="defaultServer" v-on:change="loadData"/>
     </div>
 </template>
 
@@ -29,7 +30,14 @@
 
         computed: {
             serverOptions() {
-                let options = [];
+                let options = [
+                    {
+                        id: undefined,
+                        disabled: true,
+                        label: "Please select"
+                    }
+                ];
+
                 for(let server of this.servers) {
                     options.push(
                         {
@@ -73,13 +81,31 @@
 <style lang="scss">
 .account-options,
 .account-form fieldset {
-    display               : grid;
-    grid-template-columns : 2fr 1fr;
-    grid-row-gap          : 0.5rem;
-    padding               : 0.5rem 1rem;
+    
+    padding     : 0.5rem 1rem;
+
+    div {
+        display: flex;
+        justify-content: flex-end;
+    }
 
     label {
-        line-height : 2rem;
+        flex: 1;
+        white-space: nowrap;
+        align-self: center;
+    }
+
+    input {
+        flex: 4;
+    }
+
+    .input-select {
+        flex: 2;
+        padding: 0.5rem;
+    }
+
+    select {
+        width: 100%;
     }
 }
 </style>

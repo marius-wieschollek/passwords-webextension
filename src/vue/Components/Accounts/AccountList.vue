@@ -1,8 +1,8 @@
 <template>
     <div class="account-list">
         <translate tag="h3" say="AccountList">
-            <icon icon="user-plus" font="solid" @click="showCreateForm" v-if="!addAccount"/>
-            <icon icon="qrcode" font="solid" @click="openPassLinkScan"/>
+            <icon icon="user-plus" font="solid" @click="showCreateForm" v-if="!addAccount" title="Add user account" />
+            <icon icon="qrcode" font="solid" @click="openPassLinkScan" title="Add user account via QR-code" />
         </translate>
         <foldout :tabs="tabs"
                  :translate="false"
@@ -13,11 +13,14 @@
                   :key="`${server.getId()}-tab-open`"
                   :slot="`${server.getId()}-tab-open`"
                   icon="save"
+                  title="Update user account"
                   v-on:click.prevent="save(server)"/>
+                        
             <icon v-for="server in servers"
                   :key="`${server.getId()}-tab-closed`"
                   :slot="`${server.getId()}-tab-closed`"
                   icon="trash-alt"
+                  title="Delete user account" 
                   v-on:click.prevent="remove(server)"/>
             <account v-for="server in servers"
                      :server="server"
@@ -26,8 +29,8 @@
                      :ref="server.getId()"
                      v-on:change="onSave"/>
 
-            <icon slot="create-tab-open" icon="save" v-on:click.prevent="create()"/>
-            <new-account slot="create" ref="create" v-on:create="onCreate" v-if="addAccount"/>
+            <icon slot="create-tab-open" icon="save" v-on:click.prevent="create()" title="Save user account" />
+            <new-account slot="create" ref="create" v-on:create="onCreate" v-if="addAccount" />
         </foldout>
         <translate tag="div" class="no-accounts" say="NoAccounts" @click="showCreateForm" v-else/>
     </div>

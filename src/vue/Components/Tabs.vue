@@ -7,8 +7,7 @@
                  :class="`tab-label-${name} ${isActive(name) ? 'active':''}`"
                  class="tab">
                 <div>
-                    <icon :icon="tab.icon" class="icon" v-if="tab.icon" font="solid"/>
-                    <translate :say="tab.label" class="label" v-if="tab.label"/>
+                    <icon :icon="tab.icon" class="icon" v-if="tab.icon" font="solid"/><translate :say="tab.label" class="label" v-if="tab.label"/>
                 </div>
             </div>
         </div>

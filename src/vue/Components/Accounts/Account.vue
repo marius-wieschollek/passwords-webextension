@@ -5,20 +5,28 @@
         </translate>
 
         <fieldset :disabled="submitting">
-            <translate tag="label" :for="`${id}-label`" say="ServerLabel" required/>
-            <input type="text" :id="`${id}-label`" v-model="label"/>
-            <translate tag="label" :for="`${id}-url`" say="ServerBaseUrl" required/>
-            <input type="text" :id="`${id}-url`" v-model="url"/>
-            <translate tag="label" :for="`${id}-user`" say="ServerUser" required/>
-            <input type="text" :id="`${id}-user`" v-model="user"/>
-            <translate tag="label" :for="`${id}-token`" say="ServerToken" required/>
-            <input type="button" :value="changeLabel" :id="`${id}-token`" v-if="!changeToken" @click="editToken()"/>
-            <input type="text" :id="`${id}-token`" v-model="token"
-                   required
-                   pattern="([A-Za-z0-9]{5}-?){5}"
-                   placeholder="xxxxx-xxxxx-xxxxx-xxxxx-xxxxx" v-else/>
-            <translate tag="label" :for="`${id}-timeout`" say="ServerTimeout" required v-if="lockable"/>
-            <select-field :options="timeoutOptions" :id="`${id}-timeout`" v-model="timeout" v-if="lockable"/>
+            <div>
+                <translate tag="label" :for="`${id}-label`" say="ServerLabel" required/>
+                <input type="text" :id="`${id}-label`" v-model="label"/>
+            </div>
+            <div>
+                <translate tag="label" :for="`${id}-url`" say="ServerBaseUrl" required/>
+                <input type="text" :id="`${id}-url`" v-model="url"/>
+            </div>
+            <div>
+                <translate tag="label" :for="`${id}-user`" say="ServerUser" required/>
+                <input type="text" :id="`${id}-user`" v-model="user"/>
+            </div>
+            <div>
+                <translate tag="label" :for="`${id}-token`" say="ServerToken" required/>
+                <input type="button" :value="changeLabel" :id="`${id}-token`" v-if="!changeToken" @click="editToken()"/>
+                <input type="text" :id="`${id}-token`" v-model="token"
+                    required
+                    pattern="([A-Za-z0-9]{5}-?){5}"
+                    placeholder="xxxxx-xxxxx-xxxxx-xxxxx-xxxxx" v-else/>
+                <translate tag="label" :for="`${id}-timeout`" say="ServerTimeout" required v-if="lockable"/>
+                <select-field :options="timeoutOptions" :id="`${id}-timeout`" v-model="timeout" v-if="lockable"/>
+            </div>
         </fieldset>
     </form>
 </template>

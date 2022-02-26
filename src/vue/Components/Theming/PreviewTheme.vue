@@ -63,6 +63,10 @@
 
 <style lang="scss">
     .theme-preview {
+        pointer-events: none;
+        border-style: inset;
+        filter: blur(1px);
+
         .badge-preview {
             border        : 1px solid var(--element-hover-bg-color);
             border-radius : 5px;

@@ -200,10 +200,6 @@
 </script>
 
 <style lang="scss">
-.tab-container .tab.tab-label-debug {
-    flex-grow : 0;
-}
-
 .debug-settings {
     .debug-info {
         padding : .25rem 1rem;
