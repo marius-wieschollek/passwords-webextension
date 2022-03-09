@@ -1410,5 +1410,23 @@
     "MiningPasswordUpdated": {
         "message": "Heslo zaktualizováno",
         "description": "The toast notification after the password was successfully saved"
+    },
+    "ToastServerCheckWarning": {
+        "message": "Toto rozšíření bude brzy vyžadovat hesla $MINVERSION$, ale \"$SERVER$\" používá hesla $SERVERVERSION$. Chcete-li účet používat i nadále, aktualizujte prosím aplikaci.",
+        "description": "Text of the toast notification when an account uses a server which will soon be no longer supported because it uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
     }
 }
