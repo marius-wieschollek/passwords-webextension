@@ -12,7 +12,7 @@ export default class ServerRequirementCheck {
     }
 
     get WARNING_APP_VERSION() {
-        return [2022, 2];
+        return [2021, 12];
     }
 
     /**

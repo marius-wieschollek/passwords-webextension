@@ -2,8 +2,8 @@
     <div class="password-details-view">
         <div class="password-details-header">
             <icon class="close" icon="chevron-left" font="solid" @click="$emit('close')"/>
-            <div class="title">
-                {{ password.getLabel() }}
+            <div ref="scrollContainer" class="scroll-container" :style="titleVars" v-on:mouseenter="calculateOverflow">
+                <span ref="scrollElement" class="scroll-element" :class="titleClass">{{ password.getLabel() }}</span>
             </div>
             <div class="options">
                 <icon :class="securityClass" icon="shield-alt" font="solid"/>
@@ -50,7 +50,8 @@
                 defaultFields: this.getDefaultFields(),
                 customFields : this.getCustomFields(),
                 updatedValues: {},
-                errorQueue   : []
+                errorQueue   : [],
+                overflow     : 0
             };
         },
 
@@ -81,6 +82,12 @@
                     this.getFieldObject('edited', 'datetime', false, false, false, undefined),
                     this.getFieldObject('created', 'datetime', false, false, false, undefined)
                 ];
+            },
+            titleClass() {
+                return this.overflow > 0 ? 'scroll-on-hover':'';
+            },
+            titleVars() {
+                return `--overflow-size:-${this.overflow}px`;
             }
         },
 
@@ -237,6 +244,10 @@
                         type : 'text'
                     }
                 );
+            },
+            calculateOverflow() {
+                let overflow = this.$refs.scrollElement.scrollWidth - this.$refs.scrollContainer.offsetWidth;
+                this.overflow = overflow > 5 ? overflow:0;
             }
         }
     };
@@ -273,12 +284,30 @@
             }
         }
 
-        .title {
+        .scroll-container {
+            overflow  : hidden;
             font-size : 1.25rem;
             flex-grow : 1;
+            position  : relative;
+
+            .scroll-element {
+                position    : absolute;
+                white-space : nowrap;
+
+                &.scroll-on-hover {
+                    transform  : translateX(0);
+                    transition : 2s;
+                }
+            }
+
+            &:hover .scroll-element.scroll-on-hover {
+                transform : translateX(var(--overflow-size));
+            }
         }
 
         .options {
+            flex-shrink : 0;
+
             .security {
                 &.secure {
                     color : var(--success-bg-color)

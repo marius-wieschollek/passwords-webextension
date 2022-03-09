@@ -1,3 +1,10 @@
+## 2.2.3 - Bugfix Release
+### Fixed
+- Unhandled precondition failed errors
+- Passlink on Vivaldi
+- Glitches in password details view
+- Glitches in theme preview
+
 ## 2.2.2 - Bugfix Release
 ### Fixed
 - Fix authorisation dialog not closing
