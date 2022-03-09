@@ -1,0 +1,29 @@
+{
+    "form": {
+        "type": "object"
+    },
+    "pass": {
+        "type": "object"
+    },
+    "user": {
+        "type": "object"
+    },
+    "firstGuess": {
+        "type": "object"
+    },
+    "secondGuess": {
+        "type": "object"
+    },
+    "submit": {
+        "type": "object"
+    },
+    "email": {
+        "type": "object"
+    },
+    "tel": {
+        "type": "object"
+    },
+    "secure": {
+        "type": "boolean"
+    }
+}

@@ -1,3 +1,5 @@
+import DomForm from "@js/Models/Form/DomForm";
+
 export default class FormService {
 
     getPasswordFields(rootNode = document) {
@@ -119,9 +121,9 @@ export default class FormService {
                 }
 
                 pair.secure = form.method !== 'get';
-                fieldPairs.push(pair);
+                fieldPairs.push(new DomForm(pair));
             } else {
-                fieldPairs.push({secure: false, pass: current});
+                fieldPairs.push(new DomForm({secure: false, pass: current}));
             }
         }
 
