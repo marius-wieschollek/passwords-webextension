@@ -629,11 +629,29 @@
             },
             "minversion": {
                 "content": "$2",
-                "example": "2020.1"
+                "example": "2021.12"
             },
             "serverversion": {
                 "content": "$3",
-                "example": "2020.3"
+                "example": "2021.11"
+            }
+        }
+    },
+    "ToastServerCheckWarning": {
+        "message": "This extension will soon require passwords $MINVERSION$, but  \"$SERVER$\" uses passwords $SERVERVERSION$. Please update the app in order to keep using the account.",
+        "description": "Text of the toast notification when an account uses a server which will soon be no longer supported because it uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
             }
         }
     },

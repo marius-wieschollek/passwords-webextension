@@ -22,7 +22,7 @@ export default class DomMiner {
             this._addFormsListener(forms);
         } else {
             this._addBodyListener();
-        }        
+        }
     }
 
     _addFormsListener(forms) {
@@ -47,10 +47,10 @@ export default class DomMiner {
 
     _addBodyListener() {
         const bodyObserver = new MutationObserver((mutations) => {
-            for (const mutation of mutations) {
-                if (mutation.type === "childList") {
-                    for (const added of mutation.addedNodes) {
-                        if (new FormService().getPasswordFields(added).length > 0) {
+            for(const mutation of mutations) {
+                if(mutation.type === "childList") {
+                    for(const added of mutation.addedNodes) {
+                        if(new FormService().getPasswordFields(added).length > 0) {
                             bodyObserver.disconnect();
                             this._addFormsListener(new FormService().getLoginFields());
                         }
@@ -58,7 +58,7 @@ export default class DomMiner {
                 }
             }
         });
-        bodyObserver.observe(document.body, { childList: true, subtree: true });
+        bodyObserver.observe(document.body, {childList: true, subtree: true});
     }
 
     _checkForNewPassword() {
@@ -73,18 +73,18 @@ export default class DomMiner {
         let exists = false;
         this._knownForms.forEach(element => {
             if((element.pass === form.pass.value) &&
-                (element.user === form.user.value) &&
-                (element.url === this._getUrl())) {
+               (element.user === form.user.value) &&
+               (element.url === this._getUrl())) {
                 exists = true;
-            }            
-        });      
+            }
+        });
         if(exists === false) {
             this._knownForms.push(
-            {
-                pass: form.pass.value, 
-                user: form.user.value,
-                url: this._getUrl()
-            });  
+                {
+                    pass: form.pass.value,
+                    user: form.user.value,
+                    url : this._getUrl()
+                });
         }
         return exists;
     }

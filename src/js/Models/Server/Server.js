@@ -15,6 +15,14 @@ export default class Server extends ServerModel {
         return 'disabled';
     }
 
+    get FLAG_INCOMPATIBLE() {
+        return 'flag_incompatible';
+    }
+
+    get FLAG_SOON_INCOMPATIBLE() {
+        return 'flag_soon_incompatible';
+    }
+
     constructor(data) {
         let status;
         if(data.hasOwnProperty('status')) {
@@ -108,6 +116,39 @@ export default class Server extends ServerModel {
         }
 
         return this;
+    }
+
+    getFlags() {
+        return this.getProperty('flags');
+    }
+
+    setFlags(value) {
+        return this.setProperty('flags', value);
+    }
+
+    addFlag(flag) {
+        if(!this.hasFlag(flag)) {
+            let flags = this.getFlags();
+            if(!flags) flags = [];
+            flags.push(flag);
+            this.setFlags(flags);
+        }
+        return this;
+    }
+
+    removeFlag(flag) {
+        if(this.hasFlag(flag)) {
+            let flags = this.getFlags(),
+                index = flags.indexOf(flag);
+            flags.splice(index, 1);
+            this.setFlags(flags);
+        }
+        return this;
+    }
+
+    hasFlag(flag) {
+        let flags = this.getFlags();
+        return Array.isArray(flags) && flags.indexOf(flag) !== -1
     }
 
     toJSON() {

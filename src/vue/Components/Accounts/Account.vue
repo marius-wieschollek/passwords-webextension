@@ -1,7 +1,13 @@
 <template>
     <form class="account-form" v-on:submit.prevent="save()">
-        <translate tag="div" class="server-warning" say="ServerDisabledWarning" v-if="!server.getEnabled()">
+        <translate tag="div" class="server-error" say="ServerIncompatibleError" v-if="server.hasFlag(server.FLAG_INCOMPATIBLE)">
             <icon icon="exclamation-triangle" font="solid" slot="before"/>
+        </translate>
+        <translate tag="div" class="server-warning" say="ServerSoonIncompatibleWarning" v-if="server.hasFlag(server.FLAG_SOON_INCOMPATIBLE)">
+            <icon icon="exclamation-triangle" font="solid" slot="before"/>
+        </translate>
+        <translate tag="div" class="server-info" say="ServerDisabledWarning" v-if="!server.getEnabled()">
+            <icon icon="exclamation-circle" font="solid" slot="before"/>
         </translate>
 
         <fieldset :disabled="submitting">
@@ -138,12 +144,23 @@
 
 <style lang="scss">
 .account-form {
-    .server-warning {
-        background-color : var(--warning-bg-color);
-        color            : var(--warning-fg-color);
+    .server-info,
+    .server-warning,
+    .server-error {
+        background-color : var(--info-bg-color);
+        color            : var(--info-fg-color);
         margin           : .5rem;
         border-radius    : 3px;
         padding          : 1rem;
+
+        &.server-warning {
+            background-color : var(--warning-bg-color);
+            color            : var(--warning-fg-color);
+        }
+        &.server-error {
+            background-color : var(--error-bg-color);
+            color            : var(--error-fg-color);
+        }
 
         .icon {
             margin-right : .5rem;
