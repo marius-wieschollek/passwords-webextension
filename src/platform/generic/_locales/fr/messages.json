@@ -140,5 +140,535 @@
     "SettingsPasteAutofillEnabled": {
         "message": "Remplir automatiquement les données de login les mieux adaptées",
         "description": "Label of the setting in the extension settings to automatically paste the first recommended credential into login forms"
+    },
+    "HelpClearClipboardPasswords": {
+        "message": "Le presse-papier sera effacé seulement si le navigateur est encore ouvert. Si la permission optionnelle de lire le presse-papier est donnée, il sera effacé uniquement si le mot de passe y est encore.",
+        "description": "Help text in the extension settings for the setting to automatically clean passwords from clipboard after a certain time."
+    },
+    "ServerDisabledWarning": {
+        "message": "Ce compte est désactivé. Il sera activé après avoir été sauvegardé avec succès.",
+        "description": "Warning message which appears above the account details if the server was disabled. Usual reasons are invalid login data, unsupported extension version or permanent connection issues."
+    },
+    "ServerToken": {
+        "message": "Mot de passe de l'app",
+        "description": "Label of the account login token field in account details in the extension settings"
+    },
+    "ServerTokenChange": {
+        "message": "Changer le mot de passe de l'app",
+        "description": "Label of the button to change the login token of an existing account in the account details in the extension settings"
+    },
+    "ValidationLabel": {
+        "message": "étiquette",
+        "description": "Name of the account label field in account validation message. This value is used when the user attempts to save an account with an invalid label"
+    },
+    "ValidationMaxLength": {
+        "message": "$FIELD$ doit être plus court que $MAX$ caractères.",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is longer than allowed",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "max": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationUnauthorizedError": {
+        "message": "Le serveur $URL$ n'accepte pas les données de connexion.",
+        "description": "Validation message when the user attempts to save an account but the server did not accept the user name and token",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationConnectionError": {
+        "message": "La tentative de connexion à $URL$ s'est finie en $ERROR$.",
+        "description": "Validation message when the user attempts to save an account but the connection attempt resulted in any kind of error (including internal extension errors)",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "Undefined variable example in file"
+            }
+        }
+    },
+    "NoCollectedPasswords": {
+        "message": "Aucun nouveau mot de passe trouvé",
+        "description": "Used in the collected tab when no new passwords have been found"
+    },
+    "MiningItemIsUpdate": {
+        "message": "Il semblerait que ceci est une mise à jour de \"$PASSWORD$\"",
+        "description": "Text shown in a collected password that is an update of an existing password",
+        "placeholders": {
+            "password": {
+                "content": "$1",
+                "example": "My Password"
+            }
+        }
+    },
+    "AuthorizationFailedTitle": {
+        "message": "L’autorisation a échoué",
+        "description": "Title of the toast notification when the login attempt was unsuccessful"
+    },
+    "ToastServerCheckWarning": {
+        "message": "Cette extension va bientôt demander Passwords $MINVERSION$, mais \"$SERVER$\" utilise Passwords $SERVERVERSION$. Veuillez mettre à jour l'app pour pouvoir continuer à utiliser ce compte.",
+        "description": "Text of the toast notification when an account uses a server which will soon be no longer supported because it uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
+    },
+    "HelpPasteBasicAuth": {
+        "message": "Répondre automatiquement aux requêtes d'authentification basiques avec le premier mot de passe suggéré. Attention : cela peut exposer des mots de passe à des serveur dont on ne fait pas confiance.",
+        "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "SettingsClearClipboardPasswords": {
+        "message": "Supprimer les mots de passe du presse-papier automatiquement",
+        "description": "Label of the setting in the extension settings to automatically clear passwords from clipboard after a certain time."
+    },
+    "AutofillSettings": {
+        "message": "Coller les mots de passe",
+        "description": "Headline above the password autofill section in the other settings tab in the extension settings"
+    },
+    "SettingsPastePopupClose": {
+        "message": "Fermer la fenêtre après avoir collé les mots de passe",
+        "description": "Label of the setting in the extension settings to automatically close the extension popup after successful pasting"
+    },
+    "SettingsPasteFormSubmit": {
+        "message": "Valider les formulaires après avoir collé les mots de passe depuis la fenêtre",
+        "description": "Label of the setting in the extension settings to automatically submit login forms after pasting"
+    },
+    "SettingsPasteBasicAuth": {
+        "message": "Répondre automatiquement aux requêtes d'authentification basiques HTTP",
+        "description": "Label of the setting in the extension settings to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "SettingsClearClipboardDelay": {
+        "message": "Vider le presse-papier après",
+        "description": "Label of the setting in the extension settings to define the time when the clipboard content will be removed."
+    },
+    "SettingsClipboardClearDelayOptions": {
+        "message": "$ROW$ secondes",
+        "description": "Time in seconds until clipboard will get empty.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 15, 30, 45, 60, 90"
+            }
+        }
+    },
+    "NotificationSettings": {
+        "message": "Notifications",
+        "description": "Headline above the notification section in the other settings tab in the extension settings"
+    },
+    "SettingsNotifyPasswordNew": {
+        "message": "Notification pour les nouveaux mots de passe",
+        "description": "Label of the setting in the extension settings to enable or disable the notification for new detected passwords"
+    },
+    "SettingsNotifyPasswordUpdate": {
+        "message": "Notification pour les mots de passe mis à jour",
+        "description": "Label of the setting in the extension settings to enable or disable the notification for detected password updates"
+    },
+    "SearchSettings": {
+        "message": "Recherche",
+        "description": "Headline above the search section in the other settings tab in the extension settings"
+    },
+    "SettingsPopupRelatedSearch": {
+        "message": "Commencer la recherche quand j'écris dans \"Similaire\"",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "AccountList": {
+        "message": "Comptes utilisateur·ice",
+        "description": "Headline above the user accounts section in the accounts tab in the extension settings"
+    },
+    "NoAccounts": {
+        "message": "Il n'y a pour l'instant pas de compte. Cliquez ici pour en créer un.",
+        "description": "Message in place of the user accounts list in the extension settings if there are no user accounts yet. The user can click the message to create an account"
+    },
+    "NewAccountFormLabel": {
+        "message": "Créer un compte",
+        "description": "Label of the new account form in the extension settings"
+    },
+    "ServerSaveTitle": {
+        "message": "Compte sauvegardé",
+        "description": "Title of the toast notification in the extension settings after an account was created or updated successfully"
+    },
+    "ServerSaveMessage": {
+        "message": "Toutes les modifications ont été appliquées avec succès",
+        "description": "Message of the toast notification in the extension settings after an account was created successfully"
+    },
+    "ServerCreatedMessage": {
+        "message": "Le compte a été créé et est prêt à être utilisé",
+        "description": "Message of the toast notification in the extension settings after an account was updated successfully"
+    },
+    "ServerSaveErrorTitle": {
+        "message": "La sauvegarde a échoué",
+        "description": "Title of the toast notification in the extension settings after an account could not be updated or saved. The message will be the specific error message"
+    },
+    "ServerLabel": {
+        "message": "Nom",
+        "description": "Label of the account name field in account details in the extension settings"
+    },
+    "ServerTimeout": {
+        "message": "Se déconnecter après",
+        "description": "Label of the option to change the automatic logout time of an existing account in the account details in the extension settings"
+    },
+    "ServerTimeoutOptionNever": {
+        "message": "Jamais",
+        "description": "Label of the option for the server timeout to never expire"
+    },
+    "ServerTimeoutOptionMinutes": {
+        "message": "Après $MINUTES$ minutes",
+        "description": "Label of the option for the server timeout to expire after a given amount of minutes",
+        "placeholders": {
+            "minutes": {
+                "content": "$1",
+                "example": "One of 5, 10, 15 30 or 60"
+            }
+        }
+    },
+    "TabRelated": {
+        "message": "Suggestions",
+        "description": "Label of the related passwords tab in the extension popup"
+    },
+    "TabSearch": {
+        "message": "Recherche",
+        "description": "Label of the search tab in the extension popup"
+    },
+    "TabBrowse": {
+        "message": "Naviguer",
+        "description": "Label of the browse servers tab in the extension popup"
+    },
+    "TabCollected": {
+        "message": "Collectés",
+        "description": "Label of the new collected passwords tab in the extension popup"
+    },
+    "TabTools": {
+        "message": "Outils",
+        "description": "Label of the tools tab in the extension popup"
+    },
+    "PasswordItemTitle": {
+        "message": "Statut : $STATUS$, Id : #$ID$",
+        "description": "The tooltip of any password entry in the popup",
+        "placeholders": {
+            "id": {
+                "content": "$1",
+                "example": "1234-1234-1234-1234"
+            },
+            "status": {
+                "content": "$2",
+                "example": "DUPLICATE"
+            }
+        }
+    },
+    "PasswordItemOpenUrl": {
+        "message": "Ouvrir le site web",
+        "description": "Title of the menu option to open the password url in a new tab"
+    },
+    "PasswordItemToTrash": {
+        "message": "Déplacer dans la corbeille",
+        "description": "Title of the menu option to move a password to the trash"
+    },
+    "PasswordItemDetails": {
+        "message": "Voir les détails",
+        "description": "Title of the menu option to view and edit a password"
+    },
+    "ValidationUser": {
+        "message": "nom d'utilisateur·ice",
+        "description": "Name of the account username field in account validation message. This value is used when the user attempts to save an account with an invalid username"
+    },
+    "ValidationToken": {
+        "message": "mot de passe de l'app",
+        "description": "Name of the account token field in account validation message. This value is used when the user attempts to save an account with an invalid token"
+    },
+    "ValidationBaseUrl": {
+        "message": "adresse de base",
+        "description": "Name of the account base url field in account validation message. This value is used when the user attempts to save an account with an invalid base url"
+    },
+    "ValidationNotEmpty": {
+        "message": "Le champ $FIELD$ ne peut pas être vide.",
+        "description": "Validation message when the user attempts to save something (like an account) but a required field is empty.",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            }
+        }
+    },
+    "ValidationMinLength": {
+        "message": "$FIELD$ doit faire au moins $MIN$ caractères.",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is shorter than required",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "min": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationFailed": {
+        "message": "La validation a échoué.",
+        "description": "Validation message when the user attempts to save something (like an account) but there were validation errors"
+    },
+    "ValidationNotAnUrl": {
+        "message": "L'adresse de base doit être une URL valide.",
+        "description": "Validation message when the user attempts to save an account but the server url is not a valid url"
+    },
+    "ValidationNotAToken": {
+        "message": "Le mot de passe de l'app doit être un mot de passe d'app Nextcloud valide.",
+        "description": "Validation message when the user attempts to save an account but the token does not match the Nextcloud token schema"
+    },
+    "ValidationInvalidTimeout": {
+        "message": "Le temps de déconnexion doit être une des options données.",
+        "description": "Validation message when the user attempts to save an account but the timeout is not within the predefined range"
+    },
+    "ValidationDuplicate": {
+        "message": "Il y a déjà un compte pour cet·te utilisateur·ice sur ce Nextcloud.",
+        "description": "Validation message when the user attempts to save a new account, but a similar account with the same server and same user name already exists"
+    },
+    "ValidationNoConnection": {
+        "message": "Impossible de se connecter à $URL$.",
+        "description": "Validation message when the user attempts to save an account but it is not possible to connect to this server with the given url",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationHttpError": {
+        "message": "La tentative de connexion à $URL$ s'est finie en $ERROR$.",
+        "description": "Validation message when the user attempts to save an account but the server responded with an unexpected HTTP status code",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "HTTP 401 - Forbidden"
+            }
+        }
+    },
+    "ValidationServerVersion": {
+        "message": "La version de l'app installée sur le serveur est obsolète.",
+        "description": "Validation message when the user attempts to save an account but the version of the passwords app installed on the server is outdated"
+    },
+    "NoRelatedPasswords": {
+        "message": "Aucun mot de passe rattaché trouvé.",
+        "description": "Used in the related tab when no entries match the current website"
+    },
+    "NoSearchResults": {
+        "message": "Aucun mot de passe correspondant à votre demande n'a été trouvé",
+        "description": "Used in the search tab when no entries match the search query"
+    },
+    "NoSearchQuery": {
+        "message": "Écrivez dans la zone de recherche pour trouver des mots de passe",
+        "description": "Used in the search tab when there is no search query"
+    },
+    "AddPasswordForCurrentTab": {
+        "message": "Ajouter les identifiants de l'onglet actuel",
+        "description": "Used in the collected tab for the option to add a blank entry with just the url of the current tab"
+    },
+    "NoServerItems": {
+        "message": "Pas d'élément trouvé",
+        "description": "Used in the browse tab when a server has no entries to list"
+    },
+    "BrowseNoServers": {
+        "message": "Aucun serveur disponible",
+        "description": "Used in the browse tab when no accounts/servers are available"
+    },
+    "SearchPlaceholder": {
+        "message": "Chercher des mots de passe",
+        "description": "Placeholder text of the search box"
+    },
+    "MiningItemIsNew": {
+        "message": "Ceci est un nouveau mot de passe",
+        "description": "Text shown in a collected password that is new to tell the user that it is a new passwor"
+    },
+    "TitleClickToEdit": {
+        "message": "Double-cliquez pour éditer",
+        "description": "Tooltip used in the collected password form for any property of the password to inform the user that double clicking makes the text field editable"
+    },
+    "TitleEnterToExit": {
+        "message": "Appuyez sur Entrée pour sauvegarder",
+        "description": "Tooltip used in the collected password form to tell the user that the property can be saved by clicking enter"
+    },
+    "LabelLabel": {
+        "message": "Nom",
+        "description": "Label for the name of a password entry"
+    },
+    "LabelHidden": {
+        "message": "Mot de passe privé",
+        "description": "Label for the checkbox to mark a password entry as private or hidden in the webapp"
+    },
+    "LabelFolders": {
+        "message": "Dossiers",
+        "description": "Label for the folder count in the server info in the browse tab"
+    },
+    "LabelFolder": {
+        "message": "Dossier",
+        "description": "Label for the folder of this password."
+    },
+    "LabelCreated": {
+        "message": "Créé",
+        "description": "Label for the creation time of this password."
+    },
+    "LabelEdited": {
+        "message": "Modifié",
+        "description": "Label for the last edit time of this password."
+    },
+    "LabelNotes": {
+        "message": "Notes",
+        "description": "Label for the notes of this password."
+    },
+    "LabelCustomFields": {
+        "message": "Champs personnalisés",
+        "description": "Label for the custom fields of this password"
+    },
+    "LabelTags": {
+        "message": "Mots-clés",
+        "description": "Label for the tag count in the server info in the browse tab"
+    },
+    "LabelServerVersion": {
+        "message": "Serveur",
+        "description": "Label for the nextcloud server version in the server info in the browse tab"
+    },
+    "LabelAppVersion": {
+        "message": "API",
+        "description": "Label for the passwords app version in the server info in the browse tab"
+    },
+    "ServerLabelString": {
+        "message": "Nextcloud $VERSION$",
+        "description": "Value for the nextcloud server version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "PlaceholderToken": {
+        "message": "Jeton d'authentification à deux facteurs",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
+    },
+    "ButtonLogin": {
+        "message": "Connexion",
+        "description": "The text of the login button of the server authorization dialog"
+    },
+    "AuthorizationFailedText": {
+        "message": "L'accès à la base des mots de passe avec l'identifiant donné a échoué",
+        "description": "Text of the toast notification when the login attempt was unsuccessful"
+    },
+    "TokenRequestFailed": {
+        "message": "La requête du jeton a échoué",
+        "description": "Title of the toast notification when the request for a two factor auth token failed. The text will be the error message."
+    },
+    "NotifyNewPasswordTitle": {
+        "message": "Nouveau mot de passe détecté",
+        "description": "Title of the system notification when a new password was detected"
+    },
+    "NotifyNewPasswordText": {
+        "message": "Un nouveau mot de passe pour \"$LABEL$\" a été détecté.",
+        "description": "Text of the system notification when a new password was detected. Used in Chrome where the notification has buttons to save or view the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyNewPasswordTextFF": {
+        "message": "Un nouveau mot de passe pour \"$LABEL$\" a été détecté. Cliquez sur l'icône mot de passe dans la barre d'outil pour le voir et le sauvegarder.",
+        "description": "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTitle": {
+        "message": "Mise à jour du mot de passe détectée",
+        "description": "Title of the system notification when an update for an existing password has been detected"
+    },
+    "NotifyUpdatePasswordText": {
+        "message": "Une mise à jour pour \"$LABEL$\" a été détectée.",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Chrome where the notification has buttons to save or view the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTextFF": {
+        "message": "Une mise à jour pour \"$LABEL$\" a été détectée. Cliquez sur l'icône mot de passe dans la barre d'outil pour le voir et le sauvegarder.",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "ButtonMore": {
+        "message": "Plus d'options",
+        "description": "The more options button of a password detection system notification which opens the popup with the form which shows all password details"
+    },
+    "ButtonClose": {
+        "message": "Fermer",
+        "description": "The title of the close button of a toast notification"
+    },
+    "ToastServerCheckTitle": {
+        "message": "$SERVER$ doit être mis à jour",
+        "description": "Title of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "ToastServerCheckMessage": {
+        "message": "Le compte \"$SERVER$\" utilise Passwords $SERVERVERSION$, mais cette extension demande au moins $MINVERSION$. L'app doit être mise à jour avant que le compte puisse être de nouveau activé dans les paramètres.",
+        "description": "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
+    },
+    "ToastErrorMessage": {
+        "message": "Une erreur s'est passée dans le client Passwords. Vérifier les journaux d'erreur dans les options de débogage pour plus de détails.",
+        "description": "Text of the toast notification for error messages from the passwords client. The error message is the title"
     }
 }
