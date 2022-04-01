@@ -1,3 +1,7 @@
+## 2.2.4 - Bugfix Release
+### Fixed
+- Fix theming issue
+
 ## 2.2.3 - Bugfix Release
 ### Fixed
 - Unhandled precondition failed errors
