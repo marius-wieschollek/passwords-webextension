@@ -36,15 +36,15 @@
 </template>
 
 <script>
-    import MessageService    from '@js/Services/MessageService';
-    import Translate         from '@vue/Components/Translate';
-    import Icon              from '@vue/Components/Icon';
-    import Popup             from '@js/App/Popup';
-    import ToastService      from '@js/Services/ToastService';
-    import InputField        from '@vue/Components/Form/InputField';
-    import ButtonField       from '@vue/Components/Form/ButtonField';
-    import SelectField       from '@vue/Components/Form/SelectField';
-    import ErrorManager      from '@js/Manager/ErrorManager';
+    import MessageService from '@js/Services/MessageService';
+    import Translate from '@vue/Components/Translate';
+    import Icon from '@vue/Components/Icon';
+    import Popup from '@js/App/Popup';
+    import ToastService from '@js/Services/ToastService';
+    import InputField from '@vue/Components/Form/InputField';
+    import ButtonField from '@vue/Components/Form/ButtonField';
+    import SelectField from '@vue/Components/Form/SelectField';
+    import ErrorManager from '@js/Manager/ErrorManager';
     import PopupStateService from '@js/Services/PopupStateService';
 
     export default {
@@ -246,9 +246,10 @@
     background-size      : cover;
 
     h2 {
-        text-align : center;
-        margin     : 0 0 2rem;
-        color      : #fff;
+        text-align  : center;
+        margin      : 0 0 2rem;
+        color       : #fff;
+        line-height : 2rem;
     }
 
     .token-container,

@@ -19,6 +19,9 @@ class ThemeCssVarsHelper {
                 vars['--color-text'] = theme.colors.text;
             }
         }
+        if(theme.hasOwnProperty('color.primary')) {
+            vars['--color-primary'] = theme['color.primary'];
+        }
         if(theme.hasOwnProperty('color.text')) {
             vars['--color-text'] = theme['color.text'];
         }
