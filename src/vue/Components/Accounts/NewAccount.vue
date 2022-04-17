@@ -4,7 +4,7 @@
             <translate tag="label" for="new-name" say="ServerLabel"/>
             <input type="text" id="new-name" v-model="label" required/>
             <translate tag="label" for="new-url" say="ServerBaseUrl"/>
-            <input type="text" id="new-url" v-model="baseUrl" required/>
+            <input type="url" pattern="https://.+" id="new-url" v-model="baseUrl" required/>
             <translate tag="label" for="new-user" say="ServerUser"/>
             <input type="text" id="new-user" v-model="user" required/>
             <translate tag="label" for="new-token" say="ServerToken"/>

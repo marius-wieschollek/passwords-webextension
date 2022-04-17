@@ -14,7 +14,7 @@
             <translate tag="label" :for="`${id}-label`" say="ServerLabel" required/>
             <input type="text" :id="`${id}-label`" v-model="label"/>
             <translate tag="label" :for="`${id}-url`" say="ServerBaseUrl" required/>
-            <input type="text" :id="`${id}-url`" v-model="url"/>
+            <input type="url" pattern="https://.+" :id="`${id}-url`" v-model="url"/>
             <translate tag="label" :for="`${id}-user`" say="ServerUser" required/>
             <input type="text" :id="`${id}-user`" v-model="user"/>
             <translate tag="label" :for="`${id}-token`" say="ServerToken" required/>
@@ -79,19 +79,19 @@
             async save() {
                 if(!this.$el.reportValidity() || this.submitting) return;
 
-                this.submitting = true;
-                this.server
-                    .setLabel(this.label)
-                    .setBaseUrl(this.url)
-                    .setTimeout(this.timeout)
-                    .setUser(this.user);
-
-                if(this.changeToken) {
-                    this.server.setToken(this.token);
-                }
-
                 let message;
                 try {
+                    this.submitting = true;
+                    this.server
+                        .setLabel(this.label)
+                        .setBaseUrl(this.url)
+                        .setTimeout(this.timeout)
+                        .setUser(this.user);
+
+                    if(this.changeToken) {
+                        this.server.setToken(this.token);
+                    }
+
                     message = await MessageService.send(
                         {
                             type   : 'server.update',
@@ -157,6 +157,7 @@
             background-color : var(--warning-bg-color);
             color            : var(--warning-fg-color);
         }
+
         &.server-error {
             background-color : var(--error-bg-color);
             color            : var(--error-fg-color);
@@ -176,6 +177,10 @@
                 opacity : 0.5;
                 cursor  : default;
             }
+        }
+
+        input:invalid {
+            box-shadow : 0 0 .5rem .25rem var(--error-bg-color);
         }
     }
 }
