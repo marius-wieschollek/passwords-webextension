@@ -1,3 +1,7 @@
+## 2.2.5 - Bugfix Release
+### Fixed
+- Fix performance issues
+
 ## 2.2.4 - Bugfix Release
 ### Fixed
 - Fix theming issue

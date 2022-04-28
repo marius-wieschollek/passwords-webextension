@@ -8,6 +8,9 @@ export default class DomMiner {
      */
     constructor() {
         this._knownForms = [];
+        this._pendingMutations = [];
+        this._mutationObserver = null;
+        this._observerTimer = null;
     }
 
     init() {
@@ -46,19 +49,16 @@ export default class DomMiner {
     }
 
     _addBodyListener() {
-        const bodyObserver = new MutationObserver((mutations) => {
-            for(const mutation of mutations) {
-                if(mutation.type === "childList") {
-                    for(const added of mutation.addedNodes) {
-                        if(new FormService().getPasswordFields(added).length > 0) {
-                            bodyObserver.disconnect();
-                            this._addFormsListener(new FormService().getLoginFields());
-                        }
-                    }
-                }
+        this._mutationObserver = new MutationObserver((mutations) => {
+            this._pendingMutations.push(mutations)
+            if(this._observerTimer !== null) {
+                clearTimeout(this._observerTimer);
             }
+            this._observerTimer = setTimeout(() => {
+                this._processPendingMutations();
+            }, 2000);
         });
-        bodyObserver.observe(document.body, {childList: true, subtree: true});
+        this._mutationObserver.observe(document.body, {childList: true, subtree: true});
     }
 
     _checkForNewPassword() {
@@ -203,5 +203,28 @@ export default class DomMiner {
         }
 
         return null;
+    }
+
+    _processPendingMutations() {
+        let mutations,
+            time = Date.now(),
+            counter = 0,
+            forms = new FormService();
+        mainLoop: while(mutations = this._pendingMutations.shift()) {
+            for(const mutation of mutations) {
+                if(mutation.type === "childList") {
+                    for(const added of mutation.addedNodes) {
+                        counter++;
+                        if(added !== document.body && document.body.contains(added) && forms.getPasswordFields(added).length > 0) {
+                            this._mutationObserver.disconnect();
+                            this._addFormsListener(forms.getLoginFields());
+                            break mainLoop;
+                        }
+                    }
+                }
+            }
+        }
+
+        console.log('NC Passwords processed DOM changes:', counter, (Date.now()-time)/1000);
     }
 }
