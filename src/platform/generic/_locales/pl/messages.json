@@ -1,10 +1,10 @@
 {
     "extensionName": {
-        "message": "Passwords for Nextcloud Browser Extension",
+        "message": "Hasła (Passwords) w Nextcloud rozszerzenie przeglądarki",
         "description": "Name of the extension."
     },
     "extensionDescription": {
-        "message": "Klient aplikacji Nextcloud Passwords",
+        "message": "Oficjalny dodatek przeglądarki Klient aplikacji Nextcloud Hasła (Passwords)",
         "description": "Description of the extension."
     },
     "locale": {
@@ -76,5 +76,998 @@
     "ButtonSave": {
         "message": "Zapisz",
         "description": "The save button of a password detection system notification"
+    },
+    "HelpPasteAutofill": {
+        "message": "Automatycznie wklej pierwsze sugerowane dane uwierzytelniające do dowolnego formularza logowania na karcie. Należy pamiętać, że to daje dostęp dla dowolnego skryptu na karcie.",
+        "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
+    },
+    "ServerDisabledWarning": {
+        "message": "To konto jest dezaktywowane. Zostanie aktywowane po pomyślnym zapisaniu.",
+        "description": "Warning message which appears above the account details if the server was disabled. Usual reasons are invalid login data, unsupported extension version or permanent connection issues."
+    },
+    "ServerTimeoutOptionMinutes": {
+        "message": "Po $MINUTES$ minutach",
+        "description": "Label of the option for the server timeout to expire after a given amount of minutes",
+        "placeholders": {
+            "minutes": {
+                "content": "$1",
+                "example": "One of 5, 10, 15 30 or 60"
+            }
+        }
+    },
+    "ValidationUser": {
+        "message": "użytkownik",
+        "description": "Name of the account username field in account validation message. This value is used when the user attempts to save an account with an invalid username"
+    },
+    "ValidationNotAToken": {
+        "message": "Hasło musi być prawidłowym hasłem aplikacji Nextcloud.",
+        "description": "Validation message when the user attempts to save an account but the token does not match the Nextcloud token schema"
+    },
+    "ValidationConnectionError": {
+        "message": "Próba połączenia z $URL$ zakończyła się wynikiem $ERROR$.",
+        "description": "Validation message when the user attempts to save an account but the connection attempt resulted in any kind of error (including internal extension errors)",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "Undefined variable example in file"
+            }
+        }
+    },
+    "AddPasswordForCurrentTab": {
+        "message": "Dodaj dane uwierzytelniające dla bieżącej karty",
+        "description": "Used in the collected tab for the option to add a blank entry with just the url of the current tab"
+    },
+    "TitleClickToEdit": {
+        "message": "Kliknij dwukrotnie, aby edytować",
+        "description": "Tooltip used in the collected password form for any property of the password to inform the user that double clicking makes the text field editable"
+    },
+    "NotifyNewPasswordText": {
+        "message": "Wykryto nowe hasło dla „$LABEL$”.",
+        "description": "Text of the system notification when a new password was detected. Used in Chrome where the notification has buttons to save or view the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "ToastServerCheckWarning": {
+        "message": "To rozszerzenie będzie wkrótce wymagało haseł $MINVERSION$, ale „ $SERVER$ ” używa haseł $SERVERSION$. Zaktualizuj aplikację, aby móc dalej korzystać z konta.",
+        "description": "Text of the toast notification when an account uses a server which will soon be no longer supported because it uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
+    },
+    "ToastPasswordHiddenTrashed": {
+        "message": "Usunięto $LABEL$. Jeśli to był wypadek, nadal możesz go przywrócić poniżej, zanim zostanie trwale usunięty",
+        "description": "Text of the toast notification after a hidden password was moved to the trash. Users can restore it within the notification but afterwards the password is lost for good",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "PasswordPastedSuccess": {
+        "message": "$LABEL$ wklejono pomyślnie",
+        "description": "Text of the toast notification when a password entry was pasted successfully into the current tab",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "PasswordPropertyCopied": {
+        "message": "Skopiowano $PROPERTY$",
+        "description": "Text of the toast notification when a password property was copied successfully via one of the buttons",
+        "placeholders": {
+            "property": {
+                "content": "$1",
+                "example": "Username"
+            }
+        }
+    },
+    "ServerNetworkError": {
+        "message": "Wystąpił błąd sieci. Sprawdź, czy jesteś w trybie online i czy serwer jest osiągalny.",
+        "description": "Text of the toast notification when the connection to the server failed with a network error"
+    },
+    "BackgroundColorLabel": {
+        "message": "Kolor tła",
+        "description": "Label of background color options in the custom theme settings"
+    },
+    "ForegroundColorLabel": {
+        "message": "Kolor wiodący",
+        "description": "Label of foreground / text color options in the custom theme settings"
+    },
+    "BackgroundColorHoverTitle": {
+        "message": "Ten kolor jest używany jako tło, jeśli element jest aktywny. Może być również użyty do obramowania nieaktywnego elementu",
+        "description": "Tooltip of the color input field in the custom theme settings for the mouse hover / active background color for an element"
+    },
+    "ForegroundInheritTitle": {
+        "message": "W przypadku aktywacji wartość zostanie odziedziczona z elementu nadrzędnego",
+        "description": "Tooltip for the checkbox to inherit the foreground / text color (from the parent element in the html) in the custom theme settings"
+    },
+    "SettingsBadgeIcon": {
+        "message": "Ikona paska narzędzi",
+        "description": "Label of the setting to choose the toolbar icon in the custom theme settings"
+    },
+    "PasslinkScanInstructions": {
+        "message": "Skieruj aparat na kod QR i poczekaj, aż zostanie rozpoznany i zeskanowany.",
+        "description": "Instructions shown above the PassLink QR scanner telling the use to point his camera at the qr code he wants to scan"
+    },
+    "QrNotFoundError": {
+        "message": "Na tym urządzeniu nie znaleziono kamer",
+        "description": "Message used by the PassLink QR scanner when the device has no cameras"
+    },
+    "QrNotReadableError": {
+        "message": "Kamera niedostępna. Może już jest w użyciu?",
+        "description": "Message used by the PassLink QR scanner when the camera stream can not be read"
+    },
+    "FirstRunConnectText": {
+        "message": "Otwórz aplikację Hasła, kliknij „Więcej”, otwórz „Aplikacje i rozszerzenia” i otwórz okno dialogowe PassLink Connect.",
+        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
+    },
+    "BrowserActionTitleCounter": {
+        "message": "Haseł ($COUNTER$)",
+        "description": "Title of the button in the browser bar with suggestion counter",
+        "placeholders": {
+            "counter": {
+                "content": "$1",
+                "example": "2"
+            }
+        }
+    },
+    "UserAgent": {
+        "message": "Oficialny Klient Hasła (Passwords) dla $BROWSER$ na $OS$",
+        "description": "The user agent used for api requests. Only ASCII characters allowed",
+        "placeholders": {
+            "browser": {
+                "content": "$1",
+                "example": "Firefox"
+            },
+            "os": {
+                "content": "$2",
+                "example": "Linux"
+            }
+        }
+    },
+    "MigrationAccountName": {
+        "message": "Konto w Nextcloud",
+        "description": "Label assigned to the account used by the v1.x migration"
+    },
+    "PrivatePasswordsFolderLabel": {
+        "message": "Hasła prywatne",
+        "description": "Label assigned to the hidden folder for private passwords. (folder is only visible when browsing in private mode)"
+    },
+    "SettingsTabAccounts": {
+        "message": "Konta",
+        "description": "Label of the user accounts tab in the extension settings"
+    },
+    "SettingsTabTheming": {
+        "message": "Motywy",
+        "description": "Label of the themes tab in the extension settings"
+    },
+    "SettingsTabOther": {
+        "message": "Inne ustawienia",
+        "description": "Label of the general settings tab in the extension settings"
+    },
+    "SettingsTabDebug": {
+        "message": "Debug",
+        "description": "Label of the extension debugging tab in the extension settings"
+    },
+    "SettingsAccountsMain": {
+        "message": "Domyślne konto dla nowych haseł",
+        "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
+    },
+    "AutofillSettings": {
+        "message": "Wklejanie poświadczeń",
+        "description": "Headline above the password autofill section in the other settings tab in the extension settings"
+    },
+    "SettingsPastePopupClose": {
+        "message": "Zamknij wyskakujące okienko po wklejeniu danych logowania",
+        "description": "Label of the setting in the extension settings to automatically close the extension popup after successful pasting"
+    },
+    "SettingsPasteFormSubmit": {
+        "message": "Wypełnij formularze logowania, gdy poświadczenia zostaną wklejone z wyskakującego okienka",
+        "description": "Label of the setting in the extension settings to automatically submit login forms after pasting"
+    },
+    "SettingsPasteWarnCompromised": {
+        "message": "Ostrzegaj, gdy używa niebezpiecznych danych uwierzytelniających",
+        "description": "Label of the setting in the extension settings to show a warning after pasting a compromised password"
+    },
+    "NoCollectedPasswords": {
+        "message": "Nie znaleziono nowych haseł",
+        "description": "Used in the collected tab when no new passwords have been found"
+    },
+    "SettingsPasteAutofillEnabled": {
+        "message": "Automatycznie wypełnij najlepiej pasujące dane logowania",
+        "description": "Label of the setting in the extension settings to automatically paste the first recommended credential into login forms"
+    },
+    "SettingsPasteBasicAuth": {
+        "message": "Automatycznie odpowiadaj na żądania podstawowego uwierzytelnienia HTTP",
+        "description": "Label of the setting in the extension settings to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "SettingsClearClipboardPasswords": {
+        "message": "Automatycznie usuwaj hasła ze schowka",
+        "description": "Label of the setting in the extension settings to automatically clear passwords from clipboard after a certain time."
+    },
+    "SettingsClearClipboardDelay": {
+        "message": "Opróżnij schowek po",
+        "description": "Label of the setting in the extension settings to define the time when the clipboard content will be removed."
+    },
+    "SettingsClipboardClearDelayOptions": {
+        "message": "$ROW$ sekundach",
+        "description": "Time in seconds until clipboard will get empty.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 15, 30, 45, 60, 90"
+            }
+        }
+    },
+    "NotificationSettings": {
+        "message": "Powiadomienia",
+        "description": "Headline above the notification section in the other settings tab in the extension settings"
+    },
+    "SettingsNotifyPasswordNew": {
+        "message": "Powiadomienie o nowych hasłach",
+        "description": "Label of the setting in the extension settings to enable or disable the notification for new detected passwords"
+    },
+    "SettingsNotifyPasswordUpdate": {
+        "message": "Powiadomienie o zaktualizowanych hasłach",
+        "description": "Label of the setting in the extension settings to enable or disable the notification for detected password updates"
+    },
+    "SearchSettings": {
+        "message": "Szukaj",
+        "description": "Headline above the search section in the other settings tab in the extension settings"
+    },
+    "SettingsPopupRelatedSearch": {
+        "message": "Rozpocznij wyszukiwanie, gdy wpiszę „Pokrewne”",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "AccountList": {
+        "message": "Konta użytkownika",
+        "description": "Headline above the user accounts section in the accounts tab in the extension settings"
+    },
+    "NoAccounts": {
+        "message": "Nie ma jeszcze kont. Kliknij tutaj, aby je utworzyć.",
+        "description": "Message in place of the user accounts list in the extension settings if there are no user accounts yet. The user can click the message to create an account"
+    },
+    "NewAccountFormLabel": {
+        "message": "Utwórz konto",
+        "description": "Label of the new account form in the extension settings"
+    },
+    "ServerSaveTitle": {
+        "message": "Konto zapisane",
+        "description": "Title of the toast notification in the extension settings after an account was created or updated successfully"
+    },
+    "ServerSaveMessage": {
+        "message": "Wszystkie zmiany zostały pomyślnie zastosowane",
+        "description": "Message of the toast notification in the extension settings after an account was created successfully"
+    },
+    "ServerCreatedMessage": {
+        "message": "Konto zostało utworzone i jest gotowe do użycia",
+        "description": "Message of the toast notification in the extension settings after an account was updated successfully"
+    },
+    "ServerSaveErrorTitle": {
+        "message": "Zapisywanie nieudane",
+        "description": "Title of the toast notification in the extension settings after an account could not be updated or saved. The message will be the specific error message"
+    },
+    "ServerLabel": {
+        "message": "Nazwa",
+        "description": "Label of the account name field in account details in the extension settings"
+    },
+    "ServerToken": {
+        "message": "Aplikacja Hasła",
+        "description": "Label of the account login token field in account details in the extension settings"
+    },
+    "ServerTokenChange": {
+        "message": "Zmień hasło do aplikacji",
+        "description": "Label of the button to change the login token of an existing account in the account details in the extension settings"
+    },
+    "ServerTimeout": {
+        "message": "Wyloguj się po",
+        "description": "Label of the option to change the automatic logout time of an existing account in the account details in the extension settings"
+    },
+    "ServerTimeoutOptionNever": {
+        "message": "Nigdy",
+        "description": "Label of the option for the server timeout to never expire"
+    },
+    "TabRelated": {
+        "message": "Propozycje",
+        "description": "Label of the related passwords tab in the extension popup"
+    },
+    "TabSearch": {
+        "message": "Szukaj",
+        "description": "Label of the search tab in the extension popup"
+    },
+    "TabBrowse": {
+        "message": "Przeglądaj",
+        "description": "Label of the browse servers tab in the extension popup"
+    },
+    "TabCollected": {
+        "message": "Zebrane",
+        "description": "Label of the new collected passwords tab in the extension popup"
+    },
+    "TabTools": {
+        "message": "Narzędzia",
+        "description": "Label of the tools tab in the extension popup"
+    },
+    "PasswordItemTitle": {
+        "message": "Status: $STATUS$, Id: #$ID$",
+        "description": "The tooltip of any password entry in the popup",
+        "placeholders": {
+            "id": {
+                "content": "$1",
+                "example": "1234-1234-1234-1234"
+            },
+            "status": {
+                "content": "$2",
+                "example": "DUPLICATE"
+            }
+        }
+    },
+    "PasswordItemOpenUrl": {
+        "message": "Otwórz stronę internetową",
+        "description": "Title of the menu option to open the password url in a new tab"
+    },
+    "PasswordItemToTrash": {
+        "message": "Do kosza",
+        "description": "Title of the menu option to move a password to the trash"
+    },
+    "PasswordItemDetails": {
+        "message": "Pokaż szczegóły",
+        "description": "Title of the menu option to view and edit a password"
+    },
+    "ValidationLabel": {
+        "message": "etykieta",
+        "description": "Name of the account label field in account validation message. This value is used when the user attempts to save an account with an invalid label"
+    },
+    "ValidationToken": {
+        "message": "hasło aplikacji",
+        "description": "Name of the account token field in account validation message. This value is used when the user attempts to save an account with an invalid token"
+    },
+    "ValidationBaseUrl": {
+        "message": "podstawowy URL",
+        "description": "Name of the account base url field in account validation message. This value is used when the user attempts to save an account with an invalid base url"
+    },
+    "ValidationNotEmpty": {
+        "message": "Pole $FIELD$ nie może być puste.",
+        "description": "Validation message when the user attempts to save something (like an account) but a required field is empty.",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            }
+        }
+    },
+    "ValidationMinLength": {
+        "message": "Pole $FIELD$ musi mieć co najmniej $MIN$ znaków.",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is shorter than required",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "min": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationMaxLength": {
+        "message": "Pole $FIELD$ musi być krótsze niż $MAX$ znaków.",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is longer than allowed",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "max": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationFailed": {
+        "message": "Weryfikacja nieudana.",
+        "description": "Validation message when the user attempts to save something (like an account) but there were validation errors"
+    },
+    "ValidationNotAnUrl": {
+        "message": "Podstawowy URL musi być prawidłowym adresem URL.",
+        "description": "Validation message when the user attempts to save an account but the server url is not a valid url"
+    },
+    "ValidationInvalidTimeout": {
+        "message": "Czas wylogowania musi być jedną z podanych opcji.",
+        "description": "Validation message when the user attempts to save an account but the timeout is not within the predefined range"
+    },
+    "ValidationDuplicate": {
+        "message": "W Nextcloud istnieje już konto dla tego użytkownika.",
+        "description": "Validation message when the user attempts to save a new account, but a similar account with the same server and same user name already exists"
+    },
+    "ValidationNoConnection": {
+        "message": "Nie można połączyć się z $URL$.",
+        "description": "Validation message when the user attempts to save an account but it is not possible to connect to this server with the given url",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationUnauthorizedError": {
+        "message": "Serwer $URL$ nie zaakceptował danych logowania.",
+        "description": "Validation message when the user attempts to save an account but the server did not accept the user name and token",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationHttpError": {
+        "message": "Próba połączenia z $URL$ zakończyła się wynikiem $ERROR$.",
+        "description": "Validation message when the user attempts to save an account but the server responded with an unexpected HTTP status code",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "HTTP 401 - Forbidden"
+            }
+        }
+    },
+    "ValidationServerVersion": {
+        "message": "Wersja aplikacji zainstalowana na serwerze jest nieaktualna.",
+        "description": "Validation message when the user attempts to save an account but the version of the passwords app installed on the server is outdated"
+    },
+    "NoRelatedPasswords": {
+        "message": "Nie znalazłem żadnych powiązanych haseł",
+        "description": "Used in the related tab when no entries match the current website"
+    },
+    "NoSearchResults": {
+        "message": "Nie znalazłeś żadnych haseł pasujących do Twojego zapytania",
+        "description": "Used in the search tab when no entries match the search query"
+    },
+    "NoSearchQuery": {
+        "message": "Pisz w polu wyszukiwania, aby odszukać hasła",
+        "description": "Used in the search tab when there is no search query"
+    },
+    "NoServerItems": {
+        "message": "Nic nie znaleziono",
+        "description": "Used in the browse tab when a server has no entries to list"
+    },
+    "BrowseNoServers": {
+        "message": "Brak dostępnych serwerów",
+        "description": "Used in the browse tab when no accounts/servers are available"
+    },
+    "SearchPlaceholder": {
+        "message": "Znajdź hasła",
+        "description": "Placeholder text of the search box"
+    },
+    "MiningItemIsNew": {
+        "message": "To jest nowe hasło",
+        "description": "Text shown in a collected password that is new to tell the user that it is a new passwor"
+    },
+    "MiningItemIsUpdate": {
+        "message": "Wygląda na to, że to aktualizacja „$PASSWORD$”",
+        "description": "Text shown in a collected password that is an update of an existing password",
+        "placeholders": {
+            "password": {
+                "content": "$1",
+                "example": "My Password"
+            }
+        }
+    },
+    "TitleEnterToExit": {
+        "message": "Wciśnij Enter, aby zapisać",
+        "description": "Tooltip used in the collected password form to tell the user that the property can be saved by clicking enter"
+    },
+    "LabelLabel": {
+        "message": "Nazwa",
+        "description": "Label for the name of a password entry"
+    },
+    "LabelHidden": {
+        "message": "Hasło prywatne",
+        "description": "Label for the checkbox to mark a password entry as private or hidden in the webapp"
+    },
+    "LabelFolders": {
+        "message": "Foldery",
+        "description": "Label for the folder count in the server info in the browse tab"
+    },
+    "LabelFolder": {
+        "message": "Folder.",
+        "description": "Label for the folder of this password."
+    },
+    "LabelCreated": {
+        "message": "Utworzono",
+        "description": "Label for the creation time of this password."
+    },
+    "LabelEdited": {
+        "message": "Zmiana",
+        "description": "Label for the last edit time of this password."
+    },
+    "LabelNotes": {
+        "message": "Notatki",
+        "description": "Label for the notes of this password."
+    },
+    "LabelCustomFields": {
+        "message": "Pola własne",
+        "description": "Label for the custom fields of this password"
+    },
+    "LabelTags": {
+        "message": "Tagi",
+        "description": "Label for the tag count in the server info in the browse tab"
+    },
+    "LabelServerVersion": {
+        "message": "Serwer",
+        "description": "Label for the nextcloud server version in the server info in the browse tab"
+    },
+    "LabelAppVersion": {
+        "message": "API",
+        "description": "Label for the passwords app version in the server info in the browse tab"
+    },
+    "ServerLabelString": {
+        "message": "Nextcloud $VERSION$",
+        "description": "Value for the nextcloud server version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "PlaceholderToken": {
+        "message": "Żeton Two-Factor",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
+    },
+    "ButtonLogin": {
+        "message": "Login",
+        "description": "The text of the login button of the server authorization dialog"
+    },
+    "AuthorizationFailedTitle": {
+        "message": "Autoryzacja nieudana",
+        "description": "Title of the toast notification when the login attempt was unsuccessful"
+    },
+    "AuthorizationFailedText": {
+        "message": "Odmówiono dostępu do bazy haseł z podanym loginem",
+        "description": "Text of the toast notification when the login attempt was unsuccessful"
+    },
+    "TokenRequestFailed": {
+        "message": "Żądanie tokena nieudane",
+        "description": "Title of the toast notification when the request for a two factor auth token failed. The text will be the error message."
+    },
+    "NotifyNewPasswordTitle": {
+        "message": "Wykryto nowe hasło",
+        "description": "Title of the system notification when a new password was detected"
+    },
+    "NotifyNewPasswordTextFF": {
+        "message": "Wykryto nowe hasło dla „$LABEL$”. Kliknij ikonę haseł na pasku narzędzi, aby wyświetlić i zapisać.",
+        "description": "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTitle": {
+        "message": "Wykryto zaktualizowane hasło",
+        "description": "Title of the system notification when an update for an existing password has been detected"
+    },
+    "NotifyUpdatePasswordText": {
+        "message": "Wykryto aktualizację etykiety „$LABEL$”.",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Chrome where the notification has buttons to save or view the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTextFF": {
+        "message": "Wykryto aktualizację etykiety „$LABEL$”. Kliknij ikonę haseł na pasku narzędzi, aby wyświetlić i zapisać.",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "ButtonMore": {
+        "message": "Więcej opcji",
+        "description": "The more options button of a password detection system notification which opens the popup with the form which shows all password details"
+    },
+    "ButtonClose": {
+        "message": "Zamknij",
+        "description": "The title of the close button of a toast notification"
+    },
+    "ToastServerCheckTitle": {
+        "message": "$SERVER$ wymaga uaktualnienia",
+        "description": "Title of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "ToastServerCheckMessage": {
+        "message": "Konto „$SERVER$” używa haseł $SERVERVERSION$, ale to rozszerzenie wymaga co najmniej $MINVERSION$. Aplikację należy zaktualizować, zanim będzie można ponownie aktywować konto w ustawieniach.",
+        "description": "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
+    },
+    "ToastErrorMessage": {
+        "message": "Wystąpił błąd w kliencie haseł. Sprawdź dziennik błędów w opcjach debugowania, aby uzyskać więcej informacji.",
+        "description": "Text of the toast notification for error messages from the passwords client. The error message is the title"
+    },
+    "ToastPasswordTrashed": {
+        "message": "$LABEL$ został przeniesiony do kosza. Możesz go trwale usunąć w aplikacji lub przywrócić",
+        "description": "Text of the toast notification after a password was moved to the trash",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "ToastPasswordTrashedRestore": {
+        "message": "Przywróć",
+        "description": "Text of the toast notification option to restore a password from the trash"
+    },
+    "ToastPasswordDeleteFailed": {
+        "message": "Nie udało się usunąć hasła",
+        "description": "Text of the toast notification when deleting the password failed"
+    },
+    "ToastPasswordRestored": {
+        "message": "$LABEL$ został przywrócony z kosza. Pojawi się ponownie po ponownym otwarciu wyskakującego okienka",
+        "description": "Text of the toast notification after a password was restored from the trash",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "ToastPasswordUpdated": {
+        "message": "Hasło zaktualizowane",
+        "description": "Text of the toast notification when password was updated"
+    },
+    "ToastPasswordUpdateFailed": {
+        "message": "Hasło nie zostało zaktualizowane",
+        "description": "Text of the toast notification when password update failed"
+    },
+    "PasswordPastedError": {
+        "message": "Nie udało się wkleić $LABEL$",
+        "description": "Text of the toast notification when a password could not be pasted into the current tab",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "ServerConnectionErrorTitle": {
+        "message": "Nie można połączyć się z $SERVER$",
+        "description": "Title of the toast notification when the connection to the server failed",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "ServerCredentialsRejected": {
+        "message": "Odrzucono poświadczenia serwera. Zaktualizuj dane logowania w ustawieniach.",
+        "description": "Text of the toast notification when the server has rejected the login credentials"
+    },
+    "ServerHttpError": {
+        "message": "Błąd połączenia HTTP: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with a HTTP error",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "ServerUnknownError": {
+        "message": "Nieznany błąd.",
+        "description": "Text of the toast notification when the connection to the server failed with an unknown error and no error message is present"
+    },
+    "ServerGenericError": {
+        "message": "Błąd: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with an error",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "description": "The error message",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "DemoInfoNotification": {
+        "message": "Powiadomienie informacyjne",
+        "description": "Text and title of the info notification in the theme preview"
+    },
+    "DemoSuccessNotification": {
+        "message": "Powiadomienie o powodzeniu",
+        "description": "Text and title of the success notification in the theme preview"
+    },
+    "DemoWarningNotification": {
+        "message": "Powiadomienie ostrzegawcze",
+        "description": "Text and title of the warning notification in the theme preview"
+    },
+    "DemoErrorNotification": {
+        "message": "Powiadomienie o błędzie",
+        "description": "Text and title of the error notification in the theme preview"
+    },
+    "DemoText": {
+        "message": "Demo",
+        "description": "Demo text used in the theme preview"
+    },
+    "SettingsThemeId": {
+        "message": "Aktywny motyw",
+        "description": "Label of the option to choose the current theme in the extension settings"
+    },
+    "ThemeDark": {
+        "message": "Ciemny motyw",
+        "description": "Label of the dark theme"
+    },
+    "ThemeOledDark": {
+        "message": "Ciemny OLED",
+        "description": "Label of the dark theme optimized for OLED-Displays"
+    },
+    "ThemeLight": {
+        "message": "Domyślny",
+        "description": "Label of the default light theme"
+    },
+    "ThemeAdaptaLight": {
+        "message": "Adapta",
+        "description": "Label of the theme with the Adapta color scheme"
+    },
+    "ThemeAdaptaTeal": {
+        "message": "Adapta turkusowy",
+        "description": "Label of the theme with the Adapta teal color scheme"
+    },
+    "ThemeArcDark": {
+        "message": "Arc ciemny",
+        "description": "Label of the theme with the Arc dark scheme"
+    },
+    "ThemeArcLight": {
+        "message": "Arc",
+        "description": "Label of the theme with the Arc color scheme"
+    },
+    "ThemeHacker": {
+        "message": "Hacker",
+        "description": "Label of the hacker style theme"
+    },
+    "ThemeRGB": {
+        "message": "Gaming RGB",
+        "description": "Label of the gaming rgb animated theme"
+    },
+    "ThemeCustom": {
+        "message": "Motyw niestandardowy",
+        "description": "Label for the custom theme option"
+    },
+    "CustomFont": {
+        "message": "Font",
+        "description": "Headline for the font settings in the custom theme settings"
+    },
+    "CustomDefaultElement": {
+        "message": "Element domyślny",
+        "description": "Headline for the default element styling settings in the custom theme settings"
+    },
+    "CustomActiveElement": {
+        "message": "Aktywny element",
+        "description": "Headline for the active element styling settings in the custom theme settings"
+    },
+    "CustomButtons": {
+        "message": "Przyciski",
+        "description": "Headline for the button styling settings in the custom theme settings"
+    },
+    "CustomSliderElement": {
+        "message": "Przełączniki",
+        "description": "Headline for the switch styling settings in the custom theme settings"
+    },
+    "CustomToasts": {
+        "message": "Toast nottifications",
+        "description": "Headline for the toast notification styling settings in the custom theme settings"
+    },
+    "CustomBadge": {
+        "message": "Ikona przeglądarki",
+        "description": "Headline for the browser toolbar icon styling settings in the custom theme settings"
+    },
+    "BorderColorLabel": {
+        "message": "Kolor ramki",
+        "description": "Label of border color options in the custom theme settings"
+    },
+    "BackgroundInheritLabel": {
+        "message": "Dziedzicz tło",
+        "description": "Label of options to inherit the background color in the custom theme settings"
+    },
+    "ForegroundInheritLabel": {
+        "message": "Dziedzicz wiodący",
+        "description": "Label of options to inherit the foreground / text color in the custom theme settings"
+    },
+    "BackgroundColorBaseTitle": {
+        "message": "Ten kolor jest zwykle używany jako tło",
+        "description": "Tooltip of the color input field in the custom theme settings for the default background color for an element"
+    },
+    "ForegroundColorBaseTitle": {
+        "message": "Ten kolor jest zwykle używany do tekstów i obramowań",
+        "description": "Tooltip of the color input field in the custom theme settings for the default foreground / text color for an element"
+    },
+    "ForegroundColorHoverTitle": {
+        "message": "Ten kolor jest używany do tekstów i obramowań, jeśli element jest aktywny",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active foreground / text color for an element"
+    },
+    "BorderColorBaseTitle": {
+        "message": "Ten kolor jest zwykle używany do obramowań",
+        "description": "Tooltip of the color input field in the custom theme settings for the default border color for an element"
+    },
+    "BorderColorHoverTitle": {
+        "message": "Ten kolor jest używany do obramowania, jeśli element jest aktywny",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active border color for an element"
+    },
+    "BackgroundInheritTitle": {
+        "message": "W przypadku aktywacji wartość zostanie odziedziczona z elementu nadrzędnego",
+        "description": "Tooltip for the checkbox to inherit the background color (from the parent element in the html) in the custom theme settings"
+    },
+    "SettingsCustomFont": {
+        "message": "Rodzina czcionek",
+        "description": "Label of the font option in the custom theme settings"
+    },
+    "FontDefault": {
+        "message": "Domyślny",
+        "description": "Label of the default font option in the custom theme settings"
+    },
+    "FontMono": {
+        "message": "Monospace",
+        "description": "Label of the monospaced font option in the custom theme settings"
+    },
+    "FontSerif": {
+        "message": "Serif",
+        "description": "Label of the serif style (like Times New Roman) font option in the custom theme settings"
+    },
+    "FontSans": {
+        "message": "Sans serif",
+        "description": "Label of the sans serif (like Arial) font option in the custom theme settings"
+    },
+    "FontLight": {
+        "message": "Light",
+        "description": "Label of the thin font option in the custom theme settings"
+    },
+    "FontNextcloud": {
+        "message": "Nextcloud",
+        "description": "Label of the Nextcloud font option in the custom theme settings"
+    },
+    "FontOpenDyslexic": {
+        "message": "Open Dyslexic",
+        "description": "Label of the open dyslexic font option in the custom theme settings. This font is good for users with dyslexia"
+    },
+    "FontCustom": {
+        "message": "Własny",
+        "description": "Label for unrecognized fonts in the custom theme settings. This option is usually not shown"
+    },
+    "SettingsCustomFontSize": {
+        "message": "Rozmiar czcionki",
+        "description": "Label of the font size setting in the custom theme settings"
+    },
+    "FontSizeVerySmall": {
+        "message": "Bardzo mały",
+        "description": "Label for the very small font size in the custom theme settings"
+    },
+    "FontSizeSmall": {
+        "message": "Mały",
+        "description": "Label for the small font size in the custom theme settings"
+    },
+    "FontSizeDefault": {
+        "message": "Domyślny",
+        "description": "Label for the default font size in the custom theme settings"
+    },
+    "FontSizeMedium": {
+        "message": "Średni",
+        "description": "Label for the medium font size in the custom theme settings"
+    },
+    "FontSizeLarge": {
+        "message": "Duży",
+        "description": "Label for the large font size in the custom theme settings"
+    },
+    "FontSizeVeryLarge": {
+        "message": "Bardzo duży",
+        "description": "Label for the very large font size in the custom theme settings"
+    },
+    "ToastInfoColors": {
+        "message": "Info toast.",
+        "description": "Label of the setting in the custom theme settings to choose the colors of informational toast notifications"
+    },
+    "ToastSuccessColors": {
+        "message": "Success toast",
+        "description": "Label of the setting in the custom theme settings to choose the colors of success toast notifications"
+    },
+    "ToastWarningColors": {
+        "message": "Warning toast.",
+        "description": "Label of the setting in the custom theme settings to choose the colors of warning toast notifications"
+    },
+    "ToastErrorColors": {
+        "message": "Error toast.",
+        "description": "Label of the setting in the custom theme settings to choose the colors of error toast notifications"
+    },
+    "BadgeIconAuto": {
+        "message": "Automatycznie",
+        "description": "Label of the automatic icon option for the toolbar icon in the custom theme settings"
+    },
+    "PasslinkErrorClose": {
+        "message": "Zamknij",
+        "description": "Text of the close button in the PassLink error window"
+    },
+    "PasslinkConnectFailed": {
+        "message": "Połączenie nieudane",
+        "description": "Message in the PassLink window when the PassLink Connect action failed"
+    },
+    "PasslinkConnectSettings": {
+        "message": "Otwórz ustawienia",
+        "description": "Text of the button to open the extension settings in the PassLink result window"
+    },
+    "PasslinkConnectClose": {
+        "message": "Zamknij okno",
+        "description": "Text of the button  in the PassLink result window to close the window"
+    },
+    "PasslinkScanScanning": {
+        "message": "Szukam kodu QR",
+        "description": "Message used by the PassLink QR scanner while the camera feed is scanned for a qr code"
+    },
+    "PasslinkScanProcessingLink": {
+        "message": "Przetwarzanie kodu QR",
+        "description": "Message used by the PassLink QR scanner when a valid code was found and is now being analyzed"
+    },
+    "PasslinkScanInvalidQrCode": {
+        "message": "Ten kod QR nie jest obsługiwany",
+        "description": "Message used by the PassLink QR scanner when the user scans a code that does not contain a valid and supported uri of Passlink"
+    },
+    "QrNotAllowedError": {
+        "message": "Dostęp do aparatu nie został przyznany",
+        "description": "Message used by the PassLink QR scanner when the user did not allow camera access"
+    },
+    "QrNotSupportedError": {
+        "message": "Kontekst uznano jako niebezpieczny",
+        "description": "Message used by the PassLink QR scanner when the page was opened in an insecure context (http://). This should never happen"
+    },
+    "FirstRunConnectTitle": {
+        "message": "Połącz się z NextCloud",
+        "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
     }
 }
