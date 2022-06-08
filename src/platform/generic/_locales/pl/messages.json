@@ -136,7 +136,7 @@
         }
     },
     "ToastServerCheckWarning": {
-        "message": "To rozszerzenie będzie wkrótce wymagało haseł $MINVERSION$, ale „ $SERVER$ ” używa haseł $SERVERSION$. Zaktualizuj aplikację, aby móc dalej korzystać z konta.",
+        "message": "To rozszerzenie będzie wkrótce wymagało haseł $MINVERSION$, ale $SERVER$ używa haseł $SERVERVERSION$. Zaktualizuj aplikację, aby móc dalej korzystać z konta.",
         "description": "Text of the toast notification when an account uses a server which will soon be no longer supported because it uses an outdated and unsupported version of the passwords app",
         "placeholders": {
             "server": {
@@ -594,7 +594,7 @@
         "description": "Label for the folder count in the server info in the browse tab"
     },
     "LabelFolder": {
-        "message": "Folder.",
+        "message": "Katalog",
         "description": "Label for the folder of this password."
     },
     "LabelCreated": {
@@ -1011,19 +1011,19 @@
         "description": "Label for the very large font size in the custom theme settings"
     },
     "ToastInfoColors": {
-        "message": "Info toast.",
+        "message": "Szybkie info",
         "description": "Label of the setting in the custom theme settings to choose the colors of informational toast notifications"
     },
     "ToastSuccessColors": {
-        "message": "Success toast",
+        "message": "Szybkie info - sukces",
         "description": "Label of the setting in the custom theme settings to choose the colors of success toast notifications"
     },
     "ToastWarningColors": {
-        "message": "Warning toast.",
+        "message": "Szybkie info - ostrzeżenie",
         "description": "Label of the setting in the custom theme settings to choose the colors of warning toast notifications"
     },
     "ToastErrorColors": {
-        "message": "Error toast.",
+        "message": "Szybkie info - błąd",
         "description": "Label of the setting in the custom theme settings to choose the colors of error toast notifications"
     },
     "BadgeIconAuto": {
