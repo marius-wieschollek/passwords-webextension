@@ -1069,5 +1069,364 @@
     "FirstRunConnectTitle": {
         "message": "Połącz się z NextCloud",
         "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
+    },
+    "PasswordEditValidationRequired": {
+        "message": "To pole jest wymagane",
+        "description": "The validation error message in the password edit form if a required field is empty"
+    },
+    "HelpClearClipboardPasswords": {
+        "message": "Schowek zostanie wyczyszczony tylko wtedy, gdy przeglądarka będzie nadal otwarta. Jeśli przyznane zostanie opcjonalne uprawnienie do odczytu schowka, zostanie ono wyczyszczone tylko wtedy, gdy hasło nadal tam jest.",
+        "description": "Help text in the extension settings for the setting to automatically clean passwords from clipboard after a certain time."
+    },
+    "DebugHighlightLoginForms": {
+        "message": "Zaznacz pola Formularza Logowania",
+        "description": "Label of the button in the popup which triggers the option to highlight all login form fields in the current tab"
+    },
+    "DebugInfoExtensionPlatform": {
+        "message": "User Agent",
+        "description": "Description of the browser user agent in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugSourceAndBuild": {
+        "message": "Instrukcje kompilacji i pobieranie kodu źródłowego",
+        "description": "Label of the link to open the page with build instructions and links to the source code in the debug tab in the extension settings"
+    },
+    "HelpPasteBasicAuth": {
+        "message": "Automatycznie odpowiadaj na żądania podstawowego uwierzytelniania HTTP, używając pierwszego sugerowanego poświadczenia. Należy pamiętać, że może to ujawnić poświadczenia na niewiarygodnych serwerach.",
+        "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "SettingsSearchRecommendationMaxRows": {
+        "message": "Maksymalna liczba rekomendacji",
+        "description": "Label of the setting in the extension settings to define the maximum number of results for the password recommendation."
+    },
+    "ToastBackgroundTitle": {
+        "message": "Kolor tła krótkich powiadomień",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification background color"
+    },
+    "ToastForegroundTitle": {
+        "message": "Kolor tła tekstu i przycisków krótkich powiadomień",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification foreground / text color"
+    },
+    "BadgeIconLight": {
+        "message": "Ikona jasna",
+        "description": "Label of the light icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconMedium": {
+        "message": "Szara ikona",
+        "description": "Label of the grey icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconDark": {
+        "message": "Ciemna ikona",
+        "description": "Label of the dark icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewLight": {
+        "message": "Lekka, nowoczesna ikona",
+        "description": "Label of the light modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewMedium": {
+        "message": "Szara nowoczesna ikona",
+        "description": "Label of the grey modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewDark": {
+        "message": "Ciemna nowoczesna ikona",
+        "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "CustomBadgeColors": {
+        "message": "Kolory odznak",
+        "description": "Label of the settings for the toolbar icon badge colors in the custom theme settings"
+    },
+    "BadgeBackgroundTitle": {
+        "message": "Kolor tła odznaki",
+        "description": "Tooltip for the color input for the background color of the toolbar icon badge in the custom theme settings"
+    },
+    "BadgeForegroundTitle": {
+        "message": "Kolor tekstu odznaki",
+        "description": "Tooltip for the color input for the text color of the toolbar icon badge in the custom theme settings"
+    },
+    "PasslinkErrorNoMessage": {
+        "message": "Wystąpił błąd, ale brak informacji o błędzie",
+        "description": "Error message shown in the PassLink popup window when and error happened but no error message was provided"
+    },
+    "PasslinkNoLinkProvided": {
+        "message": "Brakuje linku albo nie udało się wykonać akcji",
+        "description": "Error message shown in the PassLink popup window when the window was opened but no action or link to process was provided"
+    },
+    "PasslinkNoActiveAction": {
+        "message": "Nie ma aktywnej akcji PassLink tego typu",
+        "description": "Error message when an active PassLink action is required for a request but no active action can be found. (Example: Request to view the second step of the PassLink connect step, but no PassLink connect was started at all)"
+    },
+    "PasslinkConnectCheckCodes": {
+        "message": "Sprawdź, czy poniższe kody pasują do tych, które widzisz w aplikacji. Jeśli tak, potwierdź połączenie w aplikacji i gotowe.",
+        "description": "Message during the PassLink Connect action telling the user to check if the codes below match the ones shown in the Nextcloud Passwords App. If so, the user just needs to confirm the connection in the Nextcloud app to add the account to the extension."
+    },
+    "PasslinkConnectServer": {
+        "message": "Nowe konto zostało zapisane jako „$LABEL$”",
+        "description": "Confirmation message in the PassLink Connect action when a new account has been created successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "PasslinkConnectNotFound": {
+        "message": "Ten link jest nieprawidłowy. Być może był już używany lub wygasł.",
+        "description": "Error message in PassLink when the link used has expired or was already used."
+    },
+    "PasslinkConnectRejected": {
+        "message": "Żądanie połączenia zostało odrzucone przez serwer.",
+        "description": "Error message when the server rejected the PassLink connect action was not confirmed by the server"
+    },
+    "PasslinkConnectNetworkError": {
+        "message": "Połączenie z serwerem nie powiodło się. Sprawdź swoją sieć.",
+        "description": "Error message in PassLink when the connection to the Nextcloud server failed with a networking error"
+    },
+    "PasslinkConnectSuccess": {
+        "message": "Jest połączenie",
+        "description": "Message in the PassLink window when the PassLink Connect action was successful"
+    },
+    "QrOverconstrainedError": {
+        "message": "Ta kamera nie nadaje się do użytku",
+        "description": "Message used by the PassLink QR scanner when the camera is faulty"
+    },
+    "QrStreamApiNotSupportedError": {
+        "message": "Stream API nie jest obsługiwany przez tę przeglądarkę",
+        "description": "Message used by the PassLink QR scanner when the browser does not support the required streaming api. This should never happen"
+    },
+    "FirstRunConnectLink": {
+        "message": "Jeśli okno dialogowe PassLink jest otwarte na tym samym urządzeniu, użyj opcji Połącz przez łącze",
+        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
+    },
+    "FirstRunConnectScan": {
+        "message": "Jeśli jest to inne urządzenie, zeskanuj kod połączenia PassLink za pomocą przycisku poniżej",
+        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
+    },
+    "FirstRunConnectManual": {
+        "message": "Konto możesz również utworzyć ręcznie w ustawieniach rozszerzenia",
+        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
+    },
+    "FirstRunConnectScanButton": {
+        "message": "Zeskanuj kod PassLink",
+        "description": "Text of the button to scan a PassLink QR Code"
+    },
+    "OpenSettings": {
+        "message": "Otwórz Ustawienia Rozszerzeń",
+        "description": "Label of the button to open the extension settings in the tools tab of the popup"
+    },
+    "ToolsTabGeneratePassword": {
+        "message": "Wygeneruj hasło",
+        "description": "Label of the generate password section in the tools tab of the popup"
+    },
+    "ToolsTabDebugTools": {
+        "message": "Narzędzia do debugowania",
+        "description": "Label of the debugging tools section in the tools tab of the popup"
+    },
+    "GeneratedPasswordPlaceholder": {
+        "message": "Wygenerowane hasło",
+        "description": "Placeholder of the field for the generated password in the tools tab of the popup"
+    },
+    "GeneratedPasswordTitle": {
+        "message": "Słowa hasła: $WORDS$",
+        "description": "Title of the input field for the generated password in the tools tab of the popup. It shows the words used to generate the password",
+        "placeholders": {
+            "words": {
+                "content": "$1",
+                "description": "The words used for the password",
+                "example": "First Second Third"
+            }
+        }
+    },
+    "LabelGenerateAddNumbers": {
+        "message": "Liczby",
+        "description": "Label of the option to include numbers in the password generator in the tools tab"
+    },
+    "LabelGenerateAddSpecial": {
+        "message": "Symbole",
+        "description": "Label of the option to include special characters in the password generator in the tools tab"
+    },
+    "LabelGenerateStrength": {
+        "message": "Siła hasła",
+        "description": "Label of the option to set the strength in the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthLow": {
+        "message": "Niska",
+        "description": "Label of the low (0) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthStandard": {
+        "message": "Standardowa",
+        "description": "Label of the default (1) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthMedium": {
+        "message": "Średnia",
+        "description": "Label of the medium (2) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthHigh": {
+        "message": "Wysoka",
+        "description": "Label of the high (3) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthUltra": {
+        "message": "Ultra+",
+        "description": "Label of the very high (4) strength option for the password generator in the tools tab"
+    },
+    "PasswordGenerateError": {
+        "message": "Nie udało się wygenerować hasła: $ERROR$",
+        "description": "Notification shown when the generation of a password fails",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "Unexpected data type"
+            }
+        }
+    },
+    "PasteBadPasswordWarning": {
+        "message": "To hasło jest zdradzone i powinno zostać natychmiast zmienione",
+        "description": "Notification shown after the user pasted a password with the security status breached/compromised"
+    },
+    "DebugInternalStats": {
+        "message": "Stan wewnętrzny",
+        "description": "Headline above the internal status section in the extension settings in the debug tab"
+    },
+    "DebugInfoExtensionVersion": {
+        "message": "Wersja rozszerzenia",
+        "description": "Description of the extension version in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionBuild": {
+        "message": "Platforma docelowa",
+        "description": "Description of the extension build target (firefox or chrome) in the internal status section in the debug tab in the extension settings"
+    },
+    "PasswordEditValidationInvalidValue": {
+        "message": "Nieprawidłowa wartość",
+        "description": "The validation error message in the password edit form if the value is invalid"
+    },
+    "PasswordEditValidationMaxLength": {
+        "message": "Dozwolone są tylko znaki $CHARACTERS$",
+        "description": "The validation error message in the password edit form if the value is longer than allowed",
+        "placeholders": {
+            "characters": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
+    },
+    "DebugInfoExtensionEnvironment": {
+        "message": "Tryb rozszerzenia",
+        "description": "Description of the extension mode (production or development) in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoHiddenFolderId": {
+        "message": "ID folderu ukrytych haseł",
+        "description": "Description of the id of the folder used to store hidden/private passwords in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugSettings": {
+        "message": "Ustawienia debugowania",
+        "description": "Headline above the debugging settings section in the extension settings in the debug tab"
+    },
+    "DebugLanguageTagsEnabled": {
+        "message": "Pokaż klawisze języka",
+        "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
+    },
+    "DebugBuild": {
+        "message": "Informacje o kompilacji",
+        "description": "Headline above the section for the build instructions in the debug tab in the extension settings"
+    },
+    "DebugErrorLog": {
+        "message": "Log błędów",
+        "description": "Headline above the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorNoMessage": {
+        "message": "Brak komunikatu o błędzie",
+        "description": "Used as error message for errors with no error message (but have a timestamp) in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorNoDetails": {
+        "message": "Brak szczegółów błędu",
+        "description": "Used as error message for errors with no details at all in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorDataCopied": {
+        "message": "Szczegóły błędu zostały skopiowane do schowka",
+        "description": "Success notification when you copy an error report to the clipboard in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugNoErrors": {
+        "message": "Brak błędów w logu",
+        "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
+    },
+    "RecommendationSettings": {
+        "message": "Polecanie poświadczeń",
+        "description": "Label of the section password recommendations in the extension settings."
+    },
+    "SettingsSearchRecommendationOption": {
+        "message": "Wyszukaj dane uwierzytelniające za pomocą",
+        "description": "Label of the setting in the extension settings to define how password recommendations are searched."
+    },
+    "LabelSearchRecommendationDomain": {
+        "message": "ta sama domena",
+        "description": "Find password recommendations by domain. So on page mail.example.com you will see all passwords for the domain and sumdomains of example.com."
+    },
+    "LabelSearchRecommendationHost": {
+        "message": "ten sam host",
+        "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
+    },
+    "LabelSearchRecommendationHostPort": {
+        "message": "ten sam host & port",
+        "description": "Find password recommendations for the specific server and port."
+    },
+    "LabelSearchRecommendationExact": {
+        "message": "ten sam adres URL",
+        "description": "Find only passwords where th url matches exact to the current browser url."
+    },
+    "SearchRecommendationMaxRowsNumber": {
+        "message": "$ROW$",
+        "description": "Number of results that should be displayed for password recommendations.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 1, 5, 10, 15 or 20"
+            }
+        }
+    },
+    "UiSettings": {
+        "message": "Interfejs użytkownika",
+        "description": "Label of the user interface section in the extension settings."
+    },
+    "SettingsShowUsernameInList": {
+        "message": "Pokaż nazwę użytkownika obok tytułu",
+        "description": "Label of the setting in the extension settings to show the username next to the title in password lists."
+    },
+    "InputSliderOn": {
+        "message": "Teraz włączony",
+        "description": "Tooltip of any slider input element that is currently in the active/enabled state"
+    },
+    "InputSliderOff": {
+        "message": "Teraz wyłaczony",
+        "description": "Tooltip of any slider input element that is currently in the inactive/disabled state"
+    },
+    "PasswordCustomFieldsTypeText": {
+        "message": "Tekst",
+        "description": "Label of the password custom setting type 'text'."
+    },
+    "PasswordCustomFieldsTypeSecret": {
+        "message": "Sekret",
+        "description": "Label of the password custom setting type 'secret'."
+    },
+    "PasswordCustomFieldsTypeEmail": {
+        "message": "E-mail",
+        "description": "Label of the password custom setting type 'email'."
+    },
+    "PasswordCustomFieldsTypeUrl": {
+        "message": "Odnośnik",
+        "description": "Label of the password custom setting type 'url'."
+    },
+    "PasswordCustomFieldsTypeFormField": {
+        "message": "Pole formularza",
+        "description": "Label of the password custom setting form field to insert custom values to a web page."
+    },
+    "MiningPasswordDiscarded": {
+        "message": "Hasło odrzucone",
+        "description": "The toast notification after the user has successfully discarded a mined password"
+    },
+    "MiningPasswordCreated": {
+        "message": "Hasło zostało zapisane",
+        "description": "The toast notification after the password was successfully saved"
+    },
+    "MiningPasswordUpdated": {
+        "message": "Hasło zaktualizowane",
+        "description": "The toast notification after the password was successfully saved"
     }
 }
