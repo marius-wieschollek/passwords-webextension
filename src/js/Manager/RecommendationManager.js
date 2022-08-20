@@ -151,7 +151,11 @@ class RecommendationManager {
      * @private
      */
     _clearRecommended(tabs) {
-        for(let tab of tabs) {
+        for(let id in tabs) {
+            if(!tabs.hasOwnProperty(id)) {
+                continue;
+            }
+            let tab = tabs[id];
             if(tab && tab.hasOwnProperty('recommended')) {
                 delete tab.recommended;
             }
