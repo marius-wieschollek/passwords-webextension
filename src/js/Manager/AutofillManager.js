@@ -9,7 +9,7 @@ export default new class AutofillManager {
     constructor() {
         this._recommendationListener = (recommendations) => {
             this.recommendations = recommendations;
-            this.currentURL = TabManager.getAll()[TabManager.currentTabId].url;
+            this.currentURL = TabManager.get('url', null);
         };
         this.recommendations = [];
         this.currentURL = null;
