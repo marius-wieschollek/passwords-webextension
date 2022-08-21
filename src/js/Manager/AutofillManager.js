@@ -23,7 +23,7 @@ export default new class AutofillManager {
         MessageService.listen(
             'autofill.page.ready',
             (message, reply) => {
-                if(message.url = this.currentURL) {
+                if(message.url === this.currentURL) {
                     this._sendAutofillPassword(this.recommendations);
                 }
             }
