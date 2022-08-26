@@ -160,9 +160,9 @@ class SystemService {
      */
     async getUserAgent() {
         let bwInfo = await this.getBrowserInfo(),
-            os     = bwInfo.os ? `${bwInfo.os[0].toUpperCase()}${bwInfo.os.substr(1)}`:'';
+            os     = bwInfo.os ? `${bwInfo.os[0].toUpperCase()}${bwInfo.os.substring(1)}`:'';
 
-        return this._api.i18n.getMessage('UserAgent', [bwInfo.name, os]);
+        return this._api.i18n.getMessage('UserAgent', [bwInfo.name, os]).replace(/[^\x00-\x7F]/g,'_');
     }
 
     /**

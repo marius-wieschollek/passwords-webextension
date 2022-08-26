@@ -234,7 +234,7 @@
         }
     },
     "UserAgent": {
-        "message": "Oficialny Klient Hasła (Passwords) dla $BROWSER$ na $OS$",
+        "message": "Oficialny Klient Hasla (Passwords) dla $BROWSER$ na $OS$",
         "description": "The user agent used for api requests. Only ASCII characters allowed",
         "placeholders": {
             "browser": {
