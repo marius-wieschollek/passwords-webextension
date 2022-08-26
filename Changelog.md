@@ -1,5 +1,10 @@
 ## 2.2.5 - Bugfix Release
 ### Fixed
+- Autofill not working
+- Attempt to use headers with non-ASCII characters
+
+## 2.2.5 - Bugfix Release
+### Fixed
 - Fix performance issues
 
 ## 2.2.4 - Bugfix Release
