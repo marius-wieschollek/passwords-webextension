@@ -51,7 +51,7 @@ export default new class AutofillManager {
 
     /**
      *
-     * @param {Password[]} recommendations
+     * @param {Password} password
      * @private
      */
     _sendPwdToMessageService(password) {

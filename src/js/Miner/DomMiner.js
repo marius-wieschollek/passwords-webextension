@@ -207,17 +207,16 @@ export default class DomMiner {
 
     _processPendingMutations() {
         let mutations,
-            time = Date.now(),
-            counter = 0,
+            foundPassword = false,
             forms = new FormService();
         mainLoop: while(mutations = this._pendingMutations.shift()) {
             for(const mutation of mutations) {
                 if(mutation.type === "childList") {
                     for(const added of mutation.addedNodes) {
-                        counter++;
                         if(added !== document.body && document.body.contains(added) && forms.getPasswordFields(added).length > 0) {
                             this._mutationObserver.disconnect();
                             this._addFormsListener(forms.getLoginFields());
+                            foundPassword = true
                             break mainLoop;
                         }
                     }
@@ -225,6 +224,16 @@ export default class DomMiner {
             }
         }
 
-        console.log('NC Passwords processed DOM changes:', counter, (Date.now()-time)/1000);
+        if(foundPassword) {
+            MessageService.send(
+                {
+                    type    : 'autofill.page.ready',
+                    payload : {
+                        url: window.location.href
+                    },
+                    receiver: 'background'
+                }
+            );
+        }
     }
 }
