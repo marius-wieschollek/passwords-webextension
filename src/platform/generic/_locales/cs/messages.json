@@ -48,7 +48,7 @@
         "description": "Label assigned to the account used by the v1.x migration"
     },
     "PrivatePasswordsFolderLabel": {
-        "message": "Soukromá hesla",
+        "message": "Hesla pro anonymní režim",
         "description": "Label assigned to the hidden folder for private passwords. (folder is only visible when browsing in private mode)"
     },
     "SettingsTabAccounts": {
