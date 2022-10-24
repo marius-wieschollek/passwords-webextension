@@ -150,7 +150,8 @@ class ContextMenuManager {
                     user      : password.getUserName(),
                     password  : password.getPassword(),
                     formFields: AutofillManager.getCustomFormFields(password),
-                    submit    : false
+                    submit    : false,
+                    autofill  : true
                 }
             }
         );

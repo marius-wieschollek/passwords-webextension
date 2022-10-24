@@ -66,7 +66,8 @@ export default new class AutofillManager {
                     user      : password.getUserName(),
                     password  : password.getPassword(),
                     formFields: this.getCustomFormFields(password),
-                    submit    : false
+                    submit    : false,
+                    autofill  : true
                 }
             }
         ).catch(ErrorManager.catchEvt);
