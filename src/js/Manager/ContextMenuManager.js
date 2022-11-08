@@ -161,7 +161,7 @@ class ContextMenuManager {
      * @private
      */
     _openBrowserAction() {
-        SystemService.getBrowserApi().browserAction.openPopup();
+        SystemService.getBrowserApi().getBrowserAction().openPopup();
     }
 
     /**

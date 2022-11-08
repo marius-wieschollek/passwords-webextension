@@ -43,10 +43,18 @@ class BrowserApi {
 
     /**
      *
+     * @returns {{setBadgeText: {maxArgs: number, fallbackToNoCallback: boolean, minArgs: number}, setIcon: {maxArgs: number, minArgs: number}, setPopup: {maxArgs: number, fallbackToNoCallback: boolean, minArgs: number}, getBadgeText: {maxArgs: number, minArgs: number}, getBadgeBackgroundColor: {maxArgs: number, minArgs: number}, getTitle: {maxArgs: number, minArgs: number}, disable: {maxArgs: number, fallbackToNoCallback: boolean, minArgs: number}, enable: {maxArgs: number, fallbackToNoCallback: boolean, minArgs: number}, openPopup: {maxArgs: number, minArgs: number}, setBadgeBackgroundColor: {maxArgs: number, fallbackToNoCallback: boolean, minArgs: number}, setTitle: {maxArgs: number, fallbackToNoCallback: boolean, minArgs: number}, getPopup: {maxArgs: number, minArgs: number}}}
+     */
+    getBrowserAction() {
+        return browser.browserAction;
+    }
+
+    /**
+     *
      * @return {Boolean}
      */
     hasBadgeText() {
-        return browser.browserAction.hasOwnProperty('getBadgeText');
+        return this.getBrowserAction().hasOwnProperty('getBadgeText');
     }
 
     /**

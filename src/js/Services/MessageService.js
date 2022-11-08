@@ -48,7 +48,7 @@ class MessageService {
         this._api.runtime.onMessage.addListener(this._messageListener);
         if(SystemService.getArea() === SystemService.AREA_BACKGROUND) {
             this._api.runtime.onConnect.addListener(this._messageEnabler);
-            this._api.browserAction.onClicked.addListener(this._messageEnabler);
+            this._api.getBrowserAction().onClicked.addListener(this._messageEnabler);
 
             window.inboxMessage = (m) => {
                 return this._receiveMessage(m);

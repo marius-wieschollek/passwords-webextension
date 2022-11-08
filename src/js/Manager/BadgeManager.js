@@ -83,7 +83,7 @@ class BadgeManager {
                     badgeText.push(`+${miningQueue}`);
                 }
             }
-            await this._api.browserAction.setBadgeText({text: badgeText.join(' '), tabId});
+            await this._api.getBrowserAction().setBadgeText({text: badgeText.join(' '), tabId});
 
             await this._setBadgeTheme();
         } catch(e) {
@@ -104,10 +104,10 @@ class BadgeManager {
             if(ServerManager.isAuthorized.get() && recommended.length !== 0) {
                 let count = recommended.length.toString(),
                     title = LocalisationService.translate('BrowserActionTitleCounter', [count]);
-                await this._api.browserAction.setTitle({title, tabId});
+                await this._api.getBrowserAction().setTitle({title, tabId});
             } else {
                 let title = LocalisationService.translate('browserActionTitle');
-                await this._api.browserAction.setTitle({title, tabId});
+                await this._api.getBrowserAction().setTitle({title, tabId});
             }
         } catch(e) {
             ErrorManager.logError(e);
@@ -117,14 +117,14 @@ class BadgeManager {
     async _setBadgeTheme() {
         if(SystemService.isCompatible(SystemService.PLATFORM_FIREFOX)) {
             let color = await ThemeService.getBadgeTextColor();
-            await this._api.browserAction.setBadgeTextColor({color});
+            await this._api.getBrowserAction().setBadgeTextColor({color});
         }
 
         let color = await ThemeService.getBadgeBackgroundColor();
-        await this._api.browserAction.setBadgeBackgroundColor({color});
+        await this._api.getBrowserAction().setBadgeBackgroundColor({color});
 
         let icon = await ThemeService.getBadgeIcon();
-        await this._api.browserAction.setIcon({path: icon});
+        await this._api.getBrowserAction().setIcon({path: icon});
     }
 }
 
