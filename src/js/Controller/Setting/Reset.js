@@ -14,6 +14,7 @@ export default class Reset extends AbstractController {
             'popup.related.search',
             'notification.password.new',
             'notification.password.update',
+            'notification.password.quicksave',
             'server.default',
             'theme.current',
             'theme.custom',
