@@ -184,7 +184,7 @@
         }
     },
     "UserAgent": {
-        "message": "Cliente oficial de contraseñas para $BROWSER$ en $OS$",
+        "message": "Official Passwords Client for $BROWSER$ on $OS$",
         "description": "The user agent used for api requests. Only ASCII characters allowed",
         "placeholders": {
             "browser": {
