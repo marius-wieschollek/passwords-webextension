@@ -56,7 +56,7 @@ export default class DomMiner {
             }
             this._observerTimer = setTimeout(() => {
                 this._processPendingMutations();
-            }, 2000);
+            }, 250);
         });
         this._mutationObserver.observe(document.body, {childList: true, subtree: true});
     }
@@ -206,6 +206,7 @@ export default class DomMiner {
     }
 
     _processPendingMutations() {
+        let start = Date.now(), count = this._pendingMutations.length;
         let mutations,
             foundPassword = false,
             forms = new FormService();
@@ -223,6 +224,10 @@ export default class DomMiner {
                 }
             }
         }
+        console.log(`Processed ${count} dom changes in `, Date.now() - start);
+        start = Date.now();
+        let formcount = document.querySelector('input[type="password"]') !== null;
+        console.log(`Altenate mode ready in `, Date.now() - start);
 
         if(foundPassword) {
             MessageService.send(
