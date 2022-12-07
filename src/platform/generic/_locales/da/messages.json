@@ -1,1 +1,1456 @@
-{}
+{
+    "BrowserActionTitleCounter": {
+        "message": "Adgangskoder ($COUNTER$)",
+        "description": "Title of the button in the browser bar with suggestion counter",
+        "placeholders": {
+            "counter": {
+                "content": "$1",
+                "example": "2"
+            }
+        }
+    },
+    "UserAgent": {
+        "message": "Officiel adgangsklient til $BROWSER$ på $OS$",
+        "description": "The user agent used for api requests. Only ASCII characters allowed",
+        "placeholders": {
+            "browser": {
+                "content": "$1",
+                "example": "Firefox"
+            },
+            "os": {
+                "content": "$2",
+                "example": "Linux"
+            }
+        }
+    },
+    "MigrationAccountName": {
+        "message": "Nextcloud-konto",
+        "description": "Label assigned to the account used by the v1.x migration"
+    },
+    "PrivatePasswordsFolderLabel": {
+        "message": "Private adgangskoder",
+        "description": "Label assigned to the hidden folder for private passwords. (folder is only visible when browsing in private mode)"
+    },
+    "SettingsTabAccounts": {
+        "message": "Regnskaber",
+        "description": "Label of the user accounts tab in the extension settings"
+    },
+    "SettingsTabOther": {
+        "message": "Andre indstillinger",
+        "description": "Label of the general settings tab in the extension settings"
+    },
+    "SettingsTabDebug": {
+        "message": "Fejlfinding",
+        "description": "Label of the extension debugging tab in the extension settings"
+    },
+    "SettingsAccountsMain": {
+        "message": "Standardkonto for nye adgangskoder",
+        "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
+    },
+    "AutofillSettings": {
+        "message": "Indsættelse af legitimationsoplysninger",
+        "description": "Headline above the password autofill section in the other settings tab in the extension settings"
+    },
+    "SettingsPastePopupClose": {
+        "message": "Luk popupvinduet efter indsættelse af legitimationsoplysninger",
+        "description": "Label of the setting in the extension settings to automatically close the extension popup after successful pasting"
+    },
+    "SettingsPasteFormSubmit": {
+        "message": "Indsend loginformularer, når legitimationsoplysninger indsættes fra popup",
+        "description": "Label of the setting in the extension settings to automatically submit login forms after pasting"
+    },
+    "SettingsPasteWarnCompromised": {
+        "message": "Advarsel ved brug af kompromitterede legitimationsoplysninger",
+        "description": "Label of the setting in the extension settings to show a warning after pasting a compromised password"
+    },
+    "SettingsPasteAutofillEnabled": {
+        "message": "Automatisk udfyldelse af de bedst matchende login-data",
+        "description": "Label of the setting in the extension settings to automatically paste the first recommended credential into login forms"
+    },
+    "HelpPasteAutofill": {
+        "message": "Indsæt automatisk den første foreslåede legitimationsoplysninger i enhver loginformular på fanen. Vær opmærksom på, at dette gør det tilgængeligt for alle scripts i fanen.",
+        "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
+    },
+    "SettingsPasteBasicAuth": {
+        "message": "Automatisk svar på anmodninger om grundlæggende HTTP-godkendelse",
+        "description": "Label of the setting in the extension settings to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "HelpPasteBasicAuth": {
+        "message": "Svar automatisk på anmodninger om grundlæggende http-godkendelse med den første foreslåede legitimationsoplysninger. Vær opmærksom på, at dette kan afsløre legitimationsoplysninger til servere, der ikke er troværdige.",
+        "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "SettingsClearClipboardPasswords": {
+        "message": "Slet adgangskoder fra udklipsholderen automatisk",
+        "description": "Label of the setting in the extension settings to automatically clear passwords from clipboard after a certain time."
+    },
+    "HelpClearClipboardPasswords": {
+        "message": "Udklipsholderen bliver kun slettet, hvis browseren stadig er åben. Hvis den valgfrie tilladelse til at læse udklipsholderen er givet, vil den kun blive slettet, hvis adgangskoden stadig er deri.",
+        "description": "Help text in the extension settings for the setting to automatically clean passwords from clipboard after a certain time."
+    },
+    "SettingsClearClipboardDelay": {
+        "message": "Tøm udklipsholderen efter",
+        "description": "Label of the setting in the extension settings to define the time when the clipboard content will be removed."
+    },
+    "SettingsClipboardClearDelayOptions": {
+        "message": "$ROW$ sekunder",
+        "description": "Time in seconds until clipboard will get empty.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 15, 30, 45, 60, 90"
+            }
+        }
+    },
+    "NotificationSettings": {
+        "message": "Meddelelser",
+        "description": "Headline above the notification section in the other settings tab in the extension settings"
+    },
+    "SettingsNotifyPasswordNew": {
+        "message": "Meddelelse om nye adgangskoder",
+        "description": "Label of the setting in the extension settings to enable or disable the notification for new detected passwords"
+    },
+    "SettingsNotifyPasswordUpdate": {
+        "message": "Meddelelse om opdaterede adgangskoder",
+        "description": "Label of the setting in the extension settings to enable or disable the notification for detected password updates"
+    },
+    "LabelFolders": {
+        "message": "Mapper",
+        "description": "Label for the folder count in the server info in the browse tab"
+    },
+    "SettingsNotifyPasswordQuicksave": {
+        "message": "Gem eller opdater direkte, når der klikkes på meddelelsen",
+        "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"
+    },
+    "SearchSettings": {
+        "message": "Søg på",
+        "description": "Headline above the search section in the other settings tab in the extension settings"
+    },
+    "SettingsPopupRelatedSearch": {
+        "message": "Start søgning, når jeg skriver \"Relateret\"",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "AccountList": {
+        "message": "Brugerkonti",
+        "description": "Headline above the user accounts section in the accounts tab in the extension settings"
+    },
+    "NoAccounts": {
+        "message": "Der er ingen konti endnu. Klik her for at oprette et.",
+        "description": "Message in place of the user accounts list in the extension settings if there are no user accounts yet. The user can click the message to create an account"
+    },
+    "NewAccountFormLabel": {
+        "message": "Opret konto",
+        "description": "Label of the new account form in the extension settings"
+    },
+    "ServerSaveTitle": {
+        "message": "Gemte konto",
+        "description": "Title of the toast notification in the extension settings after an account was created or updated successfully"
+    },
+    "ServerSaveMessage": {
+        "message": "Alle ændringer blev anvendt med succes",
+        "description": "Message of the toast notification in the extension settings after an account was created successfully"
+    },
+    "ServerCreatedMessage": {
+        "message": "Kontoen er oprettet og er klar til at blive brugt",
+        "description": "Message of the toast notification in the extension settings after an account was updated successfully"
+    },
+    "ServerSaveErrorTitle": {
+        "message": "Gemning mislykkedes",
+        "description": "Title of the toast notification in the extension settings after an account could not be updated or saved. The message will be the specific error message"
+    },
+    "ServerDisabledWarning": {
+        "message": "Denne konto er deaktiveret. Den vil blive aktiveret, når den er blevet gemt med succes.",
+        "description": "Warning message which appears above the account details if the server was disabled. Usual reasons are invalid login data, unsupported extension version or permanent connection issues."
+    },
+    "ServerLabel": {
+        "message": "Navn",
+        "description": "Label of the account name field in account details in the extension settings"
+    },
+    "ServerBaseUrl": {
+        "message": "Url",
+        "description": "Label of the server url field in account details in the extension settings"
+    },
+    "ServerUser": {
+        "message": "Bruger",
+        "description": "Label of the account login user field in account details in the extension settings"
+    },
+    "ServerToken": {
+        "message": "App-adgangskode",
+        "description": "Label of the account login token field in account details in the extension settings"
+    },
+    "ServerTokenChange": {
+        "message": "Ændre app-adgangskode",
+        "description": "Label of the button to change the login token of an existing account in the account details in the extension settings"
+    },
+    "ServerTimeout": {
+        "message": "Log af efter",
+        "description": "Label of the option to change the automatic logout time of an existing account in the account details in the extension settings"
+    },
+    "ServerTimeoutOptionNever": {
+        "message": "Aldrig",
+        "description": "Label of the option for the server timeout to never expire"
+    },
+    "ServerTimeoutOptionMinutes": {
+        "message": "Efter $MINUTES$ minutter",
+        "description": "Label of the option for the server timeout to expire after a given amount of minutes",
+        "placeholders": {
+            "minutes": {
+                "content": "$1",
+                "example": "One of 5, 10, 15 30 or 60"
+            }
+        }
+    },
+    "TabRelated": {
+        "message": "Forslag",
+        "description": "Label of the related passwords tab in the extension popup"
+    },
+    "TabSearch": {
+        "message": "Søg på",
+        "description": "Label of the search tab in the extension popup"
+    },
+    "TabBrowse": {
+        "message": "Gennemse",
+        "description": "Label of the browse servers tab in the extension popup"
+    },
+    "TabCollected": {
+        "message": "Samlet",
+        "description": "Label of the new collected passwords tab in the extension popup"
+    },
+    "PasswordItemTitle": {
+        "message": "Status: $STATUS$, Id: #$ID$",
+        "description": "The tooltip of any password entry in the popup",
+        "placeholders": {
+            "id": {
+                "content": "$1",
+                "example": "1234-1234-1234-1234"
+            },
+            "status": {
+                "content": "$2",
+                "example": "DUPLICATE"
+            }
+        }
+    },
+    "PasswordItemOpenUrl": {
+        "message": "Åbn hjemmeside",
+        "description": "Title of the menu option to open the password url in a new tab"
+    },
+    "PasswordItemToTrash": {
+        "message": "Flyt til papirkurven",
+        "description": "Title of the menu option to move a password to the trash"
+    },
+    "PasswordItemDetails": {
+        "message": "Se detaljer",
+        "description": "Title of the menu option to view and edit a password"
+    },
+    "ValidationLabel": {
+        "message": "etiket",
+        "description": "Name of the account label field in account validation message. This value is used when the user attempts to save an account with an invalid label"
+    },
+    "ValidationUser": {
+        "message": "bruger",
+        "description": "Name of the account username field in account validation message. This value is used when the user attempts to save an account with an invalid username"
+    },
+    "ValidationToken": {
+        "message": "app-adgangskode",
+        "description": "Name of the account token field in account validation message. This value is used when the user attempts to save an account with an invalid token"
+    },
+    "ValidationBaseUrl": {
+        "message": "base url",
+        "description": "Name of the account base url field in account validation message. This value is used when the user attempts to save an account with an invalid base url"
+    },
+    "ValidationNotEmpty": {
+        "message": "$FIELD$ må ikke være tom.",
+        "description": "Validation message when the user attempts to save something (like an account) but a required field is empty.",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            }
+        }
+    },
+    "ValidationMinLength": {
+        "message": "$FIELD$ skal være mindst $MIN$ tegn lang.",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is shorter than required",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "min": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationFailed": {
+        "message": "Validering mislykkedes.",
+        "description": "Validation message when the user attempts to save something (like an account) but there were validation errors"
+    },
+    "ValidationNotAnUrl": {
+        "message": "Basis-url'en skal være en gyldig url.",
+        "description": "Validation message when the user attempts to save an account but the server url is not a valid url"
+    },
+    "ValidationNotAToken": {
+        "message": "App-adgangskoden skal være en gyldig Nextcloud-app-adgangskode.",
+        "description": "Validation message when the user attempts to save an account but the token does not match the Nextcloud token schema"
+    },
+    "ValidationInvalidTimeout": {
+        "message": "Logout-tiden skal være en af de angivne muligheder.",
+        "description": "Validation message when the user attempts to save an account but the timeout is not within the predefined range"
+    },
+    "ValidationDuplicate": {
+        "message": "Der er allerede en konto for denne bruger på denne Nextcloud.",
+        "description": "Validation message when the user attempts to save a new account, but a similar account with the same server and same user name already exists"
+    },
+    "ValidationNoConnection": {
+        "message": "Det er ikke muligt at oprette forbindelse til $URL$.",
+        "description": "Validation message when the user attempts to save an account but it is not possible to connect to this server with the given url",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationUnauthorizedError": {
+        "message": "Serveren på $URL$ accepterede ikke login-dataene.",
+        "description": "Validation message when the user attempts to save an account but the server did not accept the user name and token",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationHttpError": {
+        "message": "Forsøg på at oprette forbindelse til $URL$ resulterede i $ERROR$.",
+        "description": "Validation message when the user attempts to save an account but the server responded with an unexpected HTTP status code",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "HTTP 401 - Forbidden"
+            }
+        }
+    },
+    "ValidationConnectionError": {
+        "message": "Forsøg på at oprette forbindelse til $URL$ resulterede i $ERROR$.",
+        "description": "Validation message when the user attempts to save an account but the connection attempt resulted in any kind of error (including internal extension errors)",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "Undefined variable example in file"
+            }
+        }
+    },
+    "ValidationServerVersion": {
+        "message": "Den app-version, der er installeret på serveren, er forældet.",
+        "description": "Validation message when the user attempts to save an account but the version of the passwords app installed on the server is outdated"
+    },
+    "NoRelatedPasswords": {
+        "message": "Jeg fandt ingen relaterede adgangskoder",
+        "description": "Used in the related tab when no entries match the current website"
+    },
+    "NoSearchResults": {
+        "message": "Der blev ikke fundet nogen adgangskoder, der svarede til din forespørgsel",
+        "description": "Used in the search tab when no entries match the search query"
+    },
+    "NoSearchQuery": {
+        "message": "Skriv i søgefeltet for at finde adgangskoder",
+        "description": "Used in the search tab when there is no search query"
+    },
+    "NoCollectedPasswords": {
+        "message": "Ingen nye adgangskoder fundet",
+        "description": "Used in the collected tab when no new passwords have been found"
+    },
+    "AddPasswordForCurrentTab": {
+        "message": "Tilføj legitimationsoplysninger for den aktuelle fane",
+        "description": "Used in the collected tab for the option to add a blank entry with just the url of the current tab"
+    },
+    "NoServerItems": {
+        "message": "Ingen elementer fundet",
+        "description": "Used in the browse tab when a server has no entries to list"
+    },
+    "BrowseNoServers": {
+        "message": "Ingen servere til rådighed",
+        "description": "Used in the browse tab when no accounts/servers are available"
+    },
+    "SearchPlaceholder": {
+        "message": "Find adgangskoder",
+        "description": "Placeholder text of the search box"
+    },
+    "MiningItemIsNew": {
+        "message": "Dette er en ny adgangskode",
+        "description": "Text shown in a collected password that is new to tell the user that it is a new passwor"
+    },
+    "MiningItemIsUpdate": {
+        "message": "Dette ser ud til at være en opdatering af \"$PASSWORD$\"",
+        "description": "Text shown in a collected password that is an update of an existing password",
+        "placeholders": {
+            "password": {
+                "content": "$1",
+                "example": "My Password"
+            }
+        }
+    },
+    "TitleClickToEdit": {
+        "message": "Dobbeltklik for at redigere",
+        "description": "Tooltip used in the collected password form for any property of the password to inform the user that double clicking makes the text field editable"
+    },
+    "TitleEnterToExit": {
+        "message": "Tryk på enter for at gemme",
+        "description": "Tooltip used in the collected password form to tell the user that the property can be saved by clicking enter"
+    },
+    "LabelLabel": {
+        "message": "Navn",
+        "description": "Label for the name of a password entry"
+    },
+    "LabelPassword": {
+        "message": "Adgangskode",
+        "description": "Label for the password of a password entry"
+    },
+    "LabelUsername": {
+        "message": "Bruger",
+        "description": "Label for the username of a password entry"
+    },
+    "LabelHidden": {
+        "message": "Privat adgangskode",
+        "description": "Label for the checkbox to mark a password entry as private or hidden in the webapp"
+    },
+    "LabelUrl": {
+        "message": "Url",
+        "description": "Label for of a field that contains an url (used in collected password or server info)"
+    },
+    "LabelUser": {
+        "message": "Bruger",
+        "description": "Label for the username of in the server info in the browse tab"
+    },
+    "LabelPasswords": {
+        "message": "Adgangskoder",
+        "description": "Label for the password count in the server info in the browse tab"
+    },
+    "LabelFolder": {
+        "message": "Mappe",
+        "description": "Label for the folder of this password."
+    },
+    "LabelCreated": {
+        "message": "Oprettet",
+        "description": "Label for the creation time of this password."
+    },
+    "LabelEdited": {
+        "message": "Ændret",
+        "description": "Label for the last edit time of this password."
+    },
+    "LabelNotes": {
+        "message": "Noter",
+        "description": "Label for the notes of this password."
+    },
+    "LabelCustomFields": {
+        "message": "Brugerdefinerede felter",
+        "description": "Label for the custom fields of this password"
+    },
+    "LabelTags": {
+        "message": "Tags",
+        "description": "Label for the tag count in the server info in the browse tab"
+    },
+    "LabelServerVersion": {
+        "message": "Server",
+        "description": "Label for the nextcloud server version in the server info in the browse tab"
+    },
+    "LabelAppVersion": {
+        "message": "API",
+        "description": "Label for the passwords app version in the server info in the browse tab"
+    },
+    "ServerLabelString": {
+        "message": "Nextcloud $VERSION$",
+        "description": "Value for the nextcloud server version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "AppLabelString": {
+        "message": "Adgangskoder $VERSION$",
+        "description": "Value for the passwords app version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "PlaceholderPassword": {
+        "message": "Adgangskode",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
+    },
+    "PlaceholderToken": {
+        "message": "To-faktor-token",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
+    },
+    "ButtonLogin": {
+        "message": "Login",
+        "description": "The text of the login button of the server authorization dialog"
+    },
+    "AuthorizationFailedTitle": {
+        "message": "Autorisation mislykkedes",
+        "description": "Title of the toast notification when the login attempt was unsuccessful"
+    },
+    "AuthorizationFailedText": {
+        "message": "Adgang til adgangskode-databasen med det angivne login blev nægtet",
+        "description": "Text of the toast notification when the login attempt was unsuccessful"
+    },
+    "TokenRequestFailed": {
+        "message": "Anmodning om et symbol mislykkedes",
+        "description": "Title of the toast notification when the request for a two factor auth token failed. The text will be the error message."
+    },
+    "NotifyNewPasswordText": {
+        "message": "Der er fundet en ny adgangskode til \"$LABEL$\".",
+        "description": "Text of the system notification when a new password was detected. Used in Chrome where the notification has buttons to save or view the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyNewPasswordTextFF": {
+        "message": "Der er fundet en ny adgangskode til \"$LABEL$\". Klik på ikonet for adgangskoder på værktøjslinjen for at se og gemme det.",
+        "description": "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyNewPasswordTextQS": {
+        "message": "Der er fundet en ny adgangskode til \"$LABEL$\". Klik her for at gemme det.",
+        "description": "Text of the system notification when a new password was detected. Clicking the notification will save the password.",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTitle": {
+        "message": "Opdateret adgangskode opdaget",
+        "description": "Title of the system notification when an update for an existing password has been detected"
+    },
+    "NotifyUpdatePasswordText": {
+        "message": "En opdatering til \"$LABEL$\" blev opdaget.",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Chrome where the notification has buttons to save or view the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTextFF": {
+        "message": "En opdatering til \"$LABEL$\" blev opdaget. Klik på ikonet for adgangskoder i værktøjslinjen for at se og gemme dem.",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTextQS": {
+        "message": "En opdatering til \"$LABEL$\" blev opdaget. Klik her for at gemme den.",
+        "description": "Text of the system notification when an update for an existing password was detected. Clicking the notification will update the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "SettingsTabTheming": {
+        "message": "Temaer",
+        "description": "Label of the themes tab in the extension settings"
+    },
+    "ButtonSave": {
+        "message": "Gem",
+        "description": "The save button of a password detection system notification"
+    },
+    "ButtonMore": {
+        "message": "Flere muligheder",
+        "description": "The more options button of a password detection system notification which opens the popup with the form which shows all password details"
+    },
+    "ButtonClose": {
+        "message": "Luk",
+        "description": "The title of the close button of a toast notification"
+    },
+    "ToastServerCheckTitle": {
+        "message": "$SERVER$ skal opgraderes",
+        "description": "Title of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "ToastServerCheckMessage": {
+        "message": "Kontoen \"$SERVER$\" bruger passwords $SERVERVERVERSION$, men denne udvidelse kræver mindst $MINVERSION$. Appen skal opdateres, før kontoen kan aktiveres igen i indstillingerne.",
+        "description": "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
+    },
+    "ForegroundColorBaseTitle": {
+        "message": "Denne farve bruges normalt til tekster og rammer",
+        "description": "Tooltip of the color input field in the custom theme settings for the default foreground / text color for an element"
+    },
+    "ToastServerCheckWarning": {
+        "message": "Denne udvidelse vil snart kræve passwords $MINVERSION$, men \"$SERVER$\" bruger passwords $SERVERVERSION$. Opdater venligst appen for fortsat at kunne bruge kontoen.",
+        "description": "Text of the toast notification when an account uses a server which will soon be no longer supported because it uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
+    },
+    "ToastErrorMessage": {
+        "message": "Der er opstået en fejl i klienten til adgangskoder. Tjek fejlloggen i fejlfindingsindstillingerne for at få flere oplysninger.",
+        "description": "Text of the toast notification for error messages from the passwords client. The error message is the title"
+    },
+    "ToastPasswordTrashed": {
+        "message": "$LABEL$ blev flyttet til skraldespanden. Du kan slette den permanent i appen eller gendanne den",
+        "description": "Text of the toast notification after a password was moved to the trash",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "ToastPasswordHiddenTrashed": {
+        "message": "$LABEL$ blev slettet. Hvis det var et uheld, kan du stadig gendanne den nedenfor, før den slettes permanent",
+        "description": "Text of the toast notification after a hidden password was moved to the trash. Users can restore it within the notification but afterwards the password is lost for good",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "ToastPasswordTrashedRestore": {
+        "message": "Gendan",
+        "description": "Text of the toast notification option to restore a password from the trash"
+    },
+    "ToastPasswordDeleteFailed": {
+        "message": "Sletning af adgangskode mislykkedes",
+        "description": "Text of the toast notification when deleting the password failed"
+    },
+    "ToastPasswordRestored": {
+        "message": "$LABEL$ blev genoprettet fra papirkurven. Den vises igen, når du genåbner popuppen.",
+        "description": "Text of the toast notification after a password was restored from the trash",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "PasswordPastedSuccess": {
+        "message": "$LABEL$ indsat med succes",
+        "description": "Text of the toast notification when a password entry was pasted successfully into the current tab",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "ToastPasswordUpdated": {
+        "message": "Adgangskode opdateret",
+        "description": "Text of the toast notification when password was updated"
+    },
+    "ToastPasswordUpdateFailed": {
+        "message": "Opdatering af adgangskode mislykkedes",
+        "description": "Text of the toast notification when password update failed"
+    },
+    "PasswordPastedError": {
+        "message": "Kunne ikke indsætte $LABEL$",
+        "description": "Text of the toast notification when a password could not be pasted into the current tab",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "PasswordPropertyCopied": {
+        "message": "Kopieret $PROPERTY$",
+        "description": "Text of the toast notification when a password property was copied successfully via one of the buttons",
+        "placeholders": {
+            "property": {
+                "content": "$1",
+                "example": "Username"
+            }
+        }
+    },
+    "PropertyPassword": {
+        "message": "Adgangskode",
+        "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
+    },
+    "PropertyUsername": {
+        "message": "Brugernavn",
+        "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
+    },
+    "SettingsThemeId": {
+        "message": "Aktivt tema",
+        "description": "Label of the option to choose the current theme in the extension settings"
+    },
+    "ThemeDark": {
+        "message": "Mørkt tema",
+        "description": "Label of the dark theme"
+    },
+    "ThemeOledDark": {
+        "message": "Mørk OLED",
+        "description": "Label of the dark theme optimized for OLED-Displays"
+    },
+    "ThemeLight": {
+        "message": "Standard",
+        "description": "Label of the default light theme"
+    },
+    "ThemeAdaptaLight": {
+        "message": "Adapta",
+        "description": "Label of the theme with the Adapta color scheme"
+    },
+    "ThemeAdaptaTeal": {
+        "message": "Adapta teal",
+        "description": "Label of the theme with the Adapta teal color scheme"
+    },
+    "ThemeArcDark": {
+        "message": "Arc dark",
+        "description": "Label of the theme with the Arc dark scheme"
+    },
+    "ThemeArcLight": {
+        "message": "Arc",
+        "description": "Label of the theme with the Arc color scheme"
+    },
+    "ThemeHacker": {
+        "message": "Hacker",
+        "description": "Label of the hacker style theme"
+    },
+    "ThemeRGB": {
+        "message": "Gaming RGB",
+        "description": "Label of the gaming rgb animated theme"
+    },
+    "ThemeCustom": {
+        "message": "Brugerdefineret tema",
+        "description": "Label for the custom theme option"
+    },
+    "CustomFont": {
+        "message": "Skrifttype",
+        "description": "Headline for the font settings in the custom theme settings"
+    },
+    "CustomDefaultElement": {
+        "message": "Standardelement",
+        "description": "Headline for the default element styling settings in the custom theme settings"
+    },
+    "CustomActiveElement": {
+        "message": "Aktivt element",
+        "description": "Headline for the active element styling settings in the custom theme settings"
+    },
+    "CustomButtons": {
+        "message": "Knapper",
+        "description": "Headline for the button styling settings in the custom theme settings"
+    },
+    "CustomSliderElement": {
+        "message": "Afbrydere",
+        "description": "Headline for the switch styling settings in the custom theme settings"
+    },
+    "CustomToasts": {
+        "message": "Toastmeddelelser",
+        "description": "Headline for the toast notification styling settings in the custom theme settings"
+    },
+    "BackgroundColorBaseTitle": {
+        "message": "Denne farve bruges normalt til baggrunden",
+        "description": "Tooltip of the color input field in the custom theme settings for the default background color for an element"
+    },
+    "BackgroundColorHoverTitle": {
+        "message": "Denne farve bruges som baggrund, hvis elementet er aktivt. Den kan også bruges som kant for et inaktivt element.",
+        "description": "Tooltip of the color input field in the custom theme settings for the mouse hover / active background color for an element"
+    },
+    "ForegroundColorHoverTitle": {
+        "message": "Denne farve bruges til tekster og rammer, hvis elementet er aktivt",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active foreground / text color for an element"
+    },
+    "BorderColorBaseTitle": {
+        "message": "Denne farve bruges normalt til grænser",
+        "description": "Tooltip of the color input field in the custom theme settings for the default border color for an element"
+    },
+    "BorderColorHoverTitle": {
+        "message": "Denne farve bruges til grænser, hvis elementet er aktivt",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active border color for an element"
+    },
+    "FontDefault": {
+        "message": "Standard",
+        "description": "Label of the default font option in the custom theme settings"
+    },
+    "FontMono": {
+        "message": "Monospace",
+        "description": "Label of the monospaced font option in the custom theme settings"
+    },
+    "FontSerif": {
+        "message": "Serif",
+        "description": "Label of the serif style (like Times New Roman) font option in the custom theme settings"
+    },
+    "FontSans": {
+        "message": "Sans serif",
+        "description": "Label of the sans serif (like Arial) font option in the custom theme settings"
+    },
+    "FontLight": {
+        "message": "Lys",
+        "description": "Label of the thin font option in the custom theme settings"
+    },
+    "FontNextcloud": {
+        "message": "Nextcloud",
+        "description": "Label of the Nextcloud font option in the custom theme settings"
+    },
+    "FontOpenDyslexic": {
+        "message": "Åbn Ordblinde",
+        "description": "Label of the open dyslexic font option in the custom theme settings. This font is good for users with dyslexia"
+    },
+    "FontCustom": {
+        "message": "Tilpasset",
+        "description": "Label for unrecognized fonts in the custom theme settings. This option is usually not shown"
+    },
+    "SettingsCustomFontSize": {
+        "message": "Skriftstørrelse",
+        "description": "Label of the font size setting in the custom theme settings"
+    },
+    "FontSizeVerySmall": {
+        "message": "Meget lille",
+        "description": "Label for the very small font size in the custom theme settings"
+    },
+    "FontSizeSmall": {
+        "message": "Lille",
+        "description": "Label for the small font size in the custom theme settings"
+    },
+    "FontSizeDefault": {
+        "message": "Standard",
+        "description": "Label for the default font size in the custom theme settings"
+    },
+    "FontSizeMedium": {
+        "message": "Medium",
+        "description": "Label for the medium font size in the custom theme settings"
+    },
+    "FontSizeLarge": {
+        "message": "Stor",
+        "description": "Label for the large font size in the custom theme settings"
+    },
+    "FontSizeVeryLarge": {
+        "message": "Meget stor",
+        "description": "Label for the very large font size in the custom theme settings"
+    },
+    "ToastInfoColors": {
+        "message": "Info toast",
+        "description": "Label of the setting in the custom theme settings to choose the colors of informational toast notifications"
+    },
+    "ToastSuccessColors": {
+        "message": "Toast på succes",
+        "description": "Label of the setting in the custom theme settings to choose the colors of success toast notifications"
+    },
+    "ToastWarningColors": {
+        "message": "Advarsel ristet brød",
+        "description": "Label of the setting in the custom theme settings to choose the colors of warning toast notifications"
+    },
+    "ToastErrorColors": {
+        "message": "Fejl ristet",
+        "description": "Label of the setting in the custom theme settings to choose the colors of error toast notifications"
+    },
+    "ToastBackgroundTitle": {
+        "message": "Baggrundsfarve for toastmeddelelsen",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification background color"
+    },
+    "ToastForegroundTitle": {
+        "message": "Farve til tekst og knapbaggrund i toastmeddelelsen",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification foreground / text color"
+    },
+    "SettingsBadgeIcon": {
+        "message": "Værktøjslinje-ikon",
+        "description": "Label of the setting to choose the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconAuto": {
+        "message": "Automatisk",
+        "description": "Label of the automatic icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconLight": {
+        "message": "Lys-ikon",
+        "description": "Label of the light icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconMedium": {
+        "message": "Gråt ikon",
+        "description": "Label of the grey icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconDark": {
+        "message": "Mørkt ikon",
+        "description": "Label of the dark icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewLight": {
+        "message": "Lys moderne ikon",
+        "description": "Label of the light modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewMedium": {
+        "message": "Gråt moderne ikon",
+        "description": "Label of the grey modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewDark": {
+        "message": "Mørkt moderne ikon",
+        "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "CustomBadgeColors": {
+        "message": "Farver på mærket",
+        "description": "Label of the settings for the toolbar icon badge colors in the custom theme settings"
+    },
+    "BadgeBackgroundTitle": {
+        "message": "Baggrundsfarve for badget",
+        "description": "Tooltip for the color input for the background color of the toolbar icon badge in the custom theme settings"
+    },
+    "BadgeForegroundTitle": {
+        "message": "Tekstfarve på emblemet",
+        "description": "Tooltip for the color input for the text color of the toolbar icon badge in the custom theme settings"
+    },
+    "PasslinkErrorNoMessage": {
+        "message": "Der er opstået en fejl, men der er ikke givet nogen fejlmeddelelse",
+        "description": "Error message shown in the PassLink popup window when and error happened but no error message was provided"
+    },
+    "PasslinkNoLinkProvided": {
+        "message": "Der mangler ikke noget link eller nogen handling",
+        "description": "Error message shown in the PassLink popup window when the window was opened but no action or link to process was provided"
+    },
+    "NotifyNewPasswordTitle": {
+        "message": "Ny adgangskode opdaget",
+        "description": "Title of the system notification when a new password was detected"
+    },
+    "PasslinkErrorClose": {
+        "message": "Luk",
+        "description": "Text of the close button in the PassLink error window"
+    },
+    "PasslinkNoActiveAction": {
+        "message": "Der er ingen aktiv PassLink-aktion af denne type",
+        "description": "Error message when an active PassLink action is required for a request but no active action can be found. (Example: Request to view the second step of the PassLink connect step, but no PassLink connect was started at all)"
+    },
+    "PasslinkConnectCheckCodes": {
+        "message": "Tjek, om koderne nedenfor svarer til dem, du kan se i appen. Hvis de gør, skal du bekræfte forbindelsen i appen, og så er du færdig.",
+        "description": "Message during the PassLink Connect action telling the user to check if the codes below match the ones shown in the Nextcloud Passwords App. If so, the user just needs to confirm the connection in the Nextcloud app to add the account to the extension."
+    },
+    "PasslinkConnectServer": {
+        "message": "Den nye konto blev gemt som \"$LABEL$\"",
+        "description": "Confirmation message in the PassLink Connect action when a new account has been created successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "PasslinkConnectNotFound": {
+        "message": "Dette link er ugyldigt. Det er måske allerede blevet brugt eller er udløbet.",
+        "description": "Error message in PassLink when the link used has expired or was already used."
+    },
+    "PasslinkConnectRejected": {
+        "message": "Forbindelsesanmodningen blev afvist af serveren.",
+        "description": "Error message when the server rejected the PassLink connect action was not confirmed by the server"
+    },
+    "PasslinkConnectNetworkError": {
+        "message": "Forbindelsen til serveren mislykkedes. Kontroller venligst dit netværk.",
+        "description": "Error message in PassLink when the connection to the Nextcloud server failed with a networking error"
+    },
+    "PasslinkConnectSuccess": {
+        "message": "Forbindelse vellykket",
+        "description": "Message in the PassLink window when the PassLink Connect action was successful"
+    },
+    "PasslinkConnectFailed": {
+        "message": "Forbindelsen mislykkedes",
+        "description": "Message in the PassLink window when the PassLink Connect action failed"
+    },
+    "PasslinkConnectSettings": {
+        "message": "Åbn indstillinger",
+        "description": "Text of the button to open the extension settings in the PassLink result window"
+    },
+    "PasslinkConnectClose": {
+        "message": "Luk vinduet",
+        "description": "Text of the button  in the PassLink result window to close the window"
+    },
+    "PasslinkScanInstructions": {
+        "message": "Peg dit kamera på QR-koden, og vent på, at den bliver genkendt og scannet.",
+        "description": "Instructions shown above the PassLink QR scanner telling the use to point his camera at the qr code he wants to scan"
+    },
+    "PasslinkScanScanning": {
+        "message": "Leder du efter en QR-kode?",
+        "description": "Message used by the PassLink QR scanner while the camera feed is scanned for a qr code"
+    },
+    "PasslinkScanProcessingLink": {
+        "message": "Behandling af QR-kode",
+        "description": "Message used by the PassLink QR scanner when a valid code was found and is now being analyzed"
+    },
+    "PasslinkScanInvalidQrCode": {
+        "message": "Denne QR-kode er ikke understøttet",
+        "description": "Message used by the PassLink QR scanner when the user scans a code that does not contain a valid and supported uri of Passlink"
+    },
+    "QrNotAllowedError": {
+        "message": "Der blev ikke givet adgang til kameraet",
+        "description": "Message used by the PassLink QR scanner when the user did not allow camera access"
+    },
+    "QrNotFoundError": {
+        "message": "Der blev ikke fundet nogen kameraer på denne enhed",
+        "description": "Message used by the PassLink QR scanner when the device has no cameras"
+    },
+    "QrNotReadableError": {
+        "message": "Kameraet er ikke tilgængeligt. Måske er det allerede i brug?",
+        "description": "Message used by the PassLink QR scanner when the camera stream can not be read"
+    },
+    "QrOverconstrainedError": {
+        "message": "Kameraet er ikke egnet til at blive brugt",
+        "description": "Message used by the PassLink QR scanner when the camera is faulty"
+    },
+    "QrStreamApiNotSupportedError": {
+        "message": "Stream API'et understøttes ikke af denne browser",
+        "description": "Message used by the PassLink QR scanner when the browser does not support the required streaming api. This should never happen"
+    },
+    "FirstRunConnectTitle": {
+        "message": "Opret forbindelse til Nextcloud",
+        "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
+    },
+    "FirstRunConnectText": {
+        "message": "Åbn passwords-appen, klik på \"Mere\", åbn \"Apps og udvidelser\", og åbn dialogboksen PassLink Connect.",
+        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
+    },
+    "FirstRunConnectLink": {
+        "message": "Hvis PassLink-dialogboksen er åben på den samme enhed, skal du bruge indstillingen Forbind via link",
+        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
+    },
+    "FirstRunConnectScan": {
+        "message": "Hvis dette er en anden enhed, skal du scanne PassLink Connect-koden med knappen nedenfor",
+        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
+    },
+    "FirstRunConnectManual": {
+        "message": "Du kan også oprette kontoen manuelt i indstillingerne for udvidelsen",
+        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
+    },
+    "FirstRunConnectScanButton": {
+        "message": "Scan PassLink-kode",
+        "description": "Text of the button to scan a PassLink QR Code"
+    },
+    "OpenSettings": {
+        "message": "Åbn Indstillinger for udvidelse",
+        "description": "Label of the button to open the extension settings in the tools tab of the popup"
+    },
+    "ToolsTabGeneratePassword": {
+        "message": "Generer adgangskode",
+        "description": "Label of the generate password section in the tools tab of the popup"
+    },
+    "ToolsTabDebugTools": {
+        "message": "Debug-værktøjer",
+        "description": "Label of the debugging tools section in the tools tab of the popup"
+    },
+    "GeneratedPasswordPlaceholder": {
+        "message": "Genereret adgangskode",
+        "description": "Placeholder of the field for the generated password in the tools tab of the popup"
+    },
+    "GeneratedPasswordTitle": {
+        "message": "Kodeord: $WORDS$",
+        "description": "Title of the input field for the generated password in the tools tab of the popup. It shows the words used to generate the password",
+        "placeholders": {
+            "words": {
+                "content": "$1",
+                "description": "The words used for the password",
+                "example": "First Second Third"
+            }
+        }
+    },
+    "LabelGenerateAddNumbers": {
+        "message": "Tal",
+        "description": "Label of the option to include numbers in the password generator in the tools tab"
+    },
+    "LabelGenerateAddSpecial": {
+        "message": "Symboler",
+        "description": "Label of the option to include special characters in the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthStandard": {
+        "message": "Standard",
+        "description": "Label of the default (1) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthMedium": {
+        "message": "Medium",
+        "description": "Label of the medium (2) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthHigh": {
+        "message": "Høj",
+        "description": "Label of the high (3) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthUltra": {
+        "message": "Ultra",
+        "description": "Label of the very high (4) strength option for the password generator in the tools tab"
+    },
+    "DebugInfoExtensionBuild": {
+        "message": "Målplatform",
+        "description": "Description of the extension build target (firefox or chrome) in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionPlatform": {
+        "message": "Brugeragent",
+        "description": "Description of the browser user agent in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionEnvironment": {
+        "message": "Udvidelsestilstand",
+        "description": "Description of the extension mode (production or development) in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoHiddenFolderId": {
+        "message": "Skjulte adgangskoder Mappe ID",
+        "description": "Description of the id of the folder used to store hidden/private passwords in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugSettings": {
+        "message": "Debugging-indstillinger",
+        "description": "Headline above the debugging settings section in the extension settings in the debug tab"
+    },
+    "DebugSourceAndBuild": {
+        "message": "Byggevejledning og download af kildekode",
+        "description": "Label of the link to open the page with build instructions and links to the source code in the debug tab in the extension settings"
+    },
+    "DebugErrorLog": {
+        "message": "Fejllogbog",
+        "description": "Headline above the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorNoMessage": {
+        "message": "Ingen fejlmeddelelse",
+        "description": "Used as error message for errors with no error message (but have a timestamp) in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorNoDetails": {
+        "message": "Ingen oplysninger om fejl",
+        "description": "Used as error message for errors with no details at all in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorDataCopied": {
+        "message": "Fejloplysninger kopieret til udklipsholderen",
+        "description": "Success notification when you copy an error report to the clipboard in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugNoErrors": {
+        "message": "Ingen fejl i loggen",
+        "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
+    },
+    "RecommendationSettings": {
+        "message": "Anbefaling af legitimationsoplysninger",
+        "description": "Label of the section password recommendations in the extension settings."
+    },
+    "SettingsSearchRecommendationOption": {
+        "message": "Søg legitimationsoplysninger med",
+        "description": "Label of the setting in the extension settings to define how password recommendations are searched."
+    },
+    "LabelSearchRecommendationDomain": {
+        "message": "samme domæne",
+        "description": "Find password recommendations by domain. So on page mail.example.com you will see all passwords for the domain and sumdomains of example.com."
+    },
+    "LabelSearchRecommendationHost": {
+        "message": "samme vært",
+        "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
+    },
+    "LabelSearchRecommendationHostPort": {
+        "message": "samme vært og port",
+        "description": "Find password recommendations for the specific server and port."
+    },
+    "LabelSearchRecommendationExact": {
+        "message": "nøjagtig samme url",
+        "description": "Find only passwords where th url matches exact to the current browser url."
+    },
+    "SettingsSearchRecommendationMaxRows": {
+        "message": "Maksimalt antal anbefalinger",
+        "description": "Label of the setting in the extension settings to define the maximum number of results for the password recommendation."
+    },
+    "SearchRecommendationMaxRowsNumber": {
+        "message": "$ROW$",
+        "description": "Number of results that should be displayed for password recommendations.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 1, 5, 10, 15 or 20"
+            }
+        }
+    },
+    "UiSettings": {
+        "message": "Brugergrænseflade",
+        "description": "Label of the user interface section in the extension settings."
+    },
+    "SettingsShowUsernameInList": {
+        "message": "Vis brugernavn ved siden af titlen",
+        "description": "Label of the setting in the extension settings to show the username next to the title in password lists."
+    },
+    "InputSliderOn": {
+        "message": "I øjeblikket på",
+        "description": "Tooltip of any slider input element that is currently in the active/enabled state"
+    },
+    "PasswordCustomFieldsTypeUrl": {
+        "message": "Link",
+        "description": "Label of the password custom setting type 'url'."
+    },
+    "PasswordCustomFieldsTypeFormField": {
+        "message": "Formularfelt",
+        "description": "Label of the password custom setting form field to insert custom values to a web page."
+    },
+    "PasswordEditValidationInvalidValue": {
+        "message": "Ugyldig værdi",
+        "description": "The validation error message in the password edit form if the value is invalid"
+    },
+    "PasswordEditValidationMaxLength": {
+        "message": "Kun $CHARACTERS$ tilladte tegn",
+        "description": "The validation error message in the password edit form if the value is longer than allowed",
+        "placeholders": {
+            "characters": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
+    },
+    "PasswordEditValidationRequired": {
+        "message": "Dette felt er obligatorisk",
+        "description": "The validation error message in the password edit form if a required field is empty"
+    },
+    "MiningPasswordDiscarded": {
+        "message": "Adgangskode kasseres",
+        "description": "The toast notification after the user has successfully discarded a mined password"
+    },
+    "MiningPasswordCreated": {
+        "message": "Gemt adgangskode",
+        "description": "The toast notification after the password was successfully saved"
+    },
+    "MiningPasswordUpdated": {
+        "message": "Adgangskode opdateret",
+        "description": "The toast notification after the password was successfully saved"
+    },
+    "QrNotSupportedError": {
+        "message": "Usikker kontekst",
+        "description": "Message used by the PassLink QR scanner when the page was opened in an insecure context (http://). This should never happen"
+    },
+    "extensionDescription": {
+        "message": "Den officielle browserudvidelse til Passwords for Nextcloud",
+        "description": "Description of the extension."
+    },
+    "locale": {
+        "message": "på",
+        "description": "The language tag of this translation. Same as the folder name"
+    },
+    "ValidationMaxLength": {
+        "message": "$FIELD$ skal være kortere end $MAX$ tegn.",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is longer than allowed",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "max": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "PropertyUrl": {
+        "message": "Websted",
+        "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
+    },
+    "ServerConnectionErrorTitle": {
+        "message": "Det er ikke muligt at oprette forbindelse til $SERVER$",
+        "description": "Title of the toast notification when the connection to the server failed",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "ServerCredentialsRejected": {
+        "message": "Server legitimationsoplysninger afvist. Opdater venligst loginoplysningerne i indstillingerne.",
+        "description": "Text of the toast notification when the server has rejected the login credentials"
+    },
+    "ServerHttpError": {
+        "message": "HTTP-forbindelsesfejl: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with a HTTP error",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "ServerNetworkError": {
+        "message": "Der er opstået en netværksfejl. Kontroller venligst, om du er online, og om serveren kan nås.",
+        "description": "Text of the toast notification when the connection to the server failed with a network error"
+    },
+    "ServerUnknownError": {
+        "message": "Ukendt fejl.",
+        "description": "Text of the toast notification when the connection to the server failed with an unknown error and no error message is present"
+    },
+    "ServerGenericError": {
+        "message": "Fejl: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with an error",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "description": "The error message",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "DemoInfoNotification": {
+        "message": "Info-meddelelse",
+        "description": "Text and title of the info notification in the theme preview"
+    },
+    "DemoSuccessNotification": {
+        "message": "Meddelelse om succes",
+        "description": "Text and title of the success notification in the theme preview"
+    },
+    "DemoWarningNotification": {
+        "message": "Advarselsmeddelelse",
+        "description": "Text and title of the warning notification in the theme preview"
+    },
+    "DemoErrorNotification": {
+        "message": "Meddelelse om fejl",
+        "description": "Text and title of the error notification in the theme preview"
+    },
+    "DemoText": {
+        "message": "Demo",
+        "description": "Demo text used in the theme preview"
+    },
+    "CustomBadge": {
+        "message": "Browser-ikon",
+        "description": "Headline for the browser toolbar icon styling settings in the custom theme settings"
+    },
+    "BackgroundColorLabel": {
+        "message": "Baggrundsfarve",
+        "description": "Label of background color options in the custom theme settings"
+    },
+    "ForegroundColorLabel": {
+        "message": "Forgrundsfarve",
+        "description": "Label of foreground / text color options in the custom theme settings"
+    },
+    "BorderColorLabel": {
+        "message": "Grænsefarve",
+        "description": "Label of border color options in the custom theme settings"
+    },
+    "BackgroundInheritLabel": {
+        "message": "Arve baggrund",
+        "description": "Label of options to inherit the background color in the custom theme settings"
+    },
+    "ForegroundInheritLabel": {
+        "message": "Arver forgrund",
+        "description": "Label of options to inherit the foreground / text color in the custom theme settings"
+    },
+    "BackgroundInheritTitle": {
+        "message": "Hvis den er aktiveret, vil værdien blive arvet fra det overordnede element",
+        "description": "Tooltip for the checkbox to inherit the background color (from the parent element in the html) in the custom theme settings"
+    },
+    "ForegroundInheritTitle": {
+        "message": "Hvis den er aktiveret, vil værdien blive arvet fra det overordnede element",
+        "description": "Tooltip for the checkbox to inherit the foreground / text color (from the parent element in the html) in the custom theme settings"
+    },
+    "SettingsCustomFont": {
+        "message": "Skrifttypefamilie",
+        "description": "Label of the font option in the custom theme settings"
+    },
+    "LabelGenerateStrength": {
+        "message": "Styrke",
+        "description": "Label of the option to set the strength in the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthLow": {
+        "message": "Lavt",
+        "description": "Label of the low (0) strength option for the password generator in the tools tab"
+    },
+    "PasswordGenerateError": {
+        "message": "Det lykkedes ikke at generere en adgangskode: $ERROR$",
+        "description": "Notification shown when the generation of a password fails",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "Unexpected data type"
+            }
+        }
+    },
+    "DebugHighlightLoginForms": {
+        "message": "Fremhæv felter i loginformularen",
+        "description": "Label of the button in the popup which triggers the option to highlight all login form fields in the current tab"
+    },
+    "PasteBadPasswordWarning": {
+        "message": "Denne adgangskode er kompromitteret og bør straks ændres",
+        "description": "Notification shown after the user pasted a password with the security status breached/compromised"
+    },
+    "DebugInternalStats": {
+        "message": "Intern status",
+        "description": "Headline above the internal status section in the extension settings in the debug tab"
+    },
+    "DebugInfoExtensionVersion": {
+        "message": "Udvidelsesversion",
+        "description": "Description of the extension version in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugLanguageTagsEnabled": {
+        "message": "Vis sprognøgler",
+        "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
+    },
+    "DebugBuild": {
+        "message": "Oplysninger om opbygning",
+        "description": "Headline above the section for the build instructions in the debug tab in the extension settings"
+    },
+    "InputSliderOff": {
+        "message": "I øjeblikket slukket",
+        "description": "Tooltip of any slider input element that is currently in the inactive/disabled state"
+    },
+    "PasswordCustomFieldsTypeText": {
+        "message": "Tekst",
+        "description": "Label of the password custom setting type 'text'."
+    },
+    "PasswordCustomFieldsTypeSecret": {
+        "message": "Hemmeligt",
+        "description": "Label of the password custom setting type 'secret'."
+    },
+    "PasswordCustomFieldsTypeEmail": {
+        "message": "E-mail",
+        "description": "Label of the password custom setting type 'email'."
+    },
+    "extensionName": {
+        "message": "Adgangskoder til Nextcloud Browser Extension",
+        "description": "Name of the extension."
+    },
+    "browserActionTitle": {
+        "message": "Adgangskoder",
+        "description": "Title of the button in the browser bar"
+    },
+    "contextMenuTitle": {
+        "message": "Adgangskoder",
+        "description": "Title of the context menu item"
+    },
+    "TabTools": {
+        "message": "Værktøj",
+        "description": "Label of the tools tab in the extension popup"
+    }
+}
