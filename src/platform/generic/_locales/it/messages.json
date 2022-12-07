@@ -103,9 +103,6 @@
         "message": "Non ci sono ancora account. Premi qui per aggiungerne uno.",
         "description": "Message in place of the user accounts list in the extension settings if there are no user accounts yet. The user can click the message to create an account"
     },
-    "NewServer": {
-        "message": "Crea account"
-    },
     "ServerSaveTitle": {
         "message": "Account salvato",
         "description": "Title of the toast notification in the extension settings after an account was created or updated successfully"
