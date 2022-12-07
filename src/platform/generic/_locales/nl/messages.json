@@ -1,1 +1,1456 @@
-{}
+{
+    "MigrationAccountName": {
+        "message": "Nextcloud-account",
+        "description": "Label assigned to the account used by the v1.x migration"
+    },
+    "PrivatePasswordsFolderLabel": {
+        "message": "Privé wachtwoorden",
+        "description": "Label assigned to the hidden folder for private passwords. (folder is only visible when browsing in private mode)"
+    },
+    "SettingsTabAccounts": {
+        "message": "Rekeningen",
+        "description": "Label of the user accounts tab in the extension settings"
+    },
+    "SettingsTabTheming": {
+        "message": "Theming",
+        "description": "Label of the themes tab in the extension settings"
+    },
+    "SettingsTabOther": {
+        "message": "Overige Instellingen",
+        "description": "Label of the general settings tab in the extension settings"
+    },
+    "SettingsTabDebug": {
+        "message": "Debug",
+        "description": "Label of the extension debugging tab in the extension settings"
+    },
+    "SettingsAccountsMain": {
+        "message": "Standaard account voor nieuwe wachtwoorden",
+        "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
+    },
+    "AutofillSettings": {
+        "message": "Referenties plakken",
+        "description": "Headline above the password autofill section in the other settings tab in the extension settings"
+    },
+    "SettingsPastePopupClose": {
+        "message": "Sluit popup na het plakken van referenties",
+        "description": "Label of the setting in the extension settings to automatically close the extension popup after successful pasting"
+    },
+    "SettingsPasteFormSubmit": {
+        "message": "Inlogformulieren verzenden wanneer referenties uit popup worden geplakt",
+        "description": "Label of the setting in the extension settings to automatically submit login forms after pasting"
+    },
+    "SettingsPasteWarnCompromised": {
+        "message": "Waarschuwen bij gebruik van gecompromitteerde referenties",
+        "description": "Label of the setting in the extension settings to show a warning after pasting a compromised password"
+    },
+    "SettingsPasteAutofillEnabled": {
+        "message": "Vul automatisch de best passende inloggegevens in",
+        "description": "Label of the setting in the extension settings to automatically paste the first recommended credential into login forms"
+    },
+    "HelpPasteAutofill": {
+        "message": "Plakt automatisch de eerste voorgestelde referentie in elk aanmeldingsformulier in het tabblad. Houd er rekening mee dat dit elk script in het tabblad toegankelijk maakt.",
+        "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
+    },
+    "SettingsPasteBasicAuth": {
+        "message": "Automatisch reageren op HTTP-basisverificatieverzoeken",
+        "description": "Label of the setting in the extension settings to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "HelpPasteBasicAuth": {
+        "message": "Automatisch reageren op http-basisverificatieverzoeken met de eerste voorgestelde geloofsbrief. Wees ervan bewust dat dit referenties kan blootstellen aan onbetrouwbare servers.",
+        "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "SettingsClearClipboardPasswords": {
+        "message": "Wachtwoorden automatisch van klembord verwijderen",
+        "description": "Label of the setting in the extension settings to automatically clear passwords from clipboard after a certain time."
+    },
+    "HelpClearClipboardPasswords": {
+        "message": "Het klembord wordt alleen leeggemaakt als de browser nog geopend is. Als de optionele toestemming om het klembord te lezen is verleend, wordt het alleen gewist als het wachtwoord er nog in staat.",
+        "description": "Help text in the extension settings for the setting to automatically clean passwords from clipboard after a certain time."
+    },
+    "SettingsClearClipboardDelay": {
+        "message": "Leeg het klembord na",
+        "description": "Label of the setting in the extension settings to define the time when the clipboard content will be removed."
+    },
+    "SettingsClipboardClearDelayOptions": {
+        "message": "$ROW$ seconden",
+        "description": "Time in seconds until clipboard will get empty.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 15, 30, 45, 60, 90"
+            }
+        }
+    },
+    "NotificationSettings": {
+        "message": "Berichtgeving",
+        "description": "Headline above the notification section in the other settings tab in the extension settings"
+    },
+    "SettingsNotifyPasswordNew": {
+        "message": "Kennisgeving voor nieuwe wachtwoorden",
+        "description": "Label of the setting in the extension settings to enable or disable the notification for new detected passwords"
+    },
+    "SettingsNotifyPasswordUpdate": {
+        "message": "Kennisgeving voor bijgewerkte wachtwoorden",
+        "description": "Label of the setting in the extension settings to enable or disable the notification for detected password updates"
+    },
+    "SettingsNotifyPasswordQuicksave": {
+        "message": "Direct opslaan of bijwerken wanneer op de melding wordt geklikt",
+        "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"
+    },
+    "SearchSettings": {
+        "message": "Zoeken",
+        "description": "Headline above the search section in the other settings tab in the extension settings"
+    },
+    "SettingsPopupRelatedSearch": {
+        "message": "Zoekopdracht starten wanneer ik \"Gerelateerd\" intik",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "AccountList": {
+        "message": "Gebruikersaccounts",
+        "description": "Headline above the user accounts section in the accounts tab in the extension settings"
+    },
+    "NoAccounts": {
+        "message": "Er zijn nog geen accounts. Klik hier om er een aan te maken.",
+        "description": "Message in place of the user accounts list in the extension settings if there are no user accounts yet. The user can click the message to create an account"
+    },
+    "NewAccountFormLabel": {
+        "message": "Account aanmaken",
+        "description": "Label of the new account form in the extension settings"
+    },
+    "ServerSaveTitle": {
+        "message": "Opgeslagen rekening",
+        "description": "Title of the toast notification in the extension settings after an account was created or updated successfully"
+    },
+    "ServerSaveMessage": {
+        "message": "Alle wijzigingen zijn met succes toegepast",
+        "description": "Message of the toast notification in the extension settings after an account was created successfully"
+    },
+    "ServerCreatedMessage": {
+        "message": "De rekening is aangemaakt en klaar voor gebruik.",
+        "description": "Message of the toast notification in the extension settings after an account was updated successfully"
+    },
+    "ServerSaveErrorTitle": {
+        "message": "Opslaan mislukt",
+        "description": "Title of the toast notification in the extension settings after an account could not be updated or saved. The message will be the specific error message"
+    },
+    "ServerDisabledWarning": {
+        "message": "Dit account is gedeactiveerd. Het zal worden geactiveerd nadat het met succes is opgeslagen.",
+        "description": "Warning message which appears above the account details if the server was disabled. Usual reasons are invalid login data, unsupported extension version or permanent connection issues."
+    },
+    "ServerLabel": {
+        "message": "Naam",
+        "description": "Label of the account name field in account details in the extension settings"
+    },
+    "ServerBaseUrl": {
+        "message": "URL",
+        "description": "Label of the server url field in account details in the extension settings"
+    },
+    "ServerUser": {
+        "message": "Gebruiker",
+        "description": "Label of the account login user field in account details in the extension settings"
+    },
+    "ServerToken": {
+        "message": "App wachtwoord",
+        "description": "Label of the account login token field in account details in the extension settings"
+    },
+    "ServerTokenChange": {
+        "message": "App-wachtwoord wijzigen",
+        "description": "Label of the button to change the login token of an existing account in the account details in the extension settings"
+    },
+    "ServerTimeoutOptionNever": {
+        "message": "Nooit",
+        "description": "Label of the option for the server timeout to never expire"
+    },
+    "ServerTimeoutOptionMinutes": {
+        "message": "Na $MINUTES$ minuten",
+        "description": "Label of the option for the server timeout to expire after a given amount of minutes",
+        "placeholders": {
+            "minutes": {
+                "content": "$1",
+                "example": "One of 5, 10, 15 30 or 60"
+            }
+        }
+    },
+    "TabRelated": {
+        "message": "Suggesties",
+        "description": "Label of the related passwords tab in the extension popup"
+    },
+    "TabSearch": {
+        "message": "Zoeken",
+        "description": "Label of the search tab in the extension popup"
+    },
+    "TabBrowse": {
+        "message": "Bladeren op",
+        "description": "Label of the browse servers tab in the extension popup"
+    },
+    "TabCollected": {
+        "message": "Verzameld",
+        "description": "Label of the new collected passwords tab in the extension popup"
+    },
+    "TabTools": {
+        "message": "Gereedschap",
+        "description": "Label of the tools tab in the extension popup"
+    },
+    "PasswordItemTitle": {
+        "message": "Status: $STATUS$, Id: #$ID$",
+        "description": "The tooltip of any password entry in the popup",
+        "placeholders": {
+            "id": {
+                "content": "$1",
+                "example": "1234-1234-1234-1234"
+            },
+            "status": {
+                "content": "$2",
+                "example": "DUPLICATE"
+            }
+        }
+    },
+    "PasswordItemOpenUrl": {
+        "message": "Open website",
+        "description": "Title of the menu option to open the password url in a new tab"
+    },
+    "PasswordItemToTrash": {
+        "message": "Naar de vuilnisbak",
+        "description": "Title of the menu option to move a password to the trash"
+    },
+    "PasswordItemDetails": {
+        "message": "Details bekijken",
+        "description": "Title of the menu option to view and edit a password"
+    },
+    "ValidationLabel": {
+        "message": "label",
+        "description": "Name of the account label field in account validation message. This value is used when the user attempts to save an account with an invalid label"
+    },
+    "ValidationUser": {
+        "message": "gebruiker",
+        "description": "Name of the account username field in account validation message. This value is used when the user attempts to save an account with an invalid username"
+    },
+    "ValidationToken": {
+        "message": "app wachtwoord",
+        "description": "Name of the account token field in account validation message. This value is used when the user attempts to save an account with an invalid token"
+    },
+    "ValidationBaseUrl": {
+        "message": "basis url",
+        "description": "Name of the account base url field in account validation message. This value is used when the user attempts to save an account with an invalid base url"
+    },
+    "ValidationNotEmpty": {
+        "message": "De $FIELD$ kan niet leeg zijn.",
+        "description": "Validation message when the user attempts to save something (like an account) but a required field is empty.",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            }
+        }
+    },
+    "ValidationMinLength": {
+        "message": "De $FIELD$ moet minstens $MIN$ tekens lang zijn.",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is shorter than required",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "min": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationMaxLength": {
+        "message": "De $FIELD$ moet korter zijn dan $MAX$ tekens.",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is longer than allowed",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "max": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationFailed": {
+        "message": "Validatie mislukt.",
+        "description": "Validation message when the user attempts to save something (like an account) but there were validation errors"
+    },
+    "ValidationNotAnUrl": {
+        "message": "De basis-url moet een geldige url zijn.",
+        "description": "Validation message when the user attempts to save an account but the server url is not a valid url"
+    },
+    "ValidationNotAToken": {
+        "message": "Het app-wachtwoord moet een geldig Nextcloud App-wachtwoord zijn.",
+        "description": "Validation message when the user attempts to save an account but the token does not match the Nextcloud token schema"
+    },
+    "AppLabelString": {
+        "message": "Wachtwoorden $VERSION$",
+        "description": "Value for the passwords app version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "ValidationInvalidTimeout": {
+        "message": "De uitlogtijd moet een van de gegeven opties zijn.",
+        "description": "Validation message when the user attempts to save an account but the timeout is not within the predefined range"
+    },
+    "ValidationDuplicate": {
+        "message": "Er is al een account voor deze gebruiker op deze Nextcloud.",
+        "description": "Validation message when the user attempts to save a new account, but a similar account with the same server and same user name already exists"
+    },
+    "ValidationNoConnection": {
+        "message": "Kan geen verbinding maken met $URL$.",
+        "description": "Validation message when the user attempts to save an account but it is not possible to connect to this server with the given url",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationHttpError": {
+        "message": "Proberen te verbinden met $URL$ resulteerde in $ERROR$.",
+        "description": "Validation message when the user attempts to save an account but the server responded with an unexpected HTTP status code",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "HTTP 401 - Forbidden"
+            }
+        }
+    },
+    "ValidationConnectionError": {
+        "message": "Proberen te verbinden met $URL$ resulteerde in $ERROR$.",
+        "description": "Validation message when the user attempts to save an account but the connection attempt resulted in any kind of error (including internal extension errors)",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "Undefined variable example in file"
+            }
+        }
+    },
+    "ValidationServerVersion": {
+        "message": "De op de server geïnstalleerde app-versie is verouderd.",
+        "description": "Validation message when the user attempts to save an account but the version of the passwords app installed on the server is outdated"
+    },
+    "NoRelatedPasswords": {
+        "message": "Heb geen gerelateerde wachtwoorden gevonden",
+        "description": "Used in the related tab when no entries match the current website"
+    },
+    "NoSearchResults": {
+        "message": "Geen wachtwoorden gevonden die aan uw vraag voldoen",
+        "description": "Used in the search tab when no entries match the search query"
+    },
+    "NoSearchQuery": {
+        "message": "Schrijf in het zoekvak om wachtwoorden te vinden",
+        "description": "Used in the search tab when there is no search query"
+    },
+    "NoCollectedPasswords": {
+        "message": "Geen nieuwe wachtwoorden gevonden",
+        "description": "Used in the collected tab when no new passwords have been found"
+    },
+    "AddPasswordForCurrentTab": {
+        "message": "Inloggegevens toevoegen voor huidig tabblad",
+        "description": "Used in the collected tab for the option to add a blank entry with just the url of the current tab"
+    },
+    "NoServerItems": {
+        "message": "Geen elementen gevonden",
+        "description": "Used in the browse tab when a server has no entries to list"
+    },
+    "BrowseNoServers": {
+        "message": "Geen servers beschikbaar",
+        "description": "Used in the browse tab when no accounts/servers are available"
+    },
+    "SearchPlaceholder": {
+        "message": "Wachtwoorden vinden",
+        "description": "Placeholder text of the search box"
+    },
+    "MiningItemIsNew": {
+        "message": "Dit is een nieuw wachtwoord",
+        "description": "Text shown in a collected password that is new to tell the user that it is a new passwor"
+    },
+    "MiningItemIsUpdate": {
+        "message": "Dit lijkt een update te zijn van \"$PASSWORD$\"",
+        "description": "Text shown in a collected password that is an update of an existing password",
+        "placeholders": {
+            "password": {
+                "content": "$1",
+                "example": "My Password"
+            }
+        }
+    },
+    "TitleClickToEdit": {
+        "message": "Dubbelklikken om te bewerken",
+        "description": "Tooltip used in the collected password form for any property of the password to inform the user that double clicking makes the text field editable"
+    },
+    "TitleEnterToExit": {
+        "message": "Druk op enter om op te slaan",
+        "description": "Tooltip used in the collected password form to tell the user that the property can be saved by clicking enter"
+    },
+    "LabelLabel": {
+        "message": "Naam",
+        "description": "Label for the name of a password entry"
+    },
+    "LabelPassword": {
+        "message": "Wachtwoord",
+        "description": "Label for the password of a password entry"
+    },
+    "LabelUsername": {
+        "message": "Gebruiker",
+        "description": "Label for the username of a password entry"
+    },
+    "LabelHidden": {
+        "message": "Privé wachtwoord",
+        "description": "Label for the checkbox to mark a password entry as private or hidden in the webapp"
+    },
+    "LabelUrl": {
+        "message": "URL",
+        "description": "Label for of a field that contains an url (used in collected password or server info)"
+    },
+    "LabelPasswords": {
+        "message": "Wachtwoorden",
+        "description": "Label for the password count in the server info in the browse tab"
+    },
+    "LabelFolders": {
+        "message": "Mappen",
+        "description": "Label for the folder count in the server info in the browse tab"
+    },
+    "LabelFolder": {
+        "message": "Map",
+        "description": "Label for the folder of this password."
+    },
+    "LabelCreated": {
+        "message": "Aangemaakt op",
+        "description": "Label for the creation time of this password."
+    },
+    "LabelEdited": {
+        "message": "Veranderd",
+        "description": "Label for the last edit time of this password."
+    },
+    "LabelNotes": {
+        "message": "Notitie",
+        "description": "Label for the notes of this password."
+    },
+    "LabelCustomFields": {
+        "message": "Eigen Velden",
+        "description": "Label for the custom fields of this password"
+    },
+    "LabelTags": {
+        "message": "Tags",
+        "description": "Label for the tag count in the server info in the browse tab"
+    },
+    "LabelServerVersion": {
+        "message": "Server",
+        "description": "Label for the nextcloud server version in the server info in the browse tab"
+    },
+    "LabelAppVersion": {
+        "message": "API",
+        "description": "Label for the passwords app version in the server info in the browse tab"
+    },
+    "ServerLabelString": {
+        "message": "Nextcloud $VERSION$",
+        "description": "Value for the nextcloud server version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "PlaceholderPassword": {
+        "message": "Wachtwoord",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
+    },
+    "PlaceholderToken": {
+        "message": "Two-Factor Token",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
+    },
+    "ButtonLogin": {
+        "message": "Inloggen",
+        "description": "The text of the login button of the server authorization dialog"
+    },
+    "AuthorizationFailedTitle": {
+        "message": "Autorisatie mislukt",
+        "description": "Title of the toast notification when the login attempt was unsuccessful"
+    },
+    "AuthorizationFailedText": {
+        "message": "Toegang tot de wachtwoorddatabase met de opgegeven login is geweigerd",
+        "description": "Text of the toast notification when the login attempt was unsuccessful"
+    },
+    "TokenRequestFailed": {
+        "message": "Token aanvraag mislukt",
+        "description": "Title of the toast notification when the request for a two factor auth token failed. The text will be the error message."
+    },
+    "NotifyNewPasswordTitle": {
+        "message": "Nieuw wachtwoord gedetecteerd",
+        "description": "Title of the system notification when a new password was detected"
+    },
+    "NotifyNewPasswordText": {
+        "message": "Een nieuw wachtwoord voor \"$LABEL$\" werd gedetecteerd.",
+        "description": "Text of the system notification when a new password was detected. Used in Chrome where the notification has buttons to save or view the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyNewPasswordTextFF": {
+        "message": "Een nieuw wachtwoord voor \"$LABEL$\" werd gedetecteerd. Klik op het wachtwoordpictogram in de werkbalk om het te bekijken en op te slaan.",
+        "description": "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyNewPasswordTextQS": {
+        "message": "Een nieuw wachtwoord voor \"$LABEL$\" werd gedetecteerd. Klik hier om het op te slaan.",
+        "description": "Text of the system notification when a new password was detected. Clicking the notification will save the password.",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTitle": {
+        "message": "Bijgewerkt wachtwoord gedetecteerd",
+        "description": "Title of the system notification when an update for an existing password has been detected"
+    },
+    "NotifyUpdatePasswordText": {
+        "message": "Er is een update voor \"$LABEL$\" gedetecteerd.",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Chrome where the notification has buttons to save or view the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTextFF": {
+        "message": "Er is een update voor \"$LABEL$\" gedetecteerd. Klik op het wachtwoordpictogram in de werkbalk om het te bekijken en op te slaan.",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTextQS": {
+        "message": "Er is een update voor \"$LABEL$\" gedetecteerd. Klik hier om het op te slaan.",
+        "description": "Text of the system notification when an update for an existing password was detected. Clicking the notification will update the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "ButtonMore": {
+        "message": "Meer Opties",
+        "description": "The more options button of a password detection system notification which opens the popup with the form which shows all password details"
+    },
+    "ButtonClose": {
+        "message": "Sluit",
+        "description": "The title of the close button of a toast notification"
+    },
+    "ToastServerCheckTitle": {
+        "message": "$SERVER$ moet worden opgewaardeerd",
+        "description": "Title of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "ToastServerCheckMessage": {
+        "message": "De account \"$SERVER$\" gebruikt wachtwoorden $SERVERVERSION$, maar deze uitbreiding vereist minimaal $MINVERSION$. De app moet worden bijgewerkt voordat het account weer kan worden geactiveerd in de instellingen.",
+        "description": "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
+    },
+    "ToastServerCheckWarning": {
+        "message": "Deze uitbreiding vereist binnenkort wachtwoorden $MINVERSION$, maar \"$SERVER$\" gebruikt wachtwoorden $SERVERVERSION$. Update de app om het account te kunnen blijven gebruiken.",
+        "description": "Text of the toast notification when an account uses a server which will soon be no longer supported because it uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
+    },
+    "ToastErrorMessage": {
+        "message": "Er is een fout opgetreden in de passwords client. Controleer het foutenlogboek in de debug-opties voor meer details.",
+        "description": "Text of the toast notification for error messages from the passwords client. The error message is the title"
+    },
+    "ToastPasswordTrashed": {
+        "message": "$LABEL$ is verplaatst naar de prullenbak. U kunt het permanent verwijderen in de app of het herstellen",
+        "description": "Text of the toast notification after a password was moved to the trash",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "ToastPasswordHiddenTrashed": {
+        "message": "$LABEL$ werd verwijderd. Als dit een ongeluk was, kunt u het hieronder nog herstellen voordat het definitief wordt verwijderd.",
+        "description": "Text of the toast notification after a hidden password was moved to the trash. Users can restore it within the notification but afterwards the password is lost for good",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "ToastPasswordTrashedRestore": {
+        "message": "Terugzetten",
+        "description": "Text of the toast notification option to restore a password from the trash"
+    },
+    "ToastPasswordDeleteFailed": {
+        "message": "Wachtwoord verwijderen mislukt",
+        "description": "Text of the toast notification when deleting the password failed"
+    },
+    "ServerTimeout": {
+        "message": "Uitloggen na",
+        "description": "Label of the option to change the automatic logout time of an existing account in the account details in the extension settings"
+    },
+    "ToastPasswordRestored": {
+        "message": "$LABEL$ uit de prullenbak is gehaald. Het zal opnieuw verschijnen nadat u de popup opnieuw opent.",
+        "description": "Text of the toast notification after a password was restored from the trash",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "PasswordPastedSuccess": {
+        "message": "$LABEL$ met succes geplakt",
+        "description": "Text of the toast notification when a password entry was pasted successfully into the current tab",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "ToastPasswordUpdated": {
+        "message": "Wachtwoord bijgewerkt",
+        "description": "Text of the toast notification when password was updated"
+    },
+    "ToastPasswordUpdateFailed": {
+        "message": "Wachtwoord update mislukt",
+        "description": "Text of the toast notification when password update failed"
+    },
+    "PasswordPastedError": {
+        "message": "Kon niet plakken $LABEL$",
+        "description": "Text of the toast notification when a password could not be pasted into the current tab",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "PasswordPropertyCopied": {
+        "message": "Gekopieerd $PROPERTY$",
+        "description": "Text of the toast notification when a password property was copied successfully via one of the buttons",
+        "placeholders": {
+            "property": {
+                "content": "$1",
+                "example": "Username"
+            }
+        }
+    },
+    "PropertyPassword": {
+        "message": "Wachtwoord",
+        "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
+    },
+    "PropertyUsername": {
+        "message": "Gebruikersnaam",
+        "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
+    },
+    "PropertyUrl": {
+        "message": "Website",
+        "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
+    },
+    "ServerConnectionErrorTitle": {
+        "message": "Kan geen verbinding maken met $SERVER$",
+        "description": "Title of the toast notification when the connection to the server failed",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "ServerCredentialsRejected": {
+        "message": "Servergegevens geweigerd. Werk de aanmeldingsgegevens bij in de instellingen.",
+        "description": "Text of the toast notification when the server has rejected the login credentials"
+    },
+    "ServerHttpError": {
+        "message": "HTTP verbindingsfout: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with a HTTP error",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "ServerNetworkError": {
+        "message": "Er is een netwerkfout opgetreden. Controleer of u online bent en de server bereikbaar is.",
+        "description": "Text of the toast notification when the connection to the server failed with a network error"
+    },
+    "ServerUnknownError": {
+        "message": "Onbekende fout.",
+        "description": "Text of the toast notification when the connection to the server failed with an unknown error and no error message is present"
+    },
+    "ServerGenericError": {
+        "message": "Fout: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with an error",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "description": "The error message",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "DemoInfoNotification": {
+        "message": "Info melding",
+        "description": "Text and title of the info notification in the theme preview"
+    },
+    "DemoSuccessNotification": {
+        "message": "Succes melding",
+        "description": "Text and title of the success notification in the theme preview"
+    },
+    "DemoWarningNotification": {
+        "message": "Waarschuwing",
+        "description": "Text and title of the warning notification in the theme preview"
+    },
+    "DemoErrorNotification": {
+        "message": "Foutmelding",
+        "description": "Text and title of the error notification in the theme preview"
+    },
+    "DemoText": {
+        "message": "Demo",
+        "description": "Demo text used in the theme preview"
+    },
+    "SettingsThemeId": {
+        "message": "Actief thema",
+        "description": "Label of the option to choose the current theme in the extension settings"
+    },
+    "ThemeDark": {
+        "message": "Donker thema",
+        "description": "Label of the dark theme"
+    },
+    "ThemeOledDark": {
+        "message": "Donkere OLED",
+        "description": "Label of the dark theme optimized for OLED-Displays"
+    },
+    "ThemeLight": {
+        "message": "Standaard",
+        "description": "Label of the default light theme"
+    },
+    "ThemeAdaptaLight": {
+        "message": "Adapta",
+        "description": "Label of the theme with the Adapta color scheme"
+    },
+    "ThemeAdaptaTeal": {
+        "message": "Adapta teal",
+        "description": "Label of the theme with the Adapta teal color scheme"
+    },
+    "ValidationUnauthorizedError": {
+        "message": "De server op $URL$ accepteerde de inloggegevens niet.",
+        "description": "Validation message when the user attempts to save an account but the server did not accept the user name and token",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ThemeArcDark": {
+        "message": "Boog donker",
+        "description": "Label of the theme with the Arc dark scheme"
+    },
+    "ThemeArcLight": {
+        "message": "Boog",
+        "description": "Label of the theme with the Arc color scheme"
+    },
+    "ThemeHacker": {
+        "message": "Hacker",
+        "description": "Label of the hacker style theme"
+    },
+    "ThemeRGB": {
+        "message": "Gaming RGB",
+        "description": "Label of the gaming rgb animated theme"
+    },
+    "ThemeCustom": {
+        "message": "Aangepast thema",
+        "description": "Label for the custom theme option"
+    },
+    "CustomFont": {
+        "message": "Lettertype",
+        "description": "Headline for the font settings in the custom theme settings"
+    },
+    "CustomDefaultElement": {
+        "message": "Standaard element",
+        "description": "Headline for the default element styling settings in the custom theme settings"
+    },
+    "CustomActiveElement": {
+        "message": "Actief element",
+        "description": "Headline for the active element styling settings in the custom theme settings"
+    },
+    "CustomSliderElement": {
+        "message": "Schakelt",
+        "description": "Headline for the switch styling settings in the custom theme settings"
+    },
+    "CustomToasts": {
+        "message": "Toastmeldingen",
+        "description": "Headline for the toast notification styling settings in the custom theme settings"
+    },
+    "CustomBadge": {
+        "message": "Browserpictogram",
+        "description": "Headline for the browser toolbar icon styling settings in the custom theme settings"
+    },
+    "BackgroundColorLabel": {
+        "message": "Achtergrondkleur",
+        "description": "Label of background color options in the custom theme settings"
+    },
+    "ForegroundColorLabel": {
+        "message": "Voorgrondkleur",
+        "description": "Label of foreground / text color options in the custom theme settings"
+    },
+    "BorderColorLabel": {
+        "message": "Randkleur",
+        "description": "Label of border color options in the custom theme settings"
+    },
+    "BackgroundInheritLabel": {
+        "message": "Achtergrond erven",
+        "description": "Label of options to inherit the background color in the custom theme settings"
+    },
+    "ForegroundInheritLabel": {
+        "message": "Erf voorgrond",
+        "description": "Label of options to inherit the foreground / text color in the custom theme settings"
+    },
+    "BackgroundColorBaseTitle": {
+        "message": "Deze kleur wordt gewoonlijk gebruikt voor de achtergrond",
+        "description": "Tooltip of the color input field in the custom theme settings for the default background color for an element"
+    },
+    "BackgroundColorHoverTitle": {
+        "message": "Deze kleur wordt gebruikt voor de achtergrond als het element actief is. Het kan ook worden gebruikt voor de rand van een inactief element.",
+        "description": "Tooltip of the color input field in the custom theme settings for the mouse hover / active background color for an element"
+    },
+    "ForegroundColorBaseTitle": {
+        "message": "Deze kleur wordt gewoonlijk gebruikt voor teksten en randen",
+        "description": "Tooltip of the color input field in the custom theme settings for the default foreground / text color for an element"
+    },
+    "ForegroundColorHoverTitle": {
+        "message": "Deze kleur wordt gebruikt voor teksten en randen als het element actief is",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active foreground / text color for an element"
+    },
+    "BorderColorBaseTitle": {
+        "message": "Deze kleur wordt meestal gebruikt voor randen",
+        "description": "Tooltip of the color input field in the custom theme settings for the default border color for an element"
+    },
+    "BorderColorHoverTitle": {
+        "message": "Deze kleur wordt gebruikt voor de randen als het element actief is",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active border color for an element"
+    },
+    "LabelUser": {
+        "message": "Gebruiker",
+        "description": "Label for the username of in the server info in the browse tab"
+    },
+    "BackgroundInheritTitle": {
+        "message": "Indien geactiveerd, wordt de waarde geërfd van het parent element",
+        "description": "Tooltip for the checkbox to inherit the background color (from the parent element in the html) in the custom theme settings"
+    },
+    "ForegroundInheritTitle": {
+        "message": "Indien geactiveerd, wordt de waarde geërfd van het parent element",
+        "description": "Tooltip for the checkbox to inherit the foreground / text color (from the parent element in the html) in the custom theme settings"
+    },
+    "SettingsCustomFont": {
+        "message": "Lettertype familie",
+        "description": "Label of the font option in the custom theme settings"
+    },
+    "FontDefault": {
+        "message": "Standaard",
+        "description": "Label of the default font option in the custom theme settings"
+    },
+    "FontMono": {
+        "message": "Monospace",
+        "description": "Label of the monospaced font option in the custom theme settings"
+    },
+    "FontSerif": {
+        "message": "Serif",
+        "description": "Label of the serif style (like Times New Roman) font option in the custom theme settings"
+    },
+    "FontSans": {
+        "message": "Zonder schreef",
+        "description": "Label of the sans serif (like Arial) font option in the custom theme settings"
+    },
+    "FontLight": {
+        "message": "Licht",
+        "description": "Label of the thin font option in the custom theme settings"
+    },
+    "FontNextcloud": {
+        "message": "Nextcloud",
+        "description": "Label of the Nextcloud font option in the custom theme settings"
+    },
+    "FontOpenDyslexic": {
+        "message": "Open Dyslexie",
+        "description": "Label of the open dyslexic font option in the custom theme settings. This font is good for users with dyslexia"
+    },
+    "FontCustom": {
+        "message": "Aangepaste",
+        "description": "Label for unrecognized fonts in the custom theme settings. This option is usually not shown"
+    },
+    "SettingsCustomFontSize": {
+        "message": "Lettergrootte",
+        "description": "Label of the font size setting in the custom theme settings"
+    },
+    "FontSizeVerySmall": {
+        "message": "Zeer klein.",
+        "description": "Label for the very small font size in the custom theme settings"
+    },
+    "FontSizeSmall": {
+        "message": "Kleine",
+        "description": "Label for the small font size in the custom theme settings"
+    },
+    "FontSizeDefault": {
+        "message": "Standaard",
+        "description": "Label for the default font size in the custom theme settings"
+    },
+    "FontSizeMedium": {
+        "message": "Medium",
+        "description": "Label for the medium font size in the custom theme settings"
+    },
+    "FontSizeLarge": {
+        "message": "Groot",
+        "description": "Label for the large font size in the custom theme settings"
+    },
+    "FontSizeVeryLarge": {
+        "message": "Zeer groot",
+        "description": "Label for the very large font size in the custom theme settings"
+    },
+    "ToastInfoColors": {
+        "message": "Info toast",
+        "description": "Label of the setting in the custom theme settings to choose the colors of informational toast notifications"
+    },
+    "ToastSuccessColors": {
+        "message": "Succes toast",
+        "description": "Label of the setting in the custom theme settings to choose the colors of success toast notifications"
+    },
+    "ToastWarningColors": {
+        "message": "Waarschuwing toast",
+        "description": "Label of the setting in the custom theme settings to choose the colors of warning toast notifications"
+    },
+    "ToastErrorColors": {
+        "message": "Fout toast",
+        "description": "Label of the setting in the custom theme settings to choose the colors of error toast notifications"
+    },
+    "ToastBackgroundTitle": {
+        "message": "Achtergrondkleur voor de toastmelding",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification background color"
+    },
+    "ToastForegroundTitle": {
+        "message": "Kleur voor tekst en knopachtergrond van de toastmelding",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification foreground / text color"
+    },
+    "SettingsBadgeIcon": {
+        "message": "Werkbalkpictogram",
+        "description": "Label of the setting to choose the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconAuto": {
+        "message": "Automatisch",
+        "description": "Label of the automatic icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconLight": {
+        "message": "Lichtpictogram",
+        "description": "Label of the light icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconMedium": {
+        "message": "Grijs pictogram",
+        "description": "Label of the grey icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconDark": {
+        "message": "Donker icoon",
+        "description": "Label of the dark icon option for the toolbar icon in the custom theme settings"
+    },
+    "ButtonSave": {
+        "message": "Opslaan",
+        "description": "The save button of a password detection system notification"
+    },
+    "BadgeIconNewLight": {
+        "message": "Licht modern icoon",
+        "description": "Label of the light modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewMedium": {
+        "message": "Grijs modern icoon",
+        "description": "Label of the grey modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewDark": {
+        "message": "Donker modern icoon",
+        "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "CustomBadgeColors": {
+        "message": "Badge kleuren",
+        "description": "Label of the settings for the toolbar icon badge colors in the custom theme settings"
+    },
+    "BadgeBackgroundTitle": {
+        "message": "Achtergrondkleur van de badge",
+        "description": "Tooltip for the color input for the background color of the toolbar icon badge in the custom theme settings"
+    },
+    "BadgeForegroundTitle": {
+        "message": "Tekstkleur van de badge",
+        "description": "Tooltip for the color input for the text color of the toolbar icon badge in the custom theme settings"
+    },
+    "PasslinkErrorNoMessage": {
+        "message": "Er is een fout opgetreden, maar er werd geen foutmelding gegeven",
+        "description": "Error message shown in the PassLink popup window when and error happened but no error message was provided"
+    },
+    "PasslinkNoLinkProvided": {
+        "message": "Er ontbreekt geen link of actie",
+        "description": "Error message shown in the PassLink popup window when the window was opened but no action or link to process was provided"
+    },
+    "PasslinkErrorClose": {
+        "message": "Sluit",
+        "description": "Text of the close button in the PassLink error window"
+    },
+    "PasslinkNoActiveAction": {
+        "message": "Er is geen actieve PassLink-actie van dit type",
+        "description": "Error message when an active PassLink action is required for a request but no active action can be found. (Example: Request to view the second step of the PassLink connect step, but no PassLink connect was started at all)"
+    },
+    "PasslinkConnectCheckCodes": {
+        "message": "Controleer of de onderstaande codes overeenkomen met de codes die je in de app ziet. Als dat zo is, bevestig dan de verbinding in de app en je bent klaar.",
+        "description": "Message during the PassLink Connect action telling the user to check if the codes below match the ones shown in the Nextcloud Passwords App. If so, the user just needs to confirm the connection in the Nextcloud app to add the account to the extension."
+    },
+    "PasslinkConnectServer": {
+        "message": "De nieuwe rekening werd opgeslagen als \"$LABEL$\"",
+        "description": "Confirmation message in the PassLink Connect action when a new account has been created successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "PasslinkConnectNotFound": {
+        "message": "Deze link is ongeldig. Hij is mogelijk al gebruikt of verlopen.",
+        "description": "Error message in PassLink when the link used has expired or was already used."
+    },
+    "PasslinkConnectRejected": {
+        "message": "De verbindingsaanvraag is door de server afgewezen.",
+        "description": "Error message when the server rejected the PassLink connect action was not confirmed by the server"
+    },
+    "PasslinkConnectNetworkError": {
+        "message": "De verbinding met de server is mislukt. Controleer uw netwerk.",
+        "description": "Error message in PassLink when the connection to the Nextcloud server failed with a networking error"
+    },
+    "PasslinkConnectSuccess": {
+        "message": "Verbinding geslaagd",
+        "description": "Message in the PassLink window when the PassLink Connect action was successful"
+    },
+    "PasslinkConnectFailed": {
+        "message": "Verbinding mislukt",
+        "description": "Message in the PassLink window when the PassLink Connect action failed"
+    },
+    "PasslinkConnectSettings": {
+        "message": "Open instellingen",
+        "description": "Text of the button to open the extension settings in the PassLink result window"
+    },
+    "PasslinkConnectClose": {
+        "message": "Sluit het venster",
+        "description": "Text of the button  in the PassLink result window to close the window"
+    },
+    "PasslinkScanInstructions": {
+        "message": "Richt uw camera op de QR-code en wacht tot deze wordt herkend en gescand.",
+        "description": "Instructions shown above the PassLink QR scanner telling the use to point his camera at the qr code he wants to scan"
+    },
+    "PasslinkScanScanning": {
+        "message": "Op zoek naar een QR-code",
+        "description": "Message used by the PassLink QR scanner while the camera feed is scanned for a qr code"
+    },
+    "PasslinkScanProcessingLink": {
+        "message": "Verwerking QR Code",
+        "description": "Message used by the PassLink QR scanner when a valid code was found and is now being analyzed"
+    },
+    "PasslinkScanInvalidQrCode": {
+        "message": "Deze QR Code wordt niet ondersteund",
+        "description": "Message used by the PassLink QR scanner when the user scans a code that does not contain a valid and supported uri of Passlink"
+    },
+    "QrNotAllowedError": {
+        "message": "Toegang tot de camera werd niet verleend",
+        "description": "Message used by the PassLink QR scanner when the user did not allow camera access"
+    },
+    "QrNotFoundError": {
+        "message": "Er zijn geen camera's gevonden op dit apparaat",
+        "description": "Message used by the PassLink QR scanner when the device has no cameras"
+    },
+    "QrNotSupportedError": {
+        "message": "Onveilige context",
+        "description": "Message used by the PassLink QR scanner when the page was opened in an insecure context (http://). This should never happen"
+    },
+    "QrNotReadableError": {
+        "message": "Camera niet toegankelijk. Misschien is hij al in gebruik?",
+        "description": "Message used by the PassLink QR scanner when the camera stream can not be read"
+    },
+    "QrOverconstrainedError": {
+        "message": "Camera niet geschikt om te gebruiken",
+        "description": "Message used by the PassLink QR scanner when the camera is faulty"
+    },
+    "QrStreamApiNotSupportedError": {
+        "message": "De Stream API wordt niet ondersteund door deze browser",
+        "description": "Message used by the PassLink QR scanner when the browser does not support the required streaming api. This should never happen"
+    },
+    "FirstRunConnectTitle": {
+        "message": "Maak verbinding met Nextcloud",
+        "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
+    },
+    "FirstRunConnectText": {
+        "message": "Open de wachtwoorden-app, klik op \"Meer\", open \"Apps & Extensies\" en open het dialoogvenster PassLink Connect.",
+        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
+    },
+    "FirstRunConnectLink": {
+        "message": "Als het PassLink-dialoogvenster geopend is op hetzelfde apparaat, gebruikt u de optie verbinden via verbinding",
+        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
+    },
+    "FirstRunConnectScan": {
+        "message": "Als dit een ander apparaat is, scan dan de PassLink Connect Code met de onderstaande knop",
+        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
+    },
+    "FirstRunConnectManual": {
+        "message": "U kunt de account ook handmatig aanmaken in de instellingen van de extensie",
+        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
+    },
+    "FirstRunConnectScanButton": {
+        "message": "Scan de PassLink-code",
+        "description": "Text of the button to scan a PassLink QR Code"
+    },
+    "PasswordGenerateError": {
+        "message": "Kan geen wachtwoord genereren: $ERROR$",
+        "description": "Notification shown when the generation of a password fails",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "Unexpected data type"
+            }
+        }
+    },
+    "DebugHighlightLoginForms": {
+        "message": "Markeer aanmeldingsformulier velden",
+        "description": "Label of the button in the popup which triggers the option to highlight all login form fields in the current tab"
+    },
+    "PasteBadPasswordWarning": {
+        "message": "Dit wachtwoord is gecompromitteerd en moet onmiddellijk worden gewijzigd.",
+        "description": "Notification shown after the user pasted a password with the security status breached/compromised"
+    },
+    "DebugInternalStats": {
+        "message": "Interne status",
+        "description": "Headline above the internal status section in the extension settings in the debug tab"
+    },
+    "CustomButtons": {
+        "message": "Knoppen",
+        "description": "Headline for the button styling settings in the custom theme settings"
+    },
+    "DebugInfoExtensionVersion": {
+        "message": "Uitbreiding Versie",
+        "description": "Description of the extension version in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionBuild": {
+        "message": "Doel Platform",
+        "description": "Description of the extension build target (firefox or chrome) in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionPlatform": {
+        "message": "Gebruiker Agent",
+        "description": "Description of the browser user agent in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionEnvironment": {
+        "message": "Uitbreidingsmodus",
+        "description": "Description of the extension mode (production or development) in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugErrorDataCopied": {
+        "message": "Foutgegevens gekopieerd naar klembord",
+        "description": "Success notification when you copy an error report to the clipboard in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugNoErrors": {
+        "message": "Geen fouten in het logboek",
+        "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
+    },
+    "RecommendationSettings": {
+        "message": "Geloofsbrieven aanbevelen",
+        "description": "Label of the section password recommendations in the extension settings."
+    },
+    "SettingsSearchRecommendationOption": {
+        "message": "Zoek referenties met",
+        "description": "Label of the setting in the extension settings to define how password recommendations are searched."
+    },
+    "LabelSearchRecommendationDomain": {
+        "message": "hetzelfde domein",
+        "description": "Find password recommendations by domain. So on page mail.example.com you will see all passwords for the domain and sumdomains of example.com."
+    },
+    "LabelSearchRecommendationHost": {
+        "message": "dezelfde gastheer",
+        "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
+    },
+    "LabelSearchRecommendationHostPort": {
+        "message": "dezelfde host & poort",
+        "description": "Find password recommendations for the specific server and port."
+    },
+    "LabelSearchRecommendationExact": {
+        "message": "exact dezelfde url",
+        "description": "Find only passwords where th url matches exact to the current browser url."
+    },
+    "SettingsSearchRecommendationMaxRows": {
+        "message": "Maximum aantal aanbevelingen",
+        "description": "Label of the setting in the extension settings to define the maximum number of results for the password recommendation."
+    },
+    "SearchRecommendationMaxRowsNumber": {
+        "message": "$ROW$",
+        "description": "Number of results that should be displayed for password recommendations.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 1, 5, 10, 15 or 20"
+            }
+        }
+    },
+    "UiSettings": {
+        "message": "Gebruikersinterface",
+        "description": "Label of the user interface section in the extension settings."
+    },
+    "SettingsShowUsernameInList": {
+        "message": "Toon gebruikersnaam naast titel",
+        "description": "Label of the setting in the extension settings to show the username next to the title in password lists."
+    },
+    "InputSliderOn": {
+        "message": "Momenteel op",
+        "description": "Tooltip of any slider input element that is currently in the active/enabled state"
+    },
+    "InputSliderOff": {
+        "message": "Momenteel uit",
+        "description": "Tooltip of any slider input element that is currently in the inactive/disabled state"
+    },
+    "PasswordCustomFieldsTypeText": {
+        "message": "Tekst",
+        "description": "Label of the password custom setting type 'text'."
+    },
+    "PasswordCustomFieldsTypeSecret": {
+        "message": "Geheim",
+        "description": "Label of the password custom setting type 'secret'."
+    },
+    "PasswordCustomFieldsTypeEmail": {
+        "message": "E-mail",
+        "description": "Label of the password custom setting type 'email'."
+    },
+    "PasswordCustomFieldsTypeUrl": {
+        "message": "Link",
+        "description": "Label of the password custom setting type 'url'."
+    },
+    "PasswordCustomFieldsTypeFormField": {
+        "message": "Formulier veld",
+        "description": "Label of the password custom setting form field to insert custom values to a web page."
+    },
+    "PasswordEditValidationInvalidValue": {
+        "message": "Ongeldige waarde",
+        "description": "The validation error message in the password edit form if the value is invalid"
+    },
+    "PasswordEditValidationMaxLength": {
+        "message": "Alleen $CHARACTERS$ tekens toegestaan",
+        "description": "The validation error message in the password edit form if the value is longer than allowed",
+        "placeholders": {
+            "characters": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
+    },
+    "PasswordEditValidationRequired": {
+        "message": "Dit veld is verplicht",
+        "description": "The validation error message in the password edit form if a required field is empty"
+    },
+    "MiningPasswordDiscarded": {
+        "message": "Wachtwoord weggegooid",
+        "description": "The toast notification after the user has successfully discarded a mined password"
+    },
+    "MiningPasswordCreated": {
+        "message": "Wachtwoord opgeslagen",
+        "description": "The toast notification after the password was successfully saved"
+    },
+    "MiningPasswordUpdated": {
+        "message": "Wachtwoord bijgewerkt",
+        "description": "The toast notification after the password was successfully saved"
+    },
+    "OpenSettings": {
+        "message": "Extensie-instellingen openen",
+        "description": "Label of the button to open the extension settings in the tools tab of the popup"
+    },
+    "ToolsTabGeneratePassword": {
+        "message": "Wachtwoord genereren",
+        "description": "Label of the generate password section in the tools tab of the popup"
+    },
+    "ToolsTabDebugTools": {
+        "message": "Debuggereedschap",
+        "description": "Label of the debugging tools section in the tools tab of the popup"
+    },
+    "GeneratedPasswordPlaceholder": {
+        "message": "Gegenereerd wachtwoord",
+        "description": "Placeholder of the field for the generated password in the tools tab of the popup"
+    },
+    "GeneratedPasswordTitle": {
+        "message": "Wachtwoord woorden: $WORDS$",
+        "description": "Title of the input field for the generated password in the tools tab of the popup. It shows the words used to generate the password",
+        "placeholders": {
+            "words": {
+                "content": "$1",
+                "description": "The words used for the password",
+                "example": "First Second Third"
+            }
+        }
+    },
+    "LabelGenerateAddSpecial": {
+        "message": "Symbolen",
+        "description": "Label of the option to include special characters in the password generator in the tools tab"
+    },
+    "LabelGenerateStrength": {
+        "message": "Sterkte",
+        "description": "Label of the option to set the strength in the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthLow": {
+        "message": "Laag",
+        "description": "Label of the low (0) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthStandard": {
+        "message": "Standaard",
+        "description": "Label of the default (1) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthMedium": {
+        "message": "Medium",
+        "description": "Label of the medium (2) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthHigh": {
+        "message": "Hoog",
+        "description": "Label of the high (3) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthUltra": {
+        "message": "Ultra",
+        "description": "Label of the very high (4) strength option for the password generator in the tools tab"
+    },
+    "DebugInfoHiddenFolderId": {
+        "message": "Verborgen Wachtwoorden Map ID",
+        "description": "Description of the id of the folder used to store hidden/private passwords in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugSettings": {
+        "message": "Debug-instellingen",
+        "description": "Headline above the debugging settings section in the extension settings in the debug tab"
+    },
+    "DebugLanguageTagsEnabled": {
+        "message": "Taaltoetsen tonen",
+        "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
+    },
+    "DebugBuild": {
+        "message": "Bouw Informatie",
+        "description": "Headline above the section for the build instructions in the debug tab in the extension settings"
+    },
+    "DebugSourceAndBuild": {
+        "message": "Bouwinstructies en broncode downloaden",
+        "description": "Label of the link to open the page with build instructions and links to the source code in the debug tab in the extension settings"
+    },
+    "DebugErrorLog": {
+        "message": "Foutenlogboek",
+        "description": "Headline above the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorNoMessage": {
+        "message": "Geen foutmelding",
+        "description": "Used as error message for errors with no error message (but have a timestamp) in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorNoDetails": {
+        "message": "Geen foutdetails",
+        "description": "Used as error message for errors with no details at all in the error logs section in the extension settings in the debug tab"
+    },
+    "extensionName": {
+        "message": "Wachtwoorden voor Nextcloud Browseruitbreiding",
+        "description": "Name of the extension."
+    },
+    "LabelGenerateAddNumbers": {
+        "message": "Nummers",
+        "description": "Label of the option to include numbers in the password generator in the tools tab"
+    },
+    "extensionDescription": {
+        "message": "De officiële browserextensie voor Wachtwoorden voor Nextcloud",
+        "description": "Description of the extension."
+    },
+    "locale": {
+        "message": "en",
+        "description": "The language tag of this translation. Same as the folder name"
+    },
+    "browserActionTitle": {
+        "message": "Wachtwoorden",
+        "description": "Title of the button in the browser bar"
+    },
+    "contextMenuTitle": {
+        "message": "Wachtwoorden",
+        "description": "Title of the context menu item"
+    },
+    "BrowserActionTitleCounter": {
+        "message": "Wachtwoorden ($COUNTER$)",
+        "description": "Title of the button in the browser bar with suggestion counter",
+        "placeholders": {
+            "counter": {
+                "content": "$1",
+                "example": "2"
+            }
+        }
+    },
+    "UserAgent": {
+        "message": "Officiële wachtwoordenclient voor $BROWSER$ op $OS$",
+        "description": "The user agent used for api requests. Only ASCII characters allowed",
+        "placeholders": {
+            "browser": {
+                "content": "$1",
+                "example": "Firefox"
+            },
+            "os": {
+                "content": "$2",
+                "example": "Linux"
+            }
+        }
+    }
+}
