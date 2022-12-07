@@ -227,7 +227,7 @@ export default class DomMiner {
         console.log(`Processed ${count} dom changes in `, Date.now() - start);
         start = Date.now();
         let formcount = document.querySelector('input[type="password"]') !== null;
-        console.log(`Altenate mode ready in `, Date.now() - start);
+        console.log(`Alternate mode ready in `, Date.now() - start);
 
         if(foundPassword) {
             MessageService.send(
