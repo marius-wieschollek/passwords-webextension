@@ -1,1 +1,1456 @@
-{}
+{
+    "extensionName": {
+        "message": "Паролі для розширення браузера Nextcloud",
+        "description": "Name of the extension."
+    },
+    "extensionDescription": {
+        "message": "Офіційне розширення для браузера Passwords for Nextcloud",
+        "description": "Description of the extension."
+    },
+    "locale": {
+        "message": "en",
+        "description": "The language tag of this translation. Same as the folder name"
+    },
+    "browserActionTitle": {
+        "message": "Паролі",
+        "description": "Title of the button in the browser bar"
+    },
+    "ButtonSave": {
+        "message": "Зберегти",
+        "description": "The save button of a password detection system notification"
+    },
+    "PropertyUrl": {
+        "message": "Веб-сайт",
+        "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
+    },
+    "CustomSliderElement": {
+        "message": "Вимикачі",
+        "description": "Headline for the switch styling settings in the custom theme settings"
+    },
+    "LabelEdited": {
+        "message": "Модифікований",
+        "description": "Label for the last edit time of this password."
+    },
+    "ToastPasswordTrashedRestore": {
+        "message": "Відновити",
+        "description": "Text of the toast notification option to restore a password from the trash"
+    },
+    "PasslinkConnectSuccess": {
+        "message": "Підключення виконано успішно",
+        "description": "Message in the PassLink window when the PassLink Connect action was successful"
+    },
+    "contextMenuTitle": {
+        "message": "Паролі",
+        "description": "Title of the context menu item"
+    },
+    "HelpPasteBasicAuth": {
+        "message": "Автоматично відповідати на запити базової автентифікації http першим запропонованим обліковим записом. Майте на увазі, що це може призвести до передачі облікових даних на ненадійні сервери.",
+        "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "SettingsClearClipboardPasswords": {
+        "message": "Автоматичне видалення паролів з буфера обміну",
+        "description": "Label of the setting in the extension settings to automatically clear passwords from clipboard after a certain time."
+    },
+    "SettingsClearClipboardDelay": {
+        "message": "Порожній буфер обміну після",
+        "description": "Label of the setting in the extension settings to define the time when the clipboard content will be removed."
+    },
+    "FirstRunConnectTitle": {
+        "message": "Підключення до Nextcloud",
+        "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
+    },
+    "ServerSaveErrorTitle": {
+        "message": "Збереження не вдалося",
+        "description": "Title of the toast notification in the extension settings after an account could not be updated or saved. The message will be the specific error message"
+    },
+    "ServerDisabledWarning": {
+        "message": "Цей обліковий запис деактивовано. Він буде активований після успішного збереження.",
+        "description": "Warning message which appears above the account details if the server was disabled. Usual reasons are invalid login data, unsupported extension version or permanent connection issues."
+    },
+    "ServerLabel": {
+        "message": "Ім'я та прізвище",
+        "description": "Label of the account name field in account details in the extension settings"
+    },
+    "ServerBaseUrl": {
+        "message": "Url",
+        "description": "Label of the server url field in account details in the extension settings"
+    },
+    "ServerUser": {
+        "message": "Користувач",
+        "description": "Label of the account login user field in account details in the extension settings"
+    },
+    "PasswordItemOpenUrl": {
+        "message": "Відкритий сайт",
+        "description": "Title of the menu option to open the password url in a new tab"
+    },
+    "NoRelatedPasswords": {
+        "message": "Не знайдено жодного пов'язаного пароля",
+        "description": "Used in the related tab when no entries match the current website"
+    },
+    "LabelLabel": {
+        "message": "Ім'я та прізвище",
+        "description": "Label for the name of a password entry"
+    },
+    "ButtonMore": {
+        "message": "Більше опцій",
+        "description": "The more options button of a password detection system notification which opens the popup with the form which shows all password details"
+    },
+    "ToastPasswordHiddenTrashed": {
+        "message": "$LABEL$ було видалено. Якщо це сталося випадково, ви все ще можете відновити його нижче, перш ніж він буде видалений назавжди",
+        "description": "Text of the toast notification after a hidden password was moved to the trash. Users can restore it within the notification but afterwards the password is lost for good",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "ToastPasswordDeleteFailed": {
+        "message": "Не вдалося видалити пароль",
+        "description": "Text of the toast notification when deleting the password failed"
+    },
+    "DemoText": {
+        "message": "Демонстрація",
+        "description": "Demo text used in the theme preview"
+    },
+    "ForegroundInheritLabel": {
+        "message": "Успадковувати передній план",
+        "description": "Label of options to inherit the foreground / text color in the custom theme settings"
+    },
+    "BackgroundColorBaseTitle": {
+        "message": "Цей колір зазвичай використовується для фону",
+        "description": "Tooltip of the color input field in the custom theme settings for the default background color for an element"
+    },
+    "BackgroundColorHoverTitle": {
+        "message": "Цей колір використовується для фону, якщо елемент активний. Також може використовуватися для межі неактивного елемента",
+        "description": "Tooltip of the color input field in the custom theme settings for the mouse hover / active background color for an element"
+    },
+    "ForegroundColorBaseTitle": {
+        "message": "Цей колір зазвичай використовується для текстів і рамок",
+        "description": "Tooltip of the color input field in the custom theme settings for the default foreground / text color for an element"
+    },
+    "ForegroundColorHoverTitle": {
+        "message": "Цей колір використовується для текстів і рамок, якщо елемент активний",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active foreground / text color for an element"
+    },
+    "BorderColorBaseTitle": {
+        "message": "Цей колір зазвичай використовується для бордюрів",
+        "description": "Tooltip of the color input field in the custom theme settings for the default border color for an element"
+    },
+    "BorderColorHoverTitle": {
+        "message": "Цей колір використовується для рамок, якщо елемент активний",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active border color for an element"
+    },
+    "BackgroundInheritTitle": {
+        "message": "Якщо активовано, то значення буде успадковано від батьківського елементу",
+        "description": "Tooltip for the checkbox to inherit the background color (from the parent element in the html) in the custom theme settings"
+    },
+    "ForegroundInheritTitle": {
+        "message": "Якщо активовано, то значення буде успадковано від батьківського елементу",
+        "description": "Tooltip for the checkbox to inherit the foreground / text color (from the parent element in the html) in the custom theme settings"
+    },
+    "SettingsCustomFont": {
+        "message": "Сімейство шрифтів",
+        "description": "Label of the font option in the custom theme settings"
+    },
+    "FontDefault": {
+        "message": "За замовчуванням",
+        "description": "Label of the default font option in the custom theme settings"
+    },
+    "FontMono": {
+        "message": "Монопростір",
+        "description": "Label of the monospaced font option in the custom theme settings"
+    },
+    "FontSerif": {
+        "message": "Засечка",
+        "description": "Label of the serif style (like Times New Roman) font option in the custom theme settings"
+    },
+    "FontSans": {
+        "message": "Без зарубок",
+        "description": "Label of the sans serif (like Arial) font option in the custom theme settings"
+    },
+    "FontLight": {
+        "message": "Світло",
+        "description": "Label of the thin font option in the custom theme settings"
+    },
+    "SettingsCustomFontSize": {
+        "message": "Розмір шрифту",
+        "description": "Label of the font size setting in the custom theme settings"
+    },
+    "FontSizeVerySmall": {
+        "message": "Дуже малий",
+        "description": "Label for the very small font size in the custom theme settings"
+    },
+    "FontSizeSmall": {
+        "message": "Малий",
+        "description": "Label for the small font size in the custom theme settings"
+    },
+    "FontSizeDefault": {
+        "message": "За замовчуванням",
+        "description": "Label for the default font size in the custom theme settings"
+    },
+    "FontSizeMedium": {
+        "message": "Середній",
+        "description": "Label for the medium font size in the custom theme settings"
+    },
+    "FontSizeLarge": {
+        "message": "Великий",
+        "description": "Label for the large font size in the custom theme settings"
+    },
+    "FontSizeVeryLarge": {
+        "message": "Дуже великий",
+        "description": "Label for the very large font size in the custom theme settings"
+    },
+    "ToastInfoColors": {
+        "message": "Інформаційний тост",
+        "description": "Label of the setting in the custom theme settings to choose the colors of informational toast notifications"
+    },
+    "ToastSuccessColors": {
+        "message": "Тост за успіх",
+        "description": "Label of the setting in the custom theme settings to choose the colors of success toast notifications"
+    },
+    "ToastWarningColors": {
+        "message": "Попереджувальний тост",
+        "description": "Label of the setting in the custom theme settings to choose the colors of warning toast notifications"
+    },
+    "ToastErrorColors": {
+        "message": "Помилковий тост",
+        "description": "Label of the setting in the custom theme settings to choose the colors of error toast notifications"
+    },
+    "ToastBackgroundTitle": {
+        "message": "Колір фону для сповіщення про тост",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification background color"
+    },
+    "ToastForegroundTitle": {
+        "message": "Колір фону тексту та кнопок сповіщення про тост",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification foreground / text color"
+    },
+    "SettingsBadgeIcon": {
+        "message": "Піктограма на панелі інструментів",
+        "description": "Label of the setting to choose the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconAuto": {
+        "message": "Автоматичний",
+        "description": "Label of the automatic icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconLight": {
+        "message": "Світловий значок",
+        "description": "Label of the light icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconMedium": {
+        "message": "Сіра піктограма",
+        "description": "Label of the grey icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconDark": {
+        "message": "Темна піктограма",
+        "description": "Label of the dark icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewLight": {
+        "message": "Легка сучасна ікона",
+        "description": "Label of the light modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewMedium": {
+        "message": "Сіра сучасна ікона",
+        "description": "Label of the grey modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewDark": {
+        "message": "Темна сучасна ікона",
+        "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "CustomBadgeColors": {
+        "message": "Кольори бейджів",
+        "description": "Label of the settings for the toolbar icon badge colors in the custom theme settings"
+    },
+    "BadgeBackgroundTitle": {
+        "message": "Колір фону нагрудного знаку",
+        "description": "Tooltip for the color input for the background color of the toolbar icon badge in the custom theme settings"
+    },
+    "BadgeForegroundTitle": {
+        "message": "Колір тексту на бейджі",
+        "description": "Tooltip for the color input for the text color of the toolbar icon badge in the custom theme settings"
+    },
+    "PasslinkErrorNoMessage": {
+        "message": "Виникла помилка, але повідомлення про помилку не надано",
+        "description": "Error message shown in the PassLink popup window when and error happened but no error message was provided"
+    },
+    "PasslinkNoLinkProvided": {
+        "message": "Жодне посилання або дія не пропущені",
+        "description": "Error message shown in the PassLink popup window when the window was opened but no action or link to process was provided"
+    },
+    "PasslinkConnectFailed": {
+        "message": "Не вдалося встановити з'єднання",
+        "description": "Message in the PassLink window when the PassLink Connect action failed"
+    },
+    "PasslinkScanInstructions": {
+        "message": "Наведіть камеру на QR-код і зачекайте, поки він буде розпізнаний і відсканований.",
+        "description": "Instructions shown above the PassLink QR scanner telling the use to point his camera at the qr code he wants to scan"
+    },
+    "FirstRunConnectManual": {
+        "message": "Також ви можете створити обліковий запис вручну в налаштуваннях розширення",
+        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
+    },
+    "FirstRunConnectScanButton": {
+        "message": "Відскануйте код PassLink",
+        "description": "Text of the button to scan a PassLink QR Code"
+    },
+    "OpenSettings": {
+        "message": "Відкрити налаштування розширення",
+        "description": "Label of the button to open the extension settings in the tools tab of the popup"
+    },
+    "ToolsTabGeneratePassword": {
+        "message": "Згенерувати пароль",
+        "description": "Label of the generate password section in the tools tab of the popup"
+    },
+    "ToolsTabDebugTools": {
+        "message": "Інструменти налагодження",
+        "description": "Label of the debugging tools section in the tools tab of the popup"
+    },
+    "DebugInfoExtensionBuild": {
+        "message": "Цільова платформа",
+        "description": "Description of the extension build target (firefox or chrome) in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionEnvironment": {
+        "message": "Режим розширення",
+        "description": "Description of the extension mode (production or development) in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoHiddenFolderId": {
+        "message": "Приховані паролі Ідентифікатор папки",
+        "description": "Description of the id of the folder used to store hidden/private passwords in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugBuild": {
+        "message": "Інформація про будівництво",
+        "description": "Headline above the section for the build instructions in the debug tab in the extension settings"
+    },
+    "DebugSourceAndBuild": {
+        "message": "Завантажити інструкції по збірці та вихідний код",
+        "description": "Label of the link to open the page with build instructions and links to the source code in the debug tab in the extension settings"
+    },
+    "DebugErrorNoDetails": {
+        "message": "Відсутня інформація про помилку",
+        "description": "Used as error message for errors with no details at all in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorDataCopied": {
+        "message": "Деталі помилки скопійовані в буфер обміну",
+        "description": "Success notification when you copy an error report to the clipboard in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugNoErrors": {
+        "message": "Відсутність помилок в журналі",
+        "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
+    },
+    "RecommendationSettings": {
+        "message": "Рекомендаційні повноваження",
+        "description": "Label of the section password recommendations in the extension settings."
+    },
+    "SettingsSearchRecommendationOption": {
+        "message": "Пошук облікових даних за допомогою",
+        "description": "Label of the setting in the extension settings to define how password recommendations are searched."
+    },
+    "LabelSearchRecommendationDomain": {
+        "message": "той самий домен",
+        "description": "Find password recommendations by domain. So on page mail.example.com you will see all passwords for the domain and sumdomains of example.com."
+    },
+    "LabelSearchRecommendationHost": {
+        "message": "той самий хост",
+        "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
+    },
+    "LabelSearchRecommendationHostPort": {
+        "message": "той самий хост і порт",
+        "description": "Find password recommendations for the specific server and port."
+    },
+    "LabelSearchRecommendationExact": {
+        "message": "той самий точний URL",
+        "description": "Find only passwords where th url matches exact to the current browser url."
+    },
+    "SettingsSearchRecommendationMaxRows": {
+        "message": "Максимальна кількість рекомендацій",
+        "description": "Label of the setting in the extension settings to define the maximum number of results for the password recommendation."
+    },
+    "SearchRecommendationMaxRowsNumber": {
+        "message": "$ROW$",
+        "description": "Number of results that should be displayed for password recommendations.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 1, 5, 10, 15 or 20"
+            }
+        }
+    },
+    "UiSettings": {
+        "message": "Інтерфейс користувача",
+        "description": "Label of the user interface section in the extension settings."
+    },
+    "InputSliderOn": {
+        "message": "Наразі на",
+        "description": "Tooltip of any slider input element that is currently in the active/enabled state"
+    },
+    "BrowserActionTitleCounter": {
+        "message": "Паролі ($COUNTER$)",
+        "description": "Title of the button in the browser bar with suggestion counter",
+        "placeholders": {
+            "counter": {
+                "content": "$1",
+                "example": "2"
+            }
+        }
+    },
+    "UserAgent": {
+        "message": "Офіційний клієнт паролів для сайту $BROWSER$ на $OS$",
+        "description": "The user agent used for api requests. Only ASCII characters allowed",
+        "placeholders": {
+            "browser": {
+                "content": "$1",
+                "example": "Firefox"
+            },
+            "os": {
+                "content": "$2",
+                "example": "Linux"
+            }
+        }
+    },
+    "MigrationAccountName": {
+        "message": "Обліковий запис Nextcloud",
+        "description": "Label assigned to the account used by the v1.x migration"
+    },
+    "PrivatePasswordsFolderLabel": {
+        "message": "Особисті паролі",
+        "description": "Label assigned to the hidden folder for private passwords. (folder is only visible when browsing in private mode)"
+    },
+    "SettingsTabTheming": {
+        "message": "Тематика",
+        "description": "Label of the themes tab in the extension settings"
+    },
+    "SettingsTabOther": {
+        "message": "Інші налаштування",
+        "description": "Label of the general settings tab in the extension settings"
+    },
+    "SettingsTabDebug": {
+        "message": "Налагодження",
+        "description": "Label of the extension debugging tab in the extension settings"
+    },
+    "SettingsAccountsMain": {
+        "message": "Обліковий запис за замовчуванням для нових паролів",
+        "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
+    },
+    "AutofillSettings": {
+        "message": "Вклеювання облікових даних",
+        "description": "Headline above the password autofill section in the other settings tab in the extension settings"
+    },
+    "SettingsPastePopupClose": {
+        "message": "Закрити спливаюче вікно після вставки облікових даних",
+        "description": "Label of the setting in the extension settings to automatically close the extension popup after successful pasting"
+    },
+    "SettingsPasteFormSubmit": {
+        "message": "Відправка форм для входу при вставці облікових даних зі спливаючого вікна",
+        "description": "Label of the setting in the extension settings to automatically submit login forms after pasting"
+    },
+    "SettingsPasteWarnCompromised": {
+        "message": "Попередження при використанні скомпрометованих облікових даних",
+        "description": "Label of the setting in the extension settings to show a warning after pasting a compromised password"
+    },
+    "SettingsPasteAutofillEnabled": {
+        "message": "Автоматичне заповнення найбільш підходящих даних для входу",
+        "description": "Label of the setting in the extension settings to automatically paste the first recommended credential into login forms"
+    },
+    "HelpPasteAutofill": {
+        "message": "Автоматично вставити перший запропонований обліковий запис у будь-яку форму входу на вкладці. Майте на увазі, що це робить доступним будь-який скрипт у вкладці.",
+        "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
+    },
+    "SettingsPasteBasicAuth": {
+        "message": "Автоматична відповідь на HTTP-запити базової автентифікації",
+        "description": "Label of the setting in the extension settings to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "HelpClearClipboardPasswords": {
+        "message": "Буфер обміну буде очищено тільки в тому випадку, якщо браузер все ще відкритий. Якщо надано додатковий дозвіл на читання буфера обміну, то він буде очищений тільки в тому випадку, якщо пароль все ще знаходиться в ньому.",
+        "description": "Help text in the extension settings for the setting to automatically clean passwords from clipboard after a certain time."
+    },
+    "SettingsClipboardClearDelayOptions": {
+        "message": "$ROW$ секунди",
+        "description": "Time in seconds until clipboard will get empty.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 15, 30, 45, 60, 90"
+            }
+        }
+    },
+    "NotificationSettings": {
+        "message": "Повідомлення",
+        "description": "Headline above the notification section in the other settings tab in the extension settings"
+    },
+    "SettingsNotifyPasswordNew": {
+        "message": "Сповіщення про нові паролі",
+        "description": "Label of the setting in the extension settings to enable or disable the notification for new detected passwords"
+    },
+    "SettingsNotifyPasswordUpdate": {
+        "message": "Сповіщення про оновлення паролів",
+        "description": "Label of the setting in the extension settings to enable or disable the notification for detected password updates"
+    },
+    "SettingsNotifyPasswordQuicksave": {
+        "message": "Зберегти або оновити безпосередньо при натисканні на повідомлення",
+        "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"
+    },
+    "SearchSettings": {
+        "message": "Пошук",
+        "description": "Headline above the search section in the other settings tab in the extension settings"
+    },
+    "SettingsPopupRelatedSearch": {
+        "message": "Пошук починається при введенні слова \"Related\"",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "AccountList": {
+        "message": "Облікові записи користувачів",
+        "description": "Headline above the user accounts section in the accounts tab in the extension settings"
+    },
+    "NoAccounts": {
+        "message": "У вас ще немає облікових записів. Натисніть тут, щоб створити його.",
+        "description": "Message in place of the user accounts list in the extension settings if there are no user accounts yet. The user can click the message to create an account"
+    },
+    "NewAccountFormLabel": {
+        "message": "Створити обліковий запис",
+        "description": "Label of the new account form in the extension settings"
+    },
+    "ServerSaveTitle": {
+        "message": "Обліковий запис збережено",
+        "description": "Title of the toast notification in the extension settings after an account was created or updated successfully"
+    },
+    "NotifyNewPasswordTitle": {
+        "message": "Виявлено новий пароль",
+        "description": "Title of the system notification when a new password was detected"
+    },
+    "ServerSaveMessage": {
+        "message": "Всі зміни були успішно застосовані",
+        "description": "Message of the toast notification in the extension settings after an account was created successfully"
+    },
+    "ServerCreatedMessage": {
+        "message": "Обліковий запис створено та готовий до використання",
+        "description": "Message of the toast notification in the extension settings after an account was updated successfully"
+    },
+    "ServerToken": {
+        "message": "Пароль додатку",
+        "description": "Label of the account login token field in account details in the extension settings"
+    },
+    "ServerTokenChange": {
+        "message": "Змінити пароль додатку",
+        "description": "Label of the button to change the login token of an existing account in the account details in the extension settings"
+    },
+    "ServerTimeout": {
+        "message": "Вийдіть з системи після",
+        "description": "Label of the option to change the automatic logout time of an existing account in the account details in the extension settings"
+    },
+    "ServerTimeoutOptionNever": {
+        "message": "Ніколи",
+        "description": "Label of the option for the server timeout to never expire"
+    },
+    "ServerTimeoutOptionMinutes": {
+        "message": "Через $MINUTES$ хвилин",
+        "description": "Label of the option for the server timeout to expire after a given amount of minutes",
+        "placeholders": {
+            "minutes": {
+                "content": "$1",
+                "example": "One of 5, 10, 15 30 or 60"
+            }
+        }
+    },
+    "TabRelated": {
+        "message": "Пропозиції",
+        "description": "Label of the related passwords tab in the extension popup"
+    },
+    "TabSearch": {
+        "message": "Пошук",
+        "description": "Label of the search tab in the extension popup"
+    },
+    "TabBrowse": {
+        "message": "Переглянути",
+        "description": "Label of the browse servers tab in the extension popup"
+    },
+    "TabCollected": {
+        "message": "Зібрано",
+        "description": "Label of the new collected passwords tab in the extension popup"
+    },
+    "TabTools": {
+        "message": "Інструменти",
+        "description": "Label of the tools tab in the extension popup"
+    },
+    "PasswordItemTitle": {
+        "message": "Статус: $STATUS$, Ід: #$ID$",
+        "description": "The tooltip of any password entry in the popup",
+        "placeholders": {
+            "id": {
+                "content": "$1",
+                "example": "1234-1234-1234-1234"
+            },
+            "status": {
+                "content": "$2",
+                "example": "DUPLICATE"
+            }
+        }
+    },
+    "PasswordItemToTrash": {
+        "message": "Перемістити у смітник",
+        "description": "Title of the menu option to move a password to the trash"
+    },
+    "PasswordItemDetails": {
+        "message": "Переглянути деталі",
+        "description": "Title of the menu option to view and edit a password"
+    },
+    "ValidationLabel": {
+        "message": "етикетка",
+        "description": "Name of the account label field in account validation message. This value is used when the user attempts to save an account with an invalid label"
+    },
+    "ValidationUser": {
+        "message": "користувач",
+        "description": "Name of the account username field in account validation message. This value is used when the user attempts to save an account with an invalid username"
+    },
+    "ValidationToken": {
+        "message": "пароль додатку",
+        "description": "Name of the account token field in account validation message. This value is used when the user attempts to save an account with an invalid token"
+    },
+    "ValidationBaseUrl": {
+        "message": "url бази",
+        "description": "Name of the account base url field in account validation message. This value is used when the user attempts to save an account with an invalid base url"
+    },
+    "ValidationNotEmpty": {
+        "message": "Адреса $FIELD$ не може бути порожньою.",
+        "description": "Validation message when the user attempts to save something (like an account) but a required field is empty.",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            }
+        }
+    },
+    "ValidationMinLength": {
+        "message": "Адреса $FIELD$ повинна містити не менше $MIN$ символів.",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is shorter than required",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "min": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationMaxLength": {
+        "message": "Адреса $FIELD$ повинна бути коротшою за $MAX$ символів.",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is longer than allowed",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "max": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationFailed": {
+        "message": "Валідація не пройшла.",
+        "description": "Validation message when the user attempts to save something (like an account) but there were validation errors"
+    },
+    "ValidationNotAnUrl": {
+        "message": "Базовий url повинен бути дійсним.",
+        "description": "Validation message when the user attempts to save an account but the server url is not a valid url"
+    },
+    "ValidationNotAToken": {
+        "message": "Пароль додатку повинен бути дійсним паролем додатку Nextcloud.",
+        "description": "Validation message when the user attempts to save an account but the token does not match the Nextcloud token schema"
+    },
+    "ValidationInvalidTimeout": {
+        "message": "Час виходу з системи повинен бути одним з наведених варіантів.",
+        "description": "Validation message when the user attempts to save an account but the timeout is not within the predefined range"
+    },
+    "ValidationDuplicate": {
+        "message": "Для цього користувача вже є обліковий запис у цій хмарі Nextcloud.",
+        "description": "Validation message when the user attempts to save a new account, but a similar account with the same server and same user name already exists"
+    },
+    "ValidationNoConnection": {
+        "message": "Не вдається підключитися до $URL$.",
+        "description": "Validation message when the user attempts to save an account but it is not possible to connect to this server with the given url",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationUnauthorizedError": {
+        "message": "Сервер за адресою $URL$ не прийняв дані для входу.",
+        "description": "Validation message when the user attempts to save an account but the server did not accept the user name and token",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationHttpError": {
+        "message": "При спробі з'єднатися з $URL$ було отримано $ERROR$.",
+        "description": "Validation message when the user attempts to save an account but the server responded with an unexpected HTTP status code",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "HTTP 401 - Forbidden"
+            }
+        }
+    },
+    "ValidationConnectionError": {
+        "message": "При спробі з'єднатися з $URL$ було отримано $ERROR$.",
+        "description": "Validation message when the user attempts to save an account but the connection attempt resulted in any kind of error (including internal extension errors)",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "Undefined variable example in file"
+            }
+        }
+    },
+    "ValidationServerVersion": {
+        "message": "Версія програми, встановлена на сервері, застаріла.",
+        "description": "Validation message when the user attempts to save an account but the version of the passwords app installed on the server is outdated"
+    },
+    "NoSearchResults": {
+        "message": "Не знайдено паролів, що відповідають вашому запиту",
+        "description": "Used in the search tab when no entries match the search query"
+    },
+    "NoSearchQuery": {
+        "message": "Для пошуку паролів введіть у вікно пошуку",
+        "description": "Used in the search tab when there is no search query"
+    },
+    "NoCollectedPasswords": {
+        "message": "Нових паролів не знайдено",
+        "description": "Used in the collected tab when no new passwords have been found"
+    },
+    "AddPasswordForCurrentTab": {
+        "message": "Додати облікові дані для поточної вкладки",
+        "description": "Used in the collected tab for the option to add a blank entry with just the url of the current tab"
+    },
+    "NoServerItems": {
+        "message": "Елементів не знайдено",
+        "description": "Used in the browse tab when a server has no entries to list"
+    },
+    "BrowseNoServers": {
+        "message": "Серверів немає в наявності",
+        "description": "Used in the browse tab when no accounts/servers are available"
+    },
+    "SearchPlaceholder": {
+        "message": "Пошук паролів",
+        "description": "Placeholder text of the search box"
+    },
+    "MiningItemIsNew": {
+        "message": "Це новий пароль",
+        "description": "Text shown in a collected password that is new to tell the user that it is a new passwor"
+    },
+    "MiningItemIsUpdate": {
+        "message": "Це, схоже, оновлення \"$PASSWORD$\"",
+        "description": "Text shown in a collected password that is an update of an existing password",
+        "placeholders": {
+            "password": {
+                "content": "$1",
+                "example": "My Password"
+            }
+        }
+    },
+    "TitleClickToEdit": {
+        "message": "Подвійний клік для редагування",
+        "description": "Tooltip used in the collected password form for any property of the password to inform the user that double clicking makes the text field editable"
+    },
+    "TitleEnterToExit": {
+        "message": "Натисніть enter для збереження",
+        "description": "Tooltip used in the collected password form to tell the user that the property can be saved by clicking enter"
+    },
+    "LabelPassword": {
+        "message": "Пароль",
+        "description": "Label for the password of a password entry"
+    },
+    "LabelUsername": {
+        "message": "Користувач",
+        "description": "Label for the username of a password entry"
+    },
+    "LabelHidden": {
+        "message": "Особистий пароль",
+        "description": "Label for the checkbox to mark a password entry as private or hidden in the webapp"
+    },
+    "LabelUrl": {
+        "message": "Url",
+        "description": "Label for of a field that contains an url (used in collected password or server info)"
+    },
+    "LabelUser": {
+        "message": "Користувач",
+        "description": "Label for the username of in the server info in the browse tab"
+    },
+    "LabelPasswords": {
+        "message": "Паролі",
+        "description": "Label for the password count in the server info in the browse tab"
+    },
+    "LabelFolders": {
+        "message": "Папки",
+        "description": "Label for the folder count in the server info in the browse tab"
+    },
+    "LabelFolder": {
+        "message": "Папка",
+        "description": "Label for the folder of this password."
+    },
+    "LabelCreated": {
+        "message": "Створено",
+        "description": "Label for the creation time of this password."
+    },
+    "LabelNotes": {
+        "message": "Примітки",
+        "description": "Label for the notes of this password."
+    },
+    "LabelCustomFields": {
+        "message": "Користувацькі поля",
+        "description": "Label for the custom fields of this password"
+    },
+    "LabelTags": {
+        "message": "Теги",
+        "description": "Label for the tag count in the server info in the browse tab"
+    },
+    "LabelServerVersion": {
+        "message": "Сервер",
+        "description": "Label for the nextcloud server version in the server info in the browse tab"
+    },
+    "LabelAppVersion": {
+        "message": "API",
+        "description": "Label for the passwords app version in the server info in the browse tab"
+    },
+    "ServerLabelString": {
+        "message": "Nextcloud $VERSION$",
+        "description": "Value for the nextcloud server version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "AppLabelString": {
+        "message": "Паролі $VERSION$",
+        "description": "Value for the passwords app version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "PlaceholderPassword": {
+        "message": "Пароль",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
+    },
+    "PlaceholderToken": {
+        "message": "Двофакторний токен",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
+    },
+    "ButtonLogin": {
+        "message": "Логін",
+        "description": "The text of the login button of the server authorization dialog"
+    },
+    "AuthorizationFailedTitle": {
+        "message": "Авторизація не пройшла",
+        "description": "Title of the toast notification when the login attempt was unsuccessful"
+    },
+    "AuthorizationFailedText": {
+        "message": "У доступі до бази паролів з наданим логіном було відмовлено",
+        "description": "Text of the toast notification when the login attempt was unsuccessful"
+    },
+    "TokenRequestFailed": {
+        "message": "Запит токену не вдалося виконати",
+        "description": "Title of the toast notification when the request for a two factor auth token failed. The text will be the error message."
+    },
+    "NotifyNewPasswordText": {
+        "message": "Виявлено новий пароль для \"$LABEL$\".",
+        "description": "Text of the system notification when a new password was detected. Used in Chrome where the notification has buttons to save or view the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyNewPasswordTextFF": {
+        "message": "Виявлено новий пароль для \"$LABEL$\". Натисніть на іконку паролів на панелі інструментів, щоб переглянути та зберегти його.",
+        "description": "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyNewPasswordTextQS": {
+        "message": "Виявлено новий пароль для \"$LABEL$\". Натисніть тут, щоб зберегти його.",
+        "description": "Text of the system notification when a new password was detected. Clicking the notification will save the password.",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTitle": {
+        "message": "Виявлено оновлений пароль",
+        "description": "Title of the system notification when an update for an existing password has been detected"
+    },
+    "NotifyUpdatePasswordText": {
+        "message": "Виявлено оновлення для \"$LABEL$\".",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Chrome where the notification has buttons to save or view the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTextFF": {
+        "message": "Виявлено оновлення для \"$LABEL$\". Натисніть на іконку паролів на панелі інструментів, щоб переглянути та зберегти його.",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTextQS": {
+        "message": "Виявлено оновлення для \"$LABEL$\". Натисніть тут, щоб зберегти його.",
+        "description": "Text of the system notification when an update for an existing password was detected. Clicking the notification will update the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "ToastServerCheckTitle": {
+        "message": "$SERVER$ потребує модернізації",
+        "description": "Title of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "ToastServerCheckMessage": {
+        "message": "Обліковий запис \"$SERVER$\" використовує паролі $SERVERVERSION$, але для цього розширення потрібне хоча б $MINVERSION$. Перед повторною активацією облікового запису в налаштуваннях необхідно оновити додаток.",
+        "description": "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
+    },
+    "ToastServerCheckWarning": {
+        "message": "Це розширення незабаром буде вимагати паролі $MINVERSION$, але \"$SERVER$\" використовує паролі $SERVERVERSION$. Будь ласка, оновіть додаток, щоб продовжити користуватися обліковим записом.",
+        "description": "Text of the toast notification when an account uses a server which will soon be no longer supported because it uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
+    },
+    "ToastErrorMessage": {
+        "message": "Виникла помилка в клієнті паролів. Для більш детальної інформації перевірте журнал помилок в опціях налагодження.",
+        "description": "Text of the toast notification for error messages from the passwords client. The error message is the title"
+    },
+    "ToastPasswordTrashed": {
+        "message": "$LABEL$ було переміщено до кошика. Ви можете видалити його назавжди в додатку або відновити",
+        "description": "Text of the toast notification after a password was moved to the trash",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "ToastPasswordRestored": {
+        "message": "$LABEL$ було відновлено зі смітника. Він знову з'явиться після того, як ви знову відкриєте спливаюче вікно",
+        "description": "Text of the toast notification after a password was restored from the trash",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "PasswordPastedSuccess": {
+        "message": "$LABEL$ вклеєно успішно",
+        "description": "Text of the toast notification when a password entry was pasted successfully into the current tab",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "ToastPasswordUpdated": {
+        "message": "Оновлено пароль",
+        "description": "Text of the toast notification when password was updated"
+    },
+    "ToastPasswordUpdateFailed": {
+        "message": "Не вдалося оновити пароль",
+        "description": "Text of the toast notification when password update failed"
+    },
+    "PasswordPastedError": {
+        "message": "Не вдалося вставити $LABEL$",
+        "description": "Text of the toast notification when a password could not be pasted into the current tab",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "PasswordPropertyCopied": {
+        "message": "Скопійовано $PROPERTY$",
+        "description": "Text of the toast notification when a password property was copied successfully via one of the buttons",
+        "placeholders": {
+            "property": {
+                "content": "$1",
+                "example": "Username"
+            }
+        }
+    },
+    "PropertyPassword": {
+        "message": "Пароль",
+        "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
+    },
+    "PropertyUsername": {
+        "message": "Ім'я користувача",
+        "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
+    },
+    "ServerConnectionErrorTitle": {
+        "message": "Не вдається підключитися до $SERVER$",
+        "description": "Title of the toast notification when the connection to the server failed",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "ServerCredentialsRejected": {
+        "message": "Облікові дані сервера відхилено. Будь ласка, оновіть дані для входу в налаштуваннях.",
+        "description": "Text of the toast notification when the server has rejected the login credentials"
+    },
+    "ServerHttpError": {
+        "message": "Помилка HTTP-з'єднання: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with a HTTP error",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "ServerNetworkError": {
+        "message": "Виникла мережева помилка. Будь ласка, перевірте, чи ви в мережі і чи доступний сервер.",
+        "description": "Text of the toast notification when the connection to the server failed with a network error"
+    },
+    "ServerUnknownError": {
+        "message": "Невідома помилка.",
+        "description": "Text of the toast notification when the connection to the server failed with an unknown error and no error message is present"
+    },
+    "ServerGenericError": {
+        "message": "Помилка: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with an error",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "description": "The error message",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "DemoInfoNotification": {
+        "message": "Інформаційне повідомлення",
+        "description": "Text and title of the info notification in the theme preview"
+    },
+    "DemoSuccessNotification": {
+        "message": "Повідомлення про успіх",
+        "description": "Text and title of the success notification in the theme preview"
+    },
+    "DemoWarningNotification": {
+        "message": "Попереджувальне повідомлення",
+        "description": "Text and title of the warning notification in the theme preview"
+    },
+    "DemoErrorNotification": {
+        "message": "Повідомлення про помилку",
+        "description": "Text and title of the error notification in the theme preview"
+    },
+    "SettingsThemeId": {
+        "message": "Активна тема",
+        "description": "Label of the option to choose the current theme in the extension settings"
+    },
+    "ThemeOledDark": {
+        "message": "Темний OLED",
+        "description": "Label of the dark theme optimized for OLED-Displays"
+    },
+    "ThemeLight": {
+        "message": "За замовчуванням",
+        "description": "Label of the default light theme"
+    },
+    "ThemeAdaptaLight": {
+        "message": "Adapta",
+        "description": "Label of the theme with the Adapta color scheme"
+    },
+    "ThemeAdaptaTeal": {
+        "message": "Чирок адапта",
+        "description": "Label of the theme with the Adapta teal color scheme"
+    },
+    "ThemeArcDark": {
+        "message": "Дуга темна",
+        "description": "Label of the theme with the Arc dark scheme"
+    },
+    "ThemeArcLight": {
+        "message": "Дуга",
+        "description": "Label of the theme with the Arc color scheme"
+    },
+    "ThemeHacker": {
+        "message": "Хакер",
+        "description": "Label of the hacker style theme"
+    },
+    "ThemeRGB": {
+        "message": "Ігровий RGB",
+        "description": "Label of the gaming rgb animated theme"
+    },
+    "ThemeCustom": {
+        "message": "Спеціальна тема",
+        "description": "Label for the custom theme option"
+    },
+    "CustomFont": {
+        "message": "Шрифт",
+        "description": "Headline for the font settings in the custom theme settings"
+    },
+    "CustomDefaultElement": {
+        "message": "Елемент за замовчуванням",
+        "description": "Headline for the default element styling settings in the custom theme settings"
+    },
+    "CustomActiveElement": {
+        "message": "Активний елемент",
+        "description": "Headline for the active element styling settings in the custom theme settings"
+    },
+    "CustomButtons": {
+        "message": "Кнопки",
+        "description": "Headline for the button styling settings in the custom theme settings"
+    },
+    "CustomToasts": {
+        "message": "Сповіщення про тости",
+        "description": "Headline for the toast notification styling settings in the custom theme settings"
+    },
+    "CustomBadge": {
+        "message": "Іконка браузера",
+        "description": "Headline for the browser toolbar icon styling settings in the custom theme settings"
+    },
+    "BackgroundColorLabel": {
+        "message": "Колір фону",
+        "description": "Label of background color options in the custom theme settings"
+    },
+    "ForegroundColorLabel": {
+        "message": "Колір переднього плану",
+        "description": "Label of foreground / text color options in the custom theme settings"
+    },
+    "BorderColorLabel": {
+        "message": "Колір рамки",
+        "description": "Label of border color options in the custom theme settings"
+    },
+    "BackgroundInheritLabel": {
+        "message": "Спадковий фон",
+        "description": "Label of options to inherit the background color in the custom theme settings"
+    },
+    "FontNextcloud": {
+        "message": "Nextcloud",
+        "description": "Label of the Nextcloud font option in the custom theme settings"
+    },
+    "FontOpenDyslexic": {
+        "message": "Відкритий дислексик",
+        "description": "Label of the open dyslexic font option in the custom theme settings. This font is good for users with dyslexia"
+    },
+    "FontCustom": {
+        "message": "Нестандартний",
+        "description": "Label for unrecognized fonts in the custom theme settings. This option is usually not shown"
+    },
+    "PasslinkErrorClose": {
+        "message": "Закрити",
+        "description": "Text of the close button in the PassLink error window"
+    },
+    "PasslinkNoActiveAction": {
+        "message": "Немає активної дії PassLink такого типу",
+        "description": "Error message when an active PassLink action is required for a request but no active action can be found. (Example: Request to view the second step of the PassLink connect step, but no PassLink connect was started at all)"
+    },
+    "PasslinkConnectCheckCodes": {
+        "message": "Перевірте, чи збігаються коди, наведені нижче, з тими, що ви бачите в додатку. Якщо вони збігаються, підтвердіть з'єднання в додатку і все готово.",
+        "description": "Message during the PassLink Connect action telling the user to check if the codes below match the ones shown in the Nextcloud Passwords App. If so, the user just needs to confirm the connection in the Nextcloud app to add the account to the extension."
+    },
+    "PasslinkConnectServer": {
+        "message": "Новий обліковий запис було збережено як \"$LABEL$\"",
+        "description": "Confirmation message in the PassLink Connect action when a new account has been created successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "PasslinkConnectNotFound": {
+        "message": "Це посилання недійсне. Можливо, воно вже було використане або є неактуальним.",
+        "description": "Error message in PassLink when the link used has expired or was already used."
+    },
+    "PasslinkConnectRejected": {
+        "message": "Запит на підключення був відхилений сервером.",
+        "description": "Error message when the server rejected the PassLink connect action was not confirmed by the server"
+    },
+    "PasslinkConnectNetworkError": {
+        "message": "Не вдалося з'єднатися з сервером. Будь ласка, перевірте вашу мережу.",
+        "description": "Error message in PassLink when the connection to the Nextcloud server failed with a networking error"
+    },
+    "PasslinkConnectSettings": {
+        "message": "Відкрити налаштування",
+        "description": "Text of the button to open the extension settings in the PassLink result window"
+    },
+    "PasslinkConnectClose": {
+        "message": "Закрийте вікно",
+        "description": "Text of the button  in the PassLink result window to close the window"
+    },
+    "PasslinkScanScanning": {
+        "message": "Шукаємо QR-код",
+        "description": "Message used by the PassLink QR scanner while the camera feed is scanned for a qr code"
+    },
+    "PasslinkScanProcessingLink": {
+        "message": "Обробка QR-коду",
+        "description": "Message used by the PassLink QR scanner when a valid code was found and is now being analyzed"
+    },
+    "PasslinkScanInvalidQrCode": {
+        "message": "Цей QR-код не підтримується",
+        "description": "Message used by the PassLink QR scanner when the user scans a code that does not contain a valid and supported uri of Passlink"
+    },
+    "QrNotAllowedError": {
+        "message": "Доступ до камери не надано",
+        "description": "Message used by the PassLink QR scanner when the user did not allow camera access"
+    },
+    "QrNotFoundError": {
+        "message": "Камер на цьому пристрої не виявлено",
+        "description": "Message used by the PassLink QR scanner when the device has no cameras"
+    },
+    "QrNotSupportedError": {
+        "message": "Небезпечний контекст",
+        "description": "Message used by the PassLink QR scanner when the page was opened in an insecure context (http://). This should never happen"
+    },
+    "QrNotReadableError": {
+        "message": "Камера недоступна. Можливо, вона вже використовується?",
+        "description": "Message used by the PassLink QR scanner when the camera stream can not be read"
+    },
+    "QrOverconstrainedError": {
+        "message": "Фотоапарат не придатний до використання",
+        "description": "Message used by the PassLink QR scanner when the camera is faulty"
+    },
+    "QrStreamApiNotSupportedError": {
+        "message": "Stream API не підтримується цим браузером",
+        "description": "Message used by the PassLink QR scanner when the browser does not support the required streaming api. This should never happen"
+    },
+    "FirstRunConnectText": {
+        "message": "Відкрийте додаток \"Паролі\", натисніть \"Більше\", відкрийте \"Програми та розширення\" та відкрийте діалогове вікно \"PassLink Connect\".",
+        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
+    },
+    "FirstRunConnectLink": {
+        "message": "Якщо діалогове вікно PassLink відкрито на тому ж пристрої, скористайтеся опцією \"Підключитися за посиланням",
+        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
+    },
+    "FirstRunConnectScan": {
+        "message": "Якщо це інший пристрій, відскануйте код з'єднання PassLink за допомогою кнопки нижче",
+        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
+    },
+    "GeneratedPasswordPlaceholder": {
+        "message": "Згенерований пароль",
+        "description": "Placeholder of the field for the generated password in the tools tab of the popup"
+    },
+    "GeneratedPasswordTitle": {
+        "message": "Слова-паролі: $WORDS$",
+        "description": "Title of the input field for the generated password in the tools tab of the popup. It shows the words used to generate the password",
+        "placeholders": {
+            "words": {
+                "content": "$1",
+                "description": "The words used for the password",
+                "example": "First Second Third"
+            }
+        }
+    },
+    "LabelGenerateAddNumbers": {
+        "message": "Цифри",
+        "description": "Label of the option to include numbers in the password generator in the tools tab"
+    },
+    "LabelGenerateAddSpecial": {
+        "message": "Символи",
+        "description": "Label of the option to include special characters in the password generator in the tools tab"
+    },
+    "LabelGenerateStrength": {
+        "message": "Сила",
+        "description": "Label of the option to set the strength in the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthLow": {
+        "message": "Низький",
+        "description": "Label of the low (0) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthStandard": {
+        "message": "Стандартний",
+        "description": "Label of the default (1) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthMedium": {
+        "message": "Середній",
+        "description": "Label of the medium (2) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthHigh": {
+        "message": "Високий",
+        "description": "Label of the high (3) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthUltra": {
+        "message": "Ultra",
+        "description": "Label of the very high (4) strength option for the password generator in the tools tab"
+    },
+    "PasswordGenerateError": {
+        "message": "Не вдалося згенерувати пароль: $ERROR$",
+        "description": "Notification shown when the generation of a password fails",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "Unexpected data type"
+            }
+        }
+    },
+    "DebugHighlightLoginForms": {
+        "message": "Виділіть поля форми входу",
+        "description": "Label of the button in the popup which triggers the option to highlight all login form fields in the current tab"
+    },
+    "InputSliderOff": {
+        "message": "Наразі вимкнено",
+        "description": "Tooltip of any slider input element that is currently in the inactive/disabled state"
+    },
+    "PasswordCustomFieldsTypeText": {
+        "message": "Текст",
+        "description": "Label of the password custom setting type 'text'."
+    },
+    "PasswordCustomFieldsTypeSecret": {
+        "message": "Секрет",
+        "description": "Label of the password custom setting type 'secret'."
+    },
+    "PasswordCustomFieldsTypeEmail": {
+        "message": "Електронна пошта",
+        "description": "Label of the password custom setting type 'email'."
+    },
+    "PasswordCustomFieldsTypeUrl": {
+        "message": "Посилання",
+        "description": "Label of the password custom setting type 'url'."
+    },
+    "PasswordCustomFieldsTypeFormField": {
+        "message": "Поле форми",
+        "description": "Label of the password custom setting form field to insert custom values to a web page."
+    },
+    "PasswordEditValidationInvalidValue": {
+        "message": "Невірне значення",
+        "description": "The validation error message in the password edit form if the value is invalid"
+    },
+    "PasswordEditValidationMaxLength": {
+        "message": "Допускаються тільки символи $CHARACTERS$",
+        "description": "The validation error message in the password edit form if the value is longer than allowed",
+        "placeholders": {
+            "characters": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
+    },
+    "PasswordEditValidationRequired": {
+        "message": "Це поле обов'язкове для заповнення",
+        "description": "The validation error message in the password edit form if a required field is empty"
+    },
+    "MiningPasswordDiscarded": {
+        "message": "Пароль відкинуто",
+        "description": "The toast notification after the user has successfully discarded a mined password"
+    },
+    "MiningPasswordCreated": {
+        "message": "Пароль збережено",
+        "description": "The toast notification after the password was successfully saved"
+    },
+    "MiningPasswordUpdated": {
+        "message": "Оновлено пароль",
+        "description": "The toast notification after the password was successfully saved"
+    },
+    "SettingsTabAccounts": {
+        "message": "Рахунки",
+        "description": "Label of the user accounts tab in the extension settings"
+    },
+    "ButtonClose": {
+        "message": "Закрити",
+        "description": "The title of the close button of a toast notification"
+    },
+    "ThemeDark": {
+        "message": "Темна тема",
+        "description": "Label of the dark theme"
+    },
+    "PasteBadPasswordWarning": {
+        "message": "Цей пароль скомпрометований і повинен бути негайно змінений",
+        "description": "Notification shown after the user pasted a password with the security status breached/compromised"
+    },
+    "DebugInternalStats": {
+        "message": "Внутрішній стан",
+        "description": "Headline above the internal status section in the extension settings in the debug tab"
+    },
+    "DebugInfoExtensionVersion": {
+        "message": "Розширена версія",
+        "description": "Description of the extension version in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionPlatform": {
+        "message": "Агент користувача",
+        "description": "Description of the browser user agent in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugSettings": {
+        "message": "Налагодження налаштувань",
+        "description": "Headline above the debugging settings section in the extension settings in the debug tab"
+    },
+    "DebugLanguageTagsEnabled": {
+        "message": "Показати мовні клавіші",
+        "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
+    },
+    "DebugErrorLog": {
+        "message": "Журнал помилок",
+        "description": "Headline above the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorNoMessage": {
+        "message": "Повідомлення про помилку відсутнє",
+        "description": "Used as error message for errors with no error message (but have a timestamp) in the error logs section in the extension settings in the debug tab"
+    },
+    "SettingsShowUsernameInList": {
+        "message": "Показати ім'я користувача поруч із заголовком",
+        "description": "Label of the setting in the extension settings to show the username next to the title in password lists."
+    }
+}
