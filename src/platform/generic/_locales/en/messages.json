@@ -612,7 +612,7 @@
         }
     },
     "NotifyUpdatePasswordTextQS": {
-        "message": "An update for \"$LABEL$\" was detected. Click here to save it",
+        "message": "An update for \"$LABEL$\" was detected. Click here to save it.",
         "description": "Text of the system notification when an update for an existing password was detected. Clicking the notification will update the password",
         "placeholders": {
             "label": {
