@@ -30,7 +30,7 @@
         }
     },
     "UserAgent": {
-        "message": "Oficiální klient aplikace Hesla pro $BROWSER$ na $OS$",
+        "message": "Official Passwords Client for $BROWSER$ on $OS$",
         "description": "The user agent used for api requests. Only ASCII characters allowed",
         "placeholders": {
             "browser": {
