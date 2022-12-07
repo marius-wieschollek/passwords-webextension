@@ -50,7 +50,7 @@ export default class DomMiner {
 
     _addBodyListener() {
         this._mutationObserver = new MutationObserver((mutations) => {
-            if(this._observerTimer !== null) {
+            if(this._observerTimer === null) {
                 this._observerTimer = setTimeout(() => {
                     this._processPendingMutations();
                 }, 250);
@@ -210,6 +210,7 @@ export default class DomMiner {
         if(document.querySelector('input[type="password"]') === null) {
             return;
         }
+
         let forms       = new FormService(),
             loginFields = forms.getLoginFields();
 
