@@ -11,10 +11,10 @@ export default new class PasswordStatisticsService {
      * @return {Promise<void>}
      */
     async init() {
-        if(!window.indexedDB) return;
+        if(!indexedDB) return;
 
         return new Promise((resolve, reject) => {
-            let request = window.indexedDB.open('pwd_stats', 1);
+            let request =indexedDB.open('pwd_stats', 1);
 
             request.onerror = (event) => {
                 // @TODO use custom error here

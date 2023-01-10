@@ -8,6 +8,7 @@ import ErrorManager          from '@js/Manager/ErrorManager';
 import ThemeService          from '@js/Services/ThemeService';
 import BlobToBase64Helper    from '@js/Helper/BlobToBase64Helper';
 import AutofillManager       from '@js/Manager/AutofillManager';
+import SearchIndex from "@js/Search/Index/SearchIndex";
 
 class ContextMenuManager {
 
@@ -26,6 +27,9 @@ class ContextMenuManager {
                     .catch(ErrorManager.catchEvt);
             }
         );
+        SystemService.getContextMenu().onClicked.addListener(
+            (i,t) => { this._processContextMenuClick(i,t); }
+        )
     }
 
     /**
@@ -84,9 +88,9 @@ class ContextMenuManager {
                     id      : password.getId(),
                     icons   : {16: defaultIcon},
                     title   : password.getLabel(),
-                    onclick : () => {
+/*                    onclick : () => {
                         this._sendPassword(password);
-                    }
+                    }*/
                 }
             );
 
@@ -125,9 +129,9 @@ class ContextMenuManager {
 
             if(data.hasOwnProperty('command')) {
                 delete data.command;
-                data.onclick = () => {
+/*                data.onclick = () => {
                     this._openBrowserAction();
-                };
+                };*/
             }
         }
 
@@ -136,16 +140,23 @@ class ContextMenuManager {
 
     /**
      *
-     * @param {Password} password
+     * @param {(Password|String)} password
      * @private
      */
-    _sendPassword(password) {
+    _sendPassword(password, tabId = null) {
+        if(typeof password === "string") {
+            password = SearchIndex.getItem(password);
+            if(password === null) {
+                return;
+            }
+        }
+
         MessageService.send(
             {
                 type    : 'autofill.password',
                 receiver: 'client',
                 channel : 'tabs',
-                tab     : TabManager.currentTabId,
+                tab     : tabId === null ? TabManager.currentTabId:tabId,
                 payload : {
                     user      : password.getUserName(),
                     password  : password.getPassword(),
@@ -188,6 +199,14 @@ class ContextMenuManager {
                 }
             }
         );
+    }
+
+    _processContextMenuClick(itemInfo, tab) {
+        if(itemInfo.menuItemId !== 'open-browser-action') {
+            this._sendPassword(itemInfo.menuItemId, tab.id);
+        } else {
+            this._openBrowserAction();
+        }
     }
 }
 
