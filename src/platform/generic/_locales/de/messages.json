@@ -1452,5 +1452,13 @@
                 "example": "Nextcloud Community Forum"
             }
         }
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "Benutzerdefinierte Feldbezeichnung",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "Benutzerdefinierte Feldbezeichnung",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
     }
 }
