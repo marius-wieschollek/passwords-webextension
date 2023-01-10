@@ -1452,5 +1452,13 @@
     "SettingsTabDebug": {
         "message": "Vianmääritys",
         "description": "Label of the extension debugging tab in the extension settings"
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "Mukautetun kentän etiketti",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "Mukautetun kentän etiketti",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
     }
 }
