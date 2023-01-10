@@ -1452,5 +1452,13 @@
     "TabTools": {
         "message": "Værktøj",
         "description": "Label of the tools tab in the extension popup"
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "Etiket til brugerdefineret felt",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "Etiket til brugerdefineret felt",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
     }
 }
