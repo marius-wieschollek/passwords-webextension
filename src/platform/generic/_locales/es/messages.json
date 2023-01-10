@@ -1452,5 +1452,13 @@
     "DebugInfoHiddenFolderId": {
         "message": "Contraseñas ocultas ID de carpeta",
         "description": "Description of the id of the folder used to store hidden/private passwords in the internal status section in the debug tab in the extension settings"
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "Etiqueta de campo personalizada",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "Etiqueta de campo personalizada",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
     }
 }
