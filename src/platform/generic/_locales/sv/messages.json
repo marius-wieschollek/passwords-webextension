@@ -1452,5 +1452,13 @@
     "TabSearch": {
         "message": "Sök",
         "description": "Label of the search tab in the extension popup"
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "Etikett för anpassat fält",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "Etikett för anpassat fält",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
     }
 }
