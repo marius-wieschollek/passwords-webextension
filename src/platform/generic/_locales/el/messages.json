@@ -1452,5 +1452,13 @@
     "FontMono": {
         "message": "Monospace",
         "description": "Label of the monospaced font option in the custom theme settings"
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "Προσαρμοσμένη ετικέτα πεδίου",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "Προσαρμοσμένη ετικέτα πεδίου",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
     }
 }
