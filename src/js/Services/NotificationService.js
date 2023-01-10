@@ -67,12 +67,12 @@ class NotificationService {
      * @param {AbstractNotification} notification
      * @private
      */
-    _sendNotification(notification) {
+    async _sendNotification(notification) {
         this._notifications[notification.getId()] = notification;
 
         SystemService.getBrowserApi().notifications.create(
             notification.getId(),
-            notification.getOptions()
+            await notification.getOptions()
         ).catch(ErrorManager.catch);
     }
 

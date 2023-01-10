@@ -30,7 +30,7 @@
         }
     },
     "UserAgent": {
-        "message": "Oficiální klient aplikace Hesla pro $BROWSER$ na $OS$",
+        "message": "Official Passwords Client for $BROWSER$ on $OS$",
         "description": "The user agent used for api requests. Only ASCII characters allowed",
         "placeholders": {
             "browser": {
@@ -48,7 +48,7 @@
         "description": "Label assigned to the account used by the v1.x migration"
     },
     "PrivatePasswordsFolderLabel": {
-        "message": "Soukromá hesla",
+        "message": "Hesla pro anonymní režim",
         "description": "Label assigned to the hidden folder for private passwords. (folder is only visible when browsing in private mode)"
     },
     "SettingsTabAccounts": {
@@ -316,7 +316,7 @@
         }
     },
     "ValidationFailed": {
-        "message": "Ověření se nezdařilo.",
+        "message": "Ověření správnosti se nezdařilo.",
         "description": "Validation message when the user attempts to save something (like an account) but there were validation errors"
     },
     "ValidationNotAnUrl": {
@@ -384,7 +384,7 @@
         }
     },
     "ValidationServerVersion": {
-        "message": "Verze aplikace, nainstalavaná na serveru, je zastaralá.",
+        "message": "Verze aplikace, nainstalovaná na serveru, je zastaralá.",
         "description": "Validation message when the user attempts to save an account but the version of the passwords app installed on the server is outdated"
     },
     "NoRelatedPasswords": {
@@ -588,7 +588,7 @@
         }
     },
     "NotifyUpdatePasswordTextFF": {
-        "message": "Byla zjistěna aktualizace pro „$LABEL$“. Pokud ho chcete zobrazit a uložit, klikněte na ikonu hesel.",
+        "message": "Byla zjištěna aktualizace pro „$LABEL$“. Pokud ho chcete zobrazit a uložit, klikněte na ikonu hesel.",
         "description": "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
         "placeholders": {
             "label": {
@@ -885,7 +885,7 @@
         "description": "Label of options to inherit the foreground / text color in the custom theme settings"
     },
     "BackgroundColorBaseTitle": {
-        "message": "Tato barva je obykle použita pro pozadí",
+        "message": "Tato barva je obvykle použita pro pozadí",
         "description": "Tooltip of the color input field in the custom theme settings for the default background color for an element"
     },
     "BackgroundColorHoverTitle": {
@@ -897,7 +897,7 @@
         "description": "Tooltip of the color input field in the custom theme settings for the default foreground / text color for an element"
     },
     "ForegroundColorHoverTitle": {
-        "message": "Tato barva je použit apro texty a okraje, pokud je prvek aktivní",
+        "message": "Tato barva je použit a pro texty a okraje, pokud je prvek aktivní",
         "description": "Tooltip of the color input field in the custom theme settings for the hover / active foreground / text color for an element"
     },
     "BorderColorBaseTitle": {
@@ -925,11 +925,11 @@
         "description": "Label of the default font option in the custom theme settings"
     },
     "FontMono": {
-        "message": "Monospace",
+        "message": "Písmo s pevnou šířkou",
         "description": "Label of the monospaced font option in the custom theme settings"
     },
     "FontSerif": {
-        "message": "Serif",
+        "message": "Patkové",
         "description": "Label of the serif style (like Times New Roman) font option in the custom theme settings"
     },
     "FontSans": {
@@ -1049,7 +1049,7 @@
         "description": "Tooltip for the color input for the text color of the toolbar icon badge in the custom theme settings"
     },
     "PasslinkErrorNoMessage": {
-        "message": "Došlo k chybě ale ta nebyla doprovoděna žádným chybovým hlášením",
+        "message": "Došlo k chybě ale ta nebyla doprovozená žádným chybovým hlášením",
         "description": "Error message shown in the PassLink popup window when and error happened but no error message was provided"
     },
     "PasslinkNoLinkProvided": {
@@ -1065,7 +1065,7 @@
         "description": "Error message when an active PassLink action is required for a request but no active action can be found. (Example: Request to view the second step of the PassLink connect step, but no PassLink connect was started at all)"
     },
     "PasslinkConnectCheckCodes": {
-        "message": "Zkontrolujte, zda se níže uvedené kódy shodují s těmi, které vydíte v aplikaci. Pokud ano, potvrďte připojení v aplikaci a je hotovo.",
+        "message": "Zkontrolujte, zda se níže uvedené kódy shodují s těmi, které vidíte v aplikaci. Pokud ano, potvrďte připojení v aplikaci a je hotovo.",
         "description": "Message during the PassLink Connect action telling the user to check if the codes below match the ones shown in the Nextcloud Passwords App. If so, the user just needs to confirm the connection in the Nextcloud app to add the account to the extension."
     },
     "PasslinkConnectServer": {
@@ -1426,6 +1426,30 @@
             "serverversion": {
                 "content": "$3",
                 "example": "2021.11"
+            }
+        }
+    },
+    "SettingsNotifyPasswordQuicksave": {
+        "message": "Uložit nebo aktualizovat přímo po kliknutí na oznámení",
+        "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"
+    },
+    "NotifyNewPasswordTextQS": {
+        "message": "Bylo zjištěno nové heslo pro \"$LABEL$\". Klikněte zde pro jeho uložení.",
+        "description": "Text of the system notification when a new password was detected. Clicking the notification will save the password.",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTextQS": {
+        "message": "Byla zjištěna aktualizace pro \"$LABEL$\". Klikněte zde pro její uložení.",
+        "description": "Text of the system notification when an update for an existing password was detected. Clicking the notification will update the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
             }
         }
     }

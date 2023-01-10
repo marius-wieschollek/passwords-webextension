@@ -27,7 +27,8 @@ export default class AbstractNotification {
     }
 
     /**
-     * @return {String}
+     *
+     * @returns {(Promise<String>|String)}
      */
     getTitle() {
         return LocalisationService.translate(this._title);
@@ -45,7 +46,7 @@ export default class AbstractNotification {
     }
 
     /**
-     * @return {String}
+     @returns {(Promise<String>|String)}
      */
     getText() {
         return LocalisationService.translate(this._text);
@@ -93,16 +94,16 @@ export default class AbstractNotification {
     /**
      * @return {{message: String, type: String, title: String, iconUrl: String}}
      */
-    getOptions() {
+    async getOptions() {
         let data = {
             type : this.getType(),
-            title: this.getTitle(),
-            message : this.getText(),
+            title: await this.getTitle(),
+            message : await this.getText(),
             iconUrl : this.getIconUrl()
         };
 
         if(this.hasButtons()) {
-            data.buttons = this.getButtons();
+            data.buttons = await this.getButtons();
         }
 
         return data;

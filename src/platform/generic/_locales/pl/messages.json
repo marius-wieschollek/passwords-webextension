@@ -1428,5 +1428,29 @@
     "MiningPasswordUpdated": {
         "message": "Hasło zaktualizowane",
         "description": "The toast notification after the password was successfully saved"
+    },
+    "NotifyUpdatePasswordTextQS": {
+        "message": "Wykryto aktualizację dla \"$LABEL$\". Kliknij tutaj, aby ją zapisać.",
+        "description": "Text of the system notification when an update for an existing password was detected. Clicking the notification will update the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "SettingsNotifyPasswordQuicksave": {
+        "message": "Zapisz lub zaktualizuj bezpośrednio po kliknięciu powiadomienia",
+        "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"
+    },
+    "NotifyNewPasswordTextQS": {
+        "message": "Wykryto nowe hasło dla \"$LABEL$\". Kliknij tutaj, aby je zapisać.",
+        "description": "Text of the system notification when a new password was detected. Clicking the notification will save the password.",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
     }
 }

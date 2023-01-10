@@ -10,113 +10,119 @@ class MasterSettingsProvider {
         this.serverScopes = [Setting.SCOPE_USER, Setting.SCOPE_SERVER, Setting.SCOPE_CLIENT];
 
         this._mapping = {
-            'server.default'              : [
+            'server.default'                 : [
                 'sync.server.default',
                 'local.server.default'
             ],
-            'paste.form.submit'           : [
+            'paste.form.submit'              : [
                 'sync.password.autosubmit',
                 'local.password.autosubmit',
                 'client.ext.password.autosubmit'
             ],
-            'paste.popup.close'           : [
+            'paste.popup.close'              : [
                 'sync.password.autoclose',
                 'local.password.autoclose',
                 'client.ext.password.autoclose'
             ],
-            'paste.autofill'            : [
+            'paste.autofill'                 : [
                 'sync.paste.autofill',
                 'local.paste.autofill',
                 'client.ext.paste.autofill'
             ],
-            'paste.basic-auth' : [
+            'paste.basic-auth'               : [
                 'sync.paste.basic-auth',
                 'local.paste.basic-auth',
                 'client.ext.paste.basic-auth'
             ],
-            'paste.compromised.warning'   : [
+            'paste.compromised.warning'      : [
                 'sync.paste.compromised.warning',
                 'local.paste.compromised.warning',
                 'client.ext.paste.compromised.warning'
             ],
-            'password.folder.private'     : [
+            'password.folder.private'        : [
                 'client.ext.folder.private'
             ],
-            'password.generator.strength' : [
+            'password.generator.strength'    : [
                 'user.password.generator.strength'
             ],
-            'password.generator.numbers'  : [
+            'password.generator.numbers'     : [
                 'user.password.generator.numbers'
             ],
-            'password.generator.special'  : [
+            'password.generator.special'     : [
                 'user.password.generator.special'
             ],
-            'popup.related.search'        : [
+            'popup.related.search'           : [
                 'sync.popup.related.search',
                 'local.popup.related.search',
                 'client.ext.popup.related.search'
             ],
-            'notification.password.new'   : [
+            'notification.password.new'      : [
                 'sync.notification.password.new',
                 'local.notification.password.new',
                 'client.ext.notification.password.new'
             ],
-            'notification.password.update': [
+            'notification.password.update'   : [
                 'sync.notification.password.update',
                 'local.notification.password.update',
                 'client.ext.notification.password.update'
             ],
-            'theme.current'               : [
+            'notification.password.quicksave': [
+                'sync.notification.password.quicksave',
+                'local.notification.password.quicksave',
+                'client.ext.notification.password.quicksave'
+            ],
+            'theme.current'                  : [
                 'sync.theme.current',
                 'local.theme.current'
             ],
-            'theme.custom'                : [
+            'theme.custom'                   : [
                 'sync.theme.custom',
                 'local.theme.custom'
             ],
-            'debug.localisation.enabled'  : [
+            'debug.localisation.enabled'     : [
                 'local.localisation.enabled'
             ],
-            'search.recommendation.maxRows': [
+            'search.recommendation.maxRows'  : [
                 'sync.search.recommendation.maxRows',
                 'local.search.recommendation.maxRows'
             ],
-            'search.recommendation.mode': [
+            'search.recommendation.mode'     : [
                 'sync.search.recommendation.mode',
                 'local.search.recommendation.mode'
             ],
-            'clipboard.clear.passwords' : [
+            'clipboard.clear.passwords'      : [
                 'sync.clipboard.clear.passwords',
-                'local.clipboard.clear.passwords',
+                'local.clipboard.clear.passwords'
             ],
-            'clipboard.clear.delay' : [
+            'clipboard.clear.delay'          : [
                 'sync.clipboard.clear.delay',
-                'local.clipboard.clear.delay',
+                'local.clipboard.clear.delay'
             ],
-            'password.list.show.user' : [
+            'password.list.show.user'        : [
                 'sync.password.list.show.user',
-                'local.password.list.show.user',
+                'local.password.list.show.user'
             ]
         };
         this._defaults = {
-            'theme.custom'                 : null,
-            'theme.current'                : 'light',
-            'server.default'               : null,
-            'paste.popup.close'            : true,
-            'paste.form.submit'            : true,
-            'paste.compromised.warning'    : true,
-            'paste.autofill'               : false,
-            'paste.basic-auth'             : false,
-            'popup.related.search'         : true,
-            'password.folder.private'      : null,
-            'notification.password.new'    : true,
-            'notification.password.update' : true,
-            'debug.localisation.enabled'   : true,
-            'search.recommendation.mode'   : 'host',
-            'search.recommendation.maxRows': 8,
-            'clipboard.clear.passwords'    : false,
-            'clipboard.clear.delay'        : 60,
-            'password.list.show.user'      : false,
+            'theme.custom'                   : null,
+            'theme.current'                  : 'light',
+            'server.default'                 : null,
+            'paste.popup.close'              : true,
+            'paste.form.submit'              : true,
+            'paste.compromised.warning'      : true,
+            'paste.autofill'                 : false,
+            'paste.basic-auth'               : false,
+            'popup.related.search'           : true,
+            'password.folder.private'        : null,
+            'notification.password.new'      : true,
+            'notification.password.update'   : true,
+            'notification.password.quicksave': false,
+            'debug.localisation.enabled'     : true,
+            'search.recommendation.mode'     : 'host',
+            'search.recommendation.maxRows'  : 8,
+            'clipboard.clear.passwords'      : false,
+            'clipboard.clear.delay'          : 60,
+            'password.list.show.user'        : false
         };
     }
 

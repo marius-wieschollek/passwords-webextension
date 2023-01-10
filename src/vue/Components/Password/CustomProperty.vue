@@ -1,13 +1,13 @@
 <template>
     <div :class="classList" v-if="showField">
         <div :class="'property-label' + activeClassName">
-            <input-field :class="labelClassName" :readonly="!editable" v-model="label"/>
+            <input-field placeholder="CustomFieldLabelPlaceholder" :class="labelClassName" :readonly="!editable" v-model="label"/>
             <select-field v-if="editable" :class="activeClassName" v-model="type" :options="customTypeOptions"/>
         </div>
         <label v-if="labelError" class="error">{{ labelErrorText }}</label>
         <div class="property-value">
             <a v-if="type === 'url' && !editable" :href="value">{{ value }}</a>
-            <input-field ref="value" v-else :class="valueClassName" @click="copy(field.name)" :type="getInputType" v-model="value" :readonly="!editable"/>
+            <input-field placeholder="CustomFieldValuePlaceholder" ref="value" v-else :class="valueClassName" @click="copy(field.name)" :type="getInputType" v-model="value" :readonly="!editable"/>
             <icon class="password-eye" v-if="type === 'secret'" @click="plainText = !plainText" :icon="passwordIcon" font="solid"/>
         </div>
         <label v-if="valueError" class="error">{{ valueErrorText }}</label>

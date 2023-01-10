@@ -1,4 +1,4 @@
-import FormService from '@js/Services/FormService';
+import FormService    from '@js/Services/FormService';
 import MessageService from '@js/Services/MessageService';
 
 export default class DomMiner {
@@ -50,13 +50,11 @@ export default class DomMiner {
 
     _addBodyListener() {
         this._mutationObserver = new MutationObserver((mutations) => {
-            this._pendingMutations.push(mutations)
-            if(this._observerTimer !== null) {
-                clearTimeout(this._observerTimer);
+            if(this._observerTimer === null) {
+                this._observerTimer = setTimeout(() => {
+                    this._processPendingMutations();
+                }, 250);
             }
-            this._observerTimer = setTimeout(() => {
-                this._processPendingMutations();
-            }, 2000);
         });
         this._mutationObserver.observe(document.body, {childList: true, subtree: true});
     }
@@ -73,8 +71,8 @@ export default class DomMiner {
         let exists = false;
         this._knownForms.forEach(element => {
             if((element.pass === form.pass.value) &&
-               (element.user === form.user.value) &&
-               (element.url === this._getUrl())) {
+                (element.user === form.user.value) &&
+                (element.url === this._getUrl())) {
                 exists = true;
             }
         });
@@ -206,25 +204,20 @@ export default class DomMiner {
     }
 
     _processPendingMutations() {
-        let mutations,
-            foundPassword = false,
-            forms = new FormService();
-        mainLoop: while(mutations = this._pendingMutations.shift()) {
-            for(const mutation of mutations) {
-                if(mutation.type === "childList") {
-                    for(const added of mutation.addedNodes) {
-                        if(added !== document.body && document.body.contains(added) && forms.getPasswordFields(added).length > 0) {
-                            this._mutationObserver.disconnect();
-                            this._addFormsListener(forms.getLoginFields());
-                            foundPassword = true
-                            break mainLoop;
-                        }
-                    }
-                }
-            }
+        clearTimeout(this._observerTimer);
+        this._observerTimer = null;
+
+        if(document.querySelector('input[type="password"]') === null) {
+            return;
         }
 
-        if(foundPassword) {
+        let forms       = new FormService(),
+            loginFields = forms.getLoginFields();
+
+        if(loginFields.length !== 0) {
+            this._mutationObserver.disconnect();
+            this._addFormsListener(loginFields);
+
             MessageService.send(
                 {
                     type    : 'autofill.page.ready',

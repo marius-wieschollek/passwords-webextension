@@ -8,7 +8,7 @@
         </translate>
 
         <property :editable="editable" :field="field" v-for="field in defaultFields" :key="field.name" v-on:updateField="updateField" v-on:error="handleValidationError"/>
-        <label class="custom-fields">{{ customFieldsLabel }}</label>
+        <translate tag="label" say="customFieldsLabel"  class="custom-fields" />
         <custom-property :field="field"
                          :editable="editable"
                          v-for="field in customFields"
@@ -25,7 +25,6 @@
     import Property from '@vue/Components/Password/Property';
     import CustomProperty from '@vue/Components/Password/CustomProperty';
     import Translate from '@vue/Components/Translate';
-    import LocalisationService from '@js/Services/LocalisationService';
     import MessageService from '@js/Services/MessageService';
 
     export default {
@@ -52,9 +51,6 @@
                 return [
                     this.item.getTask().fields.label
                 ];
-            },
-            customFieldsLabel() {
-                return LocalisationService.translate(`LabelCustomFields`);
             }
         },
 

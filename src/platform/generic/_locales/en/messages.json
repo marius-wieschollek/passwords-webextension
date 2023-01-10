@@ -31,7 +31,7 @@
     },
     "UserAgent": {
         "message": "Official Passwords Client for $BROWSER$ on $OS$",
-        "description": "The user agent used for api requests. Only ASCII characters allowed",
+        "description": "The user agent used for api requests. Only ASCII characters allowed: 0-9, A-Z, a-z. No special characters or non latin characters like ä,á,ã or ß",
         "placeholders": {
             "browser": {
                 "content": "$1",
@@ -136,6 +136,10 @@
     "SettingsNotifyPasswordUpdate": {
         "message": "Notification for updated passwords",
         "description": "Label of the setting in the extension settings to enable or disable the notification for detected password updates"
+    },
+    "SettingsNotifyPasswordQuicksave": {
+        "message": "Save or update directly when the notification is clicked",
+        "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"
     },
     "SearchSettings": {
         "message": "Search",
@@ -573,6 +577,16 @@
             }
         }
     },
+    "NotifyNewPasswordTextQS": {
+        "message": "A new password for \"$LABEL$\" was detected. Click here to save it.",
+        "description": "Text of the system notification when a new password was detected. Clicking the notification will save the password.",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
     "NotifyUpdatePasswordTitle": {
         "message": "Updated password detected",
         "description": "Title of the system notification when an update for an existing password has been detected"
@@ -590,6 +604,16 @@
     "NotifyUpdatePasswordTextFF": {
         "message": "An update for \"$LABEL$\" was detected. Click the passwords icon in the toolbar to view and save it.",
         "description": "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTextQS": {
+        "message": "An update for \"$LABEL$\" was detected. Click here to save it.",
+        "description": "Text of the system notification when an update for an existing password was detected. Clicking the notification will update the password",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -1428,5 +1452,13 @@
     "MiningPasswordUpdated": {
         "message": "Password updated",
         "description": "The toast notification after the password was successfully saved"
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "Custom field label",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "Custom field label",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
     }
 }

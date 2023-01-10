@@ -62,7 +62,7 @@
         "description": "Headline above the password autofill section in the other settings tab in the extension settings"
     },
     "SettingsPastePopupClose": {
-        "message": "",
+        "message": "Затваряне на изскачащия прозорец след поставяне на пълномощни",
         "description": "Label of the setting in the extension settings to automatically close the extension popup after successful pasting"
     },
     "SearchSettings": {
@@ -466,5 +466,991 @@
     "DebugNoErrors": {
         "message": "Няма грешки в журлана",
         "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
+    },
+    "DemoInfoNotification": {
+        "message": "Информационно известие",
+        "description": "Text and title of the info notification in the theme preview"
+    },
+    "NotifyUpdatePasswordTextQS": {
+        "message": "Открита е актуализация за \"$LABEL$\". Кликнете тук, за да я запазите.",
+        "description": "Text of the system notification when an update for an existing password was detected. Clicking the notification will update the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "ThemeDark": {
+        "message": "Тъмна тема",
+        "description": "Label of the dark theme"
+    },
+    "ThemeLight": {
+        "message": "По подразбиране",
+        "description": "Label of the default light theme"
+    },
+    "ThemeArcDark": {
+        "message": "Тъмна дъга",
+        "description": "Label of the theme with the Arc dark scheme"
+    },
+    "LabelFolder": {
+        "message": "Папка",
+        "description": "Label for the folder of this password."
+    },
+    "PasslinkConnectNetworkError": {
+        "message": "Връзката със сървъра се провали. Моля, проверете мрежата си.",
+        "description": "Error message in PassLink when the connection to the Nextcloud server failed with a networking error"
+    },
+    "PasslinkConnectSuccess": {
+        "message": "Връзката е успешна",
+        "description": "Message in the PassLink window when the PassLink Connect action was successful"
+    },
+    "PasslinkConnectFailed": {
+        "message": "Свързването е неуспешно",
+        "description": "Message in the PassLink window when the PassLink Connect action failed"
+    },
+    "PasslinkConnectSettings": {
+        "message": "Отваряне на настройките",
+        "description": "Text of the button to open the extension settings in the PassLink result window"
+    },
+    "PasslinkConnectClose": {
+        "message": "Затваряне на прозореца",
+        "description": "Text of the button  in the PassLink result window to close the window"
+    },
+    "PasslinkScanInstructions": {
+        "message": "Насочете фотоапарата към QR кода и изчакайте той да бъде разпознат и сканиран.",
+        "description": "Instructions shown above the PassLink QR scanner telling the use to point his camera at the qr code he wants to scan"
+    },
+    "PasslinkScanScanning": {
+        "message": "Търсене на QR код",
+        "description": "Message used by the PassLink QR scanner while the camera feed is scanned for a qr code"
+    },
+    "PasslinkScanProcessingLink": {
+        "message": "Обработка на QR код",
+        "description": "Message used by the PassLink QR scanner when a valid code was found and is now being analyzed"
+    },
+    "PasslinkScanInvalidQrCode": {
+        "message": "Този QR код не се поддържа",
+        "description": "Message used by the PassLink QR scanner when the user scans a code that does not contain a valid and supported uri of Passlink"
+    },
+    "QrNotAllowedError": {
+        "message": "Достъпът до камерата не е предоставен",
+        "description": "Message used by the PassLink QR scanner when the user did not allow camera access"
+    },
+    "QrNotFoundError": {
+        "message": "На това устройство не бяха открити камери",
+        "description": "Message used by the PassLink QR scanner when the device has no cameras"
+    },
+    "QrNotSupportedError": {
+        "message": "Несигурен контекст",
+        "description": "Message used by the PassLink QR scanner when the page was opened in an insecure context (http://). This should never happen"
+    },
+    "FirstRunConnectTitle": {
+        "message": "Свързване с Nextcloud",
+        "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
+    },
+    "FirstRunConnectText": {
+        "message": "Отворете приложението за пароли, щракнете върху \"More\" (Повече), отворете \"Apps & Extensions\" (Приложения и разширения) и отворете диалоговия прозорец PassLink Connect.",
+        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
+    },
+    "FirstRunConnectLink": {
+        "message": "Ако диалоговият прозорец на PassLink е отворен на същото устройство, използвайте опцията за свързване чрез връзка",
+        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
+    },
+    "FirstRunConnectScan": {
+        "message": "Ако това е друго устройство, сканирайте кода на PassLink Connect с бутона по-долу",
+        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
+    },
+    "FirstRunConnectManual": {
+        "message": "Можете също така да създадете акаунта ръчно в настройките на разширението",
+        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
+    },
+    "FirstRunConnectScanButton": {
+        "message": "Сканиране на кода PassLink",
+        "description": "Text of the button to scan a PassLink QR Code"
+    },
+    "DebugHighlightLoginForms": {
+        "message": "Подчертаване на полетата на формуляра за влизане",
+        "description": "Label of the button in the popup which triggers the option to highlight all login form fields in the current tab"
+    },
+    "PasteBadPasswordWarning": {
+        "message": "Тази парола е компрометирана и трябва да бъде променена незабавно.",
+        "description": "Notification shown after the user pasted a password with the security status breached/compromised"
+    },
+    "DebugInternalStats": {
+        "message": "Вътрешно състояние",
+        "description": "Headline above the internal status section in the extension settings in the debug tab"
+    },
+    "DebugInfoExtensionVersion": {
+        "message": "Версия на разширението",
+        "description": "Description of the extension version in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionBuild": {
+        "message": "Целева платформа",
+        "description": "Description of the extension build target (firefox or chrome) in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionPlatform": {
+        "message": "Потребителски агент",
+        "description": "Description of the browser user agent in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionEnvironment": {
+        "message": "Режим на разширение",
+        "description": "Description of the extension mode (production or development) in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugLanguageTagsEnabled": {
+        "message": "Показване на езиковите клавиши",
+        "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
+    },
+    "DebugBuild": {
+        "message": "Информация за изграждане",
+        "description": "Headline above the section for the build instructions in the debug tab in the extension settings"
+    },
+    "DebugSourceAndBuild": {
+        "message": "Инструкции за изграждане и изтегляне на изходния код",
+        "description": "Label of the link to open the page with build instructions and links to the source code in the debug tab in the extension settings"
+    },
+    "DebugErrorNoMessage": {
+        "message": "Няма съобщение за грешка",
+        "description": "Used as error message for errors with no error message (but have a timestamp) in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorNoDetails": {
+        "message": "Няма подробности за грешката",
+        "description": "Used as error message for errors with no details at all in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorDataCopied": {
+        "message": "Подробности за грешката, копирани в клипборда",
+        "description": "Success notification when you copy an error report to the clipboard in the error logs section in the extension settings in the debug tab"
+    },
+    "RecommendationSettings": {
+        "message": "Препоръчване на пълномощия",
+        "description": "Label of the section password recommendations in the extension settings."
+    },
+    "SettingsSearchRecommendationOption": {
+        "message": "Търсене на пълномощия с",
+        "description": "Label of the setting in the extension settings to define how password recommendations are searched."
+    },
+    "LabelSearchRecommendationDomain": {
+        "message": "същия домейн",
+        "description": "Find password recommendations by domain. So on page mail.example.com you will see all passwords for the domain and sumdomains of example.com."
+    },
+    "LabelSearchRecommendationHost": {
+        "message": "същия хост",
+        "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
+    },
+    "LabelSearchRecommendationHostPort": {
+        "message": "същия хост и порт",
+        "description": "Find password recommendations for the specific server and port."
+    },
+    "SettingsSearchRecommendationMaxRows": {
+        "message": "Максимален брой препоръки",
+        "description": "Label of the setting in the extension settings to define the maximum number of results for the password recommendation."
+    },
+    "SearchRecommendationMaxRowsNumber": {
+        "message": "$ROW$",
+        "description": "Number of results that should be displayed for password recommendations.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 1, 5, 10, 15 or 20"
+            }
+        }
+    },
+    "UiSettings": {
+        "message": "Потребителски интерфейс",
+        "description": "Label of the user interface section in the extension settings."
+    },
+    "SettingsShowUsernameInList": {
+        "message": "Показване на потребителското име до заглавието",
+        "description": "Label of the setting in the extension settings to show the username next to the title in password lists."
+    },
+    "PasswordCustomFieldsTypeText": {
+        "message": "Текст",
+        "description": "Label of the password custom setting type 'text'."
+    },
+    "PasswordCustomFieldsTypeSecret": {
+        "message": "Тайната",
+        "description": "Label of the password custom setting type 'secret'."
+    },
+    "PasswordCustomFieldsTypeEmail": {
+        "message": "Имейл",
+        "description": "Label of the password custom setting type 'email'."
+    },
+    "PasswordCustomFieldsTypeUrl": {
+        "message": "Връзка",
+        "description": "Label of the password custom setting type 'url'."
+    },
+    "PasswordCustomFieldsTypeFormField": {
+        "message": "Поле на формуляра",
+        "description": "Label of the password custom setting form field to insert custom values to a web page."
+    },
+    "PasswordEditValidationInvalidValue": {
+        "message": "Невалидна стойност",
+        "description": "The validation error message in the password edit form if the value is invalid"
+    },
+    "PasswordEditValidationMaxLength": {
+        "message": "Разрешени са само $CHARACTERS$ символи",
+        "description": "The validation error message in the password edit form if the value is longer than allowed",
+        "placeholders": {
+            "characters": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
+    },
+    "PasswordEditValidationRequired": {
+        "message": "Това поле е задължително",
+        "description": "The validation error message in the password edit form if a required field is empty"
+    },
+    "SettingsPasteFormSubmit": {
+        "message": "Изпращане на формуляри за влизане, когато идентификационните данни са вмъкнати от изскачащ прозорец",
+        "description": "Label of the setting in the extension settings to automatically submit login forms after pasting"
+    },
+    "SettingsPasteWarnCompromised": {
+        "message": "Предупреждение при използване на компрометирани пълномощия",
+        "description": "Label of the setting in the extension settings to show a warning after pasting a compromised password"
+    },
+    "SettingsPasteAutofillEnabled": {
+        "message": "Автоматично попълване на най-подходящите данни за вход",
+        "description": "Label of the setting in the extension settings to automatically paste the first recommended credential into login forms"
+    },
+    "SettingsPasteBasicAuth": {
+        "message": "Автоматичен отговор на заявки за основно удостоверяване по HTTP",
+        "description": "Label of the setting in the extension settings to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "FontCustom": {
+        "message": "Потребителски",
+        "description": "Label for unrecognized fonts in the custom theme settings. This option is usually not shown"
+    },
+    "BadgeIconMedium": {
+        "message": "Сива икона",
+        "description": "Label of the grey icon option for the toolbar icon in the custom theme settings"
+    },
+    "ServerLabelString": {
+        "message": "Nextcloud $VERSION$",
+        "description": "Value for the nextcloud server version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "NotifyNewPasswordTextQS": {
+        "message": "Открита е нова парола за \"$LABEL$\". Кликнете тук, за да я запазите.",
+        "description": "Text of the system notification when a new password was detected. Clicking the notification will save the password.",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "ThemeHacker": {
+        "message": "Хакер",
+        "description": "Label of the hacker style theme"
+    },
+    "ThemeRGB": {
+        "message": "Гейминг RGB",
+        "description": "Label of the gaming rgb animated theme"
+    },
+    "UserAgent": {
+        "message": "Official Passwords Client for $BROWSER$ on $OS$",
+        "description": "The user agent used for api requests. Only ASCII characters allowed",
+        "placeholders": {
+            "browser": {
+                "content": "$1",
+                "example": "Firefox"
+            },
+            "os": {
+                "content": "$2",
+                "example": "Linux"
+            }
+        }
+    },
+    "HelpPasteAutofill": {
+        "message": "Автоматично вмъкване на първото предложено удостоверение във всеки формуляр за вход в раздела. Имайте предвид, че това го прави достъпен за всеки скрипт в раздела.",
+        "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
+    },
+    "HelpPasteBasicAuth": {
+        "message": "Автоматично отговаряйте на заявките за основно удостоверяване на http с първото предложено удостоверение. Имайте предвид, че това може да доведе до разкриване на пълномощията пред ненадеждни сървъри.",
+        "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "SettingsClearClipboardPasswords": {
+        "message": "Автоматично изтриване на пароли от клипборда",
+        "description": "Label of the setting in the extension settings to automatically clear passwords from clipboard after a certain time."
+    },
+    "ThemeCustom": {
+        "message": "Потребителска тема",
+        "description": "Label for the custom theme option"
+    },
+    "HelpClearClipboardPasswords": {
+        "message": "Клипбордът ще бъде изтрит само ако браузърът все още е отворен. Ако е дадено незадължително разрешение за четене на клипборда, той ще бъде изчистен само ако паролата все още е в него.",
+        "description": "Help text in the extension settings for the setting to automatically clean passwords from clipboard after a certain time."
+    },
+    "SettingsClearClipboardDelay": {
+        "message": "Празен клипборд след",
+        "description": "Label of the setting in the extension settings to define the time when the clipboard content will be removed."
+    },
+    "SettingsClipboardClearDelayOptions": {
+        "message": "$ROW$ секунди",
+        "description": "Time in seconds until clipboard will get empty.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 15, 30, 45, 60, 90"
+            }
+        }
+    },
+    "NotificationSettings": {
+        "message": "Известия",
+        "description": "Headline above the notification section in the other settings tab in the extension settings"
+    },
+    "SettingsNotifyPasswordNew": {
+        "message": "Известие за нови пароли",
+        "description": "Label of the setting in the extension settings to enable or disable the notification for new detected passwords"
+    },
+    "SettingsNotifyPasswordUpdate": {
+        "message": "Известие за актуализирани пароли",
+        "description": "Label of the setting in the extension settings to enable or disable the notification for detected password updates"
+    },
+    "SettingsNotifyPasswordQuicksave": {
+        "message": "Записване или актуализиране директно при щракване върху известието",
+        "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"
+    },
+    "SettingsPopupRelatedSearch": {
+        "message": "Започнете търсенето, когато въведете \"Свързани\"",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "NoAccounts": {
+        "message": "Все още няма акаунти. Щракнете тук, за да създадете такъв.",
+        "description": "Message in place of the user accounts list in the extension settings if there are no user accounts yet. The user can click the message to create an account"
+    },
+    "NewAccountFormLabel": {
+        "message": "Създаване на акаунт",
+        "description": "Label of the new account form in the extension settings"
+    },
+    "ServerSaveTitle": {
+        "message": "Запазена сметка",
+        "description": "Title of the toast notification in the extension settings after an account was created or updated successfully"
+    },
+    "ServerSaveMessage": {
+        "message": "Всички промени бяха приложени успешно",
+        "description": "Message of the toast notification in the extension settings after an account was created successfully"
+    },
+    "ServerCreatedMessage": {
+        "message": "Акаунтът е създаден и е готов за използване",
+        "description": "Message of the toast notification in the extension settings after an account was updated successfully"
+    },
+    "ServerSaveErrorTitle": {
+        "message": "Запазването е неуспешно",
+        "description": "Title of the toast notification in the extension settings after an account could not be updated or saved. The message will be the specific error message"
+    },
+    "ServerDisabledWarning": {
+        "message": "Този акаунт е деактивиран. Той ще бъде активиран след успешното му запазване.",
+        "description": "Warning message which appears above the account details if the server was disabled. Usual reasons are invalid login data, unsupported extension version or permanent connection issues."
+    },
+    "ServerTokenChange": {
+        "message": "Промяна на паролата на приложението",
+        "description": "Label of the button to change the login token of an existing account in the account details in the extension settings"
+    },
+    "ServerTimeout": {
+        "message": "Излизане от системата след",
+        "description": "Label of the option to change the automatic logout time of an existing account in the account details in the extension settings"
+    },
+    "ServerTimeoutOptionNever": {
+        "message": "Никога",
+        "description": "Label of the option for the server timeout to never expire"
+    },
+    "ServerTimeoutOptionMinutes": {
+        "message": "След $MINUTES$ минути",
+        "description": "Label of the option for the server timeout to expire after a given amount of minutes",
+        "placeholders": {
+            "minutes": {
+                "content": "$1",
+                "example": "One of 5, 10, 15 30 or 60"
+            }
+        }
+    },
+    "PasswordItemOpenUrl": {
+        "message": "Отворен уебсайт",
+        "description": "Title of the menu option to open the password url in a new tab"
+    },
+    "PasswordItemToTrash": {
+        "message": "Преместване в кошчето",
+        "description": "Title of the menu option to move a password to the trash"
+    },
+    "PasswordItemDetails": {
+        "message": "Вижте подробности",
+        "description": "Title of the menu option to view and edit a password"
+    },
+    "ValidationNotAnUrl": {
+        "message": "Базовият url адрес трябва да е валиден url адрес.",
+        "description": "Validation message when the user attempts to save an account but the server url is not a valid url"
+    },
+    "CustomFont": {
+        "message": "Шрифт",
+        "description": "Headline for the font settings in the custom theme settings"
+    },
+    "ValidationNotAToken": {
+        "message": "Паролата на приложението трябва да е валидна парола на приложението на Nextcloud.",
+        "description": "Validation message when the user attempts to save an account but the token does not match the Nextcloud token schema"
+    },
+    "ValidationInvalidTimeout": {
+        "message": "Времето за излизане от системата трябва да е една от дадените опции.",
+        "description": "Validation message when the user attempts to save an account but the timeout is not within the predefined range"
+    },
+    "ValidationDuplicate": {
+        "message": "В този Nextcloud вече има акаунт за този потребител.",
+        "description": "Validation message when the user attempts to save a new account, but a similar account with the same server and same user name already exists"
+    },
+    "ValidationNoConnection": {
+        "message": "Невъзможно е да се свържете с $URL$.",
+        "description": "Validation message when the user attempts to save an account but it is not possible to connect to this server with the given url",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationUnauthorizedError": {
+        "message": "Сървърът на адрес $URL$ не приема данните за вход.",
+        "description": "Validation message when the user attempts to save an account but the server did not accept the user name and token",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationHttpError": {
+        "message": "Опитът за свързване към $URL$ доведе до $ERROR$.",
+        "description": "Validation message when the user attempts to save an account but the server responded with an unexpected HTTP status code",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "HTTP 401 - Forbidden"
+            }
+        }
+    },
+    "ValidationConnectionError": {
+        "message": "Опитът за свързване към $URL$ доведе до $ERROR$.",
+        "description": "Validation message when the user attempts to save an account but the connection attempt resulted in any kind of error (including internal extension errors)",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "Undefined variable example in file"
+            }
+        }
+    },
+    "ValidationServerVersion": {
+        "message": "Версията на приложението, инсталирана на сървъра, е остаряла.",
+        "description": "Validation message when the user attempts to save an account but the version of the passwords app installed on the server is outdated"
+    },
+    "NoServerItems": {
+        "message": "Не са открити никакви елементи",
+        "description": "Used in the browse tab when a server has no entries to list"
+    },
+    "BrowseNoServers": {
+        "message": "Няма налични сървъри",
+        "description": "Used in the browse tab when no accounts/servers are available"
+    },
+    "MiningItemIsNew": {
+        "message": "Това е нова парола",
+        "description": "Text shown in a collected password that is new to tell the user that it is a new passwor"
+    },
+    "MiningItemIsUpdate": {
+        "message": "Това изглежда е актуализация на \"$PASSWORD$\"",
+        "description": "Text shown in a collected password that is an update of an existing password",
+        "placeholders": {
+            "password": {
+                "content": "$1",
+                "example": "My Password"
+            }
+        }
+    },
+    "LabelCreated": {
+        "message": "Създаден",
+        "description": "Label for the creation time of this password."
+    },
+    "LabelEdited": {
+        "message": "Модифициран",
+        "description": "Label for the last edit time of this password."
+    },
+    "LabelNotes": {
+        "message": "Бележки",
+        "description": "Label for the notes of this password."
+    },
+    "LabelCustomFields": {
+        "message": "Потребителски полета",
+        "description": "Label for the custom fields of this password"
+    },
+    "AuthorizationFailedTitle": {
+        "message": "Оторизацията е неуспешна",
+        "description": "Title of the toast notification when the login attempt was unsuccessful"
+    },
+    "AuthorizationFailedText": {
+        "message": "Достъпът до базата данни с пароли с предоставеното потребителско име е отказан",
+        "description": "Text of the toast notification when the login attempt was unsuccessful"
+    },
+    "TokenRequestFailed": {
+        "message": "Неуспешна заявка за токен",
+        "description": "Title of the toast notification when the request for a two factor auth token failed. The text will be the error message."
+    },
+    "ToastServerCheckTitle": {
+        "message": "$SERVER$ трябва да се модернизира",
+        "description": "Title of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "ToastServerCheckMessage": {
+        "message": "Акаунтът \"$SERVER$\" използва пароли $SERVERVERSION$, но това разширение изисква поне $MINVERSION$. Приложението трябва да бъде актуализирано, преди акаунтът да бъде активиран отново в настройките.",
+        "description": "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
+    },
+    "BackgroundColorLabel": {
+        "message": "Фонов цвят",
+        "description": "Label of background color options in the custom theme settings"
+    },
+    "ToastServerCheckWarning": {
+        "message": "Това разширение скоро ще изисква пароли $MINVERSION$, но \"$SERVER$\" използва пароли $SERVERVERSION$. Моля, актуализирайте приложението, за да продължите да използвате акаунта.",
+        "description": "Text of the toast notification when an account uses a server which will soon be no longer supported because it uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
+    },
+    "ToastErrorMessage": {
+        "message": "В клиента за пароли е възникнала грешка. Проверете дневника за грешки в опциите за отстраняване на грешки за повече подробности.",
+        "description": "Text of the toast notification for error messages from the passwords client. The error message is the title"
+    },
+    "ToastPasswordTrashed": {
+        "message": "$LABEL$ беше преместен в кошчето за боклук. Можете да го изтриете за постоянно в приложението или да го възстановите",
+        "description": "Text of the toast notification after a password was moved to the trash",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "ToastPasswordHiddenTrashed": {
+        "message": "$LABEL$ беше изтрита. Ако това е станало случайно, все още можете да го възстановите по-долу, преди да бъде изтрит окончателно.",
+        "description": "Text of the toast notification after a hidden password was moved to the trash. Users can restore it within the notification but afterwards the password is lost for good",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "ToastPasswordTrashedRestore": {
+        "message": "Възстановяване на",
+        "description": "Text of the toast notification option to restore a password from the trash"
+    },
+    "ToastPasswordDeleteFailed": {
+        "message": "Изтриването на паролата е неуспешно",
+        "description": "Text of the toast notification when deleting the password failed"
+    },
+    "ToastPasswordRestored": {
+        "message": "$LABEL$ беше възстановена от кошчето. Тя ще се появи отново, след като отворите отново изскачащия прозорец",
+        "description": "Text of the toast notification after a password was restored from the trash",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "PasswordPastedSuccess": {
+        "message": "$LABEL$ вмъкнат успешно",
+        "description": "Text of the toast notification when a password entry was pasted successfully into the current tab",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "ToastPasswordUpdated": {
+        "message": "Актуализиране на паролата",
+        "description": "Text of the toast notification when password was updated"
+    },
+    "ToastPasswordUpdateFailed": {
+        "message": "Актуализирането на паролата е неуспешно",
+        "description": "Text of the toast notification when password update failed"
+    },
+    "PasswordPastedError": {
+        "message": "Не може да се постави $LABEL$",
+        "description": "Text of the toast notification when a password could not be pasted into the current tab",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "ServerCredentialsRejected": {
+        "message": "Удостоверенията на сървъра са отхвърлени. Моля, актуализирайте данните за вход в настройките.",
+        "description": "Text of the toast notification when the server has rejected the login credentials"
+    },
+    "ServerHttpError": {
+        "message": "Грешка при HTTP връзката: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with a HTTP error",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "ServerNetworkError": {
+        "message": "Възникнала е мрежова грешка. Моля, проверете дали сте онлайн и дали сървърът е достъпен.",
+        "description": "Text of the toast notification when the connection to the server failed with a network error"
+    },
+    "ServerUnknownError": {
+        "message": "Неизвестна грешка.",
+        "description": "Text of the toast notification when the connection to the server failed with an unknown error and no error message is present"
+    },
+    "DemoSuccessNotification": {
+        "message": "Уведомление за успех",
+        "description": "Text and title of the success notification in the theme preview"
+    },
+    "DemoWarningNotification": {
+        "message": "Предупредително известие",
+        "description": "Text and title of the warning notification in the theme preview"
+    },
+    "DemoErrorNotification": {
+        "message": "Известие за грешка",
+        "description": "Text and title of the error notification in the theme preview"
+    },
+    "ThemeOledDark": {
+        "message": "Тъмни OLED",
+        "description": "Label of the dark theme optimized for OLED-Displays"
+    },
+    "ThemeAdaptaLight": {
+        "message": "Adapta",
+        "description": "Label of the theme with the Adapta color scheme"
+    },
+    "ThemeAdaptaTeal": {
+        "message": "Adapta teal",
+        "description": "Label of the theme with the Adapta teal color scheme"
+    },
+    "ThemeArcLight": {
+        "message": "Дъга",
+        "description": "Label of the theme with the Arc color scheme"
+    },
+    "CustomDefaultElement": {
+        "message": "Елемент по подразбиране",
+        "description": "Headline for the default element styling settings in the custom theme settings"
+    },
+    "CustomActiveElement": {
+        "message": "Активен елемент",
+        "description": "Headline for the active element styling settings in the custom theme settings"
+    },
+    "CustomButtons": {
+        "message": "Бутони",
+        "description": "Headline for the button styling settings in the custom theme settings"
+    },
+    "CustomSliderElement": {
+        "message": "Превключватели",
+        "description": "Headline for the switch styling settings in the custom theme settings"
+    },
+    "CustomToasts": {
+        "message": "Известия за тост",
+        "description": "Headline for the toast notification styling settings in the custom theme settings"
+    },
+    "CustomBadge": {
+        "message": "Икона на браузъра",
+        "description": "Headline for the browser toolbar icon styling settings in the custom theme settings"
+    },
+    "ForegroundColorLabel": {
+        "message": "Цвят на преден план",
+        "description": "Label of foreground / text color options in the custom theme settings"
+    },
+    "BorderColorLabel": {
+        "message": "Цвят на границата",
+        "description": "Label of border color options in the custom theme settings"
+    },
+    "BackgroundInheritLabel": {
+        "message": "Наследяване на фон",
+        "description": "Label of options to inherit the background color in the custom theme settings"
+    },
+    "ForegroundInheritLabel": {
+        "message": "Наследяване на преден план",
+        "description": "Label of options to inherit the foreground / text color in the custom theme settings"
+    },
+    "BackgroundColorBaseTitle": {
+        "message": "Този цвят обикновено се използва за фон",
+        "description": "Tooltip of the color input field in the custom theme settings for the default background color for an element"
+    },
+    "BackgroundColorHoverTitle": {
+        "message": "Този цвят се използва за фон, ако елементът е активен. Той може да се използва и за границата на неактивен елемент.",
+        "description": "Tooltip of the color input field in the custom theme settings for the mouse hover / active background color for an element"
+    },
+    "ForegroundColorBaseTitle": {
+        "message": "Този цвят обикновено се използва за текстове и рамки.",
+        "description": "Tooltip of the color input field in the custom theme settings for the default foreground / text color for an element"
+    },
+    "ForegroundColorHoverTitle": {
+        "message": "Този цвят се използва за текстове и рамки, ако елементът е активен.",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active foreground / text color for an element"
+    },
+    "BorderColorBaseTitle": {
+        "message": "Този цвят обикновено се използва за граници",
+        "description": "Tooltip of the color input field in the custom theme settings for the default border color for an element"
+    },
+    "BorderColorHoverTitle": {
+        "message": "Този цвят се използва за рамки, ако елементът е активен.",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active border color for an element"
+    },
+    "BackgroundInheritTitle": {
+        "message": "Ако е активирана, стойността ще бъде наследена от родителския елемент.",
+        "description": "Tooltip for the checkbox to inherit the background color (from the parent element in the html) in the custom theme settings"
+    },
+    "ForegroundInheritTitle": {
+        "message": "Ако е активирана, стойността ще бъде наследена от родителския елемент.",
+        "description": "Tooltip for the checkbox to inherit the foreground / text color (from the parent element in the html) in the custom theme settings"
+    },
+    "SettingsCustomFont": {
+        "message": "Семейство шрифтове",
+        "description": "Label of the font option in the custom theme settings"
+    },
+    "FontDefault": {
+        "message": "По подразбиране",
+        "description": "Label of the default font option in the custom theme settings"
+    },
+    "FontMono": {
+        "message": "Monospace",
+        "description": "Label of the monospaced font option in the custom theme settings"
+    },
+    "FontSerif": {
+        "message": "Serif",
+        "description": "Label of the serif style (like Times New Roman) font option in the custom theme settings"
+    },
+    "FontSans": {
+        "message": "Sans serif",
+        "description": "Label of the sans serif (like Arial) font option in the custom theme settings"
+    },
+    "FontLight": {
+        "message": "Светлина",
+        "description": "Label of the thin font option in the custom theme settings"
+    },
+    "FontNextcloud": {
+        "message": "Nextcloud",
+        "description": "Label of the Nextcloud font option in the custom theme settings"
+    },
+    "FontOpenDyslexic": {
+        "message": "Отворен дислексик",
+        "description": "Label of the open dyslexic font option in the custom theme settings. This font is good for users with dyslexia"
+    },
+    "SettingsCustomFontSize": {
+        "message": "Размер на шрифта",
+        "description": "Label of the font size setting in the custom theme settings"
+    },
+    "FontSizeVerySmall": {
+        "message": "Много малък",
+        "description": "Label for the very small font size in the custom theme settings"
+    },
+    "FontSizeSmall": {
+        "message": "Малък",
+        "description": "Label for the small font size in the custom theme settings"
+    },
+    "FontSizeDefault": {
+        "message": "По подразбиране",
+        "description": "Label for the default font size in the custom theme settings"
+    },
+    "FontSizeMedium": {
+        "message": "нормална",
+        "description": "Label for the medium font size in the custom theme settings"
+    },
+    "FontSizeLarge": {
+        "message": "Голям",
+        "description": "Label for the large font size in the custom theme settings"
+    },
+    "FontSizeVeryLarge": {
+        "message": "Много голям",
+        "description": "Label for the very large font size in the custom theme settings"
+    },
+    "ToastInfoColors": {
+        "message": "Информационен тост",
+        "description": "Label of the setting in the custom theme settings to choose the colors of informational toast notifications"
+    },
+    "ToastSuccessColors": {
+        "message": "Тост за успех",
+        "description": "Label of the setting in the custom theme settings to choose the colors of success toast notifications"
+    },
+    "ToastWarningColors": {
+        "message": "Предупредителен тост",
+        "description": "Label of the setting in the custom theme settings to choose the colors of warning toast notifications"
+    },
+    "ToastErrorColors": {
+        "message": "Тост за грешка",
+        "description": "Label of the setting in the custom theme settings to choose the colors of error toast notifications"
+    },
+    "ToastBackgroundTitle": {
+        "message": "Цвят на фона на известието за тост",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification background color"
+    },
+    "ToastForegroundTitle": {
+        "message": "Цвят за фон на текста и бутоните на известието за тост",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification foreground / text color"
+    },
+    "SettingsBadgeIcon": {
+        "message": "Икона на лентата с инструменти",
+        "description": "Label of the setting to choose the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconAuto": {
+        "message": "Автоматичен",
+        "description": "Label of the automatic icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconLight": {
+        "message": "Светлинна икона",
+        "description": "Label of the light icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconDark": {
+        "message": "Тъмна икона",
+        "description": "Label of the dark icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewLight": {
+        "message": "Лека модерна икона",
+        "description": "Label of the light modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewMedium": {
+        "message": "Сива модерна икона",
+        "description": "Label of the grey modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewDark": {
+        "message": "Тъмна модерна икона",
+        "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "CustomBadgeColors": {
+        "message": "Цветове на значката",
+        "description": "Label of the settings for the toolbar icon badge colors in the custom theme settings"
+    },
+    "BadgeBackgroundTitle": {
+        "message": "Цвят на фона на значката",
+        "description": "Tooltip for the color input for the background color of the toolbar icon badge in the custom theme settings"
+    },
+    "BadgeForegroundTitle": {
+        "message": "Цвят на текста на значката",
+        "description": "Tooltip for the color input for the text color of the toolbar icon badge in the custom theme settings"
+    },
+    "PasslinkErrorNoMessage": {
+        "message": "Имало е грешка, но не е предоставено съобщение за грешка",
+        "description": "Error message shown in the PassLink popup window when and error happened but no error message was provided"
+    },
+    "PasslinkNoLinkProvided": {
+        "message": "Не липсва връзка или действие",
+        "description": "Error message shown in the PassLink popup window when the window was opened but no action or link to process was provided"
+    },
+    "PasslinkErrorClose": {
+        "message": "Затваряне",
+        "description": "Text of the close button in the PassLink error window"
+    },
+    "PasslinkNoActiveAction": {
+        "message": "Няма активно действие на PassLink от този тип",
+        "description": "Error message when an active PassLink action is required for a request but no active action can be found. (Example: Request to view the second step of the PassLink connect step, but no PassLink connect was started at all)"
+    },
+    "PasslinkConnectCheckCodes": {
+        "message": "Проверете дали кодовете по-долу съвпадат с тези, които виждате в приложението. Ако е така, потвърдете връзката в приложението и сте готови.",
+        "description": "Message during the PassLink Connect action telling the user to check if the codes below match the ones shown in the Nextcloud Passwords App. If so, the user just needs to confirm the connection in the Nextcloud app to add the account to the extension."
+    },
+    "PasslinkConnectServer": {
+        "message": "Новият акаунт беше запазен като \"$LABEL$\"",
+        "description": "Confirmation message in the PassLink Connect action when a new account has been created successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "PasslinkConnectNotFound": {
+        "message": "Тази връзка е невалидна. Възможно е да е била използвана вече или да е изтекла.",
+        "description": "Error message in PassLink when the link used has expired or was already used."
+    },
+    "PasslinkConnectRejected": {
+        "message": "Заявката за свързване е била отхвърлена от сървъра.",
+        "description": "Error message when the server rejected the PassLink connect action was not confirmed by the server"
+    },
+    "QrNotReadableError": {
+        "message": "Камерата не е достъпна. Може би вече се използва?",
+        "description": "Message used by the PassLink QR scanner when the camera stream can not be read"
+    },
+    "QrOverconstrainedError": {
+        "message": "Камерата не е подходяща за използване",
+        "description": "Message used by the PassLink QR scanner when the camera is faulty"
+    },
+    "QrStreamApiNotSupportedError": {
+        "message": "API на потока не се поддържа от този браузър",
+        "description": "Message used by the PassLink QR scanner when the browser does not support the required streaming api. This should never happen"
+    },
+    "DebugInfoHiddenFolderId": {
+        "message": "Скрити пароли ID на папката",
+        "description": "Description of the id of the folder used to store hidden/private passwords in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugSettings": {
+        "message": "Настройки за отстраняване на грешки",
+        "description": "Headline above the debugging settings section in the extension settings in the debug tab"
+    },
+    "LabelSearchRecommendationExact": {
+        "message": "същия точен URL адрес",
+        "description": "Find only passwords where th url matches exact to the current browser url."
+    },
+    "InputSliderOn": {
+        "message": "В момента на",
+        "description": "Tooltip of any slider input element that is currently in the active/enabled state"
+    },
+    "InputSliderOff": {
+        "message": "В момента е изключено",
+        "description": "Tooltip of any slider input element that is currently in the inactive/disabled state"
+    },
+    "MiningPasswordDiscarded": {
+        "message": "Паролата е отхвърлена",
+        "description": "The toast notification after the user has successfully discarded a mined password"
+    },
+    "MiningPasswordCreated": {
+        "message": "Запазена парола",
+        "description": "The toast notification after the password was successfully saved"
+    },
+    "MiningPasswordUpdated": {
+        "message": "Актуализиране на паролата",
+        "description": "The toast notification after the password was successfully saved"
     }
 }

@@ -58,6 +58,10 @@
             <slider-field id="notification-password-update" v-model="notifyPwUpdate"/>
             <translate tag="label" for="notification-password-update" say="SettingsNotifyPasswordUpdate"/>
         </div>
+        <div class="setting">
+            <slider-field id="notification-password-quicksave" v-model="notificationQuickSave"/>
+            <translate tag="label" for="notification-password-quicksave" say="SettingsNotifyPasswordQuicksave"/>
+        </div>
 
         <translate tag="h3" say="SearchSettings"/>
         <div class="setting">
@@ -82,19 +86,20 @@
         components: {HelpText, SliderField, SelectField, Translate},
         data() {
             return {
-                autoclose          : false,
-                autosubmit         : false,
-                autofill           : false,
-                basicAuth          : false,
-                compromised        : false,
-                notifyPwNew        : false,
-                relatedSearch      : false,
-                notifyPwUpdate     : false,
-                recSearchMode      : 'host',
-                recSearchRows      : 8,
-                clearClipboard     : false,
-                clearClipboardDelay: 60,
-                showUserInList     : false
+                autoclose            : false,
+                autosubmit           : false,
+                autofill             : false,
+                basicAuth            : false,
+                compromised          : false,
+                notifyPwNew          : false,
+                relatedSearch        : false,
+                notifyPwUpdate       : false,
+                notificationQuickSave: false,
+                recSearchMode        : 'host',
+                recSearchRows        : 8,
+                clearClipboard       : false,
+                clearClipboardDelay  : 60,
+                showUserInList       : false
             };
         },
 
@@ -151,6 +156,7 @@
                 this.getSetting('popup.related.search', 'relatedSearch');
                 this.getSetting('notification.password.new', 'notifyPwNew');
                 this.getSetting('notification.password.update', 'notifyPwUpdate');
+                this.getSetting('notification.password.quicksave', 'notificationQuickSave');
                 this.getSetting('search.recommendation.mode', 'recSearchMode');
                 this.getSetting('search.recommendation.maxRows', 'recSearchRows');
                 this.getSetting('clipboard.clear.passwords', 'clearClipboard');
@@ -227,6 +233,11 @@
             notifyPwUpdate(value, oldValue) {
                 if(oldValue !== null && value !== oldValue) {
                     this.setSetting('notification.password.update', value);
+                }
+            },
+            notificationQuickSave(value, oldValue) {
+                if(oldValue !== null && value !== oldValue) {
+                    this.setSetting('notification.password.quicksave', value);
                 }
             },
             recSearchMode(value, oldValue) {

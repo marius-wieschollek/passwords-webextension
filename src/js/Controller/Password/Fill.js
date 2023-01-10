@@ -36,10 +36,11 @@ export default class Fill extends AbstractController {
                     tab     : TabManager.currentTabId,
                     silent  : true,
                     payload : {
-                        user    : password.getUserName(),
-                        password: password.getPassword(),
+                        user      : password.getUserName(),
+                        password  : password.getPassword(),
                         formFields: AutofillManager.getCustomFormFields(password),
-                        submit  : await SettingsService.getValue('paste.form.submit')
+                        submit    : await SettingsService.getValue('paste.form.submit'),
+                        autofill  : false
                     }
                 }
             );

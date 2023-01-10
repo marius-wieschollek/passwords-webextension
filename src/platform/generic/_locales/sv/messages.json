@@ -1,280 +1,74 @@
 {
-    "extensionName": {
-        "message": "Nextcloud Parolalar",
-        "description": "Name of the extension."
+    "ServerLabel": {
+        "message": "Namn",
+        "description": "Label of the account name field in account details in the extension settings"
+    },
+    "ThemeDark": {
+        "message": "Mörkt tema",
+        "description": "Label of the dark theme"
+    },
+    "ThemeAdaptaLight": {
+        "message": "Anpassa",
+        "description": "Label of the theme with the Adapta color scheme"
+    },
+    "ThemeAdaptaTeal": {
+        "message": "Adapta kungsfisk",
+        "description": "Label of the theme with the Adapta teal color scheme"
+    },
+    "ThemeArcLight": {
+        "message": "Arc",
+        "description": "Label of the theme with the Arc color scheme"
+    },
+    "BadgeForegroundTitle": {
+        "message": "Textfärg för märket",
+        "description": "Tooltip for the color input for the text color of the toolbar icon badge in the custom theme settings"
     },
     "extensionDescription": {
-        "message": "Nextcloud Parolalar uygulaması için basit bir istemci",
+        "message": "Det officiella webbläsartillägget för lösenord för Nextcloud",
         "description": "Description of the extension."
     },
     "locale": {
-        "message": "tr",
+        "message": "på",
         "description": "The language tag of this translation. Same as the folder name"
     },
-    "browserActionTitle": {
-        "message": "Parolalar",
-        "description": "Title of the button in the browser bar"
-    },
-    "contextMenuTitle": {
-        "message": "Parolalar",
-        "description": "Title of the context menu item"
-    },
-    "ServerBaseUrl": {
-        "message": "Url",
-        "description": "Label of the server url field in account details in the extension settings"
-    },
-    "ServerUser": {
-        "message": "Kullanıcı",
-        "description": "Label of the account login user field in account details in the extension settings"
-    },
-    "LabelPassword": {
-        "message": "Parola",
-        "description": "Label for the password of a password entry"
-    },
-    "LabelUsername": {
-        "message": "Kullanıcı",
-        "description": "Label for the username of a password entry"
-    },
-    "LabelUser": {
-        "message": "Kullanıcı",
-        "description": "Label for the username of in the server info in the browse tab"
-    },
-    "LabelUrl": {
-        "message": "Url",
-        "description": "Label for of a field that contains an url (used in collected password or server info)"
-    },
-    "LabelPasswords": {
-        "message": "Parolalar",
-        "description": "Label for the password count in the server info in the browse tab"
-    },
-    "AppLabelString": {
-        "message": "Parolalar $VERSION$",
-        "description": "Value for the passwords app version in the server info in the browse tab",
-        "placeholders": {
-            "version": {
-                "content": "$1",
-                "example": "20"
-            }
-        }
-    },
-    "PlaceholderPassword": {
-        "message": "Parola",
-        "description": "Placeholder text in the master password field of the server authorization dialog"
-    },
-    "PropertyPassword": {
-        "message": "Parola",
-        "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
-    },
-    "PropertyUsername": {
-        "message": "Kullanıcı",
-        "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
-    },
-    "PropertyUrl": {
-        "message": "Url",
-        "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
-    },
-    "ButtonSave": {
-        "message": "Kaydet",
-        "description": "The save button of a password detection system notification"
-    },
-    "HelpClearClipboardPasswords": {
-        "message": "Pano yalnızca tarayıcı hala açıksa temizlenecektir. Panoyu okumak için isteğe bağlı izin verilirse, yalnızca parola hala oradaysa temizlenir.",
-        "description": "Help text in the extension settings for the setting to automatically clean passwords from clipboard after a certain time."
-    },
-    "LabelFolder": {
-        "message": "Klasör",
-        "description": "Label for the folder of this password."
-    },
-    "LabelCreated": {
-        "message": "Oluşturuldu",
-        "description": "Label for the creation time of this password."
-    },
-    "NotifyUpdatePasswordTextQS": {
-        "message": "\"$LABEL$\" için bir güncelleme tespit edildi. Kaydetmek için buraya tıklayın.",
-        "description": "Text of the system notification when an update for an existing password was detected. Clicking the notification will update the password",
-        "placeholders": {
-            "label": {
-                "content": "$1",
-                "example": "Nextcloud Community Forum"
-            }
-        }
-    },
-    "ThemeDark": {
-        "message": "Koyu tema",
-        "description": "Label of the dark theme"
-    },
-    "LabelEdited": {
-        "message": "Değiştirilmiş",
-        "description": "Label for the last edit time of this password."
-    },
-    "LabelNotes": {
-        "message": "Notlar",
-        "description": "Label for the notes of this password."
-    },
-    "LabelCustomFields": {
-        "message": "Özel Alanlar",
-        "description": "Label for the custom fields of this password"
-    },
-    "LabelTags": {
-        "message": "Etiketler",
-        "description": "Label for the tag count in the server info in the browse tab"
-    },
-    "LabelServerVersion": {
-        "message": "Sunucu",
-        "description": "Label for the nextcloud server version in the server info in the browse tab"
-    },
-    "LabelAppVersion": {
-        "message": "API",
-        "description": "Label for the passwords app version in the server info in the browse tab"
-    },
-    "MigrationAccountName": {
-        "message": "Nextcloud Hesabı",
-        "description": "Label assigned to the account used by the v1.x migration"
-    },
-    "PrivatePasswordsFolderLabel": {
-        "message": "Özel Şifreler",
-        "description": "Label assigned to the hidden folder for private passwords. (folder is only visible when browsing in private mode)"
-    },
-    "SettingsTabAccounts": {
-        "message": "Hesaplar",
-        "description": "Label of the user accounts tab in the extension settings"
-    },
-    "SettingsTabTheming": {
-        "message": "Temalandırma",
-        "description": "Label of the themes tab in the extension settings"
-    },
-    "SettingsTabOther": {
-        "message": "Diğer Ayarlar",
-        "description": "Label of the general settings tab in the extension settings"
-    },
-    "SettingsTabDebug": {
-        "message": "Hata Ayıklama",
-        "description": "Label of the extension debugging tab in the extension settings"
-    },
-    "SettingsAccountsMain": {
-        "message": "Yeni parolalar için varsayılan hesap",
-        "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
-    },
     "AutofillSettings": {
-        "message": "Kimlik bilgilerini yapıştırma",
+        "message": "Klistra in autentiseringsuppgifter",
         "description": "Headline above the password autofill section in the other settings tab in the extension settings"
     },
     "SettingsPastePopupClose": {
-        "message": "Kimlik bilgilerini yapıştırdıktan sonra açılır pencereyi kapat",
+        "message": "Stäng popup-fönster efter att ha klistrat in autentiseringsuppgifter",
         "description": "Label of the setting in the extension settings to automatically close the extension popup after successful pasting"
     },
-    "SettingsPasteWarnCompromised": {
-        "message": "Güvenliği ihlal edilmiş kimlik bilgileri kullanıldığında uyar",
-        "description": "Label of the setting in the extension settings to show a warning after pasting a compromised password"
-    },
-    "SettingsPasteAutofillEnabled": {
-        "message": "En iyi eşleşen giriş verilerini otomatik olarak doldurun",
-        "description": "Label of the setting in the extension settings to automatically paste the first recommended credential into login forms"
-    },
-    "HelpPasteAutofill": {
-        "message": "Önerilen ilk kimlik bilgisini sekmedeki herhangi bir oturum açma formuna otomatik olarak yapıştırın. Bunun, sekmedeki herhangi bir komut dosyasını erişilebilir hale getirdiğini unutmayın.",
-        "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
-    },
-    "SettingsPasteBasicAuth": {
-        "message": "HTTP temel kimlik doğrulama isteklerine otomatik olarak yanıt verme",
-        "description": "Label of the setting in the extension settings to automatically respond with the first recommended credential to any http basic authentication request"
-    },
-    "HelpPasteBasicAuth": {
-        "message": "Http temel kimlik doğrulama isteklerine otomatik olarak önerilen ilk kimlik bilgisiyle yanıt verin. Bunun, kimlik bilgilerini güvenilir olmayan sunuculara ifşa edebileceğini unutmayın.",
-        "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http basic authentication request"
-    },
-    "SettingsClearClipboardPasswords": {
-        "message": "Panodaki parolaları otomatik olarak silme",
-        "description": "Label of the setting in the extension settings to automatically clear passwords from clipboard after a certain time."
-    },
-    "SettingsClipboardClearDelayOptions": {
-        "message": "$ROW$ saniye",
-        "description": "Time in seconds until clipboard will get empty.",
-        "placeholders": {
-            "row": {
-                "content": "$1",
-                "example": "One of 15, 30, 45, 60, 90"
-            }
-        }
-    },
-    "NotificationSettings": {
-        "message": "Bildirimler",
-        "description": "Headline above the notification section in the other settings tab in the extension settings"
-    },
-    "SettingsNotifyPasswordNew": {
-        "message": "Yeni parolalar için bildirim",
-        "description": "Label of the setting in the extension settings to enable or disable the notification for new detected passwords"
-    },
-    "SettingsNotifyPasswordUpdate": {
-        "message": "Güncellenen parolalar için bildirim",
-        "description": "Label of the setting in the extension settings to enable or disable the notification for detected password updates"
-    },
-    "SettingsNotifyPasswordQuicksave": {
-        "message": "Bildirime tıklandığında doğrudan kaydedin veya güncelleyin",
-        "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"
-    },
-    "SearchSettings": {
-        "message": "Arama",
-        "description": "Headline above the search section in the other settings tab in the extension settings"
-    },
-    "SettingsPopupRelatedSearch": {
-        "message": "\"İlgili\" yazdığımda aramayı başlat",
-        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
-    },
-    "AccountList": {
-        "message": "Kullanıcı hesapları",
-        "description": "Headline above the user accounts section in the accounts tab in the extension settings"
-    },
-    "NoAccounts": {
-        "message": "Henüz hiç hesap yok. Hesap oluşturmak için buraya tıklayın.",
-        "description": "Message in place of the user accounts list in the extension settings if there are no user accounts yet. The user can click the message to create an account"
+    "SettingsClearClipboardDelay": {
+        "message": "Tomt urklipp efter",
+        "description": "Label of the setting in the extension settings to define the time when the clipboard content will be removed."
     },
     "NewAccountFormLabel": {
-        "message": "Hesap oluştur",
+        "message": "Skapa ett konto",
         "description": "Label of the new account form in the extension settings"
     },
     "ServerSaveTitle": {
-        "message": "Hesap kaydedildi",
+        "message": "Sparat konto",
         "description": "Title of the toast notification in the extension settings after an account was created or updated successfully"
     },
     "ServerSaveMessage": {
-        "message": "Tüm değişiklikler başarıyla uygulandı",
+        "message": "Alla ändringar tillämpades framgångsrikt.",
         "description": "Message of the toast notification in the extension settings after an account was created successfully"
     },
-    "ServerCreatedMessage": {
-        "message": "Hesap oluşturuldu ve kullanıma hazır",
-        "description": "Message of the toast notification in the extension settings after an account was updated successfully"
-    },
-    "ServerSaveErrorTitle": {
-        "message": "Kaydetme başarısız oldu",
-        "description": "Title of the toast notification in the extension settings after an account could not be updated or saved. The message will be the specific error message"
-    },
-    "ServerDisabledWarning": {
-        "message": "Bu hesap devre dışı bırakıldı. Başarılı bir şekilde kaydedildikten sonra etkinleştirilecektir.",
-        "description": "Warning message which appears above the account details if the server was disabled. Usual reasons are invalid login data, unsupported extension version or permanent connection issues."
-    },
-    "ServerLabel": {
-        "message": "İsim",
-        "description": "Label of the account name field in account details in the extension settings"
-    },
-    "ServerToken": {
-        "message": "Uygulama Şifresi",
-        "description": "Label of the account login token field in account details in the extension settings"
-    },
     "ServerTokenChange": {
-        "message": "Uygulama Şifresini Değiştir",
+        "message": "Ändra appens lösenord",
         "description": "Label of the button to change the login token of an existing account in the account details in the extension settings"
     },
     "ServerTimeout": {
-        "message": "Sonra oturumu kapat",
+        "message": "Logga ut efter",
         "description": "Label of the option to change the automatic logout time of an existing account in the account details in the extension settings"
     },
     "ServerTimeoutOptionNever": {
-        "message": "Asla",
+        "message": "Aldrig",
         "description": "Label of the option for the server timeout to never expire"
     },
     "ServerTimeoutOptionMinutes": {
-        "message": "Sonra $MINUTES$ dakika",
+        "message": "Efter $MINUTES$ minuter",
         "description": "Label of the option for the server timeout to expire after a given amount of minutes",
         "placeholders": {
             "minutes": {
@@ -284,215 +78,35 @@
         }
     },
     "TabRelated": {
-        "message": "Öneriler",
+        "message": "Förslag",
         "description": "Label of the related passwords tab in the extension popup"
     },
-    "TabSearch": {
-        "message": "Arama",
-        "description": "Label of the search tab in the extension popup"
-    },
     "TabBrowse": {
-        "message": "Gözat",
+        "message": "Bläddra på",
         "description": "Label of the browse servers tab in the extension popup"
     },
     "TabCollected": {
-        "message": "Toplanmış",
+        "message": "Samlad",
         "description": "Label of the new collected passwords tab in the extension popup"
     },
     "TabTools": {
-        "message": "Araçlar",
+        "message": "Verktyg",
         "description": "Label of the tools tab in the extension popup"
     },
-    "PasswordItemTitle": {
-        "message": "Statü: $STATUS$, Id: #$ID$",
-        "description": "The tooltip of any password entry in the popup",
-        "placeholders": {
-            "id": {
-                "content": "$1",
-                "example": "1234-1234-1234-1234"
-            },
-            "status": {
-                "content": "$2",
-                "example": "DUPLICATE"
-            }
-        }
-    },
-    "PasswordItemOpenUrl": {
-        "message": "Açık Web Sitesi",
-        "description": "Title of the menu option to open the password url in a new tab"
-    },
-    "PasswordItemToTrash": {
-        "message": "Çöpe taşı",
-        "description": "Title of the menu option to move a password to the trash"
-    },
-    "PasswordItemDetails": {
-        "message": "Detayları görüntüle",
-        "description": "Title of the menu option to view and edit a password"
-    },
-    "ValidationLabel": {
-        "message": "etiket",
-        "description": "Name of the account label field in account validation message. This value is used when the user attempts to save an account with an invalid label"
-    },
-    "ValidationUser": {
-        "message": "kullanıcı",
-        "description": "Name of the account username field in account validation message. This value is used when the user attempts to save an account with an invalid username"
-    },
-    "ValidationToken": {
-        "message": "uygulama şifresi",
-        "description": "Name of the account token field in account validation message. This value is used when the user attempts to save an account with an invalid token"
-    },
-    "ValidationBaseUrl": {
-        "message": "temel url",
-        "description": "Name of the account base url field in account validation message. This value is used when the user attempts to save an account with an invalid base url"
-    },
-    "ValidationNotEmpty": {
-        "message": "$FIELD$ boş olamaz.",
-        "description": "Validation message when the user attempts to save something (like an account) but a required field is empty.",
-        "placeholders": {
-            "field": {
-                "content": "$1",
-                "example": "user"
-            }
-        }
-    },
-    "ValidationMinLength": {
-        "message": "$FIELD$ en az $MIN$ karakter uzunluğunda olmalıdır.",
-        "description": "Validation message when the user attempts to save something (like an account) but a field is shorter than required",
-        "placeholders": {
-            "field": {
-                "content": "$1",
-                "example": "user"
-            },
-            "min": {
-                "content": "$2",
-                "example": "29"
-            }
-        }
-    },
-    "ValidationMaxLength": {
-        "message": "$FIELD$, $MAX$ karakterlerinden daha kısa olmalıdır.",
-        "description": "Validation message when the user attempts to save something (like an account) but a field is longer than allowed",
-        "placeholders": {
-            "field": {
-                "content": "$1",
-                "example": "user"
-            },
-            "max": {
-                "content": "$2",
-                "example": "29"
-            }
-        }
-    },
-    "ValidationFailed": {
-        "message": "Doğrulama başarısız oldu.",
-        "description": "Validation message when the user attempts to save something (like an account) but there were validation errors"
-    },
-    "ValidationNotAnUrl": {
-        "message": "Temel url geçerli bir url olmalıdır.",
-        "description": "Validation message when the user attempts to save an account but the server url is not a valid url"
-    },
-    "ValidationNotAToken": {
-        "message": "Uygulama parolası geçerli bir Nextcloud Uygulama Parolası olmalıdır.",
-        "description": "Validation message when the user attempts to save an account but the token does not match the Nextcloud token schema"
-    },
-    "ValidationInvalidTimeout": {
-        "message": "Oturum kapatma süresi verilen seçeneklerden biri olmalıdır.",
-        "description": "Validation message when the user attempts to save an account but the timeout is not within the predefined range"
-    },
-    "ValidationDuplicate": {
-        "message": "Bu Nextcloud'da bu kullanıcı için zaten bir hesap var.",
-        "description": "Validation message when the user attempts to save a new account, but a similar account with the same server and same user name already exists"
-    },
-    "ValidationNoConnection": {
-        "message": "$URL$ adresine bağlanılamıyor.",
-        "description": "Validation message when the user attempts to save an account but it is not possible to connect to this server with the given url",
-        "placeholders": {
-            "url": {
-                "content": "$1",
-                "example": "https://cloud.example.com/"
-            }
-        }
-    },
-    "ValidationUnauthorizedError": {
-        "message": "$URL$ adresindeki sunucu oturum açma verilerini kabul etmedi.",
-        "description": "Validation message when the user attempts to save an account but the server did not accept the user name and token",
-        "placeholders": {
-            "url": {
-                "content": "$1",
-                "example": "https://cloud.example.com/"
-            }
-        }
-    },
-    "ValidationHttpError": {
-        "message": "$URL$ adresine bağlanmaya çalışmak $ERROR$ ile sonuçlandı.",
-        "description": "Validation message when the user attempts to save an account but the server responded with an unexpected HTTP status code",
-        "placeholders": {
-            "url": {
-                "content": "$1",
-                "example": "https://cloud.example.com/"
-            },
-            "error": {
-                "content": "$2",
-                "example": "HTTP 401 - Forbidden"
-            }
-        }
-    },
-    "ValidationConnectionError": {
-        "message": "$URL$ adresine bağlanmaya çalışmak $ERROR$ ile sonuçlandı.",
-        "description": "Validation message when the user attempts to save an account but the connection attempt resulted in any kind of error (including internal extension errors)",
-        "placeholders": {
-            "url": {
-                "content": "$1",
-                "example": "https://cloud.example.com/"
-            },
-            "error": {
-                "content": "$2",
-                "example": "Undefined variable example in file"
-            }
-        }
-    },
-    "ValidationServerVersion": {
-        "message": "Sunucuda yüklü olan uygulama sürümü güncel değil.",
-        "description": "Validation message when the user attempts to save an account but the version of the passwords app installed on the server is outdated"
-    },
-    "NoRelatedPasswords": {
-        "message": "İlgili herhangi bir şifre bulamadım",
-        "description": "Used in the related tab when no entries match the current website"
-    },
-    "NoSearchResults": {
-        "message": "Sorgunuzla eşleşen herhangi bir parola bulunamadı",
-        "description": "Used in the search tab when no entries match the search query"
-    },
-    "NoSearchQuery": {
-        "message": "Parolaları bulmak için arama kutusuna yazın",
-        "description": "Used in the search tab when there is no search query"
-    },
-    "NoCollectedPasswords": {
-        "message": "Yeni parola bulunamadı",
-        "description": "Used in the collected tab when no new passwords have been found"
-    },
-    "AddPasswordForCurrentTab": {
-        "message": "Geçerli sekme için kimlik bilgileri ekle",
-        "description": "Used in the collected tab for the option to add a blank entry with just the url of the current tab"
-    },
-    "NoServerItems": {
-        "message": "Hiçbir öğe bulunamadı",
-        "description": "Used in the browse tab when a server has no entries to list"
-    },
     "BrowseNoServers": {
-        "message": "Mevcut sunucu yok",
+        "message": "Inga servrar finns tillgängliga",
         "description": "Used in the browse tab when no accounts/servers are available"
     },
     "SearchPlaceholder": {
-        "message": "Şifreleri bulun",
+        "message": "Hitta lösenord",
         "description": "Placeholder text of the search box"
     },
     "MiningItemIsNew": {
-        "message": "Bu yeni bir şifre",
+        "message": "Detta är ett nytt lösenord",
         "description": "Text shown in a collected password that is new to tell the user that it is a new passwor"
     },
     "MiningItemIsUpdate": {
-        "message": "Bu, \"$PASSWORD$\" adresinin bir güncellemesi gibi görünüyor.",
+        "message": "Detta verkar vara en uppdatering av \"$PASSWORD$\".",
         "description": "Text shown in a collected password that is an update of an existing password",
         "placeholders": {
             "password": {
@@ -502,859 +116,83 @@
         }
     },
     "TitleClickToEdit": {
-        "message": "Düzenlemek için çift tıklayın",
+        "message": "Dubbelklicka för att redigera",
         "description": "Tooltip used in the collected password form for any property of the password to inform the user that double clicking makes the text field editable"
     },
     "TitleEnterToExit": {
-        "message": "Kaydetmek için enter tuşuna basın",
+        "message": "Tryck på enter för att spara",
         "description": "Tooltip used in the collected password form to tell the user that the property can be saved by clicking enter"
     },
     "LabelLabel": {
-        "message": "İsim",
+        "message": "Namn",
         "description": "Label for the name of a password entry"
     },
+    "LabelPassword": {
+        "message": "Lösenord",
+        "description": "Label for the password of a password entry"
+    },
+    "LabelUsername": {
+        "message": "Användare",
+        "description": "Label for the username of a password entry"
+    },
     "LabelHidden": {
-        "message": "Özel Şifre",
+        "message": "Privat lösenord",
         "description": "Label for the checkbox to mark a password entry as private or hidden in the webapp"
     },
-    "LabelFolders": {
-        "message": "Klasörler",
-        "description": "Label for the folder count in the server info in the browse tab"
-    },
-    "ServerLabelString": {
-        "message": "Nextcloud $VERSION$",
-        "description": "Value for the nextcloud server version in the server info in the browse tab",
-        "placeholders": {
-            "version": {
-                "content": "$1",
-                "example": "20"
-            }
-        }
+    "PlaceholderPassword": {
+        "message": "Lösenord",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
     },
     "PlaceholderToken": {
-        "message": "İki Faktörlü Belirteç",
+        "message": "Tvåfaktortoken",
         "description": "Placeholder text in the master password field of the server authorization dialog"
     },
     "ButtonLogin": {
-        "message": "Giriş",
+        "message": "Inloggning",
         "description": "The text of the login button of the server authorization dialog"
     },
-    "AuthorizationFailedTitle": {
-        "message": "Yetkilendirme başarısız oldu",
-        "description": "Title of the toast notification when the login attempt was unsuccessful"
-    },
-    "AuthorizationFailedText": {
-        "message": "Sağlanan oturum açma bilgileriyle parola veritabanına erişim reddedildi",
-        "description": "Text of the toast notification when the login attempt was unsuccessful"
-    },
-    "TokenRequestFailed": {
-        "message": "Belirteç isteği başarısız oldu",
-        "description": "Title of the toast notification when the request for a two factor auth token failed. The text will be the error message."
-    },
-    "NotifyNewPasswordTitle": {
-        "message": "Yeni parola algılandı",
-        "description": "Title of the system notification when a new password was detected"
-    },
-    "NotifyNewPasswordText": {
-        "message": "\"$LABEL$\" için yeni bir şifre tespit edildi.",
-        "description": "Text of the system notification when a new password was detected. Used in Chrome where the notification has buttons to save or view the password",
-        "placeholders": {
-            "label": {
-                "content": "$1",
-                "example": "Nextcloud Community Forum"
-            }
-        }
-    },
-    "NotifyNewPasswordTextFF": {
-        "message": "\"$LABEL$\" için yeni bir şifre tespit edildi. Görüntülemek ve kaydetmek için araç çubuğundaki şifreler simgesine tıklayın.",
-        "description": "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
-        "placeholders": {
-            "label": {
-                "content": "$1",
-                "example": "Nextcloud Community Forum"
-            }
-        }
-    },
-    "NotifyNewPasswordTextQS": {
-        "message": "\"$LABEL$\" için yeni bir şifre tespit edildi. Kaydetmek için buraya tıklayın.",
-        "description": "Text of the system notification when a new password was detected. Clicking the notification will save the password.",
-        "placeholders": {
-            "label": {
-                "content": "$1",
-                "example": "Nextcloud Community Forum"
-            }
-        }
-    },
-    "NotifyUpdatePasswordTitle": {
-        "message": "Güncellenmiş parola algılandı",
-        "description": "Title of the system notification when an update for an existing password has been detected"
-    },
-    "NotifyUpdatePasswordText": {
-        "message": "\"$LABEL$\" için bir güncelleme tespit edildi.",
-        "description": "Text of the system notification when an update for an existing password was detected. Used in Chrome where the notification has buttons to save or view the password",
-        "placeholders": {
-            "label": {
-                "content": "$1",
-                "example": "Nextcloud Community Forum"
-            }
-        }
-    },
-    "NotifyUpdatePasswordTextFF": {
-        "message": "\"$LABEL$\" için bir güncelleme tespit edildi. Görüntülemek ve kaydetmek için araç çubuğundaki şifreler simgesine tıklayın.",
-        "description": "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
-        "placeholders": {
-            "label": {
-                "content": "$1",
-                "example": "Nextcloud Community Forum"
-            }
-        }
-    },
-    "ButtonMore": {
-        "message": "Daha Fazla Seçenek",
-        "description": "The more options button of a password detection system notification which opens the popup with the form which shows all password details"
-    },
-    "ButtonClose": {
-        "message": "Kapat",
-        "description": "The title of the close button of a toast notification"
-    },
-    "ToastServerCheckTitle": {
-        "message": "$SERVER$ yükseltilmesi gerekiyor",
-        "description": "Title of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
-        "placeholders": {
-            "server": {
-                "content": "$1",
-                "example": "My Nextcloud"
-            }
-        }
-    },
-    "ToastServerCheckMessage": {
-        "message": "\"$SERVER$\" hesabı $SERVERSION$ şifrelerini kullanıyor, ancak bu uzantı en az $MINVERSION$ gerektiriyor. Hesabın ayarlardan tekrar etkinleştirilebilmesi için uygulamanın güncellenmesi gerekir.",
-        "description": "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
-        "placeholders": {
-            "server": {
-                "content": "$1",
-                "example": "My Nextcloud"
-            },
-            "minversion": {
-                "content": "$2",
-                "example": "2021.12"
-            },
-            "serverversion": {
-                "content": "$3",
-                "example": "2021.11"
-            }
-        }
-    },
-    "ToastServerCheckWarning": {
-        "message": "Bu uzantı yakında $MINVERSION$ şifrelerini gerektirecektir, ancak \"$SERVER$\" $SERVERVERSION$ şifrelerini kullanır. Hesabı kullanmaya devam etmek için lütfen uygulamayı güncelleyin.",
-        "description": "Text of the toast notification when an account uses a server which will soon be no longer supported because it uses an outdated and unsupported version of the passwords app",
-        "placeholders": {
-            "server": {
-                "content": "$1",
-                "example": "My Nextcloud"
-            },
-            "minversion": {
-                "content": "$2",
-                "example": "2021.12"
-            },
-            "serverversion": {
-                "content": "$3",
-                "example": "2021.11"
-            }
-        }
-    },
-    "ToastErrorMessage": {
-        "message": "Parola istemcisinde bir hata oluştu. Daha fazla ayrıntı için hata ayıklama seçeneklerindeki hata günlüğünü kontrol edin.",
-        "description": "Text of the toast notification for error messages from the passwords client. The error message is the title"
-    },
-    "ToastPasswordTrashed": {
-        "message": "$LABEL$ çöp kutusuna taşındı. Uygulamadan kalıcı olarak silebilir veya geri yükleyebilirsiniz",
-        "description": "Text of the toast notification after a password was moved to the trash",
-        "placeholders": {
-            "label": {
-                "content": "$1",
-                "example": "My Example Password"
-            }
-        }
-    },
-    "ToastPasswordHiddenTrashed": {
-        "message": "$LABEL$ silindi. Bu bir kazaysa, kalıcı olarak silinmeden önce yine de aşağıdan geri yükleyebilirsiniz",
-        "description": "Text of the toast notification after a hidden password was moved to the trash. Users can restore it within the notification but afterwards the password is lost for good",
-        "placeholders": {
-            "label": {
-                "content": "$1",
-                "example": "My Example Password"
-            }
-        }
-    },
     "ToastPasswordTrashedRestore": {
-        "message": "Geri Yükleme",
+        "message": "Återställ",
         "description": "Text of the toast notification option to restore a password from the trash"
     },
-    "ToastPasswordDeleteFailed": {
-        "message": "Parola silme başarısız oldu",
-        "description": "Text of the toast notification when deleting the password failed"
-    },
-    "ToastPasswordRestored": {
-        "message": "$LABEL$ çöp kutusundan geri yüklendi. Açılır pencereyi yeniden açtıktan sonra yeniden görünecektir",
-        "description": "Text of the toast notification after a password was restored from the trash",
-        "placeholders": {
-            "label": {
-                "content": "$1",
-                "example": "My Example Password"
-            }
-        }
-    },
-    "PasswordPastedSuccess": {
-        "message": "$LABEL$ başarıyla yapıştırıldı",
-        "description": "Text of the toast notification when a password entry was pasted successfully into the current tab",
-        "placeholders": {
-            "label": {
-                "content": "$1",
-                "example": "Nextcloud account"
-            }
-        }
-    },
-    "ToastPasswordUpdated": {
-        "message": "Şifre güncellendi",
-        "description": "Text of the toast notification when password was updated"
-    },
-    "ToastPasswordUpdateFailed": {
-        "message": "Parola güncellemesi başarısız oldu",
-        "description": "Text of the toast notification when password update failed"
-    },
-    "PasswordPastedError": {
-        "message": "Yapıştırılamadı $LABEL$",
-        "description": "Text of the toast notification when a password could not be pasted into the current tab",
-        "placeholders": {
-            "label": {
-                "content": "$1",
-                "example": "Nextcloud account"
-            }
-        }
-    },
-    "PasswordPropertyCopied": {
-        "message": "Kopyalandı $PROPERTY$",
-        "description": "Text of the toast notification when a password property was copied successfully via one of the buttons",
-        "placeholders": {
-            "property": {
-                "content": "$1",
-                "example": "Username"
-            }
-        }
-    },
-    "ServerCredentialsRejected": {
-        "message": "Sunucu kimlik bilgileri reddedildi. Lütfen ayarlardaki oturum açma verilerini güncelleyin.",
-        "description": "Text of the toast notification when the server has rejected the login credentials"
-    },
-    "ServerHttpError": {
-        "message": "HTTP bağlantı hatası: $ERROR$",
-        "description": "Text of the toast notification when the connection to the server failed with a HTTP error",
-        "placeholders": {
-            "error": {
-                "content": "$1",
-                "example": "500 - Internal Server Error"
-            }
-        }
-    },
-    "ServerNetworkError": {
-        "message": "Bir ağ hatası oluştu. Lütfen çevrimiçi olup olmadığınızı ve sunucuya erişilebilir olup olmadığını kontrol edin.",
-        "description": "Text of the toast notification when the connection to the server failed with a network error"
-    },
-    "ServerUnknownError": {
-        "message": "Bilinmeyen hata.",
-        "description": "Text of the toast notification when the connection to the server failed with an unknown error and no error message is present"
-    },
-    "ServerGenericError": {
-        "message": "Hata: $ERROR$",
-        "description": "Text of the toast notification when the connection to the server failed with an error",
-        "placeholders": {
-            "error": {
-                "content": "$1",
-                "description": "The error message",
-                "example": "500 - Internal Server Error"
-            }
-        }
-    },
-    "DemoInfoNotification": {
-        "message": "Bilgi bildirimi",
-        "description": "Text and title of the info notification in the theme preview"
-    },
-    "DemoSuccessNotification": {
-        "message": "Başarı bildirimi",
-        "description": "Text and title of the success notification in the theme preview"
-    },
-    "DemoWarningNotification": {
-        "message": "Uyarı bildirimi",
-        "description": "Text and title of the warning notification in the theme preview"
-    },
-    "DemoErrorNotification": {
-        "message": "Hata bildirimi",
-        "description": "Text and title of the error notification in the theme preview"
-    },
-    "DemoText": {
-        "message": "Demo",
-        "description": "Demo text used in the theme preview"
-    },
     "SettingsThemeId": {
-        "message": "Aktif tema",
+        "message": "Aktivt tema",
         "description": "Label of the option to choose the current theme in the extension settings"
     },
-    "ThemeOledDark": {
-        "message": "Koyu OLED",
-        "description": "Label of the dark theme optimized for OLED-Displays"
-    },
-    "ThemeLight": {
-        "message": "Varsayılan",
-        "description": "Label of the default light theme"
-    },
-    "ThemeAdaptaLight": {
-        "message": "Adapta",
-        "description": "Label of the theme with the Adapta color scheme"
-    },
-    "ThemeAdaptaTeal": {
-        "message": "Adapta deniz mavisi",
-        "description": "Label of the theme with the Adapta teal color scheme"
-    },
     "ThemeArcDark": {
-        "message": "Ark karanlık",
+        "message": "Arc dark",
         "description": "Label of the theme with the Arc dark scheme"
     },
-    "ThemeArcLight": {
-        "message": "Ark",
-        "description": "Label of the theme with the Arc color scheme"
-    },
-    "ThemeHacker": {
-        "message": "Hacker",
-        "description": "Label of the hacker style theme"
-    },
-    "ThemeRGB": {
-        "message": "Oyun RGB",
-        "description": "Label of the gaming rgb animated theme"
-    },
-    "ThemeCustom": {
-        "message": "Özel tema",
-        "description": "Label for the custom theme option"
-    },
-    "CustomFont": {
-        "message": "Yazı Tipi",
-        "description": "Headline for the font settings in the custom theme settings"
-    },
     "CustomDefaultElement": {
-        "message": "Varsayılan öğe",
+        "message": "Standardelement",
         "description": "Headline for the default element styling settings in the custom theme settings"
     },
-    "CustomActiveElement": {
-        "message": "Aktif eleman",
-        "description": "Headline for the active element styling settings in the custom theme settings"
-    },
-    "CustomButtons": {
-        "message": "Düğmeler",
-        "description": "Headline for the button styling settings in the custom theme settings"
-    },
-    "CustomSliderElement": {
-        "message": "Anahtarlar",
-        "description": "Headline for the switch styling settings in the custom theme settings"
-    },
-    "CustomToasts": {
-        "message": "Tost bildirimleri",
-        "description": "Headline for the toast notification styling settings in the custom theme settings"
-    },
-    "BackgroundColorLabel": {
-        "message": "Arka plan rengi",
-        "description": "Label of background color options in the custom theme settings"
-    },
-    "ForegroundColorLabel": {
-        "message": "Ön plan rengi",
-        "description": "Label of foreground / text color options in the custom theme settings"
-    },
     "BorderColorLabel": {
-        "message": "Kenarlık rengi",
+        "message": "Färg på gränsen",
         "description": "Label of border color options in the custom theme settings"
     },
-    "BackgroundInheritLabel": {
-        "message": "Arka planı miras al",
-        "description": "Label of options to inherit the background color in the custom theme settings"
-    },
-    "ForegroundInheritLabel": {
-        "message": "Ön planı miras al",
-        "description": "Label of options to inherit the foreground / text color in the custom theme settings"
-    },
-    "BackgroundColorBaseTitle": {
-        "message": "Bu renk genellikle arka plan için kullanılır",
-        "description": "Tooltip of the color input field in the custom theme settings for the default background color for an element"
-    },
-    "BackgroundColorHoverTitle": {
-        "message": "Bu renk, öğe etkinse arka plan için kullanılır. Etkin olmayan bir öğenin kenarlığı için de kullanılabilir",
-        "description": "Tooltip of the color input field in the custom theme settings for the mouse hover / active background color for an element"
-    },
-    "ForegroundColorBaseTitle": {
-        "message": "Bu renk genellikle metinler ve kenarlıklar için kullanılır",
-        "description": "Tooltip of the color input field in the custom theme settings for the default foreground / text color for an element"
-    },
-    "ForegroundColorHoverTitle": {
-        "message": "Bu renk, öğe etkinse metinler ve kenarlıklar için kullanılır",
-        "description": "Tooltip of the color input field in the custom theme settings for the hover / active foreground / text color for an element"
-    },
-    "BorderColorBaseTitle": {
-        "message": "Bu renk genellikle bordürler için kullanılır",
-        "description": "Tooltip of the color input field in the custom theme settings for the default border color for an element"
-    },
-    "ForegroundInheritTitle": {
-        "message": "Etkinleştirilirse, değer üst öğeden miras alınır",
-        "description": "Tooltip for the checkbox to inherit the foreground / text color (from the parent element in the html) in the custom theme settings"
-    },
-    "SettingsCustomFont": {
-        "message": "Yazı tipi ailesi",
-        "description": "Label of the font option in the custom theme settings"
-    },
-    "FontDefault": {
-        "message": "Varsayılan",
-        "description": "Label of the default font option in the custom theme settings"
-    },
-    "FontMono": {
-        "message": "Monospace",
-        "description": "Label of the monospaced font option in the custom theme settings"
-    },
-    "FontSerif": {
-        "message": "Serif",
-        "description": "Label of the serif style (like Times New Roman) font option in the custom theme settings"
-    },
-    "FontSans": {
-        "message": "Sans serif",
-        "description": "Label of the sans serif (like Arial) font option in the custom theme settings"
-    },
-    "FontLight": {
-        "message": "Işık",
-        "description": "Label of the thin font option in the custom theme settings"
-    },
-    "FontNextcloud": {
-        "message": "Nextcloud",
-        "description": "Label of the Nextcloud font option in the custom theme settings"
-    },
-    "FontOpenDyslexic": {
-        "message": "Açık Disleksik",
-        "description": "Label of the open dyslexic font option in the custom theme settings. This font is good for users with dyslexia"
-    },
-    "FontCustom": {
-        "message": "Özel",
-        "description": "Label for unrecognized fonts in the custom theme settings. This option is usually not shown"
-    },
-    "SettingsCustomFontSize": {
-        "message": "Yazı tipi boyutu",
-        "description": "Label of the font size setting in the custom theme settings"
-    },
-    "FontSizeVerySmall": {
-        "message": "Çok küçük",
-        "description": "Label for the very small font size in the custom theme settings"
-    },
-    "FontSizeSmall": {
-        "message": "Küçük",
-        "description": "Label for the small font size in the custom theme settings"
-    },
-    "FontSizeDefault": {
-        "message": "Varsayılan",
-        "description": "Label for the default font size in the custom theme settings"
-    },
-    "FontSizeMedium": {
-        "message": "Orta",
-        "description": "Label for the medium font size in the custom theme settings"
-    },
-    "FontSizeLarge": {
-        "message": "Büyük",
-        "description": "Label for the large font size in the custom theme settings"
-    },
-    "FontSizeVeryLarge": {
-        "message": "Çok büyük",
-        "description": "Label for the very large font size in the custom theme settings"
-    },
-    "ToastInfoColors": {
-        "message": "Bilgi tostu",
-        "description": "Label of the setting in the custom theme settings to choose the colors of informational toast notifications"
-    },
-    "ToastSuccessColors": {
-        "message": "Başarı Tostu",
-        "description": "Label of the setting in the custom theme settings to choose the colors of success toast notifications"
-    },
-    "ToastWarningColors": {
-        "message": "Uyarı tostu",
-        "description": "Label of the setting in the custom theme settings to choose the colors of warning toast notifications"
-    },
-    "ToastErrorColors": {
-        "message": "Hata tostu",
-        "description": "Label of the setting in the custom theme settings to choose the colors of error toast notifications"
-    },
-    "ToastBackgroundTitle": {
-        "message": "Tost bildirimi için arka plan rengi",
-        "description": "Tooltip of the color input in the custom theme settings for a toast notification background color"
-    },
-    "ToastForegroundTitle": {
-        "message": "Tost bildiriminin metin ve düğme arka planları için renk",
-        "description": "Tooltip of the color input in the custom theme settings for a toast notification foreground / text color"
-    },
-    "SettingsBadgeIcon": {
-        "message": "Araç çubuğu simgesi",
-        "description": "Label of the setting to choose the toolbar icon in the custom theme settings"
-    },
-    "BadgeIconAuto": {
-        "message": "Otomatik",
-        "description": "Label of the automatic icon option for the toolbar icon in the custom theme settings"
-    },
-    "BadgeIconLight": {
-        "message": "Işık simgesi",
-        "description": "Label of the light icon option for the toolbar icon in the custom theme settings"
-    },
-    "BadgeIconMedium": {
-        "message": "Gri simge",
-        "description": "Label of the grey icon option for the toolbar icon in the custom theme settings"
-    },
-    "BadgeIconDark": {
-        "message": "Karanlık simge",
-        "description": "Label of the dark icon option for the toolbar icon in the custom theme settings"
-    },
-    "BadgeIconNewLight": {
-        "message": "Hafif modern simge",
-        "description": "Label of the light modern icon option for the toolbar icon in the custom theme settings"
-    },
-    "BadgeIconNewMedium": {
-        "message": "Gri modern simge",
-        "description": "Label of the grey modern icon option for the toolbar icon in the custom theme settings"
-    },
-    "BadgeIconNewDark": {
-        "message": "Koyu modern simge",
-        "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
-    },
-    "CustomBadgeColors": {
-        "message": "Rozet renkleri",
-        "description": "Label of the settings for the toolbar icon badge colors in the custom theme settings"
-    },
-    "BadgeBackgroundTitle": {
-        "message": "Rozetin arka plan rengi",
-        "description": "Tooltip for the color input for the background color of the toolbar icon badge in the custom theme settings"
-    },
-    "BadgeForegroundTitle": {
-        "message": "Rozetin metin rengi",
-        "description": "Tooltip for the color input for the text color of the toolbar icon badge in the custom theme settings"
-    },
     "PasslinkErrorNoMessage": {
-        "message": "Bir hata oluştu ancak herhangi bir hata mesajı verilmedi",
+        "message": "Det har uppstått ett fel, men inget felmeddelande har lämnats.",
         "description": "Error message shown in the PassLink popup window when and error happened but no error message was provided"
     },
     "PasslinkNoLinkProvided": {
-        "message": "Hiçbir bağlantı veya eylem eksik değil",
+        "message": "Ingen länk eller åtgärd saknas",
         "description": "Error message shown in the PassLink popup window when the window was opened but no action or link to process was provided"
     },
     "PasslinkErrorClose": {
-        "message": "Kapat",
+        "message": "Stäng",
         "description": "Text of the close button in the PassLink error window"
     },
     "PasslinkNoActiveAction": {
-        "message": "Bu türde aktif bir PassLink eylemi yoktur",
+        "message": "Det finns ingen aktiv PassLink-åtgärd av denna typ.",
         "description": "Error message when an active PassLink action is required for a request but no active action can be found. (Example: Request to view the second step of the PassLink connect step, but no PassLink connect was started at all)"
     },
     "PasslinkConnectCheckCodes": {
-        "message": "Aşağıdaki kodların uygulamada gördüklerinizle eşleşip eşleşmediğini kontrol edin. Eşleşiyorlarsa, uygulamadaki bağlantıyı onaylayın ve işiniz bitti.",
+        "message": "Kontrollera om koderna nedan stämmer överens med de koder du ser i appen. Om de gör det bekräftar du anslutningen i appen och är klar.",
         "description": "Message during the PassLink Connect action telling the user to check if the codes below match the ones shown in the Nextcloud Passwords App. If so, the user just needs to confirm the connection in the Nextcloud app to add the account to the extension."
     },
-    "PasslinkConnectNotFound": {
-        "message": "Bu bağlantı geçersiz. Daha önce kullanılmış veya süresi dolmuş olabilir.",
-        "description": "Error message in PassLink when the link used has expired or was already used."
-    },
-    "PasslinkConnectRejected": {
-        "message": "Bağlantı isteği sunucu tarafından reddedildi.",
-        "description": "Error message when the server rejected the PassLink connect action was not confirmed by the server"
-    },
-    "PasslinkConnectNetworkError": {
-        "message": "Sunucuya bağlantı başarısız oldu. Lütfen ağınızı kontrol edin.",
-        "description": "Error message in PassLink when the connection to the Nextcloud server failed with a networking error"
-    },
-    "PasslinkConnectSuccess": {
-        "message": "Bağlantı başarılı",
-        "description": "Message in the PassLink window when the PassLink Connect action was successful"
-    },
-    "PasslinkConnectFailed": {
-        "message": "Bağlantı başarısız",
-        "description": "Message in the PassLink window when the PassLink Connect action failed"
-    },
-    "PasslinkConnectSettings": {
-        "message": "Açık ayarlar",
-        "description": "Text of the button to open the extension settings in the PassLink result window"
-    },
-    "PasslinkConnectClose": {
-        "message": "Pencereyi kapatın",
-        "description": "Text of the button  in the PassLink result window to close the window"
-    },
-    "PasslinkScanInstructions": {
-        "message": "Kameranızı QR koduna doğrultun ve tanınmasını ve taranmasını bekleyin.",
-        "description": "Instructions shown above the PassLink QR scanner telling the use to point his camera at the qr code he wants to scan"
-    },
-    "PasslinkScanScanning": {
-        "message": "QR Kodu Arıyorum",
-        "description": "Message used by the PassLink QR scanner while the camera feed is scanned for a qr code"
-    },
-    "PasslinkScanProcessingLink": {
-        "message": "QR Kodunun İşlenmesi",
-        "description": "Message used by the PassLink QR scanner when a valid code was found and is now being analyzed"
-    },
-    "PasslinkScanInvalidQrCode": {
-        "message": "Bu QR Kodu desteklenmiyor",
-        "description": "Message used by the PassLink QR scanner when the user scans a code that does not contain a valid and supported uri of Passlink"
-    },
-    "QrNotAllowedError": {
-        "message": "Kameraya erişim izni verilmedi",
-        "description": "Message used by the PassLink QR scanner when the user did not allow camera access"
-    },
-    "QrNotFoundError": {
-        "message": "Bu cihazda kamera bulunamadı",
-        "description": "Message used by the PassLink QR scanner when the device has no cameras"
-    },
-    "QrNotSupportedError": {
-        "message": "Güvensiz Bağlam",
-        "description": "Message used by the PassLink QR scanner when the page was opened in an insecure context (http://). This should never happen"
-    },
-    "QrNotReadableError": {
-        "message": "Kameraya erişilemiyor. Belki de zaten kullanımdadır?",
-        "description": "Message used by the PassLink QR scanner when the camera stream can not be read"
-    },
-    "QrStreamApiNotSupportedError": {
-        "message": "Stream API bu tarayıcı tarafından desteklenmiyor",
-        "description": "Message used by the PassLink QR scanner when the browser does not support the required streaming api. This should never happen"
-    },
-    "FirstRunConnectTitle": {
-        "message": "Nextcloud'a Bağlanın",
-        "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
-    },
-    "FirstRunConnectText": {
-        "message": "Parolalar uygulamasını açın, \"Daha Fazla \"ya tıklayın, \"Uygulamalar ve Uzantılar \"ı açın ve PassLink Connect iletişim kutusunu açın.",
-        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
-    },
-    "FirstRunConnectLink": {
-        "message": "PassLink iletişim kutusu aynı cihazda açıksa, bağlantı yoluyla bağlan seçeneğini kullanın",
-        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
-    },
-    "FirstRunConnectScan": {
-        "message": "Bu farklı bir cihazsa, aşağıdaki düğmeyi kullanarak PassLink Bağlantı Kodunu tarayın",
-        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
-    },
-    "FirstRunConnectManual": {
-        "message": "Hesabı uzantı ayarlarından manuel olarak da oluşturabilirsiniz",
-        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
-    },
-    "FirstRunConnectScanButton": {
-        "message": "PassLink Kodunu Tarayın",
-        "description": "Text of the button to scan a PassLink QR Code"
-    },
-    "OpenSettings": {
-        "message": "Uzantı Ayarlarını Açın",
-        "description": "Label of the button to open the extension settings in the tools tab of the popup"
-    },
-    "ToolsTabGeneratePassword": {
-        "message": "Şifre Oluştur",
-        "description": "Label of the generate password section in the tools tab of the popup"
-    },
-    "ToolsTabDebugTools": {
-        "message": "Hata Ayıklama Araçları",
-        "description": "Label of the debugging tools section in the tools tab of the popup"
-    },
-    "GeneratedPasswordPlaceholder": {
-        "message": "Oluşturulan Şifre",
-        "description": "Placeholder of the field for the generated password in the tools tab of the popup"
-    },
-    "GeneratedPasswordTitle": {
-        "message": "Parola kelimeleri: $WORDS$",
-        "description": "Title of the input field for the generated password in the tools tab of the popup. It shows the words used to generate the password",
-        "placeholders": {
-            "words": {
-                "content": "$1",
-                "description": "The words used for the password",
-                "example": "First Second Third"
-            }
-        }
-    },
-    "LabelGenerateAddNumbers": {
-        "message": "Sayılar",
-        "description": "Label of the option to include numbers in the password generator in the tools tab"
-    },
-    "LabelGenerateAddSpecial": {
-        "message": "Semboller",
-        "description": "Label of the option to include special characters in the password generator in the tools tab"
-    },
-    "LabelGenerateStrength": {
-        "message": "Güç",
-        "description": "Label of the option to set the strength in the password generator in the tools tab"
-    },
-    "LabelGeneratorStrengthLow": {
-        "message": "Düşük",
-        "description": "Label of the low (0) strength option for the password generator in the tools tab"
-    },
-    "LabelGeneratorStrengthStandard": {
-        "message": "Standart",
-        "description": "Label of the default (1) strength option for the password generator in the tools tab"
-    },
-    "LabelGeneratorStrengthMedium": {
-        "message": "Orta",
-        "description": "Label of the medium (2) strength option for the password generator in the tools tab"
-    },
-    "LabelGeneratorStrengthHigh": {
-        "message": "Yüksek",
-        "description": "Label of the high (3) strength option for the password generator in the tools tab"
-    },
-    "LabelGeneratorStrengthUltra": {
-        "message": "Ultra",
-        "description": "Label of the very high (4) strength option for the password generator in the tools tab"
-    },
-    "PasswordGenerateError": {
-        "message": "Parola oluşturulamadı: $ERROR$",
-        "description": "Notification shown when the generation of a password fails",
-        "placeholders": {
-            "error": {
-                "content": "$1",
-                "example": "Unexpected data type"
-            }
-        }
-    },
-    "DebugHighlightLoginForms": {
-        "message": "Giriş Formu Alanlarını Vurgulama",
-        "description": "Label of the button in the popup which triggers the option to highlight all login form fields in the current tab"
-    },
-    "PasteBadPasswordWarning": {
-        "message": "Bu parola ele geçirilmiştir ve derhal değiştirilmelidir",
-        "description": "Notification shown after the user pasted a password with the security status breached/compromised"
-    },
-    "DebugInternalStats": {
-        "message": "Dahili Durum",
-        "description": "Headline above the internal status section in the extension settings in the debug tab"
-    },
-    "DebugInfoExtensionVersion": {
-        "message": "Uzatma Sürümü",
-        "description": "Description of the extension version in the internal status section in the debug tab in the extension settings"
-    },
-    "DebugInfoExtensionBuild": {
-        "message": "Hedef Platform",
-        "description": "Description of the extension build target (firefox or chrome) in the internal status section in the debug tab in the extension settings"
-    },
-    "DebugInfoExtensionPlatform": {
-        "message": "Kullanıcı Aracısı",
-        "description": "Description of the browser user agent in the internal status section in the debug tab in the extension settings"
-    },
-    "DebugInfoExtensionEnvironment": {
-        "message": "Uzatma Modu",
-        "description": "Description of the extension mode (production or development) in the internal status section in the debug tab in the extension settings"
-    },
-    "DebugInfoHiddenFolderId": {
-        "message": "Gizli Şifreler Klasör Kimliği",
-        "description": "Description of the id of the folder used to store hidden/private passwords in the internal status section in the debug tab in the extension settings"
-    },
-    "DebugSettings": {
-        "message": "Hata Ayıklama Ayarları",
-        "description": "Headline above the debugging settings section in the extension settings in the debug tab"
-    },
-    "DebugErrorNoMessage": {
-        "message": "Hata mesajı yok",
-        "description": "Used as error message for errors with no error message (but have a timestamp) in the error logs section in the extension settings in the debug tab"
-    },
-    "DebugErrorDataCopied": {
-        "message": "Panoya kopyalanan hata ayrıntıları",
-        "description": "Success notification when you copy an error report to the clipboard in the error logs section in the extension settings in the debug tab"
-    },
-    "DebugNoErrors": {
-        "message": "Günlükte hata yok",
-        "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
-    },
-    "RecommendationSettings": {
-        "message": "Kimlik bilgileri önerme",
-        "description": "Label of the section password recommendations in the extension settings."
-    },
-    "SettingsSearchRecommendationOption": {
-        "message": "ile kimlik bilgilerini arayın",
-        "description": "Label of the setting in the extension settings to define how password recommendations are searched."
-    },
-    "UiSettings": {
-        "message": "Kullanıcı Arayüzü",
-        "description": "Label of the user interface section in the extension settings."
-    },
-    "InputSliderOff": {
-        "message": "Şu anda kapalı",
-        "description": "Tooltip of any slider input element that is currently in the inactive/disabled state"
-    },
-    "PasswordCustomFieldsTypeSecret": {
-        "message": "Gizli",
-        "description": "Label of the password custom setting type 'secret'."
-    },
-    "PasswordCustomFieldsTypeEmail": {
-        "message": "E-posta",
-        "description": "Label of the password custom setting type 'email'."
-    },
-    "PasswordCustomFieldsTypeUrl": {
-        "message": "Bağlantı",
-        "description": "Label of the password custom setting type 'url'."
-    },
-    "PasswordCustomFieldsTypeFormField": {
-        "message": "Form alanı",
-        "description": "Label of the password custom setting form field to insert custom values to a web page."
-    },
-    "PasswordEditValidationInvalidValue": {
-        "message": "Geçersiz değer",
-        "description": "The validation error message in the password edit form if the value is invalid"
-    },
-    "PasswordEditValidationMaxLength": {
-        "message": "Yalnızca $CHARACTERS$ karakterlerine izin verilir",
-        "description": "The validation error message in the password edit form if the value is longer than allowed",
-        "placeholders": {
-            "characters": {
-                "content": "$1",
-                "example": "One of 1, 48, 320, 370, 2048 or 8192"
-            }
-        }
-    },
-    "PasswordEditValidationRequired": {
-        "message": "Bu alan zorunludur",
-        "description": "The validation error message in the password edit form if a required field is empty"
-    },
-    "MiningPasswordDiscarded": {
-        "message": "Parola atıldı",
-        "description": "The toast notification after the user has successfully discarded a mined password"
-    },
-    "MiningPasswordCreated": {
-        "message": "Şifre kaydedildi",
-        "description": "The toast notification after the password was successfully saved"
-    },
-    "MiningPasswordUpdated": {
-        "message": "Şifre güncellendi",
-        "description": "The toast notification after the password was successfully saved"
-    },
-    "SettingsPasteFormSubmit": {
-        "message": "Açılır pencereden kimlik bilgileri yapıştırıldığında oturum açma formlarını gönderme",
-        "description": "Label of the setting in the extension settings to automatically submit login forms after pasting"
-    },
-    "SettingsClearClipboardDelay": {
-        "message": "Pano boşaldıktan sonra",
-        "description": "Label of the setting in the extension settings to define the time when the clipboard content will be removed."
-    },
-    "CustomBadge": {
-        "message": "Tarayıcı simgesi",
-        "description": "Headline for the browser toolbar icon styling settings in the custom theme settings"
-    },
-    "BorderColorHoverTitle": {
-        "message": "Bu renk, öğe etkinse kenarlıklar için kullanılır",
-        "description": "Tooltip of the color input field in the custom theme settings for the hover / active border color for an element"
-    },
-    "BackgroundInheritTitle": {
-        "message": "Etkinleştirilirse, değer üst öğeden miras alınır",
-        "description": "Tooltip for the checkbox to inherit the background color (from the parent element in the html) in the custom theme settings"
-    },
-    "ServerConnectionErrorTitle": {
-        "message": "Bağlanılamıyor $SERVER$",
-        "description": "Title of the toast notification when the connection to the server failed",
-        "placeholders": {
-            "server": {
-                "content": "$1",
-                "example": "My Nextcloud"
-            }
-        }
-    },
     "PasslinkConnectServer": {
-        "message": "Yeni hesap \"$LABEL$\" olarak kaydedildi.",
+        "message": "Det nya kontot sparades som \"$LABEL$\".",
         "description": "Confirmation message in the PassLink Connect action when a new account has been created successfully",
         "placeholders": {
             "label": {
@@ -1363,74 +201,68 @@
             }
         }
     },
-    "DebugErrorNoDetails": {
-        "message": "Hata detayı yok",
-        "description": "Used as error message for errors with no details at all in the error logs section in the extension settings in the debug tab"
+    "PasslinkConnectNotFound": {
+        "message": "Den här länken är ogiltig. Den kan ha använts redan eller har gått ut.",
+        "description": "Error message in PassLink when the link used has expired or was already used."
     },
-    "LabelSearchRecommendationDomain": {
-        "message": "aynı alan",
-        "description": "Find password recommendations by domain. So on page mail.example.com you will see all passwords for the domain and sumdomains of example.com."
+    "PasslinkConnectRejected": {
+        "message": "Anslutningsbegäran avvisades av servern.",
+        "description": "Error message when the server rejected the PassLink connect action was not confirmed by the server"
     },
-    "LabelSearchRecommendationHost": {
-        "message": "aynı ev sahibi",
-        "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
+    "PasslinkConnectNetworkError": {
+        "message": "Anslutningen till servern misslyckades. Kontrollera ditt nätverk.",
+        "description": "Error message in PassLink when the connection to the Nextcloud server failed with a networking error"
     },
-    "LabelSearchRecommendationHostPort": {
-        "message": "aynı ana bilgisayar ve bağlantı noktası",
-        "description": "Find password recommendations for the specific server and port."
+    "PasslinkConnectSuccess": {
+        "message": "Anslutning lyckad",
+        "description": "Message in the PassLink window when the PassLink Connect action was successful"
     },
-    "LabelSearchRecommendationExact": {
-        "message": "aynı url",
-        "description": "Find only passwords where th url matches exact to the current browser url."
+    "PasslinkConnectClose": {
+        "message": "Stänga fönstret",
+        "description": "Text of the button  in the PassLink result window to close the window"
     },
-    "SettingsSearchRecommendationMaxRows": {
-        "message": "Maksimum tavsiye sayısı",
-        "description": "Label of the setting in the extension settings to define the maximum number of results for the password recommendation."
+    "PasslinkScanInstructions": {
+        "message": "Rikta kameran mot QR-koden och vänta tills den känns igen och skannas.",
+        "description": "Instructions shown above the PassLink QR scanner telling the use to point his camera at the qr code he wants to scan"
     },
-    "SearchRecommendationMaxRowsNumber": {
-        "message": "$ROW$",
-        "description": "Number of results that should be displayed for password recommendations.",
-        "placeholders": {
-            "row": {
-                "content": "$1",
-                "example": "One of 1, 5, 10, 15 or 20"
-            }
-        }
+    "PasslinkScanScanning": {
+        "message": "Letar du efter en QR-kod?",
+        "description": "Message used by the PassLink QR scanner while the camera feed is scanned for a qr code"
     },
-    "SettingsShowUsernameInList": {
-        "message": "Başlığın yanında kullanıcı adını göster",
-        "description": "Label of the setting in the extension settings to show the username next to the title in password lists."
+    "PasslinkScanProcessingLink": {
+        "message": "Bearbetning av QR-kod",
+        "description": "Message used by the PassLink QR scanner when a valid code was found and is now being analyzed"
     },
-    "InputSliderOn": {
-        "message": "Şu anda",
-        "description": "Tooltip of any slider input element that is currently in the active/enabled state"
+    "PasslinkScanInvalidQrCode": {
+        "message": "Den här QR-koden stöds inte",
+        "description": "Message used by the PassLink QR scanner when the user scans a code that does not contain a valid and supported uri of Passlink"
     },
-    "QrOverconstrainedError": {
-        "message": "Kamera kullanıma uygun değil",
-        "description": "Message used by the PassLink QR scanner when the camera is faulty"
+    "QrNotAllowedError": {
+        "message": "Tillgång till kameran beviljades inte",
+        "description": "Message used by the PassLink QR scanner when the user did not allow camera access"
     },
-    "DebugLanguageTagsEnabled": {
-        "message": "Dil tuşlarını göster",
-        "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
+    "QrNotFoundError": {
+        "message": "Inga kameror hittades på den här enheten",
+        "description": "Message used by the PassLink QR scanner when the device has no cameras"
     },
-    "DebugBuild": {
-        "message": "Yapı Bilgileri",
-        "description": "Headline above the section for the build instructions in the debug tab in the extension settings"
+    "QrNotSupportedError": {
+        "message": "Osäkra sammanhang",
+        "description": "Message used by the PassLink QR scanner when the page was opened in an insecure context (http://). This should never happen"
     },
-    "DebugSourceAndBuild": {
-        "message": "Derleme talimatları ve kaynak kodu indirme",
-        "description": "Label of the link to open the page with build instructions and links to the source code in the debug tab in the extension settings"
+    "QrNotReadableError": {
+        "message": "Kameran är inte tillgänglig. Kanske är den redan i bruk?",
+        "description": "Message used by the PassLink QR scanner when the camera stream can not be read"
     },
-    "DebugErrorLog": {
-        "message": "Hata Günlüğü",
-        "description": "Headline above the error logs section in the extension settings in the debug tab"
+    "browserActionTitle": {
+        "message": "Lösenord",
+        "description": "Title of the button in the browser bar"
     },
-    "PasswordCustomFieldsTypeText": {
-        "message": "Metin",
-        "description": "Label of the password custom setting type 'text'."
+    "contextMenuTitle": {
+        "message": "Lösenord",
+        "description": "Title of the context menu item"
     },
     "BrowserActionTitleCounter": {
-        "message": "Şifreler ($COUNTER$)",
+        "message": "Lösenord ($COUNTER$)",
         "description": "Title of the button in the browser bar with suggestion counter",
         "placeholders": {
             "counter": {
@@ -1452,5 +284,1173 @@
                 "example": "Linux"
             }
         }
+    },
+    "MigrationAccountName": {
+        "message": "Nextcloud-konto",
+        "description": "Label assigned to the account used by the v1.x migration"
+    },
+    "PrivatePasswordsFolderLabel": {
+        "message": "Privata lösenord",
+        "description": "Label assigned to the hidden folder for private passwords. (folder is only visible when browsing in private mode)"
+    },
+    "SettingsTabAccounts": {
+        "message": "Konton",
+        "description": "Label of the user accounts tab in the extension settings"
+    },
+    "SettingsTabTheming": {
+        "message": "Teckning",
+        "description": "Label of the themes tab in the extension settings"
+    },
+    "SettingsTabOther": {
+        "message": "Andra inställningar",
+        "description": "Label of the general settings tab in the extension settings"
+    },
+    "SettingsTabDebug": {
+        "message": "Felsökning",
+        "description": "Label of the extension debugging tab in the extension settings"
+    },
+    "SettingsAccountsMain": {
+        "message": "Standardkonto för nya lösenord",
+        "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
+    },
+    "SettingsPasteFormSubmit": {
+        "message": "Skicka in inloggningsformulär när inloggningsuppgifter klistras in från popup-fönster",
+        "description": "Label of the setting in the extension settings to automatically submit login forms after pasting"
+    },
+    "SettingsPasteWarnCompromised": {
+        "message": "Varna när du använder komprometterade autentiseringsuppgifter",
+        "description": "Label of the setting in the extension settings to show a warning after pasting a compromised password"
+    },
+    "SettingsPasteAutofillEnabled": {
+        "message": "Automatiskt fylla i bäst matchande inloggningsuppgifter",
+        "description": "Label of the setting in the extension settings to automatically paste the first recommended credential into login forms"
+    },
+    "HelpPasteAutofill": {
+        "message": "Klistra automatiskt in den första föreslagna autentiseringsuppgiften i alla inloggningsformulär på fliken. Tänk på att detta gör det tillgängligt för alla skript i fliken.",
+        "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
+    },
+    "SettingsPasteBasicAuth": {
+        "message": "Svara automatiskt på begäran om grundläggande HTTP-autentisering",
+        "description": "Label of the setting in the extension settings to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "HelpPasteBasicAuth": {
+        "message": "Svara automatiskt på begäran om grundläggande autentisering i http med den första föreslagna autentiseringsuppgiften. Tänk på att detta kan avslöja autentiseringsuppgifter för oseriösa servrar.",
+        "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "SettingsClearClipboardPasswords": {
+        "message": "Radera lösenord från klippbordet automatiskt",
+        "description": "Label of the setting in the extension settings to automatically clear passwords from clipboard after a certain time."
+    },
+    "HelpClearClipboardPasswords": {
+        "message": "Urklippets innehåll rensas endast om webbläsaren fortfarande är öppen. Om den valfria behörigheten att läsa urklipp är beviljad, kommer det bara att rensas om lösenordet fortfarande finns kvar där.",
+        "description": "Help text in the extension settings for the setting to automatically clean passwords from clipboard after a certain time."
+    },
+    "SettingsClipboardClearDelayOptions": {
+        "message": "$ROW$ sekunder",
+        "description": "Time in seconds until clipboard will get empty.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 15, 30, 45, 60, 90"
+            }
+        }
+    },
+    "NotificationSettings": {
+        "message": "Notifieringar",
+        "description": "Headline above the notification section in the other settings tab in the extension settings"
+    },
+    "SettingsNotifyPasswordNew": {
+        "message": "Meddelande om nya lösenord",
+        "description": "Label of the setting in the extension settings to enable or disable the notification for new detected passwords"
+    },
+    "SettingsNotifyPasswordUpdate": {
+        "message": "Meddelande om uppdaterade lösenord",
+        "description": "Label of the setting in the extension settings to enable or disable the notification for detected password updates"
+    },
+    "SettingsNotifyPasswordQuicksave": {
+        "message": "Spara eller uppdatera direkt när du klickar på meddelandet.",
+        "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"
+    },
+    "SearchSettings": {
+        "message": "Sök",
+        "description": "Headline above the search section in the other settings tab in the extension settings"
+    },
+    "SettingsPopupRelatedSearch": {
+        "message": "Starta sökning när jag skriver \"Relaterad\"",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "AccountList": {
+        "message": "Användarkonton",
+        "description": "Headline above the user accounts section in the accounts tab in the extension settings"
+    },
+    "NoAccounts": {
+        "message": "Det finns inga konton ännu. Klicka här för att skapa ett.",
+        "description": "Message in place of the user accounts list in the extension settings if there are no user accounts yet. The user can click the message to create an account"
+    },
+    "ServerCreatedMessage": {
+        "message": "Kontot har skapats och är redo att användas.",
+        "description": "Message of the toast notification in the extension settings after an account was updated successfully"
+    },
+    "ServerSaveErrorTitle": {
+        "message": "Sparandet misslyckades",
+        "description": "Title of the toast notification in the extension settings after an account could not be updated or saved. The message will be the specific error message"
+    },
+    "ServerDisabledWarning": {
+        "message": "Det här kontot är inaktiverat. Det kommer att aktiveras när det har sparats.",
+        "description": "Warning message which appears above the account details if the server was disabled. Usual reasons are invalid login data, unsupported extension version or permanent connection issues."
+    },
+    "ServerBaseUrl": {
+        "message": "URL",
+        "description": "Label of the server url field in account details in the extension settings"
+    },
+    "ServerUser": {
+        "message": "Användare",
+        "description": "Label of the account login user field in account details in the extension settings"
+    },
+    "ServerToken": {
+        "message": "Lösenord för appen",
+        "description": "Label of the account login token field in account details in the extension settings"
+    },
+    "PasswordItemTitle": {
+        "message": "Status: $STATUS$, Id: #$ID$",
+        "description": "The tooltip of any password entry in the popup",
+        "placeholders": {
+            "id": {
+                "content": "$1",
+                "example": "1234-1234-1234-1234"
+            },
+            "status": {
+                "content": "$2",
+                "example": "DUPLICATE"
+            }
+        }
+    },
+    "PasswordItemOpenUrl": {
+        "message": "Öppna webbplats",
+        "description": "Title of the menu option to open the password url in a new tab"
+    },
+    "PasswordItemToTrash": {
+        "message": "Flytta till papperskorgen",
+        "description": "Title of the menu option to move a password to the trash"
+    },
+    "PasswordItemDetails": {
+        "message": "Visa detaljer",
+        "description": "Title of the menu option to view and edit a password"
+    },
+    "ValidationLabel": {
+        "message": "etikett",
+        "description": "Name of the account label field in account validation message. This value is used when the user attempts to save an account with an invalid label"
+    },
+    "ValidationUser": {
+        "message": "användare",
+        "description": "Name of the account username field in account validation message. This value is used when the user attempts to save an account with an invalid username"
+    },
+    "ValidationToken": {
+        "message": "app-lösenord",
+        "description": "Name of the account token field in account validation message. This value is used when the user attempts to save an account with an invalid token"
+    },
+    "ValidationBaseUrl": {
+        "message": "bas-URL",
+        "description": "Name of the account base url field in account validation message. This value is used when the user attempts to save an account with an invalid base url"
+    },
+    "ValidationNotEmpty": {
+        "message": "$FIELD$ får inte vara tomt.",
+        "description": "Validation message when the user attempts to save something (like an account) but a required field is empty.",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            }
+        }
+    },
+    "ValidationMinLength": {
+        "message": "$FIELD$ måste vara minst $MIN$ tecken lång.",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is shorter than required",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "min": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationMaxLength": {
+        "message": "$FIELD$ måste vara kortare än $MAX$.",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is longer than allowed",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "max": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationFailed": {
+        "message": "Valideringen misslyckades.",
+        "description": "Validation message when the user attempts to save something (like an account) but there were validation errors"
+    },
+    "ValidationNotAnUrl": {
+        "message": "Basurleln måste vara en giltig url.",
+        "description": "Validation message when the user attempts to save an account but the server url is not a valid url"
+    },
+    "ValidationNotAToken": {
+        "message": "Applösenordet måste vara ett giltigt Nextcloud-applösenord.",
+        "description": "Validation message when the user attempts to save an account but the token does not match the Nextcloud token schema"
+    },
+    "ValidationInvalidTimeout": {
+        "message": "Utloggningstiden måste vara ett av de angivna alternativen.",
+        "description": "Validation message when the user attempts to save an account but the timeout is not within the predefined range"
+    },
+    "ValidationDuplicate": {
+        "message": "Det finns redan ett konto för den här användaren på det här Nextcloud.",
+        "description": "Validation message when the user attempts to save a new account, but a similar account with the same server and same user name already exists"
+    },
+    "ValidationNoConnection": {
+        "message": "Det går inte att ansluta till $URL$.",
+        "description": "Validation message when the user attempts to save an account but it is not possible to connect to this server with the given url",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationUnauthorizedError": {
+        "message": "Servern på $URL$ accepterade inte inloggningsuppgifterna.",
+        "description": "Validation message when the user attempts to save an account but the server did not accept the user name and token",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationHttpError": {
+        "message": "Försök att ansluta till $URL$ resulterade i $ERROR$.",
+        "description": "Validation message when the user attempts to save an account but the server responded with an unexpected HTTP status code",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "HTTP 401 - Forbidden"
+            }
+        }
+    },
+    "QrStreamApiNotSupportedError": {
+        "message": "Stream API stöds inte av den här webbläsaren",
+        "description": "Message used by the PassLink QR scanner when the browser does not support the required streaming api. This should never happen"
+    },
+    "FirstRunConnectTitle": {
+        "message": "Anslut till Nextcloud",
+        "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
+    },
+    "ValidationConnectionError": {
+        "message": "Försök att ansluta till $URL$ resulterade i $ERROR$.",
+        "description": "Validation message when the user attempts to save an account but the connection attempt resulted in any kind of error (including internal extension errors)",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "Undefined variable example in file"
+            }
+        }
+    },
+    "ValidationServerVersion": {
+        "message": "Den version av appen som installerats på servern är föråldrad.",
+        "description": "Validation message when the user attempts to save an account but the version of the passwords app installed on the server is outdated"
+    },
+    "NoRelatedPasswords": {
+        "message": "Hittade inga relaterade lösenord",
+        "description": "Used in the related tab when no entries match the current website"
+    },
+    "NoSearchResults": {
+        "message": "Hittade inga lösenord som matchar din fråga",
+        "description": "Used in the search tab when no entries match the search query"
+    },
+    "NoSearchQuery": {
+        "message": "Skriv i sökrutan för att hitta lösenord",
+        "description": "Used in the search tab when there is no search query"
+    },
+    "NoCollectedPasswords": {
+        "message": "Inga nya lösenord hittades",
+        "description": "Used in the collected tab when no new passwords have been found"
+    },
+    "AddPasswordForCurrentTab": {
+        "message": "Lägg till autentiseringsuppgifter för den aktuella fliken",
+        "description": "Used in the collected tab for the option to add a blank entry with just the url of the current tab"
+    },
+    "NoServerItems": {
+        "message": "Inga element hittades",
+        "description": "Used in the browse tab when a server has no entries to list"
+    },
+    "LabelUrl": {
+        "message": "URL",
+        "description": "Label for of a field that contains an url (used in collected password or server info)"
+    },
+    "LabelUser": {
+        "message": "Användare",
+        "description": "Label for the username of in the server info in the browse tab"
+    },
+    "LabelPasswords": {
+        "message": "Lösenord",
+        "description": "Label for the password count in the server info in the browse tab"
+    },
+    "LabelFolders": {
+        "message": "Mappar",
+        "description": "Label for the folder count in the server info in the browse tab"
+    },
+    "LabelFolder": {
+        "message": "Mapp",
+        "description": "Label for the folder of this password."
+    },
+    "LabelCreated": {
+        "message": "Skapad",
+        "description": "Label for the creation time of this password."
+    },
+    "LabelEdited": {
+        "message": "Ändrad",
+        "description": "Label for the last edit time of this password."
+    },
+    "LabelNotes": {
+        "message": "Noteringar",
+        "description": "Label for the notes of this password."
+    },
+    "LabelCustomFields": {
+        "message": "Egendefinerade fält",
+        "description": "Label for the custom fields of this password"
+    },
+    "LabelTags": {
+        "message": "Taggar",
+        "description": "Label for the tag count in the server info in the browse tab"
+    },
+    "LabelServerVersion": {
+        "message": "Server",
+        "description": "Label for the nextcloud server version in the server info in the browse tab"
+    },
+    "LabelAppVersion": {
+        "message": "API",
+        "description": "Label for the passwords app version in the server info in the browse tab"
+    },
+    "ServerLabelString": {
+        "message": "Nextcloud $VERSION$",
+        "description": "Value for the nextcloud server version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "AppLabelString": {
+        "message": "Lösenord $VERSION$",
+        "description": "Value for the passwords app version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "AuthorizationFailedTitle": {
+        "message": "Auktorisering misslyckades",
+        "description": "Title of the toast notification when the login attempt was unsuccessful"
+    },
+    "AuthorizationFailedText": {
+        "message": "Åtkomst till lösenordsdatabasen med den angivna inloggningen nekades.",
+        "description": "Text of the toast notification when the login attempt was unsuccessful"
+    },
+    "TokenRequestFailed": {
+        "message": "Begäran om token misslyckades",
+        "description": "Title of the toast notification when the request for a two factor auth token failed. The text will be the error message."
+    },
+    "NotifyNewPasswordTitle": {
+        "message": "Nytt lösenord har upptäckts",
+        "description": "Title of the system notification when a new password was detected"
+    },
+    "NotifyNewPasswordText": {
+        "message": "Ett nytt lösenord för \"$LABEL$\" har upptäckts.",
+        "description": "Text of the system notification when a new password was detected. Used in Chrome where the notification has buttons to save or view the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyNewPasswordTextFF": {
+        "message": "Ett nytt lösenord för \"$LABEL$\" har upptäckts. Klicka på ikonen för lösenord i verktygsfältet för att visa och spara det.",
+        "description": "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyNewPasswordTextQS": {
+        "message": "Ett nytt lösenord för \"$LABEL$\" har upptäckts. Klicka här för att spara det.",
+        "description": "Text of the system notification when a new password was detected. Clicking the notification will save the password.",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTitle": {
+        "message": "Uppdaterat lösenord upptäcktes",
+        "description": "Title of the system notification when an update for an existing password has been detected"
+    },
+    "NotifyUpdatePasswordText": {
+        "message": "En uppdatering för \"$LABEL$\" har upptäckts.",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Chrome where the notification has buttons to save or view the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTextFF": {
+        "message": "En uppdatering för \"$LABEL$\" har upptäckts. Klicka på lösenordsikonen i verktygsfältet för att visa och spara den.",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTextQS": {
+        "message": "En uppdatering för \"$LABEL$\" har upptäckts. Klicka här för att spara den.",
+        "description": "Text of the system notification when an update for an existing password was detected. Clicking the notification will update the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "ButtonSave": {
+        "message": "Spara",
+        "description": "The save button of a password detection system notification"
+    },
+    "ButtonMore": {
+        "message": "Fler egenskaper",
+        "description": "The more options button of a password detection system notification which opens the popup with the form which shows all password details"
+    },
+    "ButtonClose": {
+        "message": "Stäng",
+        "description": "The title of the close button of a toast notification"
+    },
+    "ToastServerCheckTitle": {
+        "message": "$SERVER$ behöver uppgraderas",
+        "description": "Title of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "ToastServerCheckMessage": {
+        "message": "Kontot \"$SERVER$\" använder lösenordet $SERVERVERVERSION$, men detta tillägg kräver minst $MINVERSION$. Appen måste uppdateras innan kontot kan aktiveras igen i inställningarna.",
+        "description": "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
+    },
+    "ToastServerCheckWarning": {
+        "message": "Detta tillägg kommer snart att kräva lösenord $MINVERSION$, men \"$SERVER$\" använder lösenord $SERVERVERSION$. Uppdatera appen för att kunna fortsätta använda kontot.",
+        "description": "Text of the toast notification when an account uses a server which will soon be no longer supported because it uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
+    },
+    "ToastErrorMessage": {
+        "message": "Ett fel inträffade i lösenordsklienten. Kontrollera felloggen i felsökningsalternativen för mer information.",
+        "description": "Text of the toast notification for error messages from the passwords client. The error message is the title"
+    },
+    "ToastPasswordTrashed": {
+        "message": "$LABEL$ flyttades till papperskorgen. Du kan radera den permanent i appen eller återställa den.",
+        "description": "Text of the toast notification after a password was moved to the trash",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "ToastPasswordHiddenTrashed": {
+        "message": "$LABEL$ har strukits. Om detta var en olycka kan du fortfarande återställa den nedan innan den raderas permanent.",
+        "description": "Text of the toast notification after a hidden password was moved to the trash. Users can restore it within the notification but afterwards the password is lost for good",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "ToastPasswordDeleteFailed": {
+        "message": "Det gick inte att radera lösenordet",
+        "description": "Text of the toast notification when deleting the password failed"
+    },
+    "ToastPasswordRestored": {
+        "message": "$LABEL$ återställdes från papperskorgen. Den kommer att dyka upp igen när du öppnar popup-fönstret igen.",
+        "description": "Text of the toast notification after a password was restored from the trash",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "PasswordPastedSuccess": {
+        "message": "$LABEL$ klistras in framgångsrikt",
+        "description": "Text of the toast notification when a password entry was pasted successfully into the current tab",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "ToastPasswordUpdated": {
+        "message": "Lösenordet har uppdaterats",
+        "description": "Text of the toast notification when password was updated"
+    },
+    "ToastPasswordUpdateFailed": {
+        "message": "Uppdatering av lösenordet misslyckades",
+        "description": "Text of the toast notification when password update failed"
+    },
+    "PasswordPastedError": {
+        "message": "Kunde inte klistra in $LABEL$",
+        "description": "Text of the toast notification when a password could not be pasted into the current tab",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "PasswordPropertyCopied": {
+        "message": "Kopierad $PROPERTY$",
+        "description": "Text of the toast notification when a password property was copied successfully via one of the buttons",
+        "placeholders": {
+            "property": {
+                "content": "$1",
+                "example": "Username"
+            }
+        }
+    },
+    "PropertyPassword": {
+        "message": "Lösenord",
+        "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
+    },
+    "PropertyUsername": {
+        "message": "Användarnamn",
+        "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
+    },
+    "PropertyUrl": {
+        "message": "Webbsida",
+        "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
+    },
+    "ServerConnectionErrorTitle": {
+        "message": "Det går inte att ansluta till $SERVER$",
+        "description": "Title of the toast notification when the connection to the server failed",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "ServerCredentialsRejected": {
+        "message": "Serverreferenser avvisas. Uppdatera inloggningsuppgifterna i inställningarna.",
+        "description": "Text of the toast notification when the server has rejected the login credentials"
+    },
+    "ServerHttpError": {
+        "message": "Fel i HTTP-anslutningen: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with a HTTP error",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "ServerNetworkError": {
+        "message": "Ett nätverksfel har inträffat. Kontrollera att du är online och att servern är nåbar.",
+        "description": "Text of the toast notification when the connection to the server failed with a network error"
+    },
+    "ServerUnknownError": {
+        "message": "Okänt fel.",
+        "description": "Text of the toast notification when the connection to the server failed with an unknown error and no error message is present"
+    },
+    "ServerGenericError": {
+        "message": "Fel: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with an error",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "description": "The error message",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "DemoInfoNotification": {
+        "message": "Meddelande om information",
+        "description": "Text and title of the info notification in the theme preview"
+    },
+    "DemoSuccessNotification": {
+        "message": "Meddelande om framgång",
+        "description": "Text and title of the success notification in the theme preview"
+    },
+    "DemoWarningNotification": {
+        "message": "Varningsmeddelande",
+        "description": "Text and title of the warning notification in the theme preview"
+    },
+    "DemoErrorNotification": {
+        "message": "Felanmälan",
+        "description": "Text and title of the error notification in the theme preview"
+    },
+    "DemoText": {
+        "message": "Demo",
+        "description": "Demo text used in the theme preview"
+    },
+    "ThemeOledDark": {
+        "message": "Mörk OLED",
+        "description": "Label of the dark theme optimized for OLED-Displays"
+    },
+    "ThemeLight": {
+        "message": "Standard",
+        "description": "Label of the default light theme"
+    },
+    "ThemeHacker": {
+        "message": "Hackare",
+        "description": "Label of the hacker style theme"
+    },
+    "ThemeRGB": {
+        "message": "Spel RGB",
+        "description": "Label of the gaming rgb animated theme"
+    },
+    "ThemeCustom": {
+        "message": "Anpassat tema",
+        "description": "Label for the custom theme option"
+    },
+    "CustomFont": {
+        "message": "Typsnitt",
+        "description": "Headline for the font settings in the custom theme settings"
+    },
+    "CustomActiveElement": {
+        "message": "Aktivt element",
+        "description": "Headline for the active element styling settings in the custom theme settings"
+    },
+    "CustomButtons": {
+        "message": "Knappar",
+        "description": "Headline for the button styling settings in the custom theme settings"
+    },
+    "CustomSliderElement": {
+        "message": "Växlar",
+        "description": "Headline for the switch styling settings in the custom theme settings"
+    },
+    "CustomToasts": {
+        "message": "Toastmeddelanden",
+        "description": "Headline for the toast notification styling settings in the custom theme settings"
+    },
+    "CustomBadge": {
+        "message": "Ikon för webbläsaren",
+        "description": "Headline for the browser toolbar icon styling settings in the custom theme settings"
+    },
+    "BackgroundColorLabel": {
+        "message": "Bakgrundsfärg",
+        "description": "Label of background color options in the custom theme settings"
+    },
+    "ForegroundColorLabel": {
+        "message": "Färg i förgrunden",
+        "description": "Label of foreground / text color options in the custom theme settings"
+    },
+    "BackgroundInheritLabel": {
+        "message": "Ärva bakgrund",
+        "description": "Label of options to inherit the background color in the custom theme settings"
+    },
+    "ForegroundInheritLabel": {
+        "message": "Ärver förgrund",
+        "description": "Label of options to inherit the foreground / text color in the custom theme settings"
+    },
+    "BackgroundColorBaseTitle": {
+        "message": "Denna färg används vanligtvis som bakgrund.",
+        "description": "Tooltip of the color input field in the custom theme settings for the default background color for an element"
+    },
+    "BackgroundColorHoverTitle": {
+        "message": "Denna färg används som bakgrund om elementet är aktivt. Den kan också användas för gränsen för ett inaktivt element.",
+        "description": "Tooltip of the color input field in the custom theme settings for the mouse hover / active background color for an element"
+    },
+    "ForegroundColorBaseTitle": {
+        "message": "Den här färgen används vanligtvis för texter och ramar.",
+        "description": "Tooltip of the color input field in the custom theme settings for the default foreground / text color for an element"
+    },
+    "ForegroundColorHoverTitle": {
+        "message": "Den här färgen används för texter och ramar om elementet är aktivt.",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active foreground / text color for an element"
+    },
+    "BorderColorBaseTitle": {
+        "message": "Den här färgen används vanligen för gränser.",
+        "description": "Tooltip of the color input field in the custom theme settings for the default border color for an element"
+    },
+    "BorderColorHoverTitle": {
+        "message": "Den här färgen används för ramar om elementet är aktivt.",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active border color for an element"
+    },
+    "BackgroundInheritTitle": {
+        "message": "Om det är aktiverat kommer värdet att ärvas från det överordnade elementet.",
+        "description": "Tooltip for the checkbox to inherit the background color (from the parent element in the html) in the custom theme settings"
+    },
+    "ForegroundInheritTitle": {
+        "message": "Om det är aktiverat kommer värdet att ärvas från det överordnade elementet.",
+        "description": "Tooltip for the checkbox to inherit the foreground / text color (from the parent element in the html) in the custom theme settings"
+    },
+    "SettingsCustomFont": {
+        "message": "Typsnittsfamilj",
+        "description": "Label of the font option in the custom theme settings"
+    },
+    "FontDefault": {
+        "message": "Standard",
+        "description": "Label of the default font option in the custom theme settings"
+    },
+    "FontMono": {
+        "message": "Monospace",
+        "description": "Label of the monospaced font option in the custom theme settings"
+    },
+    "FontSerif": {
+        "message": "Serif",
+        "description": "Label of the serif style (like Times New Roman) font option in the custom theme settings"
+    },
+    "FontSans": {
+        "message": "Sans serif",
+        "description": "Label of the sans serif (like Arial) font option in the custom theme settings"
+    },
+    "FontLight": {
+        "message": "Ljus",
+        "description": "Label of the thin font option in the custom theme settings"
+    },
+    "FontNextcloud": {
+        "message": "Nextcloud",
+        "description": "Label of the Nextcloud font option in the custom theme settings"
+    },
+    "FontOpenDyslexic": {
+        "message": "Öppna dyslektiker",
+        "description": "Label of the open dyslexic font option in the custom theme settings. This font is good for users with dyslexia"
+    },
+    "FontCustom": {
+        "message": "Anpassad",
+        "description": "Label for unrecognized fonts in the custom theme settings. This option is usually not shown"
+    },
+    "SettingsCustomFontSize": {
+        "message": "Teckensnittsstorlek",
+        "description": "Label of the font size setting in the custom theme settings"
+    },
+    "FontSizeVerySmall": {
+        "message": "Mycket liten",
+        "description": "Label for the very small font size in the custom theme settings"
+    },
+    "FontSizeSmall": {
+        "message": "Liten",
+        "description": "Label for the small font size in the custom theme settings"
+    },
+    "FontSizeDefault": {
+        "message": "Standard",
+        "description": "Label for the default font size in the custom theme settings"
+    },
+    "FontSizeMedium": {
+        "message": "Medium",
+        "description": "Label for the medium font size in the custom theme settings"
+    },
+    "FontSizeLarge": {
+        "message": "Stor",
+        "description": "Label for the large font size in the custom theme settings"
+    },
+    "FontSizeVeryLarge": {
+        "message": "Mycket stor",
+        "description": "Label for the very large font size in the custom theme settings"
+    },
+    "ToastInfoColors": {
+        "message": "Info rostat bröd",
+        "description": "Label of the setting in the custom theme settings to choose the colors of informational toast notifications"
+    },
+    "ToastSuccessColors": {
+        "message": "Framgångsrik skål",
+        "description": "Label of the setting in the custom theme settings to choose the colors of success toast notifications"
+    },
+    "ToastWarningColors": {
+        "message": "Varningsrostat bröd",
+        "description": "Label of the setting in the custom theme settings to choose the colors of warning toast notifications"
+    },
+    "ToastErrorColors": {
+        "message": "Fel toast",
+        "description": "Label of the setting in the custom theme settings to choose the colors of error toast notifications"
+    },
+    "ToastBackgroundTitle": {
+        "message": "Bakgrundsfärg för toastmeddelandet",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification background color"
+    },
+    "ToastForegroundTitle": {
+        "message": "Färg för text- och knappbakgrunden i toastmeddelandet.",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification foreground / text color"
+    },
+    "SettingsBadgeIcon": {
+        "message": "Ikon för verktygsfältet",
+        "description": "Label of the setting to choose the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconAuto": {
+        "message": "Automatisk",
+        "description": "Label of the automatic icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconLight": {
+        "message": "Ikon för ljus",
+        "description": "Label of the light icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconMedium": {
+        "message": "Grå ikon",
+        "description": "Label of the grey icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconDark": {
+        "message": "Mörk ikon",
+        "description": "Label of the dark icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewLight": {
+        "message": "Ljus modern ikon",
+        "description": "Label of the light modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewMedium": {
+        "message": "Grå modern ikon",
+        "description": "Label of the grey modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewDark": {
+        "message": "Mörk modern ikon",
+        "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "CustomBadgeColors": {
+        "message": "Färger för märken",
+        "description": "Label of the settings for the toolbar icon badge colors in the custom theme settings"
+    },
+    "BadgeBackgroundTitle": {
+        "message": "Bakgrundsfärg för märket",
+        "description": "Tooltip for the color input for the background color of the toolbar icon badge in the custom theme settings"
+    },
+    "PasslinkConnectFailed": {
+        "message": "Anslutningen misslyckades",
+        "description": "Message in the PassLink window when the PassLink Connect action failed"
+    },
+    "PasslinkConnectSettings": {
+        "message": "Öppna inställningar",
+        "description": "Text of the button to open the extension settings in the PassLink result window"
+    },
+    "QrOverconstrainedError": {
+        "message": "Kameran är inte lämplig att använda",
+        "description": "Message used by the PassLink QR scanner when the camera is faulty"
+    },
+    "FirstRunConnectText": {
+        "message": "Öppna lösenordsappen, klicka på \"Mer\", öppna \"Appar och tillägg\" och öppna dialogrutan PassLink Connect.",
+        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
+    },
+    "FirstRunConnectScanButton": {
+        "message": "Skanna PassLink-kod",
+        "description": "Text of the button to scan a PassLink QR Code"
+    },
+    "OpenSettings": {
+        "message": "Öppna tilläggsinställningar",
+        "description": "Label of the button to open the extension settings in the tools tab of the popup"
+    },
+    "ToolsTabGeneratePassword": {
+        "message": "Skapa lösenord",
+        "description": "Label of the generate password section in the tools tab of the popup"
+    },
+    "ToolsTabDebugTools": {
+        "message": "Verktyg för felsökning",
+        "description": "Label of the debugging tools section in the tools tab of the popup"
+    },
+    "GeneratedPasswordPlaceholder": {
+        "message": "Genererat lösenord",
+        "description": "Placeholder of the field for the generated password in the tools tab of the popup"
+    },
+    "GeneratedPasswordTitle": {
+        "message": "Lösenord: $WORDS$",
+        "description": "Title of the input field for the generated password in the tools tab of the popup. It shows the words used to generate the password",
+        "placeholders": {
+            "words": {
+                "content": "$1",
+                "description": "The words used for the password",
+                "example": "First Second Third"
+            }
+        }
+    },
+    "LabelGenerateAddNumbers": {
+        "message": "Nummer",
+        "description": "Label of the option to include numbers in the password generator in the tools tab"
+    },
+    "LabelGenerateAddSpecial": {
+        "message": "Symboler",
+        "description": "Label of the option to include special characters in the password generator in the tools tab"
+    },
+    "LabelGenerateStrength": {
+        "message": "Styrka",
+        "description": "Label of the option to set the strength in the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthLow": {
+        "message": "Låg",
+        "description": "Label of the low (0) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthStandard": {
+        "message": "Standard",
+        "description": "Label of the default (1) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthMedium": {
+        "message": "Medium",
+        "description": "Label of the medium (2) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthHigh": {
+        "message": "Hög",
+        "description": "Label of the high (3) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthUltra": {
+        "message": "Ultra",
+        "description": "Label of the very high (4) strength option for the password generator in the tools tab"
+    },
+    "PasswordGenerateError": {
+        "message": "Det gick inte att generera ett lösenord: $ERROR$",
+        "description": "Notification shown when the generation of a password fails",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "Unexpected data type"
+            }
+        }
+    },
+    "DebugHighlightLoginForms": {
+        "message": "Markera fält i inloggningsformuläret",
+        "description": "Label of the button in the popup which triggers the option to highlight all login form fields in the current tab"
+    },
+    "PasteBadPasswordWarning": {
+        "message": "Det här lösenordet har äventyrats och bör bytas ut omedelbart.",
+        "description": "Notification shown after the user pasted a password with the security status breached/compromised"
+    },
+    "DebugInternalStats": {
+        "message": "Intern status",
+        "description": "Headline above the internal status section in the extension settings in the debug tab"
+    },
+    "DebugInfoExtensionVersion": {
+        "message": "Förlängningsversion",
+        "description": "Description of the extension version in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionBuild": {
+        "message": "Målplattform",
+        "description": "Description of the extension build target (firefox or chrome) in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionPlatform": {
+        "message": "Användaragent",
+        "description": "Description of the browser user agent in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionEnvironment": {
+        "message": "Förlängningsläge",
+        "description": "Description of the extension mode (production or development) in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugSettings": {
+        "message": "Inställningar för felsökning",
+        "description": "Headline above the debugging settings section in the extension settings in the debug tab"
+    },
+    "DebugLanguageTagsEnabled": {
+        "message": "Visa språkknappar",
+        "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
+    },
+    "DebugBuild": {
+        "message": "Information om uppbyggnad",
+        "description": "Headline above the section for the build instructions in the debug tab in the extension settings"
+    },
+    "DebugErrorNoMessage": {
+        "message": "Inget felmeddelande",
+        "description": "Used as error message for errors with no error message (but have a timestamp) in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorNoDetails": {
+        "message": "Inga uppgifter om fel",
+        "description": "Used as error message for errors with no details at all in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorDataCopied": {
+        "message": "Felinformation kopieras till urklipp",
+        "description": "Success notification when you copy an error report to the clipboard in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugNoErrors": {
+        "message": "Inga fel i loggen",
+        "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
+    },
+    "RecommendationSettings": {
+        "message": "Rekommendering av referenser",
+        "description": "Label of the section password recommendations in the extension settings."
+    },
+    "SettingsSearchRecommendationOption": {
+        "message": "Sök referenser med",
+        "description": "Label of the setting in the extension settings to define how password recommendations are searched."
+    },
+    "LabelSearchRecommendationExact": {
+        "message": "samma exakta webbadress",
+        "description": "Find only passwords where th url matches exact to the current browser url."
+    },
+    "SettingsSearchRecommendationMaxRows": {
+        "message": "Maximalt antal rekommendationer",
+        "description": "Label of the setting in the extension settings to define the maximum number of results for the password recommendation."
+    },
+    "SearchRecommendationMaxRowsNumber": {
+        "message": "$ROW$",
+        "description": "Number of results that should be displayed for password recommendations.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 1, 5, 10, 15 or 20"
+            }
+        }
+    },
+    "SettingsShowUsernameInList": {
+        "message": "Visa användarnamn bredvid titeln",
+        "description": "Label of the setting in the extension settings to show the username next to the title in password lists."
+    },
+    "InputSliderOn": {
+        "message": "För närvarande på",
+        "description": "Tooltip of any slider input element that is currently in the active/enabled state"
+    },
+    "InputSliderOff": {
+        "message": "För närvarande avstängd",
+        "description": "Tooltip of any slider input element that is currently in the inactive/disabled state"
+    },
+    "PasswordCustomFieldsTypeText": {
+        "message": "Text",
+        "description": "Label of the password custom setting type 'text'."
+    },
+    "PasswordCustomFieldsTypeSecret": {
+        "message": "Hemlig",
+        "description": "Label of the password custom setting type 'secret'."
+    },
+    "PasswordCustomFieldsTypeEmail": {
+        "message": "E-post",
+        "description": "Label of the password custom setting type 'email'."
+    },
+    "PasswordCustomFieldsTypeUrl": {
+        "message": "Länk",
+        "description": "Label of the password custom setting type 'url'."
+    },
+    "PasswordCustomFieldsTypeFormField": {
+        "message": "Formulärfält",
+        "description": "Label of the password custom setting form field to insert custom values to a web page."
+    },
+    "PasswordEditValidationInvalidValue": {
+        "message": "Ogiltigt värde",
+        "description": "The validation error message in the password edit form if the value is invalid"
+    },
+    "MiningPasswordCreated": {
+        "message": "Lösenord sparat",
+        "description": "The toast notification after the password was successfully saved"
+    },
+    "MiningPasswordUpdated": {
+        "message": "Lösenordet har uppdaterats",
+        "description": "The toast notification after the password was successfully saved"
+    },
+    "FirstRunConnectLink": {
+        "message": "Om dialogrutan PassLink är öppen på samma enhet, använd alternativet Anslut via länk.",
+        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
+    },
+    "FirstRunConnectScan": {
+        "message": "Om detta är en annan enhet, skanna PassLink Connect-koden med knappen nedan.",
+        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
+    },
+    "FirstRunConnectManual": {
+        "message": "Du kan också skapa kontot manuellt i tilläggsinställningarna.",
+        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
+    },
+    "DebugInfoHiddenFolderId": {
+        "message": "Dolda lösenord Mapp-ID",
+        "description": "Description of the id of the folder used to store hidden/private passwords in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugSourceAndBuild": {
+        "message": "Byggnadsinstruktioner och nedladdning av källkod",
+        "description": "Label of the link to open the page with build instructions and links to the source code in the debug tab in the extension settings"
+    },
+    "DebugErrorLog": {
+        "message": "Fel loggbok",
+        "description": "Headline above the error logs section in the extension settings in the debug tab"
+    },
+    "LabelSearchRecommendationDomain": {
+        "message": "samma domän",
+        "description": "Find password recommendations by domain. So on page mail.example.com you will see all passwords for the domain and sumdomains of example.com."
+    },
+    "LabelSearchRecommendationHost": {
+        "message": "samma värd",
+        "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
+    },
+    "LabelSearchRecommendationHostPort": {
+        "message": "samma värd och port",
+        "description": "Find password recommendations for the specific server and port."
+    },
+    "UiSettings": {
+        "message": "Användargränssnitt",
+        "description": "Label of the user interface section in the extension settings."
+    },
+    "PasswordEditValidationMaxLength": {
+        "message": "Endast $CHARACTERS$ tecken är tillåtna.",
+        "description": "The validation error message in the password edit form if the value is longer than allowed",
+        "placeholders": {
+            "characters": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
+    },
+    "PasswordEditValidationRequired": {
+        "message": "Detta fält är obligatoriskt",
+        "description": "The validation error message in the password edit form if a required field is empty"
+    },
+    "MiningPasswordDiscarded": {
+        "message": "Lösenordet har förkastats",
+        "description": "The toast notification after the user has successfully discarded a mined password"
+    },
+    "extensionName": {
+        "message": "Lösenord för webbläsartillägget Nextcloud",
+        "description": "Name of the extension."
+    },
+    "TabSearch": {
+        "message": "Sök",
+        "description": "Label of the search tab in the extension popup"
     }
 }

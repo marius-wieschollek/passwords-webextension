@@ -1,194 +1,293 @@
 {
+    "BadgeIconAuto": {
+        "message": "Automatické",
+        "description": "Label of the automatic icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconLight": {
+        "message": "Ikona svetla",
+        "description": "Label of the light icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconMedium": {
+        "message": "Sivá ikona",
+        "description": "Label of the grey icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconDark": {
+        "message": "Tmavá ikona",
+        "description": "Label of the dark icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewLight": {
+        "message": "Ľahká moderná ikona",
+        "description": "Label of the light modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewMedium": {
+        "message": "Sivá moderná ikona",
+        "description": "Label of the grey modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewDark": {
+        "message": "Tmavá moderná ikona",
+        "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "CustomBadgeColors": {
+        "message": "Farby odznakov",
+        "description": "Label of the settings for the toolbar icon badge colors in the custom theme settings"
+    },
+    "BadgeBackgroundTitle": {
+        "message": "Farba pozadia odznaku",
+        "description": "Tooltip for the color input for the background color of the toolbar icon badge in the custom theme settings"
+    },
+    "BadgeForegroundTitle": {
+        "message": "Farba textu odznaku",
+        "description": "Tooltip for the color input for the text color of the toolbar icon badge in the custom theme settings"
+    },
+    "PasslinkErrorNoMessage": {
+        "message": "Vyskytla sa chyba, ale nebola poskytnutá žiadna chybová správa",
+        "description": "Error message shown in the PassLink popup window when and error happened but no error message was provided"
+    },
+    "PasslinkNoLinkProvided": {
+        "message": "Nechýba žiadne prepojenie ani akcia",
+        "description": "Error message shown in the PassLink popup window when the window was opened but no action or link to process was provided"
+    },
+    "PasslinkErrorClose": {
+        "message": "Zatvoriť",
+        "description": "Text of the close button in the PassLink error window"
+    },
+    "DebugSourceAndBuild": {
+        "message": "Pokyny na zostavenie a stiahnutie zdrojového kódu",
+        "description": "Label of the link to open the page with build instructions and links to the source code in the debug tab in the extension settings"
+    },
+    "DebugErrorLog": {
+        "message": "Protokol o chybách",
+        "description": "Headline above the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorNoMessage": {
+        "message": "Žiadna chybová správa",
+        "description": "Used as error message for errors with no error message (but have a timestamp) in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorNoDetails": {
+        "message": "Žiadne podrobnosti o chybe",
+        "description": "Used as error message for errors with no details at all in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorDataCopied": {
+        "message": "Podrobnosti o chybe skopírované do schránky",
+        "description": "Success notification when you copy an error report to the clipboard in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugNoErrors": {
+        "message": "Žiadne chyby v denníku",
+        "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
+    },
+    "RecommendationSettings": {
+        "message": "Odporúčanie poverení",
+        "description": "Label of the section password recommendations in the extension settings."
+    },
+    "SettingsSearchRecommendationOption": {
+        "message": "Vyhľadávanie poverení pomocou",
+        "description": "Label of the setting in the extension settings to define how password recommendations are searched."
+    },
+    "ServerNetworkError": {
+        "message": "Vyskytla sa chyba siete. Skontrolujte, či ste online a či je server dosiahnuteľný.",
+        "description": "Text of the toast notification when the connection to the server failed with a network error"
+    },
+    "ServerUnknownError": {
+        "message": "Neznáma chyba.",
+        "description": "Text of the toast notification when the connection to the server failed with an unknown error and no error message is present"
+    },
+    "ServerGenericError": {
+        "message": "Chyba: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with an error",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "description": "The error message",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "DemoInfoNotification": {
+        "message": "Informačné oznámenie",
+        "description": "Text and title of the info notification in the theme preview"
+    },
+    "DemoSuccessNotification": {
+        "message": "Oznámenie o úspechu",
+        "description": "Text and title of the success notification in the theme preview"
+    },
+    "DemoWarningNotification": {
+        "message": "Varovné oznámenie",
+        "description": "Text and title of the warning notification in the theme preview"
+    },
+    "DemoErrorNotification": {
+        "message": "Oznámenie o chybe",
+        "description": "Text and title of the error notification in the theme preview"
+    },
+    "DemoText": {
+        "message": "Demo",
+        "description": "Demo text used in the theme preview"
+    },
+    "SettingsThemeId": {
+        "message": "Aktívna téma",
+        "description": "Label of the option to choose the current theme in the extension settings"
+    },
+    "ThemeDark": {
+        "message": "Tmavá téma",
+        "description": "Label of the dark theme"
+    },
+    "ThemeOledDark": {
+        "message": "Tmavý OLED",
+        "description": "Label of the dark theme optimized for OLED-Displays"
+    },
+    "ThemeLight": {
+        "message": "Predvolené nastavenie",
+        "description": "Label of the default light theme"
+    },
+    "ThemeAdaptaLight": {
+        "message": "Adapta",
+        "description": "Label of the theme with the Adapta color scheme"
+    },
+    "ThemeAdaptaTeal": {
+        "message": "Adapta teal",
+        "description": "Label of the theme with the Adapta teal color scheme"
+    },
+    "ThemeArcDark": {
+        "message": "Tmavý oblúk",
+        "description": "Label of the theme with the Arc dark scheme"
+    },
+    "ThemeArcLight": {
+        "message": "Oblúk",
+        "description": "Label of the theme with the Arc color scheme"
+    },
+    "ThemeHacker": {
+        "message": "Hacker",
+        "description": "Label of the hacker style theme"
+    },
+    "ThemeRGB": {
+        "message": "Herné RGB",
+        "description": "Label of the gaming rgb animated theme"
+    },
+    "ThemeCustom": {
+        "message": "Vlastná téma",
+        "description": "Label for the custom theme option"
+    },
+    "CustomFont": {
+        "message": "Písmo",
+        "description": "Headline for the font settings in the custom theme settings"
+    },
     "extensionName": {
-        "message": "Nextcloud Parolalar",
+        "message": "Heslá pre rozšírenie prehliadača Nextcloud",
         "description": "Name of the extension."
     },
     "extensionDescription": {
-        "message": "Nextcloud Parolalar uygulaması için basit bir istemci",
+        "message": "Oficiálne rozšírenie prehliadača pre Heslá pre Nextcloud",
         "description": "Description of the extension."
     },
     "locale": {
-        "message": "tr",
+        "message": "sk",
         "description": "The language tag of this translation. Same as the folder name"
     },
     "browserActionTitle": {
-        "message": "Parolalar",
+        "message": "Heslá",
         "description": "Title of the button in the browser bar"
     },
     "contextMenuTitle": {
-        "message": "Parolalar",
+        "message": "Heslá",
         "description": "Title of the context menu item"
     },
-    "ServerBaseUrl": {
-        "message": "Url",
-        "description": "Label of the server url field in account details in the extension settings"
-    },
-    "ServerUser": {
-        "message": "Kullanıcı",
-        "description": "Label of the account login user field in account details in the extension settings"
-    },
-    "LabelPassword": {
-        "message": "Parola",
-        "description": "Label for the password of a password entry"
-    },
-    "LabelUsername": {
-        "message": "Kullanıcı",
-        "description": "Label for the username of a password entry"
-    },
-    "LabelUser": {
-        "message": "Kullanıcı",
-        "description": "Label for the username of in the server info in the browse tab"
-    },
-    "LabelUrl": {
-        "message": "Url",
-        "description": "Label for of a field that contains an url (used in collected password or server info)"
-    },
-    "LabelPasswords": {
-        "message": "Parolalar",
-        "description": "Label for the password count in the server info in the browse tab"
-    },
-    "AppLabelString": {
-        "message": "Parolalar $VERSION$",
-        "description": "Value for the passwords app version in the server info in the browse tab",
+    "BrowserActionTitleCounter": {
+        "message": "Heslá ($COUNTER$)",
+        "description": "Title of the button in the browser bar with suggestion counter",
         "placeholders": {
-            "version": {
+            "counter": {
                 "content": "$1",
-                "example": "20"
+                "example": "2"
             }
         }
     },
-    "PlaceholderPassword": {
-        "message": "Parola",
-        "description": "Placeholder text in the master password field of the server authorization dialog"
-    },
-    "PropertyPassword": {
-        "message": "Parola",
-        "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
-    },
-    "PropertyUsername": {
-        "message": "Kullanıcı",
-        "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
-    },
-    "PropertyUrl": {
-        "message": "Url",
-        "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
-    },
-    "ButtonSave": {
-        "message": "Kaydet",
-        "description": "The save button of a password detection system notification"
-    },
-    "HelpClearClipboardPasswords": {
-        "message": "Pano yalnızca tarayıcı hala açıksa temizlenecektir. Panoyu okumak için isteğe bağlı izin verilirse, yalnızca parola hala oradaysa temizlenir.",
-        "description": "Help text in the extension settings for the setting to automatically clean passwords from clipboard after a certain time."
-    },
-    "LabelFolder": {
-        "message": "Klasör",
-        "description": "Label for the folder of this password."
-    },
-    "LabelCreated": {
-        "message": "Oluşturuldu",
-        "description": "Label for the creation time of this password."
-    },
-    "NotifyUpdatePasswordTextQS": {
-        "message": "\"$LABEL$\" için bir güncelleme tespit edildi. Kaydetmek için buraya tıklayın.",
-        "description": "Text of the system notification when an update for an existing password was detected. Clicking the notification will update the password",
+    "UserAgent": {
+        "message": "Oficiálny klient hesiel pre $BROWSER$ na $OS$",
+        "description": "The user agent used for api requests. Only ASCII characters allowed: 0-9, A-Z, a-z. No special characters or non latin characters like ä,á,ã or ß",
         "placeholders": {
-            "label": {
+            "browser": {
                 "content": "$1",
-                "example": "Nextcloud Community Forum"
+                "example": "Firefox"
+            },
+            "os": {
+                "content": "$2",
+                "example": "Linux"
             }
         }
-    },
-    "ThemeDark": {
-        "message": "Koyu tema",
-        "description": "Label of the dark theme"
-    },
-    "LabelEdited": {
-        "message": "Değiştirilmiş",
-        "description": "Label for the last edit time of this password."
-    },
-    "LabelNotes": {
-        "message": "Notlar",
-        "description": "Label for the notes of this password."
-    },
-    "LabelCustomFields": {
-        "message": "Özel Alanlar",
-        "description": "Label for the custom fields of this password"
-    },
-    "LabelTags": {
-        "message": "Etiketler",
-        "description": "Label for the tag count in the server info in the browse tab"
-    },
-    "LabelServerVersion": {
-        "message": "Sunucu",
-        "description": "Label for the nextcloud server version in the server info in the browse tab"
-    },
-    "LabelAppVersion": {
-        "message": "API",
-        "description": "Label for the passwords app version in the server info in the browse tab"
     },
     "MigrationAccountName": {
-        "message": "Nextcloud Hesabı",
+        "message": "Účet Nextcloud",
         "description": "Label assigned to the account used by the v1.x migration"
     },
     "PrivatePasswordsFolderLabel": {
-        "message": "Özel Şifreler",
+        "message": "Súkromné heslá",
         "description": "Label assigned to the hidden folder for private passwords. (folder is only visible when browsing in private mode)"
     },
     "SettingsTabAccounts": {
-        "message": "Hesaplar",
+        "message": "Účty",
         "description": "Label of the user accounts tab in the extension settings"
     },
     "SettingsTabTheming": {
-        "message": "Temalandırma",
+        "message": "Tematické stránky",
         "description": "Label of the themes tab in the extension settings"
     },
     "SettingsTabOther": {
-        "message": "Diğer Ayarlar",
+        "message": "Iné nastavenia",
         "description": "Label of the general settings tab in the extension settings"
     },
     "SettingsTabDebug": {
-        "message": "Hata Ayıklama",
+        "message": "Ladenie",
         "description": "Label of the extension debugging tab in the extension settings"
     },
     "SettingsAccountsMain": {
-        "message": "Yeni parolalar için varsayılan hesap",
+        "message": "Predvolené konto pre nové heslá",
         "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
     },
     "AutofillSettings": {
-        "message": "Kimlik bilgilerini yapıştırma",
+        "message": "Vkladanie poverení",
         "description": "Headline above the password autofill section in the other settings tab in the extension settings"
     },
     "SettingsPastePopupClose": {
-        "message": "Kimlik bilgilerini yapıştırdıktan sonra açılır pencereyi kapat",
+        "message": "Zatvorenie vyskakovacieho okna po vložení poverení",
         "description": "Label of the setting in the extension settings to automatically close the extension popup after successful pasting"
     },
+    "SettingsPasteFormSubmit": {
+        "message": "Odoslanie prihlasovacích formulárov po vložení poverení z vyskakovacieho okna",
+        "description": "Label of the setting in the extension settings to automatically submit login forms after pasting"
+    },
     "SettingsPasteWarnCompromised": {
-        "message": "Güvenliği ihlal edilmiş kimlik bilgileri kullanıldığında uyar",
+        "message": "Upozornenie pri použití kompromitovaných poverení",
         "description": "Label of the setting in the extension settings to show a warning after pasting a compromised password"
     },
     "SettingsPasteAutofillEnabled": {
-        "message": "En iyi eşleşen giriş verilerini otomatik olarak doldurun",
+        "message": "Automatické vyplnenie najlepšie zodpovedajúcich prihlasovacích údajov",
         "description": "Label of the setting in the extension settings to automatically paste the first recommended credential into login forms"
     },
     "HelpPasteAutofill": {
-        "message": "Önerilen ilk kimlik bilgisini sekmedeki herhangi bir oturum açma formuna otomatik olarak yapıştırın. Bunun, sekmedeki herhangi bir komut dosyasını erişilebilir hale getirdiğini unutmayın.",
+        "message": "Automaticky vložte prvé navrhované poverenie do akéhokoľvek prihlasovacieho formulára na karte. Uvedomte si, že sa tým sprístupní akýkoľvek skript na karte.",
         "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
     },
     "SettingsPasteBasicAuth": {
-        "message": "HTTP temel kimlik doğrulama isteklerine otomatik olarak yanıt verme",
+        "message": "Automatická odpoveď na základné overovacie požiadavky HTTP",
         "description": "Label of the setting in the extension settings to automatically respond with the first recommended credential to any http basic authentication request"
     },
     "HelpPasteBasicAuth": {
-        "message": "Http temel kimlik doğrulama isteklerine otomatik olarak önerilen ilk kimlik bilgisiyle yanıt verin. Bunun, kimlik bilgilerini güvenilir olmayan sunuculara ifşa edebileceğini unutmayın.",
+        "message": "Automatická odpoveď na požiadavky na základné overenie http s prvým navrhovaným poverením. Uvedomte si, že to môže vystaviť poverenia nedôveryhodným serverom.",
         "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http basic authentication request"
     },
     "SettingsClearClipboardPasswords": {
-        "message": "Panodaki parolaları otomatik olarak silme",
+        "message": "Automatické odstránenie hesiel zo schránky",
         "description": "Label of the setting in the extension settings to automatically clear passwords from clipboard after a certain time."
     },
+    "HelpClearClipboardPasswords": {
+        "message": "Schránka sa vymaže len vtedy, ak je prehliadač stále otvorený. Ak je udelené voliteľné povolenie na čítanie schránky, vymaže sa len vtedy, ak je v nej ešte heslo.",
+        "description": "Help text in the extension settings for the setting to automatically clean passwords from clipboard after a certain time."
+    },
+    "SettingsClearClipboardDelay": {
+        "message": "Prázdna schránka po",
+        "description": "Label of the setting in the extension settings to define the time when the clipboard content will be removed."
+    },
     "SettingsClipboardClearDelayOptions": {
-        "message": "$ROW$ saniye",
+        "message": "$ROW$ sekundy",
         "description": "Time in seconds until clipboard will get empty.",
         "placeholders": {
             "row": {
@@ -198,83 +297,103 @@
         }
     },
     "NotificationSettings": {
-        "message": "Bildirimler",
+        "message": "Oznámenia",
         "description": "Headline above the notification section in the other settings tab in the extension settings"
     },
+    "CustomDefaultElement": {
+        "message": "Predvolený prvok",
+        "description": "Headline for the default element styling settings in the custom theme settings"
+    },
     "SettingsNotifyPasswordNew": {
-        "message": "Yeni parolalar için bildirim",
+        "message": "Upozornenie na nové heslá",
         "description": "Label of the setting in the extension settings to enable or disable the notification for new detected passwords"
     },
     "SettingsNotifyPasswordUpdate": {
-        "message": "Güncellenen parolalar için bildirim",
+        "message": "Upozornenie na aktualizované heslá",
         "description": "Label of the setting in the extension settings to enable or disable the notification for detected password updates"
     },
     "SettingsNotifyPasswordQuicksave": {
-        "message": "Bildirime tıklandığında doğrudan kaydedin veya güncelleyin",
+        "message": "Uložiť alebo aktualizovať priamo po kliknutí na oznámenie",
         "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"
     },
     "SearchSettings": {
-        "message": "Arama",
+        "message": "Vyhľadávanie",
         "description": "Headline above the search section in the other settings tab in the extension settings"
     },
+    "CustomActiveElement": {
+        "message": "Aktívny prvok",
+        "description": "Headline for the active element styling settings in the custom theme settings"
+    },
+    "CustomButtons": {
+        "message": "Tlačidlá",
+        "description": "Headline for the button styling settings in the custom theme settings"
+    },
     "SettingsPopupRelatedSearch": {
-        "message": "\"İlgili\" yazdığımda aramayı başlat",
+        "message": "Spustenie vyhľadávania po zadaní položky \"Súvisiace\"",
         "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
     },
     "AccountList": {
-        "message": "Kullanıcı hesapları",
+        "message": "Používateľské účty",
         "description": "Headline above the user accounts section in the accounts tab in the extension settings"
     },
     "NoAccounts": {
-        "message": "Henüz hiç hesap yok. Hesap oluşturmak için buraya tıklayın.",
+        "message": "Zatiaľ nie sú žiadne účty. Kliknite sem a vytvorte si ho.",
         "description": "Message in place of the user accounts list in the extension settings if there are no user accounts yet. The user can click the message to create an account"
     },
     "NewAccountFormLabel": {
-        "message": "Hesap oluştur",
+        "message": "Vytvoriť konto",
         "description": "Label of the new account form in the extension settings"
     },
     "ServerSaveTitle": {
-        "message": "Hesap kaydedildi",
+        "message": "Uložený účet",
         "description": "Title of the toast notification in the extension settings after an account was created or updated successfully"
     },
     "ServerSaveMessage": {
-        "message": "Tüm değişiklikler başarıyla uygulandı",
+        "message": "Všetky zmeny boli úspešne aplikované",
         "description": "Message of the toast notification in the extension settings after an account was created successfully"
     },
     "ServerCreatedMessage": {
-        "message": "Hesap oluşturuldu ve kullanıma hazır",
+        "message": "Účet bol vytvorený a je pripravený na používanie",
         "description": "Message of the toast notification in the extension settings after an account was updated successfully"
     },
     "ServerSaveErrorTitle": {
-        "message": "Kaydetme başarısız oldu",
+        "message": "Uloženie sa nepodarilo",
         "description": "Title of the toast notification in the extension settings after an account could not be updated or saved. The message will be the specific error message"
     },
     "ServerDisabledWarning": {
-        "message": "Bu hesap devre dışı bırakıldı. Başarılı bir şekilde kaydedildikten sonra etkinleştirilecektir.",
+        "message": "Toto konto je deaktivované. Aktivuje sa po úspešnom uložení.",
         "description": "Warning message which appears above the account details if the server was disabled. Usual reasons are invalid login data, unsupported extension version or permanent connection issues."
     },
     "ServerLabel": {
-        "message": "İsim",
+        "message": "Názov",
         "description": "Label of the account name field in account details in the extension settings"
     },
+    "ServerBaseUrl": {
+        "message": "Url",
+        "description": "Label of the server url field in account details in the extension settings"
+    },
+    "ServerUser": {
+        "message": "Používateľ",
+        "description": "Label of the account login user field in account details in the extension settings"
+    },
     "ServerToken": {
-        "message": "Uygulama Şifresi",
+        "message": "Heslo aplikácie",
         "description": "Label of the account login token field in account details in the extension settings"
     },
     "ServerTokenChange": {
-        "message": "Uygulama Şifresini Değiştir",
+        "message": "Zmena hesla aplikácie",
         "description": "Label of the button to change the login token of an existing account in the account details in the extension settings"
     },
     "ServerTimeout": {
-        "message": "Sonra oturumu kapat",
+        "message": "Odhlásenie po",
         "description": "Label of the option to change the automatic logout time of an existing account in the account details in the extension settings"
     },
     "ServerTimeoutOptionNever": {
-        "message": "Asla",
+        "message": "Nikdy",
         "description": "Label of the option for the server timeout to never expire"
     },
     "ServerTimeoutOptionMinutes": {
-        "message": "Sonra $MINUTES$ dakika",
+        "message": "Po $MINUTES$ minútach",
         "description": "Label of the option for the server timeout to expire after a given amount of minutes",
         "placeholders": {
             "minutes": {
@@ -284,27 +403,27 @@
         }
     },
     "TabRelated": {
-        "message": "Öneriler",
+        "message": "Návrhy",
         "description": "Label of the related passwords tab in the extension popup"
     },
     "TabSearch": {
-        "message": "Arama",
+        "message": "Vyhľadávanie",
         "description": "Label of the search tab in the extension popup"
     },
     "TabBrowse": {
-        "message": "Gözat",
+        "message": "Prehľadávať",
         "description": "Label of the browse servers tab in the extension popup"
     },
     "TabCollected": {
-        "message": "Toplanmış",
+        "message": "Zozbierané",
         "description": "Label of the new collected passwords tab in the extension popup"
     },
     "TabTools": {
-        "message": "Araçlar",
+        "message": "Nástroje",
         "description": "Label of the tools tab in the extension popup"
     },
     "PasswordItemTitle": {
-        "message": "Statü: $STATUS$, Id: #$ID$",
+        "message": "Stav: $STATUS$, Id: #$ID$",
         "description": "The tooltip of any password entry in the popup",
         "placeholders": {
             "id": {
@@ -318,35 +437,39 @@
         }
     },
     "PasswordItemOpenUrl": {
-        "message": "Açık Web Sitesi",
+        "message": "Otvorená webová stránka",
         "description": "Title of the menu option to open the password url in a new tab"
     },
     "PasswordItemToTrash": {
-        "message": "Çöpe taşı",
+        "message": "Presun do koša",
         "description": "Title of the menu option to move a password to the trash"
     },
     "PasswordItemDetails": {
-        "message": "Detayları görüntüle",
+        "message": "Zobraziť podrobnosti",
         "description": "Title of the menu option to view and edit a password"
     },
     "ValidationLabel": {
-        "message": "etiket",
+        "message": "štítok",
         "description": "Name of the account label field in account validation message. This value is used when the user attempts to save an account with an invalid label"
     },
     "ValidationUser": {
-        "message": "kullanıcı",
+        "message": "používateľ",
         "description": "Name of the account username field in account validation message. This value is used when the user attempts to save an account with an invalid username"
     },
     "ValidationToken": {
-        "message": "uygulama şifresi",
+        "message": "heslo aplikácie",
         "description": "Name of the account token field in account validation message. This value is used when the user attempts to save an account with an invalid token"
     },
+    "CustomSliderElement": {
+        "message": "Prepínače",
+        "description": "Headline for the switch styling settings in the custom theme settings"
+    },
     "ValidationBaseUrl": {
-        "message": "temel url",
+        "message": "základná url adresa",
         "description": "Name of the account base url field in account validation message. This value is used when the user attempts to save an account with an invalid base url"
     },
     "ValidationNotEmpty": {
-        "message": "$FIELD$ boş olamaz.",
+        "message": "Stránka $FIELD$ nemôže byť prázdna.",
         "description": "Validation message when the user attempts to save something (like an account) but a required field is empty.",
         "placeholders": {
             "field": {
@@ -356,7 +479,7 @@
         }
     },
     "ValidationMinLength": {
-        "message": "$FIELD$ en az $MIN$ karakter uzunluğunda olmalıdır.",
+        "message": "Adresa $FIELD$ musí mať aspoň $MIN$ znakov.",
         "description": "Validation message when the user attempts to save something (like an account) but a field is shorter than required",
         "placeholders": {
             "field": {
@@ -370,7 +493,7 @@
         }
     },
     "ValidationMaxLength": {
-        "message": "$FIELD$, $MAX$ karakterlerinden daha kısa olmalıdır.",
+        "message": "Adresa $FIELD$ musí byť kratšia ako $MAX$ znakov.",
         "description": "Validation message when the user attempts to save something (like an account) but a field is longer than allowed",
         "placeholders": {
             "field": {
@@ -384,27 +507,31 @@
         }
     },
     "ValidationFailed": {
-        "message": "Doğrulama başarısız oldu.",
+        "message": "Overenie zlyhalo.",
         "description": "Validation message when the user attempts to save something (like an account) but there were validation errors"
     },
     "ValidationNotAnUrl": {
-        "message": "Temel url geçerli bir url olmalıdır.",
+        "message": "Základná url adresa musí byť platná url adresa.",
         "description": "Validation message when the user attempts to save an account but the server url is not a valid url"
     },
     "ValidationNotAToken": {
-        "message": "Uygulama parolası geçerli bir Nextcloud Uygulama Parolası olmalıdır.",
+        "message": "Heslo aplikácie musí byť platné heslo aplikácie Nextcloud.",
         "description": "Validation message when the user attempts to save an account but the token does not match the Nextcloud token schema"
     },
     "ValidationInvalidTimeout": {
-        "message": "Oturum kapatma süresi verilen seçeneklerden biri olmalıdır.",
+        "message": "Čas odhlásenia musí byť jednou z daných možností.",
         "description": "Validation message when the user attempts to save an account but the timeout is not within the predefined range"
     },
     "ValidationDuplicate": {
-        "message": "Bu Nextcloud'da bu kullanıcı için zaten bir hesap var.",
+        "message": "Na tomto Nextcloude už existuje účet pre tohto používateľa.",
         "description": "Validation message when the user attempts to save a new account, but a similar account with the same server and same user name already exists"
     },
+    "CustomToasts": {
+        "message": "Oznámenia toastov",
+        "description": "Headline for the toast notification styling settings in the custom theme settings"
+    },
     "ValidationNoConnection": {
-        "message": "$URL$ adresine bağlanılamıyor.",
+        "message": "Nie je možné sa pripojiť k stránke $URL$.",
         "description": "Validation message when the user attempts to save an account but it is not possible to connect to this server with the given url",
         "placeholders": {
             "url": {
@@ -414,7 +541,7 @@
         }
     },
     "ValidationUnauthorizedError": {
-        "message": "$URL$ adresindeki sunucu oturum açma verilerini kabul etmedi.",
+        "message": "Server na adrese $URL$ neprijal prihlasovacie údaje.",
         "description": "Validation message when the user attempts to save an account but the server did not accept the user name and token",
         "placeholders": {
             "url": {
@@ -424,7 +551,7 @@
         }
     },
     "ValidationHttpError": {
-        "message": "$URL$ adresine bağlanmaya çalışmak $ERROR$ ile sonuçlandı.",
+        "message": "Pri pokuse o pripojenie k stránke $URL$ sa zobrazí stránka $ERROR$.",
         "description": "Validation message when the user attempts to save an account but the server responded with an unexpected HTTP status code",
         "placeholders": {
             "url": {
@@ -438,7 +565,7 @@
         }
     },
     "ValidationConnectionError": {
-        "message": "$URL$ adresine bağlanmaya çalışmak $ERROR$ ile sonuçlandı.",
+        "message": "Pri pokuse o pripojenie k stránke $URL$ sa zobrazí stránka $ERROR$.",
         "description": "Validation message when the user attempts to save an account but the connection attempt resulted in any kind of error (including internal extension errors)",
         "placeholders": {
             "url": {
@@ -452,47 +579,47 @@
         }
     },
     "ValidationServerVersion": {
-        "message": "Sunucuda yüklü olan uygulama sürümü güncel değil.",
+        "message": "Verzia aplikácie nainštalovaná na serveri je zastaraná.",
         "description": "Validation message when the user attempts to save an account but the version of the passwords app installed on the server is outdated"
     },
     "NoRelatedPasswords": {
-        "message": "İlgili herhangi bir şifre bulamadım",
+        "message": "Nenašiel žiadne súvisiace heslá",
         "description": "Used in the related tab when no entries match the current website"
     },
     "NoSearchResults": {
-        "message": "Sorgunuzla eşleşen herhangi bir parola bulunamadı",
+        "message": "Nenašli sa žiadne heslá zodpovedajúce vašej požiadavke",
         "description": "Used in the search tab when no entries match the search query"
     },
     "NoSearchQuery": {
-        "message": "Parolaları bulmak için arama kutusuna yazın",
+        "message": "Napíšte do vyhľadávacieho poľa a vyhľadajte heslá",
         "description": "Used in the search tab when there is no search query"
     },
     "NoCollectedPasswords": {
-        "message": "Yeni parola bulunamadı",
+        "message": "Nenašli sa žiadne nové heslá",
         "description": "Used in the collected tab when no new passwords have been found"
     },
     "AddPasswordForCurrentTab": {
-        "message": "Geçerli sekme için kimlik bilgileri ekle",
+        "message": "Pridanie poverení pre aktuálnu kartu",
         "description": "Used in the collected tab for the option to add a blank entry with just the url of the current tab"
     },
     "NoServerItems": {
-        "message": "Hiçbir öğe bulunamadı",
+        "message": "Nenašli sa žiadne prvky",
         "description": "Used in the browse tab when a server has no entries to list"
     },
     "BrowseNoServers": {
-        "message": "Mevcut sunucu yok",
+        "message": "Nie sú k dispozícii žiadne servery",
         "description": "Used in the browse tab when no accounts/servers are available"
     },
     "SearchPlaceholder": {
-        "message": "Şifreleri bulun",
+        "message": "Vyhľadávanie hesiel",
         "description": "Placeholder text of the search box"
     },
     "MiningItemIsNew": {
-        "message": "Bu yeni bir şifre",
+        "message": "Toto je nové heslo",
         "description": "Text shown in a collected password that is new to tell the user that it is a new passwor"
     },
     "MiningItemIsUpdate": {
-        "message": "Bu, \"$PASSWORD$\" adresinin bir güncellemesi gibi görünüyor.",
+        "message": "Zdá sa, že ide o aktualizáciu \"$PASSWORD$\"",
         "description": "Text shown in a collected password that is an update of an existing password",
         "placeholders": {
             "password": {
@@ -502,24 +629,76 @@
         }
     },
     "TitleClickToEdit": {
-        "message": "Düzenlemek için çift tıklayın",
+        "message": "Dvojitým kliknutím upravíte",
         "description": "Tooltip used in the collected password form for any property of the password to inform the user that double clicking makes the text field editable"
     },
     "TitleEnterToExit": {
-        "message": "Kaydetmek için enter tuşuna basın",
+        "message": "Stlačením klávesu enter uložíte",
         "description": "Tooltip used in the collected password form to tell the user that the property can be saved by clicking enter"
     },
     "LabelLabel": {
-        "message": "İsim",
+        "message": "Názov",
         "description": "Label for the name of a password entry"
     },
+    "LabelPassword": {
+        "message": "Heslo",
+        "description": "Label for the password of a password entry"
+    },
+    "LabelUsername": {
+        "message": "Používateľ",
+        "description": "Label for the username of a password entry"
+    },
     "LabelHidden": {
-        "message": "Özel Şifre",
+        "message": "Súkromné heslo",
         "description": "Label for the checkbox to mark a password entry as private or hidden in the webapp"
     },
+    "LabelUrl": {
+        "message": "Url",
+        "description": "Label for of a field that contains an url (used in collected password or server info)"
+    },
+    "LabelUser": {
+        "message": "Používateľ",
+        "description": "Label for the username of in the server info in the browse tab"
+    },
+    "LabelPasswords": {
+        "message": "Heslá",
+        "description": "Label for the password count in the server info in the browse tab"
+    },
     "LabelFolders": {
-        "message": "Klasörler",
+        "message": "Priečinky",
         "description": "Label for the folder count in the server info in the browse tab"
+    },
+    "LabelFolder": {
+        "message": "Priečinok",
+        "description": "Label for the folder of this password."
+    },
+    "LabelCreated": {
+        "message": "Vytvorené",
+        "description": "Label for the creation time of this password."
+    },
+    "LabelEdited": {
+        "message": "Upravené",
+        "description": "Label for the last edit time of this password."
+    },
+    "LabelNotes": {
+        "message": "Poznámky",
+        "description": "Label for the notes of this password."
+    },
+    "LabelCustomFields": {
+        "message": "Vlastné polia",
+        "description": "Label for the custom fields of this password"
+    },
+    "LabelTags": {
+        "message": "Značky",
+        "description": "Label for the tag count in the server info in the browse tab"
+    },
+    "LabelServerVersion": {
+        "message": "Server",
+        "description": "Label for the nextcloud server version in the server info in the browse tab"
+    },
+    "LabelAppVersion": {
+        "message": "API",
+        "description": "Label for the passwords app version in the server info in the browse tab"
     },
     "ServerLabelString": {
         "message": "Nextcloud $VERSION$",
@@ -531,32 +710,50 @@
             }
         }
     },
+    "AppLabelString": {
+        "message": "Heslá $VERSION$",
+        "description": "Value for the passwords app version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "PlaceholderPassword": {
+        "message": "Heslo",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
+    },
     "PlaceholderToken": {
-        "message": "İki Faktörlü Belirteç",
+        "message": "Dvojfaktorový token",
         "description": "Placeholder text in the master password field of the server authorization dialog"
     },
     "ButtonLogin": {
-        "message": "Giriş",
+        "message": "Prihlásenie",
         "description": "The text of the login button of the server authorization dialog"
     },
     "AuthorizationFailedTitle": {
-        "message": "Yetkilendirme başarısız oldu",
+        "message": "Autorizácia zlyhala",
         "description": "Title of the toast notification when the login attempt was unsuccessful"
     },
+    "CustomBadge": {
+        "message": "Ikona prehliadača",
+        "description": "Headline for the browser toolbar icon styling settings in the custom theme settings"
+    },
     "AuthorizationFailedText": {
-        "message": "Sağlanan oturum açma bilgileriyle parola veritabanına erişim reddedildi",
+        "message": "Prístup do databázy hesiel so zadaným prihlasovacím menom bol zamietnutý",
         "description": "Text of the toast notification when the login attempt was unsuccessful"
     },
     "TokenRequestFailed": {
-        "message": "Belirteç isteği başarısız oldu",
+        "message": "Žiadosť o token zlyhala",
         "description": "Title of the toast notification when the request for a two factor auth token failed. The text will be the error message."
     },
     "NotifyNewPasswordTitle": {
-        "message": "Yeni parola algılandı",
+        "message": "Zistené nové heslo",
         "description": "Title of the system notification when a new password was detected"
     },
     "NotifyNewPasswordText": {
-        "message": "\"$LABEL$\" için yeni bir şifre tespit edildi.",
+        "message": "Bolo zistené nové heslo pre \"$LABEL$\".",
         "description": "Text of the system notification when a new password was detected. Used in Chrome where the notification has buttons to save or view the password",
         "placeholders": {
             "label": {
@@ -566,7 +763,7 @@
         }
     },
     "NotifyNewPasswordTextFF": {
-        "message": "\"$LABEL$\" için yeni bir şifre tespit edildi. Görüntülemek ve kaydetmek için araç çubuğundaki şifreler simgesine tıklayın.",
+        "message": "Bolo zistené nové heslo pre \"$LABEL$\". Kliknutím na ikonu hesla na paneli nástrojov ho zobrazíte a uložíte.",
         "description": "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
         "placeholders": {
             "label": {
@@ -576,7 +773,7 @@
         }
     },
     "NotifyNewPasswordTextQS": {
-        "message": "\"$LABEL$\" için yeni bir şifre tespit edildi. Kaydetmek için buraya tıklayın.",
+        "message": "Bolo zistené nové heslo pre \"$LABEL$\". Kliknutím sem ho uložíte.",
         "description": "Text of the system notification when a new password was detected. Clicking the notification will save the password.",
         "placeholders": {
             "label": {
@@ -586,11 +783,11 @@
         }
     },
     "NotifyUpdatePasswordTitle": {
-        "message": "Güncellenmiş parola algılandı",
+        "message": "Zistené aktualizované heslo",
         "description": "Title of the system notification when an update for an existing password has been detected"
     },
     "NotifyUpdatePasswordText": {
-        "message": "\"$LABEL$\" için bir güncelleme tespit edildi.",
+        "message": "Bola zistená aktualizácia pre \"$LABEL$\".",
         "description": "Text of the system notification when an update for an existing password was detected. Used in Chrome where the notification has buttons to save or view the password",
         "placeholders": {
             "label": {
@@ -600,7 +797,7 @@
         }
     },
     "NotifyUpdatePasswordTextFF": {
-        "message": "\"$LABEL$\" için bir güncelleme tespit edildi. Görüntülemek ve kaydetmek için araç çubuğundaki şifreler simgesine tıklayın.",
+        "message": "Bola zistená aktualizácia pre \"$LABEL$\". Kliknutím na ikonu hesla na paneli nástrojov ho zobrazíte a uložíte.",
         "description": "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
         "placeholders": {
             "label": {
@@ -609,16 +806,46 @@
             }
         }
     },
+    "BackgroundColorLabel": {
+        "message": "Farba pozadia",
+        "description": "Label of background color options in the custom theme settings"
+    },
+    "ForegroundColorLabel": {
+        "message": "Farba popredia",
+        "description": "Label of foreground / text color options in the custom theme settings"
+    },
+    "BorderColorLabel": {
+        "message": "Farba hraníc",
+        "description": "Label of border color options in the custom theme settings"
+    },
+    "BackgroundInheritLabel": {
+        "message": "Zdediť pozadie",
+        "description": "Label of options to inherit the background color in the custom theme settings"
+    },
+    "NotifyUpdatePasswordTextQS": {
+        "message": "Bola zistená aktualizácia pre \"$LABEL$\". Kliknutím sem ju uložíte.",
+        "description": "Text of the system notification when an update for an existing password was detected. Clicking the notification will update the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "ButtonSave": {
+        "message": "Uložiť",
+        "description": "The save button of a password detection system notification"
+    },
     "ButtonMore": {
-        "message": "Daha Fazla Seçenek",
+        "message": "Ďalšie možnosti",
         "description": "The more options button of a password detection system notification which opens the popup with the form which shows all password details"
     },
     "ButtonClose": {
-        "message": "Kapat",
+        "message": "Zatvoriť",
         "description": "The title of the close button of a toast notification"
     },
     "ToastServerCheckTitle": {
-        "message": "$SERVER$ yükseltilmesi gerekiyor",
+        "message": "$SERVER$ je potrebné ju aktualizovať",
         "description": "Title of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
         "placeholders": {
             "server": {
@@ -627,8 +854,12 @@
             }
         }
     },
+    "ForegroundInheritLabel": {
+        "message": "Zdediť popredie",
+        "description": "Label of options to inherit the foreground / text color in the custom theme settings"
+    },
     "ToastServerCheckMessage": {
-        "message": "\"$SERVER$\" hesabı $SERVERSION$ şifrelerini kullanıyor, ancak bu uzantı en az $MINVERSION$ gerektiriyor. Hesabın ayarlardan tekrar etkinleştirilebilmesi için uygulamanın güncellenmesi gerekir.",
+        "message": "Účet \"$SERVER$\" používa heslá $SERVERVERSION$, ale toto rozšírenie vyžaduje aspoň $MINVERSION$. Pred opätovnou aktiváciou účtu v nastaveniach je potrebné aktualizovať aplikáciu.",
         "description": "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
         "placeholders": {
             "server": {
@@ -645,8 +876,16 @@
             }
         }
     },
+    "BackgroundColorBaseTitle": {
+        "message": "Táto farba sa zvyčajne používa na pozadí",
+        "description": "Tooltip of the color input field in the custom theme settings for the default background color for an element"
+    },
+    "LabelSearchRecommendationDomain": {
+        "message": "rovnaká doména",
+        "description": "Find password recommendations by domain. So on page mail.example.com you will see all passwords for the domain and sumdomains of example.com."
+    },
     "ToastServerCheckWarning": {
-        "message": "Bu uzantı yakında $MINVERSION$ şifrelerini gerektirecektir, ancak \"$SERVER$\" $SERVERVERSION$ şifrelerini kullanır. Hesabı kullanmaya devam etmek için lütfen uygulamayı güncelleyin.",
+        "message": "Toto rozšírenie bude čoskoro vyžadovať heslá $MINVERSION$, ale \"$SERVER$\" používa heslá $SERVERVERSION$. Ak chcete účet naďalej používať, aktualizujte aplikáciu.",
         "description": "Text of the toast notification when an account uses a server which will soon be no longer supported because it uses an outdated and unsupported version of the passwords app",
         "placeholders": {
             "server": {
@@ -664,11 +903,11 @@
         }
     },
     "ToastErrorMessage": {
-        "message": "Parola istemcisinde bir hata oluştu. Daha fazla ayrıntı için hata ayıklama seçeneklerindeki hata günlüğünü kontrol edin.",
+        "message": "V klientovi hesiel došlo k chybe. Podrobnejšie informácie nájdete v protokole chýb v možnostiach ladenia.",
         "description": "Text of the toast notification for error messages from the passwords client. The error message is the title"
     },
     "ToastPasswordTrashed": {
-        "message": "$LABEL$ çöp kutusuna taşındı. Uygulamadan kalıcı olarak silebilir veya geri yükleyebilirsiniz",
+        "message": "$LABEL$ bol presunutý do koša. V aplikácii ho môžete natrvalo odstrániť alebo obnoviť.",
         "description": "Text of the toast notification after a password was moved to the trash",
         "placeholders": {
             "label": {
@@ -678,7 +917,7 @@
         }
     },
     "ToastPasswordHiddenTrashed": {
-        "message": "$LABEL$ silindi. Bu bir kazaysa, kalıcı olarak silinmeden önce yine de aşağıdan geri yükleyebilirsiniz",
+        "message": "$LABEL$ bol vymazaný. Ak to bola nehoda, môžete ho ešte pred trvalým vymazaním obnoviť",
         "description": "Text of the toast notification after a hidden password was moved to the trash. Users can restore it within the notification but afterwards the password is lost for good",
         "placeholders": {
             "label": {
@@ -688,15 +927,15 @@
         }
     },
     "ToastPasswordTrashedRestore": {
-        "message": "Geri Yükleme",
+        "message": "Obnovenie",
         "description": "Text of the toast notification option to restore a password from the trash"
     },
     "ToastPasswordDeleteFailed": {
-        "message": "Parola silme başarısız oldu",
+        "message": "Odstránenie hesla sa nepodarilo",
         "description": "Text of the toast notification when deleting the password failed"
     },
     "ToastPasswordRestored": {
-        "message": "$LABEL$ çöp kutusundan geri yüklendi. Açılır pencereyi yeniden açtıktan sonra yeniden görünecektir",
+        "message": "$LABEL$ bol obnovený z koša. Znovu sa objaví po opätovnom otvorení vyskakovacieho okna",
         "description": "Text of the toast notification after a password was restored from the trash",
         "placeholders": {
             "label": {
@@ -706,7 +945,7 @@
         }
     },
     "PasswordPastedSuccess": {
-        "message": "$LABEL$ başarıyla yapıştırıldı",
+        "message": "$LABEL$ úspešne vložené",
         "description": "Text of the toast notification when a password entry was pasted successfully into the current tab",
         "placeholders": {
             "label": {
@@ -716,15 +955,15 @@
         }
     },
     "ToastPasswordUpdated": {
-        "message": "Şifre güncellendi",
+        "message": "Aktualizácia hesla",
         "description": "Text of the toast notification when password was updated"
     },
     "ToastPasswordUpdateFailed": {
-        "message": "Parola güncellemesi başarısız oldu",
+        "message": "Aktualizácia hesla zlyhala",
         "description": "Text of the toast notification when password update failed"
     },
     "PasswordPastedError": {
-        "message": "Yapıştırılamadı $LABEL$",
+        "message": "Nepodarilo sa vložiť $LABEL$",
         "description": "Text of the toast notification when a password could not be pasted into the current tab",
         "placeholders": {
             "label": {
@@ -734,7 +973,7 @@
         }
     },
     "PasswordPropertyCopied": {
-        "message": "Kopyalandı $PROPERTY$",
+        "message": "Skopírované $PROPERTY$",
         "description": "Text of the toast notification when a password property was copied successfully via one of the buttons",
         "placeholders": {
             "property": {
@@ -743,12 +982,34 @@
             }
         }
     },
+    "PropertyPassword": {
+        "message": "Heslo",
+        "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
+    },
+    "PropertyUsername": {
+        "message": "Používateľské meno",
+        "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
+    },
+    "PropertyUrl": {
+        "message": "Webová lokalita",
+        "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
+    },
+    "ServerConnectionErrorTitle": {
+        "message": "Nie je možné sa pripojiť k $SERVER$",
+        "description": "Title of the toast notification when the connection to the server failed",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
     "ServerCredentialsRejected": {
-        "message": "Sunucu kimlik bilgileri reddedildi. Lütfen ayarlardaki oturum açma verilerini güncelleyin.",
+        "message": "Poverenia servera boli zamietnuté. Aktualizujte prihlasovacie údaje v nastaveniach.",
         "description": "Text of the toast notification when the server has rejected the login credentials"
     },
     "ServerHttpError": {
-        "message": "HTTP bağlantı hatası: $ERROR$",
+        "message": "Chyba pripojenia HTTP: $ERROR$",
         "description": "Text of the toast notification when the connection to the server failed with a HTTP error",
         "placeholders": {
             "error": {
@@ -757,159 +1018,40 @@
             }
         }
     },
-    "ServerNetworkError": {
-        "message": "Bir ağ hatası oluştu. Lütfen çevrimiçi olup olmadığınızı ve sunucuya erişilebilir olup olmadığını kontrol edin.",
-        "description": "Text of the toast notification when the connection to the server failed with a network error"
-    },
-    "ServerUnknownError": {
-        "message": "Bilinmeyen hata.",
-        "description": "Text of the toast notification when the connection to the server failed with an unknown error and no error message is present"
-    },
-    "ServerGenericError": {
-        "message": "Hata: $ERROR$",
-        "description": "Text of the toast notification when the connection to the server failed with an error",
-        "placeholders": {
-            "error": {
-                "content": "$1",
-                "description": "The error message",
-                "example": "500 - Internal Server Error"
-            }
-        }
-    },
-    "DemoInfoNotification": {
-        "message": "Bilgi bildirimi",
-        "description": "Text and title of the info notification in the theme preview"
-    },
-    "DemoSuccessNotification": {
-        "message": "Başarı bildirimi",
-        "description": "Text and title of the success notification in the theme preview"
-    },
-    "DemoWarningNotification": {
-        "message": "Uyarı bildirimi",
-        "description": "Text and title of the warning notification in the theme preview"
-    },
-    "DemoErrorNotification": {
-        "message": "Hata bildirimi",
-        "description": "Text and title of the error notification in the theme preview"
-    },
-    "DemoText": {
-        "message": "Demo",
-        "description": "Demo text used in the theme preview"
-    },
-    "SettingsThemeId": {
-        "message": "Aktif tema",
-        "description": "Label of the option to choose the current theme in the extension settings"
-    },
-    "ThemeOledDark": {
-        "message": "Koyu OLED",
-        "description": "Label of the dark theme optimized for OLED-Displays"
-    },
-    "ThemeLight": {
-        "message": "Varsayılan",
-        "description": "Label of the default light theme"
-    },
-    "ThemeAdaptaLight": {
-        "message": "Adapta",
-        "description": "Label of the theme with the Adapta color scheme"
-    },
-    "ThemeAdaptaTeal": {
-        "message": "Adapta deniz mavisi",
-        "description": "Label of the theme with the Adapta teal color scheme"
-    },
-    "ThemeArcDark": {
-        "message": "Ark karanlık",
-        "description": "Label of the theme with the Arc dark scheme"
-    },
-    "ThemeArcLight": {
-        "message": "Ark",
-        "description": "Label of the theme with the Arc color scheme"
-    },
-    "ThemeHacker": {
-        "message": "Hacker",
-        "description": "Label of the hacker style theme"
-    },
-    "ThemeRGB": {
-        "message": "Oyun RGB",
-        "description": "Label of the gaming rgb animated theme"
-    },
-    "ThemeCustom": {
-        "message": "Özel tema",
-        "description": "Label for the custom theme option"
-    },
-    "CustomFont": {
-        "message": "Yazı Tipi",
-        "description": "Headline for the font settings in the custom theme settings"
-    },
-    "CustomDefaultElement": {
-        "message": "Varsayılan öğe",
-        "description": "Headline for the default element styling settings in the custom theme settings"
-    },
-    "CustomActiveElement": {
-        "message": "Aktif eleman",
-        "description": "Headline for the active element styling settings in the custom theme settings"
-    },
-    "CustomButtons": {
-        "message": "Düğmeler",
-        "description": "Headline for the button styling settings in the custom theme settings"
-    },
-    "CustomSliderElement": {
-        "message": "Anahtarlar",
-        "description": "Headline for the switch styling settings in the custom theme settings"
-    },
-    "CustomToasts": {
-        "message": "Tost bildirimleri",
-        "description": "Headline for the toast notification styling settings in the custom theme settings"
-    },
-    "BackgroundColorLabel": {
-        "message": "Arka plan rengi",
-        "description": "Label of background color options in the custom theme settings"
-    },
-    "ForegroundColorLabel": {
-        "message": "Ön plan rengi",
-        "description": "Label of foreground / text color options in the custom theme settings"
-    },
-    "BorderColorLabel": {
-        "message": "Kenarlık rengi",
-        "description": "Label of border color options in the custom theme settings"
-    },
-    "BackgroundInheritLabel": {
-        "message": "Arka planı miras al",
-        "description": "Label of options to inherit the background color in the custom theme settings"
-    },
-    "ForegroundInheritLabel": {
-        "message": "Ön planı miras al",
-        "description": "Label of options to inherit the foreground / text color in the custom theme settings"
-    },
-    "BackgroundColorBaseTitle": {
-        "message": "Bu renk genellikle arka plan için kullanılır",
-        "description": "Tooltip of the color input field in the custom theme settings for the default background color for an element"
-    },
     "BackgroundColorHoverTitle": {
-        "message": "Bu renk, öğe etkinse arka plan için kullanılır. Etkin olmayan bir öğenin kenarlığı için de kullanılabilir",
+        "message": "Táto farba sa použije na pozadie, ak je prvok aktívny. Môže sa použiť aj na ohraničenie neaktívneho prvku",
         "description": "Tooltip of the color input field in the custom theme settings for the mouse hover / active background color for an element"
     },
     "ForegroundColorBaseTitle": {
-        "message": "Bu renk genellikle metinler ve kenarlıklar için kullanılır",
+        "message": "Táto farba sa zvyčajne používa na texty a okraje",
         "description": "Tooltip of the color input field in the custom theme settings for the default foreground / text color for an element"
     },
     "ForegroundColorHoverTitle": {
-        "message": "Bu renk, öğe etkinse metinler ve kenarlıklar için kullanılır",
+        "message": "Táto farba sa používa pre texty a okraje, ak je prvok aktívny",
         "description": "Tooltip of the color input field in the custom theme settings for the hover / active foreground / text color for an element"
     },
     "BorderColorBaseTitle": {
-        "message": "Bu renk genellikle bordürler için kullanılır",
+        "message": "Táto farba sa zvyčajne používa na ohraničenie",
         "description": "Tooltip of the color input field in the custom theme settings for the default border color for an element"
     },
+    "BorderColorHoverTitle": {
+        "message": "Táto farba sa používa na ohraničenie, ak je prvok aktívny",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active border color for an element"
+    },
+    "BackgroundInheritTitle": {
+        "message": "Ak je aktivovaná, hodnota sa zdedí z nadradeného prvku",
+        "description": "Tooltip for the checkbox to inherit the background color (from the parent element in the html) in the custom theme settings"
+    },
     "ForegroundInheritTitle": {
-        "message": "Etkinleştirilirse, değer üst öğeden miras alınır",
+        "message": "Ak je aktivovaná, hodnota sa zdedí z nadradeného prvku",
         "description": "Tooltip for the checkbox to inherit the foreground / text color (from the parent element in the html) in the custom theme settings"
     },
     "SettingsCustomFont": {
-        "message": "Yazı tipi ailesi",
+        "message": "Rodina písiem",
         "description": "Label of the font option in the custom theme settings"
     },
     "FontDefault": {
-        "message": "Varsayılan",
+        "message": "Predvolené nastavenie",
         "description": "Label of the default font option in the custom theme settings"
     },
     "FontMono": {
@@ -925,7 +1067,7 @@
         "description": "Label of the sans serif (like Arial) font option in the custom theme settings"
     },
     "FontLight": {
-        "message": "Işık",
+        "message": "Svetlo",
         "description": "Label of the thin font option in the custom theme settings"
     },
     "FontNextcloud": {
@@ -933,235 +1075,197 @@
         "description": "Label of the Nextcloud font option in the custom theme settings"
     },
     "FontOpenDyslexic": {
-        "message": "Açık Disleksik",
+        "message": "Otvorená dyslexia",
         "description": "Label of the open dyslexic font option in the custom theme settings. This font is good for users with dyslexia"
     },
     "FontCustom": {
-        "message": "Özel",
+        "message": "Vlastné",
         "description": "Label for unrecognized fonts in the custom theme settings. This option is usually not shown"
     },
     "SettingsCustomFontSize": {
-        "message": "Yazı tipi boyutu",
+        "message": "Veľkosť písma",
         "description": "Label of the font size setting in the custom theme settings"
     },
     "FontSizeVerySmall": {
-        "message": "Çok küçük",
+        "message": "Veľmi malé",
         "description": "Label for the very small font size in the custom theme settings"
     },
     "FontSizeSmall": {
-        "message": "Küçük",
+        "message": "Malé",
         "description": "Label for the small font size in the custom theme settings"
     },
     "FontSizeDefault": {
-        "message": "Varsayılan",
+        "message": "Predvolené nastavenie",
         "description": "Label for the default font size in the custom theme settings"
     },
     "FontSizeMedium": {
-        "message": "Orta",
+        "message": "Stredné",
         "description": "Label for the medium font size in the custom theme settings"
     },
     "FontSizeLarge": {
-        "message": "Büyük",
+        "message": "Veľké",
         "description": "Label for the large font size in the custom theme settings"
     },
     "FontSizeVeryLarge": {
-        "message": "Çok büyük",
+        "message": "Veľmi veľké",
         "description": "Label for the very large font size in the custom theme settings"
     },
     "ToastInfoColors": {
-        "message": "Bilgi tostu",
+        "message": "Informačný prípitok",
         "description": "Label of the setting in the custom theme settings to choose the colors of informational toast notifications"
     },
     "ToastSuccessColors": {
-        "message": "Başarı Tostu",
+        "message": "Prípitok na úspech",
         "description": "Label of the setting in the custom theme settings to choose the colors of success toast notifications"
     },
     "ToastWarningColors": {
-        "message": "Uyarı tostu",
+        "message": "Varovný prípitok",
         "description": "Label of the setting in the custom theme settings to choose the colors of warning toast notifications"
     },
     "ToastErrorColors": {
-        "message": "Hata tostu",
+        "message": "Chybný prípitok",
         "description": "Label of the setting in the custom theme settings to choose the colors of error toast notifications"
     },
     "ToastBackgroundTitle": {
-        "message": "Tost bildirimi için arka plan rengi",
+        "message": "Farba pozadia pre oznámenie toastu",
         "description": "Tooltip of the color input in the custom theme settings for a toast notification background color"
     },
     "ToastForegroundTitle": {
-        "message": "Tost bildiriminin metin ve düğme arka planları için renk",
+        "message": "Farba pozadia textu a tlačidiel oznámenia toastu",
         "description": "Tooltip of the color input in the custom theme settings for a toast notification foreground / text color"
     },
     "SettingsBadgeIcon": {
-        "message": "Araç çubuğu simgesi",
+        "message": "Ikona panela nástrojov",
         "description": "Label of the setting to choose the toolbar icon in the custom theme settings"
     },
-    "BadgeIconAuto": {
-        "message": "Otomatik",
-        "description": "Label of the automatic icon option for the toolbar icon in the custom theme settings"
-    },
-    "BadgeIconLight": {
-        "message": "Işık simgesi",
-        "description": "Label of the light icon option for the toolbar icon in the custom theme settings"
-    },
-    "BadgeIconMedium": {
-        "message": "Gri simge",
-        "description": "Label of the grey icon option for the toolbar icon in the custom theme settings"
-    },
-    "BadgeIconDark": {
-        "message": "Karanlık simge",
-        "description": "Label of the dark icon option for the toolbar icon in the custom theme settings"
-    },
-    "BadgeIconNewLight": {
-        "message": "Hafif modern simge",
-        "description": "Label of the light modern icon option for the toolbar icon in the custom theme settings"
-    },
-    "BadgeIconNewMedium": {
-        "message": "Gri modern simge",
-        "description": "Label of the grey modern icon option for the toolbar icon in the custom theme settings"
-    },
-    "BadgeIconNewDark": {
-        "message": "Koyu modern simge",
-        "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
-    },
-    "CustomBadgeColors": {
-        "message": "Rozet renkleri",
-        "description": "Label of the settings for the toolbar icon badge colors in the custom theme settings"
-    },
-    "BadgeBackgroundTitle": {
-        "message": "Rozetin arka plan rengi",
-        "description": "Tooltip for the color input for the background color of the toolbar icon badge in the custom theme settings"
-    },
-    "BadgeForegroundTitle": {
-        "message": "Rozetin metin rengi",
-        "description": "Tooltip for the color input for the text color of the toolbar icon badge in the custom theme settings"
-    },
-    "PasslinkErrorNoMessage": {
-        "message": "Bir hata oluştu ancak herhangi bir hata mesajı verilmedi",
-        "description": "Error message shown in the PassLink popup window when and error happened but no error message was provided"
-    },
-    "PasslinkNoLinkProvided": {
-        "message": "Hiçbir bağlantı veya eylem eksik değil",
-        "description": "Error message shown in the PassLink popup window when the window was opened but no action or link to process was provided"
-    },
-    "PasslinkErrorClose": {
-        "message": "Kapat",
-        "description": "Text of the close button in the PassLink error window"
-    },
     "PasslinkNoActiveAction": {
-        "message": "Bu türde aktif bir PassLink eylemi yoktur",
+        "message": "Neexistuje žiadna aktívna akcia PassLink tohto typu",
         "description": "Error message when an active PassLink action is required for a request but no active action can be found. (Example: Request to view the second step of the PassLink connect step, but no PassLink connect was started at all)"
     },
     "PasslinkConnectCheckCodes": {
-        "message": "Aşağıdaki kodların uygulamada gördüklerinizle eşleşip eşleşmediğini kontrol edin. Eşleşiyorlarsa, uygulamadaki bağlantıyı onaylayın ve işiniz bitti.",
+        "message": "Skontrolujte, či sa kódy uvedené nižšie zhodujú s kódmi, ktoré vidíte v aplikácii. Ak áno, potvrďte pripojenie v aplikácii a je to hotové.",
         "description": "Message during the PassLink Connect action telling the user to check if the codes below match the ones shown in the Nextcloud Passwords App. If so, the user just needs to confirm the connection in the Nextcloud app to add the account to the extension."
     },
+    "PasslinkConnectServer": {
+        "message": "Nový účet bol uložený ako \"$LABEL$\"",
+        "description": "Confirmation message in the PassLink Connect action when a new account has been created successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
     "PasslinkConnectNotFound": {
-        "message": "Bu bağlantı geçersiz. Daha önce kullanılmış veya süresi dolmuş olabilir.",
+        "message": "Toto prepojenie je neplatné. Možno už bol použitý alebo jeho platnosť vypršala.",
         "description": "Error message in PassLink when the link used has expired or was already used."
     },
     "PasslinkConnectRejected": {
-        "message": "Bağlantı isteği sunucu tarafından reddedildi.",
+        "message": "Server odmietol požiadavku na pripojenie.",
         "description": "Error message when the server rejected the PassLink connect action was not confirmed by the server"
     },
     "PasslinkConnectNetworkError": {
-        "message": "Sunucuya bağlantı başarısız oldu. Lütfen ağınızı kontrol edin.",
+        "message": "Pripojenie k serveru zlyhalo. Skontrolujte svoju sieť.",
         "description": "Error message in PassLink when the connection to the Nextcloud server failed with a networking error"
     },
     "PasslinkConnectSuccess": {
-        "message": "Bağlantı başarılı",
+        "message": "Úspešné pripojenie",
         "description": "Message in the PassLink window when the PassLink Connect action was successful"
     },
     "PasslinkConnectFailed": {
-        "message": "Bağlantı başarısız",
+        "message": "Pripojenie zlyhalo",
         "description": "Message in the PassLink window when the PassLink Connect action failed"
     },
     "PasslinkConnectSettings": {
-        "message": "Açık ayarlar",
+        "message": "Otvoriť nastavenia",
         "description": "Text of the button to open the extension settings in the PassLink result window"
     },
     "PasslinkConnectClose": {
-        "message": "Pencereyi kapatın",
+        "message": "Zatvorenie okna",
         "description": "Text of the button  in the PassLink result window to close the window"
     },
     "PasslinkScanInstructions": {
-        "message": "Kameranızı QR koduna doğrultun ve tanınmasını ve taranmasını bekleyin.",
+        "message": "Namierte fotoaparát na kód QR a počkajte, kým sa rozpozná a naskenuje.",
         "description": "Instructions shown above the PassLink QR scanner telling the use to point his camera at the qr code he wants to scan"
     },
     "PasslinkScanScanning": {
-        "message": "QR Kodu Arıyorum",
+        "message": "Hľadanie kódu QR",
         "description": "Message used by the PassLink QR scanner while the camera feed is scanned for a qr code"
     },
     "PasslinkScanProcessingLink": {
-        "message": "QR Kodunun İşlenmesi",
+        "message": "Spracovanie kódu QR",
         "description": "Message used by the PassLink QR scanner when a valid code was found and is now being analyzed"
     },
     "PasslinkScanInvalidQrCode": {
-        "message": "Bu QR Kodu desteklenmiyor",
+        "message": "Tento kód QR nie je podporovaný",
         "description": "Message used by the PassLink QR scanner when the user scans a code that does not contain a valid and supported uri of Passlink"
     },
     "QrNotAllowedError": {
-        "message": "Kameraya erişim izni verilmedi",
+        "message": "Prístup ku kamere nebol udelený",
         "description": "Message used by the PassLink QR scanner when the user did not allow camera access"
     },
     "QrNotFoundError": {
-        "message": "Bu cihazda kamera bulunamadı",
+        "message": "V tomto zariadení neboli nájdené žiadne kamery",
         "description": "Message used by the PassLink QR scanner when the device has no cameras"
     },
     "QrNotSupportedError": {
-        "message": "Güvensiz Bağlam",
+        "message": "Neistý kontext",
         "description": "Message used by the PassLink QR scanner when the page was opened in an insecure context (http://). This should never happen"
     },
     "QrNotReadableError": {
-        "message": "Kameraya erişilemiyor. Belki de zaten kullanımdadır?",
+        "message": "Kamera nie je prístupná. Možno sa už používa?",
         "description": "Message used by the PassLink QR scanner when the camera stream can not be read"
     },
+    "QrOverconstrainedError": {
+        "message": "Fotoaparát nie je vhodný na použitie",
+        "description": "Message used by the PassLink QR scanner when the camera is faulty"
+    },
     "QrStreamApiNotSupportedError": {
-        "message": "Stream API bu tarayıcı tarafından desteklenmiyor",
+        "message": "Tento prehliadač nepodporuje rozhranie Stream API",
         "description": "Message used by the PassLink QR scanner when the browser does not support the required streaming api. This should never happen"
     },
     "FirstRunConnectTitle": {
-        "message": "Nextcloud'a Bağlanın",
+        "message": "Pripojenie k službe Nextcloud",
         "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
     },
     "FirstRunConnectText": {
-        "message": "Parolalar uygulamasını açın, \"Daha Fazla \"ya tıklayın, \"Uygulamalar ve Uzantılar \"ı açın ve PassLink Connect iletişim kutusunu açın.",
+        "message": "Otvorte aplikáciu Heslá, kliknite na položku Viac, otvorte položku Aplikácie a rozšírenia a otvorte dialógové okno PassLink Connect.",
         "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
     },
     "FirstRunConnectLink": {
-        "message": "PassLink iletişim kutusu aynı cihazda açıksa, bağlantı yoluyla bağlan seçeneğini kullanın",
+        "message": "Ak je v tom istom zariadení otvorené dialógové okno PassLink, použite možnosť pripojiť sa cez prepojenie",
         "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
     },
     "FirstRunConnectScan": {
-        "message": "Bu farklı bir cihazsa, aşağıdaki düğmeyi kullanarak PassLink Bağlantı Kodunu tarayın",
+        "message": "Ak ide o iné zariadenie, naskenujte kód PassLink Connect pomocou tlačidla nižšie",
         "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
     },
     "FirstRunConnectManual": {
-        "message": "Hesabı uzantı ayarlarından manuel olarak da oluşturabilirsiniz",
+        "message": "Účet môžete vytvoriť aj ručne v nastaveniach rozšírenia",
         "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
     },
     "FirstRunConnectScanButton": {
-        "message": "PassLink Kodunu Tarayın",
+        "message": "Skenovanie kódu PassLink",
         "description": "Text of the button to scan a PassLink QR Code"
     },
     "OpenSettings": {
-        "message": "Uzantı Ayarlarını Açın",
+        "message": "Otvoriť Nastavenia rozšírenia",
         "description": "Label of the button to open the extension settings in the tools tab of the popup"
     },
     "ToolsTabGeneratePassword": {
-        "message": "Şifre Oluştur",
+        "message": "Generovanie hesla",
         "description": "Label of the generate password section in the tools tab of the popup"
     },
     "ToolsTabDebugTools": {
-        "message": "Hata Ayıklama Araçları",
+        "message": "Nástroje na ladenie",
         "description": "Label of the debugging tools section in the tools tab of the popup"
     },
     "GeneratedPasswordPlaceholder": {
-        "message": "Oluşturulan Şifre",
+        "message": "Vygenerované heslo",
         "description": "Placeholder of the field for the generated password in the tools tab of the popup"
     },
     "GeneratedPasswordTitle": {
-        "message": "Parola kelimeleri: $WORDS$",
+        "message": "Slová hesla: $WORDS$",
         "description": "Title of the input field for the generated password in the tools tab of the popup. It shows the words used to generate the password",
         "placeholders": {
             "words": {
@@ -1172,31 +1276,31 @@
         }
     },
     "LabelGenerateAddNumbers": {
-        "message": "Sayılar",
+        "message": "Čísla",
         "description": "Label of the option to include numbers in the password generator in the tools tab"
     },
     "LabelGenerateAddSpecial": {
-        "message": "Semboller",
+        "message": "Symboly",
         "description": "Label of the option to include special characters in the password generator in the tools tab"
     },
     "LabelGenerateStrength": {
-        "message": "Güç",
+        "message": "Sila",
         "description": "Label of the option to set the strength in the password generator in the tools tab"
     },
     "LabelGeneratorStrengthLow": {
-        "message": "Düşük",
+        "message": "Nízka",
         "description": "Label of the low (0) strength option for the password generator in the tools tab"
     },
     "LabelGeneratorStrengthStandard": {
-        "message": "Standart",
+        "message": "Štandard",
         "description": "Label of the default (1) strength option for the password generator in the tools tab"
     },
     "LabelGeneratorStrengthMedium": {
-        "message": "Orta",
+        "message": "Stredné",
         "description": "Label of the medium (2) strength option for the password generator in the tools tab"
     },
     "LabelGeneratorStrengthHigh": {
-        "message": "Yüksek",
+        "message": "Vysoká",
         "description": "Label of the high (3) strength option for the password generator in the tools tab"
     },
     "LabelGeneratorStrengthUltra": {
@@ -1204,7 +1308,7 @@
         "description": "Label of the very high (4) strength option for the password generator in the tools tab"
     },
     "PasswordGenerateError": {
-        "message": "Parola oluşturulamadı: $ERROR$",
+        "message": "Nepodarilo sa vygenerovať heslo: $ERROR$",
         "description": "Notification shown when the generation of a password fails",
         "placeholders": {
             "error": {
@@ -1214,177 +1318,63 @@
         }
     },
     "DebugHighlightLoginForms": {
-        "message": "Giriş Formu Alanlarını Vurgulama",
+        "message": "Zvýraznenie polí prihlasovacieho formulára",
         "description": "Label of the button in the popup which triggers the option to highlight all login form fields in the current tab"
     },
     "PasteBadPasswordWarning": {
-        "message": "Bu parola ele geçirilmiştir ve derhal değiştirilmelidir",
+        "message": "Toto heslo je kompromitované a malo by sa okamžite zmeniť.",
         "description": "Notification shown after the user pasted a password with the security status breached/compromised"
     },
     "DebugInternalStats": {
-        "message": "Dahili Durum",
+        "message": "Interný stav",
         "description": "Headline above the internal status section in the extension settings in the debug tab"
     },
     "DebugInfoExtensionVersion": {
-        "message": "Uzatma Sürümü",
+        "message": "Verzia rozšírenia",
         "description": "Description of the extension version in the internal status section in the debug tab in the extension settings"
     },
     "DebugInfoExtensionBuild": {
-        "message": "Hedef Platform",
+        "message": "Cieľová platforma",
         "description": "Description of the extension build target (firefox or chrome) in the internal status section in the debug tab in the extension settings"
     },
     "DebugInfoExtensionPlatform": {
-        "message": "Kullanıcı Aracısı",
+        "message": "Používateľský agent",
         "description": "Description of the browser user agent in the internal status section in the debug tab in the extension settings"
     },
     "DebugInfoExtensionEnvironment": {
-        "message": "Uzatma Modu",
+        "message": "Režim rozšírenia",
         "description": "Description of the extension mode (production or development) in the internal status section in the debug tab in the extension settings"
     },
     "DebugInfoHiddenFolderId": {
-        "message": "Gizli Şifreler Klasör Kimliği",
+        "message": "Skryté heslá ID priečinka",
         "description": "Description of the id of the folder used to store hidden/private passwords in the internal status section in the debug tab in the extension settings"
     },
     "DebugSettings": {
-        "message": "Hata Ayıklama Ayarları",
+        "message": "Nastavenia ladenia",
         "description": "Headline above the debugging settings section in the extension settings in the debug tab"
     },
-    "DebugErrorNoMessage": {
-        "message": "Hata mesajı yok",
-        "description": "Used as error message for errors with no error message (but have a timestamp) in the error logs section in the extension settings in the debug tab"
+    "DebugLanguageTagsEnabled": {
+        "message": "Zobrazenie jazykových kľúčov",
+        "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
     },
-    "DebugErrorDataCopied": {
-        "message": "Panoya kopyalanan hata ayrıntıları",
-        "description": "Success notification when you copy an error report to the clipboard in the error logs section in the extension settings in the debug tab"
-    },
-    "DebugNoErrors": {
-        "message": "Günlükte hata yok",
-        "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
-    },
-    "RecommendationSettings": {
-        "message": "Kimlik bilgileri önerme",
-        "description": "Label of the section password recommendations in the extension settings."
-    },
-    "SettingsSearchRecommendationOption": {
-        "message": "ile kimlik bilgilerini arayın",
-        "description": "Label of the setting in the extension settings to define how password recommendations are searched."
-    },
-    "UiSettings": {
-        "message": "Kullanıcı Arayüzü",
-        "description": "Label of the user interface section in the extension settings."
-    },
-    "InputSliderOff": {
-        "message": "Şu anda kapalı",
-        "description": "Tooltip of any slider input element that is currently in the inactive/disabled state"
-    },
-    "PasswordCustomFieldsTypeSecret": {
-        "message": "Gizli",
-        "description": "Label of the password custom setting type 'secret'."
-    },
-    "PasswordCustomFieldsTypeEmail": {
-        "message": "E-posta",
-        "description": "Label of the password custom setting type 'email'."
-    },
-    "PasswordCustomFieldsTypeUrl": {
-        "message": "Bağlantı",
-        "description": "Label of the password custom setting type 'url'."
-    },
-    "PasswordCustomFieldsTypeFormField": {
-        "message": "Form alanı",
-        "description": "Label of the password custom setting form field to insert custom values to a web page."
-    },
-    "PasswordEditValidationInvalidValue": {
-        "message": "Geçersiz değer",
-        "description": "The validation error message in the password edit form if the value is invalid"
-    },
-    "PasswordEditValidationMaxLength": {
-        "message": "Yalnızca $CHARACTERS$ karakterlerine izin verilir",
-        "description": "The validation error message in the password edit form if the value is longer than allowed",
-        "placeholders": {
-            "characters": {
-                "content": "$1",
-                "example": "One of 1, 48, 320, 370, 2048 or 8192"
-            }
-        }
-    },
-    "PasswordEditValidationRequired": {
-        "message": "Bu alan zorunludur",
-        "description": "The validation error message in the password edit form if a required field is empty"
-    },
-    "MiningPasswordDiscarded": {
-        "message": "Parola atıldı",
-        "description": "The toast notification after the user has successfully discarded a mined password"
-    },
-    "MiningPasswordCreated": {
-        "message": "Şifre kaydedildi",
-        "description": "The toast notification after the password was successfully saved"
-    },
-    "MiningPasswordUpdated": {
-        "message": "Şifre güncellendi",
-        "description": "The toast notification after the password was successfully saved"
-    },
-    "SettingsPasteFormSubmit": {
-        "message": "Açılır pencereden kimlik bilgileri yapıştırıldığında oturum açma formlarını gönderme",
-        "description": "Label of the setting in the extension settings to automatically submit login forms after pasting"
-    },
-    "SettingsClearClipboardDelay": {
-        "message": "Pano boşaldıktan sonra",
-        "description": "Label of the setting in the extension settings to define the time when the clipboard content will be removed."
-    },
-    "CustomBadge": {
-        "message": "Tarayıcı simgesi",
-        "description": "Headline for the browser toolbar icon styling settings in the custom theme settings"
-    },
-    "BorderColorHoverTitle": {
-        "message": "Bu renk, öğe etkinse kenarlıklar için kullanılır",
-        "description": "Tooltip of the color input field in the custom theme settings for the hover / active border color for an element"
-    },
-    "BackgroundInheritTitle": {
-        "message": "Etkinleştirilirse, değer üst öğeden miras alınır",
-        "description": "Tooltip for the checkbox to inherit the background color (from the parent element in the html) in the custom theme settings"
-    },
-    "ServerConnectionErrorTitle": {
-        "message": "Bağlanılamıyor $SERVER$",
-        "description": "Title of the toast notification when the connection to the server failed",
-        "placeholders": {
-            "server": {
-                "content": "$1",
-                "example": "My Nextcloud"
-            }
-        }
-    },
-    "PasslinkConnectServer": {
-        "message": "Yeni hesap \"$LABEL$\" olarak kaydedildi.",
-        "description": "Confirmation message in the PassLink Connect action when a new account has been created successfully",
-        "placeholders": {
-            "label": {
-                "content": "$1",
-                "example": "Nexcloud - admin"
-            }
-        }
-    },
-    "DebugErrorNoDetails": {
-        "message": "Hata detayı yok",
-        "description": "Used as error message for errors with no details at all in the error logs section in the extension settings in the debug tab"
-    },
-    "LabelSearchRecommendationDomain": {
-        "message": "aynı alan",
-        "description": "Find password recommendations by domain. So on page mail.example.com you will see all passwords for the domain and sumdomains of example.com."
+    "DebugBuild": {
+        "message": "Informácie o stavbe",
+        "description": "Headline above the section for the build instructions in the debug tab in the extension settings"
     },
     "LabelSearchRecommendationHost": {
-        "message": "aynı ev sahibi",
+        "message": "ten istý hostiteľ",
         "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
     },
     "LabelSearchRecommendationHostPort": {
-        "message": "aynı ana bilgisayar ve bağlantı noktası",
+        "message": "rovnaký hostiteľ a port",
         "description": "Find password recommendations for the specific server and port."
     },
     "LabelSearchRecommendationExact": {
-        "message": "aynı url",
+        "message": "presne rovnaká url adresa",
         "description": "Find only passwords where th url matches exact to the current browser url."
     },
     "SettingsSearchRecommendationMaxRows": {
-        "message": "Maksimum tavsiye sayısı",
+        "message": "Maximálny počet odporúčaní",
         "description": "Label of the setting in the extension settings to define the maximum number of results for the password recommendation."
     },
     "SearchRecommendationMaxRowsNumber": {
@@ -1397,60 +1387,70 @@
             }
         }
     },
+    "UiSettings": {
+        "message": "Používateľské rozhranie",
+        "description": "Label of the user interface section in the extension settings."
+    },
     "SettingsShowUsernameInList": {
-        "message": "Başlığın yanında kullanıcı adını göster",
+        "message": "Zobrazenie používateľského mena vedľa názvu",
         "description": "Label of the setting in the extension settings to show the username next to the title in password lists."
     },
     "InputSliderOn": {
-        "message": "Şu anda",
+        "message": "V súčasnosti na",
         "description": "Tooltip of any slider input element that is currently in the active/enabled state"
     },
-    "QrOverconstrainedError": {
-        "message": "Kamera kullanıma uygun değil",
-        "description": "Message used by the PassLink QR scanner when the camera is faulty"
-    },
-    "DebugLanguageTagsEnabled": {
-        "message": "Dil tuşlarını göster",
-        "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
-    },
-    "DebugBuild": {
-        "message": "Yapı Bilgileri",
-        "description": "Headline above the section for the build instructions in the debug tab in the extension settings"
-    },
-    "DebugSourceAndBuild": {
-        "message": "Derleme talimatları ve kaynak kodu indirme",
-        "description": "Label of the link to open the page with build instructions and links to the source code in the debug tab in the extension settings"
-    },
-    "DebugErrorLog": {
-        "message": "Hata Günlüğü",
-        "description": "Headline above the error logs section in the extension settings in the debug tab"
+    "InputSliderOff": {
+        "message": "V súčasnosti vypnuté",
+        "description": "Tooltip of any slider input element that is currently in the inactive/disabled state"
     },
     "PasswordCustomFieldsTypeText": {
-        "message": "Metin",
+        "message": "Text",
         "description": "Label of the password custom setting type 'text'."
     },
-    "BrowserActionTitleCounter": {
-        "message": "Şifreler ($COUNTER$)",
-        "description": "Title of the button in the browser bar with suggestion counter",
+    "PasswordCustomFieldsTypeSecret": {
+        "message": "Tajné",
+        "description": "Label of the password custom setting type 'secret'."
+    },
+    "PasswordCustomFieldsTypeEmail": {
+        "message": "E-mail",
+        "description": "Label of the password custom setting type 'email'."
+    },
+    "PasswordCustomFieldsTypeUrl": {
+        "message": "Odkaz",
+        "description": "Label of the password custom setting type 'url'."
+    },
+    "PasswordCustomFieldsTypeFormField": {
+        "message": "Pole formulára",
+        "description": "Label of the password custom setting form field to insert custom values to a web page."
+    },
+    "PasswordEditValidationInvalidValue": {
+        "message": "Neplatná hodnota",
+        "description": "The validation error message in the password edit form if the value is invalid"
+    },
+    "PasswordEditValidationMaxLength": {
+        "message": "Povolené sú len znaky $CHARACTERS$",
+        "description": "The validation error message in the password edit form if the value is longer than allowed",
         "placeholders": {
-            "counter": {
+            "characters": {
                 "content": "$1",
-                "example": "2"
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
             }
         }
     },
-    "UserAgent": {
-        "message": "Official Passwords Client for $BROWSER$ on $OS$",
-        "description": "The user agent used for api requests. Only ASCII characters allowed",
-        "placeholders": {
-            "browser": {
-                "content": "$1",
-                "example": "Firefox"
-            },
-            "os": {
-                "content": "$2",
-                "example": "Linux"
-            }
-        }
+    "PasswordEditValidationRequired": {
+        "message": "Toto pole je povinné",
+        "description": "The validation error message in the password edit form if a required field is empty"
+    },
+    "MiningPasswordDiscarded": {
+        "message": "Heslo vyradené",
+        "description": "The toast notification after the user has successfully discarded a mined password"
+    },
+    "MiningPasswordCreated": {
+        "message": "Uložené heslo",
+        "description": "The toast notification after the password was successfully saved"
+    },
+    "MiningPasswordUpdated": {
+        "message": "Aktualizácia hesla",
+        "description": "The toast notification after the password was successfully saved"
     }
 }

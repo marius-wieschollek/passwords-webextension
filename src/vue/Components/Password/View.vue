@@ -14,6 +14,7 @@
         </div>
         <div class="password-details-fields">
             <property :editable="isEditMode" :field="field" v-for="field in defaultFields" :key="field.name" v-on:updateField="updateField" v-on:error="handleValidationError"/>
+            <translate tag="label" say="customFieldsLabel"  class="custom-fields" v-if="isEditMode" />
             <custom-property :field="field"
                              :editable="isEditMode"
                              v-for="field in customFields"
@@ -27,17 +28,18 @@
 </template>
 
 <script>
-    import {v4 as uuid} from 'uuid';
-    import Icon from '@vue/Components/Icon';
-    import {Password} from 'passwords-client/models';
-    import Property from '@vue/Components/Password/Property';
+    import {v4 as uuid}   from 'uuid';
+    import Icon           from '@vue/Components/Icon';
+    import {Password}     from 'passwords-client/models';
+    import Property       from '@vue/Components/Password/Property';
     import CustomProperty from '@vue/Components/Password/CustomProperty';
     import MessageService from '@js/Services/MessageService';
-    import ToastService from "@js/Services/ToastService";
-    import ErrorManager from "@js/Manager/ErrorManager";
+    import ToastService   from "@js/Services/ToastService";
+    import ErrorManager   from "@js/Manager/ErrorManager";
+    import Translate      from '@vue/Components/Translate.vue';
 
     export default {
-        components: {Icon, Property, CustomProperty},
+        components: {Translate, Icon, Property, CustomProperty},
         props     : {
             password: {
                 type: Password

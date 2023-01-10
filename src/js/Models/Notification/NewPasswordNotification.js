@@ -5,6 +5,7 @@ import RegistryService from '@js/Services/RegistryService';
 import MiningClient from '@js/Queue/Client/MiningClient';
 import Url from 'url-parse';
 import QueueService from '@js/Services/QueueService';
+import SettingsService from "@js/Services/SettingsService";
 
 export default class NewPasswordNotification extends AbstractNotification {
 
@@ -14,8 +15,8 @@ export default class NewPasswordNotification extends AbstractNotification {
     constructor(item) {
         super();
         this._item = item;
+        this._quicksave = null;
         this.setTitle('NotifyNewPasswordTitle');
-        this._setText();
     }
 
     /**
@@ -31,14 +32,16 @@ export default class NewPasswordNotification extends AbstractNotification {
      */
     setItem(item) {
         this._item = item;
-        this._setText();
         return this;
     }
 
     /**
      * @return {({title: String})[]}
      */
-    getButtons() {
+    async getButtons() {
+        if(await this._isQuickSave()) {
+            return [];
+        }
         return [
             {
                 title: LocalisationService.translate('ButtonSave')
@@ -52,8 +55,12 @@ export default class NewPasswordNotification extends AbstractNotification {
     /**
      *
      */
-    onClick() {
-        this._openBrowserAction();
+    async onClick() {
+        if(await this._isQuickSave()) {
+            this._savePasswordItem();
+        } else {
+            this._openBrowserAction();
+        }
     }
 
     /**
@@ -70,7 +77,7 @@ export default class NewPasswordNotification extends AbstractNotification {
     /**
      * @private
      */
-    _setText() {
+    async getText() {
         let label = this._item.getLabel();
 
         if(label.length === 0) {
@@ -84,12 +91,30 @@ export default class NewPasswordNotification extends AbstractNotification {
             label = url.host.length === 0 ? href:url.host;
         }
 
-        if(SystemService.hasNotificationButtons()) {
-            this.setText('NotifyNewPasswordText', label);
+
+        if(!await this._isQuickSave()) {
+            if(SystemService.hasNotificationButtons()) {
+                this.setText('NotifyNewPasswordText', label);
+            } else {
+                this.setText('NotifyNewPasswordTextFF', label);
+            }
         } else {
-            this.setText('NotifyNewPasswordTextFF', label);
+            this.setText('NotifyNewPasswordTextQS', label);
         }
 
+        return super.getText();
+    }
+
+    /**
+     *
+     * @returns {Promise<null>}
+     * @private
+     */
+    async _isQuickSave() {
+        if(this._quicksave === null) {
+            this._quicksave = await SettingsService.getValue('notification.password.quicksave');
+        }
+        return this._quicksave;
     }
 
     /**

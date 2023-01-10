@@ -1,3 +1,11 @@
+## 2.3.0 - Bugfix Release
+### Added
+- Option to save or update instantly when notification clicked
+- Localisation for Slovenian, Slovak, Greek, Hungarian, Lithuanian and Finnish
+### Changed
+- Don't autofill forms with content
+- Improved password miner performance
+
 ## 2.2.6 - Bugfix Release
 ### Fixed
 - Autofill not working
