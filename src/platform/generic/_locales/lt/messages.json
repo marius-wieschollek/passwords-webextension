@@ -1452,5 +1452,13 @@
     "LabelTags": {
         "message": "Žymos",
         "description": "Label for the tag count in the server info in the browse tab"
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "Pasirinktinio lauko etiketė",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "Pasirinktinio lauko etiketė",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
     }
 }
