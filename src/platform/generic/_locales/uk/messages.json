@@ -1452,5 +1452,13 @@
     "SettingsShowUsernameInList": {
         "message": "Показати ім'я користувача поруч із заголовком",
         "description": "Label of the setting in the extension settings to show the username next to the title in password lists."
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "Спеціальна мітка для поля",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "Спеціальна мітка для поля",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
     }
 }
