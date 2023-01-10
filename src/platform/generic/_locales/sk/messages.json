@@ -1452,5 +1452,13 @@
     "MiningPasswordUpdated": {
         "message": "Aktualizácia hesla",
         "description": "The toast notification after the password was successfully saved"
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "Štítok vlastného poľa",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "Štítok vlastného poľa",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
     }
 }
