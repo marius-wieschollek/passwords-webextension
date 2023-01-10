@@ -88,6 +88,7 @@ class ContextMenuManager {
                     id      : password.getId(),
                     icons   : {16: defaultIcon},
                     title   : password.getLabel(),
+                    // @TODO does this still work with firefox?
 /*                    onclick : () => {
                         this._sendPassword(password);
                     }*/
@@ -129,6 +130,7 @@ class ContextMenuManager {
 
             if(data.hasOwnProperty('command')) {
                 delete data.command;
+                // @TODO does this still work with firefox?
 /*                data.onclick = () => {
                     this._openBrowserAction();
                 };*/
@@ -173,7 +175,7 @@ class ContextMenuManager {
      * @private
      */
     _openBrowserAction() {
-        SystemService.getBrowserApi().getBrowserAction().openPopup();
+        SystemService.getBrowserAction().openPopup();
     }
 
     /**
