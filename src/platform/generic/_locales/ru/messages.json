@@ -1452,5 +1452,13 @@
     "SettingsClearClipboardPasswords": {
         "message": "Автоматическое удаление паролей из буфера обмена",
         "description": "Label of the setting in the extension settings to automatically clear passwords from clipboard after a certain time."
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "Метка пользовательского поля",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "Метка пользовательского поля",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
     }
 }
