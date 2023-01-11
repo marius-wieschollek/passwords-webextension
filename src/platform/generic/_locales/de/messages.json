@@ -1364,7 +1364,7 @@
         "description": "Label of the password custom setting type 'url'."
     },
     "PasswordCustomFieldsTypeFormField": {
-        "message": "Form Feld",
+        "message": "Formularfeld",
         "description": "Label of the password custom setting form field to insert custom values to a web page."
     },
     "PasswordEditValidationInvalidValue": {
@@ -1454,11 +1454,11 @@
         }
     },
     "CustomFieldLabelPlaceholder": {
-        "message": "Benutzerdefinierte Feldbezeichnung",
+        "message": "Name für benutzerdefiniertes Feld",
         "description": "Placeholder text of the label for a custom field entry in the password details"
     },
     "CustomFieldValuePlaceholder": {
-        "message": "Benutzerdefinierte Feldbezeichnung",
+        "message": "Wert für benutzerdefiniertes Feld",
         "description": "Placeholder text of the value for a custom field entry in the password details"
     }
 }
