@@ -1458,7 +1458,7 @@
         "description": "Placeholder text of the label for a custom field entry in the password details"
     },
     "CustomFieldValuePlaceholder": {
-        "message": "Custom field label",
+        "message": "Custom field value",
         "description": "Placeholder text of the value for a custom field entry in the password details"
     }
 }
