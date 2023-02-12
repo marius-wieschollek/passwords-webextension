@@ -14,7 +14,7 @@
         </div>
         <div class="password-details-fields">
             <property :editable="isEditMode" :field="field" v-for="field in defaultFields" :key="field.name" v-on:updateField="updateField" v-on:error="handleValidationError"/>
-            <translate tag="label" say="customFieldsLabel"  class="custom-fields" v-if="isEditMode" />
+            <translate tag="label" say="LabelCustomFields" class="custom-fields" v-if="isEditMode" />
             <custom-property :field="field"
                              :editable="isEditMode"
                              v-for="field in customFields"

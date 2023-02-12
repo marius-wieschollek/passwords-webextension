@@ -51,7 +51,7 @@ module.exports = (env, argv) => {
     let jsPlatformDir = platform !== 'chrome' ? `${__dirname}/src/js/Platform`:`${__dirname}/src/platform/${platform}/js/Platform`;
     return {
         mode        : production ? 'production':'development',
-        devtool     : production ? undefined:'source-map',
+        devtool     : production ? false:'source-map',
         entry       : {
             client    : {
                 publicPath: '/',

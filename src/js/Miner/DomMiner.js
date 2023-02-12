@@ -71,7 +71,7 @@ export default class DomMiner {
         let exists = false;
         this._knownForms.forEach(element => {
             if((element.pass === form.pass.value) &&
-                (element.user === form.user.value) &&
+                (element.user && form.user && element.user === form.user.value) &&
                 (element.url === this._getUrl())) {
                 exists = true;
             }
@@ -80,7 +80,7 @@ export default class DomMiner {
             this._knownForms.push(
                 {
                     pass: form.pass.value,
-                    user: form.user.value,
+                    user: form.user ? form.user.value:undefined,
                     url : this._getUrl()
                 });
         }
