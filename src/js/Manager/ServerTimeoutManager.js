@@ -7,6 +7,7 @@ export default new class ServerTimeoutManager {
 
     constructor() {
         this._interval = null;
+        this._keepaliveTimers = {};
     }
 
     init() {
@@ -18,6 +19,18 @@ export default new class ServerTimeoutManager {
             this._lastInteraction = Date.now();
             this._setUpActivityTriggers();
         }
+
+        ServerManager.onAddServer.on(async (server) => {
+            await this._addServerKeepaliveRequests(server);
+        });
+
+        ServerManager.onRemoveServer.on(async (server) => {
+            this._removeServerKeepaliveRequests(server);
+        });
+
+        ServerManager.onDeleteServer.on(async (server) => {
+            this._removeServerKeepaliveRequests(server);
+        });
     }
 
     trigger() {
@@ -63,4 +76,41 @@ export default new class ServerTimeoutManager {
             }
         );
     }
-}
+
+    /**
+     *
+     * @param {Server} server
+     */
+    async _keepalive(server) {
+        let api = await ApiRepository.findById(server.getId());
+        api
+            .getRequest()
+            .setPath('1.0/session/keepalive')
+            .send()
+            .catch(
+                (e) => {
+                    ErrorManager.logError(e);
+                    if(e.type === 'PreconditionFailedError') {
+                        ServerManager.restartSession(server)
+                                     .catch(ErrorManager.catch);
+                    }
+                });
+    }
+
+    _removeServerKeepaliveRequests(server) {
+        if(this._keepaliveTimers.hasOwnProperty(server.getId())) {
+            clearInterval(this._keepaliveTimers[server.getId()]);
+            delete this._keepaliveTimers[server.getId()];
+        }
+    }
+
+    async _addServerKeepaliveRequests(server) {
+        let api = await ApiRepository.findById(server.getId()),
+            settingsRepository = /** @type {SettingRepository} **/ api.getInstance('repository.setting'),
+            settings = await settingsRepository.findByName('user.session.lifetime'),
+            lifetime = settings.has('user.session.lifetime') ? settings.get('user.session.lifetime').getValue():600;
+            lifetime = (lifetime * 1000) - 2000;
+
+        this._keepaliveTimers[server.getId()] = setInterval(() => { this._keepalive(server); }, lifetime - 2000);
+    }
+};

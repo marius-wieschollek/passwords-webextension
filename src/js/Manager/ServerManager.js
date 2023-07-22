@@ -47,7 +47,6 @@ class ServerManager {
     constructor() {
         /** @type {(FeedbackQueue|null)} **/
         this._authQueue = null;
-        this._keepaliveTimer = {};
         this._authState = new BooleanState(true);
         this._addServer = new EventQueue();
         this._removeServer = new EventQueue();
@@ -115,7 +114,6 @@ class ServerManager {
         }
 
         await this._addServer.emit(server);
-        this._keepaliveTimer[serverId] = setInterval(() => { this._keepalive(api); }, 59000);
     }
 
     /**
@@ -128,8 +126,6 @@ class ServerManager {
         this._removeAuthItems(serverId);
 
         if(!this._servers.hasOwnProperty(serverId)) return;
-        clearInterval(this._keepaliveTimer[serverId]);
-        delete this._keepaliveTimer[serverId];
         await this._removeServer.emit(server);
         delete this._servers[serverId];
     }
@@ -236,25 +232,6 @@ class ServerManager {
         }
 
         return null;
-    }
-
-    /**
-     *
-     * @param {PasswordsClient} api
-     */
-    _keepalive(api) {
-        api
-            .getRequest()
-            .setPath('1.0/session/keepalive')
-            .send()
-            .catch(
-                (e) => {
-                    ErrorManager.logError(e);
-                    if(e.type === 'PreconditionFailedError') {
-                        this.restartSession(api.getServer())
-                            .catch(ErrorManager.catch);
-                    }
-                });
     }
 
     /**
