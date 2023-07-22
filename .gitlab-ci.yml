@@ -48,20 +48,24 @@ Compile Chrome:
 Publish Nightly Firefox:
   stage: publishing
   script:
+    - 'PACKAGE_NAME=passwords-webextension'
+    - 'if [ "${CI_COMMIT_REF_NAME}" != "stable" ] ; then PACKAGE_NAME=passwords-webextension-nightly ; fi'
+    - 'export EXT_VERSION=$(node -p "require(\"./dist/firefox-extension/manifest.json\").version")'
+    - 'PACKAGE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/${EXT_VERSION}/passwords-webextension.xpi"'
     - 'export ARTIFACT_URL=${CI_PROJECT_URL}/firefox/${CI_COMMIT_REF_NAME}/FILENAME'
     - 'sed -i -e "s|\"gecko\": {|\"gecko\":{\"update_url\":\"ARTIFACT_URL\",|g" ./dist/firefox-extension/manifest.json'
     - 'sed -i -e "s|ARTIFACT_URL|${ARTIFACT_URL}|g" ./dist/firefox-extension/manifest.json'
     - 'sed -i -e "s|FILENAME|updates.json|g" ./dist/firefox-extension/manifest.json'
     - 'web-ext sign --channel unlisted --ignore-files updates.json'
-    - 'sed -i -e "s|ARTIFACT_URL|${ARTIFACT_URL}|g" ./dist/firefox-extension/updates.json'
-    - 'export EXT_FILENAME=$(cd ./dist/firefox-extension/ && ls *.xpi)'
-    - 'sed -i -e "s|FILENAME|${EXT_FILENAME}|g" ./dist/firefox-extension/updates.json'
-    - 'export EXT_VERSION=$(node -p -e "require(\"./dist/firefox-extension/manifest.json\").version")'
     - 'sed -i -e "s|VERSION|${EXT_VERSION}|g" ./dist/firefox-extension/updates.json'
+    - 'sed -i -e "s|ARTIFACT_URL|${PACKAGE_URL}|g" ./dist/firefox-extension/updates.json'
+    - 'export EXT_FILENAME=$(cd ./dist/firefox-extension/ && ls *.xpi)'
     - 'export SHA_512=$(sha512sum ./dist/firefox-extension/${EXT_FILENAME} | cut -d\  -f 1)'
     - 'sed -i -e "s|SHA_512|${SHA_512}|g" ./dist/firefox-extension/updates.json'
     - 'export CHANGELOG_URL=${CI_PROJECT_URL}/raw/${CI_COMMIT_SHA}/Changelog.md'
     - 'sed -i -e "s|CHANGELOG_URL|${CHANGELOG_URL}|g" ./dist/firefox-extension/updates.json'
+    - 'curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./dist/firefox-extension/${EXT_FILENAME} "${PACKAGE_URL}"'
+    - echo "Package available at ${PACKAGE_URL}"
   environment:
     name: Testing
   only:
