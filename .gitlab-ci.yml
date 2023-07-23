@@ -25,6 +25,9 @@ Compile Firefox:
     expire_in: 1 week
     paths:
       - ./dist/firefox-extension
+  only:
+    - stable
+    - testing
 
 Compile Chrome:
   stage: compiling
@@ -46,14 +49,16 @@ Compile Chrome:
     expire_in: 1 week
     paths:
       - ./dist/chrome-extension
+  only:
+    - stable
+    - testing
 
 Publish Nightly Firefox:
   stage: publishing
   script:
-    - 'PACKAGE_NAME=passwords-webextension-nightly'
     - 'export EXT_VERSION=$(node -p "require(\"./dist/firefox-extension/manifest.json\").version")'
-    - 'PACKAGE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/latest/firefox-webextension-${EXT_VERSION}.xpi"'
-    - 'UPDATE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/latest/updates.json"'
+    - 'PACKAGE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/passwords-webextension-nightly/latest/firefox-webextension-${EXT_VERSION}.xpi"'
+    - 'UPDATE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/passwords-webextension-nightly/latest/updates.json"'
     - 'sed -i -e "s|\"gecko\": {|\"gecko\":{\"update_url\":\"UPDATE_URL\",|g" ./dist/firefox-extension/manifest.json'
     - 'sed -i -e "s|UPDATE_URL|${UPDATE_URL}|g" ./dist/firefox-extension/manifest.json'
     - 'web-ext sign --channel unlisted --ignore-files updates.json'
@@ -88,8 +93,7 @@ Publish Nightly Edge:
   allow_failure: true
   script:
     - 'export EXT_VERSION=$(node -p "require(\"./dist/chrome-extension/manifest.json\").version")'
-    - 'PACKAGE_NAME=passwords-webextension-nightly'
-    - 'PACKAGE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/latest/edge-webextension-${EXT_VERSION}.zip"'
+    - 'PACKAGE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/passwords-webextension-nightly/latest/edge-webextension-${EXT_VERSION}.zip"'
     - 'cd dist/chrome-extension'
     - 'zip -r -9 ../../edge-extension.zip ./*'
     - 'cd ../../'
@@ -124,12 +128,14 @@ Publish Stable Edge:
   stage: publishing
   allow_failure: true
   script:
+    - 'export EXT_VERSION=$(node -p "require(\"./dist/chrome-extension/manifest.json\").version")'
+    - 'PACKAGE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/passwords-webextension/latest/edge-webextension-${EXT_VERSION}.zip"'
     - 'cd dist/chrome-extension'
     - 'zip -r -9 ../../edge-extension.zip ./*'
+    - 'cd ../../'
+    - 'curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./edge-extension.zip "${PACKAGE_URL}"'
+    - 'echo "Edge Extension package available at ${PACKAGE_URL}"'
   environment:
     name: Stable
   only:
     - stable
-  artifacts:
-    paths:
-      - ./edge-extension.zip
