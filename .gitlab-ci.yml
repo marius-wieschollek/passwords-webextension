@@ -66,7 +66,7 @@ Publish Nightly Firefox:
     - 'sed -i -e "s|CHANGELOG_URL|${CHANGELOG_URL}|g" ./dist/firefox-extension/updates.json'
     - 'curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./dist/firefox-extension/${EXT_FILENAME} "${PACKAGE_URL}"'
     - 'curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./dist/firefox-extension/updates.json "${UPDATE_URL}"'
-    - echo "Firefox Extension package available at ${PACKAGE_URL}"
+    - 'echo "Firefox Extension package available at ${PACKAGE_URL}"'
   environment:
     name: Testing
   only:
@@ -89,13 +89,14 @@ Publish Nightly Edge:
   stage: publishing
   allow_failure: true
   script:
+    - 'export EXT_VERSION=$(node -p "require(\"./dist/chrome-extension/manifest.json\").version")'
+    - 'PACKAGE_NAME=passwords-webextension-nightly'
+    - 'PACKAGE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/${EXT_VERSION}/edge-webextension.zip"'
     - 'cd dist/chrome-extension'
     - 'zip -r -9 ../../edge-extension.zip ./*'
-    - 'PACKAGE_NAME=passwords-webextension-nightly'
-    - 'export EXT_VERSION=$(node -p "require(\"./dist/chrome-extension/manifest.json\").version")'
-    - 'PACKAGE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/${EXT_VERSION}/edge-webextension.zip"'
+    - 'cd ../../'
     - 'curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./edge-extension.zip "${PACKAGE_URL}"'
-    - echo "Edge Extension package available at ${PACKAGE_URL}"
+    - 'echo "Edge Extension package available at ${PACKAGE_URL}"'
   environment:
     name: Testing
   only:
