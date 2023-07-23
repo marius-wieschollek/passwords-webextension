@@ -3,6 +3,7 @@
 - Option to save or update instantly when notification clicked
 - Localisation for Slovenian, Slovak, Greek, Hungarian, Lithuanian and Finnish
 ### Changed
+- Session keepalive requests follow server settings
 - Don't autofill forms with content
 - Improved password miner performance
 
