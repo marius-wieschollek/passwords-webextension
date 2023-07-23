@@ -52,7 +52,7 @@ Publish Nightly Firefox:
   script:
     - 'PACKAGE_NAME=passwords-webextension-nightly'
     - 'export EXT_VERSION=$(node -p "require(\"./dist/firefox-extension/manifest.json\").version")'
-    - 'PACKAGE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/${EXT_VERSION}/firefox-webextension.xpi"'
+    - 'PACKAGE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/latest/firefox-webextension-${EXT_VERSION}.xpi"'
     - 'UPDATE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/latest/updates.json"'
     - 'sed -i -e "s|\"gecko\": {|\"gecko\":{\"update_url\":\"UPDATE_URL\",|g" ./dist/firefox-extension/manifest.json'
     - 'sed -i -e "s|UPDATE_URL|${UPDATE_URL}|g" ./dist/firefox-extension/manifest.json'
@@ -78,8 +78,6 @@ Publish Nightly Chrome:
   script:
     - 'export WEXT_SHIPIT_CHROME_EXTENSION_ID=${CHROME_EXTENSION_ID_TESTING}'
     - 'shipit chrome dist/chrome-extension'
-    - 'ls -lAhs .'
-    - 'ls -lAhs dist/chrome-extension'
   environment:
     name: Testing
   only:
@@ -91,7 +89,7 @@ Publish Nightly Edge:
   script:
     - 'export EXT_VERSION=$(node -p "require(\"./dist/chrome-extension/manifest.json\").version")'
     - 'PACKAGE_NAME=passwords-webextension-nightly'
-    - 'PACKAGE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/${EXT_VERSION}/edge-webextension.zip"'
+    - 'PACKAGE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/latest/edge-webextension-${EXT_VERSION}.zip"'
     - 'cd dist/chrome-extension'
     - 'zip -r -9 ../../edge-extension.zip ./*'
     - 'cd ../../'

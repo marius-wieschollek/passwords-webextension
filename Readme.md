@@ -13,7 +13,7 @@ This WebExtension is the official client for the [Passwords app for Nextcloud](h
 ### Downloads
 * [Firefox Extension](https://addons.mozilla.org/de/firefox/addon/nextcloud-passwords/)
 * [Chrome Extension](https://chrome.google.com/webstore/detail/nextcloud-passwords/mhajlicjhgoofheldnmollgbgjheenbi)
-* [Firefox Extension Development Build](https://git.mdns.eu/nextcloud/passwords-webextension/-/jobs/artifacts/testing/browse/dist/firefox-extension?job=Publish+Nightly+Firefox)
+* [Firefox Extension Development Build](https://git.mdns.eu/nextcloud/passwords-webextension/-/packages/16)
 * [Chrome Extension Development Build](https://chrome.google.com/webstore/detail/aipncmjoigmhooiiclcailmhiopachih)
 
 ## Support
