@@ -1,7 +1,7 @@
-import ErrorManager from "@js/Manager/ErrorManager";
-import ApiRepository from "@js/Repositories/ApiRepository";
-import ServerManager from "@js/Manager/ServerManager";
-import MessageService from "@js/Services/MessageService";
+import ErrorManager   from '@js/Manager/ErrorManager';
+import ApiRepository  from '@js/Repositories/ApiRepository';
+import ServerManager  from '@js/Manager/ServerManager';
+import MessageService from '@js/Services/MessageService';
 
 export default new class ServerTimeoutManager {
 
@@ -80,9 +80,28 @@ export default new class ServerTimeoutManager {
     /**
      *
      * @param {Server} server
+     * @param {number} lifetime
      */
-    async _keepalive(server) {
-        let api = await ApiRepository.findById(server.getId());
+    async _keepalive(server, lifetime) {
+        let api;
+        try {
+            api = await ApiRepository.findById(server.getId());
+        } catch(e) {
+            this._removeServerKeepaliveRequests(server);
+            return;
+        }
+
+        if(api.getServer().getStatus() !== server.STATUS_AUTHORIZED) {
+            this._removeServerKeepaliveRequests(server);
+            return;
+        }
+
+        if(Date.now() - this._lastInteraction > lifetime) {
+            ServerManager
+                .restartSession(server)
+                .catch(ErrorManager.catchEvt);
+        }
+
         api
             .getRequest()
             .setPath('1.0/session/keepalive')
@@ -91,8 +110,9 @@ export default new class ServerTimeoutManager {
                 (e) => {
                     ErrorManager.logError(e);
                     if(e.type === 'PreconditionFailedError') {
-                        ServerManager.restartSession(server)
-                                     .catch(ErrorManager.catch);
+                        ServerManager
+                            .restartSession(server)
+                            .catch(ErrorManager.catch);
                     }
                 });
     }
@@ -105,12 +125,12 @@ export default new class ServerTimeoutManager {
     }
 
     async _addServerKeepaliveRequests(server) {
-        let api = await ApiRepository.findById(server.getId()),
+        let api                = await ApiRepository.findById(server.getId()),
             settingsRepository = /** @type {SettingRepository} **/ api.getInstance('repository.setting'),
-            settings = await settingsRepository.findByName('user.session.lifetime'),
-            lifetime = settings.has('user.session.lifetime') ? settings.get('user.session.lifetime').getValue():600;
-            lifetime = (lifetime * 1000) - 2000;
+            settings           = await settingsRepository.findByName('user.session.lifetime'),
+            lifetime           = settings.has('user.session.lifetime') ? settings.get('user.session.lifetime').getValue() : 600;
+        lifetime = (lifetime * 1000) - 2000;
 
-        this._keepaliveTimers[server.getId()] = setInterval(() => { this._keepalive(server); }, lifetime - 2000);
+        this._keepaliveTimers[server.getId()] = setInterval(() => { this._keepalive(server, lifetime); }, lifetime - 2000);
     }
 };
