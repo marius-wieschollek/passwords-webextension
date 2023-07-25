@@ -6,8 +6,8 @@ import MessageService        from '@js/Services/MessageService';
 import TabManager            from '@js/Manager/TabManager';
 import ErrorManager          from '@js/Manager/ErrorManager';
 import ThemeService          from '@js/Services/ThemeService';
-import BlobToBase64Helper    from '@js/Helper/BlobToBase64Helper';
 import AutofillManager       from '@js/Manager/AutofillManager';
+import FaviconService        from '@js/Services/FaviconService';
 
 class ContextMenuManager {
 
@@ -171,10 +171,8 @@ class ContextMenuManager {
      * @private
      */
     async _loadIcons(password) {
-        let blob16 = await password.getFavicon(16),
-            blob32 = await password.getFavicon(32),
-            icon16 = await BlobToBase64Helper.convert(blob16),
-            icon32 = await BlobToBase64Helper.convert(blob32);
+        let icon16 = await FaviconService.getFaviconForPassword(password, 16, false),
+            icon32 = await FaviconService.getFaviconForPassword(password, 32, false);
 
         if(this._activeMenus.indexOf(password.getId()) === -1) return;
 
