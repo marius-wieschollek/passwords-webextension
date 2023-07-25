@@ -96,7 +96,7 @@ export default new class ServerTimeoutManager {
             return;
         }
 
-        if(Date.now() - this._lastInteraction > lifetime) {
+        if(Date.now() - this._lastInteraction > lifetime * 1000) {
             ServerManager
                 .restartSession(server)
                 .catch(ErrorManager.catchEvt);
