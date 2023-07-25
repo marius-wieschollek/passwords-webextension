@@ -100,6 +100,7 @@ export default new class ServerTimeoutManager {
             ServerManager
                 .restartSession(server)
                 .catch(ErrorManager.catchEvt);
+            return;
         }
 
         api
