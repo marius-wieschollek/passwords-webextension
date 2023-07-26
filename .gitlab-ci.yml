@@ -69,8 +69,8 @@ Publish Nightly Firefox:
     - 'sed -i -e "s|SHA_512|${SHA_512}|g" ./dist/firefox-extension/updates.json'
     - 'export CHANGELOG_URL=${CI_PROJECT_URL}/raw/${CI_COMMIT_SHA}/Changelog.md'
     - 'sed -i -e "s|CHANGELOG_URL|${CHANGELOG_URL}|g" ./dist/firefox-extension/updates.json'
-    - 'curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./dist/firefox-extension/${EXT_FILENAME} "${PACKAGE_URL}"'
-    - 'curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./dist/firefox-extension/updates.json "${UPDATE_URL}"'
+    - 'curl --retry 5 --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./dist/firefox-extension/${EXT_FILENAME} "${PACKAGE_URL}"'
+    - 'curl --retry 5 --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./dist/firefox-extension/updates.json "${UPDATE_URL}"'
     - 'echo "Firefox Extension package available at ${PACKAGE_URL}"'
   environment:
     name: Testing
@@ -97,7 +97,7 @@ Publish Nightly Edge:
     - 'cd dist/chrome-extension'
     - 'zip -r -9 ../../edge-extension.zip ./*'
     - 'cd ../../'
-    - 'curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./edge-extension.zip "${PACKAGE_URL}"'
+    - 'curl --retry 5 --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./edge-extension.zip "${PACKAGE_URL}"'
     - 'echo "Edge Extension package available at ${PACKAGE_URL}"'
   environment:
     name: Testing
@@ -133,7 +133,7 @@ Publish Stable Edge:
     - 'cd dist/chrome-extension'
     - 'zip -r -9 ../../edge-extension.zip ./*'
     - 'cd ../../'
-    - 'curl --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./edge-extension.zip "${PACKAGE_URL}"'
+    - 'curl --retry 5 --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./edge-extension.zip "${PACKAGE_URL}"'
     - 'echo "Edge Extension package available at ${PACKAGE_URL}"'
   environment:
     name: Stable
