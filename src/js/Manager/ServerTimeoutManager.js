@@ -99,6 +99,7 @@ export default new class ServerTimeoutManager {
             ServerManager
                 .restartSession(server)
                 .catch(ErrorManager.catchEvt);
+            return;
         }
 
         api
@@ -127,8 +128,8 @@ export default new class ServerTimeoutManager {
         let api                = await ApiRepository.findById(server.getId()),
             settingsRepository = /** @type {SettingRepository} **/ api.getInstance('repository.setting'),
             settings           = await settingsRepository.findByName('user.session.lifetime'),
-            lifetime           = settings.has('user.session.lifetime') ? settings.get('user.session.lifetime').getValue() : 600;
-        lifetime = (lifetime * 1000) - 2000;
+            serverLifetime     = settings.has('user.session.lifetime') ? settings.get('user.session.lifetime').getValue():600,
+            lifetime           = (serverLifetime * 1000) - 2000;
 
         this._keepaliveTimers[server.getId()] = setInterval(() => { this._keepalive(server); }, lifetime - 2000);
     }
