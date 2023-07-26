@@ -80,9 +80,8 @@ export default new class ServerTimeoutManager {
     /**
      *
      * @param {Server} server
-     * @param {number} lifetime
      */
-    async _keepalive(server, lifetime) {
+    async _keepalive(server) {
         let api;
         try {
             api = await ApiRepository.findById(server.getId());
@@ -96,7 +95,7 @@ export default new class ServerTimeoutManager {
             return;
         }
 
-        if(Date.now() - this._lastInteraction > lifetime) {
+        if(Date.now() - this._lastInteraction >= server.getTimeout()) {
             ServerManager
                 .restartSession(server)
                 .catch(ErrorManager.catchEvt);
@@ -131,6 +130,6 @@ export default new class ServerTimeoutManager {
             lifetime           = settings.has('user.session.lifetime') ? settings.get('user.session.lifetime').getValue() : 600;
         lifetime = (lifetime * 1000) - 2000;
 
-        this._keepaliveTimers[server.getId()] = setInterval(() => { this._keepalive(server, lifetime); }, lifetime - 2000);
+        this._keepaliveTimers[server.getId()] = setInterval(() => { this._keepalive(server); }, lifetime - 2000);
     }
 };
