@@ -13,17 +13,19 @@
         "adb:firefox": "which web-ext||sudo npm i -g web-ext;a=$(adb devices|tr -d '\\n');b=${a##*ed};c=${b%dev*};web-ext run -t firefox-android -s build --adb-device=${c} --firefox-apk=org.mozilla.firefox",
         "adb:firefox:beta": "which web-ext||sudo npm i -g web-ext;a=$(adb devices|tr -d '\\n');b=${a##*ed};c=${b%dev*};web-ext run -t firefox-android -s build --adb-device=${c} --firefox-apk=org.mozilla.firefox_beta",
         "adb:firefox:nightly": "which web-ext||sudo npm i -g web-ext;a=$(adb devices|tr -d '\\n');b=${a##*ed};c=${b%dev*};web-ext run -t firefox-android -s build --adb-device=${c} --firefox-apk=org.mozilla.fenix",
-        "msg:desc:sync": "node --experimental-json-modules scripts/message-description-sync.mjs"
+        "msg:desc:sync": "node --experimental-json-modules scripts/message-description-sync.mjs",
+        "edge:publish": "node --experimental-json-modules scripts/ms-edge-publish.mjs"
     },
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
+        "@plasmohq/edge-addons-api": "^1.3.2",
         "clean-webpack-plugin": "^4.0.0",
         "copy-webpack-plugin": "^10.2.4",
         "css-loader": "^6.7.3",
+        "css-minimizer-webpack-plugin": "^3.4.1",
         "eventemitter3": "^4.0.7",
         "file-loader": "^6.2.0",
         "mini-css-extract-plugin": "^2.7.2",
-        "css-minimizer-webpack-plugin": "^3.4.1",
         "passwords-client": "^1.0.0-alpha.4887",
         "sass": "^1.57.1",
         "sass-loader": "^12.6.0",

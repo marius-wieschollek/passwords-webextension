@@ -133,8 +133,7 @@ Publish Stable Edge:
     - 'cd dist/chrome-extension'
     - 'zip -r -9 ../../edge-extension.zip ./*'
     - 'cd ../../'
-    - 'curl --retry 5 --retry-all-errors --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./edge-extension.zip "${PACKAGE_URL}"'
-    - 'echo "Edge Extension package available at ${PACKAGE_URL}"'
+    - 'npm edge:publish'
   environment:
     name: Stable
   only:
