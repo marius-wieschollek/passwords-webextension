@@ -140,7 +140,7 @@ export default class Server {
         if(!data.hasOwnProperty('timeout')) data.timeout = 0;
         if(typeof data.timeout === 'string') data.timeout = parseInt(data.timeout);
 
-        if([0, 5*60*1000, 10*60*1000, 15*60*1000, 30*60*1000, 60*60*1000].indexOf(data.timeout) === -1) {
+        if([0, 2*60*1000, 5*60*1000, 10*60*1000, 15*60*1000, 30*60*1000, 60*60*1000].indexOf(data.timeout) === -1) {
             errors.timeout = LocalisationService.translate('ValidationInvalidTimeout');
             return false;
         }
