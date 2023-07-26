@@ -95,7 +95,7 @@ export default new class ServerTimeoutManager {
             return;
         }
 
-        if(Date.now() - this._lastInteraction >= server.getTimeout()) {
+        if(server.getTimeout() > 0 &&Date.now() - this._lastInteraction >= server.getTimeout()) {
             ServerManager
                 .restartSession(server)
                 .catch(ErrorManager.catchEvt);
