@@ -133,7 +133,7 @@ Publish Stable Edge:
     - 'cd dist/chrome-extension'
     - 'zip -r -9 ../../edge-extension.zip ./*'
     - 'cd ../../'
-    - 'npm edge:publish'
+    - 'npm run edge:publish'
   environment:
     name: Stable
   only:
