@@ -13,8 +13,8 @@
         "adb:firefox": "which web-ext||sudo npm i -g web-ext;a=$(adb devices|tr -d '\\n');b=${a##*ed};c=${b%dev*};web-ext run -t firefox-android -s build --adb-device=${c} --firefox-apk=org.mozilla.firefox",
         "adb:firefox:beta": "which web-ext||sudo npm i -g web-ext;a=$(adb devices|tr -d '\\n');b=${a##*ed};c=${b%dev*};web-ext run -t firefox-android -s build --adb-device=${c} --firefox-apk=org.mozilla.firefox_beta",
         "adb:firefox:nightly": "which web-ext||sudo npm i -g web-ext;a=$(adb devices|tr -d '\\n');b=${a##*ed};c=${b%dev*};web-ext run -t firefox-android -s build --adb-device=${c} --firefox-apk=org.mozilla.fenix",
-        "msg:desc:sync": "node --experimental-json-modules scripts/message-description-sync.mjs",
-        "edge:publish": "node --experimental-json-modules scripts/ms-edge-publish.mjs"
+        "msg:desc:sync": "node --no-warnings --experimental-json-modules scripts/message-description-sync.mjs",
+        "edge:publish": "node --no-warnings --experimental-json-modules scripts/ms-edge-publish.mjs"
     },
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",

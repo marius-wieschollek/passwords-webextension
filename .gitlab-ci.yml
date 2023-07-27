@@ -128,8 +128,6 @@ Publish Stable Edge:
   stage: publishing
   allow_failure: true
   script:
-    - 'export EXT_VERSION=$(node -p "require(\"./dist/chrome-extension/manifest.json\").version")'
-    - 'PACKAGE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/passwords-webextension/latest/edge-webextension-${EXT_VERSION}.zip"'
     - 'cd dist/chrome-extension'
     - 'zip -r -9 ../../edge-extension.zip ./*'
     - 'cd ../../'
