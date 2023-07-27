@@ -1,7 +1,8 @@
-## 2.3.0 - Bugfix Release
+## 2.3.0 - Feature Release
 ### Added
 - Option to save or update instantly when notification clicked
 - Localisation for Slovenian, Slovak, Greek, Hungarian, Lithuanian and Finnish
+- Local caching of favicons
 ### Changed
 - Session keepalive requests follow server settings
 - Don't autofill forms with content
