@@ -16,6 +16,7 @@
         data() {
             return {
                 hasSearch: false,
+                interval : null,
                 passwords: []
             };
         },
@@ -26,6 +27,7 @@
 
         activated() {
             this.reloadData();
+            this.interval = setInterval(() => {this.reloadData();}, 2000);
 
             SettingsService.getValue('popup.related.search')
                 .then((value) => {
@@ -41,6 +43,10 @@
                 document.removeEventListener('keypress', this.search);
                 this.hasSearch = false;
             }
+            if(this.interval) {
+                clearInterval(this.interval);
+                this.interval = null;
+            }
         },
 
         methods: {
@@ -52,7 +58,7 @@
                     });
             },
             search(event) {
-                if(document.getElementsByClassName("password-details-view").length == 0) {
+                if(document.getElementsByClassName("password-details-view").length === 0) {
                     this.$emit('search', event.key);
                 }
             }

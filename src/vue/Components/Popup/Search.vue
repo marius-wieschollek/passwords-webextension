@@ -24,7 +24,8 @@
             return {
                 query      : PopupStateService.get('query'),
                 passwords  : [],
-                placeholder: LocalisationService.translate('SearchPlaceholder')
+                placeholder: LocalisationService.translate('SearchPlaceholder'),
+                interval   : null
             };
         },
 
@@ -33,6 +34,14 @@
             if(this.query.length !== 0) {
                 this.search(this.query);
             }
+            this.interval = setInterval(
+                () => {
+                    if(this.query.length !== 0) {
+                        this.search(this.query);
+                    }
+                },
+                2000
+            );
         },
 
         activated() {
@@ -45,11 +54,15 @@
 
         deactivated() {
             document.removeEventListener('keydown', this.focus);
+            if(this.interval) {
+                clearInterval(this.interval);
+                this.interval = null;
+            }
         },
 
         methods: {
             focus() {
-                if(document.getElementsByClassName("password-details-view").length == 0) {
+                if(document.getElementsByClassName("password-details-view").length === 0) {
                     this.$refs.query.focus();
                 }
             },
