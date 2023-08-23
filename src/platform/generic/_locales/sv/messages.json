@@ -766,7 +766,7 @@
         }
     },
     "ToastServerCheckMessage": {
-        "message": "Kontot \"$SERVER$\" använder lösenordet $SERVERVERVERSION$, men detta tillägg kräver minst $MINVERSION$. Appen måste uppdateras innan kontot kan aktiveras igen i inställningarna.",
+        "message": "Kontot \"$SERVER$\" använder lösenordet $SERVERVERSION$, men detta tillägg kräver minst $MINVERSION$. Appen måste uppdateras innan kontot kan aktiveras igen i inställningarna.",
         "description": "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
         "placeholders": {
             "server": {

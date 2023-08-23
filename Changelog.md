@@ -1,3 +1,7 @@
+## 2.3.1 - Bugfix Release
+### Fixed
+- Invalid language tag in danish and swedish
+
 ## 2.3.0 - Feature Release
 ### Added
 - Option to save or update instantly when notification clicked

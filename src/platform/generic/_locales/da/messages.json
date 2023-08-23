@@ -602,7 +602,7 @@
         }
     },
     "ToastServerCheckMessage": {
-        "message": "Kontoen \"$SERVER$\" bruger passwords $SERVERVERVERSION$, men denne udvidelse kræver mindst $MINVERSION$. Appen skal opdateres, før kontoen kan aktiveres igen i indstillingerne.",
+        "message": "Kontoen \"$SERVER$\" bruger passwords $SERVERVERSION$, men denne udvidelse kræver mindst $MINVERSION$. Appen skal opdateres, før kontoen kan aktiveres igen i indstillingerne.",
         "description": "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
         "placeholders": {
             "server": {
