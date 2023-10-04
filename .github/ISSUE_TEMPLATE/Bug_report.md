@@ -30,6 +30,8 @@ What does happen?
 <summary>Browser log</summary>
 
 ```
+!!! PUT THE CONTENTS OF THE LOGS HERE !!!
+
 In Firefox:
  - Open about:debugging#/runtime/this-firefox
  - Click "Inspect" on the extension
