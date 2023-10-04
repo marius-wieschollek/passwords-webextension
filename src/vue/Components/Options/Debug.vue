@@ -32,7 +32,10 @@
         <translate class="debug-source-and-build" say="DebugSourceAndBuild" tag="a" href="./build.html" target="_blank"/>
 
         <translate tag="h3" say="DebugErrorLog">
-            <icon icon="trash-alt" font="regular" @click="clearLog"/>
+            <div class="debug-log-actions">
+                <icon font="regular" icon="clipboard" @click.stop="copy(errors)" v-if="errors.length !== 0"/>
+                <icon icon="trash-alt" font="regular" @click="clearLog" v-if="errors.length !== 0"/>
+            </div>
         </translate>
         <div class="debug-error-item" v-for="error in errors">
             <div class="error-message" @click="showData">
@@ -245,21 +248,24 @@
         }
     }
 
-    .icon-trash-alt {
-        cursor           : pointer;
-        float            : right;
+    .debug-log-actions {
+        float : right;
         margin-top       : -1.5rem;
         margin-right     : -1rem;
-        padding          : 1rem;
-        display          : inline-block;
-        background-color : var(--button-bg-color);
-        color            : var(--button-fg-color);
-        transition       : var(--button-transition);
 
-        &:hover {
-            background-color : var(--button-hover-bg-color);
-            color            : var(--button-hover-fg-color);
-            box-shadow       : var(--tab-button-active-border);
+        .icon {
+            cursor           : pointer;
+            padding          : 1rem;
+            display          : inline-block;
+            background-color : var(--button-bg-color);
+            color            : var(--button-fg-color);
+            transition       : var(--button-transition);
+
+            &:hover {
+                background-color : var(--button-hover-bg-color);
+                color            : var(--button-hover-fg-color);
+                box-shadow       : var(--tab-button-active-border);
+            }
         }
     }
 
