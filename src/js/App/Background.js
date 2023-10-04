@@ -51,6 +51,7 @@ class Background {
             await LocalisationService.init();
         } catch(e) {
             ErrorManager.logError(e);
+            ErrorManager.error('Extension initialization failed. Extension may not work properly.');
         }
     }
 }
