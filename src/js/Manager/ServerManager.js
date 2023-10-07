@@ -74,14 +74,23 @@ class ServerManager {
      * @private
      */
     async _loadServers() {
-        let servers  = await ServerRepository.findAll(),
-            promises = [];
+        try {
+            let servers  = await ServerRepository.findAll(),
+                promises = [];
 
-        for(let server of servers) {
-            if(server.getEnabled()) promises.push(this.addServer(server));
+            for(let server of servers) {
+                if(server.getEnabled()) promises.push(this.addServer(server));
+            }
+
+            await Promise.all(promises);
+        } catch(e) {
+            ErrorManager.logError(e);
+
+            setTimeout(
+                () => {this._reload()},
+                30000
+            )
         }
-
-        await Promise.all(promises);
     }
 
     /**
@@ -259,6 +268,16 @@ class ServerManager {
 
         await Promise.all(promises);
         console.log('Reloaded servers after browser sync');
+    }
+
+    async _reload() {
+        let promises = [];
+        for(let key in this._servers) {
+            promises.push(this.removeServer(this._servers[key].server));
+        }
+        await Promise.all(promises);
+
+        await this._loadServers();
     }
 }
 
