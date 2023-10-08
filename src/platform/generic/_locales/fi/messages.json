@@ -1464,5 +1464,17 @@
     "ServerNetworkErrorReload": {
         "message": "Lataa palvelin uudelleen",
         "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
+    },
+    "PasswordMiningSettings": {
+        "message": "Uusi & muutettu salasana",
+        "description": "Headline above the password mining section in the other settings tab in the extension settings"
+    },
+    "SettingsMiningIgnoredDomains": {
+        "message": "Jätä nämä verkkotunnukset huomioimatta (yksi per rivi, myös aliverkkotunnukset jätetään huomioimatta).",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not detect new or changed passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "SettingsMiningIgnoredDomainsPlaceholder": {
+        "message": "esim. example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
     }
 }
