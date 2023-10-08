@@ -799,6 +799,10 @@
         "message": "A network error occurred. Please check if you're online and the server is reachable.",
         "description": "Text of the toast notification when the connection to the server failed with a network error"
     },
+    "ServerNetworkErrorReload": {
+        "message": "Reload Server",
+        "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
+    },
     "ServerUnknownError": {
         "message": "Unknown error.",
         "description": "Text of the toast notification when the connection to the server failed with an unknown error and no error message is present"

@@ -3,6 +3,7 @@ import ErrorManager from '@js/Manager/ErrorManager';
 import {HttpError, UnauthorizedError} from 'passwords-client/errors';
 import ToastService from '@js/Services/ToastService';
 import SystemService from '@js/Services/SystemService';
+import ServerManager from "@js/Manager/ServerManager";
 
 export default class ConnectionErrorHelper {
 
@@ -36,9 +37,15 @@ export default class ConnectionErrorHelper {
         } else if(error instanceof HttpError) {
             message = ['ServerHttpError', error.message];
         } else if(error instanceof TypeError && (error.message.substr(0, 12) === 'NetworkError' || error.message === 'Failed to fetch')) {
-            ToastService.create({message: 'ServerNetworkError', title, tags, default: true, ttl: 0, type: 'error'})
+            let options = {reload: 'ServerNetworkErrorReload'};
+
+            ToastService.create({message: 'ServerNetworkError', title, tags, options, default: true, ttl: 0, type: 'error'})
                 .then((c) => {
-                    if(c) SystemService.getBrowserApi().tabs.create({active: true, url: server.getBaseUrl()});
+                    if(c === 'reload') {
+                        this._reloadServer(server.getId()).catch(ErrorManager.catch());
+                    } else {
+                        SystemService.getBrowserApi().tabs.create({active: true, url: server.getBaseUrl()});
+                    }
                 })
                 .catch(ErrorManager.catch);
 
@@ -59,5 +66,19 @@ export default class ConnectionErrorHelper {
         server.setEnabled(false);
         server.setStatus(server.STATUS_DISABLED);
         await ServerRepository.update(server);
+    }
+
+    /**
+     * @param {String} serverId
+     * @return {Promise<void>}
+     * @private
+     */
+    async _reloadServer(serverId) {
+        try {
+            let server = await ServerRepository.findById(serverId);
+            await ServerManager.reloadServer(server);
+        } catch(e) {
+            ErrorManager.logError(e);
+        }
     }
 }
