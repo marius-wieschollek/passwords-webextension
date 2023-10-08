@@ -111,6 +111,8 @@ class ServerManager {
         if(setting.getValue() === null) {
             setting.setValue(serverId);
             await SettingsService.set(setting);
+        } else if(setting.getValue() === serverId) {
+            await SettingsService.reload();
         }
 
         await this._addServer.emit(server);

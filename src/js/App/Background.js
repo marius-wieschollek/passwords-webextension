@@ -40,7 +40,6 @@ class Background {
             NotificationService.init();
             RecommendationManager.init();
             await AutofillManager.init();
-            await BasicAuthAutofillManager.init();
             ThemeService.init(ThemeRepository);
             BadgeManager.init();
             ContextMenuManager.init();
@@ -48,6 +47,7 @@ class Background {
             ServerTimeoutManager.init();
             await PasswordStatisticsService.init();
             await ServerManager.init();
+            await BasicAuthAutofillManager.init();
             await LocalisationService.init();
         } catch(e) {
             ErrorManager.logError(e);

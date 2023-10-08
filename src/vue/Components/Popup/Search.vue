@@ -21,8 +21,11 @@
         components: {Translate, PasswordList},
 
         data() {
+            let query = PopupStateService.get('query');
+            if(query === null) {query = '';}
+
             return {
-                query      : PopupStateService.get('query'),
+                query,
                 passwords  : [],
                 placeholder: LocalisationService.translate('SearchPlaceholder'),
                 interval   : null

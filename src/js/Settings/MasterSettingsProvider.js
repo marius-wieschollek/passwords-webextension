@@ -342,12 +342,13 @@ class MasterSettingsProvider {
     async _getSettingsRepository() {
         try {
             let api = await ServerManager.getDefaultApi();
-
-            return /** @type {SettingRepository} **/ api.getInstance('repository.setting');
+            if(api.getServer().getStatus() === api.getServer().STATUS_AUTHORIZED) {
+                return /** @type {SettingRepository} **/ api.getInstance('repository.setting');
+            }
         } catch(e) {
             ErrorManager.logError(e);
-            return null;
         }
+        return null;
     }
 }
 

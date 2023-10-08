@@ -94,6 +94,14 @@ class SettingsService {
     }
 
     /**
+     *
+     * @returns {Promise<void>}
+     */
+    reload() {
+        return this._reloadSettings();
+    }
+
+    /**
      * @return {Promise<void>}
      * @private
      */
