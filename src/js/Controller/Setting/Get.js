@@ -26,7 +26,8 @@ export default class Get extends AbstractController {
             'clipboard.clear.passwords',
             'search.recommendation.mode',
             'search.recommendation.maxRows',
-            'password.list.show.user'
+            'password.list.show.user',
+            'mining.ignored-domains'
         ];
     }
 

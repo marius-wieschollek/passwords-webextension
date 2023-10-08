@@ -127,7 +127,7 @@
     },
     "NotificationSettings": {
         "message": "Notifications",
-        "description": "Headline above the notification section in the other settings tab in the extension settings"
+        "description": "Headline above the notification section in the other settings tab in the extension settings (!Currently Unused)"
     },
     "SettingsNotifyPasswordNew": {
         "message": "Notification for new passwords",
@@ -138,7 +138,7 @@
         "description": "Label of the setting in the extension settings to enable or disable the notification for detected password updates"
     },
     "SettingsNotifyPasswordQuicksave": {
-        "message": "Save or update directly when the notification is clicked",
+        "message": "Save or update passwords directly when the notification is clicked",
         "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"
     },
     "SearchSettings": {
@@ -148,6 +148,18 @@
     "SettingsPopupRelatedSearch": {
         "message": "Start search when i type in \"Related\"",
         "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "PasswordMiningSettings": {
+        "message": "New & changed password",
+        "description": "Headline above the password mining section in the other settings tab in the extension settings"
+    },
+    "SettingsMiningIgnoredDomains": {
+        "message": "Ignore these domains (one per line, subdomains are also ignored)",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not detect new or changed passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "SettingsMiningIgnoredDomainsPlaceholder": {
+        "message": "e.g. example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
     },
     "AccountList": {
         "message": "User accounts",

@@ -1,15 +1,17 @@
 <template>
     <textarea v-if="type === 'textarea'"
-           :value="value"
-           :placeholder="getPlaceholder"
-           :title="getTitle"
-           :readonly="readonly"
-           filled
-           auto-grow
-           v-on="listeners"
-           @input="handleInput"
-           @change="handleChange"/>
+              class="input textarea"
+              :value="value"
+              :placeholder="getPlaceholder"
+              :title="getTitle"
+              :readonly="readonly"
+              filled
+              auto-grow
+              v-on="listeners"
+              @input="handleInput"
+              @change="handleChange"/>
     <input v-else
+           class="input"
            :type="type"
            :value="value"
            :checked="isChecked"
@@ -47,7 +49,7 @@
                 type   : String,
                 default: ''
             },
-            readonly : {
+            readonly   : {
                 type   : Boolean,
                 default: false
             }
@@ -55,25 +57,25 @@
 
         computed: {
             getPlaceholder() {
-                if(this.placeholder.length === 0) return;
+                if (this.placeholder.length === 0) return;
 
                 return LocalisationService.translate(this.placeholder);
             },
             getTitle() {
-                if(this.title.length === 0) return;
+                if (this.title.length === 0) return;
 
                 return LocalisationService.translate(this.title);
             },
             isChecked() {
-                if(this.type !== 'checkbox' && this.type !== 'radio') return undefined;
+                if (this.type !== 'checkbox' && this.type !== 'radio') return undefined;
 
                 return this.checked || this.value;
             },
             listeners() {
                 let listeners = {};
 
-                for(let key in this.$listeners) {
-                    if(this.$listeners.hasOwnProperty(key) && key !== 'input' && key !== 'change') {
+                for (let key in this.$listeners) {
+                    if (this.$listeners.hasOwnProperty(key) && key !== 'input' && key !== 'change') {
                         listeners[key] = this.$listeners[key];
                     }
                 }
@@ -84,12 +86,12 @@
 
         methods: {
             handleInput($event) {
-                if(this.type !== 'checkbox' && this.type !== 'radio') {
+                if (this.type !== 'checkbox' && this.type !== 'radio') {
                     this.$emit('input', $event.target.value);
                 }
             },
             handleChange($event) {
-                if(this.type === 'checkbox' || this.type === 'radio') {
+                if (this.type === 'checkbox' || this.type === 'radio') {
                     this.$emit('change', $event.target.checked);
                     this.$emit('input', $event.target.checked);
                 }
@@ -97,3 +99,19 @@
         }
     };
 </script>
+
+<style lang="scss">
+.input {
+  cursor           : text;
+  background-color : var(--element-hover-bg-color);
+  border-radius    : var(--button-border-radius);
+  border           : none;
+  color            : var(--element-fg-color);
+  font-size        : var(--font-size);
+
+  &.textarea {
+    width      : 100%;
+    min-height : 5rem;
+  }
+}
+</style>

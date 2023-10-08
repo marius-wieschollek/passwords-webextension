@@ -49,7 +49,13 @@
             <translate tag="label" for="show-username-in-list" say="SettingsShowUsernameInList"/>
         </div>
 
-        <translate tag="h3" say="NotificationSettings"/>
+        <translate tag="h3" say="SearchSettings"/>
+        <div class="setting">
+            <slider-field id="popup-related-search" v-model="relatedSearch"/>
+            <translate tag="label" for="popup-related-search" say="SettingsPopupRelatedSearch"/>
+        </div>
+
+        <translate tag="h3" say="PasswordMiningSettings"/>
         <div class="setting">
             <slider-field id="notification-password-new" v-model="notifyPwNew"/>
             <translate tag="label" for="notification-password-new" say="SettingsNotifyPasswordNew"/>
@@ -62,11 +68,9 @@
             <slider-field id="notification-password-quicksave" v-model="notificationQuickSave"/>
             <translate tag="label" for="notification-password-quicksave" say="SettingsNotifyPasswordQuicksave"/>
         </div>
-
-        <translate tag="h3" say="SearchSettings"/>
-        <div class="setting">
-            <slider-field id="popup-related-search" v-model="relatedSearch"/>
-            <translate tag="label" for="popup-related-search" say="SettingsPopupRelatedSearch"/>
+        <div class="setting setting-textarea">
+            <translate tag="label" for="mining-ignored-domains" say="SettingsMiningIgnoredDomains"/>
+            <input-field type="textarea" id="mining-ignored-domains" v-model="miningIgnoredDomains" placeholder="SettingsMiningIgnoredDomainsPlaceholder" />
         </div>
     </div>
 </template>
@@ -80,10 +84,11 @@
     import SelectField from "@vue/Components/Form/SelectField";
     import HelpText from "@vue/Components/Options/Setting/HelpText";
     import ClipboardManager from '@js/Manager/ClipboardManager';
+    import InputField from "@vue/Components/Form/InputField.vue";
 
 
     export default {
-        components: {HelpText, SliderField, SelectField, Translate},
+        components: {InputField, HelpText, SliderField, SelectField, Translate},
         data() {
             return {
                 autoclose            : false,
@@ -99,7 +104,8 @@
                 recSearchRows        : 8,
                 clearClipboard       : false,
                 clearClipboardDelay  : 60,
-                showUserInList       : false
+                showUserInList       : false,
+                miningIgnoredDomains : ''
             };
         },
 
@@ -162,6 +168,7 @@
                 this.getSetting('clipboard.clear.passwords', 'clearClipboard');
                 this.getSetting('clipboard.clear.delay', 'clearClipboardDelay');
                 this.getSetting('password.list.show.user', 'showUserInList');
+                this.getSetting('mining.ignored-domains', 'miningIgnoredDomains');
             },
             async getSetting(name, variable) {
                 try {
@@ -254,6 +261,11 @@
                 if(oldValue !== null && value !== oldValue) {
                     this.setSetting('password.list.show.user', value);
                 }
+            },
+            miningIgnoredDomains(value, oldValue) {
+                if(oldValue !== null && value !== oldValue) {
+                    this.setSetting('mining.ignored-domains', value);
+                }
             }
         }
     };
@@ -288,6 +300,11 @@
 
         .settings-help-text {
             margin-right : -.5rem;
+        }
+
+        &.setting-textarea {
+            flex-direction: column;
+            align-items: start;
         }
     }
 }

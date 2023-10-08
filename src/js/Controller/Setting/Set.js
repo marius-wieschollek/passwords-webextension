@@ -45,6 +45,8 @@ export default class Set extends AbstractController {
                 await this._setSearchRecommendationMaxRows(Number(value));
             } else if(setting === 'clipboard.clear.delay') {
                 await this._setClipboardClearDelay(Number(value));
+            } else if(setting === 'mining.ignored-domains') {
+                await this._setString(setting, value);
             } else if(this._booleanSettings.indexOf(setting) !== -1) {
                 await this._setBoolean(setting, value);
             } else {
@@ -119,6 +121,17 @@ export default class Set extends AbstractController {
      */
     async _setBoolean(setting, value) {
         await SettingsService.set(setting, value === true);
+    }
+
+    /**
+     *
+     * @param {String} setting
+     * @param {Boolean} value
+     * @return {Promise<void>}
+     * @private
+     */
+    async _setString(setting, value) {
+        await SettingsService.set(setting, value.toLocaleString());
     }
 
     /**

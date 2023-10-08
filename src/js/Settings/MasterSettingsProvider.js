@@ -101,6 +101,10 @@ class MasterSettingsProvider {
             'password.list.show.user'        : [
                 'sync.password.list.show.user',
                 'local.password.list.show.user'
+            ],
+            'mining.ignored-domains'            : [
+                'sync.mining.ignored-domains',
+                'local.mining.ignored-domains'
             ]
         };
         this._defaults = {
@@ -122,7 +126,8 @@ class MasterSettingsProvider {
             'search.recommendation.maxRows'  : 8,
             'clipboard.clear.passwords'      : false,
             'clipboard.clear.delay'          : 60,
-            'password.list.show.user'        : false
+            'password.list.show.user'        : false,
+            'mining.ignored-domains'         : ''
         };
     }
 

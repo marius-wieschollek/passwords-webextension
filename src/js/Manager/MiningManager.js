@@ -12,6 +12,7 @@ import Url from "url-parse";
 import EventQueue from "@js/Event/EventQueue";
 import SystemService from "@js/Services/SystemService";
 import QueueClient from "@js/Queue/Client/QueueClient";
+import SettingsService from "@js/Services/SettingsService";
 
 class MiningManager {
 
@@ -46,6 +47,7 @@ class MiningManager {
         this._addItem = new EventQueue();
         this._solveItem = new EventQueue();
         this._processingQueue = null;
+        this._ingoredDomainsSetting = null;
     }
 
 
@@ -63,6 +65,9 @@ class MiningManager {
         });
 
         this._client.setQueue(this._processingQueue);
+        SettingsService.get('mining.ignored-domains').then(
+            (s) => { this._ingoredDomainsSetting = s; }
+        );
     }
 
     /**
@@ -181,7 +186,6 @@ class MiningManager {
             query    = new SearchQuery(),
             password = /** @type {EnhancedPassword} **/ query
                 .where(query.field('id').equals(task.getResultField('id')))
-                .hidden(true | false)
                 .execute()[0];
 
         password
@@ -224,7 +228,7 @@ class MiningManager {
         }
 
         let helper = new HiddenFolderHelper();
-        var hiddenFolder = await helper.getHiddenFolderId(api);
+        let hiddenFolder = await helper.getHiddenFolderId(api);
         if(task.getResultField('hidden') && password.getFolder() !== hiddenFolder) {
             return hiddenFolder;
         } else if(!task.getResultField('hidden') && password.getFolder() === hiddenFolder) {
@@ -278,6 +282,22 @@ class MiningManager {
         return items.length > 0;
     }
 
+    checkIfDomainAllowed(data) {
+        let url = Url(data.url);
+
+        let domains = this._ingoredDomainsSetting.getValue();
+        if(domains.length === 0) return true;
+
+        domains = domains.split(/\r?\n/);
+        for(let domain of domains) {
+            if(url.host.endsWith(domain.trim())) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     /**
      * @param {Object} data
      */
@@ -327,6 +347,7 @@ class MiningManager {
     _processPasswordData(data) {
         this.validateData(data);
         if(this.checkIfDuplicate(data)) return;
+        if(!this.checkIfDomainAllowed(data)) return;
         data.manual = false;
         this.createItem(data)
             .catch(ErrorManager.catchEvt);
