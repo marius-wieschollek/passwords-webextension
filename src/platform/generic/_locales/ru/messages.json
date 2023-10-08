@@ -1460,5 +1460,9 @@
     "CustomFieldValuePlaceholder": {
         "message": "Метка пользовательского поля",
         "description": "Placeholder text of the value for a custom field entry in the password details"
+    },
+    "ServerNetworkErrorReload": {
+        "message": "Перезагрузка сервера",
+        "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
     }
 }

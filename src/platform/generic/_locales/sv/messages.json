@@ -1460,5 +1460,9 @@
     "CustomFieldValuePlaceholder": {
         "message": "Etikett för anpassat fält",
         "description": "Placeholder text of the value for a custom field entry in the password details"
+    },
+    "ServerNetworkErrorReload": {
+        "message": "Ladda om servern",
+        "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
     }
 }
