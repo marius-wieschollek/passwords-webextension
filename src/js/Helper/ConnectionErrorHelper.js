@@ -43,7 +43,7 @@ export default class ConnectionErrorHelper {
                 .then((c) => {
                     if(c === 'reload') {
                         this._reloadServer(server.getId()).catch(ErrorManager.catch());
-                    } else {
+                    } else if(c) {
                         SystemService.getBrowserApi().tabs.create({active: true, url: server.getBaseUrl()});
                     }
                 })
