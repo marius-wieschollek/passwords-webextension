@@ -1464,5 +1464,17 @@
     "ServerNetworkErrorReload": {
         "message": "Przeładuj serwer",
         "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
+    },
+    "PasswordMiningSettings": {
+        "message": "Nowe i zmienione hasło",
+        "description": "Headline above the password mining section in the other settings tab in the extension settings"
+    },
+    "SettingsMiningIgnoredDomains": {
+        "message": "Zignoruj te domeny (jedna na linię, subdomeny są również ignorowane).",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not detect new or changed passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "SettingsMiningIgnoredDomainsPlaceholder": {
+        "message": "np. example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
     }
 }
