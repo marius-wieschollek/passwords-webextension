@@ -150,7 +150,7 @@
         "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
     },
     "PasswordMiningSettings": {
-        "message": "New & changed password",
+        "message": "New & changed passwords",
         "description": "Headline above the password mining section in the other settings tab in the extension settings"
     },
     "SettingsMiningIgnoredDomains": {
