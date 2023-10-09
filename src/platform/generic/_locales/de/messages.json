@@ -1430,7 +1430,7 @@
         }
     },
     "SettingsNotifyPasswordQuicksave": {
-        "message": "Sofort speichern wenn die Benachrichtigung angeklickt wird",
+        "message": "Passwörter sofort speichern wenn die Benachrichtigung angeklickt wird",
         "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"
     },
     "NotifyNewPasswordTextQS": {
@@ -1462,15 +1462,15 @@
         "description": "Placeholder text of the value for a custom field entry in the password details"
     },
     "ServerNetworkErrorReload": {
-        "message": "Server neu laden",
+        "message": "Erneut versuchen",
         "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
     },
     "SettingsMiningIgnoredDomainsPlaceholder": {
-        "message": "z.B. beispiel.de",
+        "message": "z.B. example.com",
         "description": "Placeholder text for SettingsMiningIgnoredDomains"
     },
     "PasswordMiningSettings": {
-        "message": "Neues & geändertes Passwort",
+        "message": "Neues & geänderte Passwörter",
         "description": "Headline above the password mining section in the other settings tab in the extension settings"
     },
     "SettingsMiningIgnoredDomains": {
