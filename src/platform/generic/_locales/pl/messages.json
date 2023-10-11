@@ -1476,5 +1476,9 @@
     "SettingsMiningIgnoredDomainsPlaceholder": {
         "message": "np. example.com",
         "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "SettingsMiningIncognitoHide": {
+        "message": "Przechowywanie haseł zebranych w trybie incognito jako haseł prywatnych.",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
     }
 }
