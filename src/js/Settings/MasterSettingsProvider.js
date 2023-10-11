@@ -105,6 +105,11 @@ class MasterSettingsProvider {
             'mining.ignored-domains'            : [
                 'sync.mining.ignored-domains',
                 'local.mining.ignored-domains'
+            ],
+            'mining.incognito.hide'            : [
+                'sync.mining.incognito.hide',
+                'local.mining.incognito.hide',
+                'client.ext.mining.incognito.hide'
             ]
         };
         this._defaults = {
@@ -127,7 +132,8 @@ class MasterSettingsProvider {
             'clipboard.clear.passwords'      : false,
             'clipboard.clear.delay'          : 60,
             'password.list.show.user'        : false,
-            'mining.ignored-domains'         : ''
+            'mining.ignored-domains'         : '',
+            'mining.incognito.hide'            : true
         };
     }
 

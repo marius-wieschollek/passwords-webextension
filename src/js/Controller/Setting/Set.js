@@ -19,7 +19,8 @@ export default class Set extends AbstractController {
             'notification.password.quicksave',
             'debug.localisation.enabled',
             'clipboard.clear.passwords',
-            'password.list.show.user'
+            'password.list.show.user',
+            'mining.incognito.hide'
         ];
     }
 

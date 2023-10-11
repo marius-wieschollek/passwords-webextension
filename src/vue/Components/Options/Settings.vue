@@ -68,6 +68,10 @@
             <slider-field id="notification-password-quicksave" v-model="notificationQuickSave"/>
             <translate tag="label" for="notification-password-quicksave" say="SettingsNotifyPasswordQuicksave"/>
         </div>
+        <div class="setting">
+            <slider-field id="mining-incognito-hide" v-model="miningIncognitoHide"/>
+            <translate tag="label" for="mining-incognito-hide" say="SettingsMiningIncognitoHide"/>
+        </div>
         <div class="setting setting-textarea">
             <translate tag="label" for="mining-ignored-domains" say="SettingsMiningIgnoredDomains"/>
             <input-field type="textarea" id="mining-ignored-domains" v-model="miningIgnoredDomains" placeholder="SettingsMiningIgnoredDomainsPlaceholder" />
@@ -105,7 +109,8 @@
                 clearClipboard       : false,
                 clearClipboardDelay  : 60,
                 showUserInList       : false,
-                miningIgnoredDomains : ''
+                miningIgnoredDomains : '',
+                miningIncognitoHide    : true
             };
         },
 
@@ -169,6 +174,7 @@
                 this.getSetting('clipboard.clear.delay', 'clearClipboardDelay');
                 this.getSetting('password.list.show.user', 'showUserInList');
                 this.getSetting('mining.ignored-domains', 'miningIgnoredDomains');
+                this.getSetting('mining.incognito.hide', 'miningIncognitoHide');
             },
             async getSetting(name, variable) {
                 try {
@@ -265,6 +271,11 @@
             miningIgnoredDomains(value, oldValue) {
                 if(oldValue !== null && value !== oldValue) {
                     this.setSetting('mining.ignored-domains', value);
+                }
+            },
+            miningIncognitoHide(value, oldValue) {
+                if(oldValue !== null && value !== oldValue) {
+                    this.setSetting('mining.incognito.hide', value);
                 }
             }
         }

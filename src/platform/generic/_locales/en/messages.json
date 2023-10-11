@@ -161,6 +161,10 @@
         "message": "e.g. example.com",
         "description": "Placeholder text for SettingsMiningIgnoredDomains"
     },
+    "SettingsMiningIncognitoHide": {
+        "message": "Store passwords collected in Incognito as private passwords",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
     "AccountList": {
         "message": "User accounts",
         "description": "Headline above the user accounts section in the accounts tab in the extension settings"

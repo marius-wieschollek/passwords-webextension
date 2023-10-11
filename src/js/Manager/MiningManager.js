@@ -83,7 +83,7 @@ class MiningManager {
      * @param {Object} data
      */
     async createItem(data) {
-        let hidden = TabManager.get().tab.incognito;
+        let hidden = TabManager.get().tab.incognito && await SettingsService.getValue('mining.incognito.hide');
 
         let task = new MiningItem()
             .setTaskField('label', data.title);
