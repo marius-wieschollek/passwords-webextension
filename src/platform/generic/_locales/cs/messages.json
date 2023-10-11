@@ -1476,5 +1476,9 @@
     "SettingsMiningIgnoredDomainsPlaceholder": {
         "message": "např. example.com",
         "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "SettingsMiningIncognitoHide": {
+        "message": "Ukládání hesel shromážděných v aplikaci Inkognito jako soukromých hesel",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
     }
 }
