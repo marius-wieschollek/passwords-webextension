@@ -1476,5 +1476,9 @@
     "SettingsMiningIgnoredDomainsPlaceholder": {
         "message": "π.χ. example.com",
         "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "SettingsMiningIncognitoHide": {
+        "message": "Αποθηκεύστε τους κωδικούς πρόσβασης που συλλέγονται στο Incognito ως ιδιωτικούς κωδικούς πρόσβασης",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
     }
 }
