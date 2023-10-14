@@ -90,7 +90,6 @@ Publish Nightly Chrome:
 
 Publish Nightly Edge:
   stage: publishing
-  allow_failure: true
   script:
     - 'export EXT_VERSION=$(node -p "require(\"./dist/chrome-extension/manifest.json\").version")'
     - 'PACKAGE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/passwords-webextension-nightly/latest/edge-webextension-${EXT_VERSION}.zip"'
@@ -126,7 +125,6 @@ Publish Stable Chrome:
 
 Publish Stable Edge:
   stage: publishing
-  allow_failure: true
   script:
     - 'npm ci'
     - 'cd dist/chrome-extension'

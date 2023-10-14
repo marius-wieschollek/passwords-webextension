@@ -7,12 +7,13 @@ This WebExtension is the official client for the [Passwords app for Nextcloud](h
 * Create and update passwords
 * Multiple Accounts
 * End-to-End Encryption
-* Two factor authentication
+* Two-factor authentication
 * Themes
 
 ### Downloads
 * [Firefox Extension](https://addons.mozilla.org/de/firefox/addon/nextcloud-passwords/)
 * [Chrome Extension](https://chrome.google.com/webstore/detail/nextcloud-passwords/mhajlicjhgoofheldnmollgbgjheenbi)
+* [Edge Extension](https://microsoftedge.microsoft.com/addons/detail/cjmlcljdpphgdfpkngjcmeepdpcgpffk)
 * [Firefox Extension Development Build](https://git.mdns.eu/nextcloud/passwords-webextension/-/packages/16)
 * [Chrome Extension Development Build](https://chrome.google.com/webstore/detail/aipncmjoigmhooiiclcailmhiopachih)
 
