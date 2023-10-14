@@ -128,6 +128,7 @@ Publish Stable Edge:
   stage: publishing
   allow_failure: true
   script:
+    - 'npm ci'
     - 'cd dist/chrome-extension'
     - 'zip -r -9 ../../edge-extension.zip ./*'
     - 'cd ../../'
