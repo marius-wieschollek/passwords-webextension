@@ -108,7 +108,7 @@ Publish Stable Firefox:
   stage: publishing
   script:
     - 'rm dist/firefox-extension/updates.json'
-    - 'web-ext sign --channel listed'
+    - 'web-ext sign --use-submission-api --channel listed'
   environment:
     name: Stable
   only:
