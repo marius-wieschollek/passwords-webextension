@@ -1,3 +1,11 @@
+## 2.4.0 - Feature Release
+### Added
+- Ignored domains list for new password collection
+- Option to disable marking new passwords as private in incognito
+### Fixed
+- Extension initialization fails when default server offline
+- WASM not working in Firefox
+
 ## 2.3.1 - Bugfix Release
 ### Fixed
 - Invalid language tag in danish and swedish

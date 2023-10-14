@@ -1470,7 +1470,7 @@
         "description": "Placeholder text for SettingsMiningIgnoredDomains"
     },
     "PasswordMiningSettings": {
-        "message": "Neues & geänderte Passwörter",
+        "message": "Neue & geänderte Passwörter",
         "description": "Headline above the password mining section in the other settings tab in the extension settings"
     },
     "SettingsMiningIgnoredDomains": {
