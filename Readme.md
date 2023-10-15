@@ -16,6 +16,7 @@ This WebExtension is the official client for the [Passwords app for Nextcloud](h
 * [Edge Extension](https://microsoftedge.microsoft.com/addons/detail/cjmlcljdpphgdfpkngjcmeepdpcgpffk)
 * [Firefox Extension Development Build](https://git.mdns.eu/nextcloud/passwords-webextension/-/packages/16)
 * [Chrome Extension Development Build](https://chrome.google.com/webstore/detail/aipncmjoigmhooiiclcailmhiopachih)
+* You can also download the extensions directly from [extensions.passwordsapp.org](https://extensions.passwordsapp.org/)
 
 ## Support
 * [Official Chat](https://t.me/nc_passwords)
