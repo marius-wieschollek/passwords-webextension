@@ -1480,5 +1480,13 @@
     "SettingsMiningIncognitoHide": {
         "message": "Αποθηκεύστε τους κωδικούς πρόσβασης που συλλέγονται στο Incognito ως ιδιωτικούς κωδικούς πρόσβασης",
         "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "BadgeIconOutlineDark": {
+        "message": "Εικονίδιο με σκούρο περίγραμμα",
+        "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconOutlineLight": {
+        "message": "Εικονίδιο φωτεινού περιγράμματος",
+        "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
     }
 }
