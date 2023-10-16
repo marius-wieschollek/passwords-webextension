@@ -1480,5 +1480,13 @@
     "SettingsMiningIncognitoHide": {
         "message": "Armazenar as palavras-passe recolhidas no modo de navegação anónima como palavras-passe privadas",
         "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "BadgeIconOutlineLight": {
+        "message": "Ícone de contorno de luz",
+        "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconOutlineDark": {
+        "message": "Ícone de contorno escuro",
+        "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
     }
 }
