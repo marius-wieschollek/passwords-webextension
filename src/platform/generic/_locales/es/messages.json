@@ -1480,5 +1480,13 @@
     "SettingsMiningIncognitoHide": {
         "message": "Almacenar las contraseñas recopiladas en Incógnito como contraseñas privadas",
         "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "BadgeIconOutlineLight": {
+        "message": "Icono de contorno luminoso",
+        "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconOutlineDark": {
+        "message": "Icono de contorno oscuro",
+        "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
     }
 }
