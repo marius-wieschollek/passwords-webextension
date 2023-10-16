@@ -1480,5 +1480,13 @@
     "SettingsMiningIncognitoHide": {
         "message": "Memorizzare le password raccolte in Incognito come password private.",
         "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "BadgeIconOutlineLight": {
+        "message": "Icona del contorno della luce",
+        "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconOutlineDark": {
+        "message": "Icona del contorno scuro",
+        "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
     }
 }
