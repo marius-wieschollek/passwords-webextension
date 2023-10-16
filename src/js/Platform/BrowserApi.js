@@ -1,3 +1,5 @@
+import SystemService from "@js/Services/SystemService";
+
 class BrowserApi {
 
     /**
@@ -64,6 +66,21 @@ class BrowserApi {
     isCompatible(platform) {
         if(platform === 'firefox') return true;
         return platform === process.env.APP_PLATFORM;
+    }
+
+    /**
+     * @returns {boolean}
+     */
+    usesDarkMode() {
+        let matcher = window.matchMedia('(prefers-color-scheme: dark)');
+        return matcher.matches;
+    }
+
+    /**
+     * @returns {string}
+     */
+    getDefaultIcon() {
+        return `passwords${SystemService.usesDarkMode() ? '-light':'-dark'}.svg`;
     }
 }
 

@@ -1098,6 +1098,14 @@
         "message": "Dark modern icon",
         "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
     },
+    "BadgeIconOutlineLight": {
+        "message": "Light outline icon",
+        "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconOutlineDark": {
+        "message": "Dark outline icon",
+        "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
     "CustomBadgeColors": {
         "message": "Badge colors",
         "description": "Label of the settings for the toolbar icon badge colors in the custom theme settings"

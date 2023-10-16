@@ -23,13 +23,15 @@
         computed: {
             options() {
                 return {
-                    auto       : 'BadgeIconAuto',
-                    light      : 'BadgeIconLight',
-                    medium     : 'BadgeIconMedium',
-                    dark       : 'BadgeIconDark',
-                    'new-light': 'BadgeIconNewLight',
-                    'new'      : 'BadgeIconNewMedium',
-                    'new-dark' : 'BadgeIconNewDark'
+                    auto           : 'BadgeIconAuto',
+                    light          : 'BadgeIconLight',
+                    medium         : 'BadgeIconMedium',
+                    dark           : 'BadgeIconDark',
+                    'new-light'    : 'BadgeIconNewLight',
+                    'new'          : 'BadgeIconNewMedium',
+                    'new-dark'     : 'BadgeIconNewDark',
+                    'outline-light': 'BadgeIconOutlineLight',
+                    'outline-dark' : 'BadgeIconOutlineDark'
                 };
             }
         },

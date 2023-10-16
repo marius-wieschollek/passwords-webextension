@@ -144,6 +144,20 @@ class SystemService {
     /**
      * @returns {Boolean}
      */
+    usesDarkMode() {
+        return BrowserApi.usesDarkMode();
+    }
+
+    /**
+     * @returns {String}
+     */
+    getDefaultIcon() {
+        return BrowserApi.getDefaultIcon();
+    }
+
+    /**
+     * @returns {Boolean}
+     */
     hasNotificationButtons() {
         return BrowserApi.hasNotificationButtons();
     }

@@ -63,7 +63,9 @@ class ThemeService {
         let theme = await this.getCurrentTheme(),
             icon  = theme.getBadgeIcon();
 
-        if(!icon) icon = 'passwords';
+        if(!icon)  {
+            return SystemService.getBrowserApi().runtime.getURL(`img/${SystemService.getDefaultIcon()}`);
+        }
         if(SystemService.isCompatible(SystemService.PLATFORM_FIREFOX)) {
             return SystemService.getBrowserApi().runtime.getURL(`img/${icon}.svg`);
         }
