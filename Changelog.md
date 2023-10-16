@@ -1,3 +1,9 @@
+## 2.4.1 - Bugfix Release
+### Changed
+- Icons for Edge with dark design
+### Fixed
+- Turkish translation not working
+
 ## 2.4.0 - Feature Release
 ### Added
 - Ignored domains list for new password collection

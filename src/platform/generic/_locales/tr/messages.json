@@ -628,7 +628,7 @@
         }
     },
     "ToastServerCheckMessage": {
-        "message": "\"$SERVER$\" hesabı $SERVERSION$ şifrelerini kullanıyor, ancak bu uzantı en az $MINVERSION$ gerektiriyor. Hesabın ayarlardan tekrar etkinleştirilebilmesi için uygulamanın güncellenmesi gerekir.",
+        "message": "\"$SERVER$\" hesabı $SERVERVERSION$ şifrelerini kullanıyor, ancak bu uzantı en az $MINVERSION$ gerektiriyor. Hesabın ayarlardan tekrar etkinleştirilebilmesi için uygulamanın güncellenmesi gerekir.",
         "description": "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
         "placeholders": {
             "server": {
