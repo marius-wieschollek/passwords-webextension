@@ -1,11 +1,10 @@
-import { v4 as uuid } from 'uuid';
 import LocalisationService from '@js/Services/LocalisationService';
 import SystemService from '@js/Services/SystemService';
 
 export default class AbstractNotification {
 
     constructor() {
-        this._id = uuid();
+        this._id = self.crypto.randomUUID();
         this._title = 'NotificationNoTitle';
         this._text = 'NotificationNoText';
         this._type = 'basic';

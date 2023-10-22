@@ -1,6 +1,5 @@
 import StorageService from '@js/Services/StorageService';
 import Server from '@js/Models/Server/Server';
-import {v4 as uuid} from 'uuid';
 import LocalisationService from '@js/Services/LocalisationService';
 import ServerRepository from '@js/Repositories/ServerRepository';
 import SettingsService from '@js/Services/SettingsService';
@@ -69,7 +68,7 @@ class UpgradeManager {
 
         let server = new Server(
             {
-                id         : uuid(),
+                id         : self.crypto.randomUUID(),
                 label      : LocalisationService.translate('MigrationAccountName'),
                 baseUrl    : url,
                 user,

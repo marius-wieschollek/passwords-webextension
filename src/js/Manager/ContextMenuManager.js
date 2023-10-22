@@ -1,7 +1,6 @@
 import SystemService         from '@js/Services/SystemService';
 import RecommendationManager from '@js/Manager/RecommendationManager';
 import LocalisationService   from '@js/Services/LocalisationService';
-import {v4 as uuid}          from 'uuid';
 import MessageService        from '@js/Services/MessageService';
 import TabManager            from '@js/Manager/TabManager';
 import ErrorManager          from '@js/Manager/ErrorManager';
@@ -65,7 +64,7 @@ class ContextMenuManager {
      * @private
      */
     async _createRecommendationMenu(recommended) {
-        let menuId      = uuid(),
+        let menuId      = self.crypto.randomUUID(),
             defaultIcon = await ThemeService.getBadgeIcon();
 
         this._createMenu(

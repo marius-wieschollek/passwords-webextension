@@ -1,5 +1,4 @@
 import Vue from 'vue';
-import { v4 as uuid } from 'uuid';
 import QueueService from '@js/Services/QueueService';
 import SystemService from '@js/Services/SystemService';
 import QueueClient from '@js/Queue/Client/QueueClient';
@@ -162,7 +161,7 @@ class ToastService {
             model = this._createModelFromData(data);
         }
 
-        if(!model.getId() || this._toasts.hasOwnProperty(model.getId())) model.setId(uuid());
+        if(!model.getId() || this._toasts.hasOwnProperty(model.getId())) model.setId(self.crypto.randomUUID());
         if(typeof model.getCloseable() !== 'boolean') model.setCloseable(true);
         if(model.getCloseable() && model.getTtl() < this.MIN_TTL && model.getTtl() !== 0) model.setTtl(this.DEFAULT_TTL);
         if(model.getCloseable() && !model.getDefault()) model.setDefault('close');
