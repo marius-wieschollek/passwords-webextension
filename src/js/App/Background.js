@@ -2,7 +2,7 @@ import ErrorManager from '@js/Manager/ErrorManager';
 import SearchManager from '@js/Manager/SearchManager';
 import ServerManager from '@js/Manager/ServerManager';
 import SystemService from '@js/Services/SystemService';
-import UpgradeManager from '@js/Manager/UpgradeManager';
+import MigrationManager from '@js/Manager/MigrationManager';
 import ConverterManager from '@js/Manager/ConverterManager';
 import ControllerManager from '@js/Manager/ControllerManager';
 import RecommendationManager from '@js/Manager/RecommendationManager';
@@ -33,7 +33,7 @@ class Background {
             await MessageService.init();
             await StorageService.init();
             SettingsService.init(MasterSettingsProvider);
-            await UpgradeManager.run();
+            await MigrationManager.run();
             PassLinkManager.init();
             ControllerManager.init();
             ConverterManager.init();
