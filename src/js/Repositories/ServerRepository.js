@@ -79,7 +79,7 @@ class ServerRepository {
         for(let i = 0; i < servers.length; i++) {
             if(servers[i].getId() === server.getId()) {
                 servers.splice(i, 1);
-                await StorageService.remove(`server.${servers.getId()}.token`);
+                await StorageService.remove(`server.${server.getId()}.token`);
                 await StorageService.set(this.STORAGE_KEY, servers);
                 return;
             }
