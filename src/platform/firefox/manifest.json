@@ -57,7 +57,7 @@
     "browser_specific_settings": {
         "gecko": {
             "id"                : "ncpasswords@mdns.eu",
-            "strict_min_version": "57.0"
+            "strict_min_version": "95.0"
         }
     },
     "background"               : {
