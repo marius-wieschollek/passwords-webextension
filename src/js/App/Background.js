@@ -22,6 +22,7 @@ import PasswordStatisticsService from "@js/Services/PasswordStatisticsService";
 import PassLinkManager from "@js/Manager/PassLinkManager";
 import BasicAuthAutofillManager from "@js/Manager/BasicAuthAutofillManager";
 import ServerTimeoutManager from "@js/Manager/ServerTimeoutManager";
+import StorageService from "@js/Services/StorageService";
 
 class Background {
     async init() {
@@ -30,6 +31,7 @@ class Background {
         try {
             await SystemService.waitReady();
             await MessageService.init();
+            await StorageService.init();
             SettingsService.init(MasterSettingsProvider);
             await UpgradeManager.run();
             PassLinkManager.init();

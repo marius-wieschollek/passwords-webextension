@@ -1,6 +1,6 @@
 import StorageService from '@js/Services/StorageService';
 import Server from '@js/Models/Server/Server';
-import { v4 as uuid } from 'uuid';
+import {v4 as uuid} from 'uuid';
 import LocalisationService from '@js/Services/LocalisationService';
 import ServerRepository from '@js/Repositories/ServerRepository';
 import SettingsService from '@js/Services/SettingsService';
@@ -9,14 +9,23 @@ import SystemService from '@js/Services/SystemService';
 class UpgradeManager {
 
     get CURRENT_VERSION() {
-        return 20003;
+        return 20004;
     }
 
     async run() {
-        let version = await StorageService.get('version');
+        let version = null,
+            storage = SystemService.getBrowserApi().storage,
+            result  = await storage.local.get('version');
+
+        if(result.hasOwnProperty('version')) {
+            version = result.version;
+        } else {
+            result = await storage.sync.get('version');
+            if(result.hasOwnProperty('version')) version = result.version;
+        }
 
         if(version === null) {
-            await StorageService.set('version', this.CURRENT_VERSION, StorageService.STORAGE_SYNC);
+            await storage.sync.set({version: this.CURRENT_VERSION});
             return;
         } else if(version === this.CURRENT_VERSION) {
             return;
@@ -24,6 +33,10 @@ class UpgradeManager {
 
         if(version < 20000) {
             await this._upgrade20000();
+        }
+
+        if(version < 20004) {
+            await this._upgrade20004();
         }
 
         if(version < 20001) {
@@ -38,8 +51,8 @@ class UpgradeManager {
             await this._upgrade20003();
         }
 
-        await StorageService.set('version', this.CURRENT_VERSION, StorageService.STORAGE_SYNC);
-        await StorageService.set('version', this.CURRENT_VERSION, StorageService.STORAGE_LOCAL);
+        await storage.sync.set({version: this.CURRENT_VERSION});
+        await storage.local.set({version: this.CURRENT_VERSION});
     }
 
     async _upgrade20000() {
@@ -67,7 +80,7 @@ class UpgradeManager {
             }
         );
 
-        await StorageService.remove('servers', StorageService.STORAGE_SYNC);
+        await SystemService.getBrowserApi().storage.sync.remove('servers');
         await ServerRepository.create(server);
         await SettingsService.set('server.default', server.getId());
         await this._removeOldVariables();
@@ -101,14 +114,54 @@ class UpgradeManager {
         }
     }
 
+    async _upgrade20004() {
+        await new Promise((resolve) => {
+            setTimeout(resolve, 10000);
+        });
+
+        StorageService.stop();
+        await this._removeOldVariables();
+        let instanceId  = self.crypto.randomUUID(),
+            api         = SystemService.getBrowserApi().storage,
+            oldSyncData = await api.sync.get(),
+            newSyncData = {};
+
+        for(let key in oldSyncData) {
+            if(!oldSyncData.hasOwnProperty(key) || key === 'version') continue;
+            try {
+                newSyncData[key] = {time: Date.now(), instance: instanceId, value: JSON.parse(oldSyncData[key]), version: 1};
+            } catch(e) {
+                continue;
+            }
+        }
+
+        newSyncData.keys = Object.keys(newSyncData);
+        await api.sync.remove();
+        await api.sync.set(newSyncData);
+
+        let oldLocalData = await api.local.get(),
+            newLocalData = {instance: instanceId};
+
+        for(let key in oldLocalData) {
+            if(!oldLocalData.hasOwnProperty(key) || key === 'version') continue;
+
+            try {
+                newLocalData[key] = {time: Date.now(), instance: instanceId, value: JSON.parse(oldLocalData[key]), version: 1};
+            } catch(e) {
+                continue;
+            }
+        }
+
+        newLocalData.keys = Object.keys(newLocalData);
+        await api.local.remove();
+        await api.local.set(newLocalData);
+        await StorageService.init();
+    }
+
     async _removeOldVariables() {
-        await StorageService.remove('initialized', StorageService.STORAGE_LOCAL);
-        await StorageService.remove('password', StorageService.STORAGE_LOCAL);
-        await StorageService.remove('updated', StorageService.STORAGE_LOCAL);
-        await StorageService.remove('url', StorageService.STORAGE_SYNC);
-        await StorageService.remove('user', StorageService.STORAGE_SYNC);
-        await StorageService.remove('theme', StorageService.STORAGE_SYNC);
-        await StorageService.remove('version', StorageService.STORAGE_LOCAL);
+        let storage = SystemService.getBrowserApi().storage;
+        await storage.local.remove(['initialized', 'password', 'updated']);
+        await storage.sync.remove(['url', 'user', 'theme']);
     }
 }
 

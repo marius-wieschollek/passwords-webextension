@@ -19,10 +19,62 @@ class StorageService {
     constructor() {
         this._api = SystemService.getBrowserApi();
         this._onSync = new EventQueue();
-        this._syncChanges = 0;
         this._api.storage.onChanged.addListener(
-            (d,a) => { this._onChangeListener(d,a); }
+            (d, a) => { this._onChangeListener(d, a); }
         );
+        this._keys = {local: [], sync: []};
+        this._storage = {local: {}, sync: {}};
+        this._pendingChanges = {};
+        this._instance = null;
+        this._initialized = false;
+    }
+
+    async init() {
+        let localData = new Promise(async (resolve) => {
+            let result = await this._api.storage.local.get(['keys', 'instance']);
+
+            if(result.hasOwnProperty('instance')) {
+                this._instance = result.instance;
+            }
+            if(result.hasOwnProperty('keys')) {
+                this._keys.local = result.keys;
+                this._storage.local = await this._api.storage.local.get(result.keys);
+
+                if(this._keys.local.length !== Object.keys(this._storage.local).length) {
+                    this._keys.local = Object.keys(this._storage.local);
+                    await this._api.storage.local.set({keys: this._keys.local});
+                }
+            }
+
+            resolve();
+        });
+
+        let syncData = new Promise(async (resolve) => {
+            let result = await this._api.storage.sync.get('keys');
+
+            if(result.hasOwnProperty('keys')) {
+                this._keys.sync = result.keys;
+                this._storage.sync = await this._api.storage.sync.get(result.keys);
+
+                if(this._keys.sync.length !== Object.keys(this._storage.sync).length) {
+                    this._keys.sync = Object.keys(this._storage.sync);
+                    await this._api.storage.sync.set({keys: this._keys.sync});
+                }
+            }
+
+            resolve();
+        });
+
+        await Promise.all([localData, syncData]);
+        this._initialized = true;
+    }
+
+    stop() {
+        this._initialized = false;
+        this._keys = {local: [], sync: []};
+        this._storage = {local: {}, sync: {}};
+        this._pendingChanges = {};
+        this._instance = null;
     }
 
     /**
@@ -33,15 +85,27 @@ class StorageService {
      * @returns {Promise<Boolean>}
      */
     async set(key, value, storage = 'sync') {
+        if(!this._initialized) return false;
+
         try {
-            let set = {};
-            set[key] = JSON.stringify(value);
-            if(storage === this.STORAGE_SYNC) this._syncChanges++;
-            await this._api.storage[storage].set(set);
-            if(storage === this.STORAGE_SYNC) this._syncChanges--;
+            this._pendingChanges[key] = true;
+            let isUpdate = this._storageHas(key, storage),
+                version  = isUpdate ? this._storage[storage][key].version + 1:1;
+
+            let dataset = {time: Date.now(), instance: this._instance, value, version};
+            this._storage[storage][key] = dataset;
+            if(!isUpdate) this._keys[storage].push(key);
+
+            let storageSet = {};
+            storageSet[key] = dataset;
+            await this._api.storage[storage].set(storageSet);
+
+            if(!isUpdate) await this._api.storage[storage].set({keys: this._keys[storage]});
+            delete this._pendingChanges[key];
+
             return true;
         } catch(e) {
-            if(storage === this.STORAGE_SYNC) this._syncChanges--;
+            delete this._pendingChanges[key];
             ErrorManager.logError(e);
             return false;
         }
@@ -51,13 +115,15 @@ class StorageService {
      *
      * @param {String} key
      * @param {(String|null)} storage
-     * @returns {Promise<*>}
+     * @returns {*}
      */
-    async get(key, storage = null) {
+    get(key, storage = null) {
+        if(!this._initialized) return null;
+
         if(storage !== null) {
-            return await this._getFromStorage(key, storage);
+            return this._getFromStorage(key, storage);
         } else {
-            return await this._getFromAnyStorage(key);
+            return this._getFromAnyStorage(key);
         }
     }
 
@@ -65,14 +131,16 @@ class StorageService {
      *
      * @param {String} key
      * @param {(String|null)} storage
-     * @returns {Promise<Boolean>}
+     * @returns {Boolean}
      */
-    async has(key, storage = null) {
+    has(key, storage = null) {
+        if(!this._initialized) return false;
+
         if(storage !== null) {
-            return await this._storageHas(key, storage);
+            return this._storageHas(key, storage);
         } else {
             for(let storage of ['local', 'sync']) {
-                if(await this._storageHas(key, storage)) return true;
+                if(this._storageHas(key, storage)) return true;
             }
 
             return false;
@@ -86,6 +154,8 @@ class StorageService {
      * @returns {Promise<Boolean>}
      */
     async remove(key, storage = null) {
+        if(!this._initialized) return false;
+
         if(storage !== null) {
             return await this._storageRemove(key, storage);
         } else {
@@ -98,52 +168,44 @@ class StorageService {
         }
     }
 
-    async _getFromStorage(key, storage) {
-        try {
-            let result = await this._api.storage[storage].get(key);
-            if(result.hasOwnProperty(key)) return JSON.parse(result[key]);
-        } catch(e) {
-            ErrorManager.logError(e);
-        }
+    _getFromStorage(key, storage) {
+        if(this._storage[storage].hasOwnProperty(key)) return this._storage[storage][key].value;
         return null;
     }
 
-    async _getFromAnyStorage(key) {
+    _getFromAnyStorage(key) {
         for(let storage of ['local', 'sync']) {
-            try {
-                let result = await this._api.storage[storage].get(key);
-                if(result.hasOwnProperty(key)) return JSON.parse(result[key]);
-            } catch(e) {
-                ErrorManager.logError(e);
+            if(this._storageHas(key, storage)) {
+                return this._getFromStorage(key, storage);
             }
         }
 
         return null;
     }
 
-    async _storageHas(key, storage) {
-        try {
-            let result = await this._api.storage[storage].get(key);
-
-            return result.hasOwnProperty(key);
-        } catch(e) {
-            ErrorManager.logError(e);
-        }
-        return false;
+    _storageHas(key, storage) {
+        return this._keys[storage].indexOf(key) !== -1;
     }
 
     async _storageRemove(key, storage) {
         try {
-            if(storage === this.STORAGE_SYNC) this._syncChanges++;
-            await this._api.storage[storage].remove(key);
-            if(storage === this.STORAGE_SYNC) this._syncChanges--;
+            if(this._storageHas(key, storage)) {
+                this._pendingChanges[key] = true;
+                this._keys[storage].splice(this._keys[storage].indexOf(key), 1);
+                delete this._storage[storage][key];
+                await this._api.storage[storage].remove(key);
+                await this._api.storage[storage].set({keys: this._keys[storage]});
+                delete this._pendingChanges[key];
+            }
 
             return true;
         } catch(e) {
-            if(storage === this.STORAGE_SYNC) this._syncChanges--;
             ErrorManager.logError(e);
+            if(this._pendingChanges.hasOwnProperty(key)) {
+                delete this._pendingChanges[key];
+            }
+            return false;
         }
-        return false;
     }
 
     /**
@@ -153,8 +215,49 @@ class StorageService {
      * @private
      */
     _onChangeListener(changes, area) {
-        if(this._syncChanges < 1 && area === 'sync') {
-            this._onSync.emit(changes);
+        if(!this._initialized) return;
+        if(area === 'sync') {
+            console.log('Sync Changes', JSON.parse(JSON.stringify(changes)));
+            let changed     = {},
+                deleted     = [],
+                changeCount = 0;
+
+            for(let key in changes) {
+                if(!changes.hasOwnProperty(key) || this._pendingChanges.hasOwnProperty(key) || key === 'keys'|| key === 'version') continue;
+
+                if(!changes[key].hasOwnProperty('newValue') || !changes[key].newValue) {
+                    if(this._storageHas(key, area)) {
+                        delete this._storage[area][key];
+                        this._keys[area].splice(this._keys[area].indexOf(key), 1);
+                        deleted.push(key);
+                        changeCount++;
+                    }
+                    continue;
+                }
+
+                let data = changes[key].newValue;
+                if(!this._storageHas(key, area)) {
+                    this._storage[area][key] = data;
+                    this._keys[area].push(key);
+                    changed[key] = data.value;
+                    changeCount++;
+
+                    continue;
+                }
+
+                let localData = this._storage[area][key];
+                if(data.version > localData.version || data.time > localData.time) {
+                    this._storage[area][key] = data;
+                    this._keys[area].push(key);
+                    changed[key] = data.value;
+                    changeCount++;
+                }
+            }
+
+            if(changeCount) {
+                console.log({changed, deleted});
+                //this._onSync.emit({changed, deleted});
+            }
         }
     }
 }

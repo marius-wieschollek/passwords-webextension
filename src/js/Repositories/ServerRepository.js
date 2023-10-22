@@ -1,6 +1,6 @@
 import StorageService from '@js/Services/StorageService';
 import Server from '@js/Models/Server/Server';
-import { v4 as uuid } from 'uuid';
+import {v4 as uuid} from 'uuid';
 import ServerNotFoundError from "@js/Exception/ServerNotFoundError";
 
 class ServerRepository {
@@ -80,6 +80,7 @@ class ServerRepository {
         for(let i = 0; i < servers.length; i++) {
             if(servers[i].getId() === server.getId()) {
                 servers.splice(i, 1);
+                await StorageService.remove(`server.${servers.getId()}.token`);
                 await StorageService.set(this.STORAGE_KEY, servers);
                 return;
             }
@@ -97,10 +98,14 @@ class ServerRepository {
         }
 
         let servers = [];
-        if(await StorageService.has(this.STORAGE_KEY)) {
-            let data = await StorageService.get(this.STORAGE_KEY);
+        if(StorageService.has(this.STORAGE_KEY)) {
+            let data = StorageService.get(this.STORAGE_KEY);
 
             for(let element of data) {
+                if(!element.hasOwnProperty('token')) {
+                    element.token = StorageService.get(`server.${element.id}.token`);
+                }
+
                 servers.push(new Server(element));
             }
         }
@@ -116,8 +121,8 @@ class ServerRepository {
      */
     async _refreshServers() {
         let servers = [];
-        if(await StorageService.has(this.STORAGE_KEY)) {
-            let data = await StorageService.get(this.STORAGE_KEY);
+        if(StorageService.has(this.STORAGE_KEY)) {
+            let data = StorageService.get(this.STORAGE_KEY);
 
             for(let element of data) {
                 try {
@@ -167,7 +172,11 @@ class ServerRepository {
         let objects = [];
 
         for(let server of servers) {
-            objects.push(server.getProperties());
+            let data = server.getProperties();
+            await StorageService.set(`server.${data.id}.token`, data.token);
+            delete data.token;
+
+            objects.push(data);
         }
         await StorageService.set(this.STORAGE_KEY, objects);
     }

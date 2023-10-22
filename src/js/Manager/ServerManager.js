@@ -243,7 +243,7 @@ class ServerManager {
      * @private
      */
     async _syncServers(d) {
-        if(!d.hasOwnProperty(ServerRepository.STORAGE_KEY)) return;
+        if(!d.changed.hasOwnProperty(ServerRepository.STORAGE_KEY)) return;
         let servers  = await ServerRepository._refreshServers(),
             promises = [],
             ids      = [];
