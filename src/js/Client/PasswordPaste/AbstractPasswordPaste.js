@@ -101,6 +101,33 @@ export default class AbstractPasswordPaste {
         element.dispatchEvent(new KeyboardEvent('keyup', data));
     }
 
+
+
+    /**
+     * Simulate the user moving the mouse over the given html element
+     *
+     * @param {HTMLElement} element
+     * @private
+     */
+    _simulateMouseMove(element) {
+        let left          = element.offsetLeft + Math.round(element.offsetWidth / 2),
+            top           = element.offsetTop + Math.round(element.offsetHeight / 2),
+            bubbleEvent   = {screenX: left, screenY: top, clientX: left, clientY: top, bubbles: true, cancelable: true}
+
+        element.dispatchEvent(new MouseEvent('mouseover', bubbleEvent));
+        element.dispatchEvent(new MouseEvent('mouseenter', bubbleEvent));
+        element.dispatchEvent(new MouseEvent('mousemove', bubbleEvent));
+    }
+
+    /**
+     * Wait for an element matching the given selector to appear
+     * within the given time and then return it
+     *
+     * @param {String} selector CSS selector of the element
+     * @param {Number} time     Wait time in milliseconds
+     * @return {Promise<HTMLElement>}
+     * @private
+     */
     _waitForElement(selector, time = 1000) {
         let currentTime   = 0,
             checkFunction = (resolve, reject) => {
@@ -123,6 +150,13 @@ export default class AbstractPasswordPaste {
         });
     }
 
+    /**
+     * Wait for the given amount of milliseconds
+     *
+     * @param {Number} time
+     * @return {Promise<void>}
+     * @private
+     */
     _wait(time) {
         return new Promise((resolve) => {
             setTimeout(() => {
