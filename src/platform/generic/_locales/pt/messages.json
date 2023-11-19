@@ -1371,10 +1371,6 @@
         "message": "mesmo anfitrião",
         "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
     },
-    "LabelSearchRecommendationHostPort": {
-        "message": "mesmo anfitrião e porta",
-        "description": "Find password recommendations for the specific server and port."
-    },
     "LabelSearchRecommendationExact": {
         "message": "o mesmo url exato",
         "description": "Find only passwords where th url matches exact to the current browser url."
