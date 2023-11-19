@@ -5,8 +5,8 @@ import MessageService        from '@js/Services/MessageService';
 import TabManager            from '@js/Manager/TabManager';
 import ErrorManager          from '@js/Manager/ErrorManager';
 import ThemeService          from '@js/Services/ThemeService';
-import AutofillManager       from '@js/Manager/AutofillManager';
 import FaviconService        from '@js/Services/FaviconService';
+import AutofillRequestHelper from "@js/Helper/AutofillRequestHelper";
 
 class ContextMenuManager {
 
@@ -145,13 +145,7 @@ class ContextMenuManager {
                 receiver: 'client',
                 channel : 'tabs',
                 tab     : TabManager.currentTabId,
-                payload : {
-                    user      : password.getUserName(),
-                    password  : password.getPassword(),
-                    formFields: AutofillManager.getCustomFormFields(password),
-                    submit    : false,
-                    autofill  : true
-                }
+                payload : AutofillRequestHelper.createPasteRequest(password, false, true)
             }
         );
     }

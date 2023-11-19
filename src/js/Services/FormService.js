@@ -98,7 +98,7 @@ export default class FormService {
                         pair.submit = field;
                     } else if(!pair.tel && field.type === 'tel') {
                         pair.tel = field;
-                    } else if(!pair.email && field.type === 'email') {
+                    } else if(!pair.email && this.isEmailField(field)) {
                         pair.email = field;
                     } else if(!pair.remember && this.isRememberField(field)) {
                         pair.remember = field;
@@ -128,6 +128,10 @@ export default class FormService {
         return fieldPairs;
     }
 
+    isEmailField(field) {
+        return field.type === 'email';
+    }
+
     /**
      *
      * @param {HTMLInputElement} field
@@ -146,18 +150,29 @@ export default class FormService {
         if(['checkbox', 'submit', 'button'].indexOf(field.type) !== -1) return false;
         if(field.type === 'email') return true;
 
-        let includes = ['user', 'login', 'email'],
-            excludes = ['fake', 'hidden'],
-            pl       = field.placeholder.toLowerCase(),
-            name     = field.name.toLowerCase(),
-            id       = field.id.toLowerCase();
+        let includes   = ['user', 'name', 'login', 'email'],
+            excludes   = ['fake', 'hidden'],
+            attributes = [
+                field.placeholder?.toLowerCase() ?? '',
+                field.ariaLabel?.toLowerCase() ?? '',
+                field.name?.toLowerCase() ?? '',
+                field.id?.toLowerCase() ?? ''
+            ];
+
+        console.log(field, attributes);
 
         for(let exclude of excludes) {
-            if(name.indexOf(exclude) !== -1 || id.indexOf(exclude) !== -1 || pl.indexOf(exclude) !== -1) return false;
+            let match = attributes.find(
+                (text) => text.indexOf(exclude) !== -1
+            );
+            if(match) return false;
         }
 
         for(let include of includes) {
-            if(name.indexOf(include) !== -1 || id.indexOf(include) !== -1 || pl.indexOf(include) !== -1) return true;
+            let match = attributes.find(
+                (text) => text.indexOf(include) !== -1
+            );
+            if(match) return false;
         }
 
         return false;

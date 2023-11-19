@@ -3,6 +3,7 @@ import MessageService from "@js/Services/MessageService";
 import TabManager from "@js/Manager/TabManager";
 import ErrorManager from "@js/Manager/ErrorManager";
 import SettingsService from "@js/Services/SettingsService";
+import AutofillRequestHelper from "@js/Helper/AutofillRequestHelper";
 
 export default new class AutofillManager {
 
@@ -62,37 +63,8 @@ export default new class AutofillManager {
                 channel : 'tabs',
                 tab     : TabManager.currentTabId,
                 silent  : true,
-                payload : {
-                    user      : password.getUserName(),
-                    password  : password.getPassword(),
-                    formFields: this.getCustomFormFields(password),
-                    submit    : false,
-                    autofill  : true
-                }
+                payload : AutofillRequestHelper.createPasteRequest(password, false, true)
             }
         ).catch(ErrorManager.catchEvt);
-    }
-
-    /**
-     *
-     * @param {Password} password
-     * @returns {Array}
-     */
-    getCustomFormFields(password) {
-        let formFields = [],
-            customFields = password.getCustomFields();
-
-        customFields._elements.forEach((e) => {
-            if(e.getType() === 'data' && e.getLabel().startsWith('ext:field/')) {
-                formFields.push(
-                    {
-                        id   : e.getLabel().replace('ext:field/', ''),
-                        value: e.getValue()
-                    }
-                );
-            }
-        });
-
-        return formFields;
     }
 };

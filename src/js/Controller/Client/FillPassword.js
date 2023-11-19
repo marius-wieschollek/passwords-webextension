@@ -4,6 +4,7 @@ import GenericPasswordPaste from "@js/Client/PasswordPaste/GenericPasswordPaste"
 import TwitterPasswordPaste from "@js/Client/PasswordPaste/TwitterPasswordPaste";
 import RedditPasswordPaste from "@js/Client/PasswordPaste/RedditPasswordPaste";
 import TumblrPasswordPaste from "@js/Client/PasswordPaste/TumblrPasswordPaste";
+import AliExpressPasswordPaste from "@js/Client/PasswordPaste/AliExpressPasswordPaste";
 
 export default class FillPassword extends AbstractController {
 
@@ -46,6 +47,7 @@ export default class FillPassword extends AbstractController {
             new TwitterPasswordPaste(request),
             new RedditPasswordPaste(request),
             new TumblrPasswordPaste(request),
+            new AliExpressPasswordPaste(request),
             new GenericPasswordPaste(request)
         ];
     }
