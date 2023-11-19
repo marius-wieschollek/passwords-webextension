@@ -26,7 +26,10 @@ export default class TumblrPasswordPaste extends AbstractPasswordPaste {
         this._simulateEnter(emailField);
         let passwordField = await this._waitForElement('input[name="password"]');
         this._insertTextIntoField(passwordField, this._passwordPasteRequest.getPassword());
-        this._simulateEnter(passwordField);
+
+        if(this._passwordPasteRequest.isSubmit()) {
+            this._simulateEnter(passwordField);
+        }
 
         return true;
     }

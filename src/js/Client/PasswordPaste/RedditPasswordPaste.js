@@ -32,7 +32,7 @@ export default class RedditPasswordPaste extends AbstractPasswordPaste {
         this._insertTextIntoField(userInput, this._passwordPasteRequest.getUser());
         let passwordInput = document.getElementById('login-password');
         this._insertTextIntoField(passwordInput, this._passwordPasteRequest.getPassword());
-        if (!this._passwordPasteRequest.isAutofill()) {
+        if (!this._passwordPasteRequest.isAutofill() && this._passwordPasteRequest.isSubmit()) {
             await this._wait(500);
             this._simulateEnter(passwordInput);
         }

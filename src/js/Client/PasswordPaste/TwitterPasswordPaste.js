@@ -41,7 +41,7 @@ export default class TwitterPasswordPaste extends AbstractPasswordPaste {
         let passwordInput = await this._waitForElement('input[name="password"]', 10000);
         this._insertTextIntoField(passwordInput, this._passwordPasteRequest.getPassword());
 
-        if (!this._passwordPasteRequest.isAutofill()) {
+        if (!this._passwordPasteRequest.isAutofill() && this._passwordPasteRequest.isSubmit()) {
             this._simulateEnter(passwordInput);
         }
 
