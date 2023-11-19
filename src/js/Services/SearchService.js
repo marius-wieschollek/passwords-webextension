@@ -2,7 +2,7 @@ import PasswordIndexer from "@js/Search/Indexer/PasswordIndexer";
 import FolderIndexer from "@js/Search/Indexer/FolderIndexer";
 import TagIndexer from "@js/Search/Indexer/TagIndexer";
 import Index from "@js/Models/Search/Index";
-import {emit} from "@js/Event/Events";
+import {emit, subscribe} from "@js/Event/Events";
 import QueryBuilder from "@js/Search/Query/Builder/QueryBuilder";
 import AndCondition from "@js/Search/Query/Condition/AndCondition";
 import OrCondition from "@js/Search/Query/Condition/OrCondition";
@@ -18,11 +18,20 @@ export default new class SearchService {
             folder  : new Index(new FolderIndexer()),
             tag     : new Index(new TagIndexer())
         };
+        subscribe(
+            'password:statistics:updated',
+            (data) => {
+                let item = this.get(data.id);
+                if(item) {
+                    this.update(item);
+                }
+            }
+        );
     }
 
 
     get(id) {
-        if (!this._items.hasOwnProperty(id)) return null;
+        if(!this._items.hasOwnProperty(id)) return null;
 
         return this._items[id];
     }
@@ -31,7 +40,7 @@ export default new class SearchService {
      * @param {(AbstractModel|AbstractModel[])} items
      */
     add(items) {
-        if (!Array.isArray(items)) {
+        if(!Array.isArray(items)) {
             items = [items];
         }
 
@@ -47,7 +56,7 @@ export default new class SearchService {
      * @param {(AbstractModel|AbstractModel[])} items
      */
     remove(items) {
-        if (!Array.isArray(items)) {
+        if(!Array.isArray(items)) {
             items = [items];
         }
 
@@ -63,13 +72,12 @@ export default new class SearchService {
      * @param {(AbstractModel|AbstractModel[])} items
      */
     update(items) {
-        if (!Array.isArray(items)) {
+        if(!Array.isArray(items)) {
             items = [items];
         }
 
         items.forEach((item) => {
-            this._removeItem(item);
-            this._addItem(item);
+            this._updateItem(item);
         });
 
         emit('search:items:updated', items);
@@ -88,7 +96,7 @@ export default new class SearchService {
         }
 
         let index = null;
-        if (Array.isArray(types)) {
+        if(Array.isArray(types)) {
             index = types.reduce((index, current) => {
                 index.push(...this._indexes[current].getAll());
                 return index;
@@ -98,9 +106,9 @@ export default new class SearchService {
         }
 
         let condition;
-        if (type === 'or') {
+        if(type === 'or') {
             condition = new OrCondition();
-        } else if (type === 'xor') {
+        } else if(type === 'xor') {
             condition = new XorCondition();
         } else {
             condition = new AndCondition();
@@ -115,7 +123,7 @@ export default new class SearchService {
      * @private
      */
     _addItem(item) {
-        if (this._indexes.hasOwnProperty(item.MODEL_TYPE)) {
+        if(this._indexes.hasOwnProperty(item.MODEL_TYPE)) {
             this._indexes[item.MODEL_TYPE].add(item);
             this._items[item.getId()] = item;
         } else {
@@ -130,8 +138,23 @@ export default new class SearchService {
      */
     _removeItem(item) {
         let id = item.getId();
-        if (!this._items.hasOwnProperty(id)) return;
+        if(!this._items.hasOwnProperty(id)) return;
         this._indexes[item.MODEL_TYPE].remove(id);
         delete this._items[id];
+    }
+
+    /**
+     *
+     * @param item
+     * @private
+     */
+    _updateItem(item) {
+        let id = item.getId();
+        if(!this._items.hasOwnProperty(id)) {
+            this._addItem(item);
+            return;
+        }
+        this._indexes[item.MODEL_TYPE].update(item);
+        this._items[id] = item;
     }
 };

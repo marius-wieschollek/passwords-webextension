@@ -1,4 +1,5 @@
 import DatabaseService from "@js/Services/DatabaseService";
+import {emit} from "@js/Event/Events";
 
 export default new class PasswordStatisticsService {
 
@@ -37,6 +38,7 @@ export default new class PasswordStatisticsService {
         }
 
         this._table.set(id, entry);
+        emit('password:statistics:updated', {id, entry});
     }
 
     /**

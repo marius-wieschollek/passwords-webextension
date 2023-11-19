@@ -34,4 +34,18 @@ export default class Index {
             this._index.splice(index, 1);
         }
     }
+
+    /**
+     *
+     * @param {AbstractRevisionModel} item
+     */
+    update(item) {
+        try {
+            let index = this._indexer.indexItem(item);
+            this.remove(item.getId());
+            this._index.push(index);
+        } catch(e) {
+            ErrorManager.logError(e);
+        }
+    }
 }
