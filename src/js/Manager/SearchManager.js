@@ -102,6 +102,7 @@ class SearchManager {
             models     = await repository.findAll(),
             items      = SearchService.find(type)
                 .where('server', '=', api.getServer().getId())
+                .withHidden(true)
                 .execute();
 
         SearchService.remove(items);
