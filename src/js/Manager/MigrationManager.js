@@ -6,11 +6,12 @@ import Migration20003 from "@js/Migrations/Migration20003";
 import Migration20004 from "@js/Migrations/Migration20004";
 import Migration20005 from "@js/Migrations/Migration20005";
 import ErrorManager from "@js/Manager/ErrorManager";
+import Migration20006 from "@js/Migrations/Migration20006";
 
 export default new class MigrationManager {
 
     get CURRENT_VERSION() {
-        return 20005;
+        return 20006;
     }
 
     async run() {
@@ -48,6 +49,12 @@ export default new class MigrationManager {
         if(version < 20005) {
             await this._runMigration(new Migration20005());
         }
+
+        if(version < 20006) {
+            debugger;
+            await this._runMigration(new Migration20006());
+        }
+
         await this._setVersion(storage);
     }
 

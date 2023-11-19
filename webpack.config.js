@@ -84,6 +84,7 @@ module.exports = (env, argv) => {
             modules   : ['node_modules', 'src'],
             extensions: ['.js', '.vue', '.json'],
             fallback  : {
+                url   : false,
                 path  : false,
                 crypto: false
             },

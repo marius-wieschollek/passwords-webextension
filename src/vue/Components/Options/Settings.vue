@@ -130,10 +130,6 @@
                         label: 'LabelSearchRecommendationHost'
                     },
                     {
-                        id   : 'hostport',
-                        label: 'LabelSearchRecommendationHostPort'
-                    },
-                    {
                         id   : 'exact',
                         label: 'LabelSearchRecommendationExact'
                     }

@@ -1,28 +1,21 @@
 import AbstractController from '@js/Controller/AbstractController';
-import SearchIndex from '@js/Search/Index/SearchIndex';
 import ApiRepository from "@js/Repositories/ApiRepository";
-import ToastService from "@js/Services/ToastService";
 import ErrorManager from "@js/Manager/ErrorManager";
 import HiddenFolderHelper from "@js/Helper/HiddenFolderHelper";
-import SearchQuery from '@js/Search/Query/SearchQuery';
+import SearchService from "@js/Services/SearchService";
 
 export default class Update extends AbstractController {
 
     async execute(message, reply) {
         let {data}    = message.getPayload(),
-            query     = new SearchQuery(),
-            passwords = query
-                .where(query.field('id').equals(data.id))
-                .hidden(true)
-                .execute();
+            /** @type {(EnhancedPassword|null)} **/
+            password = SearchService.get(data.id);
 
-        if(passwords.length === 0) {
+        if(password === null) {
             reply.setPayload({success: false, message: 'ToastPasswordUpdateFailed'});
             return;
         }
 
-        /** @type {EnhancedPassword} **/
-        let password = passwords[0];
         if(password.isTrashed()) {
             reply.setPayload({success: false, message: 'ToastPasswordUpdateFailed'});
             return;
@@ -83,7 +76,7 @@ export default class Update extends AbstractController {
      * @param {PasswordsClient} api
      * @param {JSON} data
      * @param {EnhancedPassword} password
-     * @returns {String}
+     * @returns {Promise<String>}
      * @private
      */
     async _setFolder(api, data, password) {
@@ -112,7 +105,6 @@ export default class Update extends AbstractController {
         await repository.update(password);
         password = await repository.findById(password.getId());
 
-        SearchIndex.removeItem(password);
-        SearchIndex.addItem(password, true);
+        SearchService.update(password);
     }
 }

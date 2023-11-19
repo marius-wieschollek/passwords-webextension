@@ -1,9 +1,8 @@
 import ServerManager from '@js/Manager/ServerManager';
 import ApiRepository from '@js/Repositories/ApiRepository';
-import SearchIndex from '@js/Search/Index/SearchIndex';
-import SearchQuery from '@js/Search/Query/SearchQuery';
 import ErrorManager from '@js/Manager/ErrorManager';
 import HiddenFolderHelper from "@js/Helper/HiddenFolderHelper";
+import SearchService from "@js/Services/SearchService";
 
 class SearchManager {
 
@@ -52,12 +51,11 @@ class SearchManager {
      */
     async _removeServer(server) {
         let serverId = server.getId(),
-            query    = new SearchQuery(),
-            items    = query
-                .where(query.field('server').equals(serverId))
+            items    = SearchService.find()
+                .where('server', '=', serverId)
                 .execute();
 
-        SearchIndex.removeItems(items);
+        SearchService.remove(items);
         clearInterval(this._refreshTimer[serverId]);
         delete this._refreshTimer[serverId];
     }
@@ -102,14 +100,12 @@ class SearchManager {
     async _reloadRepository(api, type) {
         let repository = api.getInstance(`repository.${type}`),
             models     = await repository.findAll(),
-            query      = new SearchQuery(),
-            items      = query
-                .where(query.field('server').equals(api.getServer().getId()))
-                .type(type)
+            items      = SearchService.find(type)
+                .where('server', '=', api.getServer().getId())
                 .execute();
 
-        SearchIndex.removeItems(items);
-        SearchIndex.addItems(models);
+        SearchService.remove(items);
+        SearchService.add(models.getClone());
     }
 
     /**
@@ -124,8 +120,8 @@ class SearchManager {
 
         let passwords = await folder.fetchPasswords();
         if(passwords.length !== 0) {
-            SearchIndex.addItem(folder);
-            SearchIndex.addItems(passwords);
+            SearchService.add(folder);
+            SearchService.add(passwords.getClone());
         }
     }
 }

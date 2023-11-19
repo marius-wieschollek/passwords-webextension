@@ -1,7 +1,7 @@
 import Url from 'url-parse';
 import AbstractIndexer from '@js/Search/Indexer/AbstractIndexer';
 import PasswordStatisticsService from "@js/Services/PasswordStatisticsService";
-import ErrorManager from "@js/Manager/ErrorManager";
+import IndexEntry from "@js/Models/Search/IndexEntry";
 
 export default class PasswordIndexer extends AbstractIndexer {
 
@@ -14,7 +14,7 @@ export default class PasswordIndexer extends AbstractIndexer {
     /**
      *
      * @param {Password} password
-     * @return {Object}
+     * @return {IndexEntry}
      */
     indexItem(password) {
         return this._createIndex(password);
@@ -23,87 +23,101 @@ export default class PasswordIndexer extends AbstractIndexer {
     /**
      *
      * @param {Password} password
+     * @return {IndexEntry}
      * @private
      */
     _createIndex(password) {
-        let index = {
-            id      : password.getId(),
-            type    : 'password',
-            hidden  : password.isHidden(),
-            uses    : 0,
-            text    : [],
-            tag     : [],
-            folder  : [],
-            server  : [],
-            password: [],
-            url     : [],
-            host    : [],
-            fields  : {}
-        };
+        let entry = new IndexEntry(password.getId(), 'password', password.isHidden());
 
-        PasswordStatisticsService
-            .getUses(index.id)
-            .then((uses) => {
-                index.uses = uses;
-            })
-            .catch(ErrorManager.catchEvt)
+        this._addStatisticsData(password, entry);
+        this._indexServer(password, entry);
+        this._indexTextFields(password, entry);
+        this._indexFields(password, entry);
+        this._indexUrl(password, entry);
+        this._indexFolder(password, entry);
+        this._indexCustomFields(password, entry);
 
-        this._indexServer(password, index);
-        this._indexTextFields(password, index);
-        this._indexFields(password, index);
+        entry.clean();
 
-        let url = password.getUrl();
-        if(url && url.length !== 0) {
-            let value = url.toLowerCase();
+        return entry;
+    }
 
-            index.url.push(value);
-            let model = new Url(value);
-            index.host.push(model.host);
+    /**
+     *
+     * @param {Password} password
+     * @param {IndexEntry} entry
+     * @private
+     */
+    _addStatisticsData(password, entry) {
+        let usageData = PasswordStatisticsService.getPasswordUses(password.getId());
+
+        entry.setField('uses', [usageData.total])
+            .setBoost('uses', usageData.total);
+
+        for (let domain in usageData.domains) {
+            entry.addFieldValue('host', domain)
+                .addFieldValue(domain, usageData.domains[domain])
+                .setBoost(domain, usageData.domains[domain]);
         }
+    }
 
-        let value = password.getPassword();
-        if(value && value.length !== 0) {
-            index.password.push(value);
-        }
-
-        value = password.getFolder();
-        if(value && value.length !== 0) {
-            index.folder.push(value);
-        }
-
+    /**
+     *
+     * @param {Password} password
+     * @param {IndexEntry} entry
+     * @private
+     */
+    _indexCustomFields(password, entry) {
         let customFields = password.getCustomFields();
-        for(let customField of customFields) {
-            if(!customField.getValue() || customField.getValue().length === 0) continue;
+        for (let customField of customFields) {
+            if (!customField.getValue() || customField.getValue().length === 0) continue;
 
-            if(customField.getType() === 'text' || customField.getType() === 'email') {
+            if (customField.getType() === 'text' || customField.getType() === 'email') {
                 let value = customField.getValue().toLowerCase(),
                     field = customField.getLabel().toLowerCase();
 
-                index.text.push(value);
-
-                if(!index.fields.hasOwnProperty(field)) index.fields[field] = [];
-                index.fields[field].push(value);
-            } else if(customField.getType() === 'url') {
+                entry.addFieldValue('text', value)
+                    .addFieldValue(field, value);
+            } else if (customField.getType() === 'url') {
                 let value = customField.getValue().toLowerCase(),
-                    field = customField.getLabel().toLowerCase();
+                    field = customField.getLabel().toLowerCase(),
+                    model = new Url(value);
 
-                index.url.push(value);
-
-                let model = new Url(value);
-                index.host.push(model.host);
-
-                if(!index.fields.hasOwnProperty(field)) index.fields[field] = [];
-                index.fields[field].push(value);
-            } else if(customField.getType() === 'secret') {
-                let value = customField.getValue(),
-                    field = customField.getLabel().toLowerCase();
-
-                index.password.push(value);
-                if(!index.fields.hasOwnProperty(field)) index.fields[field] = [];
-                index.fields[field].push(value);
+                entry.addFieldValue('url', value)
+                    .addFieldValue('host', model.host)
+                    .addFieldValue('text', model.host);
             }
         }
+    }
 
-        return index;
+    /**
+     *
+     * @param {Password} password
+     * @param {IndexEntry} entry
+     * @private
+     */
+    _indexFolder(password, entry) {
+        let value = password.getFolder();
+        if (value && value.length !== 0) {
+            entry.addFieldValue('folder', value);
+        }
+    }
+
+    /**
+     *
+     * @param {Password} password
+     * @param {IndexEntry} entry
+     * @private
+     */
+    _indexUrl(password, entry) {
+        let url = password.getUrl();
+        if (url && url.length !== 0) {
+            let value = url.toLowerCase(),
+                model = new Url(value);
+
+            entry.addFieldValue('url', value)
+                .addFieldValue('host', model.host)
+                .addFieldValue('text', model.host);
+        }
     }
 }

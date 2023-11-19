@@ -10,8 +10,8 @@ export default class AbstractSort {
 
     /**
      *
-     * @param {Object} a
-     * @param {Object} b
+     * @param {Match} a
+     * @param {Match} b
      * @return {Number}
      */
     compare(a, b) {
@@ -34,25 +34,15 @@ export default class AbstractSort {
 
     /**
      *
-     * @param {Object} item
+     * @param {Match} item
      * @return {*}
      * @private
      */
     _getFieldValue(item) {
-        let values = [];
-        if(item.hasOwnProperty(this._field)) {
-            if(this._field === 'id' || this._field === 'type' || this._field === 'score' || this._field === 'hidden' || this._field === 'uses') {
-                return item[this._field];
-            }
+        let values = item.getField(this._field);
+        if (values === null || values.length === 0) return null;
+        if (values.length === 1) return values.first();
 
-            values = item[this._field];
-        } else if(item.fields.hasOwnProperty(this._field)) {
-            values = item.fields[this._field];
-        }
-
-        if(values.length === 0) return null;
-        if(values.length === 1) return values.first();
-
-        return values.join();
+        return typeof values[0] === 'number' ? values.reduce((a, c) => a + c, 0) : values.join();
     }
 }

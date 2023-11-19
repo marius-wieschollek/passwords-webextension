@@ -28,7 +28,6 @@
 </template>
 
 <script>
-    import {v4 as uuid}   from 'uuid';
     import Icon           from '@vue/Components/Icon';
     import {Password}     from 'passwords-client/models';
     import Property       from '@vue/Components/Password/Property';
@@ -119,7 +118,7 @@
                 for(let field of this.password.getCustomFields()) {
                     editFields.push(
                         {
-                            id   : uuid(),
+                            id   : self.crypto.randomUUID(),
                             label: field.label,
                             value: field.value,
                             type : field.type
@@ -130,7 +129,7 @@
                 if(editFields.length < 20) {
                     editFields.push(
                         {
-                            id   : uuid(),
+                            id   : self.crypto.randomUUID(),
                             label: '',
                             value: '',
                             type : 'text'
@@ -240,7 +239,7 @@
                 if(hasEmpty) return;
                 this.customFields.push(
                     {
-                        id   : uuid(),
+                        id   : self.crypto.randomUUID(),
                         label: '',
                         value: '',
                         type : 'text'

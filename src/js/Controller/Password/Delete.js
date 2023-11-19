@@ -1,8 +1,8 @@
 import AbstractController from '@js/Controller/AbstractController';
-import SearchIndex from '@js/Search/Index/SearchIndex';
 import ApiRepository from "@js/Repositories/ApiRepository";
 import ToastService from "@js/Services/ToastService";
 import ErrorManager from "@js/Manager/ErrorManager";
+import SearchService from "@js/Services/SearchService";
 
 export default class Delete extends AbstractController {
 
@@ -10,10 +10,10 @@ export default class Delete extends AbstractController {
         let {id} = message.getPayload();
 
         /** @type {EnhancedPassword} **/
-        let model = SearchIndex.getItem(id);
+        let model = SearchService.get(id);
 
         if(model !== null && !model.isTrashed()) {
-            SearchIndex.removeItem(model);
+            SearchService.remove(model);
             let api = /** @type {PasswordsClient} **/ await ApiRepository.findById(model.getServer().getId());
             let repository = /** @type {PasswordRepository} **/ api.getInstance('repository.password');
             await repository.delete(model);
@@ -23,7 +23,8 @@ export default class Delete extends AbstractController {
                 this._crateTrashedNotification(repository, model)
                     .catch(ErrorManager.catch);
             } else {
-                this._restoreOrDelete(repository, model);
+                this._restoreOrDelete(repository, model)
+                    .catch(ErrorManager.catch);
             }
         } else {
             reply.setPayload({success: false});
@@ -49,7 +50,7 @@ export default class Delete extends AbstractController {
 
         if(response === 'restore') {
             await repository.restore(model);
-            SearchIndex.addItem(model);
+            SearchService.add(model);
             ToastService
                 .success(['ToastPasswordRestored', model.getLabel()])
                 .catch(ErrorManager.catch);

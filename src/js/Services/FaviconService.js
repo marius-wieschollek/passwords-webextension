@@ -1,9 +1,9 @@
-import SearchIndex from "@js/Search/Index/SearchIndex";
-import BlobToBase64Helper from "@js/Helper/BlobToBase64Helper";
 import ErrorManager from "@js/Manager/ErrorManager";
 import ThemeService from "@js/Services/ThemeService";
 import SystemService from "@js/Services/SystemService";
 import {EnhancedPassword} from "passwords-client/models";
+import SearchService from "@js/Services/SearchService";
+import BlobToBase64Helper from "@js/Helper/BlobToBase64Helper";
 
 export default new class FaviconService {
 
@@ -32,7 +32,7 @@ export default new class FaviconService {
 
         if(model === null) {
             /** @type {EnhancedPassword} **/
-            model = SearchIndex.getItem(password);
+            model = SearchService.get(password);
         }
 
         if(model !== null) {

@@ -1,6 +1,7 @@
 import AbstractController from '@js/Controller/AbstractController';
-import TextQuery from '@js/Search/Query/TextQuery';
 import TabManager from "@js/Manager/TabManager";
+import QueryParser from "search-query-parser";
+import SearchService from "@js/Services/SearchService";
 
 export default class Search extends AbstractController {
 
@@ -11,13 +12,72 @@ export default class Search extends AbstractController {
      */
     async execute(message, reply) {
         let input = message.getPayload().query,
-            query = new TextQuery(input);
+            query = this._createQuery(input);
 
-        if(TabManager.get().tab.incognito) {
-            query.hidden(true);
-        }
 
         reply.setType('password.items')
-            .setPayload(query.execute());
+             .setPayload(query.execute());
+    }
+
+    _createQuery(searchText) {
+        let tokens = QueryParser.parse(searchText, {keywords: ['id', 'tag', 'folder', 'favorite', 'host', 'url', 'server'], tokenize: true}),
+            query  = SearchService.find('password')
+                                  .paginate('limit', 15)
+                                  .having('score', '>', 0.2);
+
+        if(TabManager.get().tab.incognito) {
+            query.withHidden(true);
+        }
+
+        for(let key in tokens) {
+            if(!tokens.hasOwnProperty(key) || key === 'offsets' || key === 'exclude') continue;
+
+            if(key === 'text') {
+                this._addTextCondition(query, tokens);
+            } else {
+                this._addFieldCondition(query, tokens, key);
+            }
+        }
+
+        return query;
+    }
+
+    /**
+     *
+     * @param {QueryBuilder} query
+     * @param {Object} tokens
+     * @param {String} key
+     * @private
+     */
+    _addFieldCondition(query, tokens, key) {
+        let value = tokens[key];
+
+        if(Array.isArray(value)) {
+            query.where(key, 'in', value);
+        } else {
+            query.where(key, '=', value);
+        }
+    }
+
+    /**
+     *
+     * @param {QueryBuilder} query
+     * @param {Object} tokens
+     * @private
+     */
+    _addTextCondition(query, tokens) {
+        query.andWhere(
+            (qb) => {
+                for(let value of tokens.text) {
+                    qb.orWhere(
+                        [
+                            ['label', 'contains', value, 4],
+                            ['username', 'contains', value, 2],
+                            ['text', 'contains', value]
+                        ]
+                    );
+                }
+            }
+        );
     }
 }

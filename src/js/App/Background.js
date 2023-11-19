@@ -51,6 +51,7 @@ class Background {
             await ServerManager.init();
             await BasicAuthAutofillManager.init();
             await LocalisationService.init();
+            console.info('Extension initialized');
         } catch(e) {
             ErrorManager.logError(e);
             ErrorManager.error('Extension initialization failed. Extension may not work properly.');

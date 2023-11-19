@@ -1,16 +1,12 @@
 import AbstractIndexer from '@js/Search/Indexer/AbstractIndexer';
+import IndexEntry from "@js/Models/Search/IndexEntry";
 
 export default class TagIndexer extends AbstractIndexer {
-
-    constructor() {
-        super();
-        this._genericIndexFields = ['favorite', 'hidden', 'color'];
-    }
 
     /**
      *
      * @param {Tag} tag
-     * @return {Object}
+     * @return {IndexEntry}
      */
     indexItem(tag) {
         return this._createIndex(tag);
@@ -19,22 +15,17 @@ export default class TagIndexer extends AbstractIndexer {
     /**
      *
      * @param {Tag} tag
-     * @return {Object}
+     * @return {IndexEntry}
      */
     _createIndex(tag) {
-        let index = {
-            id    : tag.getId(),
-            type  : 'tag',
-            hidden: tag.isHidden(),
-            text  : [],
-            server: [],
-            fields: {}
-        };
+        let entry = new IndexEntry(tag.getId(), 'tag', tag.isHidden());
 
-        this._indexServer(tag, index);
-        this._indexTextFields(tag, index);
-        this._indexFields(tag, index);
+        this._indexServer(tag, entry);
+        this._indexTextFields(tag, entry);
+        this._indexFields(tag, entry);
 
-        return index;
+        entry.clean();
+
+        return entry;
     }
 }

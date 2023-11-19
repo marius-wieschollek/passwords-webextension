@@ -1,6 +1,6 @@
 import AbstractController from '@js/Controller/AbstractController';
-import SearchIndex from '@js/Search/Index/SearchIndex';
 import {Folder} from 'passwords-client/models';
+import SearchService from "@js/Services/SearchService";
 
 export default class Show extends AbstractController {
     async execute(message, reply) {
@@ -8,7 +8,7 @@ export default class Show extends AbstractController {
             folder;
 
         if(folderId !== '00000000-0000-0000-0000-000000000000') {
-            folder = SearchIndex.getItem(message.getPayload());
+            folder = SearchService.get(message.getPayload());
         } else {
             folder = new Folder({
                     label: 'Home',

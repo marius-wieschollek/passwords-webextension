@@ -4,8 +4,6 @@ import ServerManager from '@js/Manager/ServerManager';
 import ErrorManager from '@js/Manager/ErrorManager';
 import TabManager from '@js/Manager/TabManager';
 import RecommendationManager from '@js/Manager/RecommendationManager';
-import SearchQuery from '@js/Search/Query/SearchQuery';
-import SearchIndex from '@js/Search/Index/SearchIndex';
 import NotificationService from '@js/Services/NotificationService';
 import HiddenFolderHelper from "@js/Helper/HiddenFolderHelper";
 import Url from "url-parse";
@@ -13,6 +11,7 @@ import EventQueue from "@js/Event/EventQueue";
 import SystemService from "@js/Services/SystemService";
 import QueueClient from "@js/Queue/Client/QueueClient";
 import SettingsService from "@js/Services/SettingsService";
+import SearchService from "@js/Services/SearchService";
 
 class MiningManager {
 
@@ -171,7 +170,7 @@ class MiningManager {
 
         password = this._enforcePasswordPropertyLengths(password);
         await api.getPasswordRepository().create(password);
-        SearchIndex.addItem(password);
+        SearchService.add(password);
 
         task.setAccepted(true)
             .setFeedback('MiningPasswordCreated');
@@ -183,10 +182,8 @@ class MiningManager {
      */
     async updatePassword(task) {
         let api      = await ServerManager.getDefaultApi(),
-            query    = new SearchQuery(),
-            password = /** @type {EnhancedPassword} **/ query
-                .where(query.field('id').equals(task.getResultField('id')))
-                .execute()[0];
+            /** @type {EnhancedPassword} **/
+            password = SearchService.get(task.getResultField('id'));
 
         password
             .setLabel(task.getResultField('label'))
@@ -207,8 +204,7 @@ class MiningManager {
 
         await api.getPasswordRepository().update(password);
         password = await api.getPasswordRepository().findById(password.getId());
-        SearchIndex.removeItem(password);
-        SearchIndex.addItem(password);
+        SearchService.update(password);
 
         task.setAccepted(true)
             .setFeedback('MiningPasswordUpdated');
@@ -243,12 +239,11 @@ class MiningManager {
      */
     checkIfDuplicate(data) {
         let ids   = TabManager.get('autofill.ids', []),
-            query = new SearchQuery(),
-            /** @type {EnhancedPassword[]} **/
-            items = query
-                .where(query.field('id').in(ids))
-                .type('password')
-                .hidden(true)
+            /** @type {(EnhancedPassword[]|AbstractModel[])} **/
+            items = SearchService
+                .find('password')
+                .where('id', 'in', ids)
+                .withHidden(true)
                 .execute();
 
         for(let item of items) {
@@ -266,17 +261,18 @@ class MiningManager {
         }
 
         let tab = TabManager.get();
-        query = new SearchQuery();
-        items = query
+        items = SearchService
+            .find('password')
             .where(
-                query.field('password').equals(data.password.value),
-                query.field('username').equals(data.user.value),
-                RecommendationManager.getFilterQuery(query, Url(data.url))
+                [
+                    ['password', data.password.value],
+                    ['username', data.user.value],
+                ]
             )
-            .type('password')
-            .hidden(tab.tab.incognito)
-            .limit(1)
-            .score(0.1)
+            .where(RecommendationManager.getFilterQuery(Url(data.url)))
+            .withHidden(tab.tab.incognito)
+            .paginate('limit', 1)
+            .having('score', '>', 0.1)
             .execute();
 
         return items.length > 0;
@@ -320,16 +316,15 @@ class MiningManager {
             return null;
         }
 
-        let query = new SearchQuery(),
-            items = query
+        let items = SearchService
+                .find('password')
                 .where(
-                    query.field('username').equals(data.user.value),
-                    RecommendationManager.getFilterQuery(query, Url(data.url))
+                    'username', data.user.value,
                 )
-                .type('password')
-                .hidden(tab.tab.incognito)
-                .limit(1)
-                .score(0.1)
+                .where(RecommendationManager.getFilterQuery(Url(data.url)))
+                .withHidden(tab.tab.incognito)
+                .paginate('limit', 1)
+                .having('score', '>', 0.1)
                 .execute();
 
         if(items.length !== 0) {

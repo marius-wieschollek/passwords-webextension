@@ -1,12 +1,13 @@
-import SearchIndex from '@js/Search/Index/SearchIndex';
 import MessageService from '@js/Services/MessageService';
 import AbstractController from '@js/Controller/AbstractController';
 import TabManager from '@js/Manager/TabManager';
 import SettingsService from '@js/Services/SettingsService';
 import ErrorManager from '@js/Manager/ErrorManager';
-import PasswordStatisticsService from "@js/Services/PasswordStatisticsService";
 import Message from "@js/Models/Message/Message";
 import AutofillManager from "@js/Manager/AutofillManager";
+import PasswordStatisticsService from "@js/Services/PasswordStatisticsService";
+import Url from "url-parse";
+import SearchService from "@js/Services/SearchService";
 
 export default class Fill extends AbstractController {
 
@@ -17,7 +18,7 @@ export default class Fill extends AbstractController {
      */
     async execute(message, reply) {
         /** @type {EnhancedPassword} **/
-        let password = SearchIndex.getItem(message.getPayload());
+        let password = SearchService.get(message.getPayload());
 
         let ids = TabManager.get('autofill.ids', []);
         if(ids.indexOf(password.getId()) === -1) {
@@ -25,7 +26,8 @@ export default class Fill extends AbstractController {
             TabManager.set('autofill.ids', ids);
         }
 
-        PasswordStatisticsService.registerUse(password.getId()).catch(ErrorManager.catchEvt)
+        let url = Url(TabManager.get('url'));
+        PasswordStatisticsService.registerPasswordUse(password.getId(), url.host)
 
         try {
             let response = await MessageService.send(
