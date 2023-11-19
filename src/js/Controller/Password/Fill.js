@@ -8,6 +8,7 @@ import AutofillManager from "@js/Manager/AutofillManager";
 import PasswordStatisticsService from "@js/Services/PasswordStatisticsService";
 import Url from "url-parse";
 import SearchService from "@js/Services/SearchService";
+import PasswordPasteRequest from "@js/Models/Client/PasswordPasteRequest";
 
 export default class Fill extends AbstractController {
 
@@ -21,13 +22,13 @@ export default class Fill extends AbstractController {
         let password = SearchService.get(message.getPayload());
 
         let ids = TabManager.get('autofill.ids', []);
-        if(ids.indexOf(password.getId()) === -1) {
+        if (ids.indexOf(password.getId()) === -1) {
             ids.push(password.getId());
             TabManager.set('autofill.ids', ids);
         }
 
         let url = Url(TabManager.get('url'));
-        PasswordStatisticsService.registerPasswordUse(password.getId(), url.host)
+        PasswordStatisticsService.registerPasswordUse(password.getId(), url.host);
 
         try {
             let response = await MessageService.send(
@@ -37,21 +38,26 @@ export default class Fill extends AbstractController {
                     channel : 'tabs',
                     tab     : TabManager.currentTabId,
                     silent  : true,
-                    payload : {
-                        user      : password.getUserName(),
-                        password  : password.getPassword(),
-                        formFields: AutofillManager.getCustomFormFields(password),
-                        submit    : await SettingsService.getValue('paste.form.submit'),
-                        autofill  : false
-                    }
+                    payload : await this.createPasteRequest(password)
                 }
             );
 
-            let success = response instanceof Message ? response.getPayload() === true:false;
+            let success = response instanceof Message ? response.getPayload() === true : false;
             reply.setPayload({success});
-        } catch(e) {
+        } catch (e) {
             ErrorManager.logError(e);
             reply.setPayload({success: false});
         }
+    }
+
+    async createPasteRequest(password) {
+        return new PasswordPasteRequest(
+            password.getUserName(),
+            password.getPassword(),
+            null,
+            AutofillManager.getCustomFormFields(password),
+            await SettingsService.getValue('paste.form.submit'),
+            false
+        );
     }
 }
