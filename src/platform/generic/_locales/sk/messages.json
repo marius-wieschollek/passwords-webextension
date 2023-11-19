@@ -1365,10 +1365,6 @@
         "message": "ten istý hostiteľ",
         "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
     },
-    "LabelSearchRecommendationHostPort": {
-        "message": "rovnaký hostiteľ a port",
-        "description": "Find password recommendations for the specific server and port."
-    },
     "LabelSearchRecommendationExact": {
         "message": "presne rovnaká url adresa",
         "description": "Find only passwords where th url matches exact to the current browser url."

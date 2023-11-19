@@ -637,10 +637,6 @@
         "message": "същия хост",
         "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
     },
-    "LabelSearchRecommendationHostPort": {
-        "message": "същия хост и порт",
-        "description": "Find password recommendations for the specific server and port."
-    },
     "SettingsSearchRecommendationMaxRows": {
         "message": "Максимален брой препоръки",
         "description": "Label of the setting in the extension settings to define the maximum number of results for the password recommendation."

@@ -703,10 +703,6 @@
         "message": "Outils de débogage",
         "description": "Label of the debugging tools section in the tools tab of the popup"
     },
-    "LabelSearchRecommendationHostPort": {
-        "message": "même hôte & port",
-        "description": "Find password recommendations for the specific server and port."
-    },
     "SettingsNotifyPasswordQuicksave": {
         "message": "Sauvegarder ou mettre à jour directement lorsque l'on clique sur la notification",
         "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"

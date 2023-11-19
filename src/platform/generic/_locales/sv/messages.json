@@ -1419,10 +1419,6 @@
         "message": "samma värd",
         "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
     },
-    "LabelSearchRecommendationHostPort": {
-        "message": "samma värd och port",
-        "description": "Find password recommendations for the specific server and port."
-    },
     "UiSettings": {
         "message": "Användargränssnitt",
         "description": "Label of the user interface section in the extension settings."
