@@ -1,10 +1,10 @@
 export default new class UuidHelper {
 
     generate() {
-        let uuidFunc = self?.crypto?.randomUUID;
+        let uuidFunc = crypto?.randomUUID;
 
         if(uuidFunc) {
-            return uuidFunc();
+            return crypto.randomUUID();
         }
 
         return this._fallbackUuid();
