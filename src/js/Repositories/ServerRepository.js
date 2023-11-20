@@ -1,6 +1,7 @@
 import StorageService from '@js/Services/StorageService';
 import Server from '@js/Models/Server/Server';
 import ServerNotFoundError from "@js/Exception/ServerNotFoundError";
+import UuidHelper from "@js/Helper/UuidHelper";
 
 class ServerRepository {
 
@@ -51,7 +52,7 @@ class ServerRepository {
      */
     async create(server) {
         if(server.getId() === null || server.getId() === undefined) {
-            server.setId(self.crypto.randomUUID());
+            server.setId(UuidHelper.generate());
         }
 
         await this._saveServer(server);

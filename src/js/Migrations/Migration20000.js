@@ -3,6 +3,7 @@ import SettingsService from "@js/Services/SettingsService";
 import Server from "@js/Models/Server/Server";
 import LocalisationService from "@js/Services/LocalisationService";
 import ServerRepository from "@js/Repositories/ServerRepository";
+import UuidHelper from "@js/Helper/UuidHelper";
 
 export default class Migration20000 {
 
@@ -26,7 +27,7 @@ export default class Migration20000 {
 
         let server = new Server(
             {
-                id         : self.crypto.randomUUID(),
+                id         : UuidHelper.generate(),
                 label      : LocalisationService.translate('MigrationAccountName'),
                 baseUrl    : url,
                 user,

@@ -1,3 +1,5 @@
+import UuidHelper from "@js/Helper/UuidHelper";
+
 export default class QueueItem {
 
     /**
@@ -5,7 +7,7 @@ export default class QueueItem {
      * @param {Object} data
      */
     constructor(data = {}) {
-        this._id = data.hasOwnProperty('id') ? data.id:self.crypto.randomUUID();
+        this._id = data.hasOwnProperty('id') ? data.id:UuidHelper.generate();
         this._task = data.hasOwnProperty('task') ? data.task:{};
         this._result = data.hasOwnProperty('result') ? data.result:{};
         this._success = data.hasOwnProperty('success') ? data.success:null;

@@ -7,6 +7,7 @@ import ErrorManager          from '@js/Manager/ErrorManager';
 import ThemeService          from '@js/Services/ThemeService';
 import FaviconService        from '@js/Services/FaviconService';
 import AutofillRequestHelper from "@js/Helper/AutofillRequestHelper";
+import UuidHelper            from "@js/Helper/UuidHelper";
 
 class ContextMenuManager {
 
@@ -64,7 +65,7 @@ class ContextMenuManager {
      * @private
      */
     async _createRecommendationMenu(recommended) {
-        let menuId      = self.crypto.randomUUID(),
+        let menuId      = UuidHelper.generate(),
             defaultIcon = await ThemeService.getBadgeIcon();
 
         this._createMenu(

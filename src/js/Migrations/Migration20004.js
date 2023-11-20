@@ -1,12 +1,13 @@
 import StorageService from "@js/Services/StorageService";
 import SystemService from "@js/Services/SystemService";
 import ErrorManager from "@js/Manager/ErrorManager";
+import UuidHelper from "@js/Helper/UuidHelper";
 
 export default class Migration20004 {
     async run() {
         StorageService.stop();
         await this._removeOldVariables();
-        let instanceId = self.crypto.randomUUID();
+        let instanceId = UuidHelper.generate();
         await this._migrateSyncData(instanceId);
         await this._migrateLocalData(instanceId);
     }

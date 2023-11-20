@@ -1,3 +1,5 @@
+import UuidHelper from "@js/Helper/UuidHelper";
+
 export default class Message {
 
     /**
@@ -131,7 +133,7 @@ export default class Message {
      * @param {Object} [data={}]
      */
     constructor(data = {}) {
-        this._id = data.hasOwnProperty('id') ? data.id:self.crypto.randomUUID();
+        this._id = data.hasOwnProperty('id') ? data.id:UuidHelper.generate();
         this._tab = data.hasOwnProperty('tab') ? data.tab:null;
         this._type = data.hasOwnProperty('type') ? data.type:null;
         this._reply = data.hasOwnProperty('reply') ? data.reply:null;

@@ -135,7 +135,7 @@ class RecommendationManager {
     _updateRecommended(tab) {
         delete tab.recommended;
 
-        let recommendations = this.getRecommendationsByUrl(tab.url, tab.tab.incognito);
+        let recommendations = this.getRecommendationsByUrl(tab.url, tab?.tab?.incognito === true);
         if(recommendations.length !== 0) {
             tab.recommended = recommendations;
         }

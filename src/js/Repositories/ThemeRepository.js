@@ -15,6 +15,7 @@ import ApiRepository from '@js/Repositories/ApiRepository';
 import ServerThemeHelper from '@js/Helper/ServerThemeHelper';
 import ErrorManager from '@js/Manager/ErrorManager';
 import ServerManager from '@js/Manager/ServerManager';
+import UuidHelper from "@js/Helper/UuidHelper";
 
 class ThemeRepository {
 
@@ -40,7 +41,7 @@ class ThemeRepository {
      */
     async create(theme) {
         if(theme.getId() === null || theme.getId() === undefined) {
-            theme.setId(self.crypto.randomUUID());
+            theme.setId(UuidHelper.generate());
         }
 
         await this._saveCustomTheme(theme);

@@ -1,10 +1,11 @@
 import LocalisationService from '@js/Services/LocalisationService';
 import SystemService from '@js/Services/SystemService';
+import UuidHelper from "@js/Helper/UuidHelper";
 
 export default class AbstractNotification {
 
     constructor() {
-        this._id = self.crypto.randomUUID();
+        this._id = UuidHelper.generate();
         this._title = 'NotificationNoTitle';
         this._text = 'NotificationNoText';
         this._type = 'basic';
