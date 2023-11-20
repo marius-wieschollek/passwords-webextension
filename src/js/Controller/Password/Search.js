@@ -22,8 +22,8 @@ export default class Search extends AbstractController {
     _createQuery(searchText) {
         let tokens = QueryParser.parse(searchText, {keywords: ['id', 'tag', 'folder', 'favorite', 'host', 'url', 'server'], tokenize: true}),
             query  = SearchService.find('password')
-                                  .paginate('limit', 15)
-                                  .having('score', '>', 0.2);
+                                  .paginate('limit', 16)
+                                  .boost('multiply', 'favorite', 2.0);
 
         if(TabManager.get().tab.incognito) {
             query.withHidden(true);

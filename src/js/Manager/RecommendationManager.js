@@ -86,6 +86,7 @@ class RecommendationManager {
             .having('score', '>=', 0.3)
             .paginate('limit', this._options.maxRows.getValue())
             .boost('multiply', url.host)
+            .boost('multiply', 'favorite', 2)
             .sortBy('score')
             .sortBy('favorite')
             .sortBy('uses')

@@ -3,6 +3,7 @@ export default class AbstractIndexer {
     constructor() {
         this._textIndexFields = ['label'];
         this._genericIndexFields = ['favorite', 'hidden'];
+        this._defaultBoostFields = ['favorite'];
     }
 
     /**
@@ -45,6 +46,13 @@ export default class AbstractIndexer {
     _indexFields(model, index) {
         for(let field of this._genericIndexFields) {
             index.addFieldValue(field, model.getProperty(field));
+        }
+
+        for(let field of this._defaultBoostFields) {
+            let value = model.getProperty(field);
+            if(!isNaN(value)) {
+                index.setBoost(field, value*1);
+            }
         }
     }
 }

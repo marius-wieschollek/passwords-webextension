@@ -67,7 +67,7 @@ module.exports = (env, argv) => {
         output      : {
             path         : `${__dirname}/build/`,
             filename     : 'js/[name].js',
-            chunkFilename: production ? 'js/[name].js':'js/[name].[hash].js'
+            chunkFilename: production ? 'js/[name].js':'js/[name].[chunkhash].js'
         },
         optimization: {
             minimize : production,
