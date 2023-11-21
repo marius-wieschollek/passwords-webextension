@@ -28,7 +28,6 @@ export default class HiddenFolderHelper {
         }
 
         let folderId = await this._getFolderId(api);
-
         if(folderId === null) {
             return await this._createHiddenFolder(api);
         }
@@ -48,7 +47,7 @@ export default class HiddenFolderHelper {
 
         if(folderId) return folderId;
 
-        let folderSetting = await SettingsService.getValue('password.folder.private');
+        let folderSetting = await SettingsService.getValue('password.folder.private', api);
         if(folderSetting !== null) {
             server.setPrivateFolder(folderSetting);
             ServerRepository
@@ -82,7 +81,7 @@ export default class HiddenFolderHelper {
             .catch(ErrorManager.catch);
 
         SettingsService
-            .set('password.folder.private', folder.getId())
+            .set('password.folder.private', folder.getId(), api)
             .catch(ErrorManager.catchEvt);
 
         return folder;

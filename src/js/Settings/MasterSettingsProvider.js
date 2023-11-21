@@ -5,6 +5,10 @@ import ErrorManager from "@js/Manager/ErrorManager";
 
 class MasterSettingsProvider {
 
+    get withServer() {
+        return true;
+    }
+
     constructor() {
         this.browserScopes = [Setting.SCOPE_LOCAL, Setting.SCOPE_SYNC];
         this.serverScopes = [Setting.SCOPE_USER, Setting.SCOPE_SERVER, Setting.SCOPE_CLIENT];
@@ -102,11 +106,11 @@ class MasterSettingsProvider {
                 'sync.password.list.show.user',
                 'local.password.list.show.user'
             ],
-            'mining.ignored-domains'            : [
+            'mining.ignored-domains'         : [
                 'sync.mining.ignored-domains',
                 'local.mining.ignored-domains'
             ],
-            'mining.incognito.hide'            : [
+            'mining.incognito.hide'          : [
                 'sync.mining.incognito.hide',
                 'local.mining.incognito.hide',
                 'client.ext.mining.incognito.hide'
@@ -133,7 +137,7 @@ class MasterSettingsProvider {
             'clipboard.clear.delay'          : 60,
             'password.list.show.user'        : false,
             'mining.ignored-domains'         : '',
-            'mining.incognito.hide'            : true
+            'mining.incognito.hide'          : true
         };
     }
 
@@ -152,7 +156,7 @@ class MasterSettingsProvider {
                 value;
 
             if(this.browserScopes.indexOf(scope) !== -1) {
-                value = await this._browserGet(scope, name);
+                value = this._browserGet(scope, name);
             } else if(this.serverScopes.indexOf(scope) !== -1) {
                 value = await this._serverGet(key);
             }
@@ -208,6 +212,76 @@ class MasterSettingsProvider {
         return this._defaults[setting];
     }
 
+
+    /**
+     *
+     * @param {String} setting
+     * @param {PasswordsClient} api
+     * @return {Promise<{value:*, scope:String}>}
+     */
+    async getForServer(setting, api) {
+        // @TODO use custom error
+        if(!this._mapping.hasOwnProperty(setting)) throw new Error('Unknown setting');
+
+        let mapping = this._mapping[setting];
+        for(let key of mapping) {
+            let {scope, name} = this._getScopeAndName(key),
+                value;
+
+            if(this.serverScopes.indexOf(scope) !== -1) {
+                value = await this._serverGet(key, api);
+            }
+
+            if(value !== undefined) return {value, scope};
+        }
+
+        return {value: this._defaults[setting], scope: Setting.SCOPE_LOCAL};
+    }
+
+    /**
+     *
+     * @param {String} setting
+     * @param {*} [value]
+     * @param {PasswordsClient} api
+     * @return {Promise<*>}
+     */
+    async setForServer(setting, value, api) {
+        // @TODO use custom error
+        if(!this._mapping.hasOwnProperty(setting)) throw new Error('Unknown setting');
+
+        let mapping = this._mapping[setting];
+        for(let key of mapping) {
+            let {scope, name} = this._getScopeAndName(key);
+
+            if(this.serverScopes.indexOf(scope) !== -1) {
+                await this._serverSet(key, value, api);
+            }
+        }
+    }
+
+    /**
+     *
+     * @param {String} setting
+     * @param {(PasswordsClient|null)} api
+     *
+     * @return {Promise<*>}
+     */
+    async resetForServer(setting, api) {
+        // @TODO use custom error
+        if(!this._mapping.hasOwnProperty(setting)) throw new Error('Unknown setting');
+        let mapping = this._mapping[setting];
+
+        for(let key of mapping) {
+            let {scope, name} = this._getScopeAndName(key);
+
+            if(this.serverScopes.indexOf(scope) !== -1) {
+                await this._serverDelete(key, api);
+            }
+        }
+
+        return this._defaults[setting];
+    }
+
     /**
      *
      * @param setting
@@ -235,11 +309,11 @@ class MasterSettingsProvider {
      * @return {Promise<*>}
      * @private
      */
-    async _browserGet(scope, name) {
+    _browserGet(scope, name) {
         let key = `setting.${name}`;
 
-        if(await StorageService.has(key, scope)) {
-            return await StorageService.get(key, scope);
+        if(StorageService.has(key, scope)) {
+            return StorageService.get(key, scope);
         }
 
         return undefined;
@@ -248,11 +322,13 @@ class MasterSettingsProvider {
     /**
      *
      * @param {String} key
+     * @param {(PasswordsClient|null)} api
+     *
      * @return {Promise<*>}
      * @private
      */
-    async _serverGet(key) {
-        let setting = await this._getServerSetting(key);
+    async _serverGet(key, api = null) {
+        let setting = await this._getServerSetting(key, api);
 
         if(setting === null) return undefined;
         if(setting.getValue() === null) return undefined;
@@ -277,15 +353,19 @@ class MasterSettingsProvider {
      *
      * @param {String} key
      * @param {*} value
+     * @param {(PasswordsClient|null)} api
+     *
      * @return {Promise<Boolean>}
      * @private
      */
-    async _serverSet(key, value) {
-        let setting    = await this._getServerSetting(key),
-            repository = await this._getSettingsRepository();
+    async _serverSet(key, value, api = null) {
+        let setting    = await this._getServerSetting(key, api),
+            repository = await this._getSettingsRepository(api);
         if(!repository) return false;
 
-        let api = await ServerManager.getDefaultApi();
+        if(api === null) {
+            api = await ServerManager.getDefaultApi();
+        }
         if(!api.isAuthorized()) return false;
 
         if(setting !== null) {
@@ -313,14 +393,16 @@ class MasterSettingsProvider {
     /**
      *
      * @param {String} key
+     * @param {(PasswordsClient|null)} api
+     *
      * @return {Promise<Boolean>}
      * @private
      */
-    async _serverDelete(key) {
-        let setting = await this._getServerSetting(key);
+    async _serverDelete(key, api = null) {
+        let setting = await this._getServerSetting(key, api);
 
         if(setting !== null) {
-            let repository = await this._getSettingsRepository();
+            let repository = await this._getSettingsRepository(api);
             if(!repository) return false;
 
             await repository.reset(setting);
@@ -331,12 +413,14 @@ class MasterSettingsProvider {
 
     /**
      *
-     * @param key
+     * @param {String} key
+     * @param {(PasswordsClient|null)} api
+     *
      * @returns {Promise<null|Setting>}
      * @private
      */
-    async _getServerSetting(key) {
-        let repository = await this._getSettingsRepository();
+    async _getServerSetting(key, api = null) {
+        let repository = await this._getSettingsRepository(api);
         if(!repository) return null;
 
         let settings = /** @type {SettingCollection} **/ await repository.findByName(key);
@@ -347,12 +431,16 @@ class MasterSettingsProvider {
 
     /**
      *
+     * @param {(PasswordsClient|null)} api
+     *
      * @returns {Promise<(SettingRepository|null)>}
      * @private
      */
-    async _getSettingsRepository() {
+    async _getSettingsRepository(api = null) {
         try {
-            let api = await ServerManager.getDefaultApi();
+            if(api === null) {
+                api = await ServerManager.getDefaultApi();
+            }
             if(api.getServer().getStatus() === api.getServer().STATUS_AUTHORIZED) {
                 return /** @type {SettingRepository} **/ api.getInstance('repository.setting');
             }

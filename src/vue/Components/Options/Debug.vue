@@ -17,9 +17,13 @@
             <translate class="label" say="DebugInfoExtensionPlatform"/>
             <span class="value">{{ userAgent }}</span>
         </div>
-        <div class="debug-info">
-            <translate class="label" say="DebugInfoHiddenFolderId"/>
-            <a :href="hidden.link" target="_blank" class="link">{{ hidden.id }}</a>
+        <translate tag="h3" say="DebugInfoHiddenFolderId"/>
+        <div class="debug-info" v-for="server in hidden" :key="server.id">
+            <span class="label">{{server.label}}</span>
+            <a :href="server.link" target="_blank" class="link">{{ server.id }}</a>
+        </div>
+        <div class="debug-info" v-if="hidden.length === 0">
+            <span class="value">-</span>
         </div>
 
         <translate tag="h3" say="DebugSettings"/>
@@ -62,10 +66,7 @@
         components: {SliderField, Icon, Translate},
         data() {
             return {
-                hidden  : {
-                    id  : '',
-                    link: ''
-                },
+                hidden  : [],
                 errors  : [],
                 app     : {
                     version    : process.env.APP_VERSION,
