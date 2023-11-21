@@ -93,6 +93,14 @@ class Preview {
                 resolve(this._getPasswordItems());
             });
         }
+        if(message.type === 'password.favicon') {
+            return new Promise(async (resolve) => {
+                resolve(
+                    (new Message())
+                        .setPayload(await SystemService.getBrowserApi().runtime.getURL('img/passwords.png'))
+                );
+            });
+        }
         if(message.type === 'password.generate') {
             return new Promise((resolve) => {
                 setTimeout(() => {
@@ -178,7 +186,7 @@ class Preview {
         let passwords = this._getDemoPasswords();
 
         return new Message().setType('password.items')
-            .setPayload(passwords);
+                            .setPayload(passwords);
     }
 
     /**
@@ -189,7 +197,7 @@ class Preview {
         let servers = this._getDemoServers();
 
         return new Message().setType('server.items')
-            .setPayload(servers);
+                            .setPayload(servers);
     }
 
     /**
@@ -318,8 +326,32 @@ class Preview {
         let label = LocalisationService.translate('DemoText');
 
         return [
-            new Password({id: 'pwd-1', label, username: label, password: label, notes: label, url: 'https://example.com', customFields: [], folder, hidden:false, status: 0, created: new Date(), edited: new Date()}),
-            new Password({id: 'pwd-2', label, username: label, password: label, notes: label, url: 'https://example.com', customFields: [], folder, hidden: false, status: 2, created: new Date(), edited: new Date()})
+            new Password({id             : 'pwd-1',
+                             label,
+                             username    : label,
+                             password    : label,
+                             notes       : label,
+                             url         : 'https://example.com',
+                             customFields: [],
+                             folder,
+                             hidden      : false,
+                             status      : 0,
+                             created     : new Date(),
+                             edited      : new Date()
+                         }),
+            new Password({id             : 'pwd-2',
+                             label,
+                             username    : label,
+                             password    : label,
+                             notes       : label,
+                             url         : 'https://example.com',
+                             customFields: [],
+                             folder,
+                             hidden      : false,
+                             status      : 2,
+                             created     : new Date(),
+                             edited      : new Date()
+                         })
         ];
     }
 
