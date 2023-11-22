@@ -1,3 +1,16 @@
+## 2.4.0 - Feature Release
+### Added
+- Site specific single click logins
+- New password recommendation engine includes usage data in recommendations
+- New search engine
+- Thin outline icons for Edge
+### Changed
+- Handling of browser data synchronization
+### Removed
+- Support for Passwords older than 2022.12
+- Support for Firefox older than 95
+- Support for Chrome older than 92
+
 ## 2.4.1 - Bugfix Release
 ### Changed
 - Icons for Edge with dark design
