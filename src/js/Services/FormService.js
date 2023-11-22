@@ -159,8 +159,6 @@ export default class FormService {
                 field.id?.toLowerCase() ?? ''
             ];
 
-        console.log(field, attributes);
-
         for(let exclude of excludes) {
             let match = attributes.find(
                 (text) => text.indexOf(exclude) !== -1
