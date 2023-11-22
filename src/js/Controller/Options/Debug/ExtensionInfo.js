@@ -56,7 +56,7 @@ export default class ExtensionInfo extends AbstractController {
                         {
                             id,
                             label: api.getServer().getLabel(),
-                            link : `${api.getServer().getBaseUrl()}apps/passwords/#/folders/${data.hidden.id}`
+                            link : `${api.getServer().getBaseUrl()}apps/passwords/#/folders/${id}`
                         }
                     );
                 }
