@@ -13,6 +13,9 @@ export default class DomMiner {
     }
 
     init() {
+        if(this._isPasswordsApp()) {
+            return;
+        }
         window.addEventListener(
             'beforeunload',
             () => {this._checkForNewPassword();},
@@ -25,6 +28,10 @@ export default class DomMiner {
         } else {
             this._addBodyListener();
         }
+    }
+
+    _isPasswordsApp() {
+        return document.querySelector('[data-passwords-main-version]') !== null;
     }
 
     _addFormsListener(forms) {
