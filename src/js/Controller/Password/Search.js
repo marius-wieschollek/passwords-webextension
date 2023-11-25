@@ -2,6 +2,7 @@ import AbstractController from '@js/Controller/AbstractController';
 import TabManager from "@js/Manager/TabManager";
 import QueryParser from "search-query-parser";
 import SearchService from "@js/Services/SearchService";
+import shoetest from "shoetest";
 
 export default class Search extends AbstractController {
 
@@ -73,7 +74,7 @@ export default class Search extends AbstractController {
                         [
                             ['label', 'contains', value, 4],
                             ['username', 'contains', value, 2],
-                            ['text', 'contains', value]
+                            ['text', 'contains', shoetest.simplify(value)]
                         ]
                     );
                 }

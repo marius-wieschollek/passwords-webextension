@@ -17,6 +17,7 @@
             return {
                 hasSearch: false,
                 interval : null,
+                tab      : null,
                 passwords: []
             };
         },
@@ -30,12 +31,12 @@
             this.interval = setInterval(() => {this.reloadData();}, 2000);
 
             SettingsService.getValue('popup.related.search')
-                .then((value) => {
-                    if(value) {
-                        document.addEventListener('keypress', this.search);
-                        this.hasSearch = true;
-                    }
-                });
+                           .then((value) => {
+                               if(value) {
+                                   document.addEventListener('keypress', this.search);
+                                   this.hasSearch = true;
+                               }
+                           });
         },
 
         deactivated() {
@@ -54,7 +55,11 @@
                 MessageService
                     .send({type: 'password.related'})
                     .then((r) => {
-                        this.passwords = r.getPayload();
+                        let payload = r.getPayload();
+                        if(r.tab !== this.tab || this.passwords.length !== payload.passwords.length) {
+                            this.passwords = payload.passwords;
+                            this.tab = payload.tab;
+                        }
                     });
             },
             search(event) {
@@ -67,10 +72,10 @@
 </script>
 
 <style lang="scss">
-    .related-container {
-        .no-results {
-            line-height : 3rem;
-            text-align  : center;
-        }
+.related-container {
+    .no-results {
+        line-height : 3rem;
+        text-align  : center;
     }
+}
 </style>

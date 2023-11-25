@@ -73,7 +73,9 @@
                 MessageService
                     .send({type: 'password.search', payload: {query}})
                     .then((r) => {
-                        if(this.query === query) this.passwords = r.getPayload();
+                        if(this.query === query && r.getPayload().length !== this.passwords.length) {
+                            this.passwords = r.getPayload();
+                        }
                     });
 
                 PopupStateService.set('query', query);

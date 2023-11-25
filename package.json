@@ -30,6 +30,7 @@
         "sass-loader": "^12.6.0",
         "sass-resources-loader": "^2.2.5",
         "search-query-parser": "^1.6.0",
+        "shoetest": "^1.2.2",
         "ua-parser-js": "^1.0.32",
         "url-loader": "^4.1.1",
         "url-parse": "^1.5.3",

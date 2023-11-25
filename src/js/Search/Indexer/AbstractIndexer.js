@@ -1,3 +1,5 @@
+import shoetest from "shoetest";
+
 export default class AbstractIndexer {
 
     constructor() {
@@ -31,7 +33,7 @@ export default class AbstractIndexer {
 
             value = value.toLowerCase();
             if(value.length !== 0) {
-                index.addFieldValue('text', value)
+                index.addFieldValue('text', shoetest.simplify(value))
                      .addFieldValue(field, value);
             }
         }

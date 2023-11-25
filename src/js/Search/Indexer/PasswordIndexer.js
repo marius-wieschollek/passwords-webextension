@@ -2,6 +2,7 @@ import Url from 'url-parse';
 import AbstractIndexer from '@js/Search/Indexer/AbstractIndexer';
 import PasswordStatisticsService from "@js/Services/PasswordStatisticsService";
 import IndexEntry from "@js/Models/Search/IndexEntry";
+import shoetest from "shoetest";
 
 export default class PasswordIndexer extends AbstractIndexer {
 
@@ -76,16 +77,15 @@ export default class PasswordIndexer extends AbstractIndexer {
                 let value = customField.getValue().toLowerCase(),
                     field = customField.getLabel().toLowerCase();
 
-                entry.addFieldValue('text', value)
+                entry.addFieldValue('text', shoetest.simplify(value))
                     .addFieldValue(field, value);
             } else if (customField.getType() === 'url') {
                 let value = customField.getValue().toLowerCase(),
-                    field = customField.getLabel().toLowerCase(),
                     model = new Url(value);
 
                 entry.addFieldValue('url', value)
                     .addFieldValue('host', model.host)
-                    .addFieldValue('text', model.host);
+                    .addFieldValue('text', shoetest.simplify(model.host));
             }
         }
     }
@@ -117,7 +117,7 @@ export default class PasswordIndexer extends AbstractIndexer {
 
             entry.addFieldValue('url', value)
                 .addFieldValue('host', model.host)
-                .addFieldValue('text', model.host);
+                .addFieldValue('text', shoetest.simplify(model.host));
         }
     }
 }
