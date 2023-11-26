@@ -1110,29 +1110,9 @@
         "message": "Connettersi a Nextcloud",
         "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
     },
-    "FirstRunConnectText": {
-        "message": "Aprire l'applicazione Password, fare clic su \"Altro\", aprire \"Applicazioni ed estensioni\" e aprire la finestra di dialogo PassLink Connect.",
-        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
-    },
     "DebugErrorLog": {
         "message": "Registro degli errori",
         "description": "Headline above the error logs section in the extension settings in the debug tab"
-    },
-    "FirstRunConnectLink": {
-        "message": "Se la finestra di dialogo PassLink è aperta sullo stesso dispositivo, utilizzare l'opzione di connessione via link",
-        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
-    },
-    "FirstRunConnectScan": {
-        "message": "Se si tratta di un dispositivo diverso, scansionare il codice PassLink Connect con il pulsante sottostante.",
-        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
-    },
-    "FirstRunConnectManual": {
-        "message": "È anche possibile creare l'account manualmente nelle impostazioni dell'estensione.",
-        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
-    },
-    "FirstRunConnectScanButton": {
-        "message": "Scansione del codice PassLink",
-        "description": "Text of the button to scan a PassLink QR Code"
     },
     "OpenSettings": {
         "message": "Aprire le impostazioni dell'estensione",

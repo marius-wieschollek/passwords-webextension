@@ -285,14 +285,6 @@
         "message": "Наведіть камеру на QR-код і зачекайте, поки він буде розпізнаний і відсканований.",
         "description": "Instructions shown above the PassLink QR scanner telling the use to point his camera at the qr code he wants to scan"
     },
-    "FirstRunConnectManual": {
-        "message": "Також ви можете створити обліковий запис вручну в налаштуваннях розширення",
-        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
-    },
-    "FirstRunConnectScanButton": {
-        "message": "Відскануйте код PassLink",
-        "description": "Text of the button to scan a PassLink QR Code"
-    },
     "OpenSettings": {
         "message": "Відкрити налаштування розширення",
         "description": "Label of the button to open the extension settings in the tools tab of the popup"
@@ -1273,18 +1265,6 @@
     "QrStreamApiNotSupportedError": {
         "message": "Stream API не підтримується цим браузером",
         "description": "Message used by the PassLink QR scanner when the browser does not support the required streaming api. This should never happen"
-    },
-    "FirstRunConnectText": {
-        "message": "Відкрийте додаток \"Паролі\", натисніть \"Більше\", відкрийте \"Програми та розширення\" та відкрийте діалогове вікно \"PassLink Connect\".",
-        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
-    },
-    "FirstRunConnectLink": {
-        "message": "Якщо діалогове вікно PassLink відкрито на тому ж пристрої, скористайтеся опцією \"Підключитися за посиланням",
-        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
-    },
-    "FirstRunConnectScan": {
-        "message": "Якщо це інший пристрій, відскануйте код з'єднання PassLink за допомогою кнопки нижче",
-        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
     },
     "GeneratedPasswordPlaceholder": {
         "message": "Згенерований пароль",

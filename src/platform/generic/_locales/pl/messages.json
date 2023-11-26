@@ -219,10 +219,6 @@
         "message": "Kamera niedostępna. Może już jest w użyciu?",
         "description": "Message used by the PassLink QR scanner when the camera stream can not be read"
     },
-    "FirstRunConnectText": {
-        "message": "Otwórz aplikację Hasła, kliknij „Więcej”, otwórz „Aplikacje i rozszerzenia” i otwórz okno dialogowe PassLink Connect.",
-        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
-    },
     "BrowserActionTitleCounter": {
         "message": "Haseł ($COUNTER$)",
         "description": "Title of the button in the browser bar with suggestion counter",
@@ -1191,22 +1187,6 @@
     "QrStreamApiNotSupportedError": {
         "message": "Stream API nie jest obsługiwany przez tę przeglądarkę",
         "description": "Message used by the PassLink QR scanner when the browser does not support the required streaming api. This should never happen"
-    },
-    "FirstRunConnectLink": {
-        "message": "Jeśli okno dialogowe PassLink jest otwarte na tym samym urządzeniu, użyj opcji Połącz przez łącze",
-        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
-    },
-    "FirstRunConnectScan": {
-        "message": "Jeśli jest to inne urządzenie, zeskanuj kod połączenia PassLink za pomocą przycisku poniżej",
-        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
-    },
-    "FirstRunConnectManual": {
-        "message": "Konto możesz również utworzyć ręcznie w ustawieniach rozszerzenia",
-        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
-    },
-    "FirstRunConnectScanButton": {
-        "message": "Zeskanuj kod PassLink",
-        "description": "Text of the button to scan a PassLink QR Code"
     },
     "OpenSettings": {
         "message": "Otwórz Ustawienia Rozszerzeń",

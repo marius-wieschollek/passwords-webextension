@@ -1144,26 +1144,6 @@
         "message": "Maak verbinding met Nextcloud",
         "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
     },
-    "FirstRunConnectText": {
-        "message": "Open de wachtwoorden-app, klik op \"Meer\", open \"Apps & Extensies\" en open het dialoogvenster PassLink Connect.",
-        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
-    },
-    "FirstRunConnectLink": {
-        "message": "Als het PassLink-dialoogvenster geopend is op hetzelfde apparaat, gebruikt u de optie verbinden via verbinding",
-        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
-    },
-    "FirstRunConnectScan": {
-        "message": "Als dit een ander apparaat is, scan dan de PassLink Connect Code met de onderstaande knop",
-        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
-    },
-    "FirstRunConnectManual": {
-        "message": "U kunt de account ook handmatig aanmaken in de instellingen van de extensie",
-        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
-    },
-    "FirstRunConnectScanButton": {
-        "message": "Scan de PassLink-code",
-        "description": "Text of the button to scan a PassLink QR Code"
-    },
     "PasswordGenerateError": {
         "message": "Kan geen wachtwoord genereren: $ERROR$",
         "description": "Notification shown when the generation of a password fails",
