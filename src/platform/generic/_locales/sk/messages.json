@@ -1500,5 +1500,15 @@
     "FirstRunSettingsSave": {
         "message": "Uložiť",
         "description": "Text of the button in the first run wizard to save the settings and close the wizard"
+    },
+    "PasslinkConnectServerUpdated": {
+        "message": "Boli aktualizované poverenia pre \"$LABEL$\"",
+        "description": "Confirmation message in the PassLink Connect action when an existing account has been updated successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
     }
 }
