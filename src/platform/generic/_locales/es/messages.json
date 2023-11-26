@@ -1496,5 +1496,9 @@
     "FirstRunConnectScanQR": {
         "message": "Escanear código PassLink",
         "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Sava",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
     }
 }
