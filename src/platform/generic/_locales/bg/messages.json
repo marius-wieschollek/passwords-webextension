@@ -1464,5 +1464,37 @@
     "BadgeIconOutlineDark": {
         "message": "Икона с тъмен контур",
         "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "FirstRunConnectLink1": {
+        "message": "Отворете приложението Passwords, кликнете върху \"More\" и отворете \"Apps & Extensions\".",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink2": {
+        "message": "Изберете браузъра си и щракнете върху \"Свързване с PassLink\".",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunConnectLink3": {
+        "message": "Щракнете върху \"Свързване чрез връзка\", сравнете кодовете и потвърдете връзката.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "FirstRunSetupManually": {
+        "message": "Ръчно свързване",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "FirstRunConnectScanQR": {
+        "message": "Сканиране на кода PassLink",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Видео ръководство за гледане",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "Персонализиране на разширението",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "FirstRunSettingsText": {
+        "message": "Тези и много други неща могат да се променят по всяко време в настройките на разширението.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
     }
 }
