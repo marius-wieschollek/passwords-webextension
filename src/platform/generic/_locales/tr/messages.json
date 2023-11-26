@@ -1464,5 +1464,41 @@
     "BadgeIconOutlineDark": {
         "message": "Koyu anahat simgesi",
         "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "FirstRunConnectLink1": {
+        "message": "Parolalar uygulamasını açın, \"Daha Fazla \"ya tıklayın ve \"Uygulamalar ve Uzantılar \"ı açın.",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink2": {
+        "message": "Tarayıcınızı seçin ve \"PassLink ile Bağlan \"a tıklayın",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunConnectLink3": {
+        "message": "\"Bağlantı yoluyla bağlan\" seçeneğine tıklayın, kodları karşılaştırın ve bağlantıyı onaylayın.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "FirstRunSetupManually": {
+        "message": "Manuel olarak bağlanın",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "FirstRunConnectScanQR": {
+        "message": "PassLink Kodunu Tarayın",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Video Kılavuzu İzle",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "Uzantıyı Özelleştirme",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "FirstRunSettingsText": {
+        "message": "Bunlar ve diğer pek çok şey uzantı ayarlarından istenildiği zaman değiştirilebilir.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Kaydet",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
     }
 }

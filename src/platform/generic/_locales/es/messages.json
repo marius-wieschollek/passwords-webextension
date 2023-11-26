@@ -1464,5 +1464,41 @@
     "BadgeIconOutlineDark": {
         "message": "Icono de contorno oscuro",
         "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "FirstRunConnectLink2": {
+        "message": "Elija su navegador y haga clic en \"Conectar con PassLink\".",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Ver guía en vídeo",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "Personalizar la extensión",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "FirstRunSettingsText": {
+        "message": "Estas y muchas otras cosas pueden cambiarse en cualquier momento en la configuración de la extensión.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "FirstRunConnectLink1": {
+        "message": "Abra la aplicación Contraseñas, haga clic en \"Más\" y abra \"Aplicaciones y extensiones\".",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink3": {
+        "message": "Haz clic en \"Conectar mediante enlace\", compara los códigos y confirma la conexión.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "FirstRunSetupManually": {
+        "message": "Conectar manualmente",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "FirstRunConnectScanQR": {
+        "message": "Escanear código PassLink",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Sava",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
     }
 }
