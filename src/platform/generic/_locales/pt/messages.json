@@ -1464,5 +1464,37 @@
     "BadgeIconOutlineDark": {
         "message": "Ícone de contorno escuro",
         "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "FirstRunConnectLink1": {
+        "message": "Abra a aplicação Passwords, clique em \"Mais\" e abra \"Aplicações e extensões\".",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink2": {
+        "message": "Escolha o seu navegador e clique em \"Ligar com PassLink\"",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunSetupManually": {
+        "message": "Ligar manualmente",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "FirstRunConnectLink3": {
+        "message": "Clique em \"Ligar através de ligação\", compare os códigos e confirme a ligação.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "FirstRunConnectScanQR": {
+        "message": "Digitalizar o código PassLink",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Ver guia de vídeo",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "Personalizar a extensão",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "FirstRunSettingsText": {
+        "message": "Estes e muitos outros aspectos podem ser alterados em qualquer altura nas definições da extensão.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
     }
 }
