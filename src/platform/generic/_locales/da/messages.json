@@ -1500,5 +1500,15 @@
     "FirstRunSettingsTitle": {
         "message": "Tilpas udvidelsen",
         "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "PasslinkConnectServerUpdated": {
+        "message": "Legitimationsoplysningerne for \"$LABEL$\" blev opdateret",
+        "description": "Confirmation message in the PassLink Connect action when an existing account has been updated successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
     }
 }
