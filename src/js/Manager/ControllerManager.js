@@ -325,7 +325,28 @@ class ControllerManager {
                 let module = await import(/* webpackChunkName: "WriteClipboard" */ '@js/Controller/Clipboard/WriteClipboard');
                 await this._executeController(module, message, reply);
             }
-        ); 
+        );
+        MessageService.listen(
+            'firstrun.settings',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "FirstRunGetSettings" */ '@js/Controller/Popup/FirstRun/GetSettings');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
+            'firstrun.save',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "FirstRunSaveSettings" */ '@js/Controller/Popup/FirstRun/SaveSettings');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
+            'firstrun.guide',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "FirstRunOpenGuide" */ '@js/Controller/Popup/FirstRun/OpenGuide');
+                await this._executeController(module, message, reply);
+            }
+        );
     }
 
     /**

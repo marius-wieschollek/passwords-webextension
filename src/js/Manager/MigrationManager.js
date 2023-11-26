@@ -51,7 +51,6 @@ export default new class MigrationManager {
         }
 
         if(version < 20006) {
-            debugger;
             await this._runMigration(new Migration20006());
         }
 

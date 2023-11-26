@@ -4,6 +4,7 @@ import RecommendationManager from '@js/Manager/RecommendationManager';
 import QueueService from '@js/Services/QueueService';
 import RegistryService from '@js/Services/RegistryService';
 import ServerRepository from '@js/Repositories/ServerRepository';
+import SettingsService from "@js/Services/SettingsService";
 
 export default class Get extends AbstractController {
 
@@ -70,12 +71,16 @@ export default class Get extends AbstractController {
 
     /**
      *
-     * @return {Promise<Boolean>}
+     * @return {Promise<(Number|Boolean)>}
      * @private
      */
     async _isFirstRun() {
-        let servers = await ServerRepository.findAll();
+        let initialized = (await SettingsService.get('setup.initialized')).getValue();
+        if(initialized) {
+            return false;
+        }
 
-        return servers.length === 0;
+        let servers = await ServerRepository.findAll();
+        return servers.length === 0 ? 1:2;
     }
 }

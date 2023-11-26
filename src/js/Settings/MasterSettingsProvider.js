@@ -114,6 +114,9 @@ class MasterSettingsProvider {
                 'sync.mining.incognito.hide',
                 'local.mining.incognito.hide',
                 'client.ext.mining.incognito.hide'
+            ],
+            'setup.initialized'          : [
+                'sync.setup.initialized'
             ]
         };
         this._defaults = {
@@ -137,7 +140,8 @@ class MasterSettingsProvider {
             'clipboard.clear.delay'          : 60,
             'password.list.show.user'        : false,
             'mining.ignored-domains'         : '',
-            'mining.incognito.hide'          : true
+            'mining.incognito.hide'          : true,
+            'setup.initialized'              : false
         };
     }
 
