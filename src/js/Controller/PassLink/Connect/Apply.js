@@ -55,7 +55,7 @@ export default class Analyze extends AbstractController {
                 token  : login.token
             },
             validation = new ServerValidation(),
-            result     = await validation.validate(data);
+            result     = await validation.validate(data, true);
 
         if(!result.ok) throw new Error(result.message);
 
