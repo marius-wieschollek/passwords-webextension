@@ -1464,5 +1464,41 @@
     "BadgeIconOutlineDark": {
         "message": "Ikon med mörk kontur",
         "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "FirstRunSetupManually": {
+        "message": "Anslut manuellt",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "FirstRunConnectLink1": {
+        "message": "Öppna Passwords app, klicka på \"Mer\" och öppna \"Appar & tillägg\".",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink2": {
+        "message": "Välj din webbläsare och klicka på \"Anslut med PassLink\"",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunConnectLink3": {
+        "message": "Klicka på \"Anslut via länk\", jämför koderna och bekräfta anslutningen.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "FirstRunConnectScanQR": {
+        "message": "Skanna PassLink-koden",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Se videoguiden",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "Anpassa tillägget",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "FirstRunSettingsText": {
+        "message": "Dessa och många andra saker kan ändras när som helst i tilläggsinställningarna.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Spara",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
     }
 }

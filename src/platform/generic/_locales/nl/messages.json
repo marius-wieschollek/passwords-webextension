@@ -1464,5 +1464,41 @@
     "BadgeIconOutlineDark": {
         "message": "Pictogram met donkere contouren",
         "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "FirstRunConnectLink1": {
+        "message": "Open de app Wachtwoorden, klik op \"Meer\" en open \"Apps & Extensies\".",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink2": {
+        "message": "Kies je browser en klik op \"Verbinden met PassLink\".",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunSettingsText": {
+        "message": "Deze en vele andere dingen kunnen op elk moment worden gewijzigd in de extensie-instellingen.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "FirstRunConnectLink3": {
+        "message": "Klik op \"Verbinden via link\", vergelijk de codes en bevestig de verbinding.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "FirstRunSetupManually": {
+        "message": "Handmatig aansluiten",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "FirstRunConnectScanQR": {
+        "message": "Scan de PassLink-code",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Video bekijken",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "De extensie aanpassen",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Opslaan",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
     }
 }

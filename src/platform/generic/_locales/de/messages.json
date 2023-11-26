@@ -1464,5 +1464,41 @@
     "SettingsMiningIncognitoHide": {
         "message": "Im Inkognitomodus gesammelte Passwörter als private Passwörter speichern",
         "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "FirstRunConnectLink1": {
+        "message": "Öffnen Sie die Kennwörter-App, klicken Sie auf \"Mehr\" und öffnen Sie \"Apps & Erweiterungen\".",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink2": {
+        "message": "Wählen Sie Ihren Browser und klicken Sie auf \"Mit PassLink verbinden\".",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunConnectLink3": {
+        "message": "Klicken Sie auf \"Verbinden über Link\", vergleichen Sie die Codes und bestätigen Sie die Verbindung.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "FirstRunSetupManually": {
+        "message": "Manuell verbinden",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "FirstRunConnectScanQR": {
+        "message": "PassLink-Code scannen",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Videoanleitung ansehen",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "Anpassen der Erweiterung",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "FirstRunSettingsText": {
+        "message": "Diese und viele andere Dinge können jederzeit in den Einstellungen der Erweiterung geändert werden.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Speichern",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
     }
 }

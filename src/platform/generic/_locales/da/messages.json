@@ -1464,5 +1464,41 @@
     "BadgeIconOutlineDark": {
         "message": "Ikon med mørkt omrids",
         "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "FirstRunConnectLink3": {
+        "message": "Klik på \"Connect via link\", sammenlign koderne, og bekræft forbindelsen.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "FirstRunSetupManually": {
+        "message": "Tilslut manuelt",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "FirstRunSettingsText": {
+        "message": "Disse og mange andre ting kan til enhver tid ændres i udvidelsens indstillinger.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Gem",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
+    },
+    "FirstRunConnectLink1": {
+        "message": "Åbn Passwords app, klik på \"More\" og åbn \"Apps & Extensions\".",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink2": {
+        "message": "Vælg din browser, og klik på \"Opret forbindelse med PassLink\".",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunConnectScanQR": {
+        "message": "Scan PassLink-koden",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Se video-guide",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "Tilpas udvidelsen",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
     }
 }

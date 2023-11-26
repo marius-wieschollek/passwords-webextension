@@ -1464,5 +1464,41 @@
     "BadgeIconOutlineDark": {
         "message": "Значок с темным контуром",
         "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "FirstRunConnectLink1": {
+        "message": "Откройте приложение \"Пароли\", нажмите кнопку \"Еще\" и откройте раздел \"Приложения и расширения\".",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink2": {
+        "message": "Выберите свой браузер и нажмите кнопку \"Подключиться с помощью PassLink\".",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunConnectLink3": {
+        "message": "Нажмите кнопку \"Подключиться по ссылке\", сравните коды и подтвердите подключение.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "FirstRunSetupManually": {
+        "message": "Подключение вручную",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "FirstRunConnectScanQR": {
+        "message": "Сканирование кода PassLink",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Смотреть видеоинструкцию",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "Настройка расширения",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "FirstRunSettingsText": {
+        "message": "Эти и многие другие параметры могут быть изменены в любое время в настройках расширения.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Сохранить",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
     }
 }
