@@ -1496,5 +1496,9 @@
     "FirstRunSettingsText": {
         "message": "Bunlar ve diğer pek çok şey uzantı ayarlarından istenildiği zaman değiştirilebilir.",
         "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Kaydet",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
     }
 }
