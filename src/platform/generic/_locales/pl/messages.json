@@ -1464,5 +1464,9 @@
     "BadgeIconOutlineDark": {
         "message": "Ikona z ciemnym konturem",
         "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Zapisz",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
     }
 }
