@@ -1496,5 +1496,9 @@
     "FirstRunSettingsTitle": {
         "message": "De extensie aanpassen",
         "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Opslaan",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
     }
 }
