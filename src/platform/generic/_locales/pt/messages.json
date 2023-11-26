@@ -1496,5 +1496,9 @@
     "FirstRunSettingsText": {
         "message": "Estes e muitos outros aspectos podem ser alterados em qualquer altura nas definições da extensão.",
         "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Salvar",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
     }
 }
