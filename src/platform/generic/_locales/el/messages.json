@@ -387,26 +387,6 @@
         "message": "Σύνδεση στο Nextcloud",
         "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
     },
-    "FirstRunConnectText": {
-        "message": "Ανοίξτε την εφαρμογή passwords, κάντε κλικ στο \"More\", ανοίξτε το \"Apps & Extensions\" και ανοίξτε το παράθυρο διαλόγου PassLink Connect.",
-        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
-    },
-    "FirstRunConnectLink": {
-        "message": "Εάν το παράθυρο διαλόγου PassLink είναι ανοιχτό στην ίδια συσκευή, χρησιμοποιήστε την επιλογή Σύνδεση μέσω σύνδεσης.",
-        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
-    },
-    "FirstRunConnectScan": {
-        "message": "Εάν πρόκειται για διαφορετική συσκευή, σαρώστε τον κωδικό PassLink Connect με το παρακάτω κουμπί",
-        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
-    },
-    "FirstRunConnectManual": {
-        "message": "Μπορείτε επίσης να δημιουργήσετε το λογαριασμό χειροκίνητα στις ρυθμίσεις της επέκτασης",
-        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
-    },
-    "FirstRunConnectScanButton": {
-        "message": "Σάρωση κωδικού PassLink",
-        "description": "Text of the button to scan a PassLink QR Code"
-    },
     "OpenSettings": {
         "message": "Ανοίξτε τις Ρυθμίσεις επέκτασης",
         "description": "Label of the button to open the extension settings in the tools tab of the popup"

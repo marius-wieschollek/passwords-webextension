@@ -549,26 +549,6 @@
         "message": "Свързване с Nextcloud",
         "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
     },
-    "FirstRunConnectText": {
-        "message": "Отворете приложението за пароли, щракнете върху \"More\" (Повече), отворете \"Apps & Extensions\" (Приложения и разширения) и отворете диалоговия прозорец PassLink Connect.",
-        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
-    },
-    "FirstRunConnectLink": {
-        "message": "Ако диалоговият прозорец на PassLink е отворен на същото устройство, използвайте опцията за свързване чрез връзка",
-        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
-    },
-    "FirstRunConnectScan": {
-        "message": "Ако това е друго устройство, сканирайте кода на PassLink Connect с бутона по-долу",
-        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
-    },
-    "FirstRunConnectManual": {
-        "message": "Можете също така да създадете акаунта ръчно в настройките на разширението",
-        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
-    },
-    "FirstRunConnectScanButton": {
-        "message": "Сканиране на кода PassLink",
-        "description": "Text of the button to scan a PassLink QR Code"
-    },
     "DebugHighlightLoginForms": {
         "message": "Подчертаване на полетата на формуляра за влизане",
         "description": "Label of the button in the popup which triggers the option to highlight all login form fields in the current tab"

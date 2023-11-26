@@ -1164,26 +1164,6 @@
         "message": "Prisijungimas prie \"Nextcloud",
         "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
     },
-    "FirstRunConnectText": {
-        "message": "Atidarykite slaptažodžių programą, spustelėkite \"Daugiau\", atidarykite \"Programos ir plėtiniai\" ir atverkite \"PassLink Connect\" dialogo langą.",
-        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
-    },
-    "FirstRunConnectLink": {
-        "message": "Jei tame pačiame prietaise atidarytas \"PassLink\" dialogo langas, naudokite parinktį prisijungti per nuorodą",
-        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
-    },
-    "FirstRunConnectScan": {
-        "message": "Jei tai kitas prietaisas, nuskaitykite \"PassLink Connect\" kodą toliau nurodytu mygtuku",
-        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
-    },
-    "FirstRunConnectManual": {
-        "message": "Paskyrą taip pat galite sukurti rankiniu būdu plėtinio nustatymuose",
-        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
-    },
-    "FirstRunConnectScanButton": {
-        "message": "Nuskaityti \"PassLink\" kodą",
-        "description": "Text of the button to scan a PassLink QR Code"
-    },
     "OpenSettings": {
         "message": "Atidarykite plėtinio nustatymus",
         "description": "Label of the button to open the extension settings in the tools tab of the popup"

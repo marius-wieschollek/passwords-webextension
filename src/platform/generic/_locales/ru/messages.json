@@ -1220,26 +1220,6 @@
         "message": "Подключение к Nextcloud",
         "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
     },
-    "FirstRunConnectText": {
-        "message": "Откройте приложение \"Пароли\", нажмите \"Еще\", откройте \"Приложения и расширения\" и откройте диалог PassLink Connect.",
-        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
-    },
-    "FirstRunConnectLink": {
-        "message": "Если диалог PassLink открыт на том же устройстве, используйте опцию подключения по ссылке",
-        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
-    },
-    "FirstRunConnectScan": {
-        "message": "Если это другое устройство, отсканируйте код PassLink Connect с помощью кнопки ниже",
-        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
-    },
-    "FirstRunConnectManual": {
-        "message": "Вы также можете создать учетную запись вручную в настройках расширения",
-        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
-    },
-    "FirstRunConnectScanButton": {
-        "message": "Сканирование кода PassLink",
-        "description": "Text of the button to scan a PassLink QR Code"
-    },
     "OpenSettings": {
         "message": "Откройте Настройки расширения",
         "description": "Label of the button to open the extension settings in the tools tab of the popup"

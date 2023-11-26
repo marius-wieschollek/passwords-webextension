@@ -1212,26 +1212,6 @@
         "message": "Csatlakozás a Nextcloudhoz",
         "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
     },
-    "FirstRunConnectText": {
-        "message": "Nyissa meg a jelszavak alkalmazást, kattintson a \"Több\" gombra, nyissa meg az \"Alkalmazások és bővítmények\" menüpontot, és nyissa meg a PassLink Connect párbeszédpanelt.",
-        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
-    },
-    "FirstRunConnectLink": {
-        "message": "Ha a PassLink párbeszédpanel ugyanazon az eszközön nyitva van, használja a Linkkel való csatlakozás opciót.",
-        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
-    },
-    "FirstRunConnectScan": {
-        "message": "Ha ez egy másik eszköz, olvassa be a PassLink Connect kódot az alábbi gombbal",
-        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
-    },
-    "FirstRunConnectManual": {
-        "message": "A fiókot manuálisan is létrehozhatja a bővítmény beállításaiban.",
-        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
-    },
-    "FirstRunConnectScanButton": {
-        "message": "PassLink kód beolvasása",
-        "description": "Text of the button to scan a PassLink QR Code"
-    },
     "OpenSettings": {
         "message": "Bővítmény-beállítások megnyitása",
         "description": "Label of the button to open the extension settings in the tools tab of the popup"
