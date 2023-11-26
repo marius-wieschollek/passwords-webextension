@@ -1464,5 +1464,37 @@
     "BadgeIconOutlineDark": {
         "message": "Icône de contour sombre",
         "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "FirstRunConnectLink1": {
+        "message": "Ouvrez l'application Mots de passe, cliquez sur \"Plus\" et ouvrez \"Apps & Extensions\".",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink2": {
+        "message": "Choisissez votre navigateur et cliquez sur \"Connecter avec PassLink\".",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunConnectLink3": {
+        "message": "Cliquez sur \"Connecter par lien\", comparez les codes et confirmez la connexion.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "FirstRunSetupManually": {
+        "message": "Connecter manuellement",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "FirstRunConnectScanQR": {
+        "message": "Scanner le code PassLink",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Voir le guide vidéo",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "Personnaliser l'extension",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "FirstRunSettingsText": {
+        "message": "Ces éléments et bien d'autres peuvent être modifiés à tout moment dans les paramètres de l'extension.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
     }
 }
