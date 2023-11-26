@@ -30,9 +30,10 @@ export default class Analyze extends AbstractController {
             let login = await action.apply(),
                 label = await this._getServerName(login, action);
 
-            if(createServer) await this._createServer(login, action, label);
-
-            reply.setPayload({success: true, message: label});
+            if(createServer) {
+                let result = await this._createServer(login, action, label);
+                reply.setPayload({success: true, message: label, updated: result?.duplicate});
+            }
         } catch(e) {
             reply.setPayload({success: false, message: this._getErrorMessage(e)});
         }
@@ -45,7 +46,7 @@ export default class Analyze extends AbstractController {
      * @param {Object} login
      * @param {Connect} action
      * @param {String} label
-     * @return {Promise<void>}
+     * @return {Promise<Object>}
      */
     async _createServer(login, action, label) {
         let data       = {
@@ -61,9 +62,20 @@ export default class Analyze extends AbstractController {
 
         let server = result.server;
         server.setEnabled(true);
-        await ServerRepository.create(server);
-        ServerManager.addServer(server)
+
+        if(!result?.duplicate) {
+            await ServerRepository.create(server);
+            ServerManager.addServer(server)
+                         .catch(ErrorManager.catch);
+
+            return result;
+        }
+
+        await ServerRepository.update(server);
+        ServerManager.reloadServer(server)
                      .catch(ErrorManager.catch);
+
+        return result;
     }
 
 

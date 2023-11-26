@@ -21,6 +21,7 @@
         components: {Icon, Translate},
         props     : {
             success: Boolean,
+            updated: Boolean,
             message: String
         },
 
@@ -32,7 +33,11 @@
                 return this.success ? 'PasslinkConnectSuccess':'PasslinkConnectFailed';
             },
             getMessage() {
-                return this.success ? 'PasslinkConnectServer':this.message;
+                if(this.success) {
+                    return this.updated ? 'PasslinkConnectServerUpdated':'PasslinkConnectServer';
+                }
+
+                return this.message;
             },
             icon() {
                 return this.success ? 'check-circle':'times-circle';

@@ -283,6 +283,7 @@ export default class Server {
                     let properties = current.getProperties();
                     delete properties.token;
                     server.setProperties(properties);
+                    response.duplicate = true;
                     return true;
                 }
 
@@ -292,6 +293,7 @@ export default class Server {
             }
         }
 
+        response.duplicate = false;
         return true;
     }
 
