@@ -1464,5 +1464,41 @@
     "BadgeIconOutlineDark": {
         "message": "Ikona tmavého obrysu",
         "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "FirstRunConnectLink1": {
+        "message": "Otvorte aplikáciu Heslá, kliknite na položku Viac a otvorte položku Aplikácie a rozšírenia.",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink2": {
+        "message": "Vyberte si prehliadač a kliknite na \"Connect with PassLink\".",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunConnectLink3": {
+        "message": "Kliknite na \"Pripojiť cez odkaz\", porovnajte kódy a potvrďte pripojenie.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "FirstRunSetupManually": {
+        "message": "Manuálne pripojenie",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "FirstRunConnectScanQR": {
+        "message": "Skenovanie kódu PassLink",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Pozrite si video sprievodcu",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "Prispôsobenie rozšírenia",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "FirstRunSettingsText": {
+        "message": "Tieto a mnohé ďalšie veci môžete kedykoľvek zmeniť v nastaveniach rozšírenia.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Uložiť",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
     }
 }
