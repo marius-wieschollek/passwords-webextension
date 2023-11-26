@@ -1500,5 +1500,15 @@
     "FirstRunSettingsText": {
         "message": "Te i wiele innych rzeczy można zmienić w dowolnym momencie w ustawieniach rozszerzenia.",
         "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "PasslinkConnectServerUpdated": {
+        "message": "Dane uwierzytelniające dla \"$LABEL$\" zostały zaktualizowane",
+        "description": "Confirmation message in the PassLink Connect action when an existing account has been updated successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
     }
 }
