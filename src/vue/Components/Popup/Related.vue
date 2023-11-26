@@ -56,7 +56,7 @@
                     .send({type: 'password.related'})
                     .then((r) => {
                         let payload = r.getPayload();
-                        if(r.tab !== this.tab || this.passwords.length !== payload.passwords.length) {
+                        if(payload.tab !== this.tab || this.passwords.length !== payload.passwords.length) {
                             this.passwords = payload.passwords;
                             this.tab = payload.tab;
                         }
