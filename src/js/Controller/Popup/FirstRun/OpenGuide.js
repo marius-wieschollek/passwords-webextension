@@ -28,15 +28,15 @@ export default class OpenGuide extends AbstractController {
 
         debugger;
         if(browser.name === 'Firefox') {
-            return 'https://git.mdns.eu/nextcloud/passwords-webextension/-/wikis/setup-firefox-desktop';
+            return 'https://git.mdns.eu/nextcloud/passwords/-/wikis/Users/Browser-Extension/Setup/Firefox';
         }
         if(browser.name === 'Chrome') {
-            return 'https://git.mdns.eu/nextcloud/passwords-webextension/-/wikis/setup-chrome-desktop';
+            return 'https://git.mdns.eu/nextcloud/passwords/-/wikis/Users/Browser-Extension/Setup/Chrome';
         }
         if(browser.name === 'Edge') {
-            return 'https://git.mdns.eu/nextcloud/passwords-webextension/-/wikis/home#extension-setup';
+            return 'https://git.mdns.eu/nextcloud/passwords/-/wikis/Users/Browser-Extension/Setup/Edge';
         }
 
-        return 'https://git.mdns.eu/nextcloud/passwords-webextension/-/wikis/home#extension-setup';
+        return 'https://git.mdns.eu/nextcloud/passwords/-/wikis/Users/Browser-Extension/';
     }
 }
