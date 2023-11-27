@@ -1494,7 +1494,7 @@
         "description": "Title of the first run wizard page that allows the user to change some common settings"
     },
     "FirstRunSettingsText": {
-        "message": "Diese und viele andere Dinge können jederzeit in den Einstellungen der Erweiterung geändert werden.",
+        "message": "In den Einstellungen kann das Verhalten der Erweiterung jederzeit angepasst werden.",
         "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
     },
     "FirstRunSettingsSave": {
