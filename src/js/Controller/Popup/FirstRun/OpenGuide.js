@@ -37,6 +37,6 @@ export default class OpenGuide extends AbstractController {
             return 'https://git.mdns.eu/nextcloud/passwords/-/wikis/Users/Browser-Extension/Setup/Edge';
         }
 
-        return 'https://git.mdns.eu/nextcloud/passwords/-/wikis/Users/Browser-Extension/';
+        return 'https://git.mdns.eu/nextcloud/passwords/-/wikis/Users/Browser-Extension#setup-guides';
     }
 }

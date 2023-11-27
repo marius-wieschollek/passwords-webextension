@@ -1,7 +1,7 @@
 <template>
     <div class="server-setup-wizard">
         <translate tag="h2" say="FirstRunSettingsTitle"/>
-        <translate tag="p" class="description" say="FirstRunSettingsText"/>
+        <p :class="{small:isSmall}" class="description">{{ description }}</p>
         <ul class="first-run-settings">
             <li>
                 <slider-field id="setting-autofill" v-model="autofill"/>
@@ -26,6 +26,7 @@
     import SliderField from "@vue/Components/Form/SliderField";
     import MessageService from "@js/Services/MessageService";
     import ErrorManager from "@js/Manager/ErrorManager";
+    import LocalisationService from "@js/Services/LocalisationService";
 
     export default {
         components: {Translate, ButtonField, SliderField},
@@ -35,12 +36,18 @@
                           .catch(ErrorManager.catch);
 
             return {
-                autofill : false,
-                quicksave: false,
-                incognito: false
+                autofill   : false,
+                quicksave  : false,
+                incognito  : false,
+                description: LocalisationService.translate('FirstRunSettingsText')
             };
         },
-        methods: {
+        computed: {
+            isSmall() {
+                return this.description.length > 84;
+            }
+        },
+        methods : {
             update(m) {
                 let payload = m.getPayload();
 
@@ -68,6 +75,11 @@
     p.description {
         margin     : .25rem 0 1rem;
         text-align : center;
+
+        &.small {
+            font-size : .75rem;
+            margin    : 0;
+        }
     }
 
     .first-run-settings {
