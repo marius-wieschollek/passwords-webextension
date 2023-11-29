@@ -11,6 +11,8 @@ export default new class AutofillManager {
         this._recommendationListener = (recommendations) => {
             this.recommendations = recommendations;
             this.currentURL = TabManager.get('url', null);
+            this._sendAutofillPassword(this.recommendations)
+                .catch(ErrorManager.catch);
         };
         this.recommendations = [];
         this.currentURL = null;
