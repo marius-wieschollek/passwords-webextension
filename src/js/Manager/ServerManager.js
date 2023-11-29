@@ -5,10 +5,10 @@ import ErrorManager from '@js/Manager/ErrorManager';
 import ApiRepository from '@js/Repositories/ApiRepository';
 import BooleanState from 'passwords-client/boolean-state';
 import EventQueue from '@js/Event/EventQueue';
-import StorageService from '@js/Services/StorageService';
 import SettingsService from '@js/Services/SettingsService';
 import SessionAuthorizationHelper from '@js/Helper/SessionAuthorizationHelper';
 import ServerRequirementCheck from '@js/Helper/ServerRequirementCheck';
+import {subscribe} from "@js/Event/Events";
 
 class ServerManager {
 
@@ -51,11 +51,7 @@ class ServerManager {
         this._removeServer = new EventQueue();
         this._deleteServer = new EventQueue();
         this._servers = {};
-        StorageService.sync.on(
-            (d) => {
-                this._syncServers(d);
-            }
-        );
+        subscribe('servers:sync', (d) => {this._syncServers(d);});
     }
 
     /**
@@ -125,6 +121,11 @@ class ServerManager {
     async removeServer(server) {
         let serverId = server.getId();
         this._removeAuthItems(serverId);
+
+        try {
+            let api = await ApiRepository.findById(serverId);
+            await ApiRepository.delete(api);
+        } catch(e) {}
 
         if(!this._servers.hasOwnProperty(serverId)) return;
         await this._removeServer.emit(server);
@@ -238,28 +239,20 @@ class ServerManager {
     /**
      *
      * @param d
-     * @returns {Promise<void>}
+     * @returns {void}
      * @private
      */
-    async _syncServers(d) {
-        if(!d.changed.hasOwnProperty(ServerRepository.STORAGE_KEY)) return;
-        let servers  = await ServerRepository._refreshServers(),
-            promises = [],
-            ids      = [];
-
-        for(let server of servers) {
-            ids.push(server.getId());
-            promises.push(this.addServer(server));
+    _syncServers(d) {
+        let promises = [];
+        for(let server of d) {
+            promises.push(this.reloadServer(server));
         }
 
-        for(let key in this._servers) {
-            if(this._servers.hasOwnProperty(key) && ids.indexOf(key) === -1) {
-                promises.push(this.deleteServer(this._servers[key].server));
-            }
-        }
-
-        await Promise.all(promises);
-        console.log('Reloaded servers after browser sync');
+        Promise.all(promises)
+               .catch(ErrorManager.catch)
+               .then(() => {
+                   console.log('Reloaded servers after browser sync', server);
+               });
     }
 }
 

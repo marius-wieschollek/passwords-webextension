@@ -1,6 +1,7 @@
 import SystemService from '@js/Services/SystemService';
 import ErrorManager from '@js/Manager/ErrorManager';
-import EventQueue from '@js/Event/EventQueue';
+import UuidHelper from "@js/Helper/UuidHelper";
+import {emit} from "@js/Event/Events";
 
 class StorageService {
 
@@ -12,13 +13,8 @@ class StorageService {
         return 'local';
     }
 
-    get sync() {
-        return this._onSync;
-    }
-
     constructor() {
         this._api = SystemService.getBrowserApi();
-        this._onSync = new EventQueue();
         this._api.storage.onChanged.addListener(
             (d, a) => { this._onChangeListener(d, a); }
         );
@@ -35,7 +31,10 @@ class StorageService {
 
             if(result.hasOwnProperty('instance')) {
                 this._instance = result.instance;
+            } else {
+                await this._createInstanceId();
             }
+
             if(result.hasOwnProperty('keys')) {
                 this._keys.local = result.keys;
                 this._storage.local = await this._api.storage.local.get(result.keys);
@@ -102,6 +101,7 @@ class StorageService {
 
             if(!isUpdate) await this._api.storage[storage].set({keys: this._keys[storage]});
             delete this._pendingChanges[key];
+            emit('storage:set', {key, value, storage});
 
             return true;
         } catch(e) {
@@ -196,6 +196,7 @@ class StorageService {
                 await this._api.storage[storage].remove(key);
                 await this._api.storage[storage].set({keys: this._keys[storage]});
                 delete this._pendingChanges[key];
+                emit('storage:remove', {key, storage});
             }
 
             return true;
@@ -216,49 +217,53 @@ class StorageService {
      */
     _onChangeListener(changes, area) {
         if(!this._initialized) return;
-        if(area === 'sync') {
-            console.log('Sync Changes', JSON.parse(JSON.stringify(changes)));
-            let changed     = {},
-                deleted     = [],
-                changeCount = 0;
+        if(area !== 'sync') return;
+        let changed     = {},
+            deleted     = [],
+            changeCount = 0;
 
-            for(let key in changes) {
-                if(!changes.hasOwnProperty(key) || this._pendingChanges.hasOwnProperty(key) || key === 'keys'|| key === 'version') continue;
+        for(let key in changes) {
+            if(!changes.hasOwnProperty(key) || this._pendingChanges.hasOwnProperty(key) || key === 'keys'|| key === 'version') continue;
 
-                if(!changes[key].hasOwnProperty('newValue') || !changes[key].newValue) {
-                    if(this._storageHas(key, area)) {
-                        delete this._storage[area][key];
-                        this._keys[area].splice(this._keys[area].indexOf(key), 1);
-                        deleted.push(key);
-                        changeCount++;
-                    }
-                    continue;
-                }
-
-                let data = changes[key].newValue;
-                if(!this._storageHas(key, area)) {
-                    this._storage[area][key] = data;
-                    this._keys[area].push(key);
-                    changed[key] = data.value;
-                    changeCount++;
-
-                    continue;
-                }
-
-                let localData = this._storage[area][key];
-                if(data.version > localData.version || data.time > localData.time) {
-                    this._storage[area][key] = data;
-                    this._keys[area].push(key);
-                    changed[key] = data.value;
+            if(!changes[key].hasOwnProperty('newValue') || !changes[key].newValue) {
+                if(this._storageHas(key, area)) {
+                    delete this._storage[area][key];
+                    this._keys[area].splice(this._keys[area].indexOf(key), 1);
+                    deleted.push(key);
                     changeCount++;
                 }
+                continue;
             }
 
-            if(changeCount) {
-                console.log({changed, deleted});
-                //this._onSync.emit({changed, deleted});
+            let data = changes[key].newValue;
+            if(!this._storageHas(key, area)) {
+                this._storage[area][key] = data;
+                this._keys[area].push(key);
+                changed[key] = data.value;
+                changeCount++;
+
+                continue;
+            }
+
+            let localData = this._storage[area][key];
+            if(data.version > localData.version || data.time > localData.time) {
+                this._storage[area][key] = data;
+                this._keys[area].push(key);
+                changed[key] = data.value;
+                changeCount++;
             }
         }
+
+        if(changeCount) {
+            console.log(`Syncing ${changeCount} storage changes`, {changed, deleted}, JSON.parse(JSON.stringify(changes)));
+            emit('storage:sync', {changed, deleted});
+        }
+    }
+
+    async _createInstanceId() {
+        let instanceId = UuidHelper.generate();
+        this._instance = instanceId;
+        await this._api.storage.local.set({instance: instanceId});
     }
 }
 

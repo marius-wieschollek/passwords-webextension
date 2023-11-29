@@ -2,6 +2,7 @@ import StorageService from '@js/Services/StorageService';
 import Server from '@js/Models/Server/Server';
 import ServerNotFoundError from "@js/Exception/ServerNotFoundError";
 import UuidHelper from "@js/Helper/UuidHelper";
+import {emit, subscribe} from "@js/Event/Events";
 
 class ServerRepository {
 
@@ -11,11 +12,13 @@ class ServerRepository {
 
     constructor() {
         this._servers = null;
+
+        subscribe('storage:sync', (d) => {this._processSync(d);});
     }
 
     /**
      *
-     * @returns {Promise<Server[]>}
+     * @returns {Server[]}
      * @deprecated Use findAll instead
      */
     list() {
@@ -24,7 +27,7 @@ class ServerRepository {
 
     /**
      *
-     * @returns {Promise<Server[]>}
+     * @returns {Server[]}
      */
     findAll() {
         return this._loadServers();
@@ -32,18 +35,16 @@ class ServerRepository {
 
     /**
      *
-     * @returns {Promise<Server>}
+     * @returns {Server}
      */
-    async findById(id) {
-        let servers = await this._loadServers();
+    findById(id) {
+        let server = this._findById(id);
 
-        for(let server of servers) {
-            if(server.getId() === id) {
-                return server;
-            }
+        if(!server) {
+            throw new ServerNotFoundError(id);
         }
 
-        throw new ServerNotFoundError(id);
+        return server;
     }
 
     /**
@@ -75,7 +76,7 @@ class ServerRepository {
      * @param {Server} server
      */
     async delete(server) {
-        let servers = await this._loadServers();
+        let servers = this._loadServers();
 
         for(let i = 0; i < servers.length; i++) {
             if(servers[i].getId() === server.getId()) {
@@ -89,10 +90,28 @@ class ServerRepository {
 
     /**
      *
-     * @returns {Promise<Server[]>}
+     * @param {String} id
+     * @return {Server|null}
      * @private
      */
-    async _loadServers() {
+    _findById(id) {
+        let servers = this._loadServers();
+
+        for(let server of servers) {
+            if(server.getId() === id) {
+                return server;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     *
+     * @returns {Server[]}
+     * @private
+     */
+    _loadServers() {
         if(this._servers !== null) {
             return this._servers;
         }
@@ -102,11 +121,8 @@ class ServerRepository {
             let data = StorageService.get(this.STORAGE_KEY);
 
             for(let element of data) {
-                if(!element.hasOwnProperty('token')) {
-                    element.token = StorageService.get(`server.${element.id}.token`);
-                }
-
-                servers.push(new Server(element));
+                let server = this._makeServerFromData(element);
+                servers.push(server);
             }
         }
 
@@ -116,17 +132,30 @@ class ServerRepository {
 
     /**
      *
-     * @returns {Promise<Server[]>}
+     * @param {Object} element
+     * @return {Server}
      * @private
      */
-    async _refreshServers() {
+    _makeServerFromData(element) {
+        if(!element.hasOwnProperty('token')) {
+            element.token = StorageService.get(`server.${element.id}.token`);
+        }
+        return new Server(element);
+    }
+
+    /**
+     *
+     * @returns {Server[]}
+     * @private
+     */
+    _refreshServers() {
         let servers = [];
         if(StorageService.has(this.STORAGE_KEY)) {
             let data = StorageService.get(this.STORAGE_KEY);
 
             for(let element of data) {
                 try {
-                    let server = await this.findById(element.id);
+                    let server = this.findById(element.id);
 
                     for(let key of element) {
                         if(element.hasOwnProperty(key)) server.setProperty(key, element[key]);
@@ -148,7 +177,7 @@ class ServerRepository {
      * @private
      */
     async _saveServer(server) {
-        let servers = await this._loadServers();
+        let servers = this._loadServers();
 
         for(let i = 0; i < servers.length; i++) {
             if(servers[i].getId() === server.getId()) {
@@ -179,6 +208,45 @@ class ServerRepository {
             objects.push(data);
         }
         await StorageService.set(this.STORAGE_KEY, objects);
+    }
+
+    _processSync(d) {
+        let changedServers = [];
+
+        // Servers with changed token
+        for(let key in d.changed) {
+            if(key.startsWith('server') && key.endsWith('token')) {
+                let serverId = key.split('.')[1];
+                changedServers.push(serverId);
+            }
+        }
+
+        // Serves with any kind of change
+        if(d.changed.hasOwnProperty(this.STORAGE_KEY)) {
+            let servers = d.changed[this.STORAGE_KEY];
+            for(let element of servers) {
+                let server    = this._findById(element.id),
+                    newServer = this._makeServerFromData(element);
+
+                if(!server || JSON.stringify(server.getProperties()) !== JSON.stringify(newServer.getProperties())) {
+                    changedServers.push(newServer.getId());
+                }
+            }
+        }
+
+        if(changedServers.length === 0) {
+            return;
+        }
+
+        let allServers = this._refreshServers(),
+            servers    = [];
+        for(let server of allServers) {
+            if(changedServers.indexOf(server.getId()) !== -1) {
+                servers.push(server);
+            }
+        }
+
+        emit('servers:sync', servers);
     }
 }
 

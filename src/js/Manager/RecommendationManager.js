@@ -7,6 +7,7 @@ import SearchService from "@js/Services/SearchService";
 
 class RecommendationManager {
 
+    /** @return EventQueue **/
     get listen() {
         return this._change;
     }
