@@ -14,7 +14,6 @@
     import Icon from '@vue/Components/Icon';
     import Translate from '@vue/Components/Translate';
     import ErrorManager from '@js/Manager/ErrorManager';
-    import SystemService from '@js/Services/SystemService';
     import MessageService from '@js/Services/MessageService';
 
     export default {
@@ -61,56 +60,57 @@
 </script>
 
 <style lang="scss">
-    .passlink-connect-result {
-        .icon {
-            display     : block;
-            font-size   : 8rem;
-            line-height : 8rem;
-            text-align  : center;
-            margin      : 3rem 3rem 2rem;
-            color       : var(--success-bg-color);
+.passlink-connect-result {
+    .icon {
+        display     : block;
+        font-size   : 8rem;
+        line-height : 8rem;
+        text-align  : center;
+        margin      : 3rem 3rem 2rem;
+        text-shadow : 0 0 3px var(--color-text);
+        color       : var(--success-bg-color);
 
-            &.error {
-                color : var(--error-bg-color);
-            }
+        &.error {
+            color : var(--error-bg-color);
         }
+    }
 
-        .message {
-            text-align  : center;
-            margin      : 0 1rem 1rem;
-            font-weight : bold;
+    .message {
+        text-align  : center;
+        margin      : 0 1rem 1rem;
+        font-weight : bold;
 
-            &.secondary {
-                font-weight : normal;
-            }
+        &.secondary {
+            font-weight : normal;
         }
+    }
 
-        .options {
-            position : absolute;
-            bottom   : 0;
-            width    : 100vw;
-            padding  : .5rem 0;
+    .options {
+        position : absolute;
+        bottom   : 0;
+        width    : 100vw;
+        padding  : .5rem 0;
 
-            button {
-                background-color : var(--color-text);
-                color            : var(--color-primary);
+        button {
+            background-color : var(--color-text);
+            color            : var(--color-primary);
+            border           : 1px solid var(--color-text);
+            border-radius    : var(--border-radius-pill);
+            transition       : var(--button-transition);
+            cursor           : pointer;
+
+            padding          : .6rem;
+            display          : block;
+            margin           : .5rem 1rem;
+            text-align       : center;
+            width            : calc(100% - 2rem);
+
+            &:hover {
+                background-color : var(--color-primary);
+                color            : var(--color-text);
                 border           : 1px solid var(--color-text);
-                border-radius    : var(--border-radius-pill);
-                transition       : var(--button-transition);
-                cursor           : pointer;
-
-                padding          : .6rem;
-                display          : block;
-                margin           : .5rem 1rem;
-                text-align       : center;
-                width            : calc(100% - 2rem);
-
-                &:hover {
-                    background-color : var(--color-primary);
-                    color            : var(--color-text);
-                    border           : 1px solid var(--color-text);
-                }
             }
         }
     }
+}
 </style>

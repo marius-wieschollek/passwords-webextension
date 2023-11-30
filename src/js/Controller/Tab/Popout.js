@@ -25,7 +25,7 @@ export default class Popout extends AbstractController {
     async tabToWindow(tabId) {
         let api    = SystemService.getBrowserApi(),
             parent = await api.windows.getLastFocused({populate: true}),
-            offset = {width: 14, height: 42, left: 25, top: 74},
+            offset = {width: 14, height: SystemService.isCompatible('chrome') ? 106:82, left: 25, top: 74},
             width  = 360 + offset.width,
             height = 360 + offset.height,
             left   = Math.floor(parent.left + parent.width - width - offset.left),
