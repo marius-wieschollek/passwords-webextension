@@ -32,7 +32,7 @@ export default class Popout extends AbstractController {
             top    = Math.floor(parent.top + offset.top);
 
         if(parent.tabs.length === 1 && parent.tabs[0].id === tabId) {
-            await api.windows.update(info.id, {top, left, width, height, focused: true, drawAttention: true});
+            await api.windows.update(tabId, {top, left, width, height, focused: true, drawAttention: true});
             return;
         }
 
