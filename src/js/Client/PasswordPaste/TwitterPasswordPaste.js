@@ -16,7 +16,8 @@ export default class TwitterPasswordPaste extends AbstractPasswordPaste {
     async handle() {
         let userInput;
         try {
-            userInput = await this._waitForElement('input[autocomplete="username"]', 10000);
+            let time = location.href === 'https://twitter.com/i/flow/login' ? 10000:1000;
+            userInput = await this._waitForElement('input[autocomplete="username"]', time);
         } catch (e) {
             if (this._passwordPasteRequest.isAutofill()) {
                 return false;
