@@ -1396,7 +1396,7 @@
         }
     },
     "ToastServerCheckWarning": {
-        "message": "Dieses Addon benötigt bald $MINVERSION$, aber \"$SERVER$\" verwendet $SERVERVERSION$. Bitte aktualisiere die App um das Benutzerkonto weiterhin verwenden zu können.",
+        "message": "Dieses Addon benötigt bald $MINVERSION$ der Passwörter App, aber \"$SERVER$\" verwendet $SERVERVERSION$. Bitte aktualisiere die App um das Benutzerkonto weiterhin verwenden zu können.",
         "description": "Text of the toast notification when an account uses a server which will soon be no longer supported because it uses an outdated and unsupported version of the passwords app",
         "placeholders": {
             "server": {
