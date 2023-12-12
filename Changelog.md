@@ -1,11 +1,15 @@
-## 2.4.0 - Feature Release
+## 2.5.0 - Feature Release
 ### Added
-- Site specific single click logins
+- Single click login for Twitter, Tumblr and more
 - New password recommendation engine includes usage data in recommendations
-- New search engine
+- New improved search engine
 - Thin outline icons for Edge
+- First run wizard suggests common settings
 ### Changed
 - Handling of browser data synchronization
+- Adding credentials for current tab always available
+- Passlink connect now updates tokens of existing accounts
+- Autofill updates when recommendations change
 ### Removed
 - Support for Passwords older than 2022.12
 - Support for Firefox older than 95
