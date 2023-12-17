@@ -1510,5 +1510,25 @@
                 "example": "Nexcloud - admin"
             }
         }
+    },
+    "DebugResetTitle": {
+        "message": "Vymazání dat rozšíření",
+        "description": "Headline above the section for to clear specific extension data in the debug tab in the extension settings"
+    },
+    "DebugResetStatistics": {
+        "message": "Obnovení dat doporučení",
+        "description": "Label of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetStatisticsTitle": {
+        "message": "Obnovení shromážděných statistik o používání, které se používají k doporučování pověření na související kartě.",
+        "description": "Help title text of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtension": {
+        "message": "Obnovení prodloužení",
+        "description": "Label of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtensionTitle": {
+        "message": "Odstranění všech nastavení, účtů a doporučených dat a nový začátek.",
+        "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
     }
 }
