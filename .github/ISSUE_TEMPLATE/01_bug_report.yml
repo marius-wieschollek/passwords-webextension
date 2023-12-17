@@ -1,0 +1,92 @@
+name: "Bug Report"
+description: "Report a functional error in the extension"
+title: "[BUG]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ### 👍 Thank you for contributing to our project!
+        Please note this is a **free and open-source** project. Most people take on their own time to help you, so please, be patient.
+  - type: checkboxes
+    id: before-posting
+    attributes:
+      label: "⚠️ This issue respects the following points: ⚠️"
+      description: All conditions are **required**. Your issue can be closed if these are checked incorrectly.
+      options:
+        - label: This is a _single_ **bug**, not a question or a configuration/webserver/proxy issue.
+          required: true
+        - label: This is not a bug in the [Nextcloud App](https://github.com/marius-wieschollek/passwords) or another client.
+          required: true
+        - label: This issue is **not** already reported on Github _(I've searched it)_.
+          required: true
+        - label: Nextcloud Server and the Passwords App **is** up to date. See [Nextcloud Apps](https://apps.nextcloud.com/apps/passwords).
+          required: true
+        - label: The browser extension **is** up to date. See [Nextcloud Apps](https://extensions.passwordsapp.org/).
+          required: true
+  - type: textarea
+    id: server-information
+    attributes:
+      label: Server Information
+      description: |
+        If you're administrator of your Nextcloud, please run `php ./occ passwords:system:report debug` in your Nextcloud install directory and put the output here.
+        _Only if the command doesn't work:_ Try `php ./occ support:report` or provide at least Nextcloud & PHP version, Database & Server OS name and version, your cron settings and the output of `php -v`.
+        > NOTE: This will be automatically formatted into code for better readability.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: client-information
+    attributes:
+      label: Client Information
+      description: |
+        Provide us with information about the browser you're using.
+        Right click the extension icon, then choose "Options" or "Manage extension" to open the extension settings, then go to the debug tab and copy the data from there
+      value: |
+        Browser and Version:
+        Client OS and Version:
+        Extension Version:
+    validations:
+      required: true
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug description
+      description: |
+        Provide a description of the bug you're experiencing.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: |
+        Describe the steps to reproduce the bug.
+        The better your description is _(go 'here', click 'there'...)_ the fastest you'll get an _(accurate)_ answer.
+        Include relevant user settings and app settings if not standard  and provide sample data if necessary.
+      placeholder: |
+        1. I open the extension
+        2. I click on X
+        3. An error message appears
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: Describe what you expected to happen instead.
+      placeholder: |
+        1. I open the extension
+        2. I click on X
+        3. Y happens
+    validations:
+      required: true
+  - type: textarea
+    id: extension-log
+    attributes:
+      label: Extension Logs
+      description: |
+        Provide related Extension logs entries.
+        [Check out our guide to get the logs](https://git.mdns.eu/nextcloud/passwords/-/wikis/Users/Browser-Extension/Troubleshooting#debugging-the-extension)
+        > NOTE: This will be automatically formatted into code for better readability.
+      render: shell
