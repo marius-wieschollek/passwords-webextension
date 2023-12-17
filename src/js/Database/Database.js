@@ -38,6 +38,14 @@ export default class Database {
         };
     }
 
+    async unload() {
+        if (!this._ready.get()) {
+            await this._ready.awaitTrue();
+        }
+        this._db.close();
+        this._ready.set(false);
+    }
+
     /**
      * @param {String} name
      * @return {Promise<Table>}

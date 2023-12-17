@@ -1375,6 +1375,26 @@
         "message": "Show language keys",
         "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
     },
+    "DebugResetTitle": {
+        "message": "Clear Extension Data",
+        "description": "Headline above the section for to clear specific extension data in the debug tab in the extension settings"
+    },
+    "DebugResetStatistics": {
+        "message": "Reset Recommendation Data",
+        "description": "Label of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetStatisticsTitle": {
+        "message": "Reset collected usage statistics used to recommend credentials in the related tab",
+        "description": "Help title text of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtension": {
+        "message": "Reset Extension",
+        "description": "Label of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtensionTitle": {
+        "message": "Delete all settings, accounts and recommendation data and start over",
+        "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
     "DebugBuild": {
         "message": "Build Information",
         "description": "Headline above the section for the build instructions in the debug tab in the extension settings"

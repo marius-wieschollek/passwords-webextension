@@ -17,13 +17,22 @@
             <translate class="label" say="DebugInfoExtensionPlatform"/>
             <span class="value">{{ userAgent }}</span>
         </div>
+
         <translate tag="h3" say="DebugInfoHiddenFolderId"/>
         <div class="debug-info" v-for="server in hidden" :key="server.id">
-            <span class="label">{{server.label}}</span>
+            <span class="label">{{ server.label }}</span>
             <a :href="server.link" target="_blank" class="link">{{ server.id }}</a>
         </div>
         <div class="debug-info" v-if="hidden.length === 0">
             <span class="value">-</span>
+        </div>
+
+        <translate tag="h3" say="DebugResetTitle"/>
+        <div class="debug-info">
+            <button-field title="DebugResetStatisticsTitle" value="DebugResetStatistics" @click="resetStatistics"/>
+        </div>
+        <div class="debug-info">
+            <button-field title="DebugResetExtensionTitle" value="DebugResetExtension" @click="resetExtension"/>
         </div>
 
         <translate tag="h3" say="DebugSettings"/>
@@ -61,9 +70,10 @@
     import LocalisationService from '@js/Services/LocalisationService';
     import SliderField from '@vue/Components/Form/SliderField';
     import SettingsService from '@js/Services/SettingsService';
+    import ButtonField from "@vue/Components/Form/ButtonField.vue";
 
     export default {
-        components: {SliderField, Icon, Translate},
+        components: {ButtonField, SliderField, Icon, Translate},
         data() {
             return {
                 hidden  : [],
@@ -154,6 +164,16 @@
                 MessageService.send('options.debug.log.clear').then((reply) => {
                     this.errors = [];
                 });
+            },
+            resetStatistics() {
+                MessageService.send('options.debug.reset.statistics')
+                              .catch(ErrorManager.catch);
+                setTimeout(() => {location.reload();}, 1000);
+            },
+            resetExtension() {
+                MessageService.send('options.debug.reset.extension')
+                              .catch(ErrorManager.catch);
+                setTimeout(() => {location.reload();}, 1000);
             },
             getTitle(error) {
                 if(error.details) {
@@ -250,9 +270,9 @@
     }
 
     .debug-log-actions {
-        float : right;
-        margin-top       : -1.5rem;
-        margin-right     : -1rem;
+        float        : right;
+        margin-top   : -1.5rem;
+        margin-right : -1rem;
 
         .icon {
             cursor           : pointer;

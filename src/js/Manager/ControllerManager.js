@@ -201,6 +201,20 @@ class ControllerManager {
             }
         );
         MessageService.listen(
+            'options.debug.reset.statistics',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "DebugClearStatistics" */ '@js/Controller/Options/Debug/ClearStatistics');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
+            'options.debug.reset.extension',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "DebugReset" */ '@js/Controller/Options/Debug/Reset');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
             'setting.set',
             async (message, reply) => {
                 let module = await import(/* webpackChunkName: "SettingSet" */ '@js/Controller/Setting/Set');

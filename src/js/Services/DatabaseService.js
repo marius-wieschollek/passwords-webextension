@@ -33,6 +33,7 @@ export default new class DatabaseService {
             });
         }
         await database.load();
+        this._databases[name] = database;
         return database;
     }
 
