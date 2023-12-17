@@ -1,3 +1,9 @@
+## 2.5.1 - Bugfix Release
+### Added
+- Option to reset extension
+### Fixed
+- "Receiving end does not exist" log entry
+
 ## 2.5.0 - Feature Release
 ### Added
 - Single click login for Twitter, Tumblr and more
