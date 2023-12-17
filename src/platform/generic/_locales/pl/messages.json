@@ -1510,5 +1510,25 @@
                 "example": "Nexcloud - admin"
             }
         }
+    },
+    "DebugResetStatistics": {
+        "message": "Resetowanie danych rekomendacji",
+        "description": "Label of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetTitle": {
+        "message": "Wyczyść dane rozszerzenia",
+        "description": "Headline above the section for to clear specific extension data in the debug tab in the extension settings"
+    },
+    "DebugResetStatisticsTitle": {
+        "message": "Zresetuj zebrane statystyki użytkowania używane do rekomendowania poświadczeń na powiązanej karcie.",
+        "description": "Help title text of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtension": {
+        "message": "Rozszerzenie resetowania",
+        "description": "Label of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtensionTitle": {
+        "message": "Usuń wszystkie ustawienia, konta i dane rekomendacji i zacznij od nowa.",
+        "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
     }
 }
