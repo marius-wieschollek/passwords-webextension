@@ -1510,5 +1510,25 @@
                 "example": "Nexcloud - admin"
             }
         }
+    },
+    "DebugResetTitle": {
+        "message": "Очистити дані про розширення",
+        "description": "Headline above the section for to clear specific extension data in the debug tab in the extension settings"
+    },
+    "DebugResetStatistics": {
+        "message": "Скинути дані рекомендацій",
+        "description": "Label of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetStatisticsTitle": {
+        "message": "Скинути зібрану статистику використання, яка використовується для рекомендації облікових даних у відповідній вкладці",
+        "description": "Help title text of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtension": {
+        "message": "Продовження терміну дії скидання налаштувань",
+        "description": "Label of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtensionTitle": {
+        "message": "Видаліть усі налаштування, акаунти та дані рекомендацій і почніть спочатку",
+        "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
     }
 }
