@@ -1,3 +1,5 @@
+import ErrorManager from "@js/Manager/ErrorManager";
+
 export default class IndexEntry {
 
     /**
@@ -51,6 +53,11 @@ export default class IndexEntry {
      * @return {IndexEntry}
      */
     addFieldValue(name, value) {
+        if(value === undefined) {
+            ErrorManager.warning('Can not index "undefined" as "' + name + '"');
+            return this;
+        }
+
         if (!this._fields.hasOwnProperty(name)) {
             this._fields[name] = [];
         }
