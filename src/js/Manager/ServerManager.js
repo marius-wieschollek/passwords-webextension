@@ -9,6 +9,7 @@ import SettingsService from '@js/Services/SettingsService';
 import SessionAuthorizationHelper from '@js/Helper/SessionAuthorizationHelper';
 import ServerRequirementCheck from '@js/Helper/ServerRequirementCheck';
 import {subscribe} from "@js/Event/Events";
+import ToastService from "@js/Services/ToastService";
 
 class ServerManager {
 
@@ -60,7 +61,11 @@ class ServerManager {
      */
     async init() {
         this._authQueue = QueueService.getFeedbackQueue('authorisation', null, AuthorisationItem);
-        await this._loadServers();
+        this._loadServers()
+            .catch((e) => {
+                ErrorManager.logError(e);
+                ToastService.error(['ServerManagerLoadError', e.message]);
+            });
     }
 
     /**
@@ -69,7 +74,7 @@ class ServerManager {
      * @private
      */
     async _loadServers() {
-        let servers  = await ServerRepository.findAll(),
+        let servers  = ServerRepository.findAll(),
             promises = [];
 
         for(let server of servers) {

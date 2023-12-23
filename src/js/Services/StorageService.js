@@ -2,6 +2,8 @@ import SystemService from '@js/Services/SystemService';
 import ErrorManager from '@js/Manager/ErrorManager';
 import UuidHelper from "@js/Helper/UuidHelper";
 import {emit} from "@js/Event/Events";
+import MigrationManager from "@js/Manager/MigrationManager";
+import ToastService from "@js/Services/ToastService";
 
 class StorageService {
 
@@ -23,16 +25,22 @@ class StorageService {
         this._pendingChanges = {};
         this._instance = null;
         this._initialized = false;
+        this._writeable = false;
     }
 
     async init() {
         let localData = new Promise(async (resolve) => {
-            let result = await this._api.storage.local.get(['keys', 'instance']);
+            let result = await this._api.storage.local.get(['keys', 'instance', 'version']);
 
             if(result.hasOwnProperty('instance')) {
                 this._instance = result.instance;
             } else {
                 await this._createInstanceId();
+            }
+
+            if(MigrationManager.CURRENT_VERSION < result.version) {
+                resolve();
+                return;
             }
 
             if(result.hasOwnProperty('keys')) {
@@ -49,9 +57,10 @@ class StorageService {
         });
 
         let syncData = new Promise(async (resolve) => {
-            let result = await this._api.storage.sync.get('keys');
+            let result = await this._api.storage.sync.get('keys', 'version');
 
-            if(result.hasOwnProperty('keys')) {
+            this._setWriteableStatus(result.version <= MigrationManager.CURRENT_VERSION);
+            if(this._writeable && result.hasOwnProperty('keys')) {
                 this._keys.sync = result.keys;
                 this._storage.sync = await this._api.storage.sync.get(result.keys);
 
@@ -84,7 +93,7 @@ class StorageService {
      * @returns {Promise<Boolean>}
      */
     async set(key, value, storage = 'sync') {
-        if(!this._initialized) return false;
+        if(!this._initialized || !this._writeable) return false;
 
         try {
             this._pendingChanges[key] = true;
@@ -154,7 +163,7 @@ class StorageService {
      * @returns {Promise<Boolean>}
      */
     async remove(key, storage = null) {
-        if(!this._initialized) return false;
+        if(!this._initialized || !this._writeable) return false;
 
         if(storage !== null) {
             return await this._storageRemove(key, storage);
@@ -218,12 +227,18 @@ class StorageService {
     _onChangeListener(changes, area) {
         if(!this._initialized) return;
         if(area !== 'sync') return;
-        let changed     = {},
+        let forceFlush   = false,
+            changed     = {},
             deleted     = [],
             changeCount = 0;
 
         for(let key in changes) {
             if(!changes.hasOwnProperty(key) || this._pendingChanges.hasOwnProperty(key) || key === 'keys'|| key === 'version') continue;
+            if(key === 'version') {
+                this._setWriteableStatus(changes[key].newValue <= MigrationManager.CURRENT_VERSION);
+
+                continue;
+            }
 
             if(!changes[key].hasOwnProperty('newValue') || !changes[key].newValue) {
                 if(this._storageHas(key, area)) {
@@ -251,7 +266,14 @@ class StorageService {
                 this._keys[area].push(key);
                 changed[key] = data.value;
                 changeCount++;
+            } else {
+                forceFlush = true;
             }
+        }
+
+        if(forceFlush && this._writeable) {
+            this._flushToStorage()
+                .catch(ErrorManager.catch);
         }
 
         if(changeCount) {
@@ -260,10 +282,25 @@ class StorageService {
         }
     }
 
+    _setWriteableStatus(status) {
+        this._writeable = status;
+        if(!status) {
+            ToastService.warning('UnsupportedStorageVersion');
+        }
+    }
+
     async _createInstanceId() {
         let instanceId = UuidHelper.generate();
         this._instance = instanceId;
         await this._api.storage.local.set({instance: instanceId});
+    }
+
+    async _flushToStorage() {
+        for(let area in this._storage) {
+            await this._api.storage[area].set(this._storage[area]);
+            await this._api.storage[area].set({keys: this._keys[area]});
+            await this._api.storage[area].set({version: MigrationManager.CURRENT_VERSION});
+        }
     }
 }
 

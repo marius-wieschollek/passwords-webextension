@@ -21,7 +21,7 @@ export default new class MigrationManager {
         if(version === null) {
             await storage.sync.set({version: this.CURRENT_VERSION});
             return;
-        } else if(version === this.CURRENT_VERSION) {
+        } else if(version >= this.CURRENT_VERSION) {
             return;
         }
 
