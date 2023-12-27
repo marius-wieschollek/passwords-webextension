@@ -68,6 +68,10 @@ class SearchManager {
      */
     async _reloadServer(api) {
         try {
+            if(!api.isAuthorized()) {
+                await ServerManager.restartSession(api.getServer());
+            }
+
             await Promise.all(
                 [
                     this._reloadRepository(api, 'password'),
