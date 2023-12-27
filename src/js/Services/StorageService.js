@@ -57,7 +57,7 @@ class StorageService {
         });
 
         let syncData = new Promise(async (resolve) => {
-            let result = await this._api.storage.sync.get('keys', 'version');
+            let result = await this._api.storage.sync.get(['keys', 'version']);
 
             this._setWriteableStatus(result.version <= MigrationManager.CURRENT_VERSION);
             if(this._writeable && result.hasOwnProperty('keys')) {
