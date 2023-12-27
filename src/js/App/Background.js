@@ -23,6 +23,7 @@ import PassLinkManager from "@js/Manager/PassLinkManager";
 import BasicAuthAutofillManager from "@js/Manager/BasicAuthAutofillManager";
 import ServerTimeoutManager from "@js/Manager/ServerTimeoutManager";
 import StorageService from "@js/Services/StorageService";
+import ToastService from "@js/Services/ToastService";
 
 class Background {
     async init() {
@@ -55,6 +56,8 @@ class Background {
         } catch(e) {
             ErrorManager.logError(e);
             ErrorManager.error('Extension initialization failed. Extension may not work properly.');
+            ToastService.error(['ExtensionInitFailure', e.message])
+                        .catch(ErrorManager.catch);
         }
     }
 }
