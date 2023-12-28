@@ -58,6 +58,7 @@ export default new class AutofillManager {
      * @private
      */
     _sendPwdToMessageService(password) {
+        let time = Date.now();
         MessageService.send(
             {
                 type    : 'autofill.password',
@@ -67,6 +68,6 @@ export default new class AutofillManager {
                 silent  : true,
                 payload : AutofillRequestHelper.createPasteRequest(password, false, true)
             }
-        ).catch(ErrorManager.catchEvt);
+        ).catch(ErrorManager.catch);
     }
 };

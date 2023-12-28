@@ -127,8 +127,8 @@ class MiningManager {
      */
     async processTask(task) {
         try {
-            if(task.isNew() && !task.isManual()) NotificationService.newPasswordNotification(task).catch(ErrorManager.catchEvt);
-            if(!task.isNew() && !task.isManual()) NotificationService.updatePasswordNotification(task).catch(ErrorManager.catchEvt);
+            if(task.isNew() && !task.isManual()) NotificationService.newPasswordNotification(task).catch(ErrorManager.catch);
+            if(!task.isNew() && !task.isManual()) NotificationService.updatePasswordNotification(task).catch(ErrorManager.catch);
             task = await this._miningQueue.push(task);
 
             if(task.isDiscarded()) {
@@ -345,7 +345,7 @@ class MiningManager {
         if(!this.checkIfDomainAllowed(data)) return;
         data.manual = false;
         this.createItem(data)
-            .catch(ErrorManager.catchEvt);
+            .catch(ErrorManager.catch);
     }
 
     /**

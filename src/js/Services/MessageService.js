@@ -21,8 +21,6 @@ class MessageService {
         };
 
         this._messageEnabler = (client) => {
-            console.log('connect', client, client?.sender?.tab?.id);
-
             this._enabled = true;
             this._clients[client.name] = true;
             if(client.name === 'client' && client?.sender?.tab?.id) {
@@ -30,10 +28,9 @@ class MessageService {
             }
 
             this._sendMessages()
-                .catch(ErrorManager.catchEvt);
+                .catch(ErrorManager.catch);
 
             client.onDisconnect.addListener(() => {
-                console.log('disconnect', client);
                 this._clients[client.name] = false;
                 if(client.name === 'client' && client?.sender?.tab?.id) {
                     this._tabs[client.sender.tab.id] = false;
@@ -92,7 +89,7 @@ class MessageService {
     enable() {
         this._enabled = true;
         this._sendMessages()
-            .catch(ErrorManager.catchEvt);
+            .catch(ErrorManager.catch);
     }
 
     /**
@@ -148,7 +145,7 @@ class MessageService {
 
             if(send) {
                 this._sendMessage(message.getId())
-                    .catch(ErrorManager.catch());
+                    .catch(ErrorManager.catch);
             }
         });
     }
@@ -192,7 +189,6 @@ class MessageService {
             }
         } catch(error) {
             ErrorManager.logError(error, message);
-            console.trace(message, SystemService.getArea(), this._clients, this._tabs);
             if(reject) reject(error, message);
             return;
         }
@@ -209,7 +205,6 @@ class MessageService {
                 resolve(reply, message);
             } catch(error) {
                 ErrorManager.logError(error, message);
-                console.trace(message, SystemService.getArea());
                 if(reject) reject(error, message);
             }
         }

@@ -23,7 +23,7 @@ class ContextMenuManager {
         RecommendationManager.listen.on(
             (r) => {
                 this._updateContextMenu(r)
-                    .catch(ErrorManager.catchEvt);
+                    .catch(ErrorManager.catch);
             }
         );
     }
@@ -92,7 +92,7 @@ class ContextMenuManager {
 
             if(SystemService.isCompatible(SystemService.PLATFORM_FIREFOX)) {
                 this._loadIcons(password)
-                    .catch(ErrorManager.catchEvt);
+                    .catch(ErrorManager.catch);
             }
         }
     }

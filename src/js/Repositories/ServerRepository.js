@@ -82,7 +82,7 @@ class ServerRepository {
             if(servers[i].getId() === server.getId()) {
                 servers.splice(i, 1);
                 await StorageService.remove(`server.${server.getId()}.token`);
-                await StorageService.set(this.STORAGE_KEY, servers);
+                await StorageService.set(this.STORAGE_KEY, servers, StorageService.STORAGE_SYNC);
                 return;
             }
         }
@@ -117,8 +117,8 @@ class ServerRepository {
         }
 
         let servers = [];
-        if(StorageService.has(this.STORAGE_KEY)) {
-            let data = StorageService.get(this.STORAGE_KEY);
+        if(StorageService.has(this.STORAGE_KEY, StorageService.STORAGE_SYNC)) {
+            let data = StorageService.get(this.STORAGE_KEY, StorageService.STORAGE_SYNC);
 
             for(let element of data) {
                 let server = this._makeServerFromData(element);
@@ -138,7 +138,7 @@ class ServerRepository {
      */
     _makeServerFromData(element) {
         if(!element.hasOwnProperty('token')) {
-            element.token = StorageService.get(`server.${element.id}.token`);
+            element.token = StorageService.get(`server.${element.id}.token`, StorageService.STORAGE_SYNC);
         }
         return new Server(element);
     }
@@ -150,8 +150,8 @@ class ServerRepository {
      */
     _refreshServers() {
         let servers = [];
-        if(StorageService.has(this.STORAGE_KEY)) {
-            let data = StorageService.get(this.STORAGE_KEY);
+        if(StorageService.has(this.STORAGE_KEY, StorageService.STORAGE_SYNC)) {
+            let data = StorageService.get(this.STORAGE_KEY, StorageService.STORAGE_SYNC);
 
             for(let element of data) {
                 try {
@@ -202,12 +202,12 @@ class ServerRepository {
 
         for(let server of servers) {
             let data = server.getProperties();
-            await StorageService.set(`server.${data.id}.token`, data.token);
+            await StorageService.set(`server.${data.id}.token`, data.token, StorageService.STORAGE_SYNC);
             delete data.token;
 
             objects.push(data);
         }
-        await StorageService.set(this.STORAGE_KEY, objects);
+        await StorageService.set(this.STORAGE_KEY, objects, StorageService.STORAGE_SYNC);
     }
 
     _processSync(d) {

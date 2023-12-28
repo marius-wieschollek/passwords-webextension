@@ -4,12 +4,20 @@ import ErrorManager from "@js/Manager/ErrorManager";
 import UuidHelper from "@js/Helper/UuidHelper";
 
 export default class Migration20004 {
-    async run() {
+
+    static _instanceId = null;
+
+    async sync() {
         StorageService.stop();
         await this._removeOldVariables();
-        let instanceId = UuidHelper.generate();
-        await this._migrateSyncData(instanceId);
-        await this._migrateLocalData(instanceId);
+        await this._migrateSyncData(this._getInstanceId());
+    }
+
+    async local() {
+        StorageService.stop();
+        await this._removeOldVariables();
+        await this._migrateLocalData(this._getInstanceId());
+        await StorageService.init();
     }
 
     async _migrateLocalData(instanceId) {
@@ -31,7 +39,6 @@ export default class Migration20004 {
         newLocalData.keys = Object.keys(newLocalData);
         newLocalData.instance = instanceId;
         await api.local.set(newLocalData);
-        await StorageService.init();
     }
 
     async _migrateSyncData(instanceId) {
@@ -58,5 +65,13 @@ export default class Migration20004 {
         let storage = SystemService.getBrowserApi().storage;
         await storage.local.remove(['initialized', 'password', 'updated']);
         await storage.sync.remove(['url', 'user', 'theme']);
+    }
+
+    _getInstanceId() {
+        if(Migration20004._instanceId === null) {
+            Migration20004._instanceId = UuidHelper.generate();
+        }
+
+        return Migration20004._instanceId;
     }
 }

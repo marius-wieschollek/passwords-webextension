@@ -1,6 +1,6 @@
-import ErrorManager   from '@js/Manager/ErrorManager';
-import ApiRepository  from '@js/Repositories/ApiRepository';
-import ServerManager  from '@js/Manager/ServerManager';
+import ErrorManager from '@js/Manager/ErrorManager';
+import ApiRepository from '@js/Repositories/ApiRepository';
+import ServerManager from '@js/Manager/ServerManager';
 import MessageService from '@js/Services/MessageService';
 
 export default new class ServerTimeoutManager {
@@ -14,7 +14,7 @@ export default new class ServerTimeoutManager {
         if(this._interval === null) {
             this._interval = setInterval(() => {
                 this._checkAllClientTimeouts()
-                    .catch(ErrorManager.catchEvt);
+                    .catch(ErrorManager.catch);
             }, 60 * 1000);
             this._lastInteraction = Date.now();
             this._setUpActivityTriggers();
@@ -46,7 +46,7 @@ export default new class ServerTimeoutManager {
 
         for(let client of clients) {
             this._checkClientTimeout(client)
-                .catch(ErrorManager.catchEvt);
+                .catch(ErrorManager.catch);
         }
     }
 
@@ -63,7 +63,7 @@ export default new class ServerTimeoutManager {
             if(Date.now() - this._lastInteraction >= server.getTimeout()) {
                 ServerManager
                     .restartSession(server)
-                    .catch(ErrorManager.catchEvt);
+                    .catch(ErrorManager.catch);
             }
         }
     }
@@ -87,18 +87,21 @@ export default new class ServerTimeoutManager {
             api = await ApiRepository.findById(server.getId());
         } catch(e) {
             this._removeServerKeepaliveRequests(server);
+            ErrorManager.error(e);
             return;
         }
 
         if(api.getServer().getStatus() !== server.STATUS_AUTHORIZED) {
             this._removeServerKeepaliveRequests(server);
+            ErrorManager.info('Server not authorized when keepalive action called', server);
             return;
         }
 
-        if(server.getTimeout() > 0 &&Date.now() - this._lastInteraction >= server.getTimeout()) {
+        if(server.getTimeout() > 0 && Date.now() - this._lastInteraction >= server.getTimeout()) {
+            ErrorManager.info('Server session timed out when keepalive action called', server);
             ServerManager
                 .restartSession(server)
-                .catch(ErrorManager.catchEvt);
+                .catch(ErrorManager.catch);
             return;
         }
 

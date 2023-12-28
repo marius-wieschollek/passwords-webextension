@@ -118,7 +118,7 @@
             addBlankPassword() {
                 MessageService
                     .send('password.add.blank')
-                    .catch(ErrorManager.catchEvt);
+                    .catch(ErrorManager.catch);
             },
 
             sendStatus() {

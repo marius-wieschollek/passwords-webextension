@@ -2,7 +2,11 @@ import ErrorManager from "@js/Manager/ErrorManager";
 import DatabaseService from "@js/Services/DatabaseService";
 
 export default class Migration20006 {
-    async run() {
+
+
+    async sync() {}
+
+    async local() {
         if (!window.indexedDB) return;
         let pwdStatsDb, entries;
 

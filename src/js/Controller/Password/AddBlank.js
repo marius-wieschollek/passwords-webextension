@@ -10,6 +10,6 @@ export default class AddBlank extends AbstractController {
 
         MiningManager
             .createItem({title, url, manual: true, user: {value: ''}, password: {value: ''}})
-            .catch(ErrorManager.catchEvt);
+            .catch(ErrorManager.catch);
     }
 }

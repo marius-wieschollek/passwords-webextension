@@ -8,10 +8,12 @@ export default class Migration20005 {
      *
      * @returns {Promise<void>}
      */
-    async run() {
-        let servers = await ServerRepository.findAll();
+    async sync() {
+        let servers = ServerRepository.findAll();
         for(let server of servers) {
             await ServerRepository.update(server);
         }
     }
+
+    async local() {}
 }

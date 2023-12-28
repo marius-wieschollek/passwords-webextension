@@ -7,13 +7,15 @@ export default class Migration20001 {
      *
      * @returns {Promise<void>}
      */
-    async run() {
+    async sync() {
         if(await SettingsService.getValue('server.default') === null) {
-            let servers = await ServerRepository.findAll();
+            let servers = ServerRepository.findAll();
 
             if(servers.length > 0) {
                 await SettingsService.set('server.default', servers[0].getId());
             }
         }
     }
+
+    async local() {}
 }

@@ -12,7 +12,7 @@ export default class Migration20000 {
      *
      * @returns {Promise<void>}
      */
-    async run() {
+    async sync() {
         let storage            = SystemService.getBrowserApi().storage,
             {url, user, theme} = await storage.sync.get(['url', 'user', 'theme']),
             {password}         = await storage.local.get(['password']);
@@ -42,6 +42,11 @@ export default class Migration20000 {
         await ServerRepository.create(server);
         await SettingsService.set('server.default', server.getId());
         await this._removeOldVariables();
+    }
+
+    async local() {
+        let storage            = SystemService.getBrowserApi().storage;
+        await storage.local.remove(['initialized', 'password', 'updated']);
     }
 
     async _removeOldVariables() {

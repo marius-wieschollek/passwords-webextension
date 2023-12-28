@@ -209,7 +209,7 @@
 
                 ToastService
                     .success('DebugErrorDataCopied')
-                    .catch(ErrorManager.catchEvt);
+                    .catch(ErrorManager.catch);
             }
         },
 
@@ -217,7 +217,7 @@
             'settings.localize': (value) => {
                 SettingsService
                     .set('debug.localisation.enabled', !value)
-                    .catch(ErrorManager.catchEvt);
+                    .catch(ErrorManager.catch);
             }
         }
     };

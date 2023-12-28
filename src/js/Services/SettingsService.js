@@ -80,7 +80,7 @@ class SettingsService {
 
         if(name === 'server.default' && SystemService.getArea() === SystemService.AREA_BACKGROUND) {
             this._reloadSettings()
-                .catch(ErrorManager.catchEvt);
+                .catch(ErrorManager.catch);
         }
     }
 
@@ -107,7 +107,7 @@ class SettingsService {
 
         if(name === 'server.default' && SystemService.getArea() === SystemService.AREA_BACKGROUND) {
             this._reloadSettings()
-                .catch(ErrorManager.catchEvt);
+                .catch(ErrorManager.catch);
         }
 
         return isSetting ? setting:value;

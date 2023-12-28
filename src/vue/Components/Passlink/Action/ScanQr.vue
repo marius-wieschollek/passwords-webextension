@@ -27,7 +27,7 @@
                     this.status = 'PasslinkScanProcessingLink';
                     Passlink
                         .loadLink(data)
-                        .catch(ErrorManager.catchEvt);
+                        .catch(ErrorManager.catch);
                 } else {
                     this.status = 'PasslinkScanInvalidQrCode';
                 }

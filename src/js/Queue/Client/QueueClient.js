@@ -21,7 +21,7 @@ export default class QueueClient {
             for(let item of items) {
                 await this
                     ._processItem(item)
-                    .catch(ErrorManager.catchEvt);
+                    .catch(ErrorManager.catch);
             }
         };
 
@@ -59,7 +59,7 @@ export default class QueueClient {
         let items = queue.getItems();
         for(let item of items) {
             this._processItem(item.toJSON())
-                .catch(ErrorManager.catchEvt);
+                .catch(ErrorManager.catch);
         }
     }
 

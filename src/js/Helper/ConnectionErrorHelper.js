@@ -42,7 +42,7 @@ export default class ConnectionErrorHelper {
             ToastService.create({message: 'ServerNetworkError', title, tags, options, default: true, ttl: 0, type: 'error'})
                 .then((c) => {
                     if(c === 'reload') {
-                        this._reloadServer(server.getId()).catch(ErrorManager.catch());
+                        this._reloadServer(server.getId()).catch(ErrorManager.catch);
                     } else if(c) {
                         SystemService.getBrowserApi().tabs.create({active: true, url: server.getBaseUrl()});
                     }

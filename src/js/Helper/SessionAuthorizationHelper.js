@@ -226,7 +226,7 @@ export default class SessionAuthorizationHelper {
             server.setLockable(state);
             ServerRepository
                 .update(server)
-                .catch(ErrorManager.catchEvt);
+                .catch(ErrorManager.catch);
         }
     }
 }

@@ -16,86 +16,72 @@ export default new class MigrationManager {
 
     async run() {
         let storage = SystemService.getBrowserApi().storage;
-        let version = await this._getCurrentVersion(storage);
+        for(let area of ['sync', 'local']) {
+            let result = await storage[area].get('version');
 
-        if(version === null) {
-            await storage.sync.set({version: this.CURRENT_VERSION});
-            return;
-        } else if(version >= this.CURRENT_VERSION) {
-            return;
+            if(!result.hasOwnProperty('version')) {
+                await storage[area].clear();
+                await storage[area].set({version: this.CURRENT_VERSION});
+                continue;
+            }
+            if(result.version >= this.CURRENT_VERSION) {
+                continue;
+            }
+
+            await this._runMigrations(result.version, area);
+            await storage[area].set({version: this.CURRENT_VERSION});
         }
+    }
 
+    /**
+     * @param {Number} version
+     * @param {String} area
+     *
+     * @returns {Promise<void>}
+     * @private
+     */
+    async _runMigrations(version, area) {
         if(version < 20000) {
-            await this._runMigration(new Migration20000());
+            await this._runMigration(new Migration20000(), area);
         }
 
         // Must be here as it changes the settings data structure
         if(version < 20004) {
-            await this._runMigration(new Migration20004());
+            await this._runMigration(new Migration20004(), area);
         }
 
         if(version < 20001) {
-            await this._runMigration(new Migration20001());
+            await this._runMigration(new Migration20001(), area);
         }
 
         if(version < 20002) {
-            await this._runMigration(new Migration20002());
+            await this._runMigration(new Migration20002(), area);
         }
 
         if(version < 20003) {
-            await this._runMigration(new Migration20003());
+            await this._runMigration(new Migration20003(), area);
         }
 
         if(version < 20005) {
-            await this._runMigration(new Migration20005());
+            await this._runMigration(new Migration20005(), area);
         }
 
         if(version < 20006) {
-            await this._runMigration(new Migration20006());
+            await this._runMigration(new Migration20006(), area);
         }
-
-        await this._setVersion(storage);
     }
 
-    /**
-     *
-     * @param storage
-     * @returns {Promise<void>}
-     * @private
-     */
-    async _setVersion(storage) {
-        await storage.sync.set({version: this.CURRENT_VERSION});
-        await storage.local.set({version: this.CURRENT_VERSION});
-    }
-
-    /**
-     *
-     * @param storage
-     * @returns {Promise<null>}
-     * @private
-     */
-    async _getCurrentVersion(storage) {
-        let version = null,
-            result  = await storage.local.get('version');
-
-        if(result.hasOwnProperty('version')) {
-            version = result.version;
-        } else {
-            result = await storage.sync.get('version');
-            if(result.hasOwnProperty('version')) version = result.version;
-        }
-        return version;
-    }
 
     /**
      *
      * @param migration
+     * @param {String} area
      * @returns {Promise<void>}
      * @private
      */
-    async _runMigration(migration) {
+    async _runMigration(migration, area) {
         try {
-            await migration.run();
+            await migration[area]();
         } catch(e) {
             ErrorManager.logError(e);
         }

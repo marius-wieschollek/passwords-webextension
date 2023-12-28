@@ -101,13 +101,13 @@
                     if(response.getPayload().success === false) {
                         ToastService
                             .error(['PasswordPastedError', this.password.getLabel()], null, 3)
-                            .catch(ErrorManager.catchEvt);
+                            .catch(ErrorManager.catch);
                         return;
                     }
                 } catch(e) {
                     ErrorManager.logError(e);
                     ToastService.error(['PasswordPastedError', this.password.getLabel()], null, 3)
-                                .catch(ErrorManager.catchEvt);
+                                .catch(ErrorManager.catch);
                     return;
                 }
 
@@ -117,7 +117,7 @@
                     if(this.password.getStatus() === 2 && await SettingsService.getValue('paste.compromised.warning')) {
                         ToastService
                             .warning('PasteBadPasswordWarning', null, 3)
-                            .catch(ErrorManager.catchEvt);
+                            .catch(ErrorManager.catch);
                     }
 
                     if(await SettingsService.getValue('paste.popup.close') && this.active) {

@@ -82,7 +82,7 @@ export default class HiddenFolderHelper {
 
         SettingsService
             .set('password.folder.private', folder.getId(), api)
-            .catch(ErrorManager.catchEvt);
+            .catch(ErrorManager.catch);
 
         return folder;
     }
@@ -100,7 +100,7 @@ export default class HiddenFolderHelper {
             let folder = await api.getFolderRepository().findById(folderId, 'model+passwords');
             if(folder.getLabel() !== this._getLabel()) {
                 folder.setLabel(this._getLabel());
-                await api.getFolderRepository().update(folder).catch(ErrorManager.catchEvt);
+                await api.getFolderRepository().update(folder).catch(ErrorManager.catch);
             }
             return folder;
         } catch(e) {
