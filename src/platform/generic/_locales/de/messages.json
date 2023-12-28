@@ -1512,23 +1512,23 @@
         }
     },
     "DebugResetTitle": {
-        "message": "Erweiterungsdaten löschen",
+        "message": "Addon-Daten löschen",
         "description": "Headline above the section for to clear specific extension data in the debug tab in the extension settings"
     },
     "DebugResetStatistics": {
-        "message": "Empfehlungsdaten zurücksetzen",
+        "message": "Passwort Empfehlungen zurücksetzen",
         "description": "Label of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
     },
     "DebugResetStatisticsTitle": {
-        "message": "Zurücksetzen der gesammelten Nutzungsstatistiken, die zur Empfehlung von Anmeldeinformationen auf der entsprechenden Registerkarte verwendet werden",
+        "message": "Zurücksetzen der Nutzungsstatistiken, die zur Empfehlung von Anmeldeinformationen für den aktuellen Tab verwendet werden",
         "description": "Help title text of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
     },
     "DebugResetExtension": {
-        "message": "Erweiterung zurücksetzen",
+        "message": "Addon zurücksetzen",
         "description": "Label of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
     },
     "DebugResetExtensionTitle": {
-        "message": "Löschen Sie alle Einstellungen, Konten und Empfehlungsdaten und beginnen Sie von vorne",
+        "message": "Alle Einstellungen, Konten und Empfehlungsdaten löschen und von vorne beginnen",
         "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
     },
     "ExtensionInitFailure": {
