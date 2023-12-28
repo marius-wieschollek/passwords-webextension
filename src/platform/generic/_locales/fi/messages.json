@@ -1530,5 +1530,15 @@
     "DebugResetExtensionTitle": {
         "message": "Poista kaikki asetukset, tilit ja suositustiedot ja aloita alusta.",
         "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "ExtensionInitFailure": {
+        "message": "Laajennuksen alustaminen epäonnistui: $ERROR$",
+        "description": "Notification message when the start sequence of the extension failed",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
     }
 }
