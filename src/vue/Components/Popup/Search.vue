@@ -73,7 +73,7 @@
                 MessageService
                     .send({type: 'password.search', payload: {query}})
                     .then((r) => {
-                        if(this.query === query && r.getPayload().length !== this.passwords.length) {
+                        if(this.query === query) {
                             this.passwords = r.getPayload();
                         }
                     });

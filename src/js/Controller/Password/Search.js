@@ -15,7 +15,6 @@ export default class Search extends AbstractController {
         let input = message.getPayload().query,
             query = this._createQuery(input);
 
-
         reply.setType('password.items')
              .setPayload(query.execute());
     }
