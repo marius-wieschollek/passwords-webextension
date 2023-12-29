@@ -4,6 +4,7 @@ import SystemService from '@js/Services/SystemService';
 import ErrorManager from '@js/Manager/ErrorManager';
 import Toast from '@js/Models/Toast/Toast';
 import ConnectionErrorHelper from '@js/Helper/ConnectionErrorHelper';
+import RegistryService from "@js/Services/RegistryService";
 
 export default class ServerRequirementCheck {
 
@@ -131,6 +132,10 @@ export default class ServerRequirementCheck {
      * @private
      */
     _sendServerWarningToast(server, minVersion, serverVersion) {
+        if(RegistryService.has(`${server.getId()}.warning.deprecation`)) {
+            return;
+        }
+
         let toast = new Toast()
             .setTitle('ToastServerCheckTitle')
             .setMessage('ToastServerCheckWarning')
@@ -143,6 +148,8 @@ export default class ServerRequirementCheck {
         ToastService.create(toast)
                     .then(() => {SystemService.getBrowserApi().tabs.create({active: true, url: server.getBaseUrl()});})
                     .catch(ErrorManager.catch);
+
+        RegistryService.set(`${server.getId()}.warning.deprecation`, true);
     }
 
     /**
