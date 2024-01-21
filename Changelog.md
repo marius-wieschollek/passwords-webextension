@@ -1,8 +1,12 @@
-## 2.5.1 - Bugfix Release
+## 2.6.0 - Feature Release
 ### Added
 - Option to reset extension
 ### Fixed
-- "Receiving end does not exist" log entry
+- Search not updating
+- Excessive "Receiving end does not exist" log entry
+### Removed
+- Support for Passwords older than 2023.7
+
 
 ## 2.5.0 - Feature Release
 ### Added
