@@ -5,6 +5,8 @@ stages:
 image: passwords-webextension-builder
 
 Compile Firefox:
+  rules:
+    when: never
   stage: compiling
   variables:
     GIT_SUBMODULE_STRATEGY: recursive
@@ -54,6 +56,8 @@ Compile Chrome:
     - testing
 
 Publish Nightly Firefox:
+  rules:
+    when: never
   stage: publishing
   script:
     - 'export EXT_VERSION=$(node -p "require(\"./dist/firefox-extension/manifest.json\").version")'
@@ -104,6 +108,8 @@ Publish Nightly Edge:
     - testing
 
 Publish Stable Firefox:
+  rules:
+    when: never
   stage: publishing
   script:
     - 'rm dist/firefox-extension/updates.json'

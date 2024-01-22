@@ -8,7 +8,7 @@ import ThemeService          from '@js/Services/ThemeService';
 import FaviconService        from '@js/Services/FaviconService';
 import AutofillRequestHelper from "@js/Helper/AutofillRequestHelper";
 import UuidHelper            from "@js/Helper/UuidHelper";
-import SearchIndex from "@js/Search/Index/SearchIndex";
+import SearchService from "@js/Services/SearchService";
 
 class ContextMenuManager {
 
@@ -147,7 +147,7 @@ class ContextMenuManager {
      */
     _sendPassword(password, tabId = null) {
         if(typeof password === "string") {
-            password = SearchIndex.getItem(password);
+            password = SearchService.get(password);
             if(password === null) {
                 return;
             }

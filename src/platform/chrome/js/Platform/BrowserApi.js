@@ -84,6 +84,8 @@ class BrowserApi {
     }
 
     usesDarkMode() {
+        //@TODO find a new way to determine this.
+        return false;
         let matcher = window.matchMedia('(prefers-color-scheme: dark)');
         return matcher.matches;
     }

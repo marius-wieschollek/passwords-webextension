@@ -57,16 +57,13 @@ class MessageService {
             this._api.runtime.onConnect.addListener(this._messageEnabler);
             SystemService.getBrowserAction().onClicked.addListener(this._messageEnabler);
 
-            if(hasWindow)
+            if(hasWindow) {
                 this._connector = {
                     inboxMessage: (m) => {
                         return this._receiveMessage(m);
                     }
                 };
             }
-            window.inboxMessage = (m) => {
-                return this._receiveMessage(m);
-            };
         } else if(SystemService.getArea() !== SystemService.AREA_CLIENT) {
             // @TODO check if works with firefox
             //this._connector = await this._api.runtime.getBackgroundPage();

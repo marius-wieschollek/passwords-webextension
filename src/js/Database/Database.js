@@ -17,7 +17,7 @@ export default class Database {
     }
 
     load() {
-        let request = window.indexedDB.open(this._name, this._version);
+        let request = indexedDB.open(this._name, this._version);
 
         request.onerror = (event) => {
             // @TODO use custom error here
