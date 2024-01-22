@@ -50,11 +50,16 @@ class ApiRepository {
      *
      * @param {PasswordsClient} api
      */
-    async delete(api) {
-        let apis = await this._loadApis();
+    delete(api) {
+        if(this._api.hasOwnProperty(api.getServer().getId())) {
+            if(api.getSession().getAuthorized()) {
+                api.getRequest()
+                   .setPath('1.0/session/close')
+                   .send()
+                   .catch(ErrorManager.catch);
+            }
 
-        if(apis.hasOwnProperty(api.getServer().getId())) {
-            delete apis[api.getServer().getId()];
+            delete this._api[api.getServer().getId()];
         }
     }
 
@@ -64,7 +69,7 @@ class ApiRepository {
      * @private
      */
     async _loadApis() {
-        let servers = await ServerRepository.findAll(),
+        let servers = ServerRepository.findAll(),
             config  = await this._getApiConfig();
 
         for(let server of servers) {

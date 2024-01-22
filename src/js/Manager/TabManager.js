@@ -29,19 +29,19 @@ class TabManager {
         this._tabUpdate = new EventQueue();
 
         this._updatedEvent = (tabId, changeInfo, tab) => {
-			if (changeInfo.sharingState) {
-				return;
-			}
-            this._updateTabInfo(tab)
-                .catch(ErrorManager.catch());
+            if(changeInfo.sharingState) {
+                return;
+            }
+            this._updateTabInfo()
+                .catch(ErrorManager.catch);
         };
         this._createdEvent = (tab) => {
             this._updateTabInfo(tab)
-                .catch(ErrorManager.catch());
+                .catch(ErrorManager.catch);
         };
         this._refreshEvent = () => {
             this._updateTabInfo()
-                .catch(ErrorManager.catch());
+                .catch(ErrorManager.catch);
         };
     }
 
@@ -62,7 +62,7 @@ class TabManager {
             this._api.windows.onRemoved.addListener(this._refreshEvent);
             this._api.windows.onFocusChanged.addListener(this._refreshEvent);
         }
-        this._updateTabInfo().catch(ErrorManager.catch());
+        this._updateTabInfo().catch(ErrorManager.catch);
     }
 
     /**

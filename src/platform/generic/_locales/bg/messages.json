@@ -549,26 +549,6 @@
         "message": "Свързване с Nextcloud",
         "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
     },
-    "FirstRunConnectText": {
-        "message": "Отворете приложението за пароли, щракнете върху \"More\" (Повече), отворете \"Apps & Extensions\" (Приложения и разширения) и отворете диалоговия прозорец PassLink Connect.",
-        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
-    },
-    "FirstRunConnectLink": {
-        "message": "Ако диалоговият прозорец на PassLink е отворен на същото устройство, използвайте опцията за свързване чрез връзка",
-        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
-    },
-    "FirstRunConnectScan": {
-        "message": "Ако това е друго устройство, сканирайте кода на PassLink Connect с бутона по-долу",
-        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
-    },
-    "FirstRunConnectManual": {
-        "message": "Можете също така да създадете акаунта ръчно в настройките на разширението",
-        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
-    },
-    "FirstRunConnectScanButton": {
-        "message": "Сканиране на кода PassLink",
-        "description": "Text of the button to scan a PassLink QR Code"
-    },
     "DebugHighlightLoginForms": {
         "message": "Подчертаване на полетата на формуляра за влизане",
         "description": "Label of the button in the popup which triggers the option to highlight all login form fields in the current tab"
@@ -636,10 +616,6 @@
     "LabelSearchRecommendationHost": {
         "message": "същия хост",
         "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
-    },
-    "LabelSearchRecommendationHostPort": {
-        "message": "същия хост и порт",
-        "description": "Find password recommendations for the specific server and port."
     },
     "SettingsSearchRecommendationMaxRows": {
         "message": "Максимален брой препоръки",
@@ -1452,5 +1428,117 @@
     "MiningPasswordUpdated": {
         "message": "Актуализиране на паролата",
         "description": "The toast notification after the password was successfully saved"
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "Етикет на потребителското поле",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "Етикет на потребителското поле",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
+    },
+    "ServerNetworkErrorReload": {
+        "message": "Презареждане на сървъра",
+        "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
+    },
+    "PasswordMiningSettings": {
+        "message": "Нова и променена парола",
+        "description": "Headline above the password mining section in the other settings tab in the extension settings"
+    },
+    "SettingsMiningIgnoredDomainsPlaceholder": {
+        "message": "напр. example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "SettingsMiningIgnoredDomains": {
+        "message": "Игнориране на тези домейни (по един на ред, поддомейните също се игнорират)",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not detect new or changed passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "SettingsMiningIncognitoHide": {
+        "message": "Съхраняване на паролите, събрани в Инкогнито, като лични пароли",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "BadgeIconOutlineLight": {
+        "message": "Икона с лек контур",
+        "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconOutlineDark": {
+        "message": "Икона с тъмен контур",
+        "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "FirstRunConnectLink1": {
+        "message": "Отворете приложението Passwords, кликнете върху \"More\" и отворете \"Apps & Extensions\".",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink2": {
+        "message": "Изберете браузъра си и щракнете върху \"Свързване с PassLink\".",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunConnectLink3": {
+        "message": "Щракнете върху \"Свързване чрез връзка\", сравнете кодовете и потвърдете връзката.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "FirstRunSetupManually": {
+        "message": "Ръчно свързване",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "FirstRunConnectScanQR": {
+        "message": "Сканиране на кода PassLink",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Видео ръководство за гледане",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "Персонализиране на разширението",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "FirstRunSettingsText": {
+        "message": "Тези и много други неща могат да се променят по всяко време в настройките на разширението.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Запазване",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
+    },
+    "PasslinkConnectServerUpdated": {
+        "message": "Удостоверенията за \"$LABEL$\" бяха актуализирани",
+        "description": "Confirmation message in the PassLink Connect action when an existing account has been updated successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "DebugResetTitle": {
+        "message": "Изчистване на данните за разширение",
+        "description": "Headline above the section for to clear specific extension data in the debug tab in the extension settings"
+    },
+    "DebugResetStatistics": {
+        "message": "Нулиране на данните за препоръка",
+        "description": "Label of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetStatisticsTitle": {
+        "message": "Нулиране на събраните статистически данни за използването, използвани за препоръчване на пълномощията в свързания раздел",
+        "description": "Help title text of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtension": {
+        "message": "Нулиране на разширението",
+        "description": "Label of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtensionTitle": {
+        "message": "Изтрийте всички настройки, акаунти и данни за препоръки и започнете отначало",
+        "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "ExtensionInitFailure": {
+        "message": "Инициализацията на разширението е неуспешна: $ERROR$",
+        "description": "Notification message when the start sequence of the extension failed",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
     }
 }

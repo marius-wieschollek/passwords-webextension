@@ -6,18 +6,19 @@ export default class FieldEquals extends AbstractField {
      * @inheritDoc
      */
     evaluate(item) {
-        let values = this._getFieldValues(item);
+        let values = item.getField(this._name);
 
-        if(!values) return {passed: false};
+        if(values === null) return this.NO_MATCH_RESULT;
 
         let search = this._value;
         if(typeof search === 'string' && this._name !== 'password') {
             search = this._value.toLowerCase();
         }
+
         for(let value of values) {
-            if(value === search) return  {matches: 1, checks: 1, passed: true};
+            if(value === search) return this._createResult(1, 1);
         }
 
-        return {passed: false};
+        return this.NO_MATCH_RESULT;
     }
 }

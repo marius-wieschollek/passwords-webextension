@@ -1,13 +1,17 @@
 <template>
     <div class="server-setup-wizard">
         <translate tag="h2" say="FirstRunConnectTitle"/>
-        <translate say="FirstRunConnectText"/>
-        <ul class="sever-setup-options">
-            <translate tag="li" say="FirstRunConnectLink" />
-            <translate tag="li" say="FirstRunConnectScan" />
-            <translate tag="li" class="link" say="FirstRunConnectManual" @click="openSettings"/>
-        </ul>
-        <button-field value="FirstRunConnectScanButton" @click="scanQr"/>
+        <ol class="sever-setup-options">
+            <translate tag="li" say="FirstRunConnectLink1"/>
+            <translate tag="li" say="FirstRunConnectLink2"/>
+            <translate tag="li" say="FirstRunConnectLink3"/>
+        </ol>
+        <button-field value="FirstRunSetupVideo" @click="openWiki"/>
+        <div class="setup-other-options">
+            <translate class="link" say="FirstRunSetupManually" @click="openSettings"/>
+            <span class="separator"> </span>
+            <translate class="link" say="FirstRunConnectScanQR" @click="scanQr"/>
+        </div>
     </div>
 </template>
 
@@ -16,7 +20,6 @@
     import ButtonField from '@vue/Components/Form/ButtonField';
     import MessageService from '@js/Services/MessageService';
     import ErrorManager from '@js/Manager/ErrorManager';
-    import SystemService from '@js/Services/SystemService';
 
     export default {
         components: {ButtonField, Translate},
@@ -28,7 +31,12 @@
                 window.close();
             },
             openSettings() {
-                MessageService.send('popup.settings.open');
+                MessageService.send('popup.settings.open')
+                              .catch(ErrorManager.catch);
+            },
+            openWiki() {
+                MessageService.send('firstrun.guide')
+                              .catch(ErrorManager.catch);
             }
         }
     };
@@ -36,23 +44,20 @@
 
 <style lang="scss">
 .server-setup-wizard {
+    display        : flex;
+    flex-direction : column;
+    height         : 100%;
+
     h2 {
         text-align : center;
     }
 
     .sever-setup-options {
-        padding-left : 1rem;
+        padding : 0 2rem;
+        flex-grow    : 1;
 
         li {
-            margin-bottom : .25rem;
-
-            &.link {
-                cursor : pointer;
-
-                &:hover {
-                    text-decoration : underline;
-                }
-            }
+            margin-bottom : 1rem;
         }
     }
 
@@ -60,9 +65,7 @@
         background-color : var(--element-active-bg-color);
         color            : var(--element-active-fg-color);
         text-align       : center;
-        position         : absolute;
-        bottom           : .5rem;
-        width            : calc(100% - 1rem);
+        width            : 100%;
         line-height      : 3rem;
         border-radius    : var(--button-border-radius);
         border           : none;
@@ -71,6 +74,23 @@
         &:hover {
             background-color : var(--element-active-hover-bg-color);
             color            : var(--element-active-hover-fg-color);
+        }
+    }
+
+    .setup-other-options {
+        text-align : center;
+        padding    : .5rem 0;
+
+        .separator {
+            padding : 0 .5rem;
+        }
+
+        .link {
+            cursor : pointer;
+
+            &:hover {
+                text-decoration : underline;
+            }
         }
     }
 }

@@ -1,12 +1,13 @@
-import SearchQuery from '@js/Search/Query/SearchQuery';
 import Url from 'url-parse';
 import TabManager from '@js/Manager/TabManager';
-import SearchIndex from '@js/Search/Index/SearchIndex';
 import EventQueue from '@js/Event/EventQueue';
 import SettingsService from '@js/Services/SettingsService';
+import {subscribe} from "@js/Event/Events";
+import SearchService from "@js/Services/SearchService";
 
 class RecommendationManager {
 
+    /** @return EventQueue **/
     get listen() {
         return this._change;
     }
@@ -36,7 +37,7 @@ class RecommendationManager {
         this.initRecommendationOptions();
         TabManager.tabChanged.on(this._tabEvent);
         TabManager.urlChanged.on(this._tabEvent);
-        SearchIndex.listen.on(this._searchEvent);
+        subscribe('search:items:changed', this._searchEvent);
     }
 
     initRecommendationOptions() {
@@ -80,37 +81,35 @@ class RecommendationManager {
         url = Url(url);
         if(url.host.length === 0) return [];
 
-        let query = new SearchQuery('or');
-        query
-            .where(this.getFilterQuery(query, url))
-            .type('password')
-            .score(0.3)
-            .limit(this._options.maxRows.getValue())
+        let query = SearchService
+            .find('password', 'or')
+            .where(this.getFilterQuery(url))
+            .having('score', '>=', 0.3)
+            .paginate('limit', this._options.maxRows.getValue())
+            .boost('multiply', url.host)
+            .boost('multiply', 'favorite', 2)
+            .sortBy('score')
             .sortBy('favorite')
             .sortBy('uses')
             .sortBy('shared')
             .sortBy('score')
-            .sortBy('label');
+            .sortBy('label')
+            .withHidden(incognito);
 
-        if(incognito) query.hidden(true);
-
-        return query.execute();
+        return query.execute()
     }
 
     /**
-     * @param {SearchQuery} query
-     * @param {URL} url
+     * @param {Url} url
      */
-    getFilterQuery(query, url) {
+    getFilterQuery(url) {
         let mode = this._options.mode.getValue();
         if(mode === 'domain') {
-            return query.field('host').contains(this.getSearchDomainFromHost(url.host));
-        } else if(mode === 'host') {
-            return query.field('host').startsWith(url.host.split(':')[0]);
-        } else if(mode === 'hostport') {
-            return query.field('host').equals(url.host);
+            return [['host', 'contains', this.getSearchDomainFromHost(url.host)]];
+        } else if(mode === 'host' || mode === 'hostport') {
+            return [['host', 'equals', url.host]];
         } else {
-            return query.field('url').equals(url.protocol + "//" + url.host + (url.pathname.length > 1 ? url.pathname: ""));
+            return [['url', 'equals', `${url.protocol}//${url.host}${url.pathname.length > 1 ? url.pathname : ""}`]];
         }
       }
 
@@ -137,7 +136,7 @@ class RecommendationManager {
     _updateRecommended(tab) {
         delete tab.recommended;
 
-        let recommendations = this.getRecommendationsByUrl(tab.url, tab.tab.incognito);
+        let recommendations = this.getRecommendationsByUrl(tab.url, tab?.tab?.incognito === true);
         if(recommendations.length !== 0) {
             tab.recommended = recommendations;
         }

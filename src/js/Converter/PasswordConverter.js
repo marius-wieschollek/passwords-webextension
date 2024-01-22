@@ -11,6 +11,9 @@ export default class PasswordConverter {
         if(message.getType() === 'password.items') {
             this._processPasswordItems(message);
         }
+        if(message.getType() === 'password.suggestions') {
+            this._processPasswordSuggestions(message);
+        }
         if(message.getType() === 'folder.items') {
             this._processFolderItems(message);
         }
@@ -26,6 +29,17 @@ export default class PasswordConverter {
         let payload   = message.getPayload(),
             passwords = this._convertPasswords(payload);
         message.setPayload(passwords);
+    }
+
+    /**
+     *
+     * @param {Message} message
+     */
+    _processPasswordSuggestions(message) {
+        let payload = message.getPayload();
+        payload.passwords = this._convertPasswords(payload.passwords);
+
+        message.setPayload(payload);
     }
 
     /**

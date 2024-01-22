@@ -10,12 +10,12 @@ import AdaptaTealTheme from '@js/Themes/AdaptaTeal';
 import AdaptaLightTheme from '@js/Themes/AdaptaLight';
 import SettingsService from '@js/Services/SettingsService';
 import StorageService from '@js/Services/StorageService';
-import { v4 as uuid } from 'uuid';
 import BooleanState from 'passwords-client/boolean-state';
 import ApiRepository from '@js/Repositories/ApiRepository';
 import ServerThemeHelper from '@js/Helper/ServerThemeHelper';
 import ErrorManager from '@js/Manager/ErrorManager';
 import ServerManager from '@js/Manager/ServerManager';
+import UuidHelper from "@js/Helper/UuidHelper";
 
 class ThemeRepository {
 
@@ -41,7 +41,7 @@ class ThemeRepository {
      */
     async create(theme) {
         if(theme.getId() === null || theme.getId() === undefined) {
-            theme.setId(uuid());
+            theme.setId(UuidHelper.generate());
         }
 
         await this._saveCustomTheme(theme);

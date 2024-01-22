@@ -51,7 +51,7 @@ module.exports = (env, argv) => {
     let jsPlatformDir = platform !== 'chrome' ? `${__dirname}/src/js/Platform`:`${__dirname}/src/platform/${platform}/js/Platform`;
     return {
         mode        : production ? 'production':'development',
-        devtool     : production ? undefined:'source-map',
+        devtool     : production ? false:'source-map',
         entry       : {
             client    : {
                 publicPath: '/',
@@ -67,8 +67,8 @@ module.exports = (env, argv) => {
         output      : {
             path         : `${__dirname}/build/`,
             filename     : 'js/[name].js',
-            chunkFilename: production ? 'js/[name].js':'js/[name].[hash].js',
-            chunkFormat: 'commonjs'
+            chunkFilename: production ? 'js/[name].js':'js/[name].[chunkhash].js',
+            chunkFormat  : 'commonjs'
         },
         optimization: {
             minimize : production,
@@ -85,6 +85,7 @@ module.exports = (env, argv) => {
             modules   : ['node_modules', 'src'],
             extensions: ['.js', '.vue', '.json'],
             fallback  : {
+                url   : false,
                 path  : false,
                 crypto: false
             },

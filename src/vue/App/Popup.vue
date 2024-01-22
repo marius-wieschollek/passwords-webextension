@@ -8,7 +8,7 @@
             <tools slot="tools"/>
         </tabs>
         <authorisation v-if="!authorized"></authorisation>
-        <first-run-wizard v-if="firstRun"/>
+        <first-run-wizard v-if="firstRun" v-on:close="firstRun=false"/>
         <div id="toasts"></div>
     </div>
 </template>
@@ -53,16 +53,14 @@
             });
 
             return {
-                authorized: PopupStateService.getStatus('authorized')
+                authorized: PopupStateService.getStatus('authorized'),
+                firstRun: PopupStateService.getStatus('firstRun')
             }
         },
 
         computed: {
             tab() {
                 return PopupStateService.getTab();
-            },
-            firstRun() {
-                return PopupStateService.getStatus('firstRun');
             },
             tabs() {
                 return {

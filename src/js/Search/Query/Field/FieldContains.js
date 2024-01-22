@@ -3,40 +3,38 @@ import AbstractField from '@js/Search/Query/Field/AbstractField';
 export default class FieldContains extends AbstractField {
 
     /**
-     *
-     * @param {String} name
-     * @param {String} value
-     * @param {Number} weight
-     */
-    constructor(name, value, weight = 1) {
-        super(name, value);
-
-        if(weight <= 0) weight = 1;
-        this._weight = weight;
-    }
-
-    /**
      * @inheritDoc
      */
     evaluate(item) {
-        let values = this._getFieldValues(item);
+        let values = item.getField(this._name);
 
-        if(!values) return {passed: false};
+        if(values === null) return this.NO_MATCH_RESULT;
 
-        let search = this._value.toLowerCase(),
-            checks = 0,
-            matches = 0;
+        let search = this._value.toLowerCase();
 
-        for(let value of values) {
-            checks++;
-            if(value.indexOf(search) !== -1) {
-                matches += value.split(search).length - 1;
+        let matches = values.reduce((matches, value) => {
+            return matches + this._countOccurrencesInString(value, search);
+        }, 0);
+
+        return this._createResult(values.length, matches);
+    }
+
+    _countOccurrencesInString(string, search) {
+        if(search.length > string.length || search.length === 0) return 0;
+
+        let matches  = 0,
+            position = 0;
+
+        while(true) {
+            position = string.indexOf(search, position);
+            if(position >= 0) {
+                matches++;
+                position += search.length;
+            } else {
+                break;
             }
         }
 
-        if(this._weight !== 1) matches *= this._weight;
-        if(matches > 0) return {matches, checks, passed: true};
-
-        return {checks, passed: false};
+        return matches;
     }
 }

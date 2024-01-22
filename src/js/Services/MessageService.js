@@ -9,6 +9,7 @@ class MessageService {
         this._sender = null;
         this._enabled = false;
         this._clients = {};
+        this._tabs = {};
         this._messages = {};
         this._listeners = {};
         this._converters = {};
@@ -22,14 +23,19 @@ class MessageService {
         this._messageEnabler = (client) => {
             this._enabled = true;
             this._clients[client.name] = true;
-            this._sendMessages()
-                .catch(ErrorManager.catchEvt);
-
-            if(client.name === SystemService.AREA_POPUP) {
-                client.onDisconnect.addListener(() => {
-                    this._clients[client.name] = false;
-                })
+            if(client.name === 'client' && client?.sender?.tab?.id) {
+                this._tabs[client.sender.tab.id] = true;
             }
+
+            this._sendMessages()
+                .catch(ErrorManager.catch);
+
+            client.onDisconnect.addListener(() => {
+                this._clients[client.name] = false;
+                if(client.name === 'client' && client?.sender?.tab?.id) {
+                    this._tabs[client.sender.tab.id] = false;
+                }
+            })
         };
     }
 
@@ -51,7 +57,14 @@ class MessageService {
             this._api.runtime.onConnect.addListener(this._messageEnabler);
             SystemService.getBrowserAction().onClicked.addListener(this._messageEnabler);
 
-            if(hasWindow) window.inboxMessage = (m) => {
+            if(hasWindow)
+                this._connector = {
+                    inboxMessage: (m) => {
+                        return this._receiveMessage(m);
+                    }
+                };
+            }
+            window.inboxMessage = (m) => {
                 return this._receiveMessage(m);
             };
         } else if(SystemService.getArea() !== SystemService.AREA_CLIENT) {
@@ -80,7 +93,7 @@ class MessageService {
     enable() {
         this._enabled = true;
         this._sendMessages()
-            .catch(ErrorManager.catchEvt);
+            .catch(ErrorManager.catch);
     }
 
     /**
@@ -136,7 +149,7 @@ class MessageService {
 
             if(send) {
                 this._sendMessage(message.getId())
-                    .catch(ErrorManager.catch());
+                    .catch(ErrorManager.catch);
             }
         });
     }
@@ -164,10 +177,10 @@ class MessageService {
             message.setReceiver(this._defaultReceiver);
         }
 
+        let response;
         try {
             this._messages[id].sent = true;
-            let data = JSON.stringify(message),
-                response;
+            let data = JSON.stringify(message);
 
             if(message.getChannel() === 'tabs') {
                 response = await this._api.tabs.sendMessage(message.getTab(), data);
@@ -178,8 +191,14 @@ class MessageService {
                     response = await this._api.runtime.sendMessage(data);
                 }
             }
+        } catch(error) {
+            ErrorManager.logError(error, message);
+            if(reject) reject(error, message);
+            return;
+        }
 
-            if(response && resolve) {
+        if(response && resolve) {
+            try {
                 let reply = this._createMessageFromJSON(response);
                 if(!reply) {
                     resolve(null, message);
@@ -188,10 +207,10 @@ class MessageService {
 
                 reply = await this._notifyConverters(reply);
                 resolve(reply, message);
+            } catch(error) {
+                ErrorManager.logError(error, message);
+                if(reject) reject(error, message);
             }
-        } catch(error) {
-            ErrorManager.logError(error, message);
-            if(reject) reject(error, message);
         }
     }
 
@@ -385,7 +404,8 @@ class MessageService {
         if(receiver === null && this._defaultReceiver !== null) receiver = this._defaultReceiver;
         if(receiver === null || receiver === this._sender) return this._enabled;
 
-        return this._clients.hasOwnProperty(receiver) && this._clients[receiver];
+        return this._clients.hasOwnProperty(receiver) && this._clients[receiver] &&
+               (receiver !== 'client' || (this._tabs.hasOwnProperty(message.getTab()) && this._tabs[message.getTab()]));
     }
 }
 

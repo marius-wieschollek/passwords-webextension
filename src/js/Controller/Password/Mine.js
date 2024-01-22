@@ -7,6 +7,6 @@ export default class Mine extends AbstractController {
     async execute(message, reply) {
         MiningManager
             .addPassword(message.getPayload())
-            .catch(ErrorManager.catchEvt);
+            .catch(ErrorManager.catch);
     }
 }

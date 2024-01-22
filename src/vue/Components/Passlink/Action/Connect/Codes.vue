@@ -30,13 +30,13 @@
                 let reply   = await MessageService.send('passlink.connect.codes'),
                     payload = reply.getPayload();
 
-                if(!payload.success) return this.$emit('error', payload.message);
+                if(!payload.success) return this.$emit('error', payload);
                 this.codes = payload.codes;
 
                 reply = await MessageService.send('passlink.connect.apply');
                 payload = reply.getPayload();
 
-                this.$emit(payload.success ? 'success':'error', payload.message);
+                this.$emit(payload.success ? 'success':'error', payload);
             }
         }
     };

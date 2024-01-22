@@ -5,11 +5,11 @@ import ErrorManager from '@js/Manager/ErrorManager';
 import ApiRepository from '@js/Repositories/ApiRepository';
 import BooleanState from 'passwords-client/boolean-state';
 import EventQueue from '@js/Event/EventQueue';
-import StorageService from '@js/Services/StorageService';
 import SettingsService from '@js/Services/SettingsService';
 import SessionAuthorizationHelper from '@js/Helper/SessionAuthorizationHelper';
 import ServerRequirementCheck from '@js/Helper/ServerRequirementCheck';
-import {PreconditionFailedError} from 'passwords-client/errors';
+import {subscribe} from "@js/Event/Events";
+import ToastService from "@js/Services/ToastService";
 
 class ServerManager {
 
@@ -47,17 +47,12 @@ class ServerManager {
     constructor() {
         /** @type {(FeedbackQueue|null)} **/
         this._authQueue = null;
-        this._keepaliveTimer = {};
         this._authState = new BooleanState(true);
         this._addServer = new EventQueue();
         this._removeServer = new EventQueue();
         this._deleteServer = new EventQueue();
         this._servers = {};
-        StorageService.sync.on(
-            (d) => {
-                this._syncServers(d);
-            }
-        );
+        subscribe('servers:sync', (d) => {this._syncServers(d);});
     }
 
     /**
@@ -66,7 +61,11 @@ class ServerManager {
      */
     async init() {
         this._authQueue = QueueService.getFeedbackQueue('authorisation', null, AuthorisationItem);
-        await this._loadServers();
+        this._loadServers()
+            .catch((e) => {
+                ErrorManager.logError(e);
+                ToastService.error(['ServerManagerLoadError', e.message]);
+            });
     }
 
     /**
@@ -75,7 +74,7 @@ class ServerManager {
      * @private
      */
     async _loadServers() {
-        let servers  = await ServerRepository.findAll(),
+        let servers  = ServerRepository.findAll(),
             promises = [];
 
         for(let server of servers) {
@@ -112,10 +111,11 @@ class ServerManager {
         if(setting.getValue() === null) {
             setting.setValue(serverId);
             await SettingsService.set(setting);
+        } else if(setting.getValue() === serverId) {
+            await SettingsService.reload();
         }
 
         await this._addServer.emit(server);
-        this._keepaliveTimer[serverId] = setInterval(() => { this._keepalive(api); }, 59000);
     }
 
     /**
@@ -127,9 +127,12 @@ class ServerManager {
         let serverId = server.getId();
         this._removeAuthItems(serverId);
 
+        try {
+            let api = await ApiRepository.findById(serverId);
+            await ApiRepository.delete(api);
+        } catch(e) {}
+
         if(!this._servers.hasOwnProperty(serverId)) return;
-        clearInterval(this._keepaliveTimer[serverId]);
-        delete this._keepaliveTimer[serverId];
         await this._removeServer.emit(server);
         delete this._servers[serverId];
     }
@@ -240,48 +243,21 @@ class ServerManager {
 
     /**
      *
-     * @param {PasswordsClient} api
-     */
-    _keepalive(api) {
-        api
-            .getRequest()
-            .setPath('1.0/session/keepalive')
-            .send()
-            .catch(
-                (e) => {
-                    ErrorManager.logError(e);
-                    if(e.type === 'PreconditionFailedError') {
-                        this.restartSession(api.getServer())
-                            .catch(ErrorManager.catch);
-                    }
-                });
-    }
-
-    /**
-     *
      * @param d
-     * @returns {Promise<void>}
+     * @returns {void}
      * @private
      */
-    async _syncServers(d) {
-        if(!d.hasOwnProperty(ServerRepository.STORAGE_KEY)) return;
-        let servers  = await ServerRepository._refreshServers(),
-            promises = [],
-            ids      = [];
-
-        for(let server of servers) {
-            ids.push(server.getId());
-            promises.push(this.addServer(server));
+    _syncServers(d) {
+        let promises = [];
+        for(let server of d) {
+            promises.push(this.reloadServer(server));
         }
 
-        for(let key in this._servers) {
-            if(this._servers.hasOwnProperty(key) && ids.indexOf(key) === -1) {
-                promises.push(this.deleteServer(this._servers[key].server));
-            }
-        }
-
-        await Promise.all(promises);
-        console.log('Reloaded servers after browser sync');
+        Promise.all(promises)
+               .catch(ErrorManager.catch)
+               .then(() => {
+                   console.log('Reloaded servers after browser sync', server);
+               });
     }
 }
 

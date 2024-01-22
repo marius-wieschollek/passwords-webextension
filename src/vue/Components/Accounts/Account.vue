@@ -67,7 +67,7 @@
             timeoutOptions() {
                 let options = [{id: 0, label: 'ServerTimeoutOptionNever'}];
 
-                for(let i of [5, 10, 15, 30, 60]) {
+                for(let i of [2, 5, 10, 15, 30, 60]) {
                     options.push({id: i * 60 * 1000, label: ['ServerTimeoutOptionMinutes', i]});
                 }
 

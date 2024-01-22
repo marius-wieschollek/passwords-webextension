@@ -11,15 +11,16 @@ export default class Server {
     /**
      *
      * @param data
+     * @param {Boolean} mergeDuplicate
      * @return {Promise<{ok: Boolean, errors: {}, [server]: ServerModel}>}
      */
-    async validate(data) {
+    async validate(data, mergeDuplicate = false) {
         let result = this._checkFormData(data);
         if(!result.ok) return result;
 
         let server = this._createModel(data, result);
         if(server &&
-           await this._duplicateCheck(server, result) &&
+           await this._duplicateCheck(server, result, mergeDuplicate) &&
            await this._checkConnection(server, result) &&
            await this._checkRequirements(server, result)) {
             result.server = server;
@@ -140,7 +141,7 @@ export default class Server {
         if(!data.hasOwnProperty('timeout')) data.timeout = 0;
         if(typeof data.timeout === 'string') data.timeout = parseInt(data.timeout);
 
-        if([0, 5*60*1000, 10*60*1000, 15*60*1000, 30*60*1000, 60*60*1000].indexOf(data.timeout) === -1) {
+        if([0, 2*60*1000, 5*60*1000, 10*60*1000, 15*60*1000, 30*60*1000, 60*60*1000].indexOf(data.timeout) === -1) {
             errors.timeout = LocalisationService.translate('ValidationInvalidTimeout');
             return false;
         }
@@ -269,20 +270,30 @@ export default class Server {
      *
      * @param {Server} server
      * @param {Object} response
-     * @returns {Promise<boolean>}
+     * @param {Boolean} merge
+     * @returns {Promise<Boolean>}
      * @private
      */
-    async _duplicateCheck(server, response) {
+    async _duplicateCheck(server, response, merge = false) {
         let servers = await ServerRepository.findAll();
 
         for(let current of servers) {
             if(server.getId() !== current.getId() && server.getBaseUrl() === current.getBaseUrl() && server.getUser() === current.getUser()) {
+                if(merge) {
+                    let properties = current.getProperties();
+                    delete properties.token;
+                    server.setProperties(properties);
+                    response.duplicate = true;
+                    return true;
+                }
+
                 response.message = LocalisationService.translate('ValidationDuplicate');
                 response.ok = false;
                 return false;
             }
         }
 
+        response.duplicate = false;
         return true;
     }
 

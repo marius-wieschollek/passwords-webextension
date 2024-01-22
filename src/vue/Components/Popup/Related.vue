@@ -16,6 +16,8 @@
         data() {
             return {
                 hasSearch: false,
+                interval : null,
+                tab      : null,
                 passwords: []
             };
         },
@@ -26,20 +28,25 @@
 
         activated() {
             this.reloadData();
+            this.interval = setInterval(() => {this.reloadData();}, 2000);
 
             SettingsService.getValue('popup.related.search')
-                .then((value) => {
-                    if(value) {
-                        document.addEventListener('keypress', this.search);
-                        this.hasSearch = true;
-                    }
-                });
+                           .then((value) => {
+                               if(value) {
+                                   document.addEventListener('keypress', this.search);
+                                   this.hasSearch = true;
+                               }
+                           });
         },
 
         deactivated() {
             if(this.hasSearch) {
                 document.removeEventListener('keypress', this.search);
                 this.hasSearch = false;
+            }
+            if(this.interval) {
+                clearInterval(this.interval);
+                this.interval = null;
             }
         },
 
@@ -48,11 +55,15 @@
                 MessageService
                     .send({type: 'password.related'})
                     .then((r) => {
-                        this.passwords = r.getPayload();
+                        let payload = r.getPayload();
+                        if(payload.tab !== this.tab || this.passwords.length !== payload.passwords.length) {
+                            this.passwords = payload.passwords;
+                            this.tab = payload.tab;
+                        }
                     });
             },
             search(event) {
-                if(document.getElementsByClassName("password-details-view").length == 0) {
+                if(document.getElementsByClassName("password-details-view").length === 0) {
                     this.$emit('search', event.key);
                 }
             }
@@ -61,10 +72,10 @@
 </script>
 
 <style lang="scss">
-    .related-container {
-        .no-results {
-            line-height : 3rem;
-            text-align  : center;
-        }
+.related-container {
+    .no-results {
+        line-height : 3rem;
+        text-align  : center;
     }
+}
 </style>

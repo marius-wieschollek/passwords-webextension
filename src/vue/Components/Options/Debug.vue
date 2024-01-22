@@ -17,9 +17,22 @@
             <translate class="label" say="DebugInfoExtensionPlatform"/>
             <span class="value">{{ userAgent }}</span>
         </div>
+
+        <translate tag="h3" say="DebugInfoHiddenFolderId"/>
+        <div class="debug-info" v-for="server in hidden" :key="server.id">
+            <span class="label">{{ server.label }}</span>
+            <a :href="server.link" target="_blank" class="link">{{ server.id }}</a>
+        </div>
+        <div class="debug-info" v-if="hidden.length === 0">
+            <span class="value">-</span>
+        </div>
+
+        <translate tag="h3" say="DebugResetTitle"/>
         <div class="debug-info">
-            <translate class="label" say="DebugInfoHiddenFolderId"/>
-            <a :href="hidden.link" target="_blank" class="link">{{ hidden.id }}</a>
+            <button-field title="DebugResetStatisticsTitle" value="DebugResetStatistics" @click="resetStatistics"/>
+        </div>
+        <div class="debug-info">
+            <button-field title="DebugResetExtensionTitle" value="DebugResetExtension" @click="resetExtension"/>
         </div>
 
         <translate tag="h3" say="DebugSettings"/>
@@ -32,7 +45,10 @@
         <translate class="debug-source-and-build" say="DebugSourceAndBuild" tag="a" href="./build.html" target="_blank"/>
 
         <translate tag="h3" say="DebugErrorLog">
-            <icon icon="trash-alt" font="regular" @click="clearLog"/>
+            <div class="debug-log-actions">
+                <icon font="regular" icon="clipboard" @click.stop="copy(errors)" v-if="errors.length !== 0"/>
+                <icon icon="trash-alt" font="regular" @click="clearLog" v-if="errors.length !== 0"/>
+            </div>
         </translate>
         <div class="debug-error-item" v-for="error in errors">
             <div class="error-message" @click="showData">
@@ -54,15 +70,13 @@
     import LocalisationService from '@js/Services/LocalisationService';
     import SliderField from '@vue/Components/Form/SliderField';
     import SettingsService from '@js/Services/SettingsService';
+    import ButtonField from "@vue/Components/Form/ButtonField.vue";
 
     export default {
-        components: {SliderField, Icon, Translate},
+        components: {ButtonField, SliderField, Icon, Translate},
         data() {
             return {
-                hidden  : {
-                    id  : '',
-                    link: ''
-                },
+                hidden  : [],
                 errors  : [],
                 app     : {
                     version    : process.env.APP_VERSION,
@@ -151,6 +165,16 @@
                     this.errors = [];
                 });
             },
+            resetStatistics() {
+                MessageService.send('options.debug.reset.statistics')
+                              .catch(ErrorManager.catch);
+                setTimeout(() => {location.reload();}, 1000);
+            },
+            resetExtension() {
+                MessageService.send('options.debug.reset.extension')
+                              .catch(ErrorManager.catch);
+                setTimeout(() => {location.reload();}, 1000);
+            },
             getTitle(error) {
                 if(error.details) {
                     let label = '';
@@ -185,7 +209,7 @@
 
                 ToastService
                     .success('DebugErrorDataCopied')
-                    .catch(ErrorManager.catchEvt);
+                    .catch(ErrorManager.catch);
             }
         },
 
@@ -193,7 +217,7 @@
             'settings.localize': (value) => {
                 SettingsService
                     .set('debug.localisation.enabled', !value)
-                    .catch(ErrorManager.catchEvt);
+                    .catch(ErrorManager.catch);
             }
         }
     };
@@ -245,21 +269,24 @@
         }
     }
 
-    .icon-trash-alt {
-        cursor           : pointer;
-        float            : right;
-        margin-top       : -1.5rem;
-        margin-right     : -1rem;
-        padding          : 1rem;
-        display          : inline-block;
-        background-color : var(--button-bg-color);
-        color            : var(--button-fg-color);
-        transition       : var(--button-transition);
+    .debug-log-actions {
+        float        : right;
+        margin-top   : -1.5rem;
+        margin-right : -1rem;
 
-        &:hover {
-            background-color : var(--button-hover-bg-color);
-            color            : var(--button-hover-fg-color);
-            box-shadow       : var(--tab-button-active-border);
+        .icon {
+            cursor           : pointer;
+            padding          : 1rem;
+            display          : inline-block;
+            background-color : var(--button-bg-color);
+            color            : var(--button-fg-color);
+            transition       : var(--button-transition);
+
+            &:hover {
+                background-color : var(--button-hover-bg-color);
+                color            : var(--button-hover-fg-color);
+                box-shadow       : var(--tab-button-active-border);
+            }
         }
     }
 

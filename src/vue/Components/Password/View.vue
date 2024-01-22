@@ -14,7 +14,7 @@
         </div>
         <div class="password-details-fields">
             <property :editable="isEditMode" :field="field" v-for="field in defaultFields" :key="field.name" v-on:updateField="updateField" v-on:error="handleValidationError"/>
-            <translate tag="label" say="customFieldsLabel"  class="custom-fields" v-if="isEditMode" />
+            <translate tag="label" say="LabelCustomFields" class="custom-fields" v-if="isEditMode" />
             <custom-property :field="field"
                              :editable="isEditMode"
                              v-for="field in customFields"
@@ -28,7 +28,6 @@
 </template>
 
 <script>
-    import {v4 as uuid}   from 'uuid';
     import Icon           from '@vue/Components/Icon';
     import {Password}     from 'passwords-client/models';
     import Property       from '@vue/Components/Password/Property';
@@ -119,7 +118,7 @@
                 for(let field of this.password.getCustomFields()) {
                     editFields.push(
                         {
-                            id   : uuid(),
+                            id   : self.crypto.randomUUID(),
                             label: field.label,
                             value: field.value,
                             type : field.type
@@ -130,7 +129,7 @@
                 if(editFields.length < 20) {
                     editFields.push(
                         {
-                            id   : uuid(),
+                            id   : self.crypto.randomUUID(),
                             label: '',
                             value: '',
                             type : 'text'
@@ -240,7 +239,7 @@
                 if(hasEmpty) return;
                 this.customFields.push(
                     {
-                        id   : uuid(),
+                        id   : self.crypto.randomUUID(),
                         label: '',
                         value: '',
                         type : 'text'

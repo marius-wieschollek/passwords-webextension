@@ -82,6 +82,21 @@ class BrowserApi {
     isCompatible(platform) {
         return platform === 'chrome';
     }
+
+    usesDarkMode() {
+        let matcher = window.matchMedia('(prefers-color-scheme: dark)');
+        return matcher.matches;
+    }
+
+    /**
+     * @returns {string}
+     */
+    getDefaultIcon() {
+        let parser = new UaParser(navigator.userAgent),
+            app    = parser.getBrowser();
+
+        return `passwords${app.name === 'Edge' ? '-outline':''}${this.usesDarkMode() ? '-light':'-dark'}.png`;
+    }
 }
 
 export default new BrowserApi();

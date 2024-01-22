@@ -1164,26 +1164,6 @@
         "message": "Prisijungimas prie \"Nextcloud",
         "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
     },
-    "FirstRunConnectText": {
-        "message": "Atidarykite slaptažodžių programą, spustelėkite \"Daugiau\", atidarykite \"Programos ir plėtiniai\" ir atverkite \"PassLink Connect\" dialogo langą.",
-        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
-    },
-    "FirstRunConnectLink": {
-        "message": "Jei tame pačiame prietaise atidarytas \"PassLink\" dialogo langas, naudokite parinktį prisijungti per nuorodą",
-        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
-    },
-    "FirstRunConnectScan": {
-        "message": "Jei tai kitas prietaisas, nuskaitykite \"PassLink Connect\" kodą toliau nurodytu mygtuku",
-        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
-    },
-    "FirstRunConnectManual": {
-        "message": "Paskyrą taip pat galite sukurti rankiniu būdu plėtinio nustatymuose",
-        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
-    },
-    "FirstRunConnectScanButton": {
-        "message": "Nuskaityti \"PassLink\" kodą",
-        "description": "Text of the button to scan a PassLink QR Code"
-    },
     "OpenSettings": {
         "message": "Atidarykite plėtinio nustatymus",
         "description": "Label of the button to open the extension settings in the tools tab of the popup"
@@ -1337,10 +1317,6 @@
         "message": "tas pats kompiuteris",
         "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
     },
-    "LabelSearchRecommendationHostPort": {
-        "message": "tas pats kompiuteris ir prievadas",
-        "description": "Find password recommendations for the specific server and port."
-    },
     "LabelSearchRecommendationExact": {
         "message": "tas pats tikslus url adresas",
         "description": "Find only passwords where th url matches exact to the current browser url."
@@ -1452,5 +1428,117 @@
     "LabelTags": {
         "message": "Žymos",
         "description": "Label for the tag count in the server info in the browse tab"
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "Pasirinktinio lauko etiketė",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "Pasirinktinio lauko etiketė",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
+    },
+    "ServerNetworkErrorReload": {
+        "message": "Perkrauti serverį",
+        "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
+    },
+    "PasswordMiningSettings": {
+        "message": "Naujas ir pakeistas slaptažodis",
+        "description": "Headline above the password mining section in the other settings tab in the extension settings"
+    },
+    "SettingsMiningIgnoredDomains": {
+        "message": "Ignoruokite šiuos domenus (po vieną kiekvienoje eilutėje, subdomenai taip pat ignoruojami)",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not detect new or changed passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "SettingsMiningIgnoredDomainsPlaceholder": {
+        "message": "pvz., example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "SettingsMiningIncognitoHide": {
+        "message": "\"Incognito\" surinktus slaptažodžius saugokite kaip privačius slaptažodžius",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "BadgeIconOutlineLight": {
+        "message": "Šviesos kontūro piktograma",
+        "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconOutlineDark": {
+        "message": "Tamsaus kontūro piktograma",
+        "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "FirstRunConnectLink1": {
+        "message": "Atidarykite programėlę \"Passwords\", spustelėkite \"More\" ir atidarykite \"Apps & Extensions\".",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink2": {
+        "message": "Pasirinkite naršyklę ir spustelėkite \"Connect with PassLink\".",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunSetupManually": {
+        "message": "Prijunkite rankiniu būdu",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Išsaugoti",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
+    },
+    "FirstRunConnectLink3": {
+        "message": "Spustelėkite \"Connect via link\", palyginkite kodus ir patvirtinkite ryšį.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "FirstRunConnectScanQR": {
+        "message": "Nuskaityti \"PassLink\" kodą",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Žiūrėti vaizdo įrašų vadovą",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "Pritaikyti plėtinį",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "FirstRunSettingsText": {
+        "message": "Šiuos ir daugelį kitų dalykų galite bet kada pakeisti plėtinio nustatymuose.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "PasslinkConnectServerUpdated": {
+        "message": "Atnaujinti \"$LABEL$\" įgaliojimai",
+        "description": "Confirmation message in the PassLink Connect action when an existing account has been updated successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "DebugResetTitle": {
+        "message": "Išvalyti plėtinio duomenis",
+        "description": "Headline above the section for to clear specific extension data in the debug tab in the extension settings"
+    },
+    "DebugResetStatistics": {
+        "message": "Rekomendacijos duomenų atstatymas",
+        "description": "Label of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetStatisticsTitle": {
+        "message": "Iš naujo nustatyti surinktus naudojimo statistinius duomenis, naudojamus rekomenduojant įgaliojimus susijusiame skirtuke.",
+        "description": "Help title text of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtension": {
+        "message": "Iš naujo nustatyti plėtinį",
+        "description": "Label of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtensionTitle": {
+        "message": "Ištrinkite visus nustatymus, paskyras ir rekomendacijų duomenis ir pradėkite viską iš naujo",
+        "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "ExtensionInitFailure": {
+        "message": "Inicializuoti plėtinio nepavyko: $ERROR$",
+        "description": "Notification message when the start sequence of the extension failed",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
     }
 }

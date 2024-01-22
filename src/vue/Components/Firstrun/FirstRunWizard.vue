@@ -1,16 +1,41 @@
 <template>
-    <div class="first-run-wizard">
+    <div class="first-run-wizard" :class="cssClass">
         <div class="first-run-wizard-content">
-            <server-setup/>
+            <server-setup v-if="stage === 1"/>
+            <common-settings v-if="stage === 2" v-on:complete="stage++"/>
+            <setup-complete v-if="stage === 3" v-on:close="close"/>
         </div>
     </div>
 </template>
 
 <script>
     import ServerSetup from '@vue/Components/Firstrun/Steps/ServerSetup';
+    import PopupStateService from "@js/Services/PopupStateService";
+    import CommonSettings from "@vue/Components/Firstrun/Steps/CommonSettings.vue";
+    import SetupComplete from "@vue/Components/Firstrun/Steps/SetupComplete.vue";
 
     export default {
-        components: {ServerSetup}
+        components: {SetupComplete, CommonSettings, ServerSetup},
+        data() {
+            return {
+                stage   : PopupStateService.getStatus('firstRun'),
+                cssClass: ''
+            };
+        },
+        methods: {
+            close() {
+                this.cssClass = 'close';
+                setTimeout(
+                    () => {this.$emit('close');},
+                    750
+                );
+            }
+        },
+        watch: {
+            stage(stage) {
+                console.log(stage);
+            }
+        }
     };
 </script>
 
@@ -31,7 +56,8 @@
         bottom           : 0;
         right            : 0;
         opacity          : .75;
-        z-index          : -1
+        z-index          : -1;
+        transition       : opacity .5s ease-in-out .25s;
     }
 
     .first-run-wizard-content {
@@ -46,6 +72,18 @@
         padding          : .5rem;
         box-sizing       : border-box;
         position         : relative;
+        top              : 0;
+        transition       : top .5s ease-in-out;
+    }
+
+    &.close {
+        &:before {
+            opacity : 0;
+        }
+
+        .first-run-wizard-content {
+            top : 100%
+        }
     }
 }
 

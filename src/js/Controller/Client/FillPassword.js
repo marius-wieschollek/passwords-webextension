@@ -1,8 +1,15 @@
-import FormService from '@js/Services/FormService';
 import AbstractController from '@js/Controller/AbstractController';
 import ErrorManager from "@js/Manager/ErrorManager";
+import GenericPasswordPaste from "@js/Client/PasswordPaste/GenericPasswordPaste";
+import TwitterPasswordPaste from "@js/Client/PasswordPaste/TwitterPasswordPaste";
+import RedditPasswordPaste from "@js/Client/PasswordPaste/RedditPasswordPaste";
+import TumblrPasswordPaste from "@js/Client/PasswordPaste/TumblrPasswordPaste";
+import AliExpressPasswordPaste from "@js/Client/PasswordPaste/AliExpressPasswordPaste";
+import BooleanState from "passwords-client/boolean-state";
 
 export default class FillPassword extends AbstractController {
+
+    static isActive = new BooleanState(false);
 
     /**
      *
@@ -10,123 +17,64 @@ export default class FillPassword extends AbstractController {
      * @param {Message} reply
      */
     async execute(message, reply) {
+        if(FillPassword.isActive.get()) return;
+        FillPassword.isActive.set(true);
+
         try {
-            let result = this._fillPassword(
-                message.getPayload().user,
-                message.getPayload().password,
-                message.getPayload().submit,
-                message.getPayload().formFields,
-                message.getPayload().hasOwnProperty('autofill') && message.getPayload().autofill
-            );
+            let result = await this._fillPassword(message.getPayload());
 
             if(result) reply.setPayload(true);
         } catch(e) {
-            ErrorManager.logError(e)
+            ErrorManager.logError(e);
+        } finally {
+            setTimeout(
+                () => {FillPassword.isActive.set(false);},
+                250
+            );
         }
     }
 
     /**
      *
-     * @param {String} user
-     * @param {String} password
-     * @param {Boolean} trySubmit
-     * @param {Array} formFields
-     * @param {Boolean} isAutofill
-     * @returns {Boolean}
+     * @param {PasswordPasteRequest} request
      */
-    _fillPassword(user, password, trySubmit, formFields, isAutofill) {
-        let forms = new FormService().getLoginFields();
-        if(forms.length === 0) return false;
+    async _fillPassword(request) {
+        let helpers = this._getPasswordPasteHelper(request);
 
-        this._fillCustomForms(formFields);
-
-        for(let i = 0; i < forms.length; i++) {
-            let form = forms[i];
-            if(isAutofill && form.pass.value.length !== 0) {
-                continue;
-            }
-
-            if(form.user) this._insertTextIntoField(form.user, user);
-            this._insertTextIntoField(form.pass, password);
-
-            if(!trySubmit || forms.length !== 1) continue;
-            if(form.submit) {
-                this._simulateClick(form.submit);
-            } else if(form.secure) {
-                this._simulateEnter(form.pass);
+        for(let helper of helpers) {
+            if(await this._tryFill(helper)) {
+                return true;
             }
         }
-
-        return true;
-    }
-
-     /**
-     *
-     * @param {Array} formFields
-     */
-      _fillCustomForms(formFields) {
-        formFields.forEach((field) => {
-            let element = document.getElementById(field.id);
-            if(element !== null && element !== undefined) {
-            if(!element.readOnly && !element.disabled && !element.hidden) {
-                    this._insertTextIntoField(element, field.value);
-                }
-            }
-        })
-        
+        return false;
     }
 
     /**
      *
-     * @param {Element} field
-     * @param {String} value
-     * @private
+     * @param {PasswordPasteRequest} request
      */
-    _insertTextIntoField(field, value) {
-        let bubbleEvent   = {bubbles: true, cancelable: true},
-            noBubbleEvent = {bubbles: false, cancelable: true},
-            insertEvent   = {bubbles: true, cancelable: false, inputType: 'inserting', data: value};
-
-        field.dispatchEvent(new FocusEvent('focus', noBubbleEvent));
-        field.dispatchEvent(new FocusEvent('focusin', bubbleEvent));
-        field.value = value;
-        field.dispatchEvent(new InputEvent('input', insertEvent));
-        field.dispatchEvent(new Event('change', insertEvent));
-        field.dispatchEvent(new FocusEvent('focusout', bubbleEvent));
-        field.dispatchEvent(new FocusEvent('blur', noBubbleEvent));
+    _getPasswordPasteHelper(request) {
+        return [
+            new TwitterPasswordPaste(request),
+            new RedditPasswordPaste(request),
+            new TumblrPasswordPaste(request),
+            new AliExpressPasswordPaste(request),
+            new GenericPasswordPaste(request)
+        ];
     }
 
     /**
      *
-     * @param {HTMLElement} element
+     * @param {AbstractPasswordPaste} helper
+     * @return {Promise<Boolean>}
      * @private
      */
-    _simulateClick(element) {
-        let left          = element.offsetLeft + Math.round(element.offsetWidth / 2),
-            top           = element.offsetTop + Math.round(element.offsetHeight / 2),
-            bubbleEvent   = {screenX: left, screenY: top, clientX: left, clientY: top, bubbles: true, cancelable: true},
-            noBubbleEvent = {screenX: left, screenY: top, clientX: left, clientY: top, bubbles: false, cancelable: false};
-
-        element.dispatchEvent(new MouseEvent('mouseover', bubbleEvent));
-        element.dispatchEvent(new MouseEvent('mouseenter', noBubbleEvent));
-        element.dispatchEvent(new MouseEvent('mousemove', bubbleEvent));
-        element.dispatchEvent(new MouseEvent('mousedown', bubbleEvent));
-        element.dispatchEvent(new MouseEvent('click', bubbleEvent));
-        element.dispatchEvent(new MouseEvent('mouseup', bubbleEvent));
-        element.dispatchEvent(new MouseEvent('mousemove', bubbleEvent));
-        element.dispatchEvent(new MouseEvent('mouseleave', noBubbleEvent));
-        element.dispatchEvent(new MouseEvent('mouseout', bubbleEvent));
-    }
-
-    /**
-     *
-     * @param {HTMLElement} element
-     * @private
-     */
-    _simulateEnter(element) {
-        let data = {key: 'Enter', code: 'Enter', which: 13, keyCode: 13, bubbles: false, cancelable: true};
-        element.dispatchEvent(new KeyboardEvent('keydown', data));
-        element.dispatchEvent(new KeyboardEvent('keypress', data));
-        element.dispatchEvent(new KeyboardEvent('keyup', data));
+    async _tryFill(helper) {
+        try {
+            return helper.canHandle() && await helper.handle();
+        } catch(e) {
+            ErrorManager.logError(e);
+            return false;
+        }
     }
 }

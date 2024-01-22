@@ -4,12 +4,13 @@ import ThemeConverter from '@js/Converter/ThemeConverter';
 import FolderConverter from '@js/Converter/FolderConverter';
 import ServerConverter from '@js/Converter/ServerConverter';
 import PasswordConverter from '@js/Converter/PasswordConverter';
+import PasteRequestConverter from "@js/Converter/PasteRequestConverter";
 
 class ConverterManager {
 
     init() {
         MessageService.convert(
-            ['password.items', 'folder.items'],
+            ['password.items', 'password.suggestions', 'folder.items'],
             async (message) => {
                 await this._executeConverter(PasswordConverter, message);
             }
@@ -30,6 +31,12 @@ class ConverterManager {
             ['theme.items', 'theme.item', 'theme.save', 'theme.preview'],
             async (message) => {
                 await this._executeConverter(ThemeConverter, message);
+            }
+        );
+        MessageService.convert(
+            ['autofill.password'],
+            async (message) => {
+                await this._executeConverter(PasteRequestConverter, message);
             }
         );
     }

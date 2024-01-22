@@ -8,7 +8,7 @@
         </translate>
 
         <property :editable="editable" :field="field" v-for="field in defaultFields" :key="field.name" v-on:updateField="updateField" v-on:error="handleValidationError"/>
-        <translate tag="label" say="customFieldsLabel"  class="custom-fields" />
+        <translate tag="label" say="LabelCustomFields"  class="custom-fields" />
         <custom-property :field="field"
                          :editable="editable"
                          v-for="field in customFields"

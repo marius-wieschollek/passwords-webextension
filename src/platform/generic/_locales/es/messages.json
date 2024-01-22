@@ -1,10 +1,10 @@
 {
     "extensionName": {
-        "message": "Passwords for Nextcloud Browser Extension",
+        "message": "Contraseñas para la extensión Nextcloud del navegador",
         "description": "Name of the extension."
     },
     "extensionDescription": {
-        "message": "Un cliente simple para Nextcloud Passwords",
+        "message": "El cliente oficial para Nextcloud Passwords",
         "description": "Description of the extension."
     },
     "locale": {
@@ -20,7 +20,7 @@
         "description": "Title of the context menu item"
     },
     "ServerBaseUrl": {
-        "message": "Url",
+        "message": "url",
         "description": "Label of the server url field in account details in the extension settings"
     },
     "ServerUser": {
@@ -40,7 +40,7 @@
         "description": "Label for the username of in the server info in the browse tab"
     },
     "LabelUrl": {
-        "message": "Url",
+        "message": "url",
         "description": "Label for of a field that contains an url (used in collected password or server info)"
     },
     "LabelPasswords": {
@@ -70,7 +70,7 @@
         "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
     },
     "PropertyUrl": {
-        "message": "Url",
+        "message": "Sitio web",
         "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
     },
     "ButtonSave": {
@@ -94,7 +94,7 @@
         "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
     },
     "SettingsPasteFormSubmit": {
-        "message": "Enviar formularios de inicio de sesión cuando se pegan las credenciales desde una ventana emergente",
+        "message": "Enviar formularios de inicio de sesión cuando se introducen las credenciales desde una ventana emergente",
         "description": "Label of the setting in the extension settings to automatically submit login forms after pasting"
     },
     "SettingsPasteWarnCompromised": {
@@ -112,15 +112,15 @@
         }
     },
     "HelpPasteAutofill": {
-        "message": "Pega automáticamente la primera credencial sugerida en cualquier formulario de acceso de la pestaña. Ten en cuenta que esto hace accesible cualquier script en la pestaña.",
+        "message": "Introduce automáticamente la primera credencial sugerida en la pestaña actual. Esto hace que sean legibles por la web visitada y cualquier extensión con acceso a la pestaña.",
         "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
     },
     "SettingsPasteBasicAuth": {
-        "message": "Responder automáticamente a las solicitudes de autenticación básica HTTP",
+        "message": "Responder automáticamente a las solicitudes de autenticación HTTP",
         "description": "Label of the setting in the extension settings to automatically respond with the first recommended credential to any http basic authentication request"
     },
     "HelpPasteBasicAuth": {
-        "message": "Responder automáticamente a las solicitudes de autenticación básica http con la primera credencial sugerida. Tenga en cuenta que esto puede exponer las credenciales a servidores no fiables.",
+        "message": "Responder automáticamente a las solicitudes de autenticación HTTP plano con la primera credencial sugerida. Esto puede permitir compartir accidentalmente las credenciales con servidores no confiables.",
         "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http basic authentication request"
     },
     "SettingsClearClipboardPasswords": {
@@ -208,7 +208,7 @@
         }
     },
     "SettingsNotifyPasswordQuicksave": {
-        "message": "Guardar o actualizar directamente al hacer clic en la notificación",
+        "message": "Guardar las contraseñas al hacer clic en la notificación",
         "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"
     },
     "SearchSettings": {
@@ -216,7 +216,7 @@
         "description": "Headline above the search section in the other settings tab in the extension settings"
     },
     "ToastPasswordTrashed": {
-        "message": "$LABEL$ se ha movido a la papelera. Puedes borrarlo definitivamente en la aplicación o restaurarlo.",
+        "message": "$LABEL$ se ha movido a la papelera. Puedes borrarlo definitivamente en la aplicación o restaurarlo",
         "description": "Text of the toast notification after a password was moved to the trash",
         "placeholders": {
             "label": {
@@ -268,7 +268,7 @@
         "description": "Title of the toast notification when the login attempt was unsuccessful"
     },
     "AuthorizationFailedText": {
-        "message": "Se ha denegado el acceso a la base de datos de contraseñas con el nombre de usuario proporcionado.",
+        "message": "Se ha denegado el acceso a la base de datos de contraseñas con el nombre de usuario proporcionado",
         "description": "Text of the toast notification when the login attempt was unsuccessful"
     },
     "TokenRequestFailed": {
@@ -290,7 +290,7 @@
         }
     },
     "SettingsPopupRelatedSearch": {
-        "message": "Iniciar la búsqueda cuando escribo \"Relacionado\"",
+        "message": "Iniciar la búsqueda cuando escribo \"Acerca de...\"",
         "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
     },
     "AccountList": {
@@ -308,19 +308,19 @@
         }
     },
     "NoAccounts": {
-        "message": "Aún no hay cuentas. Haga clic aquí para crear una.",
+        "message": "Aún no hay cuentas de usuario. Haga clic aquí para crear una.",
         "description": "Message in place of the user accounts list in the extension settings if there are no user accounts yet. The user can click the message to create an account"
     },
     "NewAccountFormLabel": {
-        "message": "Crear una cuenta",
+        "message": "Crear una cuenta de usuario",
         "description": "Label of the new account form in the extension settings"
     },
     "ServerSaveTitle": {
-        "message": "Cuenta guardada",
+        "message": "Cuenta de usuario guardada",
         "description": "Title of the toast notification in the extension settings after an account was created or updated successfully"
     },
     "MigrationAccountName": {
-        "message": "Cuenta Nextcloud",
+        "message": "Cuenta de Nextcloud",
         "description": "Label assigned to the account used by the v1.x migration"
     },
     "PrivatePasswordsFolderLabel": {
@@ -332,7 +332,7 @@
         "description": "Label of the user accounts tab in the extension settings"
     },
     "SettingsTabTheming": {
-        "message": "Tematización",
+        "message": "Tema",
         "description": "Label of the themes tab in the extension settings"
     },
     "SettingsTabOther": {
@@ -340,7 +340,7 @@
         "description": "Label of the general settings tab in the extension settings"
     },
     "SettingsTabDebug": {
-        "message": "Depurar",
+        "message": "Depurado",
         "description": "Label of the extension debugging tab in the extension settings"
     },
     "FontDefault": {
@@ -380,7 +380,7 @@
         "description": "Label for the folder of this password."
     },
     "ValidationMinLength": {
-        "message": "La dirección $FIELD$ debe tener al menos $MIN$ caracteres.",
+        "message": "El campo $FIELD$ debe tener al menos $MIN$ caracteres.",
         "description": "Validation message when the user attempts to save something (like an account) but a field is shorter than required",
         "placeholders": {
             "field": {
@@ -444,11 +444,11 @@
         "description": "Label of the search tab in the extension popup"
     },
     "TabBrowse": {
-        "message": "Visite",
+        "message": "Consultas",
         "description": "Label of the browse servers tab in the extension popup"
     },
     "TabCollected": {
-        "message": "Recopilado",
+        "message": "Recopiladas",
         "description": "Label of the new collected passwords tab in the extension popup"
     },
     "TabTools": {
@@ -474,7 +474,7 @@
         "description": "Title of the menu option to open the password url in a new tab"
     },
     "PasswordItemToTrash": {
-        "message": "Mover a la basura",
+        "message": "Mover a la papelera",
         "description": "Title of the menu option to move a password to the trash"
     },
     "LabelHidden": {
@@ -502,7 +502,7 @@
         "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
     },
     "ValidationNotEmpty": {
-        "message": "La dirección $FIELD$ no puede estar vacía.",
+        "message": "La campo $FIELD$ no puede estar vacío.",
         "description": "Validation message when the user attempts to save something (like an account) but a required field is empty.",
         "placeholders": {
             "field": {
@@ -656,7 +656,7 @@
         "description": "Text of the toast notification when deleting the password failed"
     },
     "ToastPasswordRestored": {
-        "message": "$LABEL$ fue restaurado de la papelera. Reaparecerá cuando vuelva a abrir la ventana emergente.",
+        "message": "$LABEL$ fue restaurado de la papelera. Reaparecerá cuando vuelva a abrir la ventana emergente",
         "description": "Text of the toast notification after a password was restored from the trash",
         "placeholders": {
             "label": {
@@ -835,7 +835,7 @@
         "description": "Tooltip of the color input field in the custom theme settings for the default background color for an element"
     },
     "BackgroundColorHoverTitle": {
-        "message": "Este color se utiliza para el fondo si el elemento está activo. También puede utilizarse para el borde de un elemento inactivo.",
+        "message": "Este color se utiliza para el fondo si el elemento está activo. También puede utilizarse para el borde de un elemento inactivo",
         "description": "Tooltip of the color input field in the custom theme settings for the mouse hover / active background color for an element"
     },
     "ForegroundColorBaseTitle": {
@@ -931,7 +931,7 @@
         "description": "Label of the setting in the custom theme settings to choose the colors of warning toast notifications"
     },
     "ValidationMaxLength": {
-        "message": "La dirección $FIELD$ debe ser inferior a $MAX$ caracteres.",
+        "message": "El campo $FIELD$ debe medir menos de $MAX$ caracteres.",
         "description": "Validation message when the user attempts to save something (like an account) but a field is longer than allowed",
         "placeholders": {
             "field": {
@@ -1102,26 +1102,6 @@
         "message": "Conectarse a Nextcloud",
         "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
     },
-    "FirstRunConnectText": {
-        "message": "Abre la aplicación de contraseñas, haz clic en \"Más\", abre \"Aplicaciones y extensiones\" y abre el cuadro de diálogo PassLink Connect.",
-        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
-    },
-    "FirstRunConnectLink": {
-        "message": "Si el cuadro de diálogo PassLink está abierto en el mismo dispositivo, utilice la opción de conexión a través de enlace",
-        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
-    },
-    "FirstRunConnectScan": {
-        "message": "Si se trata de un dispositivo diferente, escanee el código PassLink Connect con el botón siguiente",
-        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
-    },
-    "FirstRunConnectManual": {
-        "message": "También puede crear la cuenta manualmente en la configuración de la extensión",
-        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
-    },
-    "FirstRunConnectScanButton": {
-        "message": "Escanear código PassLink",
-        "description": "Text of the button to scan a PassLink QR Code"
-    },
     "OpenSettings": {
         "message": "Abrir la configuración de la extensión",
         "description": "Label of the button to open the extension settings in the tools tab of the popup"
@@ -1271,10 +1251,6 @@
         "message": "mismo anfitrión",
         "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
     },
-    "LabelSearchRecommendationHostPort": {
-        "message": "mismo host y puerto",
-        "description": "Find password recommendations for the specific server and port."
-    },
     "LabelSearchRecommendationExact": {
         "message": "exactamente la misma url",
         "description": "Find only passwords where th url matches exact to the current browser url."
@@ -1374,7 +1350,7 @@
         "description": "Used in the related tab when no entries match the current website"
     },
     "NoSearchResults": {
-        "message": "No se ha encontrado ninguna contraseña que coincida con su consulta.",
+        "message": "No se ha encontrado ninguna contraseña que coincida con su consulta",
         "description": "Used in the search tab when no entries match the search query"
     },
     "NoSearchQuery": {
@@ -1422,19 +1398,19 @@
         "description": "Headline for the font settings in the custom theme settings"
     },
     "AutofillSettings": {
-        "message": "Pegar credenciales",
+        "message": "Generar credenciales",
         "description": "Headline above the password autofill section in the other settings tab in the extension settings"
     },
     "SettingsPastePopupClose": {
-        "message": "Cerrar ventana emergente tras pegar credenciales",
+        "message": "Cerrar ventana emergente tras insertar credenciales",
         "description": "Label of the setting in the extension settings to automatically close the extension popup after successful pasting"
     },
     "SettingsPasteAutofillEnabled": {
-        "message": "Rellene automáticamente los datos de acceso que mejor coincidan",
+        "message": "Completar automáticamente los formularios de acceso",
         "description": "Label of the setting in the extension settings to automatically paste the first recommended credential into login forms"
     },
     "HelpClearClipboardPasswords": {
-        "message": "El portapapeles sólo se borrará si el navegador sigue abierto. Si se concede el permiso opcional para leer el portapapeles, sólo se borrará si la contraseña sigue ahí.",
+        "message": "El portapapeles sólo se borrará si el navegador sigue abierto. Si se concede el permiso opcional para leer el portapapeles, éste sólo se borrará si la contraseña sigue ahí.",
         "description": "Help text in the extension settings for the setting to automatically clean passwords from clipboard after a certain time."
     },
     "ServerCreatedMessage": {
@@ -1446,11 +1422,123 @@
         "description": "Name of the account username field in account validation message. This value is used when the user attempts to save an account with an invalid username"
     },
     "ValidationToken": {
-        "message": "contraseña de la aplicación",
+        "message": "contraseña de aplicación",
         "description": "Name of the account token field in account validation message. This value is used when the user attempts to save an account with an invalid token"
     },
     "DebugInfoHiddenFolderId": {
         "message": "Contraseñas ocultas ID de carpeta",
         "description": "Description of the id of the folder used to store hidden/private passwords in the internal status section in the debug tab in the extension settings"
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "Etiqueta de campo personalizada",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "Valor para el campo definido por el usuario",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
+    },
+    "ServerNetworkErrorReload": {
+        "message": "Recargar servidor",
+        "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
+    },
+    "PasswordMiningSettings": {
+        "message": "Contraseñas nuevas y modificadas",
+        "description": "Headline above the password mining section in the other settings tab in the extension settings"
+    },
+    "SettingsMiningIgnoredDomainsPlaceholder": {
+        "message": "p. ej. ejemplo.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "SettingsMiningIgnoredDomains": {
+        "message": "Ignorar estos dominios (uno por línea, también se ignorarán los subdominios)",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not detect new or changed passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "SettingsMiningIncognitoHide": {
+        "message": "Almacenar las contraseñas recopiladas en el modo incógnito como contraseñas privadas",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "BadgeIconOutlineLight": {
+        "message": "Icono de contorno luminoso",
+        "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconOutlineDark": {
+        "message": "Icono de contorno oscuro",
+        "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "FirstRunConnectLink2": {
+        "message": "Elija su navegador y haga clic en \"Conectar con PassLink\".",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Ver guía en vídeo",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "Personalizar la extensión",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "FirstRunSettingsText": {
+        "message": "Estas y muchas otras cosas pueden cambiarse en cualquier momento en la configuración de la extensión.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "FirstRunConnectLink1": {
+        "message": "Abra la aplicación Contraseñas, haga clic en \"Más\" y abra \"Aplicaciones y extensiones\".",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink3": {
+        "message": "Haz clic en \"Conectar mediante enlace\", compara los códigos y confirma la conexión.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "FirstRunSetupManually": {
+        "message": "Conectar manualmente",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "FirstRunConnectScanQR": {
+        "message": "Escanear código PassLink",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Sava",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
+    },
+    "PasslinkConnectServerUpdated": {
+        "message": "Se han actualizado las credenciales de \"$LABEL$\".",
+        "description": "Confirmation message in the PassLink Connect action when an existing account has been updated successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "DebugResetTitle": {
+        "message": "Borrar datos de extensión",
+        "description": "Headline above the section for to clear specific extension data in the debug tab in the extension settings"
+    },
+    "DebugResetStatistics": {
+        "message": "Restablecer datos de recomendación",
+        "description": "Label of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetStatisticsTitle": {
+        "message": "Restablecer las estadísticas de uso recopiladas utilizadas para recomendar credenciales en la pestaña relacionada.",
+        "description": "Help title text of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtension": {
+        "message": "Restablecer extensión",
+        "description": "Label of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtensionTitle": {
+        "message": "Borra todos los ajustes, cuentas y datos de recomendación y empieza de nuevo.",
+        "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "ExtensionInitFailure": {
+        "message": "Error en la inicialización de la extensión: $ERROR$",
+        "description": "Notification message when the start sequence of the extension failed",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
     }
 }

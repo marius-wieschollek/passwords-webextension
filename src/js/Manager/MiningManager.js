@@ -4,14 +4,14 @@ import ServerManager from '@js/Manager/ServerManager';
 import ErrorManager from '@js/Manager/ErrorManager';
 import TabManager from '@js/Manager/TabManager';
 import RecommendationManager from '@js/Manager/RecommendationManager';
-import SearchQuery from '@js/Search/Query/SearchQuery';
-import SearchIndex from '@js/Search/Index/SearchIndex';
 import NotificationService from '@js/Services/NotificationService';
 import HiddenFolderHelper from "@js/Helper/HiddenFolderHelper";
 import Url from "url-parse";
 import EventQueue from "@js/Event/EventQueue";
 import SystemService from "@js/Services/SystemService";
 import QueueClient from "@js/Queue/Client/QueueClient";
+import SettingsService from "@js/Services/SettingsService";
+import SearchService from "@js/Services/SearchService";
 
 class MiningManager {
 
@@ -46,6 +46,7 @@ class MiningManager {
         this._addItem = new EventQueue();
         this._solveItem = new EventQueue();
         this._processingQueue = null;
+        this._ingoredDomainsSetting = null;
     }
 
 
@@ -63,6 +64,9 @@ class MiningManager {
         });
 
         this._client.setQueue(this._processingQueue);
+        SettingsService.get('mining.ignored-domains').then(
+            (s) => { this._ingoredDomainsSetting = s; }
+        );
     }
 
     /**
@@ -78,7 +82,7 @@ class MiningManager {
      * @param {Object} data
      */
     async createItem(data) {
-        let hidden = TabManager.get().tab.incognito;
+        let hidden = TabManager.get().tab.incognito && await SettingsService.getValue('mining.incognito.hide');
 
         let task = new MiningItem()
             .setTaskField('label', data.title);
@@ -123,8 +127,8 @@ class MiningManager {
      */
     async processTask(task) {
         try {
-            if(task.isNew() && !task.isManual()) NotificationService.newPasswordNotification(task).catch(ErrorManager.catchEvt);
-            if(!task.isNew() && !task.isManual()) NotificationService.updatePasswordNotification(task).catch(ErrorManager.catchEvt);
+            if(task.isNew() && !task.isManual()) NotificationService.newPasswordNotification(task).catch(ErrorManager.catch);
+            if(!task.isNew() && !task.isManual()) NotificationService.updatePasswordNotification(task).catch(ErrorManager.catch);
             task = await this._miningQueue.push(task);
 
             if(task.isDiscarded()) {
@@ -166,7 +170,7 @@ class MiningManager {
 
         password = this._enforcePasswordPropertyLengths(password);
         await api.getPasswordRepository().create(password);
-        SearchIndex.addItem(password);
+        SearchService.add(password);
 
         task.setAccepted(true)
             .setFeedback('MiningPasswordCreated');
@@ -178,11 +182,8 @@ class MiningManager {
      */
     async updatePassword(task) {
         let api      = await ServerManager.getDefaultApi(),
-            query    = new SearchQuery(),
-            password = /** @type {EnhancedPassword} **/ query
-                .where(query.field('id').equals(task.getResultField('id')))
-                .hidden(true | false)
-                .execute()[0];
+            /** @type {EnhancedPassword} **/
+            password = SearchService.get(task.getResultField('id'));
 
         password
             .setLabel(task.getResultField('label'))
@@ -203,8 +204,7 @@ class MiningManager {
 
         await api.getPasswordRepository().update(password);
         password = await api.getPasswordRepository().findById(password.getId());
-        SearchIndex.removeItem(password);
-        SearchIndex.addItem(password);
+        SearchService.update(password);
 
         task.setAccepted(true)
             .setFeedback('MiningPasswordUpdated');
@@ -224,7 +224,7 @@ class MiningManager {
         }
 
         let helper = new HiddenFolderHelper();
-        var hiddenFolder = await helper.getHiddenFolderId(api);
+        let hiddenFolder = await helper.getHiddenFolderId(api);
         if(task.getResultField('hidden') && password.getFolder() !== hiddenFolder) {
             return hiddenFolder;
         } else if(!task.getResultField('hidden') && password.getFolder() === hiddenFolder) {
@@ -239,12 +239,11 @@ class MiningManager {
      */
     checkIfDuplicate(data) {
         let ids   = TabManager.get('autofill.ids', []),
-            query = new SearchQuery(),
-            /** @type {EnhancedPassword[]} **/
-            items = query
-                .where(query.field('id').in(ids))
-                .type('password')
-                .hidden(true)
+            /** @type {(EnhancedPassword[]|AbstractModel[])} **/
+            items = SearchService
+                .find('password')
+                .where('id', 'in', ids)
+                .withHidden(true)
                 .execute();
 
         for(let item of items) {
@@ -262,20 +261,37 @@ class MiningManager {
         }
 
         let tab = TabManager.get();
-        query = new SearchQuery();
-        items = query
+        items = SearchService
+            .find('password')
             .where(
-                query.field('password').equals(data.password.value),
-                query.field('username').equals(data.user.value),
-                RecommendationManager.getFilterQuery(query, Url(data.url))
+                [
+                    ['password', data.password.value],
+                    ['username', data.user.value],
+                ]
             )
-            .type('password')
-            .hidden(tab.tab.incognito)
-            .limit(1)
-            .score(0.1)
+            .where(RecommendationManager.getFilterQuery(Url(data.url)))
+            .withHidden(tab.tab.incognito)
+            .paginate('limit', 1)
+            .having('score', '>', 0.1)
             .execute();
 
         return items.length > 0;
+    }
+
+    checkIfDomainAllowed(data) {
+        let url = Url(data.url);
+
+        let domains = this._ingoredDomainsSetting.getValue();
+        if(domains.length === 0) return true;
+
+        domains = domains.split(/\r?\n/);
+        for(let domain of domains) {
+            if(url.host.endsWith(domain.trim())) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /**
@@ -300,16 +316,15 @@ class MiningManager {
             return null;
         }
 
-        let query = new SearchQuery(),
-            items = query
+        let items = SearchService
+                .find('password')
                 .where(
-                    query.field('username').equals(data.user.value),
-                    RecommendationManager.getFilterQuery(query, Url(data.url))
+                    'username', data.user.value,
                 )
-                .type('password')
-                .hidden(tab.tab.incognito)
-                .limit(1)
-                .score(0.1)
+                .where(RecommendationManager.getFilterQuery(Url(data.url)))
+                .withHidden(tab.tab.incognito)
+                .paginate('limit', 1)
+                .having('score', '>', 0.1)
                 .execute();
 
         if(items.length !== 0) {
@@ -327,9 +342,10 @@ class MiningManager {
     _processPasswordData(data) {
         this.validateData(data);
         if(this.checkIfDuplicate(data)) return;
+        if(!this.checkIfDomainAllowed(data)) return;
         data.manual = false;
         this.createItem(data)
-            .catch(ErrorManager.catchEvt);
+            .catch(ErrorManager.catch);
     }
 
     /**

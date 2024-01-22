@@ -8,8 +8,11 @@ class ErrorManager {
         return this._errors;
     }
 
-    get catchEvt() {
-        return this.catch();
+    /**
+     * @returns {Function}
+     */
+    get catch() {
+        return (e) => { this.logError(e); };
     }
 
     set toastService(toastService) {
@@ -150,13 +153,6 @@ class ErrorManager {
     }
 
     /**
-     * @returns {Function}
-     */
-    catch() {
-        return (e) => { this.logError(e); };
-    }
-
-    /**
      *
      */
     clearLog() {
@@ -264,12 +260,14 @@ class ErrorManager {
      */
     _getDetailsFromError(error, context) {
         let data = context ? context:error;
+        let fallbackStack = (new Error()).stack;
+
         return {
             data   : data,
             message: error.message,
             file   : error.fileName,
             line   : error.lineNumber,
-            stack  : error.stack ? error.stack:'',
+            stack  : error.stack ? error.stack:fallbackStack,
             time   : Date.now()
         };
     }

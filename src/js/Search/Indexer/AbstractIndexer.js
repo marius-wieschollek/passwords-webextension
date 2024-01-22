@@ -1,26 +1,29 @@
+import shoetest from "shoetest";
+
 export default class AbstractIndexer {
 
     constructor() {
         this._textIndexFields = ['label'];
         this._genericIndexFields = ['favorite', 'hidden'];
+        this._defaultBoostFields = ['favorite'];
     }
 
     /**
      *
      * @param {(Password|Folder|Tag)} model
-     * @param {Object} index
+     * @param {IndexEntry} index
      * @protected
      */
     _indexServer(model, index) {
         let server = model.getServer();
-        index.server.push(server.getId());
-        index.server.push(server.getLabel());
+        index.addFieldValue('server', server.getId())
+             .addFieldValue('server', server.getLabel());
     }
 
     /**
      *
      * @param {(Password|Folder|Tag)} model
-     * @param {Object} index
+     * @param {IndexEntry} index
      * @protected
      */
     _indexTextFields(model, index) {
@@ -30,8 +33,8 @@ export default class AbstractIndexer {
 
             value = value.toLowerCase();
             if(value.length !== 0) {
-                index.text.push(value);
-                index.fields[field] = [value];
+                index.addFieldValue('text', shoetest.simplify(value))
+                     .addFieldValue(field, value);
             }
         }
     }
@@ -39,12 +42,19 @@ export default class AbstractIndexer {
     /**
      *
      * @param {(Password|Folder|Tag)} model
-     * @param {Object} index
+     * @param {IndexEntry} index
      * @protected
      */
     _indexFields(model, index) {
         for(let field of this._genericIndexFields) {
-            index.fields[field] = [model.getProperty(field)];
+            index.addFieldValue(field, model.getProperty(field));
+        }
+
+        for(let field of this._defaultBoostFields) {
+            let value = model.getProperty(field);
+            if(!isNaN(value)) {
+                index.setBoost(field, value*1);
+            }
         }
     }
 }

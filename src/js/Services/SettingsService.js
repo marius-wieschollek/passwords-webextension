@@ -20,17 +20,25 @@ class SettingsService {
 
     /**
      * @param {String} name
+     * @param {(PasswordsClient|null)} [api]
      * @returns {Promise<Setting>}
      */
-    async get(name) {
-        if(this._settings.hasOwnProperty(name)) {
+    async get(name, api = null) {
+        if(api === null && this._settings.hasOwnProperty(name)) {
             return this._settings[name];
         }
 
-        let data    = await this._backend.get(name),
-            setting = new Setting(name, data.value, data.scope);
+        let data;
+        if(api !== null) {
+            data = await this._backend.getForServer(name, api);
+        } else {
+            data = await this._backend.get(name);
+        }
 
-        this._settings[name] = setting;
+        let setting = new Setting(name, data.value, data.scope);
+        if(api === null || !this._backend.withServer) {
+            this._settings[name] = setting;
+        }
 
         return setting;
     }
@@ -38,10 +46,11 @@ class SettingsService {
     /**
      *
      * @param {String} setting
+     * @param {(PasswordsClient|null)} [api]
      * @return {Promise<*>}
      */
-    async getValue(setting) {
-        let model = await this.get(setting);
+    async getValue(setting, api = null) {
+        let model = await this.get(setting, api);
 
         return model.getValue();
     }
@@ -50,47 +59,66 @@ class SettingsService {
      *
      * @param {(Setting|String)} setting
      * @param {*} [value]
+     * @param {(PasswordsClient|null)} [api]
      * @return {Promise<*>}
      */
-    async set(setting, value) {
+    async set(setting, value, api = null) {
         let name = setting;
         if(setting instanceof Setting) {
             name = setting.getName();
             value = setting.getValue();
         }
 
-        await this._backend.set(name, value);
-        if(this._settings.hasOwnProperty(name)) {
-            this._settings[name].setValue(value);
+        if(api !== null) {
+            await this._backend.setForServer(name, value, api);
+        } else {
+            await this._backend.set(name, value);
+            if(this._settings.hasOwnProperty(name)) {
+                this._settings[name].setValue(value);
+            }
         }
 
         if(name === 'server.default' && SystemService.getArea() === SystemService.AREA_BACKGROUND) {
             this._reloadSettings()
-                .catch(ErrorManager.catchEvt);
+                .catch(ErrorManager.catch);
         }
     }
 
     /**
      *
      * @param {(Setting|String)} setting
+     * @param {(PasswordsClient|null)} api
      * @return {Promise<*>}
      */
-    async reset(setting) {
+    async reset(setting, api = null) {
         let isSetting = setting instanceof Setting,
-            name      = isSetting ? setting.getName():setting;
+            name      = isSetting ? setting.getName():setting,
+            value;
 
-        let value = await this._backend.reset(name);
-        if(isSetting) setting.setValue(value);
-        if(this._settings.hasOwnProperty(name)) {
-            this._settings[name].setValue(value);
+        if(api !== null) {
+            value = await this._backend.resetForServer(name, api);
+        } else {
+            value = await this._backend.reset(name);
+            if(this._settings.hasOwnProperty(name)) {
+                this._settings[name].setValue(value);
+            }
         }
+        if(isSetting) setting.setValue(value);
 
         if(name === 'server.default' && SystemService.getArea() === SystemService.AREA_BACKGROUND) {
             this._reloadSettings()
-                .catch(ErrorManager.catchEvt);
+                .catch(ErrorManager.catch);
         }
 
         return isSetting ? setting:value;
+    }
+
+    /**
+     *
+     * @returns {Promise<void>}
+     */
+    reload() {
+        return this._reloadSettings();
     }
 
     /**

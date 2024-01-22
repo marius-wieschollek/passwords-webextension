@@ -25,7 +25,7 @@ export default class Create extends AbstractController {
         if(await this._createServer(server, result)) {
             ServerManager
                 .addServer(server)
-                .catch(ErrorManager.catchEvt);
+                .catch(ErrorManager.catch);
             reply.setType('server.item').setPayload(server);
         } else {
             reply.setType('validation.error').setPayload(result);

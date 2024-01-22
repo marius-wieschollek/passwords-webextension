@@ -1,13 +1,19 @@
 export default class AbstractField {
 
+    get NO_MATCH_RESULT() {
+        return {matches: 0, checks: 1, score: 0, passed: false};
+    }
+
     /**
      *
      * @param {String} name
      * @param {*} value
+     * @param {Number} weight
      */
-    constructor(name, value) {
+    constructor(name, value, weight) {
         this._name = name;
         this._value = value;
+        this._weight = weight;
     }
 
     /**
@@ -28,32 +34,16 @@ export default class AbstractField {
 
     /**
      *
-     * @param {Object} item
+     * @param {IndexEntry} item
      * @return {({checks: number, passed: boolean, matches: number}|{passed: false})}
      */
     evaluate(item) {
-        return {matches: 0, checks: 0, passed: false};
+        return this.NO_MATCH_RESULT;
     }
 
-    /**
-     *
-     * @param {Object} item
-     * @return {(Boolean|String[])}
-     * @protected
-     */
-    _getFieldValues(item) {
-        if(item.hasOwnProperty(this._name)) {
-            if(this._name === 'id' || this._name === 'type' || this._name === 'hidden' || this._name === 'uses') {
-                return [item[this._name]];
-            }
-
-            return item[this._name];
-        }
-
-        if(item.fields.hasOwnProperty(this._name)) {
-            return item.fields[this._name];
-        }
-
-        return false;
+    _createResult(checks, matches) {
+        let passed = matches > 0,
+            score  = passed ? (checks / matches) * this._weight:0;
+        return {matches, checks, score, passed};
     }
 }

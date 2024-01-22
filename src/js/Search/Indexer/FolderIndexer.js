@@ -1,11 +1,12 @@
 import AbstractIndexer from '@js/Search/Indexer/AbstractIndexer';
+import IndexEntry from "@js/Models/Search/IndexEntry";
 
 export default class FolderIndexer extends AbstractIndexer {
 
     /**
      *
      * @param {Folder} folder
-     * @return {Object}
+     * @return {IndexEntry}
      */
     indexItem(folder) {
         return this._createIndex(folder);
@@ -14,28 +15,24 @@ export default class FolderIndexer extends AbstractIndexer {
     /**
      *
      * @param {Folder} folder
-     * @return {Object}
+     * @return {IndexEntry}
      */
     _createIndex(folder) {
-        let index = {
-            id    : folder.getId(),
-            type  : 'folder',
-            hidden: folder.isHidden(),
-            text  : [],
-            folder: [],
-            server: [],
-            fields: {}
-        };
+        let entry = new IndexEntry(folder.getId(), 'folder', folder.isHidden());
+        this._indexServer(folder, entry);
+        this._indexTextFields(folder, entry);
+        this._indexFields(folder, entry);
 
-        this._indexServer(folder, index);
-        this._indexTextFields(folder, index);
-        this._indexFields(folder, index);
+        entry.addFieldValue('folder', folder.getId())
+             .addFieldValue('folder', folder.getLabel());
 
         let value = folder.getParent();
         if(value && value.length !== 0) {
-            index.folder.push(value);
+            entry.addFieldValue('parent', value);
         }
 
-        return index;
+        entry.clean();
+
+        return entry;
     }
 }

@@ -11,8 +11,14 @@ export default class AbstractCondition {
      * @param {(AbstractField|AbstractCondition)} conditions
      * @return {AbstractCondition}
      */
-    where(...conditions) {
+    append(...conditions) {
         this._conditions.push(...conditions);
+
+        return this;
+    }
+
+    prepend(...conditions) {
+        this._conditions.unshift(...conditions);
 
         return this;
     }

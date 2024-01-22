@@ -8,7 +8,7 @@
             <password-mining :item="item" :slot="item.getId()" :key="item.getId()" v-for="item of items"/>
         </foldout>
         <translate tag="div" class="no-results" say="NoCollectedPasswords" v-if="items.length === 0"/>
-        <translate class="collected-add-blank" say="AddPasswordForCurrentTab" @click="addBlankPassword" v-if="items.length === 0">
+        <translate class="collected-add-blank" say="AddPasswordForCurrentTab" @click="addBlankPassword">
             <icon slot="before" icon="user-plus" font="solid"/>
         </translate>
     </div>
@@ -118,7 +118,7 @@
             addBlankPassword() {
                 MessageService
                     .send('password.add.blank')
-                    .catch(ErrorManager.catchEvt);
+                    .catch(ErrorManager.catch);
             },
 
             sendStatus() {

@@ -6,6 +6,9 @@ contact_links:
   - name: Telegram Chat
     url: https://t.me/nc_passwords
     about: Ask questions and discuss with other users
+  - name: User Handbook
+    url: https://git.mdns.eu/nextcloud/passwords/-/wikis/Users/Browser-Extension
+    about: Learn how to use the extension and all the features
   - name: Official Nextcloud App Bugtracker
     url: https://github.com/marius-wieschollek/passwords/issues
     about: Report issues or request a feature for the Nextcloud app

@@ -387,26 +387,6 @@
         "message": "Σύνδεση στο Nextcloud",
         "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
     },
-    "FirstRunConnectText": {
-        "message": "Ανοίξτε την εφαρμογή passwords, κάντε κλικ στο \"More\", ανοίξτε το \"Apps & Extensions\" και ανοίξτε το παράθυρο διαλόγου PassLink Connect.",
-        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
-    },
-    "FirstRunConnectLink": {
-        "message": "Εάν το παράθυρο διαλόγου PassLink είναι ανοιχτό στην ίδια συσκευή, χρησιμοποιήστε την επιλογή Σύνδεση μέσω σύνδεσης.",
-        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
-    },
-    "FirstRunConnectScan": {
-        "message": "Εάν πρόκειται για διαφορετική συσκευή, σαρώστε τον κωδικό PassLink Connect με το παρακάτω κουμπί",
-        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
-    },
-    "FirstRunConnectManual": {
-        "message": "Μπορείτε επίσης να δημιουργήσετε το λογαριασμό χειροκίνητα στις ρυθμίσεις της επέκτασης",
-        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
-    },
-    "FirstRunConnectScanButton": {
-        "message": "Σάρωση κωδικού PassLink",
-        "description": "Text of the button to scan a PassLink QR Code"
-    },
     "OpenSettings": {
         "message": "Ανοίξτε τις Ρυθμίσεις επέκτασης",
         "description": "Label of the button to open the extension settings in the tools tab of the popup"
@@ -559,10 +539,6 @@
     "LabelSearchRecommendationHost": {
         "message": "ίδιος ξενιστής",
         "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
-    },
-    "LabelSearchRecommendationHostPort": {
-        "message": "ίδιος host & port",
-        "description": "Find password recommendations for the specific server and port."
     },
     "LabelSearchRecommendationExact": {
         "message": "το ίδιο ακριβώς url",
@@ -1452,5 +1428,117 @@
     "FontMono": {
         "message": "Monospace",
         "description": "Label of the monospaced font option in the custom theme settings"
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "Προσαρμοσμένη ετικέτα πεδίου",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "Προσαρμοσμένη ετικέτα πεδίου",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
+    },
+    "ServerNetworkErrorReload": {
+        "message": "Επαναφόρτωση διακομιστή",
+        "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
+    },
+    "PasswordMiningSettings": {
+        "message": "Νέος & αλλαγμένος κωδικός πρόσβασης",
+        "description": "Headline above the password mining section in the other settings tab in the extension settings"
+    },
+    "SettingsMiningIgnoredDomains": {
+        "message": "Αγνοήστε αυτά τα domains (ένα ανά γραμμή, τα subdomains επίσης αγνοούνται)",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not detect new or changed passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "SettingsMiningIgnoredDomainsPlaceholder": {
+        "message": "π.χ. example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "SettingsMiningIncognitoHide": {
+        "message": "Αποθηκεύστε τους κωδικούς πρόσβασης που συλλέγονται στο Incognito ως ιδιωτικούς κωδικούς πρόσβασης",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "BadgeIconOutlineDark": {
+        "message": "Εικονίδιο με σκούρο περίγραμμα",
+        "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconOutlineLight": {
+        "message": "Εικονίδιο φωτεινού περιγράμματος",
+        "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "FirstRunConnectLink1": {
+        "message": "Ανοίξτε την εφαρμογή Passwords, κάντε κλικ στο \"Περισσότερα\" και ανοίξτε το \"Apps & Extensions\".",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink2": {
+        "message": "Επιλέξτε τον περιηγητή σας και κάντε κλικ στο \"Σύνδεση με το PassLink\"",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunConnectLink3": {
+        "message": "Κάντε κλικ στην επιλογή \"Σύνδεση μέσω συνδέσμου\", συγκρίνετε τους κωδικούς και επιβεβαιώστε τη σύνδεση.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "FirstRunSetupManually": {
+        "message": "Συνδέστε χειροκίνητα",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "FirstRunConnectScanQR": {
+        "message": "Σάρωση κωδικού PassLink",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Οδηγός βίντεο παρακολούθησης",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "Προσαρμογή της επέκτασης",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "FirstRunSettingsText": {
+        "message": "Αυτά και πολλά άλλα πράγματα μπορούν να αλλάξουν ανά πάσα στιγμή στις ρυθμίσεις της επέκτασης.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Αποθήκευση",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
+    },
+    "PasslinkConnectServerUpdated": {
+        "message": "Τα διαπιστευτήρια για το \"$LABEL$\" ενημερώθηκαν",
+        "description": "Confirmation message in the PassLink Connect action when an existing account has been updated successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "DebugResetTitle": {
+        "message": "Εκκαθάριση δεδομένων επέκτασης",
+        "description": "Headline above the section for to clear specific extension data in the debug tab in the extension settings"
+    },
+    "DebugResetStatistics": {
+        "message": "Επαναφορά δεδομένων σύστασης",
+        "description": "Label of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetStatisticsTitle": {
+        "message": "Επαναφορά των στατιστικών στοιχείων χρήσης που συλλέγονται και χρησιμοποιούνται για τη σύσταση διαπιστευτηρίων στη σχετική καρτέλα",
+        "description": "Help title text of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtension": {
+        "message": "Επαναφορά επέκτασης",
+        "description": "Label of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtensionTitle": {
+        "message": "Διαγράψτε όλες τις ρυθμίσεις, τους λογαριασμούς και τα δεδομένα συστάσεων και ξεκινήστε από την αρχή.",
+        "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "ExtensionInitFailure": {
+        "message": "Η αρχικοποίηση της επέκτασης απέτυχε: $ERROR$",
+        "description": "Notification message when the start sequence of the extension failed",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
     }
 }

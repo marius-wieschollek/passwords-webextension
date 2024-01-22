@@ -1,13 +1,13 @@
 import SystemService         from '@js/Services/SystemService';
 import RecommendationManager from '@js/Manager/RecommendationManager';
 import LocalisationService   from '@js/Services/LocalisationService';
-import {v4 as uuid}          from 'uuid';
 import MessageService        from '@js/Services/MessageService';
 import TabManager            from '@js/Manager/TabManager';
 import ErrorManager          from '@js/Manager/ErrorManager';
 import ThemeService          from '@js/Services/ThemeService';
-import BlobToBase64Helper    from '@js/Helper/BlobToBase64Helper';
-import AutofillManager       from '@js/Manager/AutofillManager';
+import FaviconService        from '@js/Services/FaviconService';
+import AutofillRequestHelper from "@js/Helper/AutofillRequestHelper";
+import UuidHelper            from "@js/Helper/UuidHelper";
 import SearchIndex from "@js/Search/Index/SearchIndex";
 
 class ContextMenuManager {
@@ -24,7 +24,7 @@ class ContextMenuManager {
         RecommendationManager.listen.on(
             (r) => {
                 this._updateContextMenu(r)
-                    .catch(ErrorManager.catchEvt);
+                    .catch(ErrorManager.catch);
             }
         );
         SystemService.getContextMenu().onClicked.addListener(
@@ -69,7 +69,7 @@ class ContextMenuManager {
      * @private
      */
     async _createRecommendationMenu(recommended) {
-        let menuId      = uuid(),
+        let menuId      = UuidHelper.generate(),
             defaultIcon = await ThemeService.getBadgeIcon();
 
         this._createMenu(
@@ -97,7 +97,7 @@ class ContextMenuManager {
 
             if(SystemService.isCompatible(SystemService.PLATFORM_FIREFOX)) {
                 this._loadIcons(password)
-                    .catch(ErrorManager.catchEvt);
+                    .catch(ErrorManager.catch);
             }
         }
     }
@@ -159,13 +159,7 @@ class ContextMenuManager {
                 receiver: 'client',
                 channel : 'tabs',
                 tab     : tabId === null ? TabManager.currentTabId:tabId,
-                payload : {
-                    user      : password.getUserName(),
-                    password  : password.getPassword(),
-                    formFields: AutofillManager.getCustomFormFields(password),
-                    submit    : false,
-                    autofill  : true
-                }
+                payload : AutofillRequestHelper.createPasteRequest(password)
             }
         );
     }
@@ -184,10 +178,8 @@ class ContextMenuManager {
      * @private
      */
     async _loadIcons(password) {
-        let blob16 = await password.getFavicon(16),
-            blob32 = await password.getFavicon(32),
-            icon16 = await BlobToBase64Helper.convert(blob16),
-            icon32 = await BlobToBase64Helper.convert(blob32);
+        let icon16 = await FaviconService.getFaviconForPassword(password, 16, false),
+            icon32 = await FaviconService.getFaviconForPassword(password, 32, false);
 
         if(this._activeMenus.indexOf(password.getId()) === -1) return;
 

@@ -12,7 +12,7 @@ export default class OpenSettings extends AbstractController {
             let url = api.runtime.getURL('html/options.html') + '?newtab';
             api.tabs
                .create({url, active: true})
-               .catch(ErrorManager.catchEvt);
+               .catch(ErrorManager.catch);
         } else {
             api.runtime.openOptionsPage();
         }

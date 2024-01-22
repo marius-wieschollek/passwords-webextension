@@ -1144,26 +1144,6 @@
         "message": "Maak verbinding met Nextcloud",
         "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
     },
-    "FirstRunConnectText": {
-        "message": "Open de wachtwoorden-app, klik op \"Meer\", open \"Apps & Extensies\" en open het dialoogvenster PassLink Connect.",
-        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
-    },
-    "FirstRunConnectLink": {
-        "message": "Als het PassLink-dialoogvenster geopend is op hetzelfde apparaat, gebruikt u de optie verbinden via verbinding",
-        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
-    },
-    "FirstRunConnectScan": {
-        "message": "Als dit een ander apparaat is, scan dan de PassLink Connect Code met de onderstaande knop",
-        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
-    },
-    "FirstRunConnectManual": {
-        "message": "U kunt de account ook handmatig aanmaken in de instellingen van de extensie",
-        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
-    },
-    "FirstRunConnectScanButton": {
-        "message": "Scan de PassLink-code",
-        "description": "Text of the button to scan a PassLink QR Code"
-    },
     "PasswordGenerateError": {
         "message": "Kan geen wachtwoord genereren: $ERROR$",
         "description": "Notification shown when the generation of a password fails",
@@ -1229,10 +1209,6 @@
     "LabelSearchRecommendationHost": {
         "message": "dezelfde gastheer",
         "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
-    },
-    "LabelSearchRecommendationHostPort": {
-        "message": "dezelfde host & poort",
-        "description": "Find password recommendations for the specific server and port."
     },
     "LabelSearchRecommendationExact": {
         "message": "exact dezelfde url",
@@ -1450,6 +1426,118 @@
             "os": {
                 "content": "$2",
                 "example": "Linux"
+            }
+        }
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "Aangepast veldlabel",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "Aangepast veldlabel",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
+    },
+    "ServerNetworkErrorReload": {
+        "message": "Server herladen",
+        "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
+    },
+    "SettingsMiningIgnoredDomainsPlaceholder": {
+        "message": "bijv. voorbeeld.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "PasswordMiningSettings": {
+        "message": "Nieuw & gewijzigd wachtwoord",
+        "description": "Headline above the password mining section in the other settings tab in the extension settings"
+    },
+    "SettingsMiningIgnoredDomains": {
+        "message": "Negeer deze domeinen (één per regel, subdomeinen worden ook genegeerd)",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not detect new or changed passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "SettingsMiningIncognitoHide": {
+        "message": "Wachtwoorden verzameld in Incognito opslaan als privéwachtwoorden",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "BadgeIconOutlineLight": {
+        "message": "Licht omlijningspictogram",
+        "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconOutlineDark": {
+        "message": "Pictogram met donkere contouren",
+        "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "FirstRunConnectLink1": {
+        "message": "Open de app Wachtwoorden, klik op \"Meer\" en open \"Apps & Extensies\".",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink2": {
+        "message": "Kies je browser en klik op \"Verbinden met PassLink\".",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunSettingsText": {
+        "message": "Deze en vele andere dingen kunnen op elk moment worden gewijzigd in de extensie-instellingen.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "FirstRunConnectLink3": {
+        "message": "Klik op \"Verbinden via link\", vergelijk de codes en bevestig de verbinding.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "FirstRunSetupManually": {
+        "message": "Handmatig aansluiten",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "FirstRunConnectScanQR": {
+        "message": "Scan de PassLink-code",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Video bekijken",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "De extensie aanpassen",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Opslaan",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
+    },
+    "PasslinkConnectServerUpdated": {
+        "message": "De referenties voor \"$LABEL$\" werden bijgewerkt",
+        "description": "Confirmation message in the PassLink Connect action when an existing account has been updated successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "DebugResetTitle": {
+        "message": "Extensiegegevens wissen",
+        "description": "Headline above the section for to clear specific extension data in the debug tab in the extension settings"
+    },
+    "DebugResetStatistics": {
+        "message": "Aanbevelingsgegevens resetten",
+        "description": "Label of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetStatisticsTitle": {
+        "message": "Verzamelde gebruiksstatistieken resetten die worden gebruikt om referenties aan te bevelen op het tabblad gerelateerd",
+        "description": "Help title text of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtension": {
+        "message": "Uitbreiding resetten",
+        "description": "Label of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtensionTitle": {
+        "message": "Verwijder alle instellingen, accounts en aanbevelingsgegevens en begin opnieuw",
+        "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "ExtensionInitFailure": {
+        "message": "Initialisatie extensie mislukt: $ERROR$",
+        "description": "Notification message when the start sequence of the extension failed",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
             }
         }
     }

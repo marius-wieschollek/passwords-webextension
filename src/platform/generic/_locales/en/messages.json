@@ -127,7 +127,7 @@
     },
     "NotificationSettings": {
         "message": "Notifications",
-        "description": "Headline above the notification section in the other settings tab in the extension settings"
+        "description": "Headline above the notification section in the other settings tab in the extension settings (!Currently Unused)"
     },
     "SettingsNotifyPasswordNew": {
         "message": "Notification for new passwords",
@@ -138,7 +138,7 @@
         "description": "Label of the setting in the extension settings to enable or disable the notification for detected password updates"
     },
     "SettingsNotifyPasswordQuicksave": {
-        "message": "Save or update directly when the notification is clicked",
+        "message": "Save or update passwords directly when the notification is clicked",
         "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"
     },
     "SearchSettings": {
@@ -147,6 +147,22 @@
     },
     "SettingsPopupRelatedSearch": {
         "message": "Start search when i type in \"Related\"",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "PasswordMiningSettings": {
+        "message": "New & changed passwords",
+        "description": "Headline above the password mining section in the other settings tab in the extension settings"
+    },
+    "SettingsMiningIgnoredDomains": {
+        "message": "Ignore these domains (one per line, subdomains are also ignored)",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not detect new or changed passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "SettingsMiningIgnoredDomainsPlaceholder": {
+        "message": "e.g. example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "SettingsMiningIncognitoHide": {
+        "message": "Store passwords collected in Incognito as private passwords",
         "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
     },
     "AccountList": {
@@ -799,6 +815,10 @@
         "message": "A network error occurred. Please check if you're online and the server is reachable.",
         "description": "Text of the toast notification when the connection to the server failed with a network error"
     },
+    "ServerNetworkErrorReload": {
+        "message": "Reload Server",
+        "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
+    },
     "ServerUnknownError": {
         "message": "Unknown error.",
         "description": "Text of the toast notification when the connection to the server failed with an unknown error and no error message is present"
@@ -1078,6 +1098,14 @@
         "message": "Dark modern icon",
         "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
     },
+    "BadgeIconOutlineLight": {
+        "message": "Light outline icon",
+        "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconOutlineDark": {
+        "message": "Dark outline icon",
+        "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
     "CustomBadgeColors": {
         "message": "Badge colors",
         "description": "Label of the settings for the toolbar icon badge colors in the custom theme settings"
@@ -1113,6 +1141,16 @@
     "PasslinkConnectServer": {
         "message": "The new account was saved as \"$LABEL$\"",
         "description": "Confirmation message in the PassLink Connect action when a new account has been created successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "PasslinkConnectServerUpdated": {
+        "message": "The credentials for \"$LABEL$\" were updated",
+        "description": "Confirmation message in the PassLink Connect action when an existing account has been updated successfully",
         "placeholders": {
             "label": {
                 "content": "$1",
@@ -1190,27 +1228,43 @@
     },
     "FirstRunConnectTitle": {
         "message": "Connect to Nextcloud",
-        "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
+        "description": "Title of the first run wizard page that helps the user to connect to their Nextcloud"
     },
-    "FirstRunConnectText": {
-        "message": "Open the passwords app, click on \"More\", open \"Apps & Extensions\" and open the PassLink Connect dialog.",
-        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
+    "FirstRunConnectLink1": {
+        "message": "Open the Passwords app, click on \"More\" and open \"Apps & Extensions\".",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
     },
-    "FirstRunConnectLink": {
-        "message": "If the PassLink dialog is open on the same device, use the connect via link option",
-        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
+    "FirstRunConnectLink2": {
+        "message": "Choose yur Browser and click \"Connect with PassLink\"",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
     },
-    "FirstRunConnectScan": {
-        "message": "If this is a different device, scan the PassLink Connect Code with the button below",
-        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
+    "FirstRunConnectLink3": {
+        "message": "Click \"Connect via link\", compare the codes and confirm the connection.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
     },
-    "FirstRunConnectManual": {
-        "message": "You can also create the account manually in the extension settings",
-        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
+    "FirstRunSetupManually": {
+        "message": "Connect manually",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
     },
-    "FirstRunConnectScanButton": {
+    "FirstRunConnectScanQR": {
         "message": "Scan PassLink Code",
-        "description": "Text of the button to scan a PassLink QR Code"
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Watch Video Guide",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "Customize the Extension",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "FirstRunSettingsText": {
+        "message": "The behavior of the extension can always be customized in the extension settings.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Save",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
     },
     "OpenSettings": {
         "message": "Open Extension Settings",
@@ -1321,6 +1375,26 @@
         "message": "Show language keys",
         "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
     },
+    "DebugResetTitle": {
+        "message": "Clear Extension Data",
+        "description": "Headline above the section for to clear specific extension data in the debug tab in the extension settings"
+    },
+    "DebugResetStatistics": {
+        "message": "Reset Recommendation Data",
+        "description": "Label of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetStatisticsTitle": {
+        "message": "Reset collected usage statistics used to recommend credentials in the related tab",
+        "description": "Help title text of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtension": {
+        "message": "Reset Extension",
+        "description": "Label of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtensionTitle": {
+        "message": "Delete all settings, accounts and recommendation data and start over",
+        "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
     "DebugBuild": {
         "message": "Build Information",
         "description": "Headline above the section for the build instructions in the debug tab in the extension settings"
@@ -1364,10 +1438,6 @@
     "LabelSearchRecommendationHost": {
         "message": "same host",
         "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
-    },
-    "LabelSearchRecommendationHostPort": {
-        "message": "same host & port",
-        "description": "Find password recommendations for the specific server and port."
     },
     "LabelSearchRecommendationExact": {
         "message": "same exact url",
@@ -1458,7 +1528,17 @@
         "description": "Placeholder text of the label for a custom field entry in the password details"
     },
     "CustomFieldValuePlaceholder": {
-        "message": "Custom field label",
+        "message": "Custom field value",
         "description": "Placeholder text of the value for a custom field entry in the password details"
+    },
+    "ExtensionInitFailure": {
+        "message": "Extension initialization failed: $ERROR$",
+        "description": "Notification message when the start sequence of the extension failed",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
     }
 }

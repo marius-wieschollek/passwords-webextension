@@ -1,4 +1,4 @@
-import FormService    from '@js/Services/FormService';
+import FormService from '@js/Services/FormService';
 import MessageService from '@js/Services/MessageService';
 
 export default class DomMiner {
@@ -8,12 +8,14 @@ export default class DomMiner {
      */
     constructor() {
         this._knownForms = [];
-        this._pendingMutations = [];
         this._mutationObserver = null;
         this._observerTimer = null;
     }
 
     init() {
+        if(this._isPasswordsApp()) {
+            return;
+        }
         window.addEventListener(
             'beforeunload',
             () => {this._checkForNewPassword();},
@@ -26,6 +28,10 @@ export default class DomMiner {
         } else {
             this._addBodyListener();
         }
+    }
+
+    _isPasswordsApp() {
+        return document.querySelector('[data-passwords-main-version]') !== null;
     }
 
     _addFormsListener(forms) {
@@ -48,7 +54,14 @@ export default class DomMiner {
         }
     }
 
-    _addBodyListener() {
+    _addBodyListener(tries) {
+        if(!document.body) {
+            if(tries < 40) {
+                setTimeout(() => {this._addBodyListener(tries + 1);}, 250);
+            }
+            return;
+        }
+
         this._mutationObserver = new MutationObserver((mutations) => {
             if(this._observerTimer === null) {
                 this._observerTimer = setTimeout(() => {
@@ -71,8 +84,8 @@ export default class DomMiner {
         let exists = false;
         this._knownForms.forEach(element => {
             if((element.pass === form.pass.value) &&
-                (element.user === form.user.value) &&
-                (element.url === this._getUrl())) {
+               (element.user && form.user && element.user === form.user.value) &&
+               (element.url === this._getUrl())) {
                 exists = true;
             }
         });
@@ -80,7 +93,7 @@ export default class DomMiner {
             this._knownForms.push(
                 {
                     pass: form.pass.value,
-                    user: form.user.value,
+                    user: form.user ? form.user.value:undefined,
                     url : this._getUrl()
                 });
         }

@@ -137,6 +137,7 @@
         }
     }
 
+    body.edge,
     body.mobile {
         .theming {
             grid-template-columns : 1fr;

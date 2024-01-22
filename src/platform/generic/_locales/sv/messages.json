@@ -766,7 +766,7 @@
         }
     },
     "ToastServerCheckMessage": {
-        "message": "Kontot \"$SERVER$\" använder lösenordet $SERVERVERVERSION$, men detta tillägg kräver minst $MINVERSION$. Appen måste uppdateras innan kontot kan aktiveras igen i inställningarna.",
+        "message": "Kontot \"$SERVER$\" använder lösenordet $SERVERVERSION$, men detta tillägg kräver minst $MINVERSION$. Appen måste uppdateras innan kontot kan aktiveras igen i inställningarna.",
         "description": "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
         "placeholders": {
             "server": {
@@ -1184,14 +1184,6 @@
         "message": "Kameran är inte lämplig att använda",
         "description": "Message used by the PassLink QR scanner when the camera is faulty"
     },
-    "FirstRunConnectText": {
-        "message": "Öppna lösenordsappen, klicka på \"Mer\", öppna \"Appar och tillägg\" och öppna dialogrutan PassLink Connect.",
-        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
-    },
-    "FirstRunConnectScanButton": {
-        "message": "Skanna PassLink-kod",
-        "description": "Text of the button to scan a PassLink QR Code"
-    },
     "OpenSettings": {
         "message": "Öppna tilläggsinställningar",
         "description": "Label of the button to open the extension settings in the tools tab of the popup"
@@ -1387,18 +1379,6 @@
         "message": "Lösenordet har uppdaterats",
         "description": "The toast notification after the password was successfully saved"
     },
-    "FirstRunConnectLink": {
-        "message": "Om dialogrutan PassLink är öppen på samma enhet, använd alternativet Anslut via länk.",
-        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
-    },
-    "FirstRunConnectScan": {
-        "message": "Om detta är en annan enhet, skanna PassLink Connect-koden med knappen nedan.",
-        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
-    },
-    "FirstRunConnectManual": {
-        "message": "Du kan också skapa kontot manuellt i tilläggsinställningarna.",
-        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
-    },
     "DebugInfoHiddenFolderId": {
         "message": "Dolda lösenord Mapp-ID",
         "description": "Description of the id of the folder used to store hidden/private passwords in the internal status section in the debug tab in the extension settings"
@@ -1418,10 +1398,6 @@
     "LabelSearchRecommendationHost": {
         "message": "samma värd",
         "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
-    },
-    "LabelSearchRecommendationHostPort": {
-        "message": "samma värd och port",
-        "description": "Find password recommendations for the specific server and port."
     },
     "UiSettings": {
         "message": "Användargränssnitt",
@@ -1452,5 +1428,117 @@
     "TabSearch": {
         "message": "Sök",
         "description": "Label of the search tab in the extension popup"
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "Etikett för anpassat fält",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "Etikett för anpassat fält",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
+    },
+    "ServerNetworkErrorReload": {
+        "message": "Ladda om servern",
+        "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
+    },
+    "PasswordMiningSettings": {
+        "message": "Nytt & ändrat lösenord",
+        "description": "Headline above the password mining section in the other settings tab in the extension settings"
+    },
+    "SettingsMiningIgnoredDomains": {
+        "message": "Ignorera dessa domäner (en per rad, subdomäner ignoreras också)",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not detect new or changed passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "SettingsMiningIgnoredDomainsPlaceholder": {
+        "message": "t.ex. example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "SettingsMiningIncognitoHide": {
+        "message": "Spara lösenord som samlats in i inkognito som privata lösenord",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "BadgeIconOutlineLight": {
+        "message": "Ikon för ljusskiss",
+        "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconOutlineDark": {
+        "message": "Ikon med mörk kontur",
+        "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "FirstRunSetupManually": {
+        "message": "Anslut manuellt",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "FirstRunConnectLink1": {
+        "message": "Öppna Passwords app, klicka på \"Mer\" och öppna \"Appar & tillägg\".",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink2": {
+        "message": "Välj din webbläsare och klicka på \"Anslut med PassLink\"",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunConnectLink3": {
+        "message": "Klicka på \"Anslut via länk\", jämför koderna och bekräfta anslutningen.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "FirstRunConnectScanQR": {
+        "message": "Skanna PassLink-koden",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Se videoguiden",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "Anpassa tillägget",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "FirstRunSettingsText": {
+        "message": "Dessa och många andra saker kan ändras när som helst i tilläggsinställningarna.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Spara",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
+    },
+    "PasslinkConnectServerUpdated": {
+        "message": "Referenserna för \"$LABEL$\" har uppdaterats",
+        "description": "Confirmation message in the PassLink Connect action when an existing account has been updated successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "DebugResetTitle": {
+        "message": "Radera data om förlängning",
+        "description": "Headline above the section for to clear specific extension data in the debug tab in the extension settings"
+    },
+    "DebugResetStatistics": {
+        "message": "Återställ rekommendationsdata",
+        "description": "Label of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetStatisticsTitle": {
+        "message": "Återställ insamlad användningsstatistik som används för att rekommendera autentiseringsuppgifter på den relaterade fliken",
+        "description": "Help title text of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtension": {
+        "message": "Återställ tillägg",
+        "description": "Label of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtensionTitle": {
+        "message": "Radera alla inställningar, konton och rekommendationsdata och börja om på nytt",
+        "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "ExtensionInitFailure": {
+        "message": "Initialisering av tillägg misslyckades: $ERROR$",
+        "description": "Notification message when the start sequence of the extension failed",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
     }
 }

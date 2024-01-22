@@ -2,7 +2,7 @@ import ErrorManager from '@js/Manager/ErrorManager';
 import SearchManager from '@js/Manager/SearchManager';
 import ServerManager from '@js/Manager/ServerManager';
 import SystemService from '@js/Services/SystemService';
-import UpgradeManager from '@js/Manager/UpgradeManager';
+import MigrationManager from '@js/Manager/MigrationManager';
 import ConverterManager from '@js/Manager/ConverterManager';
 import ControllerManager from '@js/Manager/ControllerManager';
 import RecommendationManager from '@js/Manager/RecommendationManager';
@@ -22,6 +22,8 @@ import PasswordStatisticsService from "@js/Services/PasswordStatisticsService";
 import PassLinkManager from "@js/Manager/PassLinkManager";
 import BasicAuthAutofillManager from "@js/Manager/BasicAuthAutofillManager";
 import ServerTimeoutManager from "@js/Manager/ServerTimeoutManager";
+import StorageService from "@js/Services/StorageService";
+import ToastService from "@js/Services/ToastService";
 
 class Background {
     async init() {
@@ -30,8 +32,9 @@ class Background {
         try {
             await SystemService.waitReady();
             await MessageService.init();
+            await StorageService.init();
             SettingsService.init(MasterSettingsProvider);
-            await UpgradeManager.run();
+            await MigrationManager.run();
             PassLinkManager.init();
             ControllerManager.init();
             ConverterManager.init();
@@ -40,7 +43,6 @@ class Background {
             NotificationService.init();
             RecommendationManager.init();
             await AutofillManager.init();
-            await BasicAuthAutofillManager.init();
             ThemeService.init(ThemeRepository);
             BadgeManager.init();
             ContextMenuManager.init();
@@ -48,9 +50,14 @@ class Background {
             ServerTimeoutManager.init();
             await PasswordStatisticsService.init();
             await ServerManager.init();
+            await BasicAuthAutofillManager.init();
             await LocalisationService.init();
+            console.info('Extension initialized');
         } catch(e) {
             ErrorManager.logError(e);
+            ErrorManager.error('Extension initialization failed. Extension may not work properly.');
+            ToastService.error(['ExtensionInitFailure', e.message])
+                        .catch(ErrorManager.catch);
         }
     }
 }

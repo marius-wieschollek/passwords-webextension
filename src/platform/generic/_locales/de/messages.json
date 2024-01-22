@@ -1019,8 +1019,16 @@
         "description": "Label of the grey modern icon option for the toolbar icon in the custom theme settings"
     },
     "BadgeIconNewDark": {
-        "message": "Dunkles modernes Symbol",
+        "message": "Dunkles Kontursymbol",
         "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconOutlineLight": {
+        "message": "Helles Kontursymbol",
+        "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconOutlineDark": {
+        "message": "Dunkles outline Symbol",
+        "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
     },
     "CustomBadgeColors": {
         "message": "Abzeichenfarbe",
@@ -1135,26 +1143,6 @@
     "FirstRunConnectTitle": {
         "message": "Mit Nextcloud verbinden",
         "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
-    },
-    "FirstRunConnectText": {
-        "message": "Öffne die Passwörter App, klicke auf \"Mehr\", öffne \"Apps & Erweiterungen\" und starte den PassLink Dialog.",
-        "description": "Text in the first run wizard which explains users that they have to open the Passwords app in Nextcloud, then click on more in the app navigation, then apps & extension and then click the passlink connect button for their app"
-    },
-    "FirstRunConnectLink": {
-        "message": "Wenn der PassLink Dialog im selben Browser geöffnet ist, verbinde dich mittels Link",
-        "description": "Text in the first run wizard. Firefox users can use the connect via link option in the PassLink Connect dialog in the Nextcloud app when they want to set up the Extension in the same Browser."
-    },
-    "FirstRunConnectScan": {
-        "message": "Falls das hier ein Gerät ist, klicke auf die Schaltfläche unten und scanne den Code",
-        "description": "Text in the first run wizard for Firefox users. They can scan the QR-Code in the Passlink Connect dialog in the Nextcloud App with the extension and coonnect the extension that way"
-    },
-    "FirstRunConnectManual": {
-        "message": "In den Addon-Einstellungen ist es auch möglich, ein Konto manuell anzulegen",
-        "description": "Text in the first run wizard to tell users they can also set up the connection manually in the extension settings."
-    },
-    "FirstRunConnectScanButton": {
-        "message": "PassLink Code scannen",
-        "description": "Text of the button to scan a PassLink QR Code"
     },
     "OpenSettings": {
         "message": "Addon-Einstellungen öffnen",
@@ -1309,10 +1297,6 @@
         "message": "gleichem Hostnamen",
         "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
     },
-    "LabelSearchRecommendationHostPort": {
-        "message": "gleichem Hostnamen & Port",
-        "description": "Find password recommendations for the specific server and port."
-    },
     "LabelSearchRecommendationExact": {
         "message": "der exakten URL",
         "description": "Find only passwords where th url matches exact to the current browser url."
@@ -1364,7 +1348,7 @@
         "description": "Label of the password custom setting type 'url'."
     },
     "PasswordCustomFieldsTypeFormField": {
-        "message": "Form Feld",
+        "message": "Formularfeld",
         "description": "Label of the password custom setting form field to insert custom values to a web page."
     },
     "PasswordEditValidationInvalidValue": {
@@ -1412,7 +1396,7 @@
         }
     },
     "ToastServerCheckWarning": {
-        "message": "Dieses Addon benötigt bald $MINVERSION$, aber \"$SERVER$\" verwendet $SERVERVERSION$. Bitte aktualisiere die App um das Benutzerkonto weiterhin verwenden zu können.",
+        "message": "Dieses Addon benötigt bald $MINVERSION$ der Passwörter App, aber \"$SERVER$\" verwendet $SERVERVERSION$. Bitte aktualisiere die App um das Benutzerkonto weiterhin verwenden zu können.",
         "description": "Text of the toast notification when an account uses a server which will soon be no longer supported because it uses an outdated and unsupported version of the passwords app",
         "placeholders": {
             "server": {
@@ -1430,7 +1414,7 @@
         }
     },
     "SettingsNotifyPasswordQuicksave": {
-        "message": "Sofort speichern wenn die Benachrichtigung angeklickt wird",
+        "message": "Passwörter sofort speichern wenn die Benachrichtigung angeklickt wird",
         "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"
     },
     "NotifyNewPasswordTextQS": {
@@ -1450,6 +1434,110 @@
             "label": {
                 "content": "$1",
                 "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "Name für benutzerdefiniertes Feld",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "Wert für benutzerdefiniertes Feld",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
+    },
+    "ServerNetworkErrorReload": {
+        "message": "Erneut versuchen",
+        "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
+    },
+    "SettingsMiningIgnoredDomainsPlaceholder": {
+        "message": "z.B. example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "PasswordMiningSettings": {
+        "message": "Neue & geänderte Passwörter",
+        "description": "Headline above the password mining section in the other settings tab in the extension settings"
+    },
+    "SettingsMiningIgnoredDomains": {
+        "message": "Diese Domains ignorieren (eine pro Zeile, Subdomains werden ebenfalls ignoriert)",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not detect new or changed passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "SettingsMiningIncognitoHide": {
+        "message": "Im Inkognitomodus gesammelte Passwörter als private Passwörter speichern",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "FirstRunConnectLink1": {
+        "message": "Öffnen Sie die Passwörter-App, klicken Sie auf \"Mehr\" und öffnen Sie \"Apps & Erweiterungen\".",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink2": {
+        "message": "Wähle deinen Browser und klicke auf \"Mit PassLink verbinden\"",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunConnectLink3": {
+        "message": "Klicke auf \"Mittles Link verbinden\", vergleiche die Codes und bestätige die Verbindung.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "FirstRunSetupManually": {
+        "message": "Manuell verbinden",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "FirstRunConnectScanQR": {
+        "message": "PassLink QRCode scannen",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Videoanleitung öffnen",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "Erweiterung anpassen",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "FirstRunSettingsText": {
+        "message": "In den Einstellungen kann das Verhalten der Erweiterung jederzeit angepasst werden.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Speichern",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
+    },
+    "PasslinkConnectServerUpdated": {
+        "message": "Die Anmeldeinformationen für \"$LABEL$\" wurden aktualisiert",
+        "description": "Confirmation message in the PassLink Connect action when an existing account has been updated successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "DebugResetTitle": {
+        "message": "Addon-Daten löschen",
+        "description": "Headline above the section for to clear specific extension data in the debug tab in the extension settings"
+    },
+    "DebugResetStatistics": {
+        "message": "Passwort Empfehlungen zurücksetzen",
+        "description": "Label of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetStatisticsTitle": {
+        "message": "Zurücksetzen der Nutzungsstatistiken, die zur Empfehlung von Anmeldeinformationen für den aktuellen Tab verwendet werden",
+        "description": "Help title text of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtension": {
+        "message": "Addon zurücksetzen",
+        "description": "Label of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtensionTitle": {
+        "message": "Alle Einstellungen, Konten und Empfehlungsdaten löschen und von vorne beginnen",
+        "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "ExtensionInitFailure": {
+        "message": "Die Initialisierung der Erweiterung ist fehlgeschlagen: $ERROR$",
+        "description": "Notification message when the start sequence of the extension failed",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
             }
         }
     }

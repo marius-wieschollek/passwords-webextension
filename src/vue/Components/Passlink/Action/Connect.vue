@@ -1,7 +1,7 @@
 <template>
     <div class="passlink-connect" :style="style">
         <connect-codes v-on:error="error" v-on:success="success" v-if="step === 0"/>
-        <connect-result :success="result" :message="message" v-else/>
+        <connect-result :success="result" :message="message" :updated="updated" v-else/>
     </div>
 </template>
 
@@ -17,6 +17,7 @@
                 step   : 0,
                 style  : {},
                 result : true,
+                updated : false,
                 message: ''
             };
         },
@@ -33,12 +34,13 @@
             error(message) {
                 this.step = 1;
                 this.result = false;
-                this.message = message;
+                this.message = message.message;
             },
             success(message) {
                 this.step = 1;
                 this.result = true;
-                this.message = message;
+                this.message = message.message;
+                this.updated = message.updated;
             }
         }
     };

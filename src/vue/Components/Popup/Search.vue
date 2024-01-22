@@ -21,10 +21,14 @@
         components: {Translate, PasswordList},
 
         data() {
+            let query = PopupStateService.get('query');
+            if(query === null) {query = '';}
+
             return {
-                query      : PopupStateService.get('query'),
+                query,
                 passwords  : [],
-                placeholder: LocalisationService.translate('SearchPlaceholder')
+                placeholder: LocalisationService.translate('SearchPlaceholder'),
+                interval   : null
             };
         },
 
@@ -33,6 +37,14 @@
             if(this.query.length !== 0) {
                 this.search(this.query);
             }
+            this.interval = setInterval(
+                () => {
+                    if(this.query.length !== 0) {
+                        this.search(this.query);
+                    }
+                },
+                2000
+            );
         },
 
         activated() {
@@ -45,11 +57,15 @@
 
         deactivated() {
             document.removeEventListener('keydown', this.focus);
+            if(this.interval) {
+                clearInterval(this.interval);
+                this.interval = null;
+            }
         },
 
         methods: {
             focus() {
-                if(document.getElementsByClassName("password-details-view").length == 0) {
+                if(document.getElementsByClassName("password-details-view").length === 0) {
                     this.$refs.query.focus();
                 }
             },
@@ -57,7 +73,9 @@
                 MessageService
                     .send({type: 'password.search', payload: {query}})
                     .then((r) => {
-                        if(this.query === query) this.passwords = r.getPayload();
+                        if(this.query === query) {
+                            this.passwords = r.getPayload();
+                        }
                     });
 
                 PopupStateService.set('query', query);
