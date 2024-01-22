@@ -34,6 +34,8 @@ export default class RedditPasswordPaste extends AbstractPasswordPaste {
         this._insertTextIntoField(passwordInput, this._passwordPasteRequest.getPassword());
         if (!this._passwordPasteRequest.isAutofill() && this._passwordPasteRequest.isSubmit()) {
             await this._wait(500);
+            // Something in reddits own code seems to reset the value of the field to a previous state in some cases
+            this._insertTextIntoField(passwordInput, this._passwordPasteRequest.getPassword());
             this._simulateEnter(passwordInput);
         }
 

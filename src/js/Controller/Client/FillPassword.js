@@ -5,8 +5,11 @@ import TwitterPasswordPaste from "@js/Client/PasswordPaste/TwitterPasswordPaste"
 import RedditPasswordPaste from "@js/Client/PasswordPaste/RedditPasswordPaste";
 import TumblrPasswordPaste from "@js/Client/PasswordPaste/TumblrPasswordPaste";
 import AliExpressPasswordPaste from "@js/Client/PasswordPaste/AliExpressPasswordPaste";
+import BooleanState from "passwords-client/boolean-state";
 
 export default class FillPassword extends AbstractController {
+
+    static isActive = new BooleanState(false);
 
     /**
      *
@@ -14,12 +17,20 @@ export default class FillPassword extends AbstractController {
      * @param {Message} reply
      */
     async execute(message, reply) {
+        if(FillPassword.isActive.get()) return;
+        FillPassword.isActive.set(true);
+
         try {
             let result = await this._fillPassword(message.getPayload());
 
-            if (result) reply.setPayload(true);
-        } catch (e) {
+            if(result) reply.setPayload(true);
+        } catch(e) {
             ErrorManager.logError(e);
+        } finally {
+            setTimeout(
+                () => {FillPassword.isActive.set(false);},
+                250
+            );
         }
     }
 
@@ -30,8 +41,8 @@ export default class FillPassword extends AbstractController {
     async _fillPassword(request) {
         let helpers = this._getPasswordPasteHelper(request);
 
-        for (let helper of helpers) {
-            if (await this._tryFill(helper)) {
+        for(let helper of helpers) {
+            if(await this._tryFill(helper)) {
                 return true;
             }
         }
@@ -61,7 +72,7 @@ export default class FillPassword extends AbstractController {
     async _tryFill(helper) {
         try {
             return helper.canHandle() && await helper.handle();
-        } catch (e) {
+        } catch(e) {
             ErrorManager.logError(e);
             return false;
         }

@@ -146,7 +146,7 @@ class ContextMenuManager {
                 receiver: 'client',
                 channel : 'tabs',
                 tab     : TabManager.currentTabId,
-                payload : AutofillRequestHelper.createPasteRequest(password, false, true)
+                payload : AutofillRequestHelper.createPasteRequest(password)
             }
         );
     }
