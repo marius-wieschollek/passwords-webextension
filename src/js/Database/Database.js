@@ -1,6 +1,7 @@
 import BooleanState from 'passwords-client/boolean-state';
 import ErrorManager from "@js/Manager/ErrorManager";
 import Table from "@js/Database/Table";
+import CouldNotOpenIndexedDbError from "@js/Exception/CouldNotOpenIndexedDbError";
 
 export default class Database {
 
@@ -20,8 +21,7 @@ export default class Database {
         let request = window.indexedDB.open(this._name, this._version);
 
         request.onerror = (event) => {
-            // @TODO use custom error here
-            ErrorManager.logError(new Error('Could not open database'), {event});
+            ErrorManager.logError(new CouldNotOpenIndexedDbError(this._name, this._version, request.error), {event});
         };
 
         request.onupgradeneeded = (event) => {
