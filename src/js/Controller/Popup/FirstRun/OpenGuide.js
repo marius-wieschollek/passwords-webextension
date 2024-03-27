@@ -26,7 +26,6 @@ export default class OpenGuide extends AbstractController {
     async _getGuideUrl() {
         let browser = await SystemService.getBrowserInfo();
 
-        debugger;
         if(browser.name === 'Firefox') {
             return 'https://git.mdns.eu/nextcloud/passwords/-/wikis/Users/Browser-Extension/Setup/Setup-with-Firefox';
         }

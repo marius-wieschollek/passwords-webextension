@@ -53,8 +53,9 @@
     }
 
     .sever-setup-options {
-        padding : 0 2rem;
-        flex-grow    : 1;
+        padding   : 0 2rem;
+        margin    : 0 0 1.25rem !important;
+        flex-grow : 1;
 
         li {
             margin-bottom : 1rem;

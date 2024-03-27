@@ -73,27 +73,29 @@ class Preview {
      * @private
      */
     _messageSendPlugin(message, closure) {
-        if(message.type === 'popup.status.get') {
+        let type = typeof message === 'string' ? message:message.type;
+
+        if(type === 'popup.status.get') {
             return new Promise((resolve, reject) => {
                 this._getPopupStatus().then(resolve).catch(reject);
             });
         }
-        if(message.type === 'popup.status.set') {
+        if(type === 'popup.status.set') {
             return new Promise((resolve) => {
                 resolve(new Message());
             });
         }
-        if(message.type === 'popup.settings.open') {
+        if(type === 'popup.settings.open') {
             return new Promise((resolve) => {
                 resolve(new Message());
             });
         }
-        if(message.type === 'password.related' || message.type === 'password.search') {
+        if(type === 'password.related' || message.type === 'password.search') {
             return new Promise((resolve) => {
                 resolve(this._getPasswordItems());
             });
         }
-        if(message.type === 'password.favicon') {
+        if(type === 'password.favicon') {
             return new Promise(async (resolve) => {
                 resolve(
                     (new Message())
@@ -101,7 +103,7 @@ class Preview {
                 );
             });
         }
-        if(message.type === 'password.generate') {
+        if(type === 'password.generate') {
             return new Promise((resolve) => {
                 setTimeout(() => {
                     let text = LocalisationService.translate('DemoText');
@@ -109,37 +111,37 @@ class Preview {
                 }, 2000);
             });
         }
-        if(message.type === 'server.list') {
+        if(type === 'server.list') {
             return new Promise((resolve) => {
                 resolve(this._getServerItems());
             });
         }
-        if(message.type === 'server.info') {
+        if(type === 'server.info') {
             return new Promise((resolve) => {
                 resolve(this._getServerInfo());
             });
         }
-        if(message.type === 'server.reload') {
+        if(type === 'server.reload') {
             return new Promise((resolve) => {
                 setTimeout(() => {resolve(new Message().setPayload(true));}, 3000);
             });
         }
-        if(message.type === 'folder.list') {
+        if(type === 'folder.list') {
             return new Promise((resolve) => {
                 resolve(this._listFolder(message));
             });
         }
-        if(message.type === 'folder.show') {
+        if(type === 'folder.show') {
             return new Promise((resolve) => {
                 resolve(this._showFolder(message));
             });
         }
-        if(message.type === 'queue.fetch') {
+        if(type === 'queue.fetch') {
             return new Promise((resolve) => {
                 resolve(this._queueFetch(message));
             });
         }
-        if(message.type === 'queue.consume') {
+        if(type === 'queue.consume') {
             return new Promise((resolve) => {
                 resolve(this._queueConsume(message));
             });
@@ -157,19 +159,24 @@ class Preview {
 
         let payload = {
             tab       : 'search',
-            search    : {
-                query: 'demo'
+            data: {
+                search    : {
+                    query: 'demo'
+                },
+                browse    : {
+                    server: null,
+                    info  : false,
+                    folder: null
+                },
+                collected : {
+                    current: null
+                },
             },
-            browse    : {
-                server: null,
-                info  : false,
-                folder: null
-            },
-            collected : {
-                current: null
-            },
-            device    : info.device,
-            authorized: true
+            status: {
+                device    : info.device,
+                authorized: true,
+                firstRun  : false
+            }
         };
 
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="server-setup-wizard">
+    <div class="server-setup-wizard" v-if="loaded">
         <translate tag="h2" say="FirstRunSettingsTitle"/>
         <p :class="{small:isSmall}" class="description">{{ description }}</p>
         <ul class="first-run-settings">
@@ -18,6 +18,12 @@
         </ul>
         <button-field value="FirstRunSettingsSave" @click="save"/>
     </div>
+    <div class="server-setup-wizard" v-else>
+        <translate tag="h2" say="FirstRunServerCheckTitle"/>
+        <div class="first-run-loader">
+            <icon icon="spinner" font="solid" :spin="true"/>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -27,15 +33,17 @@
     import MessageService from "@js/Services/MessageService";
     import ErrorManager from "@js/Manager/ErrorManager";
     import LocalisationService from "@js/Services/LocalisationService";
+    import Icon from "@vue/Components/Icon.vue";
 
     export default {
-        components: {Translate, ButtonField, SliderField},
+        components: {Icon, Translate, ButtonField, SliderField},
         data() {
             MessageService.send({type: 'firstrun.settings'})
                           .then((d) => {this.update(d);})
                           .catch(ErrorManager.catch);
 
             return {
+                loaded     : false,
                 autofill   : false,
                 quicksave  : false,
                 incognito  : false,
@@ -54,6 +62,7 @@
                 this.autofill = payload.autofill;
                 this.quicksave = payload.quicksave;
                 this.incognito = payload.incognito;
+                this.loaded   = true;
             },
             save() {
                 let payload = {
@@ -63,8 +72,9 @@
                 };
 
                 MessageService.send({type: 'firstrun.save', payload})
-                              .then(() => {this.$emit('complete');})
                               .catch(ErrorManager.catch);
+
+                this.$emit('complete');
             }
         }
     };
@@ -98,6 +108,14 @@
                 cursor : pointer;
             }
         }
+    }
+
+    .first-run-loader {
+        display         : flex;
+        align-items     : center;
+        justify-content : center;
+        height          : 100%;
+        font-size       : 4rem;
     }
 }
 </style>

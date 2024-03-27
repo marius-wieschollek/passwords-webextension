@@ -163,6 +163,13 @@ class SystemService {
     }
 
     /**
+     * @returns {Promise<Boolean>}
+     */
+    requestUpdateCheck() {
+        return BrowserApi.requestUpdateCheck();
+    }
+
+    /**
      * @returns {Boolean}
      */
     hasNotificationOnShow() {

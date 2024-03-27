@@ -1254,6 +1254,10 @@
         "message": "Watch Video Guide",
         "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
     },
+    "FirstRunServerCheckTitle": {
+        "message": "Checking Server",
+        "description": "Title of the first run wizard settings page while data is loaded from the server"
+    },
     "FirstRunSettingsTitle": {
         "message": "Customize the Extension",
         "description": "Title of the first run wizard page that allows the user to change some common settings"

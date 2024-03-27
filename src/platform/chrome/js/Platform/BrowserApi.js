@@ -68,6 +68,14 @@ class BrowserApi {
     }
 
     /**
+     *
+     * @return {Promise<Boolean>}
+     */
+     requestUpdateCheck() {
+        return this.getBrowserApi().runtime.requestUpdateCheck();
+    }
+
+    /**
      * @param {String} platform
      * @returns {Boolean}
      */
