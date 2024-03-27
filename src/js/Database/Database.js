@@ -15,6 +15,7 @@ export default class Database {
         this._upgradeCallback = upgradeCallback;
         this._ready = new BooleanState(false);
         this._db = null;
+        this._tables = {};
     }
 
     load() {
@@ -36,12 +37,15 @@ export default class Database {
             this._db = event.target.result;
             this._ready.set(true);
         };
+
+        return this._ready.awaitTrue();
     }
 
     async unload() {
         if (!this._ready.get()) {
             await this._ready.awaitTrue();
         }
+        this._tables = {};
         this._db.close();
         this._ready.set(false);
     }
@@ -55,8 +59,13 @@ export default class Database {
             await this._ready.awaitTrue();
         }
 
+        if(this._tables.hasOwnProperty(name)) {
+            return this._tables[name];
+        }
+
         let table = new Table(this._db, name);
         await table.load();
+        this._tables[name] = table;
         return table;
     }
 }

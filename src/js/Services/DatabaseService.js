@@ -1,4 +1,6 @@
 import Database from "@js/Database/Database";
+import MemoryDatabase from "@js/Database/MemoryDatabase";
+import ErrorManager from "@js/Manager/ErrorManager";
 
 export default new class DatabaseService {
 
@@ -13,6 +15,7 @@ export default new class DatabaseService {
 
     constructor() {
         this._databases = {};
+        this._canUsePersistentDb = null;
     }
 
 
@@ -21,16 +24,15 @@ export default new class DatabaseService {
      * @return {Promise<Database>}
      */
     async get(name) {
-        if (this._databases.hasOwnProperty(name)) {
+        if(this._databases.hasOwnProperty(name)) {
             return this._databases[name];
         }
 
         let database;
-        if (name === this.STATISTICS_DATABASE) {
-            database = this._getStatisticsDatabase();
+        if(name === this.STATISTICS_DATABASE) {
+            database = await this._getStatisticsDatabase();
         } else {
-            database = new Database(name, 1, () => {
-            });
+            database = await this._makeDatabase(name, 1, () => {});
         }
         await database.load();
         this._databases[name] = database;
@@ -38,12 +40,39 @@ export default new class DatabaseService {
     }
 
     _getStatisticsDatabase() {
-        return new Database(
+        return this._makeDatabase(
             this.STATISTICS_DATABASE,
             1,
             (db, event) => {
                 db.createObjectStore(this.STATISTICS_PASSWORD_USAGE_TABLE, {keyPath: 'key'});
             }
         );
+    }
+
+    async _makeDatabase(...properties) {
+        if(await this._canUsePersistent()) {
+            return new Database(...properties);
+        }
+        return new MemoryDatabase(...properties);
+    }
+
+    _canUsePersistent() {
+        return new Promise((resolve) => {
+            if(this._canUsePersistentDb !== null) {
+                resolve(this._canUsePersistentDb);
+                return;
+            }
+
+            let testDb = window.indexedDB.open('always_private_test');
+            testDb.onerror = () => {
+                this._canUsePersistentDb = false;
+                resolve(false);
+                ErrorManager.warning('Persistent database not available. Maybe always private browsing is enabled?')
+            };
+            testDb.onsuccess = () => {
+                this._canUsePersistentDb = true;
+                resolve(true);
+            };
+        });
     }
 };
