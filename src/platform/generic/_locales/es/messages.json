@@ -1540,5 +1540,9 @@
                 "example": "One of 1, 48, 320, 370, 2048 or 8192"
             }
         }
+    },
+    "FirstRunServerCheckTitle": {
+        "message": "Comprobación del servidor",
+        "description": "Title of the first run wizard settings page while data is loaded from the server"
     }
 }
