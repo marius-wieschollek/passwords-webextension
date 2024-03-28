@@ -11,6 +11,7 @@ export default new class AutofillManager {
     constructor() {
         this.recommendations = [];
         this.currentURL = null;
+        this._enabled = false;
         this._autofillEnabled = null;
         this._ingoredDomainsSetting = null;
         subscribe('suggestions:updated', (event) => {
@@ -18,6 +19,13 @@ export default new class AutofillManager {
             this.currentURL = event.tab.url;
             this._sendAutofillPassword(event.suggestions, event.tab.url);
         });
+    }
+
+    /**
+     * @param {Boolean} on
+     */
+    toggle(on = true) {
+        this._enabled = on;
     }
 
     /**
@@ -36,7 +44,10 @@ export default new class AutofillManager {
             (s) => { this._ingoredDomainsSetting = s; }
         );
         SettingsService.get('paste.autofill').then(
-            (s) => { this._autofillEnabled = s; }
+            (s) => {
+                this._autofillEnabled = s;
+                this._enabled = true;
+            }
         );
     }
 
@@ -47,7 +58,7 @@ export default new class AutofillManager {
      * @private
      */
     _sendAutofillPassword(recommendations, url) {
-        if(recommendations.length === 0 || !this._autofillEnabled?.getValue() || this._isIgnoredDomain(url)) return;
+        if(!this._enabled || recommendations.length === 0 || !this._autofillEnabled?.getValue() || this._isIgnoredDomain(url)) return;
         let password = recommendations[0];
 
         let ids = TabManager.get('autofill.ids', []);

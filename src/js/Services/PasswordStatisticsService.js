@@ -1,5 +1,6 @@
 import DatabaseService from "@js/Services/DatabaseService";
 import {emit} from "@js/Event/Events";
+import AutofillManager from "@js/Manager/AutofillManager";
 
 export default new class PasswordStatisticsService {
 
@@ -38,7 +39,9 @@ export default new class PasswordStatisticsService {
         }
 
         this._table.set(id, entry);
+        AutofillManager.toggle(false);
         emit('password:statistics:updated', {id, entry});
+        AutofillManager.toggle(true);
     }
 
     /**
