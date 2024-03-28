@@ -47,7 +47,7 @@ export default new class AutofillManager {
      * @private
      */
     _sendAutofillPassword(recommendations, url) {
-        if(recommendations.length === 0 || this._autofillEnabled?.getValue() || this._isIgnoredDomain(url)) return;
+        if(recommendations.length === 0 || !this._autofillEnabled?.getValue() || this._isIgnoredDomain(url)) return;
         let password = recommendations[0];
 
         let ids = TabManager.get('autofill.ids', []);
@@ -87,10 +87,10 @@ export default new class AutofillManager {
         domains = domains.split(/\r?\n/);
         for(let domain of domains) {
             if(url.host.endsWith(domain.trim())) {
-                return false;
+                return true;
             }
         }
 
-        return true;
+        return false;
     }
 };
