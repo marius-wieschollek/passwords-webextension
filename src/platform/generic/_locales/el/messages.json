@@ -1544,5 +1544,13 @@
     "FirstRunServerCheckTitle": {
         "message": "Έλεγχος διακομιστή",
         "description": "Title of the first run wizard settings page while data is loaded from the server"
+    },
+    "SettingsAutofillIgnoredDomainsPlaceholder": {
+        "message": "π.χ. example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "SettingsAutofillIgnoredDomains": {
+        "message": "Αγνοήστε αυτά τα domains (ένα ανά γραμμή, τα subdomains επίσης αγνοούνται)",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not autofill passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
     }
 }
