@@ -1542,7 +1542,7 @@
         }
     },
     "FirstRunServerCheckTitle": {
-        "message": "Prüfen des Servers",
+        "message": "Prüfe Server",
         "description": "Title of the first run wizard settings page while data is loaded from the server"
     },
     "SettingsAutofillIgnoredDomains": {
