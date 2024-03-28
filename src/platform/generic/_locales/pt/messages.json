@@ -1544,5 +1544,13 @@
     "FirstRunServerCheckTitle": {
         "message": "Verificação do servidor",
         "description": "Title of the first run wizard settings page while data is loaded from the server"
+    },
+    "SettingsAutofillIgnoredDomains": {
+        "message": "Ignorar estes domínios (um por linha, os subdomínios também são ignorados)",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not autofill passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "SettingsAutofillIgnoredDomainsPlaceholder": {
+        "message": "por exemplo, exemplo.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
     }
 }
