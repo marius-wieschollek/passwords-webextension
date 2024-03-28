@@ -1544,5 +1544,13 @@
     "FirstRunServerCheckTitle": {
         "message": "Kontrola serveru",
         "description": "Title of the first run wizard settings page while data is loaded from the server"
+    },
+    "SettingsAutofillIgnoredDomains": {
+        "message": "Ignorovat tyto domény (jedna na řádek, subdomény jsou rovněž ignorovány).",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not autofill passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "SettingsAutofillIgnoredDomainsPlaceholder": {
+        "message": "např. example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
     }
 }
