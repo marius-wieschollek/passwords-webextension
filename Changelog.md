@@ -1,3 +1,10 @@
+## 2.7.0 - Feature Release
+### Added
+- Ignored domains list for password autofill
+### Fixed
+- Crash when "always private browsing" enabled in FF
+- Issues after extension reset
+
 ## 2.6.0 - Feature Release
 ### Added
 - Option to reset extension

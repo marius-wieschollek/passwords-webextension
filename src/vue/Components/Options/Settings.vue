@@ -32,6 +32,10 @@
             <translate tag="label" for="clipboard-clear-delay" say="SettingsClearClipboardDelay"/>
             <select-field id="clipboard-clear-delay" :options="clearClipboardDelayOptions" v-model="clearClipboardDelay" :disabled="!clearClipboard"/>
         </div>
+        <div class="setting setting-textarea">
+            <translate tag="label" for="mining-autofill-domains" say="SettingsAutofillIgnoredDomains"/>
+            <input-field type="textarea" id="mining-autofill-domains" v-model="autofillIgnoredDomains" placeholder="SettingsAutofillIgnoredDomainsPlaceholder"/>
+        </div>
 
         <translate tag="h3" say="RecommendationSettings"/>
         <div class="setting">
@@ -74,7 +78,7 @@
         </div>
         <div class="setting setting-textarea">
             <translate tag="label" for="mining-ignored-domains" say="SettingsMiningIgnoredDomains"/>
-            <input-field type="textarea" id="mining-ignored-domains" v-model="miningIgnoredDomains" placeholder="SettingsMiningIgnoredDomainsPlaceholder" />
+            <input-field type="textarea" id="mining-ignored-domains" v-model="miningIgnoredDomains" placeholder="SettingsMiningIgnoredDomainsPlaceholder"/>
         </div>
     </div>
 </template>
@@ -95,22 +99,23 @@
         components: {InputField, HelpText, SliderField, SelectField, Translate},
         data() {
             return {
-                autoclose            : false,
-                autosubmit           : false,
-                autofill             : false,
-                basicAuth            : false,
-                compromised          : false,
-                notifyPwNew          : false,
-                relatedSearch        : false,
-                notifyPwUpdate       : false,
-                notificationQuickSave: false,
-                recSearchMode        : 'host',
-                recSearchRows        : 8,
-                clearClipboard       : false,
-                clearClipboardDelay  : 60,
-                showUserInList       : false,
-                miningIgnoredDomains : '',
-                miningIncognitoHide    : true
+                autoclose             : false,
+                autosubmit            : false,
+                autofill              : false,
+                basicAuth             : false,
+                compromised           : false,
+                notifyPwNew           : false,
+                relatedSearch         : false,
+                notifyPwUpdate        : false,
+                notificationQuickSave : false,
+                recSearchMode         : 'host',
+                recSearchRows         : 8,
+                clearClipboard        : false,
+                clearClipboardDelay   : 60,
+                showUserInList        : false,
+                miningIgnoredDomains  : '',
+                miningIncognitoHide   : true,
+                autofillIgnoredDomains: ''
             };
         },
 
@@ -171,6 +176,7 @@
                 this.getSetting('password.list.show.user', 'showUserInList');
                 this.getSetting('mining.ignored-domains', 'miningIgnoredDomains');
                 this.getSetting('mining.incognito.hide', 'miningIncognitoHide');
+                this.getSetting('autofill.ignored-domains', 'autofillIgnoredDomains');
             },
             async getSetting(name, variable) {
                 try {
@@ -273,6 +279,11 @@
                 if(oldValue !== null && value !== oldValue) {
                     this.setSetting('mining.incognito.hide', value);
                 }
+            },
+            autofillIgnoredDomains(value, oldValue) {
+                if(oldValue !== null && value !== oldValue) {
+                    this.setSetting('autofill.ignored-domains', value);
+                }
             }
         }
     };
@@ -310,8 +321,8 @@
         }
 
         &.setting-textarea {
-            flex-direction: column;
-            align-items: start;
+            flex-direction : column;
+            align-items    : start;
         }
     }
 }

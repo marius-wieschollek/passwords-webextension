@@ -1,21 +1,37 @@
 import SystemService from '@js/Services/SystemService';
 import ErrorManager from '@js/Manager/ErrorManager';
 import EventQueue from '@js/Event/EventQueue';
+import {emitAsync} from "@js/Event/Events";
 
 class TabManager {
 
+    /**
+     * @deprecated
+     * @return {EventQueue}
+     */
     get tabChanged() {
         return this._tabChange;
     }
 
+    /**
+     * @deprecated
+     * @return {EventQueue}
+     */
     get urlChanged() {
         return this._urlChange;
     }
 
+    /**
+     * @deprecated
+     * @return {EventQueue}
+     */
     get tabUpdated() {
         return this._tabUpdate;
     }
 
+    /**
+     * @return {number}
+     */
     get currentTabId() {
         return this._currentTab;
     }
@@ -173,14 +189,17 @@ class TabManager {
 
         if(this._currentTab !== tabId) {
             this._currentTab = tabId;
+            await emitAsync('tab:current:updated', this._tabs[tabId]);
             await this._tabChange.emit(this._tabs[tabId]);
         }
 
         if(this._tabs[tabId].lastUrl !== tab.url) {
+            await emitAsync('tab:url:updated', this._tabs[tabId]);
             await this._urlChange.emit(this._tabs[tabId]);
             this._tabs[tabId].lastUrl = tab.url;
         }
 
+        await emitAsync('tab:updated', this._tabs[tabId]);
         await this._tabUpdate.emit(this._tabs[tabId]);
     }
 

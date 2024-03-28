@@ -11,7 +11,7 @@ export default class Related extends AbstractController {
      */
     async execute(message, reply) {
         let payload = {
-            passwords: RecommendationManager.getRecommendations(),
+            passwords: RecommendationManager.getSuggestions(),
             tab      : TabManager.currentTabId
         };
 

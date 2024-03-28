@@ -6,6 +6,7 @@ import ErrorManager from '@js/Manager/ErrorManager';
 import LocalisationService from '@js/Services/LocalisationService';
 import ThemeService from '@js/Services/ThemeService';
 import MiningManager from "@js/Manager/MiningManager";
+import {subscribe} from "@js/Event/Events";
 
 class BadgeManager {
 
@@ -15,32 +16,29 @@ class BadgeManager {
 
     init() {
         this._api = SystemService.getBrowserApi();
-        RecommendationManager.listen.on(
-            async (r) => {
-                await this._updateBrowserAction(r);
-            }
-        );
+
+        subscribe('suggestions:updated', (e) => {this._updateBrowserAction(e.suggestions).catch(ErrorManager.catch);});
         TabManager.tabUpdated.on(
             async () => {
-                let r = RecommendationManager.getRecommendations();
+                let r = RecommendationManager.getSuggestions();
                 await this._updateBrowserAction(r);
             }
         );
         ServerManager.isAuthorized.onChange(
             async (d) => {
-                let r = RecommendationManager.getRecommendations();
+                let r = RecommendationManager.getSuggestions();
                 await this._updateBrowserAction(r);
             }
         );
         MiningManager.addItem.on(
             async (d) => {
-                let r = RecommendationManager.getRecommendations();
+                let r = RecommendationManager.getSuggestions();
                 await this._updateBrowserAction(r);
             }
         );
         MiningManager.solveItem.on(
             async (d) => {
-                let r = RecommendationManager.getRecommendations();
+                let r = RecommendationManager.getSuggestions();
                 await this._updateBrowserAction(r);
             }
         );

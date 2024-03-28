@@ -1,5 +1,4 @@
 import SystemService         from '@js/Services/SystemService';
-import RecommendationManager from '@js/Manager/RecommendationManager';
 import LocalisationService   from '@js/Services/LocalisationService';
 import MessageService        from '@js/Services/MessageService';
 import TabManager            from '@js/Manager/TabManager';
@@ -8,6 +7,7 @@ import ThemeService          from '@js/Services/ThemeService';
 import FaviconService        from '@js/Services/FaviconService';
 import AutofillRequestHelper from "@js/Helper/AutofillRequestHelper";
 import UuidHelper            from "@js/Helper/UuidHelper";
+import {subscribe} from "@js/Event/Events";
 
 class ContextMenuManager {
 
@@ -20,17 +20,12 @@ class ContextMenuManager {
      */
     init() {
         if(!SystemService.hasContextMenu()) return;
-        RecommendationManager.listen.on(
-            (r) => {
-                this._updateContextMenu(r)
-                    .catch(ErrorManager.catch);
-            }
-        );
+        subscribe('suggestions:updated', (e) => {this._updateContextMenu(e.suggestions).catch(ErrorManager.catch);});
     }
 
     /**
      *
-     * @param {Password[]} recommended
+     * @param {EnhancedPassword[]} recommended
      * @private
      */
     async _updateContextMenu(recommended) {

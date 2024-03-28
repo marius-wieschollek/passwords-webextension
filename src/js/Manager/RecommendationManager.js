@@ -1,26 +1,18 @@
 import Url from 'url-parse';
 import TabManager from '@js/Manager/TabManager';
-import EventQueue from '@js/Event/EventQueue';
 import SettingsService from '@js/Services/SettingsService';
-import {subscribe} from "@js/Event/Events";
+import {emit, subscribe} from "@js/Event/Events";
 import SearchService from "@js/Services/SearchService";
 
 class RecommendationManager {
-
-    /** @return EventQueue **/
-    get listen() {
-        return this._change;
-    }
-
     constructor() {
-        this._change = new EventQueue();
         this._options = { initialized: false, mode: "host", maxRows: 8 }
 
         this._tabEvent = (tab) => {
-            if(!tab.hasOwnProperty('recommended') || tab.lastUrl !== tab.url) {
-                this._updateRecommended(tab);
+            if(!tab.hasOwnProperty('suggested') || tab.lastUrl !== tab.url) {
+                this._updateSuggestions(tab);
             } else {
-                this._change.emit(tab.recommended);
+                emit('suggestions:updated', {suggestions: tab.suggested, tab});
             }
         };
 
@@ -28,19 +20,19 @@ class RecommendationManager {
             this._clearRecommended(TabManager.getAll());
             let tab = TabManager.get();
             if(tab) {
-                this._updateRecommended(tab);
+                this._updateSuggestions(tab);
             }
         };
     }
 
     init() {
-        this.initRecommendationOptions();
-        TabManager.tabChanged.on(this._tabEvent);
-        TabManager.urlChanged.on(this._tabEvent);
+        this._initRecommendationOptions();
+        subscribe('tab:current:updated', this._tabEvent);
+        subscribe('tab:url:updated', this._tabEvent);
         subscribe('search:items:changed', this._searchEvent);
     }
 
-    initRecommendationOptions() {
+    _initRecommendationOptions() {
         SettingsService.get('search.recommendation.mode')
         .then((value) => {
             this._options.initialized = true;
@@ -57,10 +49,10 @@ class RecommendationManager {
      *
      * @returns {Password[]}
      */
-    getRecommendations() {
-        if(!TabManager.has('recommended')) return [];
+    getSuggestions() {
+        if(!TabManager.has('suggested')) return [];
 
-        return TabManager.get('recommended');
+        return TabManager.get('suggested');
     }
 
     /**
@@ -68,7 +60,7 @@ class RecommendationManager {
      * @return {Boolean}
      */
     hasRecommendations() {
-        return TabManager.has('recommended');
+        return TabManager.has('suggested');
     }
 
     /**
@@ -76,7 +68,7 @@ class RecommendationManager {
      * @param {Boolean} incognito
      * @return {Password[]}
      */
-    getRecommendationsByUrl(url, incognito = false) {
+    getSuggestionsForUrl(url, incognito = false) {
         if(!this._options.initialized) return [];
         url = Url(url);
         if(url.host.length === 0) return [];
@@ -133,15 +125,15 @@ class RecommendationManager {
      * @param {Object} tab
      * @private
      */
-    _updateRecommended(tab) {
-        delete tab.recommended;
+    _updateSuggestions(tab) {
+        delete tab.suggested;
 
-        let recommendations = this.getRecommendationsByUrl(tab.url, tab?.tab?.incognito === true);
-        if(recommendations.length !== 0) {
-            tab.recommended = recommendations;
+        let suggestions = this.getSuggestionsForUrl(tab.url, tab?.tab?.incognito === true);
+        if(suggestions.length !== 0) {
+            tab.suggested = suggestions;
         }
 
-        this._change.emit(recommendations);
+        emit('suggestions:updated', {suggestions, tab});
     }
 
     /**
@@ -155,8 +147,8 @@ class RecommendationManager {
                 continue;
             }
             let tab = tabs[id];
-            if(tab && tab.hasOwnProperty('recommended')) {
-                delete tab.recommended;
+            if(tab && tab.hasOwnProperty('suggested')) {
+                delete tab.suggested;
             }
         }
     }
