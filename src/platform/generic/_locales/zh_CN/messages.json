@@ -468,7 +468,7 @@
         "description": "Headline above the section for the build instructions in the debug tab in the extension settings"
     },
     "extensionName": {
-        "message": "Nextcloud 浏览器扩展的密码",
+        "message": "Nextcloud 密码的浏览器扩展",
         "description": "Name of the extension."
     },
     "NotifyUpdatePasswordText": {
