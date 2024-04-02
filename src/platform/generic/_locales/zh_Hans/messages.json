@@ -162,5 +162,1395 @@
     "PropertyUsername": {
         "message": "用户名",
         "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
+    },
+    "ValidationFailed": {
+        "message": "验证失败。",
+        "description": "Validation message when the user attempts to save something (like an account) but there were validation errors"
+    },
+    "NotifyNewPasswordTitle": {
+        "message": "检测到新密码",
+        "description": "Title of the system notification when a new password was detected"
+    },
+    "DebugSettings": {
+        "message": "调试设置",
+        "description": "Headline above the debugging settings section in the extension settings in the debug tab"
+    },
+    "RecommendationSettings": {
+        "message": "推荐全权证书",
+        "description": "Label of the section password recommendations in the extension settings."
+    },
+    "PasswordEditValidationRequired": {
+        "message": "该字段为必填字段",
+        "description": "The validation error message in the password edit form if a required field is empty"
+    },
+    "MiningPasswordUpdated": {
+        "message": "更新密码",
+        "description": "The toast notification after the password was successfully saved"
+    },
+    "PasswordCustomFieldsTypeFormField": {
+        "message": "表格字段",
+        "description": "Label of the password custom setting form field to insert custom values to a web page."
+    },
+    "PasswordEditValidationInvalidValue": {
+        "message": "无效值",
+        "description": "The validation error message in the password edit form if the value is invalid"
+    },
+    "PasswordEditValidationMaxLength": {
+        "message": "仅允许$CHARACTERS$ 字符",
+        "description": "The validation error message in the password edit form if the value is longer than allowed",
+        "placeholders": {
+            "characters": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
+    },
+    "NoCollectedPasswords": {
+        "message": "未找到新密码",
+        "description": "Used in the collected tab when no new passwords have been found"
+    },
+    "ThemeCustom": {
+        "message": "自定义主题",
+        "description": "Label for the custom theme option"
+    },
+    "SettingsNotifyPasswordUpdate": {
+        "message": "密码更新通知",
+        "description": "Label of the setting in the extension settings to enable or disable the notification for detected password updates"
+    },
+    "ForegroundColorLabel": {
+        "message": "前景色",
+        "description": "Label of foreground / text color options in the custom theme settings"
+    },
+    "SettingsNotifyPasswordQuicksave": {
+        "message": "点击通知时直接保存或更新密码",
+        "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"
+    },
+    "SettingsShowUsernameInList": {
+        "message": "在标题旁显示用户名",
+        "description": "Label of the setting in the extension settings to show the username next to the title in password lists."
+    },
+    "ToastPasswordDeleteFailed": {
+        "message": "删除密码失败",
+        "description": "Text of the toast notification when deleting the password failed"
+    },
+    "PasswordItemToTrash": {
+        "message": "移至垃圾桶",
+        "description": "Title of the menu option to move a password to the trash"
+    },
+    "DebugErrorNoMessage": {
+        "message": "无错误信息",
+        "description": "Used as error message for errors with no error message (but have a timestamp) in the error logs section in the extension settings in the debug tab"
+    },
+    "LabelAppVersion": {
+        "message": "应用程序接口",
+        "description": "Label for the passwords app version in the server info in the browse tab"
+    },
+    "ValidationMaxLength": {
+        "message": "$FIELD$ 必须短于$MAX$ 字符。",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is longer than allowed",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "max": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationNotAToken": {
+        "message": "应用程序密码必须是有效的 Nextcloud 应用程序密码。",
+        "description": "Validation message when the user attempts to save an account but the token does not match the Nextcloud token schema"
+    },
+    "ToastServerCheckTitle": {
+        "message": "$SERVER$ 需要升级",
+        "description": "Title of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "SettingsClipboardClearDelayOptions": {
+        "message": "$ROW$ 秒钟",
+        "description": "Time in seconds until clipboard will get empty.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 15, 30, 45, 60, 90"
+            }
+        }
+    },
+    "TabCollected": {
+        "message": "收藏",
+        "description": "Label of the new collected passwords tab in the extension popup"
+    },
+    "DemoText": {
+        "message": "演示",
+        "description": "Demo text used in the theme preview"
+    },
+    "PasswordItemTitle": {
+        "message": "状态：$STATUS$, Id：#$ID$",
+        "description": "The tooltip of any password entry in the popup",
+        "placeholders": {
+            "id": {
+                "content": "$1",
+                "example": "1234-1234-1234-1234"
+            },
+            "status": {
+                "content": "$2",
+                "example": "DUPLICATE"
+            }
+        }
+    },
+    "ToastForegroundTitle": {
+        "message": "吐司通知文本和按钮背景的颜色",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification foreground / text color"
+    },
+    "LabelUsername": {
+        "message": "用户",
+        "description": "Label for the username of a password entry"
+    },
+    "PasswordGenerateError": {
+        "message": "生成密码失败：$ERROR$",
+        "description": "Notification shown when the generation of a password fails",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "Unexpected data type"
+            }
+        }
+    },
+    "PasslinkScanInvalidQrCode": {
+        "message": "不支持此 QR 码",
+        "description": "Message used by the PassLink QR scanner when the user scans a code that does not contain a valid and supported uri of Passlink"
+    },
+    "LabelUser": {
+        "message": "用户",
+        "description": "Label for the username of in the server info in the browse tab"
+    },
+    "DebugHighlightLoginForms": {
+        "message": "突出显示登录表单字段",
+        "description": "Label of the button in the popup which triggers the option to highlight all login form fields in the current tab"
+    },
+    "PlaceholderToken": {
+        "message": "双因素令牌",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
+    },
+    "DebugResetExtension": {
+        "message": "重置扩展",
+        "description": "Label of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "CustomBadge": {
+        "message": "浏览器图标",
+        "description": "Headline for the browser toolbar icon styling settings in the custom theme settings"
+    },
+    "ToastServerCheckWarning": {
+        "message": "该扩展很快将需要密码$MINVERSION$ ，但 \"$SERVER$\" 使用密码$SERVERVERSION$ 。请更新应用程序，以便继续使用该账户。",
+        "description": "Text of the toast notification when an account uses a server which will soon be no longer supported because it uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
+    },
+    "ValidationNotAnUrl": {
+        "message": "基本 URL 必须是有效的 URL。",
+        "description": "Validation message when the user attempts to save an account but the server url is not a valid url"
+    },
+    "NotifyNewPasswordText": {
+        "message": "检测到 \"$LABEL$\" 的新密码。",
+        "description": "Text of the system notification when a new password was detected. Used in Chrome where the notification has buttons to save or view the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "SettingsPasteAutofillEnabled": {
+        "message": "自动填写最佳匹配登录数据",
+        "description": "Label of the setting in the extension settings to automatically paste the first recommended credential into login forms"
+    },
+    "ThemeDark": {
+        "message": "深色主题",
+        "description": "Label of the dark theme"
+    },
+    "PasslinkScanScanning": {
+        "message": "寻找 QR 码",
+        "description": "Message used by the PassLink QR scanner while the camera feed is scanned for a qr code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "观看视频指南",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "MiningItemIsNew": {
+        "message": "这是新的密码",
+        "description": "Text shown in a collected password that is new to tell the user that it is a new passwor"
+    },
+    "NoSearchResults": {
+        "message": "未找到与您的查询匹配的密码",
+        "description": "Used in the search tab when no entries match the search query"
+    },
+    "SearchRecommendationMaxRowsNumber": {
+        "message": "$ROW$",
+        "description": "Number of results that should be displayed for password recommendations.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 1, 5, 10, 15 or 20"
+            }
+        }
+    },
+    "SettingsPasteBasicAuth": {
+        "message": "自动响应 HTTP 基本身份验证请求",
+        "description": "Label of the setting in the extension settings to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "NotifyUpdatePasswordTextQS": {
+        "message": "检测到 \"$LABEL$\" 的更新。单击此处保存。",
+        "description": "Text of the system notification when an update for an existing password was detected. Clicking the notification will update the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "ServerCreatedMessage": {
+        "message": "账户已创建，可随时使用",
+        "description": "Message of the toast notification in the extension settings after an account was updated successfully"
+    },
+    "HelpClearClipboardPasswords": {
+        "message": "只有当浏览器仍处于打开状态时，剪贴板才会被清除。如果授予了读取剪贴板的可选权限，则只有当密码仍在剪贴板中时才会清除。",
+        "description": "Help text in the extension settings for the setting to automatically clean passwords from clipboard after a certain time."
+    },
+    "LabelGenerateAddSpecial": {
+        "message": "符号",
+        "description": "Label of the option to include special characters in the password generator in the tools tab"
+    },
+    "ThemeArcDark": {
+        "message": "暗弧",
+        "description": "Label of the theme with the Arc dark scheme"
+    },
+    "DebugResetTitle": {
+        "message": "清除扩展数据",
+        "description": "Headline above the section for to clear specific extension data in the debug tab in the extension settings"
+    },
+    "PasslinkNoLinkProvided": {
+        "message": "不缺少任何链接或操作",
+        "description": "Error message shown in the PassLink popup window when the window was opened but no action or link to process was provided"
+    },
+    "DebugInternalStats": {
+        "message": "内部状态",
+        "description": "Headline above the internal status section in the extension settings in the debug tab"
+    },
+    "PasslinkConnectClose": {
+        "message": "关闭窗口",
+        "description": "Text of the button  in the PassLink result window to close the window"
+    },
+    "SearchPlaceholder": {
+        "message": "查找密码",
+        "description": "Placeholder text of the search box"
+    },
+    "DebugBuild": {
+        "message": "建筑信息",
+        "description": "Headline above the section for the build instructions in the debug tab in the extension settings"
+    },
+    "extensionName": {
+        "message": "Nextcloud 浏览器扩展的密码",
+        "description": "Name of the extension."
+    },
+    "NotifyUpdatePasswordText": {
+        "message": "检测到 \"$LABEL$\" 的更新。",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Chrome where the notification has buttons to save or view the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "PasslinkNoActiveAction": {
+        "message": "没有此类活动的 PassLink 行动",
+        "description": "Error message when an active PassLink action is required for a request but no active action can be found. (Example: Request to view the second step of the PassLink connect step, but no PassLink connect was started at all)"
+    },
+    "ValidationNoConnection": {
+        "message": "无法连接$URL$ 。",
+        "description": "Validation message when the user attempts to save an account but it is not possible to connect to this server with the given url",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "NoAccounts": {
+        "message": "还没有账户。单击此处创建账户。",
+        "description": "Message in place of the user accounts list in the extension settings if there are no user accounts yet. The user can click the message to create an account"
+    },
+    "BorderColorHoverTitle": {
+        "message": "如果元素处于活动状态，边框将使用这种颜色",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active border color for an element"
+    },
+    "BrowseNoServers": {
+        "message": "没有可用的服务器",
+        "description": "Used in the browse tab when no accounts/servers are available"
+    },
+    "AccountList": {
+        "message": "用户账户",
+        "description": "Headline above the user accounts section in the accounts tab in the extension settings"
+    },
+    "QrNotAllowedError": {
+        "message": "未获准使用摄像机",
+        "description": "Message used by the PassLink QR scanner when the user did not allow camera access"
+    },
+    "SettingsThemeId": {
+        "message": "活跃主题",
+        "description": "Label of the option to choose the current theme in the extension settings"
+    },
+    "BackgroundColorBaseTitle": {
+        "message": "这种颜色通常用于背景",
+        "description": "Tooltip of the color input field in the custom theme settings for the default background color for an element"
+    },
+    "TabTools": {
+        "message": "工具",
+        "description": "Label of the tools tab in the extension popup"
+    },
+    "InputSliderOn": {
+        "message": "目前正在",
+        "description": "Tooltip of any slider input element that is currently in the active/enabled state"
+    },
+    "BorderColorLabel": {
+        "message": "边框颜色",
+        "description": "Label of border color options in the custom theme settings"
+    },
+    "InputSliderOff": {
+        "message": "目前关闭",
+        "description": "Tooltip of any slider input element that is currently in the inactive/disabled state"
+    },
+    "ServerDisabledWarning": {
+        "message": "此账户已停用。保存成功后将会激活。",
+        "description": "Warning message which appears above the account details if the server was disabled. Usual reasons are invalid login data, unsupported extension version or permanent connection issues."
+    },
+    "ValidationToken": {
+        "message": "应用程序密码",
+        "description": "Name of the account token field in account validation message. This value is used when the user attempts to save an account with an invalid token"
+    },
+    "QrStreamApiNotSupportedError": {
+        "message": "该浏览器不支持流应用程序接口",
+        "description": "Message used by the PassLink QR scanner when the browser does not support the required streaming api. This should never happen"
+    },
+    "FontOpenDyslexic": {
+        "message": "开放式阅读障碍",
+        "description": "Label of the open dyslexic font option in the custom theme settings. This font is good for users with dyslexia"
+    },
+    "GeneratedPasswordTitle": {
+        "message": "密码$WORDS$",
+        "description": "Title of the input field for the generated password in the tools tab of the popup. It shows the words used to generate the password",
+        "placeholders": {
+            "words": {
+                "content": "$1",
+                "description": "The words used for the password",
+                "example": "First Second Third"
+            }
+        }
+    },
+    "PasslinkConnectFailed": {
+        "message": "连接失败",
+        "description": "Message in the PassLink window when the PassLink Connect action failed"
+    },
+    "ToastPasswordHiddenTrashed": {
+        "message": "$LABEL$ 被删除。如果是意外删除，您还可以在永久删除前在下面进行恢复",
+        "description": "Text of the toast notification after a hidden password was moved to the trash. Users can restore it within the notification but afterwards the password is lost for good",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "SettingsPasteFormSubmit": {
+        "message": "从弹出窗口粘贴凭据时提交登录表单",
+        "description": "Label of the setting in the extension settings to automatically submit login forms after pasting"
+    },
+    "GeneratedPasswordPlaceholder": {
+        "message": "生成密码",
+        "description": "Placeholder of the field for the generated password in the tools tab of the popup"
+    },
+    "FontSizeVerySmall": {
+        "message": "非常小",
+        "description": "Label for the very small font size in the custom theme settings"
+    },
+    "NewAccountFormLabel": {
+        "message": "创建账户",
+        "description": "Label of the new account form in the extension settings"
+    },
+    "DebugInfoExtensionEnvironment": {
+        "message": "扩展模式",
+        "description": "Description of the extension mode (production or development) in the internal status section in the debug tab in the extension settings"
+    },
+    "PasswordCustomFieldsTypeEmail": {
+        "message": "电子邮件",
+        "description": "Label of the password custom setting type 'email'."
+    },
+    "SettingsTabDebug": {
+        "message": "调试",
+        "description": "Label of the extension debugging tab in the extension settings"
+    },
+    "ForegroundInheritLabel": {
+        "message": "继承前景",
+        "description": "Label of options to inherit the foreground / text color in the custom theme settings"
+    },
+    "PasslinkConnectCheckCodes": {
+        "message": "检查以下代码是否与您在应用程序中看到的代码一致。如果匹配，请在应用程序中确认连接，然后就完成了。",
+        "description": "Message during the PassLink Connect action telling the user to check if the codes below match the ones shown in the Nextcloud Passwords App. If so, the user just needs to confirm the connection in the Nextcloud app to add the account to the extension."
+    },
+    "NotifyNewPasswordTextQS": {
+        "message": "检测到 \"$LABEL$\" 的新密码。点击此处保存。",
+        "description": "Text of the system notification when a new password was detected. Clicking the notification will save the password.",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "FirstRunConnectScanQR": {
+        "message": "扫描 PassLink 代码",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "SettingsNotifyPasswordNew": {
+        "message": "新密码通知",
+        "description": "Label of the setting in the extension settings to enable or disable the notification for new detected passwords"
+    },
+    "CustomActiveElement": {
+        "message": "活动元素",
+        "description": "Headline for the active element styling settings in the custom theme settings"
+    },
+    "DebugErrorDataCopied": {
+        "message": "将错误详细信息复制到剪贴板",
+        "description": "Success notification when you copy an error report to the clipboard in the error logs section in the extension settings in the debug tab"
+    },
+    "ServerSaveTitle": {
+        "message": "已保存账户",
+        "description": "Title of the toast notification in the extension settings after an account was created or updated successfully"
+    },
+    "PasswordItemOpenUrl": {
+        "message": "开放式网站",
+        "description": "Title of the menu option to open the password url in a new tab"
+    },
+    "ForegroundColorHoverTitle": {
+        "message": "如果元素处于活动状态，文本和边框将使用这种颜色",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active foreground / text color for an element"
+    },
+    "HelpPasteBasicAuth": {
+        "message": "使用第一个建议的凭证自动响应 http 基本身份验证请求。请注意，这可能会将凭证暴露给不可信的服务器。",
+        "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "DebugInfoHiddenFolderId": {
+        "message": "隐藏密码 文件夹 ID",
+        "description": "Description of the id of the folder used to store hidden/private passwords in the internal status section in the debug tab in the extension settings"
+    },
+    "ServerTokenChange": {
+        "message": "更改应用程序密码",
+        "description": "Label of the button to change the login token of an existing account in the account details in the extension settings"
+    },
+    "ToastInfoColors": {
+        "message": "信息祝酒词",
+        "description": "Label of the setting in the custom theme settings to choose the colors of informational toast notifications"
+    },
+    "BackgroundColorLabel": {
+        "message": "背景颜色",
+        "description": "Label of background color options in the custom theme settings"
+    },
+    "PasslinkErrorNoMessage": {
+        "message": "出现错误，但未提供错误信息",
+        "description": "Error message shown in the PassLink popup window when and error happened but no error message was provided"
+    },
+    "ValidationLabel": {
+        "message": "标签",
+        "description": "Name of the account label field in account validation message. This value is used when the user attempts to save an account with an invalid label"
+    },
+    "DebugInfoExtensionPlatform": {
+        "message": "用户代理",
+        "description": "Description of the browser user agent in the internal status section in the debug tab in the extension settings"
+    },
+    "NoRelatedPasswords": {
+        "message": "未找到任何相关密码",
+        "description": "Used in the related tab when no entries match the current website"
+    },
+    "ServerToken": {
+        "message": "应用程序密码",
+        "description": "Label of the account login token field in account details in the extension settings"
+    },
+    "extensionDescription": {
+        "message": "Nextcloud 密码的官方浏览器扩展",
+        "description": "Description of the extension."
+    },
+    "LabelGeneratorStrengthMedium": {
+        "message": "中型",
+        "description": "Label of the medium (2) strength option for the password generator in the tools tab"
+    },
+    "BadgeIconNewDark": {
+        "message": "深色现代图标",
+        "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "DebugResetStatistics": {
+        "message": "重置建议数据",
+        "description": "Label of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "BadgeIconOutlineDark": {
+        "message": "深色轮廓图标",
+        "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "ServerNetworkError": {
+        "message": "出现网络错误。请检查您是否在线，服务器是否可连接。",
+        "description": "Text of the toast notification when the connection to the server failed with a network error"
+    },
+    "FirstRunConnectLink2": {
+        "message": "选择浏览器并点击 \"连接 PassLink",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "BadgeIconAuto": {
+        "message": "自动",
+        "description": "Label of the automatic icon option for the toolbar icon in the custom theme settings"
+    },
+    "MiningItemIsUpdate": {
+        "message": "这似乎是 \"$PASSWORD$\" 的更新版。",
+        "description": "Text shown in a collected password that is an update of an existing password",
+        "placeholders": {
+            "password": {
+                "content": "$1",
+                "example": "My Password"
+            }
+        }
+    },
+    "OpenSettings": {
+        "message": "打开扩展设置",
+        "description": "Label of the button to open the extension settings in the tools tab of the popup"
+    },
+    "ToastServerCheckMessage": {
+        "message": "账户\"$SERVER$\"使用的密码为 $SERVERVERSION$，但该扩展至少需要 $MINVERSION$。需要更新应用程序后，才能在设置中再次激活账户。",
+        "description": "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
+    },
+    "ServerTimeout": {
+        "message": "注销后",
+        "description": "Label of the option to change the automatic logout time of an existing account in the account details in the extension settings"
+    },
+    "DebugResetStatisticsTitle": {
+        "message": "重置用于在相关选项卡中推荐凭证的已收集使用统计数据",
+        "description": "Help title text of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DemoInfoNotification": {
+        "message": "信息通知",
+        "description": "Text and title of the info notification in the theme preview"
+    },
+    "AutofillSettings": {
+        "message": "粘贴证书",
+        "description": "Headline above the password autofill section in the other settings tab in the extension settings"
+    },
+    "ToolsTabDebugTools": {
+        "message": "调试工具",
+        "description": "Label of the debugging tools section in the tools tab of the popup"
+    },
+    "CustomButtons": {
+        "message": "按钮",
+        "description": "Headline for the button styling settings in the custom theme settings"
+    },
+    "ToastPasswordTrashed": {
+        "message": "$LABEL$ 被移至垃圾箱。您可以在应用程序中将其永久删除或还原",
+        "description": "Text of the toast notification after a password was moved to the trash",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "FirstRunSettingsTitle": {
+        "message": "自定义扩展",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "CustomBadgeColors": {
+        "message": "徽章颜色",
+        "description": "Label of the settings for the toolbar icon badge colors in the custom theme settings"
+    },
+    "NoSearchQuery": {
+        "message": "写入搜索框查找密码",
+        "description": "Used in the search tab when there is no search query"
+    },
+    "DebugErrorLog": {
+        "message": "错误日志",
+        "description": "Headline above the error logs section in the extension settings in the debug tab"
+    },
+    "LabelGenerateStrength": {
+        "message": "实力",
+        "description": "Label of the option to set the strength in the password generator in the tools tab"
+    },
+    "FontSizeMedium": {
+        "message": "中型",
+        "description": "Label for the medium font size in the custom theme settings"
+    },
+    "LabelHidden": {
+        "message": "私人密码",
+        "description": "Label for the checkbox to mark a password entry as private or hidden in the webapp"
+    },
+    "PasslinkConnectSettings": {
+        "message": "打开设置",
+        "description": "Text of the button to open the extension settings in the PassLink result window"
+    },
+    "ToastPasswordUpdateFailed": {
+        "message": "密码更新失败",
+        "description": "Text of the toast notification when password update failed"
+    },
+    "SettingsAccountsMain": {
+        "message": "新密码的默认账户",
+        "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
+    },
+    "SettingsCustomFontSize": {
+        "message": "字体大小",
+        "description": "Label of the font size setting in the custom theme settings"
+    },
+    "BadgeIconMedium": {
+        "message": "灰色图标",
+        "description": "Label of the grey icon option for the toolbar icon in the custom theme settings"
+    },
+    "ThemeRGB": {
+        "message": "游戏 RGB",
+        "description": "Label of the gaming rgb animated theme"
+    },
+    "PasswordCustomFieldsTypeUrl": {
+        "message": "链接",
+        "description": "Label of the password custom setting type 'url'."
+    },
+    "PasslinkConnectNetworkError": {
+        "message": "连接服务器失败。请检查您的网络。",
+        "description": "Error message in PassLink when the connection to the Nextcloud server failed with a networking error"
+    },
+    "QrNotFoundError": {
+        "message": "该设备上未找到摄像头",
+        "description": "Message used by the PassLink QR scanner when the device has no cameras"
+    },
+    "SettingsClearClipboardPasswords": {
+        "message": "自动删除剪贴板中的密码",
+        "description": "Label of the setting in the extension settings to automatically clear passwords from clipboard after a certain time."
+    },
+    "PasslinkConnectSuccess": {
+        "message": "连接成功",
+        "description": "Message in the PassLink window when the PassLink Connect action was successful"
+    },
+    "ValidationDuplicate": {
+        "message": "此用户在此 Nextcloud 上已有账户。",
+        "description": "Validation message when the user attempts to save a new account, but a similar account with the same server and same user name already exists"
+    },
+    "FontNextcloud": {
+        "message": "Nextcloud",
+        "description": "Label of the Nextcloud font option in the custom theme settings"
+    },
+    "TitleEnterToExit": {
+        "message": "按回车键保存",
+        "description": "Tooltip used in the collected password form to tell the user that the property can be saved by clicking enter"
+    },
+    "ServerSaveMessage": {
+        "message": "所有更改均已成功应用",
+        "description": "Message of the toast notification in the extension settings after an account was created successfully"
+    },
+    "PasslinkScanProcessingLink": {
+        "message": "处理 QR 码",
+        "description": "Message used by the PassLink QR scanner when a valid code was found and is now being analyzed"
+    },
+    "ServerNetworkErrorReload": {
+        "message": "重新加载服务器",
+        "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
+    },
+    "ServerHttpError": {
+        "message": "HTTP 连接错误：$ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with a HTTP error",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "PasteBadPasswordWarning": {
+        "message": "该密码已损坏，应立即更改",
+        "description": "Notification shown after the user pasted a password with the security status breached/compromised"
+    },
+    "DemoErrorNotification": {
+        "message": "错误通知",
+        "description": "Text and title of the error notification in the theme preview"
+    },
+    "LabelGeneratorStrengthStandard": {
+        "message": "标准",
+        "description": "Label of the default (1) strength option for the password generator in the tools tab"
+    },
+    "ValidationHttpError": {
+        "message": "尝试连接$URL$ ，结果是$ERROR$ 。",
+        "description": "Validation message when the user attempts to save an account but the server responded with an unexpected HTTP status code",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "HTTP 401 - Forbidden"
+            }
+        }
+    },
+    "ToastErrorMessage": {
+        "message": "密码客户端出现错误。详情请查看调试选项中的错误日志。",
+        "description": "Text of the toast notification for error messages from the passwords client. The error message is the title"
+    },
+    "SettingsAutofillIgnoredDomainsPlaceholder": {
+        "message": "例如：example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "ValidationBaseUrl": {
+        "message": "基础URL",
+        "description": "Name of the account base url field in account validation message. This value is used when the user attempts to save an account with an invalid base url"
+    },
+    "DebugInfoExtensionBuild": {
+        "message": "目标平台",
+        "description": "Description of the extension build target (firefox or chrome) in the internal status section in the debug tab in the extension settings"
+    },
+    "ServerLabelString": {
+        "message": "Nextcloud$VERSION$",
+        "description": "Value for the nextcloud server version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "DebugResetExtensionTitle": {
+        "message": "删除所有设置、账户和推荐数据，然后重新开始",
+        "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "ThemeHacker": {
+        "message": "黑客",
+        "description": "Label of the hacker style theme"
+    },
+    "NoServerItems": {
+        "message": "未找到任何元素",
+        "description": "Used in the browse tab when a server has no entries to list"
+    },
+    "LabelGeneratorStrengthUltra": {
+        "message": "超",
+        "description": "Label of the very high (4) strength option for the password generator in the tools tab"
+    },
+    "ThemeAdaptaLight": {
+        "message": "适应",
+        "description": "Label of the theme with the Adapta color scheme"
+    },
+    "SettingsSearchRecommendationMaxRows": {
+        "message": "建议数量上限",
+        "description": "Label of the setting in the extension settings to define the maximum number of results for the password recommendation."
+    },
+    "ThemeArcLight": {
+        "message": "弧形",
+        "description": "Label of the theme with the Arc color scheme"
+    },
+    "ToastBackgroundTitle": {
+        "message": "吐司通知的背景颜色",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification background color"
+    },
+    "DebugNoErrors": {
+        "message": "日志中无错误",
+        "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
+    },
+    "ThemeOledDark": {
+        "message": "深色 OLED",
+        "description": "Label of the dark theme optimized for OLED-Displays"
+    },
+    "SettingsMiningIgnoredDomains": {
+        "message": "忽略这些域（每行一个，子域也被忽略）",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not detect new or changed passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "自定义字段值",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
+    },
+    "BadgeIconOutlineLight": {
+        "message": "浅色轮廓图标",
+        "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "MiningPasswordDiscarded": {
+        "message": "密码已丢弃",
+        "description": "The toast notification after the user has successfully discarded a mined password"
+    },
+    "PasslinkConnectServer": {
+        "message": "新账户被保存为 \"$LABEL$\"",
+        "description": "Confirmation message in the PassLink Connect action when a new account has been created successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "DebugSourceAndBuild": {
+        "message": "构建说明和源代码下载",
+        "description": "Label of the link to open the page with build instructions and links to the source code in the debug tab in the extension settings"
+    },
+    "FontSizeLarge": {
+        "message": "大型",
+        "description": "Label for the large font size in the custom theme settings"
+    },
+    "DemoWarningNotification": {
+        "message": "警告通知",
+        "description": "Text and title of the warning notification in the theme preview"
+    },
+    "SettingsBadgeIcon": {
+        "message": "工具栏图标",
+        "description": "Label of the setting to choose the toolbar icon in the custom theme settings"
+    },
+    "ServerConnectionErrorTitle": {
+        "message": "无法连接$SERVER$",
+        "description": "Title of the toast notification when the connection to the server failed",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "FontSizeVeryLarge": {
+        "message": "非常大",
+        "description": "Label for the very large font size in the custom theme settings"
+    },
+    "SettingsCustomFont": {
+        "message": "字体系列",
+        "description": "Label of the font option in the custom theme settings"
+    },
+    "MigrationAccountName": {
+        "message": "Nextcloud 账户",
+        "description": "Label assigned to the account used by the v1.x migration"
+    },
+    "BadgeIconDark": {
+        "message": "暗色图标",
+        "description": "Label of the dark icon option for the toolbar icon in the custom theme settings"
+    },
+    "SettingsPasteWarnCompromised": {
+        "message": "使用受损凭据时发出警告",
+        "description": "Label of the setting in the extension settings to show a warning after pasting a compromised password"
+    },
+    "DebugLanguageTagsEnabled": {
+        "message": "显示语言键",
+        "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
+    },
+    "NotifyUpdatePasswordTitle": {
+        "message": "检测到更新的密码",
+        "description": "Title of the system notification when an update for an existing password has been detected"
+    },
+    "SettingsPopupRelatedSearch": {
+        "message": "输入 \"相关 \"时开始搜索",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "ExtensionInitFailure": {
+        "message": "扩展程序初始化失败：$ERROR$",
+        "description": "Notification message when the start sequence of the extension failed",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
+    },
+    "SettingsSearchRecommendationOption": {
+        "message": "搜索凭据",
+        "description": "Label of the setting in the extension settings to define how password recommendations are searched."
+    },
+    "CustomFont": {
+        "message": "字体",
+        "description": "Headline for the font settings in the custom theme settings"
+    },
+    "LabelGeneratorStrengthHigh": {
+        "message": "高",
+        "description": "Label of the high (3) strength option for the password generator in the tools tab"
+    },
+    "FirstRunConnectLink1": {
+        "message": "打开密码应用程序，点击 \"更多\"，然后打开 \"应用程序和扩展\"。",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "CustomSliderElement": {
+        "message": "开关",
+        "description": "Headline for the switch styling settings in the custom theme settings"
+    },
+    "FontMono": {
+        "message": "Monospace",
+        "description": "Label of the monospaced font option in the custom theme settings"
+    },
+    "ToastSuccessColors": {
+        "message": "成功祝酒",
+        "description": "Label of the setting in the custom theme settings to choose the colors of success toast notifications"
+    },
+    "ServerUnknownError": {
+        "message": "未知错误。",
+        "description": "Text of the toast notification when the connection to the server failed with an unknown error and no error message is present"
+    },
+    "FirstRunConnectTitle": {
+        "message": "连接至 Nextcloud",
+        "description": "Title of the first run wizard page that helps the user to connect to their Nextcloud"
+    },
+    "BackgroundInheritLabel": {
+        "message": "继承背景",
+        "description": "Label of options to inherit the background color in the custom theme settings"
+    },
+    "LabelServerVersion": {
+        "message": "服务器",
+        "description": "Label for the nextcloud server version in the server info in the browse tab"
+    },
+    "CustomDefaultElement": {
+        "message": "默认元素",
+        "description": "Headline for the default element styling settings in the custom theme settings"
+    },
+    "SettingsClearClipboardDelay": {
+        "message": "清空剪贴板后",
+        "description": "Label of the setting in the extension settings to define the time when the clipboard content will be removed."
+    },
+    "ServerUser": {
+        "message": "用户",
+        "description": "Label of the account login user field in account details in the extension settings"
+    },
+    "BadgeIconLight": {
+        "message": "灯光图标",
+        "description": "Label of the light icon option for the toolbar icon in the custom theme settings"
+    },
+    "LabelSearchRecommendationDomain": {
+        "message": "同域",
+        "description": "Find password recommendations by domain. So on page mail.example.com you will see all passwords for the domain and sumdomains of example.com."
+    },
+    "PasslinkConnectNotFound": {
+        "message": "此链接无效。可能已被使用或过期。",
+        "description": "Error message in PassLink when the link used has expired or was already used."
+    },
+    "LabelSearchRecommendationExact": {
+        "message": "相同的网址",
+        "description": "Find only passwords where th url matches exact to the current browser url."
+    },
+    "ValidationConnectionError": {
+        "message": "尝试连接$URL$ ，结果是$ERROR$ 。",
+        "description": "Validation message when the user attempts to save an account but the connection attempt resulted in any kind of error (including internal extension errors)",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "Undefined variable example in file"
+            }
+        }
+    },
+    "SettingsMiningIncognitoHide": {
+        "message": "将在 \"隐身 \"中收集的密码存储为私人密码",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "ServerGenericError": {
+        "message": "错误：$ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with an error",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "description": "The error message",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "LabelGeneratorStrengthLow": {
+        "message": "低",
+        "description": "Label of the low (0) strength option for the password generator in the tools tab"
+    },
+    "ToastPasswordRestored": {
+        "message": "$LABEL$ 从垃圾中恢复。重新打开弹出窗口后，它将重新出现。",
+        "description": "Text of the toast notification after a password was restored from the trash",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "SettingsTabAccounts": {
+        "message": "账户",
+        "description": "Label of the user accounts tab in the extension settings"
+    },
+    "ValidationMinLength": {
+        "message": "$FIELD$ 长度必须至少为$MIN$ 个字符。",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is shorter than required",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "min": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "CustomToasts": {
+        "message": "吐司通知",
+        "description": "Headline for the toast notification styling settings in the custom theme settings"
+    },
+    "FirstRunSettingsText": {
+        "message": "扩展的行为可以在扩展设置中自定义。",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "FirstRunServerCheckTitle": {
+        "message": "检查服务器",
+        "description": "Title of the first run wizard settings page while data is loaded from the server"
+    },
+    "ToastPasswordUpdated": {
+        "message": "更新密码",
+        "description": "Text of the toast notification when password was updated"
+    },
+    "TabRelated": {
+        "message": "建议",
+        "description": "Label of the related passwords tab in the extension popup"
+    },
+    "FontSizeSmall": {
+        "message": "小型",
+        "description": "Label for the small font size in the custom theme settings"
+    },
+    "SettingsMiningIgnoredDomainsPlaceholder": {
+        "message": "例如：example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "locale": {
+        "message": "EN",
+        "description": "The language tag of this translation. Same as the folder name"
+    },
+    "HelpPasteAutofill": {
+        "message": "自动将第一个建议的凭据粘贴到标签页中的任何登录表单中。请注意，这样做会使标签页中的任何脚本都能访问。",
+        "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
+    },
+    "DebugInfoExtensionVersion": {
+        "message": "扩展版本",
+        "description": "Description of the extension version in the internal status section in the debug tab in the extension settings"
+    },
+    "BadgeIconNewMedium": {
+        "message": "灰色现代图标",
+        "description": "Label of the grey modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "ValidationNotEmpty": {
+        "message": "$FIELD$ 不能为空。",
+        "description": "Validation message when the user attempts to save something (like an account) but a required field is empty.",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            }
+        }
+    },
+    "SettingsTabTheming": {
+        "message": "设计",
+        "description": "Label of the themes tab in the extension settings"
+    },
+    "PrivatePasswordsFolderLabel": {
+        "message": "私人密码",
+        "description": "Label assigned to the hidden folder for private passwords. (folder is only visible when browsing in private mode)"
+    },
+    "ToastErrorColors": {
+        "message": "错误烤面包",
+        "description": "Label of the setting in the custom theme settings to choose the colors of error toast notifications"
+    },
+    "QrNotSupportedError": {
+        "message": "不安全的背景",
+        "description": "Message used by the PassLink QR scanner when the page was opened in an insecure context (http://). This should never happen"
+    },
+    "ServerSaveErrorTitle": {
+        "message": "保存失败",
+        "description": "Title of the toast notification in the extension settings after an account could not be updated or saved. The message will be the specific error message"
+    },
+    "BackgroundInheritTitle": {
+        "message": "如果激活，该值将从父元素继承",
+        "description": "Tooltip for the checkbox to inherit the background color (from the parent element in the html) in the custom theme settings"
+    },
+    "ForegroundColorBaseTitle": {
+        "message": "这种颜色通常用于文本和边框",
+        "description": "Tooltip of the color input field in the custom theme settings for the default foreground / text color for an element"
+    },
+    "PasswordMiningSettings": {
+        "message": "新密码和已更改密码",
+        "description": "Headline above the password mining section in the other settings tab in the extension settings"
+    },
+    "ValidationServerVersion": {
+        "message": "服务器上安装的应用程序版本已过期。",
+        "description": "Validation message when the user attempts to save an account but the version of the passwords app installed on the server is outdated"
+    },
+    "BorderColorBaseTitle": {
+        "message": "这种颜色通常用于边框",
+        "description": "Tooltip of the color input field in the custom theme settings for the default border color for an element"
+    },
+    "PasslinkScanInstructions": {
+        "message": "将相机对准二维码，等待识别和扫描。",
+        "description": "Instructions shown above the PassLink QR scanner telling the use to point his camera at the qr code he wants to scan"
+    },
+    "SettingsPastePopupClose": {
+        "message": "粘贴凭证后关闭弹出窗口",
+        "description": "Label of the setting in the extension settings to automatically close the extension popup after successful pasting"
+    },
+    "ServerCredentialsRejected": {
+        "message": "服务器凭证被拒绝。请在设置中更新登录数据。",
+        "description": "Text of the toast notification when the server has rejected the login credentials"
+    },
+    "PasswordPastedSuccess": {
+        "message": "$LABEL$ 粘贴成功",
+        "description": "Text of the toast notification when a password entry was pasted successfully into the current tab",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "BackgroundColorHoverTitle": {
+        "message": "如果元素处于活动状态，该颜色将用于背景。也可用于非活动元素的边框",
+        "description": "Tooltip of the color input field in the custom theme settings for the mouse hover / active background color for an element"
+    },
+    "FontLight": {
+        "message": "灯光",
+        "description": "Label of the thin font option in the custom theme settings"
+    },
+    "FirstRunConnectLink3": {
+        "message": "点击 \"通过链接连接\"，比较代码并确认连接。",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "FontSans": {
+        "message": "无衬线",
+        "description": "Label of the sans serif (like Arial) font option in the custom theme settings"
+    },
+    "AppLabelString": {
+        "message": "密码$VERSION$",
+        "description": "Value for the passwords app version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "AuthorizationFailedTitle": {
+        "message": "授权失败",
+        "description": "Title of the toast notification when the login attempt was unsuccessful"
+    },
+    "AddPasswordForCurrentTab": {
+        "message": "为当前标签页添加凭证",
+        "description": "Used in the collected tab for the option to add a blank entry with just the url of the current tab"
+    },
+    "DemoSuccessNotification": {
+        "message": "成功通知",
+        "description": "Text and title of the success notification in the theme preview"
+    },
+    "ServerTimeoutOptionMinutes": {
+        "message": "$MINUTES$ 分钟后",
+        "description": "Label of the option for the server timeout to expire after a given amount of minutes",
+        "placeholders": {
+            "minutes": {
+                "content": "$1",
+                "example": "One of 5, 10, 15 30 or 60"
+            }
+        }
+    },
+    "SettingsAutofillIgnoredDomains": {
+        "message": "忽略这些域（每行一个，子域也被忽略）",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not autofill passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "QrOverconstrainedError": {
+        "message": "相机不适合使用",
+        "description": "Message used by the PassLink QR scanner when the camera is faulty"
+    },
+    "TabBrowse": {
+        "message": "浏览",
+        "description": "Label of the browse servers tab in the extension popup"
+    },
+    "AuthorizationFailedText": {
+        "message": "使用所提供的登录名访问密码数据库被拒绝",
+        "description": "Text of the toast notification when the login attempt was unsuccessful"
+    },
+    "PasslinkConnectRejected": {
+        "message": "服务器拒绝了连接请求。",
+        "description": "Error message when the server rejected the PassLink connect action was not confirmed by the server"
+    },
+    "BadgeIconNewLight": {
+        "message": "浅色现代图标",
+        "description": "Label of the light modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "NotifyUpdatePasswordTextFF": {
+        "message": "检测到 \"$LABEL$\" 的更新。点击工具栏上的密码图标，查看并保存密码。",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "ValidationUnauthorizedError": {
+        "message": "$URL$ 的服务器不接受登录数据。",
+        "description": "Validation message when the user attempts to save an account but the server did not accept the user name and token",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "FontCustom": {
+        "message": "定制",
+        "description": "Label for unrecognized fonts in the custom theme settings. This option is usually not shown"
+    },
+    "PasswordPastedError": {
+        "message": "无法粘贴$LABEL$",
+        "description": "Text of the toast notification when a password could not be pasted into the current tab",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "FontSerif": {
+        "message": "衬线",
+        "description": "Label of the serif style (like Times New Roman) font option in the custom theme settings"
+    },
+    "TitleClickToEdit": {
+        "message": "双击编辑",
+        "description": "Tooltip used in the collected password form for any property of the password to inform the user that double clicking makes the text field editable"
+    },
+    "BrowserActionTitleCounter": {
+        "message": "密码 ($COUNTER$)",
+        "description": "Title of the button in the browser bar with suggestion counter",
+        "placeholders": {
+            "counter": {
+                "content": "$1",
+                "example": "2"
+            }
+        }
+    },
+    "FirstRunSetupManually": {
+        "message": "手动连接",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "DebugErrorNoDetails": {
+        "message": "无错误详细信息",
+        "description": "Used as error message for errors with no details at all in the error logs section in the extension settings in the debug tab"
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "自定义字段标签",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "ValidationUser": {
+        "message": "用户",
+        "description": "Name of the account username field in account validation message. This value is used when the user attempts to save an account with an invalid username"
+    },
+    "ToastWarningColors": {
+        "message": "敬酒警告",
+        "description": "Label of the setting in the custom theme settings to choose the colors of warning toast notifications"
+    },
+    "ForegroundInheritTitle": {
+        "message": "如果激活，该值将从父元素继承",
+        "description": "Tooltip for the checkbox to inherit the foreground / text color (from the parent element in the html) in the custom theme settings"
+    },
+    "NotifyNewPasswordTextFF": {
+        "message": "检测到 \"$LABEL$\" 的新密码。单击工具栏中的密码图标，查看并保存密码。",
+        "description": "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "UserAgent": {
+        "message": "用于$BROWSER$ 的官方密码客户端$OS$",
+        "description": "The user agent used for api requests. Only ASCII characters allowed: 0-9, A-Z, a-z. No special characters or non latin characters like ä,á,ã or ß",
+        "placeholders": {
+            "browser": {
+                "content": "$1",
+                "example": "Firefox"
+            },
+            "os": {
+                "content": "$2",
+                "example": "Linux"
+            }
+        }
+    },
+    "PasswordItemDetails": {
+        "message": "查看详情",
+        "description": "Title of the menu option to view and edit a password"
+    },
+    "PasslinkConnectServerUpdated": {
+        "message": "$LABEL$\" 的证书已更新",
+        "description": "Confirmation message in the PassLink Connect action when an existing account has been updated successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "QrNotReadableError": {
+        "message": "摄像头无法访问。也许它已被使用？",
+        "description": "Message used by the PassLink QR scanner when the camera stream can not be read"
+    },
+    "ThemeAdaptaTeal": {
+        "message": "Adapta 茶色",
+        "description": "Label of the theme with the Adapta teal color scheme"
+    },
+    "ValidationInvalidTimeout": {
+        "message": "注销时间必须是给定选项之一。",
+        "description": "Validation message when the user attempts to save an account but the timeout is not within the predefined range"
+    },
+    "BadgeForegroundTitle": {
+        "message": "徽章的文字颜色",
+        "description": "Tooltip for the color input for the text color of the toolbar icon badge in the custom theme settings"
+    },
+    "LabelSearchRecommendationHost": {
+        "message": "同一主机",
+        "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
+    },
+    "BadgeBackgroundTitle": {
+        "message": "徽章的背景颜色",
+        "description": "Tooltip for the color input for the background color of the toolbar icon badge in the custom theme settings"
+    },
+    "PasswordPropertyCopied": {
+        "message": "复制的$PROPERTY$",
+        "description": "Text of the toast notification when a password property was copied successfully via one of the buttons",
+        "placeholders": {
+            "property": {
+                "content": "$1",
+                "example": "Username"
+            }
+        }
     }
 }
