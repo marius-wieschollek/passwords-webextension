@@ -1235,7 +1235,7 @@
         "description": "Description of the extension."
     },
     "locale": {
-        "message": "på",
+        "message": "da",
         "description": "The language tag of this translation. Same as the folder name"
     },
     "ValidationMaxLength": {

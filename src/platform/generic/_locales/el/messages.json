@@ -1118,7 +1118,7 @@
         "description": "Description of the extension."
     },
     "locale": {
-        "message": "en",
+        "message": "el",
         "description": "The language tag of this translation. Same as the folder name"
     },
     "browserActionTitle": {

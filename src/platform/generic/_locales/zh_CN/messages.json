@@ -1246,7 +1246,7 @@
         "description": "Placeholder text for SettingsMiningIgnoredDomains"
     },
     "locale": {
-        "message": "EN",
+        "message": "zh_CN",
         "description": "The language tag of this translation. Same as the folder name"
     },
     "HelpPasteAutofill": {
