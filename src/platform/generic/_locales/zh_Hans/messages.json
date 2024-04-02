@@ -1,1 +1,166 @@
-{}
+{
+    "contextMenuTitle": {
+        "message": "密码",
+        "description": "Title of the context menu item"
+    },
+    "ServerBaseUrl": {
+        "message": "链接",
+        "description": "Label of the server url field in account details in the extension settings"
+    },
+    "ButtonLogin": {
+        "message": "登录",
+        "description": "The text of the login button of the server authorization dialog"
+    },
+    "PasslinkErrorClose": {
+        "message": "关闭",
+        "description": "Text of the close button in the PassLink error window"
+    },
+    "MiningPasswordCreated": {
+        "message": "密码已保存",
+        "description": "The toast notification after the password was successfully saved"
+    },
+    "UiSettings": {
+        "message": "用户界面",
+        "description": "Label of the user interface section in the extension settings."
+    },
+    "LabelCustomFields": {
+        "message": "自定义字段",
+        "description": "Label for the custom fields of this password"
+    },
+    "ButtonMore": {
+        "message": "更多选项",
+        "description": "The more options button of a password detection system notification which opens the popup with the form which shows all password details"
+    },
+    "LabelFolders": {
+        "message": "标签",
+        "description": "Label for the folder count in the server info in the browse tab"
+    },
+    "ThemeLight": {
+        "message": "默认",
+        "description": "Label of the default light theme"
+    },
+    "LabelNotes": {
+        "message": "笔记",
+        "description": "Label for the notes of this password."
+    },
+    "FirstRunSettingsSave": {
+        "message": "保存",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
+    },
+    "TabSearch": {
+        "message": "搜索",
+        "description": "Label of the search tab in the extension popup"
+    },
+    "PlaceholderPassword": {
+        "message": "密码",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
+    },
+    "ToolsTabGeneratePassword": {
+        "message": "生成密码",
+        "description": "Label of the generate password section in the tools tab of the popup"
+    },
+    "SearchSettings": {
+        "message": "搜索",
+        "description": "Headline above the search section in the other settings tab in the extension settings"
+    },
+    "LabelPasswords": {
+        "message": "密码",
+        "description": "Label for the password count in the server info in the browse tab"
+    },
+    "PropertyPassword": {
+        "message": "密码",
+        "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
+    },
+    "LabelPassword": {
+        "message": "密码",
+        "description": "Label for the password of a password entry"
+    },
+    "LabelEdited": {
+        "message": "已修改",
+        "description": "Label for the last edit time of this password."
+    },
+    "ServerTimeoutOptionNever": {
+        "message": "永不",
+        "description": "Label of the option for the server timeout to never expire"
+    },
+    "FontSizeDefault": {
+        "message": "默认",
+        "description": "Label for the default font size in the custom theme settings"
+    },
+    "SettingsTabOther": {
+        "message": "其它设置",
+        "description": "Label of the general settings tab in the extension settings"
+    },
+    "FontDefault": {
+        "message": "默认",
+        "description": "Label of the default font option in the custom theme settings"
+    },
+    "LabelCreated": {
+        "message": "已创建",
+        "description": "Label for the creation time of this password."
+    },
+    "LabelUrl": {
+        "message": "链接",
+        "description": "Label for of a field that contains an url (used in collected password or server info)"
+    },
+    "ButtonSave": {
+        "message": "保存",
+        "description": "The save button of a password detection system notification"
+    },
+    "ToastPasswordTrashedRestore": {
+        "message": "恢复",
+        "description": "Text of the toast notification option to restore a password from the trash"
+    },
+    "ServerLabel": {
+        "message": "名字",
+        "description": "Label of the account name field in account details in the extension settings"
+    },
+    "PasswordCustomFieldsTypeText": {
+        "message": "文本",
+        "description": "Label of the password custom setting type 'text'."
+    },
+    "PasswordCustomFieldsTypeSecret": {
+        "message": "密钥",
+        "description": "Label of the password custom setting type 'secret'."
+    },
+    "TokenRequestFailed": {
+        "message": "令牌请求错误",
+        "description": "Title of the toast notification when the request for a two factor auth token failed. The text will be the error message."
+    },
+    "LabelFolder": {
+        "message": "分类",
+        "description": "Label for the folder of this password."
+    },
+    "NotificationSettings": {
+        "message": "通知",
+        "description": "Headline above the notification section in the other settings tab in the extension settings (!Currently Unused)"
+    },
+    "LabelLabel": {
+        "message": "名字",
+        "description": "Label for the name of a password entry"
+    },
+    "PropertyUrl": {
+        "message": "网站",
+        "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
+    },
+    "browserActionTitle": {
+        "message": "密码",
+        "description": "Title of the button in the browser bar"
+    },
+    "LabelTags": {
+        "message": "标签",
+        "description": "Label for the tag count in the server info in the browse tab"
+    },
+    "ButtonClose": {
+        "message": "关闭",
+        "description": "The title of the close button of a toast notification"
+    },
+    "LabelGenerateAddNumbers": {
+        "message": "数字",
+        "description": "Label of the option to include numbers in the password generator in the tools tab"
+    },
+    "PropertyUsername": {
+        "message": "用户名",
+        "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
+    }
+}
