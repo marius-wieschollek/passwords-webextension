@@ -9,6 +9,7 @@ export default new class FaviconService {
 
     constructor() {
         this._faviconCache = {};
+        this._queue = {};
         this._keyHistory = [];
     }
 
@@ -19,37 +20,38 @@ export default new class FaviconService {
      * @returns {Promise<String>}
      */
     async getFaviconForPassword(password, size, withDefault = true) {
-        let model = null;
-        if(password instanceof EnhancedPassword) {
-            model = password;
-            password = password.getId();
+        /** @type {(EnhancedPassword|null)} **/
+        let model = password instanceof EnhancedPassword ? password:SearchService.get(password);
+
+        if(model === null || model.getHost() === null) {
+            return withDefault ? await this._getDefaultIcon():null;
         }
 
-        let key = `${password}_${size}`;
+        let key = `${model.getHost()}_${size}_${withDefault ? '1':'0'}`;
         if(this._faviconCache.hasOwnProperty(key)) {
             return this._faviconCache[key];
         }
-
-        if(model === null) {
-            /** @type {EnhancedPassword} **/
-            model = SearchService.get(password);
+        if(this._queue.hasOwnProperty(key)) {
+            return await this._queue[key];
         }
 
-        if(model !== null) {
+        this._queue[key] = new Promise(async (resolve) => {
             try {
                 let blob = await model.getFavicon(size),
                     icon = await BlobToBase64Helper.convert(blob);
 
                 this._putIntoCache(key, icon);
 
-                return icon;
+                resolve(icon);
             } catch(e) {
                 ErrorManager.logError(e);
-                return withDefault ? null:await this._getDefaultIcon();
             }
-        }
+            resolve(withDefault ? await this._getDefaultIcon():null);
+        });
 
-        return withDefault ? null:await this._getDefaultIcon();
+        let result = await this._queue[key];
+        delete this._queue[key];
+        return result;
     }
 
     /**
@@ -71,13 +73,13 @@ export default new class FaviconService {
      * @private
      */
     _putIntoCache(id, data) {
-        if(Object.keys(this._faviconCache).length > 256) {
+        if(Object.keys(this._faviconCache).length > 512) {
             do {
                 let key = this._keyHistory.shift();
                 if(this._faviconCache.hasOwnProperty(key)) {
                     delete this._faviconCache[key];
                 }
-            } while(Object.keys(this._faviconCache).length > 256);
+            } while(Object.keys(this._faviconCache).length > 512);
         }
 
         this._faviconCache[id] = data;
