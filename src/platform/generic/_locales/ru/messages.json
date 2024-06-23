@@ -1540,5 +1540,17 @@
                 "example": "One of 1, 48, 320, 370, 2048 or 8192"
             }
         }
+    },
+    "FirstRunServerCheckTitle": {
+        "message": "Проверка сервера",
+        "description": "Title of the first run wizard settings page while data is loaded from the server"
+    },
+    "SettingsAutofillIgnoredDomainsPlaceholder": {
+        "message": "например, example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "SettingsAutofillIgnoredDomains": {
+        "message": "Игнорируйте эти домены (по одному на строку, поддомены также игнорируются)",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not autofill passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
     }
 }

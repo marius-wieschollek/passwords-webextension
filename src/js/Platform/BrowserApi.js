@@ -68,6 +68,14 @@ class BrowserApi {
     }
 
     /**
+     *
+     * @return {Promise<Boolean>}
+     */
+    async requestUpdateCheck() {
+        return false;
+    }
+
+    /**
      * @param {String} platform
      * @returns {Boolean}
      */

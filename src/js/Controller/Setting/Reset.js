@@ -25,7 +25,8 @@ export default class Reset extends AbstractController {
             'clipboard.clear.delay',
             'password.list.show.user',
             'mining.ignored-domains',
-            'mining.incognito.hide'
+            'mining.incognito.hide',
+            'autofill.ignored-domains'
         ];
     }
 

@@ -22,5 +22,4 @@ export default new class PasswordSettingsManager {
     getShowUserInList() {
         return this._showUsernameInList.getValue();
     }
-    
 }

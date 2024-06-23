@@ -6,6 +6,7 @@ import RedditPasswordPaste from "@js/Client/PasswordPaste/RedditPasswordPaste";
 import TumblrPasswordPaste from "@js/Client/PasswordPaste/TumblrPasswordPaste";
 import AliExpressPasswordPaste from "@js/Client/PasswordPaste/AliExpressPasswordPaste";
 import BooleanState from "passwords-client/boolean-state";
+import GrowattPasswordPaste from "@js/Client/PasswordPaste/GrowattPasswordPaste";
 
 export default class FillPassword extends AbstractController {
 
@@ -59,6 +60,7 @@ export default class FillPassword extends AbstractController {
             new RedditPasswordPaste(request),
             new TumblrPasswordPaste(request),
             new AliExpressPasswordPaste(request),
+            new GrowattPasswordPaste(request),
             new GenericPasswordPaste(request)
         ];
     }

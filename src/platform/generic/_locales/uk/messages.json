@@ -8,7 +8,7 @@
         "description": "Description of the extension."
     },
     "locale": {
-        "message": "en",
+        "message": "uk",
         "description": "The language tag of this translation. Same as the folder name"
     },
     "browserActionTitle": {
@@ -1540,5 +1540,17 @@
                 "example": "One of 1, 48, 320, 370, 2048 or 8192"
             }
         }
+    },
+    "FirstRunServerCheckTitle": {
+        "message": "Перевірка сервера",
+        "description": "Title of the first run wizard settings page while data is loaded from the server"
+    },
+    "SettingsAutofillIgnoredDomains": {
+        "message": "Ігнорувати ці домени (по одному в рядку, піддомени також ігноруються)",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not autofill passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "SettingsAutofillIgnoredDomainsPlaceholder": {
+        "message": "наприклад, example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
     }
 }

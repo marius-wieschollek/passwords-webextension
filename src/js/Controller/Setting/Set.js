@@ -48,6 +48,8 @@ export default class Set extends AbstractController {
                 await this._setClipboardClearDelay(Number(value));
             } else if(setting === 'mining.ignored-domains') {
                 await this._setString(setting, value);
+            } else if(setting === 'autofill.ignored-domains') {
+                await this._setString(setting, value);
             } else if(this._booleanSettings.indexOf(setting) !== -1) {
                 await this._setBoolean(setting, value);
             } else {

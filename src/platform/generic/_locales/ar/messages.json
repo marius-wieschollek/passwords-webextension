@@ -1,22 +1,66 @@
 {
+    "extensionName": {
+        "message": "كلمات السر لتمديد الحشد القادم",
+        "description": "Name of the extension."
+    },
+    "extensionDescription": {
+        "message": "التمديد الرسمي للمصفوفين للكلمات السريّة للتلّك",
+        "description": "Description of the extension."
+    },
+    "locale": {
+        "message": "ar",
+        "description": "The language tag of this translation. Same as the folder name"
+    },
+    "browserActionTitle": {
+        "message": "كلمات السر",
+        "description": "Title of the button in the browser bar"
+    },
+    "contextMenuTitle": {
+        "message": "كلمات السر",
+        "description": "Title of the context menu item"
+    },
+    "BrowserActionTitleCounter": {
+        "message": "($COUNTER$)",
+        "description": "Title of the button in the browser bar with suggestion counter",
+        "placeholders": {
+            "counter": {
+                "content": "$1",
+                "example": "2"
+            }
+        }
+    },
+    "UserAgent": {
+        "message": "Official Passwords Client for $BROWSER$ on $OS$",
+        "description": "The user agent used for api requests. Only ASCII characters allowed: 0-9, A-Z, a-z. No special characters or non latin characters like ä,á,ã or ß",
+        "placeholders": {
+            "browser": {
+                "content": "$1",
+                "example": "Firefox"
+            },
+            "os": {
+                "content": "$2",
+                "example": "Linux"
+            }
+        }
+    },
     "MigrationAccountName": {
-        "message": "Nextcloud-account",
+        "message": "الحساب المقبل",
         "description": "Label assigned to the account used by the v1.x migration"
     },
     "PrivatePasswordsFolderLabel": {
-        "message": "Privé wachtwoorden",
+        "message": "كلمات السر الخاصة",
         "description": "Label assigned to the hidden folder for private passwords. (folder is only visible when browsing in private mode)"
     },
     "SettingsTabAccounts": {
-        "message": "Rekeningen",
+        "message": "الحسابات",
         "description": "Label of the user accounts tab in the extension settings"
     },
     "SettingsTabTheming": {
-        "message": "Theming",
+        "message": "اللغم",
         "description": "Label of the themes tab in the extension settings"
     },
     "SettingsTabOther": {
-        "message": "Overige Instellingen",
+        "message": "مجموعات أخرى",
         "description": "Label of the general settings tab in the extension settings"
     },
     "SettingsTabDebug": {
@@ -24,55 +68,55 @@
         "description": "Label of the extension debugging tab in the extension settings"
     },
     "SettingsAccountsMain": {
-        "message": "Standaard account voor nieuwe wachtwoorden",
+        "message": "الحساب الافتراضي لكلمات السر الجديدة",
         "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
     },
     "AutofillSettings": {
-        "message": "Referenties plakken",
+        "message": "وثائق التفويض السابقة",
         "description": "Headline above the password autofill section in the other settings tab in the extension settings"
     },
     "SettingsPastePopupClose": {
-        "message": "Sluit popup na het plakken van referenties",
+        "message": "إغلاق الباب بعد مرور وثائق التفويض",
         "description": "Label of the setting in the extension settings to automatically close the extension popup after successful pasting"
     },
     "SettingsPasteFormSubmit": {
-        "message": "Inlogformulieren verzenden wanneer referenties uit popup worden geplakt",
+        "message": "Submit login forms when accreditation pasted from popup",
         "description": "Label of the setting in the extension settings to automatically submit login forms after pasting"
     },
     "SettingsPasteWarnCompromised": {
-        "message": "Waarschuwen bij gebruik van gecompromitteerde referenties",
+        "message": "وارن عند استخدام وثائق التفويض المتنازل عنها",
         "description": "Label of the setting in the extension settings to show a warning after pasting a compromised password"
     },
     "SettingsPasteAutofillEnabled": {
-        "message": "Vul automatisch de best passende inloggegevens in",
+        "message": "ملئ آليا بأفضل بيانات لوجستيات المطابقة",
         "description": "Label of the setting in the extension settings to automatically paste the first recommended credential into login forms"
     },
     "HelpPasteAutofill": {
-        "message": "Plakt automatisch de eerste voorgestelde referentie in elk aanmeldingsformulier in het tabblad. Houd er rekening mee dat dit elk script in het tabblad toegankelijk maakt.",
+        "message": "تغلب تلقائياً على أول عقيدة مقترحة في أي شكل لوجستي في التابوت كن على علم بأن هذا يجعله متاحاً لأي نص في الكتاب.",
         "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
     },
     "SettingsPasteBasicAuth": {
-        "message": "Automatisch reageren op HTTP-basisverificatieverzoeken",
+        "message": "الاستجابة تلقائياً لطلبات التوثيق الأساسية المقدمة من شركة HTTP",
         "description": "Label of the setting in the extension settings to automatically respond with the first recommended credential to any http basic authentication request"
     },
     "HelpPasteBasicAuth": {
-        "message": "Automatisch reageren op http-basisverificatieverzoeken met de eerste voorgestelde geloofsbrief. Wees ervan bewust dat dit referenties kan blootstellen aan onbetrouwbare servers.",
+        "message": "Automatically respond to http basic authentication requests with the first suggested credential. كن على علم بأن هذا قد يعرض وثائق التفويض لخواديم غير جديرة بالثقة.",
         "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http basic authentication request"
     },
     "SettingsClearClipboardPasswords": {
-        "message": "Wachtwoorden automatisch van klembord verwijderen",
+        "message": "تُحذف كلمة السر من مشبك آليا",
         "description": "Label of the setting in the extension settings to automatically clear passwords from clipboard after a certain time."
     },
     "HelpClearClipboardPasswords": {
-        "message": "Het klembord wordt alleen leeggemaakt als de browser nog geopend is. Als de optionele toestemming om het klembord te lezen is verleend, wordt het alleen gewist als het wachtwoord er nog in staat.",
+        "message": "لوح المشبك لن يتم تطهيره إلا إذا كان المنظف لا يزال مفتوحاً وإذا مُنح الإذن الاختياري بقراءة اللوحة، لا يُسمح إلا إذا كانت كلمة السر لا تزال هناك.",
         "description": "Help text in the extension settings for the setting to automatically clean passwords from clipboard after a certain time."
     },
     "SettingsClearClipboardDelay": {
-        "message": "Leeg het klembord na",
+        "message": "مشبك فارغ بعد",
         "description": "Label of the setting in the extension settings to define the time when the clipboard content will be removed."
     },
     "SettingsClipboardClearDelayOptions": {
-        "message": "$ROW$ seconden",
+        "message": "$ROW$ seconds",
         "description": "Time in seconds until clipboard will get empty.",
         "placeholders": {
             "row": {
@@ -82,87 +126,83 @@
         }
     },
     "NotificationSettings": {
-        "message": "Berichtgeving",
-        "description": "Headline above the notification section in the other settings tab in the extension settings"
+        "message": "الإخطارات",
+        "description": "Headline above the notification section in the other settings tab in the extension settings (!Currently Unused)"
     },
     "SettingsNotifyPasswordNew": {
-        "message": "Kennisgeving voor nieuwe wachtwoorden",
+        "message": "الإخطار بكلمة سر جديدة",
         "description": "Label of the setting in the extension settings to enable or disable the notification for new detected passwords"
     },
     "SettingsNotifyPasswordUpdate": {
-        "message": "Kennisgeving voor bijgewerkte wachtwoorden",
+        "message": "الإخطار بتحديث كلمات السر",
         "description": "Label of the setting in the extension settings to enable or disable the notification for detected password updates"
     },
     "SettingsNotifyPasswordQuicksave": {
-        "message": "Direct opslaan of bijwerken wanneer op de melding wordt geklikt",
+        "message": "توفير أو تحديث كلمات السر مباشرة عند نقر الإخطار",
         "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"
     },
     "SearchSettings": {
-        "message": "Zoeken",
+        "message": "البحث",
         "description": "Headline above the search section in the other settings tab in the extension settings"
     },
     "SettingsPopupRelatedSearch": {
-        "message": "Zoekopdracht starten wanneer ik \"Gerelateerd\" intik",
+        "message": "ابدأ البحث عندما اكتب في \"ممزق\"",
         "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
     },
-    "AccountList": {
-        "message": "Gebruikersaccounts",
-        "description": "Headline above the user accounts section in the accounts tab in the extension settings"
+    "PasswordMiningSettings": {
+        "message": "New \" changed passwords",
+        "description": "Headline above the password mining section in the other settings tab in the extension settings"
     },
-    "NoAccounts": {
-        "message": "Er zijn nog geen accounts. Klik hier om er een aan te maken.",
-        "description": "Message in place of the user accounts list in the extension settings if there are no user accounts yet. The user can click the message to create an account"
+    "SettingsMiningIgnoredDomains": {
+        "message": "تجاهل هذه المجالات (تُهمل أيضاً منطقة فرعية واحدة لكل خط)",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not detect new or changed passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
     },
-    "NewAccountFormLabel": {
-        "message": "Account aanmaken",
-        "description": "Label of the new account form in the extension settings"
+    "SettingsMiningIgnoredDomainsPlaceholder": {
+        "message": "e.g. example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
     },
-    "ServerSaveTitle": {
-        "message": "Opgeslagen rekening",
-        "description": "Title of the toast notification in the extension settings after an account was created or updated successfully"
+    "SettingsAutofillIgnoredDomains": {
+        "message": "تجاهل هذه المجالات (تُهمل أيضاً منطقة فرعية واحدة لكل خط)",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not autofill passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
     },
-    "ServerSaveMessage": {
-        "message": "Alle wijzigingen zijn met succes toegepast",
-        "description": "Message of the toast notification in the extension settings after an account was created successfully"
+    "SettingsAutofillIgnoredDomainsPlaceholder": {
+        "message": "e.g. example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
     },
-    "ServerCreatedMessage": {
-        "message": "De rekening is aangemaakt en klaar voor gebruik.",
-        "description": "Message of the toast notification in the extension settings after an account was updated successfully"
-    },
-    "ServerSaveErrorTitle": {
-        "message": "Opslaan mislukt",
-        "description": "Title of the toast notification in the extension settings after an account could not be updated or saved. The message will be the specific error message"
+    "SettingsMiningIncognitoHide": {
+        "message": "كلمات السر المسروقة التي جُمعت في Incognito ككلمات سر خاصة",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
     },
     "ServerDisabledWarning": {
-        "message": "Dit account is gedeactiveerd. Het zal worden geactiveerd nadat het met succes is opgeslagen.",
+        "message": "هذا الحساب معطل سيتم تفعيله بعد أن يتم إنقاذه بنجاح.",
         "description": "Warning message which appears above the account details if the server was disabled. Usual reasons are invalid login data, unsupported extension version or permanent connection issues."
     },
     "ServerLabel": {
-        "message": "Naam",
+        "message": "الاسم",
         "description": "Label of the account name field in account details in the extension settings"
     },
-    "ServerBaseUrl": {
-        "message": "URL",
-        "description": "Label of the server url field in account details in the extension settings"
-    },
     "ServerUser": {
-        "message": "Gebruiker",
+        "message": "مستخدم",
         "description": "Label of the account login user field in account details in the extension settings"
     },
     "ServerToken": {
-        "message": "App wachtwoord",
+        "message": "كلمة المرور",
         "description": "Label of the account login token field in account details in the extension settings"
     },
     "ServerTokenChange": {
-        "message": "App-wachtwoord wijzigen",
+        "message": "تغيير كلمة المرور",
         "description": "Label of the button to change the login token of an existing account in the account details in the extension settings"
     },
+    "ServerTimeout": {
+        "message": "لوجو بعد",
+        "description": "Label of the option to change the automatic logout time of an existing account in the account details in the extension settings"
+    },
     "ServerTimeoutOptionNever": {
-        "message": "Nooit",
+        "message": "أبداً",
         "description": "Label of the option for the server timeout to never expire"
     },
     "ServerTimeoutOptionMinutes": {
-        "message": "Na $MINUTES$ minuten",
+        "message": "بعد $MINUTES$ دقيقة",
         "description": "Label of the option for the server timeout to expire after a given amount of minutes",
         "placeholders": {
             "minutes": {
@@ -172,23 +212,23 @@
         }
     },
     "TabRelated": {
-        "message": "Suggesties",
+        "message": "الاقتراحات",
         "description": "Label of the related passwords tab in the extension popup"
     },
     "TabSearch": {
-        "message": "Zoeken",
+        "message": "البحث",
         "description": "Label of the search tab in the extension popup"
     },
     "TabBrowse": {
-        "message": "Bladeren op",
+        "message": "Browse",
         "description": "Label of the browse servers tab in the extension popup"
     },
     "TabCollected": {
-        "message": "Verzameld",
+        "message": "المجموعة",
         "description": "Label of the new collected passwords tab in the extension popup"
     },
     "TabTools": {
-        "message": "Gereedschap",
+        "message": "الأدوات",
         "description": "Label of the tools tab in the extension popup"
     },
     "PasswordItemTitle": {
@@ -206,35 +246,35 @@
         }
     },
     "PasswordItemOpenUrl": {
-        "message": "Open website",
+        "message": "الموقع الشبكي المفتوح",
         "description": "Title of the menu option to open the password url in a new tab"
     },
     "PasswordItemToTrash": {
-        "message": "Naar de vuilnisbak",
+        "message": "تحركوا إلى القمامة",
         "description": "Title of the menu option to move a password to the trash"
     },
     "PasswordItemDetails": {
-        "message": "Details bekijken",
+        "message": "تفاصيل الرؤية",
         "description": "Title of the menu option to view and edit a password"
     },
     "ValidationLabel": {
-        "message": "label",
+        "message": "علامة",
         "description": "Name of the account label field in account validation message. This value is used when the user attempts to save an account with an invalid label"
     },
     "ValidationUser": {
-        "message": "gebruiker",
+        "message": "المستخدم",
         "description": "Name of the account username field in account validation message. This value is used when the user attempts to save an account with an invalid username"
     },
     "ValidationToken": {
-        "message": "app wachtwoord",
+        "message": "كلمة السر",
         "description": "Name of the account token field in account validation message. This value is used when the user attempts to save an account with an invalid token"
     },
     "ValidationBaseUrl": {
-        "message": "basis url",
+        "message": "القاعدة",
         "description": "Name of the account base url field in account validation message. This value is used when the user attempts to save an account with an invalid base url"
     },
     "ValidationNotEmpty": {
-        "message": "De $FIELD$ kan niet leeg zijn.",
+        "message": "$FIELD$ لا يمكن أن تكون فارغة.",
         "description": "Validation message when the user attempts to save something (like an account) but a required field is empty.",
         "placeholders": {
             "field": {
@@ -244,7 +284,7 @@
         }
     },
     "ValidationMinLength": {
-        "message": "De $FIELD$ moet minstens $MIN$ tekens lang zijn.",
+        "message": "The $FIELD$ must be at least $MIN$ characters long.",
         "description": "Validation message when the user attempts to save something (like an account) but a field is shorter than required",
         "placeholders": {
             "field": {
@@ -258,7 +298,7 @@
         }
     },
     "ValidationMaxLength": {
-        "message": "De $FIELD$ moet korter zijn dan $MAX$ tekens.",
+        "message": "The $FIELD$ must be shorter than $MAX$ characters.",
         "description": "Validation message when the user attempts to save something (like an account) but a field is longer than allowed",
         "placeholders": {
             "field": {
@@ -272,37 +312,27 @@
         }
     },
     "ValidationFailed": {
-        "message": "Validatie mislukt.",
+        "message": "فشل التقييم.",
         "description": "Validation message when the user attempts to save something (like an account) but there were validation errors"
     },
     "ValidationNotAnUrl": {
-        "message": "De basis-url moet een geldige url zijn.",
+        "message": "لا بدّ أنّ الـ(أورل) الأساسي مُحقّق.",
         "description": "Validation message when the user attempts to save an account but the server url is not a valid url"
     },
     "ValidationNotAToken": {
-        "message": "Het app-wachtwoord moet een geldig Nextcloud App-wachtwoord zijn.",
+        "message": "يجب أن تكون كلمة السر بالزلاجة \"التالية\" صالحة.",
         "description": "Validation message when the user attempts to save an account but the token does not match the Nextcloud token schema"
     },
-    "AppLabelString": {
-        "message": "Wachtwoorden $VERSION$",
-        "description": "Value for the passwords app version in the server info in the browse tab",
-        "placeholders": {
-            "version": {
-                "content": "$1",
-                "example": "20"
-            }
-        }
-    },
     "ValidationInvalidTimeout": {
-        "message": "De uitlogtijd moet een van de gegeven opties zijn.",
+        "message": "ولا بد أن يكون وقت قطع الأشجار أحد الخيارات المعينة.",
         "description": "Validation message when the user attempts to save an account but the timeout is not within the predefined range"
     },
     "ValidationDuplicate": {
-        "message": "Er is al een account voor deze gebruiker op deze Nextcloud.",
+        "message": "هناك بالفعل حساب لهذا المستعمل على هذا التركلود.",
         "description": "Validation message when the user attempts to save a new account, but a similar account with the same server and same user name already exists"
     },
     "ValidationNoConnection": {
-        "message": "Kan geen verbinding maken met $URL$.",
+        "message": "Unable to connect to $URL$.",
         "description": "Validation message when the user attempts to save an account but it is not possible to connect to this server with the given url",
         "placeholders": {
             "url": {
@@ -311,8 +341,18 @@
             }
         }
     },
+    "ValidationUnauthorizedError": {
+        "message": "ولم يقبل الخادم في $URL$ بيانات الدخول.",
+        "description": "Validation message when the user attempts to save an account but the server did not accept the user name and token",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
     "ValidationHttpError": {
-        "message": "Proberen te verbinden met $URL$ resulteerde in $ERROR$.",
+        "message": "محاولة التواصل مع $URL$ أسفرت عن $ERROR$.",
         "description": "Validation message when the user attempts to save an account but the server responded with an unexpected HTTP status code",
         "placeholders": {
             "url": {
@@ -326,7 +366,7 @@
         }
     },
     "ValidationConnectionError": {
-        "message": "Proberen te verbinden met $URL$ resulteerde in $ERROR$.",
+        "message": "محاولة التواصل مع $URL$ أسفرت عن $ERROR$.",
         "description": "Validation message when the user attempts to save an account but the connection attempt resulted in any kind of error (including internal extension errors)",
         "placeholders": {
             "url": {
@@ -340,47 +380,47 @@
         }
     },
     "ValidationServerVersion": {
-        "message": "De op de server geïnstalleerde app-versie is verouderd.",
+        "message": "نسخة التطبيق التي تم تركيبها على الخادم قديمة.",
         "description": "Validation message when the user attempts to save an account but the version of the passwords app installed on the server is outdated"
     },
     "NoRelatedPasswords": {
-        "message": "Heb geen gerelateerde wachtwoorden gevonden",
+        "message": "لم تجد أي كلمة سر ذات صلة",
         "description": "Used in the related tab when no entries match the current website"
     },
     "NoSearchResults": {
-        "message": "Geen wachtwoorden gevonden die aan uw vraag voldoen",
+        "message": "لم تجد أي كلمة سر تطابق استفسارك",
         "description": "Used in the search tab when no entries match the search query"
     },
     "NoSearchQuery": {
-        "message": "Schrijf in het zoekvak om wachtwoorden te vinden",
+        "message": "أكتب إلى صندوق البحث لإيجاد كلمات السر",
         "description": "Used in the search tab when there is no search query"
     },
     "NoCollectedPasswords": {
-        "message": "Geen nieuwe wachtwoorden gevonden",
+        "message": "لا توجد كلمات سر جديدة",
         "description": "Used in the collected tab when no new passwords have been found"
     },
     "AddPasswordForCurrentTab": {
-        "message": "Inloggegevens toevoegen voor huidig tabblad",
+        "message": "مضافا إليه وثائق التفويض في الحساب الجاري(ب)",
         "description": "Used in the collected tab for the option to add a blank entry with just the url of the current tab"
     },
     "NoServerItems": {
-        "message": "Geen elementen gevonden",
+        "message": "No elements found",
         "description": "Used in the browse tab when a server has no entries to list"
     },
     "BrowseNoServers": {
-        "message": "Geen servers beschikbaar",
+        "message": "لا توجد خوادم متاحة",
         "description": "Used in the browse tab when no accounts/servers are available"
     },
     "SearchPlaceholder": {
-        "message": "Wachtwoorden vinden",
+        "message": "ابحث عن كلمات السر",
         "description": "Placeholder text of the search box"
     },
     "MiningItemIsNew": {
-        "message": "Dit is een nieuw wachtwoord",
+        "message": "هذه كلمة سر جديدة",
         "description": "Text shown in a collected password that is new to tell the user that it is a new passwor"
     },
     "MiningItemIsUpdate": {
-        "message": "Dit lijkt een update te zijn van \"$PASSWORD$\"",
+        "message": "يبدو أن هذا هو تحديث \"$PASSWORD$",
         "description": "Text shown in a collected password that is an update of an existing password",
         "placeholders": {
             "password": {
@@ -390,59 +430,63 @@
         }
     },
     "TitleClickToEdit": {
-        "message": "Dubbelklikken om te bewerken",
+        "message": "النقر المزدوج للتحرير",
         "description": "Tooltip used in the collected password form for any property of the password to inform the user that double clicking makes the text field editable"
     },
     "TitleEnterToExit": {
-        "message": "Druk op enter om op te slaan",
+        "message": "تدخل الصحافة لإنقاذ",
         "description": "Tooltip used in the collected password form to tell the user that the property can be saved by clicking enter"
     },
     "LabelLabel": {
-        "message": "Naam",
+        "message": "الاسم",
         "description": "Label for the name of a password entry"
     },
     "LabelPassword": {
-        "message": "Wachtwoord",
+        "message": "كلمة السر",
         "description": "Label for the password of a password entry"
     },
     "LabelUsername": {
-        "message": "Gebruiker",
+        "message": "مستخدم",
         "description": "Label for the username of a password entry"
     },
     "LabelHidden": {
-        "message": "Privé wachtwoord",
+        "message": "كلمة السر الخاصة",
         "description": "Label for the checkbox to mark a password entry as private or hidden in the webapp"
     },
     "LabelUrl": {
-        "message": "URL",
+        "message": "Url",
         "description": "Label for of a field that contains an url (used in collected password or server info)"
     },
+    "LabelUser": {
+        "message": "مستخدم",
+        "description": "Label for the username of in the server info in the browse tab"
+    },
     "LabelPasswords": {
-        "message": "Wachtwoorden",
+        "message": "كلمات السر",
         "description": "Label for the password count in the server info in the browse tab"
     },
     "LabelFolders": {
-        "message": "Mappen",
+        "message": "Folders",
         "description": "Label for the folder count in the server info in the browse tab"
     },
     "LabelFolder": {
-        "message": "Map",
+        "message": "Folder",
         "description": "Label for the folder of this password."
     },
     "LabelCreated": {
-        "message": "Aangemaakt op",
+        "message": "المنشأة",
         "description": "Label for the creation time of this password."
     },
     "LabelEdited": {
-        "message": "Veranderd",
+        "message": "Modified",
         "description": "Label for the last edit time of this password."
     },
     "LabelNotes": {
-        "message": "Notitie",
+        "message": "الحواشي",
         "description": "Label for the notes of this password."
     },
     "LabelCustomFields": {
-        "message": "Eigen Velden",
+        "message": "المجالات العرفية",
         "description": "Label for the custom fields of this password"
     },
     "LabelTags": {
@@ -450,53 +494,27 @@
         "description": "Label for the tag count in the server info in the browse tab"
     },
     "LabelServerVersion": {
-        "message": "Server",
+        "message": "سيرفر",
         "description": "Label for the nextcloud server version in the server info in the browse tab"
     },
     "LabelAppVersion": {
         "message": "API",
         "description": "Label for the passwords app version in the server info in the browse tab"
     },
-    "ServerLabelString": {
-        "message": "Nextcloud $VERSION$",
-        "description": "Value for the nextcloud server version in the server info in the browse tab",
-        "placeholders": {
-            "version": {
-                "content": "$1",
-                "example": "20"
-            }
-        }
-    },
-    "PlaceholderPassword": {
-        "message": "Wachtwoord",
-        "description": "Placeholder text in the master password field of the server authorization dialog"
-    },
-    "PlaceholderToken": {
-        "message": "Two-Factor Token",
-        "description": "Placeholder text in the master password field of the server authorization dialog"
-    },
-    "ButtonLogin": {
-        "message": "Inloggen",
-        "description": "The text of the login button of the server authorization dialog"
-    },
-    "AuthorizationFailedTitle": {
-        "message": "Autorisatie mislukt",
-        "description": "Title of the toast notification when the login attempt was unsuccessful"
-    },
     "AuthorizationFailedText": {
-        "message": "Toegang tot de wachtwoorddatabase met de opgegeven login is geweigerd",
+        "message": "منع الوصول إلى قاعدة بيانات كلمة السر مع الشعار المقدم",
         "description": "Text of the toast notification when the login attempt was unsuccessful"
     },
     "TokenRequestFailed": {
-        "message": "Token aanvraag mislukt",
+        "message": "فشل الطلب",
         "description": "Title of the toast notification when the request for a two factor auth token failed. The text will be the error message."
     },
     "NotifyNewPasswordTitle": {
-        "message": "Nieuw wachtwoord gedetecteerd",
+        "message": "اكتشاف كلمة سر جديدة",
         "description": "Title of the system notification when a new password was detected"
     },
     "NotifyNewPasswordText": {
-        "message": "Een nieuw wachtwoord voor \"$LABEL$\" werd gedetecteerd.",
+        "message": "تم اكتشاف كلمة سر جديدة لـ \"X20X\".",
         "description": "Text of the system notification when a new password was detected. Used in Chrome where the notification has buttons to save or view the password",
         "placeholders": {
             "label": {
@@ -506,7 +524,7 @@
         }
     },
     "NotifyNewPasswordTextFF": {
-        "message": "Een nieuw wachtwoord voor \"$LABEL$\" werd gedetecteerd. Klik op het wachtwoordpictogram in de werkbalk om het te bekijken en op te slaan.",
+        "message": "تم اكتشاف كلمة سر جديدة لـ \"X20X\" اضغطي كلمة السر في حاسبة الأدوات لتنظري إليها وتنقذيها.",
         "description": "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
         "placeholders": {
             "label": {
@@ -516,7 +534,7 @@
         }
     },
     "NotifyNewPasswordTextQS": {
-        "message": "Een nieuw wachtwoord voor \"$LABEL$\" werd gedetecteerd. Klik hier om het op te slaan.",
+        "message": "تم اكتشاف كلمة سر جديدة لـ \"X20X\" انقر هنا لإنقاذه.",
         "description": "Text of the system notification when a new password was detected. Clicking the notification will save the password.",
         "placeholders": {
             "label": {
@@ -526,11 +544,11 @@
         }
     },
     "NotifyUpdatePasswordTitle": {
-        "message": "Bijgewerkt wachtwoord gedetecteerd",
+        "message": "آخر كلمة سر مكتشفة",
         "description": "Title of the system notification when an update for an existing password has been detected"
     },
     "NotifyUpdatePasswordText": {
-        "message": "Er is een update voor \"$LABEL$\" gedetecteerd.",
+        "message": "تم اكتشاف تحديث لـ \"X15X\".",
         "description": "Text of the system notification when an update for an existing password was detected. Used in Chrome where the notification has buttons to save or view the password",
         "placeholders": {
             "label": {
@@ -540,7 +558,7 @@
         }
     },
     "NotifyUpdatePasswordTextFF": {
-        "message": "Er is een update voor \"$LABEL$\" gedetecteerd. Klik op het wachtwoordpictogram in de werkbalk om het te bekijken en op te slaan.",
+        "message": "تم اكتشاف تحديث لـ \"X15X\" اضغطي كلمة السر في حاسبة الأدوات لتنظري إليها وتنقذيها.",
         "description": "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
         "placeholders": {
             "label": {
@@ -549,26 +567,16 @@
             }
         }
     },
-    "NotifyUpdatePasswordTextQS": {
-        "message": "Er is een update voor \"$LABEL$\" gedetecteerd. Klik hier om het op te slaan.",
-        "description": "Text of the system notification when an update for an existing password was detected. Clicking the notification will update the password",
-        "placeholders": {
-            "label": {
-                "content": "$1",
-                "example": "Nextcloud Community Forum"
-            }
-        }
-    },
     "ButtonMore": {
-        "message": "Meer Opties",
+        "message": "المزيد من الخيارات",
         "description": "The more options button of a password detection system notification which opens the popup with the form which shows all password details"
     },
     "ButtonClose": {
-        "message": "Sluit",
+        "message": "اقترب",
         "description": "The title of the close button of a toast notification"
     },
     "ToastServerCheckTitle": {
-        "message": "$SERVER$ moet worden opgewaardeerd",
+        "message": "$SERVER$ needs to be upgraded",
         "description": "Title of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
         "placeholders": {
             "server": {
@@ -578,7 +586,7 @@
         }
     },
     "ToastServerCheckMessage": {
-        "message": "De account \"$SERVER$\" gebruikt wachtwoorden $SERVERVERSION$, maar deze uitbreiding vereist minimaal $MINVERSION$. De app moet worden bijgewerkt voordat het account weer kan worden geactiveerd in de instellingen.",
+        "message": "ويستخدم حساب \" الدولار \" كلمة سر بدولارات الولايات المتحدة، ولكن هذا التمديد يتطلب ما لا يقل عن دولار من دولارات الولايات المتحدة. ويحتاج هذا التطبيق إلى تحديثه قبل أن يمكن تنشيط الحساب مرة أخرى في البيئات.",
         "description": "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
         "placeholders": {
             "server": {
@@ -596,7 +604,7 @@
         }
     },
     "ToastServerCheckWarning": {
-        "message": "Deze uitbreiding vereist binnenkort wachtwoorden $MINVERSION$, maar \"$SERVER$\" gebruikt wachtwoorden $SERVERVERSION$. Update de app om het account te kunnen blijven gebruiken.",
+        "message": "هذا التمديد سيحتاج قريباً إلى كلمات السر $MINVERSION$ ولكن \"$SERVER$\" يستخدم كلمات السر $SERVERVERSION$. يرجى تحديث التطبيق من أجل مواصلة استخدام الحساب.",
         "description": "Text of the toast notification when an account uses a server which will soon be no longer supported because it uses an outdated and unsupported version of the passwords app",
         "placeholders": {
             "server": {
@@ -614,11 +622,11 @@
         }
     },
     "ToastErrorMessage": {
-        "message": "Er is een fout opgetreden in de passwords client. Controleer het foutenlogboek in de debug-opties voor meer details.",
+        "message": "وقع خطأ في عميل كلمة السر تحقق من سجل الخطأ في خيارات الشطب من أجل المزيد من التفاصيل.",
         "description": "Text of the toast notification for error messages from the passwords client. The error message is the title"
     },
     "ToastPasswordTrashed": {
-        "message": "$LABEL$ is verplaatst naar de prullenbak. U kunt het permanent verwijderen in de app of het herstellen",
+        "message": "$LABEL$ تم نقله إلى القمامة. يمكنك حذفه بشكل دائم في التطبيق أو إعادة تشغيله",
         "description": "Text of the toast notification after a password was moved to the trash",
         "placeholders": {
             "label": {
@@ -628,7 +636,7 @@
         }
     },
     "ToastPasswordHiddenTrashed": {
-        "message": "$LABEL$ werd verwijderd. Als dit een ongeluk was, kunt u het hieronder nog herstellen voordat het definitief wordt verwijderd.",
+        "message": "$LABEL$ حذف. إذا كان هذا حادثاً يمكنك أن تعيده إلى الأسفل قبل أن يحذف بشكل دائم",
         "description": "Text of the toast notification after a hidden password was moved to the trash. Users can restore it within the notification but afterwards the password is lost for good",
         "placeholders": {
             "label": {
@@ -638,19 +646,15 @@
         }
     },
     "ToastPasswordTrashedRestore": {
-        "message": "Terugzetten",
+        "message": "Restore",
         "description": "Text of the toast notification option to restore a password from the trash"
     },
     "ToastPasswordDeleteFailed": {
-        "message": "Wachtwoord verwijderen mislukt",
+        "message": "حذف كلمة السر فشلت",
         "description": "Text of the toast notification when deleting the password failed"
     },
-    "ServerTimeout": {
-        "message": "Uitloggen na",
-        "description": "Label of the option to change the automatic logout time of an existing account in the account details in the extension settings"
-    },
     "ToastPasswordRestored": {
-        "message": "$LABEL$ uit de prullenbak is gehaald. Het zal opnieuw verschijnen nadat u de popup opnieuw opent.",
+        "message": "$LABEL$ أعيد من القمامة. سيظهر مرة أخرى بعد إعادة فتح البابا",
         "description": "Text of the toast notification after a password was restored from the trash",
         "placeholders": {
             "label": {
@@ -660,7 +664,7 @@
         }
     },
     "PasswordPastedSuccess": {
-        "message": "$LABEL$ met succes geplakt",
+        "message": "$LABEL$",
         "description": "Text of the toast notification when a password entry was pasted successfully into the current tab",
         "placeholders": {
             "label": {
@@ -670,61 +674,15 @@
         }
     },
     "ToastPasswordUpdated": {
-        "message": "Wachtwoord bijgewerkt",
+        "message": "تحديث كلمة السر",
         "description": "Text of the toast notification when password was updated"
     },
-    "ToastPasswordUpdateFailed": {
-        "message": "Wachtwoord update mislukt",
-        "description": "Text of the toast notification when password update failed"
-    },
-    "PasswordPastedError": {
-        "message": "Kon niet plakken $LABEL$",
-        "description": "Text of the toast notification when a password could not be pasted into the current tab",
-        "placeholders": {
-            "label": {
-                "content": "$1",
-                "example": "Nextcloud account"
-            }
-        }
-    },
-    "PasswordPropertyCopied": {
-        "message": "Gekopieerd $PROPERTY$",
-        "description": "Text of the toast notification when a password property was copied successfully via one of the buttons",
-        "placeholders": {
-            "property": {
-                "content": "$1",
-                "example": "Username"
-            }
-        }
-    },
-    "PropertyPassword": {
-        "message": "Wachtwoord",
-        "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
-    },
-    "PropertyUsername": {
-        "message": "Gebruikersnaam",
-        "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
-    },
-    "PropertyUrl": {
-        "message": "Website",
-        "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
-    },
-    "ServerConnectionErrorTitle": {
-        "message": "Kan geen verbinding maken met $SERVER$",
-        "description": "Title of the toast notification when the connection to the server failed",
-        "placeholders": {
-            "server": {
-                "content": "$1",
-                "example": "My Nextcloud"
-            }
-        }
-    },
     "ServerCredentialsRejected": {
-        "message": "Servergegevens geweigerd. Werk de aanmeldingsgegevens bij in de instellingen.",
+        "message": "ورفضت وثائق تفويض الموظفين. يرجى تحديث بيانات تسجيل الدخول في الأماكن.",
         "description": "Text of the toast notification when the server has rejected the login credentials"
     },
     "ServerHttpError": {
-        "message": "HTTP verbindingsfout: $ERROR$",
+        "message": "HTTP connection error: $ERROR$",
         "description": "Text of the toast notification when the connection to the server failed with a HTTP error",
         "placeholders": {
             "error": {
@@ -734,15 +692,19 @@
         }
     },
     "ServerNetworkError": {
-        "message": "Er is een netwerkfout opgetreden. Controleer of u online bent en de server bereikbaar is.",
+        "message": "حدث خطأ في الشبكة من فضلك تحقق إذا كنت على الإنترنت والخادم يمكن الوصول إليه.",
         "description": "Text of the toast notification when the connection to the server failed with a network error"
     },
+    "ServerNetworkErrorReload": {
+        "message": "جهاز تحميل",
+        "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
+    },
     "ServerUnknownError": {
-        "message": "Onbekende fout.",
+        "message": "خطأ غير معروف.",
         "description": "Text of the toast notification when the connection to the server failed with an unknown error and no error message is present"
     },
     "ServerGenericError": {
-        "message": "Fout: $ERROR$",
+        "message": "الخطأ: $ERROR$",
         "description": "Text of the toast notification when the connection to the server failed with an error",
         "placeholders": {
             "error": {
@@ -753,39 +715,35 @@
         }
     },
     "DemoInfoNotification": {
-        "message": "Info melding",
+        "message": "الإخطار بالمعلومات",
         "description": "Text and title of the info notification in the theme preview"
     },
     "DemoSuccessNotification": {
-        "message": "Succes melding",
+        "message": "الإخطار بالنجاح",
         "description": "Text and title of the success notification in the theme preview"
     },
     "DemoWarningNotification": {
-        "message": "Waarschuwing",
+        "message": "الإخطار بالتحذير",
         "description": "Text and title of the warning notification in the theme preview"
     },
     "DemoErrorNotification": {
-        "message": "Foutmelding",
+        "message": "الإخطار بالخطأ",
         "description": "Text and title of the error notification in the theme preview"
     },
-    "DemoText": {
-        "message": "Demo",
-        "description": "Demo text used in the theme preview"
-    },
     "SettingsThemeId": {
-        "message": "Actief thema",
+        "message": "الموضوع النشط",
         "description": "Label of the option to choose the current theme in the extension settings"
     },
     "ThemeDark": {
-        "message": "Donker thema",
+        "message": "الموضوع المظلم",
         "description": "Label of the dark theme"
     },
     "ThemeOledDark": {
-        "message": "Donkere OLED",
+        "message": "الظلام",
         "description": "Label of the dark theme optimized for OLED-Displays"
     },
     "ThemeLight": {
-        "message": "Standaard",
+        "message": "التقصير",
         "description": "Label of the default light theme"
     },
     "ThemeAdaptaLight": {
@@ -796,122 +754,112 @@
         "message": "Adapta teal",
         "description": "Label of the theme with the Adapta teal color scheme"
     },
-    "ValidationUnauthorizedError": {
-        "message": "De server op $URL$ accepteerde de inloggegevens niet.",
-        "description": "Validation message when the user attempts to save an account but the server did not accept the user name and token",
-        "placeholders": {
-            "url": {
-                "content": "$1",
-                "example": "https://cloud.example.com/"
-            }
-        }
-    },
     "ThemeArcDark": {
-        "message": "Boog donker",
+        "message": "Arc dark",
         "description": "Label of the theme with the Arc dark scheme"
     },
     "ThemeArcLight": {
-        "message": "Boog",
+        "message": "Arc",
         "description": "Label of the theme with the Arc color scheme"
     },
     "ThemeHacker": {
-        "message": "Hacker",
+        "message": "هاكر",
         "description": "Label of the hacker style theme"
     },
     "ThemeRGB": {
-        "message": "Gaming RGB",
+        "message": "GB",
         "description": "Label of the gaming rgb animated theme"
     },
     "ThemeCustom": {
-        "message": "Aangepast thema",
+        "message": "الموضوع العرفي",
         "description": "Label for the custom theme option"
     },
     "CustomFont": {
-        "message": "Lettertype",
+        "message": "Font",
         "description": "Headline for the font settings in the custom theme settings"
     },
     "CustomDefaultElement": {
-        "message": "Standaard element",
+        "message": "عنصر التقصير",
         "description": "Headline for the default element styling settings in the custom theme settings"
     },
     "CustomActiveElement": {
-        "message": "Actief element",
+        "message": "العنصر النشط",
         "description": "Headline for the active element styling settings in the custom theme settings"
     },
+    "CustomButtons": {
+        "message": "Buttons",
+        "description": "Headline for the button styling settings in the custom theme settings"
+    },
     "CustomSliderElement": {
-        "message": "Schakelt",
+        "message": "Switches",
         "description": "Headline for the switch styling settings in the custom theme settings"
     },
     "CustomToasts": {
-        "message": "Toastmeldingen",
+        "message": "الإخطارات العاجلة",
         "description": "Headline for the toast notification styling settings in the custom theme settings"
     },
     "CustomBadge": {
-        "message": "Browserpictogram",
+        "message": "Browser icon",
         "description": "Headline for the browser toolbar icon styling settings in the custom theme settings"
     },
     "BackgroundColorLabel": {
-        "message": "Achtergrondkleur",
+        "message": "لون الخلفية",
         "description": "Label of background color options in the custom theme settings"
     },
     "ForegroundColorLabel": {
-        "message": "Voorgrondkleur",
+        "message": "اللون الأمامي",
         "description": "Label of foreground / text color options in the custom theme settings"
     },
     "BorderColorLabel": {
-        "message": "Randkleur",
+        "message": "اللون الحدودي",
         "description": "Label of border color options in the custom theme settings"
     },
     "BackgroundInheritLabel": {
-        "message": "Achtergrond erven",
+        "message": "Inherit background",
         "description": "Label of options to inherit the background color in the custom theme settings"
     },
     "ForegroundInheritLabel": {
-        "message": "Erf voorgrond",
+        "message": "Inherit foreground",
         "description": "Label of options to inherit the foreground / text color in the custom theme settings"
     },
     "BackgroundColorBaseTitle": {
-        "message": "Deze kleur wordt gewoonlijk gebruikt voor de achtergrond",
+        "message": "هذا اللون يستعمل عادة للخلفية",
         "description": "Tooltip of the color input field in the custom theme settings for the default background color for an element"
     },
     "BackgroundColorHoverTitle": {
-        "message": "Deze kleur wordt gebruikt voor de achtergrond als het element actief is. Het kan ook worden gebruikt voor de rand van een inactief element.",
+        "message": "هذا اللون يستخدم للخلفية إذا كان العنصر نشطاً كما يمكن استخدامها في حدود عنصر غير نشط",
         "description": "Tooltip of the color input field in the custom theme settings for the mouse hover / active background color for an element"
     },
     "ForegroundColorBaseTitle": {
-        "message": "Deze kleur wordt gewoonlijk gebruikt voor teksten en randen",
+        "message": "هذا اللون يستخدم عادة للنصوص والحدود",
         "description": "Tooltip of the color input field in the custom theme settings for the default foreground / text color for an element"
     },
     "ForegroundColorHoverTitle": {
-        "message": "Deze kleur wordt gebruikt voor teksten en randen als het element actief is",
+        "message": "هذا اللون يستخدم للنصوص والحدود إذا كان العنصر نشطا",
         "description": "Tooltip of the color input field in the custom theme settings for the hover / active foreground / text color for an element"
     },
     "BorderColorBaseTitle": {
-        "message": "Deze kleur wordt meestal gebruikt voor randen",
+        "message": "هذا اللون يستعمل عادة للحدود",
         "description": "Tooltip of the color input field in the custom theme settings for the default border color for an element"
     },
     "BorderColorHoverTitle": {
-        "message": "Deze kleur wordt gebruikt voor de randen als het element actief is",
+        "message": "هذا اللون يستعمل في الحدود إذا كان العنصر نشطا",
         "description": "Tooltip of the color input field in the custom theme settings for the hover / active border color for an element"
     },
-    "LabelUser": {
-        "message": "Gebruiker",
-        "description": "Label for the username of in the server info in the browse tab"
-    },
     "BackgroundInheritTitle": {
-        "message": "Indien geactiveerd, wordt de waarde geërfd van het parent element",
+        "message": "إذا تم تفعيل القيمة سترث من العنصر الأبوي",
         "description": "Tooltip for the checkbox to inherit the background color (from the parent element in the html) in the custom theme settings"
     },
     "ForegroundInheritTitle": {
-        "message": "Indien geactiveerd, wordt de waarde geërfd van het parent element",
+        "message": "إذا تم تفعيل القيمة سترث من العنصر الأبوي",
         "description": "Tooltip for the checkbox to inherit the foreground / text color (from the parent element in the html) in the custom theme settings"
     },
     "SettingsCustomFont": {
-        "message": "Lettertype familie",
+        "message": "الأسرة",
         "description": "Label of the font option in the custom theme settings"
     },
     "FontDefault": {
-        "message": "Standaard",
+        "message": "الظلام",
         "description": "Label of the default font option in the custom theme settings"
     },
     "FontMono": {
@@ -919,151 +867,147 @@
         "description": "Label of the monospaced font option in the custom theme settings"
     },
     "FontSerif": {
-        "message": "Serif",
+        "message": "سيريف",
         "description": "Label of the serif style (like Times New Roman) font option in the custom theme settings"
     },
     "FontSans": {
-        "message": "Zonder schreef",
+        "message": "Sans serif",
         "description": "Label of the sans serif (like Arial) font option in the custom theme settings"
     },
     "FontLight": {
-        "message": "Licht",
+        "message": "الضوء",
         "description": "Label of the thin font option in the custom theme settings"
     },
     "FontNextcloud": {
-        "message": "Nextcloud",
+        "message": "التالي",
         "description": "Label of the Nextcloud font option in the custom theme settings"
     },
     "FontOpenDyslexic": {
-        "message": "Open Dyslexie",
+        "message": "الـ ديزليكس المفتوح",
         "description": "Label of the open dyslexic font option in the custom theme settings. This font is good for users with dyslexia"
     },
     "FontCustom": {
-        "message": "Aangepaste",
+        "message": "العرف",
         "description": "Label for unrecognized fonts in the custom theme settings. This option is usually not shown"
     },
     "SettingsCustomFontSize": {
-        "message": "Lettergrootte",
+        "message": "حجم القوة",
         "description": "Label of the font size setting in the custom theme settings"
     },
     "FontSizeVerySmall": {
-        "message": "Zeer klein.",
+        "message": "صغيرة جدا",
         "description": "Label for the very small font size in the custom theme settings"
     },
     "FontSizeSmall": {
-        "message": "Kleine",
+        "message": "صغيرة",
         "description": "Label for the small font size in the custom theme settings"
     },
     "FontSizeDefault": {
-        "message": "Standaard",
+        "message": "الظلام",
         "description": "Label for the default font size in the custom theme settings"
     },
     "FontSizeMedium": {
-        "message": "Medium",
+        "message": "متوسطة",
         "description": "Label for the medium font size in the custom theme settings"
     },
     "FontSizeLarge": {
-        "message": "Groot",
+        "message": "رقيب",
         "description": "Label for the large font size in the custom theme settings"
     },
     "FontSizeVeryLarge": {
-        "message": "Zeer groot",
+        "message": "كبير جدا",
         "description": "Label for the very large font size in the custom theme settings"
     },
     "ToastInfoColors": {
-        "message": "Info toast",
+        "message": "نخب المعلومات",
         "description": "Label of the setting in the custom theme settings to choose the colors of informational toast notifications"
     },
     "ToastSuccessColors": {
-        "message": "Succes toast",
+        "message": "نخب النجاح",
         "description": "Label of the setting in the custom theme settings to choose the colors of success toast notifications"
     },
     "ToastWarningColors": {
-        "message": "Waarschuwing toast",
+        "message": "نخب الإنذار",
         "description": "Label of the setting in the custom theme settings to choose the colors of warning toast notifications"
     },
     "ToastErrorColors": {
-        "message": "Fout toast",
+        "message": "خبز خاطئ",
         "description": "Label of the setting in the custom theme settings to choose the colors of error toast notifications"
     },
     "ToastBackgroundTitle": {
-        "message": "Achtergrondkleur voor de toastmelding",
+        "message": "لون معلومات أساسية لإخطار الخبز المحمص",
         "description": "Tooltip of the color input in the custom theme settings for a toast notification background color"
     },
-    "ToastForegroundTitle": {
-        "message": "Kleur voor tekst en knopachtergrond van de toastmelding",
-        "description": "Tooltip of the color input in the custom theme settings for a toast notification foreground / text color"
-    },
-    "SettingsBadgeIcon": {
-        "message": "Werkbalkpictogram",
-        "description": "Label of the setting to choose the toolbar icon in the custom theme settings"
-    },
     "BadgeIconAuto": {
-        "message": "Automatisch",
+        "message": "الآلية",
         "description": "Label of the automatic icon option for the toolbar icon in the custom theme settings"
     },
     "BadgeIconLight": {
-        "message": "Lichtpictogram",
+        "message": "Icon",
         "description": "Label of the light icon option for the toolbar icon in the custom theme settings"
     },
     "BadgeIconMedium": {
-        "message": "Grijs pictogram",
+        "message": "Grey icon",
         "description": "Label of the grey icon option for the toolbar icon in the custom theme settings"
     },
     "BadgeIconDark": {
-        "message": "Donker icoon",
+        "message": "أيقونة مظلمة",
         "description": "Label of the dark icon option for the toolbar icon in the custom theme settings"
     },
-    "ButtonSave": {
-        "message": "Opslaan",
-        "description": "The save button of a password detection system notification"
-    },
     "BadgeIconNewLight": {
-        "message": "Licht modern icoon",
+        "message": "Icon",
         "description": "Label of the light modern icon option for the toolbar icon in the custom theme settings"
     },
     "BadgeIconNewMedium": {
-        "message": "Grijs modern icoon",
+        "message": "آلة تصوير حديثة",
         "description": "Label of the grey modern icon option for the toolbar icon in the custom theme settings"
     },
     "BadgeIconNewDark": {
-        "message": "Donker modern icoon",
+        "message": "آلة عصرية مظلمة",
         "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
     },
+    "BadgeIconOutlineLight": {
+        "message": "مخطط الضوء",
+        "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconOutlineDark": {
+        "message": "مخطط الظلام",
+        "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
     "CustomBadgeColors": {
-        "message": "Badge kleuren",
+        "message": "ألوان البدج",
         "description": "Label of the settings for the toolbar icon badge colors in the custom theme settings"
     },
     "BadgeBackgroundTitle": {
-        "message": "Achtergrondkleur van de badge",
+        "message": "لون الشارة",
         "description": "Tooltip for the color input for the background color of the toolbar icon badge in the custom theme settings"
     },
     "BadgeForegroundTitle": {
-        "message": "Tekstkleur van de badge",
+        "message": "لون الشارة",
         "description": "Tooltip for the color input for the text color of the toolbar icon badge in the custom theme settings"
     },
     "PasslinkErrorNoMessage": {
-        "message": "Er is een fout opgetreden, maar er werd geen foutmelding gegeven",
+        "message": "كان هناك خطأ ولكن لم تقدم رسالة خطأ",
         "description": "Error message shown in the PassLink popup window when and error happened but no error message was provided"
     },
     "PasslinkNoLinkProvided": {
-        "message": "Er ontbreekt geen link of actie",
+        "message": "لا توجد صلة أو عمل مفقود",
         "description": "Error message shown in the PassLink popup window when the window was opened but no action or link to process was provided"
     },
     "PasslinkErrorClose": {
-        "message": "Sluit",
+        "message": "اقترب",
         "description": "Text of the close button in the PassLink error window"
     },
     "PasslinkNoActiveAction": {
-        "message": "Er is geen actieve PassLink-actie van dit type",
+        "message": "لا يوجد عمل نشط من هذا النوع",
         "description": "Error message when an active PassLink action is required for a request but no active action can be found. (Example: Request to view the second step of the PassLink connect step, but no PassLink connect was started at all)"
     },
     "PasslinkConnectCheckCodes": {
-        "message": "Controleer of de onderstaande codes overeenkomen met de codes die je in de app ziet. Als dat zo is, bevestig dan de verbinding in de app en je bent klaar.",
+        "message": "تحقق إذا كانت الرموز أسفل مطابقة مع تلك التي ترى في التطبيق. إذا فعلوا، تأكدوا من الاتصال في التطبيق وأنتم إنتهيتم.",
         "description": "Message during the PassLink Connect action telling the user to check if the codes below match the ones shown in the Nextcloud Passwords App. If so, the user just needs to confirm the connection in the Nextcloud app to add the account to the extension."
     },
     "PasslinkConnectServer": {
-        "message": "De nieuwe rekening werd opgeslagen als \"$LABEL$\"",
+        "message": "\"الحساب الجديد تم حفظه كـ \"X30X",
         "description": "Confirmation message in the PassLink Connect action when a new account has been created successfully",
         "placeholders": {
             "label": {
@@ -1072,80 +1016,185 @@
             }
         }
     },
+    "PasslinkConnectServerUpdated": {
+        "message": "تم تحديث وثائق تفويض \"$LABEL$",
+        "description": "Confirmation message in the PassLink Connect action when an existing account has been updated successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
     "PasslinkConnectNotFound": {
-        "message": "Deze link is ongeldig. Hij is mogelijk al gebruikt of verlopen.",
+        "message": "هذه الصلة باطلة وقد تكون قد استخدمت بالفعل أو انتهت صلاحيتها.",
         "description": "Error message in PassLink when the link used has expired or was already used."
     },
     "PasslinkConnectRejected": {
-        "message": "De verbindingsaanvraag is door de server afgewezen.",
+        "message": "ورفض الخادم طلب الاتصال.",
         "description": "Error message when the server rejected the PassLink connect action was not confirmed by the server"
     },
     "PasslinkConnectNetworkError": {
-        "message": "De verbinding met de server is mislukt. Controleer uw netwerk.",
+        "message": "الصلة بالخادم فشلت من فضلك تحقق من شبكتك.",
         "description": "Error message in PassLink when the connection to the Nextcloud server failed with a networking error"
     },
     "PasslinkConnectSuccess": {
-        "message": "Verbinding geslaagd",
+        "message": "النجاح",
         "description": "Message in the PassLink window when the PassLink Connect action was successful"
     },
     "PasslinkConnectFailed": {
-        "message": "Verbinding mislukt",
+        "message": "فشل",
         "description": "Message in the PassLink window when the PassLink Connect action failed"
     },
     "PasslinkConnectSettings": {
-        "message": "Open instellingen",
+        "message": "الأطر المفتوحة",
         "description": "Text of the button to open the extension settings in the PassLink result window"
     },
     "PasslinkConnectClose": {
-        "message": "Sluit het venster",
+        "message": "أغلق النافذة",
         "description": "Text of the button  in the PassLink result window to close the window"
     },
     "PasslinkScanInstructions": {
-        "message": "Richt uw camera op de QR-code en wacht tot deze wordt herkend en gescand.",
+        "message": "اوجه الكاميرا إلى شفرة QR وانتظر أن يتم التعرف عليها ومسحها.",
         "description": "Instructions shown above the PassLink QR scanner telling the use to point his camera at the qr code he wants to scan"
     },
     "PasslinkScanScanning": {
-        "message": "Op zoek naar een QR-code",
+        "message": "أبحث عن قانون الجمهورية",
         "description": "Message used by the PassLink QR scanner while the camera feed is scanned for a qr code"
     },
     "PasslinkScanProcessingLink": {
-        "message": "Verwerking QR Code",
+        "message": "Processing QR Code",
         "description": "Message used by the PassLink QR scanner when a valid code was found and is now being analyzed"
     },
     "PasslinkScanInvalidQrCode": {
-        "message": "Deze QR Code wordt niet ondersteund",
+        "message": "هذا QR المدونة غير مدعومة",
         "description": "Message used by the PassLink QR scanner when the user scans a code that does not contain a valid and supported uri of Passlink"
     },
     "QrNotAllowedError": {
-        "message": "Toegang tot de camera werd niet verleend",
+        "message": "Access to the camera was not granted",
         "description": "Message used by the PassLink QR scanner when the user did not allow camera access"
     },
     "QrNotFoundError": {
-        "message": "Er zijn geen camera's gevonden op dit apparaat",
+        "message": "لا توجد كاميرات على هذا الجهاز",
         "description": "Message used by the PassLink QR scanner when the device has no cameras"
     },
     "QrNotSupportedError": {
-        "message": "Onveilige context",
+        "message": "انعدام الأمن",
         "description": "Message used by the PassLink QR scanner when the page was opened in an insecure context (http://). This should never happen"
     },
     "QrNotReadableError": {
-        "message": "Camera niet toegankelijk. Misschien is hij al in gebruik?",
+        "message": "الكاميرا غير متاحة ربما هو بالفعل في الاستخدام؟?",
         "description": "Message used by the PassLink QR scanner when the camera stream can not be read"
     },
-    "QrOverconstrainedError": {
-        "message": "Camera niet geschikt om te gebruiken",
-        "description": "Message used by the PassLink QR scanner when the camera is faulty"
-    },
     "QrStreamApiNotSupportedError": {
-        "message": "De Stream API wordt niet ondersteund door deze browser",
+        "message": "لا يدعمه هذا المستنقع",
         "description": "Message used by the PassLink QR scanner when the browser does not support the required streaming api. This should never happen"
     },
     "FirstRunConnectTitle": {
-        "message": "Maak verbinding met Nextcloud",
-        "description": "Title of the first run wizard step that helps the user to connect to their Nextcloud"
+        "message": "Connect to nextcloud",
+        "description": "Title of the first run wizard page that helps the user to connect to their Nextcloud"
+    },
+    "FirstRunConnectLink1": {
+        "message": "افتحي تطبيق كلمة السر واضغطي على \"مور\" وافتحي \"إمتياز\".",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink2": {
+        "message": "اختر (يور بروزر) ونقر \"اتواصل مع (باسلينك)\"",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunConnectLink3": {
+        "message": "اضغطي \"إتصلي عبر الرابط\" اقارني الرموز وأثبتي الاتصال.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "FirstRunSetupManually": {
+        "message": "الاتصال يدويا",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "FirstRunConnectScanQR": {
+        "message": "Scan PassLink Code",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "مشاهدة دليل الفيديو",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunServerCheckTitle": {
+        "message": "راكب",
+        "description": "Title of the first run wizard settings page while data is loaded from the server"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "إضفاء الطابع العرفي على التمديد",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "FirstRunSettingsText": {
+        "message": "ويمكن دائما تكييف سلوك التمديد في أماكن التمديد.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "FirstRunSettingsSave": {
+        "message": "أنقذ",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
+    },
+    "OpenSettings": {
+        "message": "مجموعة التمديدات المفتوحة",
+        "description": "Label of the button to open the extension settings in the tools tab of the popup"
+    },
+    "ToolsTabGeneratePassword": {
+        "message": "كلمة سر الوراثة",
+        "description": "Label of the generate password section in the tools tab of the popup"
+    },
+    "ToolsTabDebugTools": {
+        "message": "أدوات الديون",
+        "description": "Label of the debugging tools section in the tools tab of the popup"
+    },
+    "GeneratedPasswordPlaceholder": {
+        "message": "كلمة السر المولدة",
+        "description": "Placeholder of the field for the generated password in the tools tab of the popup"
+    },
+    "GeneratedPasswordTitle": {
+        "message": "كلمة السر: $WORDS$",
+        "description": "Title of the input field for the generated password in the tools tab of the popup. It shows the words used to generate the password",
+        "placeholders": {
+            "words": {
+                "content": "$1",
+                "description": "The words used for the password",
+                "example": "First Second Third"
+            }
+        }
+    },
+    "LabelGenerateAddNumbers": {
+        "message": "الأرقام",
+        "description": "Label of the option to include numbers in the password generator in the tools tab"
+    },
+    "LabelGenerateAddSpecial": {
+        "message": "الرمز",
+        "description": "Label of the option to include special characters in the password generator in the tools tab"
+    },
+    "LabelGenerateStrength": {
+        "message": "القوة",
+        "description": "Label of the option to set the strength in the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthLow": {
+        "message": "منخفض",
+        "description": "Label of the low (0) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthStandard": {
+        "message": "المعيار",
+        "description": "Label of the default (1) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthMedium": {
+        "message": "متوسطة",
+        "description": "Label of the medium (2) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthHigh": {
+        "message": "عالية",
+        "description": "Label of the high (3) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthUltra": {
+        "message": "Ultra",
+        "description": "Label of the very high (4) strength option for the password generator in the tools tab"
     },
     "PasswordGenerateError": {
-        "message": "Kan geen wachtwoord genereren: $ERROR$",
+        "message": "عدم توليد كلمة سر: $ERROR$",
         "description": "Notification shown when the generation of a password fails",
         "placeholders": {
             "error": {
@@ -1155,67 +1204,319 @@
         }
     },
     "DebugHighlightLoginForms": {
-        "message": "Markeer aanmeldingsformulier velden",
+        "message": "Highlight Login Form Fields",
         "description": "Label of the button in the popup which triggers the option to highlight all login form fields in the current tab"
     },
     "PasteBadPasswordWarning": {
-        "message": "Dit wachtwoord is gecompromitteerd en moet onmiddellijk worden gewijzigd.",
+        "message": "كلمة السر هذه مهددة وينبغي تغييرها على الفور",
         "description": "Notification shown after the user pasted a password with the security status breached/compromised"
     },
     "DebugInternalStats": {
-        "message": "Interne status",
+        "message": "الوضع الداخلي",
         "description": "Headline above the internal status section in the extension settings in the debug tab"
     },
-    "CustomButtons": {
-        "message": "Knoppen",
-        "description": "Headline for the button styling settings in the custom theme settings"
-    },
     "DebugInfoExtensionVersion": {
-        "message": "Uitbreiding Versie",
+        "message": "رقم التمديد",
         "description": "Description of the extension version in the internal status section in the debug tab in the extension settings"
     },
     "DebugInfoExtensionBuild": {
-        "message": "Doel Platform",
+        "message": "منهاج العمل المستهدف",
         "description": "Description of the extension build target (firefox or chrome) in the internal status section in the debug tab in the extension settings"
     },
     "DebugInfoExtensionPlatform": {
-        "message": "Gebruiker Agent",
+        "message": "وكيل مستعمل",
         "description": "Description of the browser user agent in the internal status section in the debug tab in the extension settings"
     },
     "DebugInfoExtensionEnvironment": {
-        "message": "Uitbreidingsmodus",
+        "message": "أسلوب التمديد",
         "description": "Description of the extension mode (production or development) in the internal status section in the debug tab in the extension settings"
     },
-    "DebugErrorDataCopied": {
-        "message": "Foutgegevens gekopieerd naar klembord",
-        "description": "Success notification when you copy an error report to the clipboard in the error logs section in the extension settings in the debug tab"
+    "DebugInfoHiddenFolderId": {
+        "message": "بطاقات المرور المخفية",
+        "description": "Description of the id of the folder used to store hidden/private passwords in the internal status section in the debug tab in the extension settings"
     },
-    "DebugNoErrors": {
-        "message": "Geen fouten in het logboek",
-        "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
+    "DebugSettings": {
+        "message": "دال - جدول الأنصبة المقررة",
+        "description": "Headline above the debugging settings section in the extension settings in the debug tab"
+    },
+    "DebugLanguageTagsEnabled": {
+        "message": "مفاتيح لغة العرض",
+        "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
+    },
+    "DebugResetTitle": {
+        "message": "بيانات التمديد",
+        "description": "Headline above the section for to clear specific extension data in the debug tab in the extension settings"
+    },
+    "DebugResetStatistics": {
+        "message": "Reset Recommendation البيانات",
+        "description": "Label of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetStatisticsTitle": {
+        "message": "إحصاءات الاستخدام المعاد جمعها المستخدمة للتوصية بوثائق التفويض في الجدول ذي الصلة(ب)",
+        "description": "Help title text of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtension": {
+        "message": "التمديد",
+        "description": "Label of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtensionTitle": {
+        "message": "تحذف جميع البيئات والحسابات وبيانات التوصية وتبدأ من جديد",
+        "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugBuild": {
+        "message": "بناء المعلومات",
+        "description": "Headline above the section for the build instructions in the debug tab in the extension settings"
+    },
+    "DebugSourceAndBuild": {
+        "message": "تعليمات البناء وتنزيل رموز المصدر",
+        "description": "Label of the link to open the page with build instructions and links to the source code in the debug tab in the extension settings"
+    },
+    "DebugErrorLog": {
+        "message": "الضباب",
+        "description": "Headline above the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorNoMessage": {
+        "message": "رسالة خاطئة",
+        "description": "Used as error message for errors with no error message (but have a timestamp) in the error logs section in the extension settings in the debug tab"
     },
     "RecommendationSettings": {
-        "message": "Geloofsbrieven aanbevelen",
+        "message": "وثائق التفويض الموصى بها",
         "description": "Label of the section password recommendations in the extension settings."
     },
     "SettingsSearchRecommendationOption": {
-        "message": "Zoek referenties met",
+        "message": "وثائق تفويض التفتيش",
         "description": "Label of the setting in the extension settings to define how password recommendations are searched."
     },
     "LabelSearchRecommendationDomain": {
-        "message": "hetzelfde domein",
+        "message": "نفس النطاق",
         "description": "Find password recommendations by domain. So on page mail.example.com you will see all passwords for the domain and sumdomains of example.com."
     },
     "LabelSearchRecommendationHost": {
-        "message": "dezelfde gastheer",
+        "message": "نفس المضيف",
         "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
     },
     "LabelSearchRecommendationExact": {
-        "message": "exact dezelfde url",
+        "message": "نفس الشيء",
         "description": "Find only passwords where th url matches exact to the current browser url."
     },
+    "PasswordCustomFieldsTypeEmail": {
+        "message": "Email",
+        "description": "Label of the password custom setting type 'email'."
+    },
+    "PasswordCustomFieldsTypeUrl": {
+        "message": "Link",
+        "description": "Label of the password custom setting type 'url'."
+    },
+    "PasswordCustomFieldsTypeFormField": {
+        "message": "مجال الاستمارة",
+        "description": "Label of the password custom setting form field to insert custom values to a web page."
+    },
+    "PasswordEditValidationInvalidValue": {
+        "message": "القيمة المتبقية",
+        "description": "The validation error message in the password edit form if the value is invalid"
+    },
+    "PasswordEditValidationMaxLength": {
+        "message": "فقط $CHARACTERS$ شخصيات مسموح بها",
+        "description": "The validation error message in the password edit form if the value is longer than allowed",
+        "placeholders": {
+            "characters": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
+    },
+    "PasswordEditValidationRequired": {
+        "message": "هذا المجال مطلوب",
+        "description": "The validation error message in the password edit form if a required field is empty"
+    },
+    "MiningPasswordDiscarded": {
+        "message": "كلمة السر المهجورة",
+        "description": "The toast notification after the user has successfully discarded a mined password"
+    },
+    "MiningPasswordCreated": {
+        "message": "كلمة المرور",
+        "description": "The toast notification after the password was successfully saved"
+    },
+    "MiningPasswordUpdated": {
+        "message": "تحديث كلمة السر",
+        "description": "The toast notification after the password was successfully saved"
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "العلامة الميدانية العرفية",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "القيمة الميدانية العرفية",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
+    },
+    "ExtensionInitFailure": {
+        "message": "فشل التمديد: $ERROR$",
+        "description": "Notification message when the start sequence of the extension failed",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
+    },
+    "AccountList": {
+        "message": "حسابات المستعملين",
+        "description": "Headline above the user accounts section in the accounts tab in the extension settings"
+    },
+    "NoAccounts": {
+        "message": "لا توجد حسابات بعد انقر هنا لخلق واحد.",
+        "description": "Message in place of the user accounts list in the extension settings if there are no user accounts yet. The user can click the message to create an account"
+    },
+    "NewAccountFormLabel": {
+        "message": "حساب الإنشاء",
+        "description": "Label of the new account form in the extension settings"
+    },
+    "ServerSaveTitle": {
+        "message": "الحساب المحتفظ به",
+        "description": "Title of the toast notification in the extension settings after an account was created or updated successfully"
+    },
+    "ServerSaveMessage": {
+        "message": "طُبقت جميع التغييرات بنجاح",
+        "description": "Message of the toast notification in the extension settings after an account was created successfully"
+    },
+    "ServerCreatedMessage": {
+        "message": "وقد أنشئ الحساب وهو على استعداد لاستخدامه",
+        "description": "Message of the toast notification in the extension settings after an account was updated successfully"
+    },
+    "ServerSaveErrorTitle": {
+        "message": "إنقاذ فاشل",
+        "description": "Title of the toast notification in the extension settings after an account could not be updated or saved. The message will be the specific error message"
+    },
+    "ServerBaseUrl": {
+        "message": "Url",
+        "description": "Label of the server url field in account details in the extension settings"
+    },
+    "ServerLabelString": {
+        "message": "التالي: $VERSION$",
+        "description": "Value for the nextcloud server version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "AppLabelString": {
+        "message": "كلمات السر $VERSION$",
+        "description": "Value for the passwords app version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "PlaceholderPassword": {
+        "message": "كلمة السر",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
+    },
+    "PlaceholderToken": {
+        "message": "عاملين",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
+    },
+    "ButtonLogin": {
+        "message": "Login",
+        "description": "The text of the login button of the server authorization dialog"
+    },
+    "AuthorizationFailedTitle": {
+        "message": "فشل الإذن",
+        "description": "Title of the toast notification when the login attempt was unsuccessful"
+    },
+    "NotifyUpdatePasswordTextQS": {
+        "message": "تم اكتشاف تحديث لـ \"X15X\" انقر هنا لإنقاذه.",
+        "description": "Text of the system notification when an update for an existing password was detected. Clicking the notification will update the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "ButtonSave": {
+        "message": "أنقذ",
+        "description": "The save button of a password detection system notification"
+    },
+    "ToastPasswordUpdateFailed": {
+        "message": "تحديث كلمة السر فشلت",
+        "description": "Text of the toast notification when password update failed"
+    },
+    "PasswordPastedError": {
+        "message": "لا يُمكنُ أَنْ يَرْفعَ $LABEL$",
+        "description": "Text of the toast notification when a password could not be pasted into the current tab",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "PasswordPropertyCopied": {
+        "message": "Copied $PROPERTY$",
+        "description": "Text of the toast notification when a password property was copied successfully via one of the buttons",
+        "placeholders": {
+            "property": {
+                "content": "$1",
+                "example": "Username"
+            }
+        }
+    },
+    "PropertyPassword": {
+        "message": "كلمة السر",
+        "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
+    },
+    "PropertyUsername": {
+        "message": "المستعمل",
+        "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
+    },
+    "PropertyUrl": {
+        "message": "الموقع الشبكي",
+        "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
+    },
+    "ServerConnectionErrorTitle": {
+        "message": "غير قادر على التواصل مع $SERVER$",
+        "description": "Title of the toast notification when the connection to the server failed",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "DemoText": {
+        "message": "Demo",
+        "description": "Demo text used in the theme preview"
+    },
+    "ToastForegroundTitle": {
+        "message": "ملون للنص والأزرار الخلفية لإخطار الخبز المحمص",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification foreground / text color"
+    },
+    "SettingsBadgeIcon": {
+        "message": "Toolbar icon",
+        "description": "Label of the setting to choose the toolbar icon in the custom theme settings"
+    },
+    "QrOverconstrainedError": {
+        "message": "آلة تصوير غير مناسبة للاستخدام",
+        "description": "Message used by the PassLink QR scanner when the camera is faulty"
+    },
+    "DebugErrorNoDetails": {
+        "message": "لا توجد تفاصيل خاطئة",
+        "description": "Used as error message for errors with no details at all in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorDataCopied": {
+        "message": "تفاصيل خاطئة تم نسخها من لوح المشبك",
+        "description": "Success notification when you copy an error report to the clipboard in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugNoErrors": {
+        "message": "لا أخطاء في السجل",
+        "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
+    },
     "SettingsSearchRecommendationMaxRows": {
-        "message": "Maximum aantal aanbevelingen",
+        "message": "العدد الأقصى للتوصيات",
         "description": "Label of the setting in the extension settings to define the maximum number of results for the password recommendation."
     },
     "SearchRecommendationMaxRowsNumber": {
@@ -1229,328 +1530,27 @@
         }
     },
     "UiSettings": {
-        "message": "Gebruikersinterface",
+        "message": "المستعمل",
         "description": "Label of the user interface section in the extension settings."
     },
     "SettingsShowUsernameInList": {
-        "message": "Toon gebruikersnaam naast titel",
+        "message": "اسم مستعمل العرض بجانب العنوان",
         "description": "Label of the setting in the extension settings to show the username next to the title in password lists."
     },
     "InputSliderOn": {
-        "message": "Momenteel op",
+        "message": "حاليا",
         "description": "Tooltip of any slider input element that is currently in the active/enabled state"
     },
     "InputSliderOff": {
-        "message": "Momenteel uit",
+        "message": "حاليا",
         "description": "Tooltip of any slider input element that is currently in the inactive/disabled state"
     },
     "PasswordCustomFieldsTypeText": {
-        "message": "Tekst",
+        "message": "النص",
         "description": "Label of the password custom setting type 'text'."
     },
     "PasswordCustomFieldsTypeSecret": {
-        "message": "Geheim",
+        "message": "السرية",
         "description": "Label of the password custom setting type 'secret'."
-    },
-    "PasswordCustomFieldsTypeEmail": {
-        "message": "E-mail",
-        "description": "Label of the password custom setting type 'email'."
-    },
-    "PasswordCustomFieldsTypeUrl": {
-        "message": "Link",
-        "description": "Label of the password custom setting type 'url'."
-    },
-    "PasswordCustomFieldsTypeFormField": {
-        "message": "Formulier veld",
-        "description": "Label of the password custom setting form field to insert custom values to a web page."
-    },
-    "PasswordEditValidationInvalidValue": {
-        "message": "Ongeldige waarde",
-        "description": "The validation error message in the password edit form if the value is invalid"
-    },
-    "PasswordEditValidationMaxLength": {
-        "message": "Alleen $CHARACTERS$ tekens toegestaan",
-        "description": "The validation error message in the password edit form if the value is longer than allowed",
-        "placeholders": {
-            "characters": {
-                "content": "$1",
-                "example": "One of 1, 48, 320, 370, 2048 or 8192"
-            }
-        }
-    },
-    "PasswordEditValidationRequired": {
-        "message": "Dit veld is verplicht",
-        "description": "The validation error message in the password edit form if a required field is empty"
-    },
-    "MiningPasswordDiscarded": {
-        "message": "Wachtwoord weggegooid",
-        "description": "The toast notification after the user has successfully discarded a mined password"
-    },
-    "MiningPasswordCreated": {
-        "message": "Wachtwoord opgeslagen",
-        "description": "The toast notification after the password was successfully saved"
-    },
-    "MiningPasswordUpdated": {
-        "message": "Wachtwoord bijgewerkt",
-        "description": "The toast notification after the password was successfully saved"
-    },
-    "OpenSettings": {
-        "message": "Extensie-instellingen openen",
-        "description": "Label of the button to open the extension settings in the tools tab of the popup"
-    },
-    "ToolsTabGeneratePassword": {
-        "message": "Wachtwoord genereren",
-        "description": "Label of the generate password section in the tools tab of the popup"
-    },
-    "ToolsTabDebugTools": {
-        "message": "Debuggereedschap",
-        "description": "Label of the debugging tools section in the tools tab of the popup"
-    },
-    "GeneratedPasswordPlaceholder": {
-        "message": "Gegenereerd wachtwoord",
-        "description": "Placeholder of the field for the generated password in the tools tab of the popup"
-    },
-    "GeneratedPasswordTitle": {
-        "message": "Wachtwoord woorden: $WORDS$",
-        "description": "Title of the input field for the generated password in the tools tab of the popup. It shows the words used to generate the password",
-        "placeholders": {
-            "words": {
-                "content": "$1",
-                "description": "The words used for the password",
-                "example": "First Second Third"
-            }
-        }
-    },
-    "LabelGenerateAddSpecial": {
-        "message": "Symbolen",
-        "description": "Label of the option to include special characters in the password generator in the tools tab"
-    },
-    "LabelGenerateStrength": {
-        "message": "Sterkte",
-        "description": "Label of the option to set the strength in the password generator in the tools tab"
-    },
-    "LabelGeneratorStrengthLow": {
-        "message": "Laag",
-        "description": "Label of the low (0) strength option for the password generator in the tools tab"
-    },
-    "LabelGeneratorStrengthStandard": {
-        "message": "Standaard",
-        "description": "Label of the default (1) strength option for the password generator in the tools tab"
-    },
-    "LabelGeneratorStrengthMedium": {
-        "message": "Medium",
-        "description": "Label of the medium (2) strength option for the password generator in the tools tab"
-    },
-    "LabelGeneratorStrengthHigh": {
-        "message": "Hoog",
-        "description": "Label of the high (3) strength option for the password generator in the tools tab"
-    },
-    "LabelGeneratorStrengthUltra": {
-        "message": "Ultra",
-        "description": "Label of the very high (4) strength option for the password generator in the tools tab"
-    },
-    "DebugInfoHiddenFolderId": {
-        "message": "Verborgen Wachtwoorden Map ID",
-        "description": "Description of the id of the folder used to store hidden/private passwords in the internal status section in the debug tab in the extension settings"
-    },
-    "DebugSettings": {
-        "message": "Debug-instellingen",
-        "description": "Headline above the debugging settings section in the extension settings in the debug tab"
-    },
-    "DebugLanguageTagsEnabled": {
-        "message": "Taaltoetsen tonen",
-        "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
-    },
-    "DebugBuild": {
-        "message": "Bouw Informatie",
-        "description": "Headline above the section for the build instructions in the debug tab in the extension settings"
-    },
-    "DebugSourceAndBuild": {
-        "message": "Bouwinstructies en broncode downloaden",
-        "description": "Label of the link to open the page with build instructions and links to the source code in the debug tab in the extension settings"
-    },
-    "DebugErrorLog": {
-        "message": "Foutenlogboek",
-        "description": "Headline above the error logs section in the extension settings in the debug tab"
-    },
-    "DebugErrorNoMessage": {
-        "message": "Geen foutmelding",
-        "description": "Used as error message for errors with no error message (but have a timestamp) in the error logs section in the extension settings in the debug tab"
-    },
-    "DebugErrorNoDetails": {
-        "message": "Geen foutdetails",
-        "description": "Used as error message for errors with no details at all in the error logs section in the extension settings in the debug tab"
-    },
-    "extensionName": {
-        "message": "Wachtwoorden voor Nextcloud Browseruitbreiding",
-        "description": "Name of the extension."
-    },
-    "LabelGenerateAddNumbers": {
-        "message": "Nummers",
-        "description": "Label of the option to include numbers in the password generator in the tools tab"
-    },
-    "extensionDescription": {
-        "message": "De officiële browserextensie voor Wachtwoorden voor Nextcloud",
-        "description": "Description of the extension."
-    },
-    "locale": {
-        "message": "nl",
-        "description": "The language tag of this translation. Same as the folder name"
-    },
-    "browserActionTitle": {
-        "message": "Wachtwoorden",
-        "description": "Title of the button in the browser bar"
-    },
-    "contextMenuTitle": {
-        "message": "Wachtwoorden",
-        "description": "Title of the context menu item"
-    },
-    "BrowserActionTitleCounter": {
-        "message": "Wachtwoorden ($COUNTER$)",
-        "description": "Title of the button in the browser bar with suggestion counter",
-        "placeholders": {
-            "counter": {
-                "content": "$1",
-                "example": "2"
-            }
-        }
-    },
-    "UserAgent": {
-        "message": "Official Passwords Client for $BROWSER$ on $OS$",
-        "description": "The user agent used for api requests. Only ASCII characters allowed",
-        "placeholders": {
-            "browser": {
-                "content": "$1",
-                "example": "Firefox"
-            },
-            "os": {
-                "content": "$2",
-                "example": "Linux"
-            }
-        }
-    },
-    "CustomFieldLabelPlaceholder": {
-        "message": "Aangepast veldlabel",
-        "description": "Placeholder text of the label for a custom field entry in the password details"
-    },
-    "CustomFieldValuePlaceholder": {
-        "message": "Aangepast veldlabel",
-        "description": "Placeholder text of the value for a custom field entry in the password details"
-    },
-    "ServerNetworkErrorReload": {
-        "message": "Server herladen",
-        "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
-    },
-    "SettingsMiningIgnoredDomainsPlaceholder": {
-        "message": "bijv. voorbeeld.com",
-        "description": "Placeholder text for SettingsMiningIgnoredDomains"
-    },
-    "PasswordMiningSettings": {
-        "message": "Nieuw & gewijzigd wachtwoord",
-        "description": "Headline above the password mining section in the other settings tab in the extension settings"
-    },
-    "SettingsMiningIgnoredDomains": {
-        "message": "Negeer deze domeinen (één per regel, subdomeinen worden ook genegeerd)",
-        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not detect new or changed passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
-    },
-    "SettingsMiningIncognitoHide": {
-        "message": "Wachtwoorden verzameld in Incognito opslaan als privéwachtwoorden",
-        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
-    },
-    "BadgeIconOutlineLight": {
-        "message": "Licht omlijningspictogram",
-        "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
-    },
-    "BadgeIconOutlineDark": {
-        "message": "Pictogram met donkere contouren",
-        "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
-    },
-    "FirstRunConnectLink1": {
-        "message": "Open de app Wachtwoorden, klik op \"Meer\" en open \"Apps & Extensies\".",
-        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
-    },
-    "FirstRunConnectLink2": {
-        "message": "Kies je browser en klik op \"Verbinden met PassLink\".",
-        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
-    },
-    "FirstRunSettingsText": {
-        "message": "Deze en vele andere dingen kunnen op elk moment worden gewijzigd in de extensie-instellingen.",
-        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
-    },
-    "FirstRunConnectLink3": {
-        "message": "Klik op \"Verbinden via link\", vergelijk de codes en bevestig de verbinding.",
-        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
-    },
-    "FirstRunSetupManually": {
-        "message": "Handmatig aansluiten",
-        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
-    },
-    "FirstRunConnectScanQR": {
-        "message": "Scan de PassLink-code",
-        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
-    },
-    "FirstRunSetupVideo": {
-        "message": "Video bekijken",
-        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
-    },
-    "FirstRunSettingsTitle": {
-        "message": "De extensie aanpassen",
-        "description": "Title of the first run wizard page that allows the user to change some common settings"
-    },
-    "FirstRunSettingsSave": {
-        "message": "Opslaan",
-        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
-    },
-    "PasslinkConnectServerUpdated": {
-        "message": "De referenties voor \"$LABEL$\" werden bijgewerkt",
-        "description": "Confirmation message in the PassLink Connect action when an existing account has been updated successfully",
-        "placeholders": {
-            "label": {
-                "content": "$1",
-                "example": "Nexcloud - admin"
-            }
-        }
-    },
-    "DebugResetTitle": {
-        "message": "Extensiegegevens wissen",
-        "description": "Headline above the section for to clear specific extension data in the debug tab in the extension settings"
-    },
-    "DebugResetStatistics": {
-        "message": "Aanbevelingsgegevens resetten",
-        "description": "Label of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
-    },
-    "DebugResetStatisticsTitle": {
-        "message": "Verzamelde gebruiksstatistieken resetten die worden gebruikt om referenties aan te bevelen op het tabblad gerelateerd",
-        "description": "Help title text of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
-    },
-    "DebugResetExtension": {
-        "message": "Uitbreiding resetten",
-        "description": "Label of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
-    },
-    "DebugResetExtensionTitle": {
-        "message": "Verwijder alle instellingen, accounts en aanbevelingsgegevens en begin opnieuw",
-        "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
-    },
-    "ExtensionInitFailure": {
-        "message": "Initialisatie extensie mislukt: $ERROR$",
-        "description": "Notification message when the start sequence of the extension failed",
-        "placeholders": {
-            "error": {
-                "content": "$1",
-                "example": "One of 1, 48, 320, 370, 2048 or 8192"
-            }
-        }
-    },
-    "FirstRunServerCheckTitle": {
-        "message": "Server controleren",
-        "description": "Title of the first run wizard settings page while data is loaded from the server"
-    },
-    "SettingsAutofillIgnoredDomainsPlaceholder": {
-        "message": "bijv. voorbeeld.com",
-        "description": "Placeholder text for SettingsMiningIgnoredDomains"
-    },
-    "SettingsAutofillIgnoredDomains": {
-        "message": "Negeer deze domeinen (één per regel, subdomeinen worden ook genegeerd)",
-        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not autofill passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
     }
 }

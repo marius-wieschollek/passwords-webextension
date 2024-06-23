@@ -178,6 +178,11 @@ class ErrorManager {
             details = this._getErrorFromEvent(message, file, line, col);
         }
 
+        if(this._mode === 'client') {
+            console.error(error, message, file, line, col, details);
+            return;
+        }
+
         let errorData   = this._convertErrorToObject(error),
             errorObject = {details, error: errorData};
         console.error(details.message, error, errorObject, details.stack);

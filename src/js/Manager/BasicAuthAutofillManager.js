@@ -50,7 +50,7 @@ export default new class BasicAuthAutofillManager {
      */
     _provideAuthData(requestDetails) {
         if(!this._setting.getValue()) return;
-        let recommendations = RecommendationManager.getRecommendationsByUrl(`https://${requestDetails.challenger.host}`, requestDetails.incognito);
+        let recommendations = RecommendationManager.getSuggestionsForUrl(`https://${requestDetails.challenger.host}`, requestDetails.incognito);
 
         if(recommendations.length !== 0 && this._pendingRequests.indexOf(requestDetails.requestId) === -1) {
             this._pendingRequests.push(requestDetails.requestId);
