@@ -113,7 +113,18 @@ class SystemService {
     }
 
     /**
-     * @returns {browser.contextMenus}
+     * @returns {browser.browserAction}
+     */
+    getBrowserAction() {
+        return BrowserApi.getBrowserAction();
+    }
+
+    hasPermissions(permissions) {
+        return this.getBrowserApi().permissions.contains(permissions)
+    }
+
+    /**
+     * @returns {String}
      */
     getExtensionId() {
         return this.getBrowserApi().runtime.id;

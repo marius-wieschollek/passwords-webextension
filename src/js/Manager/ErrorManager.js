@@ -34,17 +34,31 @@ class ErrorManager {
         this._mode = mode;
 
         if(SystemService.getArea() !== 'client') {
-            window.onerror = (message, file, line, col, error) => {
-                this._addError(error, message, file, line, col);
+            if(SystemService.getArea() === SystemService.AREA_BACKGROUND) {
+                serviceWorker.onerror = (message, file, line, col, error) => {
+                    this._addError(error, message, file, line, col);
 
-                return false;
-            };
+                    return false;
+                };
 
-            window.addEventListener('error', (e) => {
-                this._addError(e.error, e.message, e.filename, e.lineno, e.colno);
+                self.addEventListener('error', (e) => {
+                    this._addError(e.error, e.message, e.filename, e.lineno, e.colno);
 
-                return false;
-            });
+                    return false;
+                });
+            } else {
+                window.onerror = (message, file, line, col, error) => {
+                    this._addError(error, message, file, line, col);
+
+                    return false;
+                };
+
+                window.addEventListener('error', (e) => {
+                    this._addError(e.error, e.message, e.filename, e.lineno, e.colno);
+
+                    return false;
+                });
+            }
         }
 
         if(mode === 'server') {

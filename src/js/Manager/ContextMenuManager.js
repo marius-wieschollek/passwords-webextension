@@ -7,6 +7,7 @@ import ThemeService          from '@js/Services/ThemeService';
 import FaviconService        from '@js/Services/FaviconService';
 import AutofillRequestHelper from "@js/Helper/AutofillRequestHelper";
 import UuidHelper            from "@js/Helper/UuidHelper";
+import SearchService from "@js/Services/SearchService";
 import {subscribe} from "@js/Event/Events";
 
 class ContextMenuManager {
@@ -21,6 +22,9 @@ class ContextMenuManager {
     init() {
         if(!SystemService.hasContextMenu()) return;
         subscribe('suggestions:updated', (e) => {this._updateContextMenu(e.suggestions).catch(ErrorManager.catch);});
+        SystemService.getContextMenu().onClicked.addListener(
+            (i,t) => { this._processContextMenuClick(i,t); }
+        );
     }
 
     /**
@@ -79,9 +83,10 @@ class ContextMenuManager {
                     id      : password.getId(),
                     icons   : {16: defaultIcon},
                     title   : password.getLabel(),
-                    onclick : () => {
+                    // @TODO does this still work with firefox?
+/*                    onclick : () => {
                         this._sendPassword(password);
-                    }
+                    }*/
                 }
             );
 
@@ -120,9 +125,10 @@ class ContextMenuManager {
 
             if(data.hasOwnProperty('command')) {
                 delete data.command;
-                data.onclick = () => {
+                // @TODO does this still work with firefox?
+/*                data.onclick = () => {
                     this._openBrowserAction();
-                };
+                };*/
             }
         }
 
@@ -131,16 +137,23 @@ class ContextMenuManager {
 
     /**
      *
-     * @param {Password} password
+     * @param {(Password|String)} password
      * @private
      */
-    _sendPassword(password) {
+    _sendPassword(password, tabId = null) {
+        if(typeof password === "string") {
+            password = SearchService.get(password);
+            if(password === null) {
+                return;
+            }
+        }
+
         MessageService.send(
             {
                 type    : 'autofill.password',
                 receiver: 'client',
                 channel : 'tabs',
-                tab     : TabManager.currentTabId,
+                tab     : tabId === null ? TabManager.currentTabId:tabId,
                 payload : AutofillRequestHelper.createPasteRequest(password)
             }
         );
@@ -151,7 +164,7 @@ class ContextMenuManager {
      * @private
      */
     _openBrowserAction() {
-        SystemService.getBrowserApi().browserAction.openPopup();
+        SystemService.getBrowserAction().openPopup();
     }
 
     /**
@@ -175,6 +188,14 @@ class ContextMenuManager {
                 }
             }
         );
+    }
+
+    _processContextMenuClick(itemInfo, tab) {
+        if(itemInfo.menuItemId !== 'open-browser-action') {
+            this._sendPassword(itemInfo.menuItemId, tab.id);
+        } else {
+            this._openBrowserAction();
+        }
     }
 }
 

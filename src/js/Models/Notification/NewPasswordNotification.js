@@ -128,7 +128,7 @@ export default class NewPasswordNotification extends AbstractNotification {
         data.collected = {current: this._item.getId()};
         RegistryService.set('popup.data', data);
 
-        SystemService.getBrowserApi().browserAction.openPopup();
+        SystemService.getBrowserApi().getBrowserAction().openPopup();
     }
 
     /**

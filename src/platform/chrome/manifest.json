@@ -1,5 +1,5 @@
 {
-    "manifest_version"       : 2,
+    "manifest_version"       : 3,
     "name"                   : "__MSG_extensionName__",
     "version"                : "X.X.X.99999",
     "version_name"           : "X.X.X",
@@ -14,7 +14,7 @@
         "96" : "img/passwords-96.png",
         "128": "img/passwords-128.png"
     },
-    "browser_action"         : {
+    "action"         : {
         "default_icon" : "img/passwords-16.png",
         "default_title": "__MSG_browserActionTitle__",
         "default_popup": "html/popup.html",
@@ -28,14 +28,15 @@
         ]
     },
     "background"             : {
-        "scripts": [
-            "js/background.js"
-        ]
+        "service_worker": "js/background.js",
+        "type": "module"
     },
     "options_ui"             : {
         "page": "html/options.html"
     },
-    "content_security_policy": "script-src 'self' 'wasm-eval' blob:; object-src 'self'",
+    "content_security_policy": {
+        "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+    },
     "content_scripts"        : [
         {
             "matches"   : [
@@ -47,20 +48,29 @@
         }
     ],
     "permissions"            : [
-        "*://*/*",
         "tabs",
         "storage",
         "clipboardWrite",
         "contextMenus",
         "notifications",
         "webRequest",
-        "webRequestBlocking"
+        "declarativeNetRequestWithHostAccess"
     ],
     "optional_permissions"   : [
         "clipboardRead"
     ],
+    "declarative_net_request" : {
+        "rule_resources" : [{
+            "id": "passlink-rules",
+            "enabled": true,
+            "path": "rulesets/passlink_rules.json"
+        }]
+    },
+    "host_permissions": [
+        "*://*/*"
+    ],
     "commands": {
-      "_execute_browser_action": {
+      "_execute_action": {
           "suggested_key": {
               "default": "Alt+Shift+0"
           }

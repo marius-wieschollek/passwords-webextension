@@ -19,7 +19,7 @@ export default class Database {
     }
 
     load() {
-        let request = window.indexedDB.open(this._name, this._version);
+        let request = indexedDB.open(this._name, this._version);
 
         request.onerror = (event) => {
             ErrorManager.logError(new CouldNotOpenIndexedDbError(this._name, this._version, request.error), {event});

@@ -22,6 +22,7 @@
     import SelectField from '@vue/Components/Form/SelectField';
     import Icon from "@vue/Components/Icon";
     import LocalisationService from '@js/Services/LocalisationService';
+    import ClipboardService from "@js/Services/ClipboardService";
 
     export default {
         components: {Icon, InputField, SelectField},
@@ -135,9 +136,8 @@
         methods: {
             copy() {
                 if(this.editable) return;
-                let type = (this.type === "secret" ? "password":"text");
                 let data = this.value;
-                MessageService.send({type: 'clipboard.write', payload: {type: type, value: data}}).catch(ErrorManager.catch);
+                ClipboardService.writeText(data);
 
                 ToastService.success(['PasswordPropertyCopied', this.field.label])
                             .catch(ErrorManager.catch);

@@ -43,10 +43,11 @@ class MessageService {
      *
      * @param {Boolean} enabled
      * @param {String} defaultReceiver
+     * @param {Boolean} hasWindow
      * @returns {Promise<MessageService>}
      */
-    async init(enabled = false, defaultReceiver = null) {
-        window.messageService = this;
+    async init(enabled = false, defaultReceiver = null, hasWindow = false) {
+        if(hasWindow) window.messageService = this;
         this._sender = SystemService.getArea();
 
         if(defaultReceiver) this._defaultReceiver = defaultReceiver;
@@ -54,18 +55,18 @@ class MessageService {
         this._api.runtime.onMessage.addListener(this._messageListener);
         if(SystemService.getArea() === SystemService.AREA_BACKGROUND) {
             this._api.runtime.onConnect.addListener(this._messageEnabler);
-            this._api.browserAction.onClicked.addListener(this._messageEnabler);
+            SystemService.getBrowserAction().onClicked.addListener(this._messageEnabler);
 
-            this._connector = {
-                inboxMessage: (m) => {
-                    return this._receiveMessage(m);
-                }
-            };
-            window.inboxMessage = (m) => {
-                return this._receiveMessage(m);
-            };
+            if(hasWindow) {
+                this._connector = {
+                    inboxMessage: (m) => {
+                        return this._receiveMessage(m);
+                    }
+                };
+            }
         } else if(SystemService.getArea() !== SystemService.AREA_CLIENT) {
-            this._connector = await this._api.runtime.getBackgroundPage();
+            // @TODO check if works with firefox
+            //this._connector = await this._api.runtime.getBackgroundPage();
         }
 
         if(enabled) this.enable();

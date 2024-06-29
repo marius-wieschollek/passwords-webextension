@@ -14,11 +14,25 @@ export default new class PassLinkManager {
      *
      */
     init() {
-        SystemService.getBrowserApi().webRequest.onBeforeRequest.addListener(
-            this._beforeRequestListener,
-            {urls: ['https://link.passwordsapp.org/open/*']},
-            ['blocking']
-        );
+
+        SystemService
+            .hasPermissions({permissions: ['webRequestBlocking']})
+            .then((result) => {
+                if(result) {
+                    SystemService.getBrowserApi().webRequest.onBeforeRequest.addListener(
+                        this._beforeRequestListener,
+                        {urls: ['https://link.passwordsapp.org/open/*']},
+                        ['blocking']
+                    );
+                } else {
+
+                    SystemService.getBrowserApi().webRequest.onBeforeRequest.addListener(
+                        this._beforeRequestListener,
+                        {urls: ['https://link.passwordsapp.org/open/*']},
+                        []
+                    );
+                }
+            });
 
         SystemService.getBrowserApi().tabs.onCreated.addListener(
             (tab) => {

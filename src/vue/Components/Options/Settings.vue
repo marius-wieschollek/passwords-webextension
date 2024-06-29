@@ -18,18 +18,18 @@
             <translate tag="label" for="paste-autofill" say="SettingsPasteAutofillEnabled"/>
             <help-text type="warning" text="HelpPasteAutofill"/>
         </div>
-        <div class="setting">
+        <div class="setting v3">
             <slider-field id="paste-basic-auth" v-model="basicAuth"/>
             <translate tag="label" for="paste-basic-auth" say="SettingsPasteBasicAuth"/>
             <help-text type="warning" text="HelpPasteBasicAuth"/>
         </div>
-        <div class="setting">
-            <slider-field id="clipboard-clear-passwords" v-model="clearClipboard" @change="requestClipboardReadPermission(clearClipboard)"/>
+        <div class="setting v3">
+            <slider-field id="clipboard-clear-passwords" v-model="clearClipboard" :readonly="true"/>
             <translate tag="label" for="clipboard-clear-passwords" say="SettingsClearClipboardPasswords"/>
             <help-text type="info" text="HelpClearClipboardPasswords"/>
         </div>
-        <div class="setting">
-            <translate tag="label" for="clipboard-clear-delay" say="SettingsClearClipboardDelay"/>
+        <div class="setting v3">
+            <translate tag="label" for="clipboard-clear-delay" say="SettingsClearClipboardDelay" :readonly="true"/>
             <select-field id="clipboard-clear-delay" :options="clearClipboardDelayOptions" v-model="clearClipboardDelay" :disabled="!clearClipboard"/>
         </div>
         <div class="setting setting-textarea">
@@ -91,7 +91,6 @@
     import SliderField from "@vue/Components/Form/SliderField";
     import SelectField from "@vue/Components/Form/SelectField";
     import HelpText from "@vue/Components/Options/Setting/HelpText";
-    import ClipboardManager from '@js/Manager/ClipboardManager';
     import InputField from "@vue/Components/Form/InputField.vue";
 
 
@@ -193,9 +192,6 @@
                     ErrorManager.logError(e);
                     ToastService.error(e.message).catch(ErrorManager.catch);
                 }
-            },
-            requestClipboardReadPermission(oldValue) {
-                if(oldValue !== true) ClipboardManager.requestReadPermission();
             }
         },
 
@@ -323,6 +319,25 @@
         &.setting-textarea {
             flex-direction : column;
             align-items    : start;
+        }
+
+        &.v3 {
+            position : relative;
+
+            &:after {
+                position         : absolute;
+                top              : 0;
+                left             : 0;
+                right            : 0;
+                bottom           : 0;
+                content          : "Only available in Firefox due to Manifest V3";
+                background-color : rgba(255, 255, 255, 0.25);
+                backdrop-filter  : blur(2px);
+                text-align       : center;
+                line-height      : 3rem;
+                color            : var(--element-active-fg-color);
+                font-weight      : bold;
+            }
         }
     }
 }

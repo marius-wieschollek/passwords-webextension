@@ -51,10 +51,18 @@ class BrowserApi {
     }
 
     /**
+     *
+     * @returns {{setBadgeText: {maxArgs: number, fallbackToNoCallback: boolean, minArgs: number}, setIcon: {maxArgs: number, minArgs: number}, setPopup: {maxArgs: number, fallbackToNoCallback: boolean, minArgs: number}, getBadgeText: {maxArgs: number, minArgs: number}, getBadgeBackgroundColor: {maxArgs: number, minArgs: number}, getTitle: {maxArgs: number, minArgs: number}, disable: {maxArgs: number, fallbackToNoCallback: boolean, minArgs: number}, enable: {maxArgs: number, fallbackToNoCallback: boolean, minArgs: number}, openPopup: {maxArgs: number, minArgs: number}, setBadgeBackgroundColor: {maxArgs: number, fallbackToNoCallback: boolean, minArgs: number}, setTitle: {maxArgs: number, fallbackToNoCallback: boolean, minArgs: number}, getPopup: {maxArgs: number, minArgs: number}}}
+     */
+    getBrowserAction() {
+        return this.getBrowserApi().action;
+    }
+
+    /**
      * @return {Boolean}
      */
     hasBadgeText() {
-        return !!this.getBrowserApi().browserAction.getBadgeText;
+        return !!this.getBrowserAction().getBadgeText;
     }
 
     /**
@@ -84,6 +92,8 @@ class BrowserApi {
     }
 
     usesDarkMode() {
+        //@TODO find a new way to determine this.
+        return false;
         let matcher = window.matchMedia('(prefers-color-scheme: dark)');
         return matcher.matches;
     }

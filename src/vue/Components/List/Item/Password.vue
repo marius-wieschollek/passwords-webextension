@@ -32,6 +32,7 @@
     import Translate from '@vue/Components/Translate';
     import PasswordMenu from '@vue/Components/List/Item/Menu/PasswordMenu';
     import PasswordView from '@vue/Components/Password/View';
+    import ClipboardService from "@js/Services/ClipboardService";
 
     export default {
         components: {PasswordMenu, Translate, Favicon, Icon, PasswordView},
@@ -128,9 +129,8 @@
                 }
             },
             copy(property) {
-                let data = this.password.getProperty(property),
-                    type = property === 'password' ? 'password':'text';
-                MessageService.send({type: 'clipboard.write', payload: {type, value: data}}).catch(ErrorManager.catch);
+                let data = this.password.getProperty(property);
+                ClipboardService.writeText(data);
 
                 let label = property.capitalize();
                 if(['password', 'username', 'url'].indexOf(property) !== -1) {
