@@ -24,12 +24,12 @@
             <help-text type="warning" text="HelpPasteBasicAuth"/>
         </div>
         <div class="setting">
-            <slider-field id="clipboard-clear-passwords" v-model="clearClipboard" @change="requestClipboardReadPermission(clearClipboard)"/>
+            <slider-field id="clipboard-clear-passwords" v-model="clearClipboard" :readonly="true"/>
             <translate tag="label" for="clipboard-clear-passwords" say="SettingsClearClipboardPasswords"/>
             <help-text type="info" text="HelpClearClipboardPasswords"/>
         </div>
         <div class="setting">
-            <translate tag="label" for="clipboard-clear-delay" say="SettingsClearClipboardDelay"/>
+            <translate tag="label" for="clipboard-clear-delay" say="SettingsClearClipboardDelay" :readonly="true"/>
             <select-field id="clipboard-clear-delay" :options="clearClipboardDelayOptions" v-model="clearClipboardDelay" :disabled="!clearClipboard"/>
         </div>
         <div class="setting setting-textarea">
@@ -91,7 +91,6 @@
     import SliderField from "@vue/Components/Form/SliderField";
     import SelectField from "@vue/Components/Form/SelectField";
     import HelpText from "@vue/Components/Options/Setting/HelpText";
-    import ClipboardManager from '@js/Manager/ClipboardManager';
     import InputField from "@vue/Components/Form/InputField.vue";
 
 
@@ -193,9 +192,6 @@
                     ErrorManager.logError(e);
                     ToastService.error(e.message).catch(ErrorManager.catch);
                 }
-            },
-            requestClipboardReadPermission(oldValue) {
-                if(oldValue !== true) ClipboardManager.requestReadPermission();
             }
         },
 

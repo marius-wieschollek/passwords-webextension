@@ -27,6 +27,7 @@
     import LocalisationService from '@js/Services/LocalisationService';
     import SettingsService from '@js/Services/SettingsService';
     import Icon from "@vue/Components/Icon";
+    import ClipboardService from "@js/Services/ClipboardService";
 
     export default {
         components: {Icon, InputField, SliderField},
@@ -140,7 +141,7 @@
         methods: {
             copy(property) {
                 let data = this.field.value;
-                MessageService.send({type: 'clipboard.write', payload: {type: this.field.type, value: data}}).catch(ErrorManager.catch);
+                ClipboardService.writeText(data);
 
                 let label = LocalisationService.translate(`Label${property.capitalize()}`);
                 ToastService.success(['PasswordPropertyCopied', label])

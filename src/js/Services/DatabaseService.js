@@ -63,7 +63,7 @@ export default new class DatabaseService {
                 return;
             }
 
-            let testDb = window.indexedDB.open('always_private_test');
+            let testDb = indexedDB.open('always_private_test');
             testDb.onerror = () => {
                 this._canUsePersistentDb = false;
                 resolve(false);

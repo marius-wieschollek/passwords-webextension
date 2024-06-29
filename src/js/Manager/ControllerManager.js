@@ -334,13 +334,6 @@ class ControllerManager {
             }
         );
         MessageService.listen(
-            'clipboard.write',
-            async (message, reply) => {
-                let module = await import(/* webpackChunkName: "WriteClipboard" */ '@js/Controller/Clipboard/WriteClipboard');
-                await this._executeController(module, message, reply);
-            }
-        );
-        MessageService.listen(
             'firstrun.settings',
             async (message, reply) => {
                 let module = await import(/* webpackChunkName: "FirstRunGetSettings" */ '@js/Controller/Popup/FirstRun/GetSettings');

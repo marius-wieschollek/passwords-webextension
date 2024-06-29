@@ -71,6 +71,7 @@
     import SliderField from '@vue/Components/Form/SliderField';
     import SettingsService from '@js/Services/SettingsService';
     import ButtonField from "@vue/Components/Form/ButtonField.vue";
+    import ClipboardService from "@js/Services/ClipboardService";
 
     export default {
         components: {ButtonField, SliderField, Icon, Translate},
@@ -205,7 +206,7 @@
                 $event.currentTarget.parentNode.classList.toggle('open');
             },
             copy(error) {
-                navigator.clipboard.writeText(JSON.stringify(error));
+                ClipboardService.writeText(JSON.stringify(error));
 
                 ToastService
                     .success('DebugErrorDataCopied')

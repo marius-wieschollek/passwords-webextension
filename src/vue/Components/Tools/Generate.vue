@@ -39,6 +39,7 @@
     import SelectField         from '@vue/Components/Form/SelectField';
     import MessageService      from '@js/Services/MessageService';
     import SettingsService     from '@js/Services/SettingsService';
+    import ClipboardService from "@js/Services/ClipboardService";
 
     export default {
         components: {SelectField, Translate, SliderField, Icon},
@@ -101,7 +102,7 @@
             copy() {
                 let data  = this.password,
                     label = LocalisationService.translate('PropertyPassword');
-                MessageService.send({type: 'clipboard.write', payload: {type: 'password', value: data}}).catch(ErrorManager.catch);
+                ClipboardService.writeText(data);
 
                 ToastService
                     .success(['PasswordPropertyCopied', label])

@@ -20,9 +20,7 @@ export default new class BasicAuthAutofillManager {
             return;
         }
 
-
         let api = SystemService.getBrowserApi();
-
         this._setting = await SettingsService.get('paste.basic-auth');
 
         api.webRequest.onAuthRequired.addListener(
