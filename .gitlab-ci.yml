@@ -52,6 +52,8 @@ Compile Chrome:
   only:
     - stable
     - testing
+    - v3/stable
+    - v3/testing
 
 Publish Nightly Firefox:
   stage: publishing
@@ -86,7 +88,7 @@ Publish Nightly Chrome:
   environment:
     name: Testing
   only:
-    - testing
+    - v3/testing
 
 Publish Nightly Edge:
   stage: publishing
@@ -101,7 +103,7 @@ Publish Nightly Edge:
   environment:
     name: Testing
   only:
-    - testing
+    - v3/testing
 
 Publish Stable Firefox:
   stage: publishing
@@ -121,7 +123,7 @@ Publish Stable Chrome:
   environment:
     name: Stable
   only:
-    - stable
+    - v3/stable
 
 Publish Stable Edge:
   stage: publishing
@@ -134,4 +136,4 @@ Publish Stable Edge:
   environment:
     name: Stable
   only:
-    - stable
+    - v3/stable
