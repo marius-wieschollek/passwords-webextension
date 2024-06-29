@@ -93,7 +93,7 @@ export default new class AutofillManager {
         url = Url(url);
 
         let domains = this._ingoredDomainsSetting?.getValue();
-        if(domains.length === 0) return true;
+        if(domains.length === 0) return false;
 
         domains = domains.split(/\r?\n/);
         for(let domain of domains) {
