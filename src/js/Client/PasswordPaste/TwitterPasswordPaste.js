@@ -3,10 +3,7 @@ import AbstractPasswordPaste from "@js/Client/PasswordPaste/AbstractPasswordPast
 export default class TwitterPasswordPaste extends AbstractPasswordPaste {
 
     canHandle() {
-        return (
-                   location.href.startsWith('https://twitter.com/') ||
-                   location.href.startsWith('https://x.com/')
-               ) &&
+        return location.href.startsWith('https://x.com/') &&
                (
                    (
                        !this._passwordPasteRequest.isAutofill() &&
@@ -20,7 +17,7 @@ export default class TwitterPasswordPaste extends AbstractPasswordPaste {
         if(document.querySelector('input[name="password"]') === null) {
             let userInput;
             try {
-                let time = (location.href === 'https://twitter.com/i/flow/login' || location.href === 'https://x.com/i/flow/login') ? 10000:1000;
+                let time = location.href === 'https://x.com/i/flow/login' ? 10000:1000;
                 userInput = await this._waitForElement('input[autocomplete="username"]', time);
             } catch(e) {
                 if(this._passwordPasteRequest.isAutofill()) {
