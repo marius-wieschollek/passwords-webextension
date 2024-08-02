@@ -50,8 +50,6 @@ Compile Chrome:
     paths:
       - ./dist/chrome-extension
   only:
-    - stable
-    - testing
     - v3/stable
     - v3/testing
 
