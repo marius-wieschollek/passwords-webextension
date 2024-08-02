@@ -9,7 +9,7 @@ import RegistryService from "@js/Services/RegistryService";
 export default class ServerRequirementCheck {
 
     get MINIMUM_APP_VERSION() {
-        return [2023, 7];
+        return [2023, 12];
     }
 
     get WARNING_APP_VERSION() {

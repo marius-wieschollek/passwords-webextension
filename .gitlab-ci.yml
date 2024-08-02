@@ -91,13 +91,11 @@ Publish Nightly Chrome:
 Publish Nightly Edge:
   stage: publishing
   script:
-    - 'export EXT_VERSION=$(node -p "require(\"./dist/chrome-extension/manifest.json\").version")'
-    - 'PACKAGE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/passwords-webextension-nightly/latest/edge-webextension-${EXT_VERSION}.zip"'
+    - 'npm ci'
     - 'cd dist/chrome-extension'
     - 'zip -r -9 ../../edge-extension.zip ./*'
     - 'cd ../../'
-    - 'curl --retry 5 --retry-all-errors --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./edge-extension.zip "${PACKAGE_URL}"'
-    - 'echo "Edge Extension package available at ${PACKAGE_URL}"'
+    - 'npm run edge:publish'
   environment:
     name: Testing
   only:
