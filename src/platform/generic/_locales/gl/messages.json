@@ -1,1 +1,266 @@
-{}
+{
+    "extensionName": {
+        "message": "Extensión de navegador de Contrasinais para Nextcloud",
+        "description": "Name of the extension."
+    },
+    "SettingsAutofillIgnoredDomains": {
+        "message": "Ignorar estes dominios (un por liña, tamén se ignoran os subdominios)",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not autofill passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "extensionDescription": {
+        "message": "A extensión de navegador oficial de Contrasinais para Nextcloud",
+        "description": "Description of the extension."
+    },
+    "locale": {
+        "message": "gl",
+        "description": "The language tag of this translation. Same as the folder name"
+    },
+    "browserActionTitle": {
+        "message": "Contrasinais",
+        "description": "Title of the button in the browser bar"
+    },
+    "contextMenuTitle": {
+        "message": "Contrasinais",
+        "description": "Title of the context menu item"
+    },
+    "BrowserActionTitleCounter": {
+        "message": "Contrasinais ($COUNTER$)",
+        "description": "Title of the button in the browser bar with suggestion counter",
+        "placeholders": {
+            "counter": {
+                "content": "$1",
+                "example": "2"
+            }
+        }
+    },
+    "MigrationAccountName": {
+        "message": "Conta de Nextcloud",
+        "description": "Label assigned to the account used by the v1.x migration"
+    },
+    "PrivatePasswordsFolderLabel": {
+        "message": "Contrasinais privados",
+        "description": "Label assigned to the hidden folder for private passwords. (folder is only visible when browsing in private mode)"
+    },
+    "SettingsTabAccounts": {
+        "message": "Contas",
+        "description": "Label of the user accounts tab in the extension settings"
+    },
+    "SettingsTabTheming": {
+        "message": "Temas",
+        "description": "Label of the themes tab in the extension settings"
+    },
+    "SettingsTabOther": {
+        "message": "Outros axustes",
+        "description": "Label of the general settings tab in the extension settings"
+    },
+    "SettingsTabDebug": {
+        "message": "Depuración",
+        "description": "Label of the extension debugging tab in the extension settings"
+    },
+    "SettingsAccountsMain": {
+        "message": "Conta predeterminada para contrasinais novos",
+        "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
+    },
+    "AutofillSettings": {
+        "message": "Pegado de credenciais",
+        "description": "Headline above the password autofill section in the other settings tab in the extension settings"
+    },
+    "SettingsPastePopupClose": {
+        "message": "Pechar a xanela emerxente após pegar as credenciais",
+        "description": "Label of the setting in the extension settings to automatically close the extension popup after successful pasting"
+    },
+    "SettingsPasteWarnCompromised": {
+        "message": "Advertir cando se empreguen credenciais comprometidas",
+        "description": "Label of the setting in the extension settings to show a warning after pasting a compromised password"
+    },
+    "SettingsPasteAutofillEnabled": {
+        "message": "Encher automaticamente os datos de acceso que correspondan",
+        "description": "Label of the setting in the extension settings to automatically paste the first recommended credential into login forms"
+    },
+    "SettingsPasteBasicAuth": {
+        "message": "Responder automaticamente ás solicitudes de autenticación básica HTTP",
+        "description": "Label of the setting in the extension settings to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "HelpPasteBasicAuth": {
+        "message": "Responde automaticamente ás solicitudes de autenticación básica http coa primeira credencial suxerida. Teña en conta que isto pode expoñer as credenciais a servidores pouco fiábeis.",
+        "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "SettingsClearClipboardPasswords": {
+        "message": "Eliminar automaticamente os contrasinais do portapapeis",
+        "description": "Label of the setting in the extension settings to automatically clear passwords from clipboard after a certain time."
+    },
+    "SettingsClearClipboardDelay": {
+        "message": "Baleirar o portapapeis após",
+        "description": "Label of the setting in the extension settings to define the time when the clipboard content will be removed."
+    },
+    "SettingsClipboardClearDelayOptions": {
+        "message": "$ROW$ segundos",
+        "description": "Time in seconds until clipboard will get empty.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 15, 30, 45, 60, 90"
+            }
+        }
+    },
+    "SettingsNotifyPasswordNew": {
+        "message": "Notificación de contrasinais novos",
+        "description": "Label of the setting in the extension settings to enable or disable the notification for new detected passwords"
+    },
+    "SettingsNotifyPasswordQuicksave": {
+        "message": "Gardar ou actualizar os contrasinais directamente cando se preme na notificación",
+        "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"
+    },
+    "SearchSettings": {
+        "message": "Buscar",
+        "description": "Headline above the search section in the other settings tab in the extension settings"
+    },
+    "SettingsMiningIgnoredDomainsPlaceholder": {
+        "message": "p. ex. example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "SettingsAutofillIgnoredDomainsPlaceholder": {
+        "message": "p. ex. example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "PasswordMiningSettings": {
+        "message": "Contrasinais novos e modificados",
+        "description": "Headline above the password mining section in the other settings tab in the extension settings"
+    },
+    "SettingsMiningIgnoredDomains": {
+        "message": "Ignorar estes dominios (un por liña, tamén se ignoran os subdominios)",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not detect new or changed passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "TabRelated": {
+        "message": "Suxestións",
+        "description": "Label of the related passwords tab in the extension popup"
+    },
+    "SettingsMiningIncognitoHide": {
+        "message": "Almacenar os contrasinais recompilados en Incógnito como contrasinais privados",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "AccountList": {
+        "message": "Contas de usuario",
+        "description": "Headline above the user accounts section in the accounts tab in the extension settings"
+    },
+    "NoAccounts": {
+        "message": "Aínda non hai contas. Prema aquí para crear unha.",
+        "description": "Message in place of the user accounts list in the extension settings if there are no user accounts yet. The user can click the message to create an account"
+    },
+    "FirstRunServerCheckTitle": {
+        "message": "Comprobando o servidor",
+        "description": "Title of the first run wizard settings page while data is loaded from the server"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "Personalizar a extensión",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "LabelGeneratorStrengthUltra": {
+        "message": "Máxima",
+        "description": "Label of the very high (4) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthLow": {
+        "message": "Baixa",
+        "description": "Label of the low (0) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthStandard": {
+        "message": "Estándar",
+        "description": "Label of the default (1) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthMedium": {
+        "message": "Media",
+        "description": "Label of the medium (2) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthHigh": {
+        "message": "Alta",
+        "description": "Label of the high (3) strength option for the password generator in the tools tab"
+    },
+    "LabelGenerateAddSpecial": {
+        "message": "Símbolos",
+        "description": "Label of the option to include special characters in the password generator in the tools tab"
+    },
+    "LabelGenerateStrength": {
+        "message": "Fortaleza",
+        "description": "Label of the option to set the strength in the password generator in the tools tab"
+    },
+    "LabelGenerateAddNumbers": {
+        "message": "Números",
+        "description": "Label of the option to include numbers in the password generator in the tools tab"
+    },
+    "GeneratedPasswordPlaceholder": {
+        "message": "Contrasinal xerado",
+        "description": "Placeholder of the field for the generated password in the tools tab of the popup"
+    },
+    "ToolsTabGeneratePassword": {
+        "message": "Xerar contrasinal",
+        "description": "Label of the generate password section in the tools tab of the popup"
+    },
+    "ToolsTabDebugTools": {
+        "message": "Ferramentas de depuración",
+        "description": "Label of the debugging tools section in the tools tab of the popup"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Gardar",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
+    },
+    "SettingsPasteFormSubmit": {
+        "message": "Enviar formularios de acceso cando se peguen as credenciais dende a xanela emerxente",
+        "description": "Label of the setting in the extension settings to automatically submit login forms after pasting"
+    },
+    "NotificationSettings": {
+        "message": "Notificacións",
+        "description": "Headline above the notification section in the other settings tab in the extension settings (!Currently Unused)"
+    },
+    "DebugResetStatisticsTitle": {
+        "message": "Restabelece as estatísticas de uso recompiladas utilizadas para recomendar credenciais na lapela relacionada",
+        "description": "Help title text of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "UserAgent": {
+        "message": "Cliente oficial de Contrasinais para $BROWSER$ en $OS$",
+        "description": "The user agent used for api requests. Only ASCII characters allowed: 0-9, A-Z, a-z. No special characters or non latin characters like ä,á,ã or ß",
+        "placeholders": {
+            "browser": {
+                "content": "$1",
+                "example": "Firefox"
+            },
+            "os": {
+                "content": "$2",
+                "example": "Linux"
+            }
+        }
+    },
+    "SettingsNotifyPasswordUpdate": {
+        "message": "Notificación de contrasinais actualizados",
+        "description": "Label of the setting in the extension settings to enable or disable the notification for detected password updates"
+    },
+    "SettingsPopupRelatedSearch": {
+        "message": "Comezar a busca cando escriba en «Relacionado»",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "ServerTimeoutOptionMinutes": {
+        "message": "Após $MINUTES$ minutos",
+        "description": "Label of the option for the server timeout to expire after a given amount of minutes",
+        "placeholders": {
+            "minutes": {
+                "content": "$1",
+                "example": "One of 5, 10, 15 30 or 60"
+            }
+        }
+    },
+    "HelpPasteAutofill": {
+        "message": "Pega automaticamente a primeira credencial suxerida en calquera formulario de acceso da lapela. Teña en conta que isto fai que sexa accesíbel calquera script da lapela.",
+        "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
+    },
+    "HelpClearClipboardPasswords": {
+        "message": "O portapapeis só se limpará se o navegador aínda está aberto. Se se concede o permiso opcional para ler o portapapeis, só se limpará se o contrasinal aínda está alí.",
+        "description": "Help text in the extension settings for the setting to automatically clean passwords from clipboard after a certain time."
+    },
+    "NoRelatedPasswords": {
+        "message": "Non atopou ningún contrasinal relacionado",
+        "description": "Used in the related tab when no entries match the current website"
+    },
+    "FirstRunSetupManually": {
+        "message": "Conectar manualmente",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    }
+}
