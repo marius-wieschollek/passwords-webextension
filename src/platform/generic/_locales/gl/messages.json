@@ -262,5 +262,87 @@
     "FirstRunSetupManually": {
         "message": "Conectar manualmente",
         "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "NewAccountFormLabel": {
+        "message": "Crear conta",
+        "description": "Label of the new account form in the extension settings"
+    },
+    "ServerSaveTitle": {
+        "message": "Conta gardada",
+        "description": "Title of the toast notification in the extension settings after an account was created or updated successfully"
+    },
+    "ServerSaveMessage": {
+        "message": "Todos os cambios aplicáronse correctamente",
+        "description": "Message of the toast notification in the extension settings after an account was created successfully"
+    },
+    "ServerCreatedMessage": {
+        "message": "Foi creada a conta e está lista para ser usada",
+        "description": "Message of the toast notification in the extension settings after an account was updated successfully"
+    },
+    "ServerSaveErrorTitle": {
+        "message": "Produciuse un fallo ao gardar",
+        "description": "Title of the toast notification in the extension settings after an account could not be updated or saved. The message will be the specific error message"
+    },
+    "ServerDisabledWarning": {
+        "message": "Esta conta está desactivada. Activarase após que se garde correctamente.",
+        "description": "Warning message which appears above the account details if the server was disabled. Usual reasons are invalid login data, unsupported extension version or permanent connection issues."
+    },
+    "ServerLabel": {
+        "message": "Nome",
+        "description": "Label of the account name field in account details in the extension settings"
+    },
+    "ServerBaseUrl": {
+        "message": "URL",
+        "description": "Label of the server url field in account details in the extension settings"
+    },
+    "ServerUser": {
+        "message": "Usuario",
+        "description": "Label of the account login user field in account details in the extension settings"
+    },
+    "ServerToken": {
+        "message": "Contrasinal da aplicación",
+        "description": "Label of the account login token field in account details in the extension settings"
+    },
+    "ServerTokenChange": {
+        "message": "Cambiar o contrasinal da aplicación",
+        "description": "Label of the button to change the login token of an existing account in the account details in the extension settings"
+    },
+    "ServerTimeout": {
+        "message": "Saír após",
+        "description": "Label of the option to change the automatic logout time of an existing account in the account details in the extension settings"
+    },
+    "ServerTimeoutOptionNever": {
+        "message": "Nunca",
+        "description": "Label of the option for the server timeout to never expire"
+    },
+    "TabSearch": {
+        "message": "Buscar",
+        "description": "Label of the search tab in the extension popup"
+    },
+    "TabBrowse": {
+        "message": "Navegar",
+        "description": "Label of the browse servers tab in the extension popup"
+    },
+    "TabCollected": {
+        "message": "Recompilado",
+        "description": "Label of the new collected passwords tab in the extension popup"
+    },
+    "TabTools": {
+        "message": "Ferramentas",
+        "description": "Label of the tools tab in the extension popup"
+    },
+    "PasswordItemTitle": {
+        "message": "Estado: $STATUS$, ID: #$ID$",
+        "description": "The tooltip of any password entry in the popup",
+        "placeholders": {
+            "id": {
+                "content": "$1",
+                "example": "1234-1234-1234-1234"
+            },
+            "status": {
+                "content": "$2",
+                "example": "DUPLICATE"
+            }
+        }
     }
 }
