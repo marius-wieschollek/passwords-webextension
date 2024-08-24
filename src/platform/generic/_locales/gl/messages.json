@@ -308,7 +308,7 @@
         "description": "Label of the button to change the login token of an existing account in the account details in the extension settings"
     },
     "ServerTimeout": {
-        "message": "Saír após",
+        "message": "Pechar após",
         "description": "Label of the option to change the automatic logout time of an existing account in the account details in the extension settings"
     },
     "ServerTimeoutOptionNever": {
@@ -344,5 +344,357 @@
                 "example": "DUPLICATE"
             }
         }
+    },
+    "PasswordItemOpenUrl": {
+        "message": "Abrir o sitio web",
+        "description": "Title of the menu option to open the password url in a new tab"
+    },
+    "PasswordItemToTrash": {
+        "message": "Mover ao lixo",
+        "description": "Title of the menu option to move a password to the trash"
+    },
+    "PasswordItemDetails": {
+        "message": "Ver detalles",
+        "description": "Title of the menu option to view and edit a password"
+    },
+    "ValidationLabel": {
+        "message": "etiqueta",
+        "description": "Name of the account label field in account validation message. This value is used when the user attempts to save an account with an invalid label"
+    },
+    "ValidationUser": {
+        "message": "usuario",
+        "description": "Name of the account username field in account validation message. This value is used when the user attempts to save an account with an invalid username"
+    },
+    "ValidationBaseUrl": {
+        "message": "url base",
+        "description": "Name of the account base url field in account validation message. This value is used when the user attempts to save an account with an invalid base url"
+    },
+    "ValidationNotEmpty": {
+        "message": "O campo $FIELD$ non pode estar baleiro.",
+        "description": "Validation message when the user attempts to save something (like an account) but a required field is empty.",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            }
+        }
+    },
+    "ValidationMinLength": {
+        "message": "O campo $FIELD$ debe ter polo menos $MIN$ caracteres.",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is shorter than required",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "min": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationMaxLength": {
+        "message": "O campo $FIELD$ debe ter menos de $MAX$ caracteres.",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is longer than allowed",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "max": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationFailed": {
+        "message": "Validación fallada.",
+        "description": "Validation message when the user attempts to save something (like an account) but there were validation errors"
+    },
+    "ValidationNotAnUrl": {
+        "message": "O URL base debe ser un URL válido.",
+        "description": "Validation message when the user attempts to save an account but the server url is not a valid url"
+    },
+    "ValidationNotAToken": {
+        "message": "O contrasinal da aplicación debe ser un contrasinal de aplicación Nextcloud válido.",
+        "description": "Validation message when the user attempts to save an account but the token does not match the Nextcloud token schema"
+    },
+    "ValidationDuplicate": {
+        "message": "Xa hai unha conta para este usuario neste Nextcloud.",
+        "description": "Validation message when the user attempts to save a new account, but a similar account with the same server and same user name already exists"
+    },
+    "ValidationUnauthorizedError": {
+        "message": "O servidor en $URL$ non aceptou os datos de acceso.",
+        "description": "Validation message when the user attempts to save an account but the server did not accept the user name and token",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationHttpError": {
+        "message": "Ao tentar conectarse a $URL$ produciuse o erro $ERROR$.",
+        "description": "Validation message when the user attempts to save an account but the server responded with an unexpected HTTP status code",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "HTTP 401 - Forbidden"
+            }
+        }
+    },
+    "ValidationNoConnection": {
+        "message": "Non foi posíbel conectarse a $URL$.",
+        "description": "Validation message when the user attempts to save an account but it is not possible to connect to this server with the given url",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationServerVersion": {
+        "message": "A versión da aplicación instalada no servidor está desactualizada.",
+        "description": "Validation message when the user attempts to save an account but the version of the passwords app installed on the server is outdated"
+    },
+    "TitleClickToEdit": {
+        "message": "Prema dúas veces para editar",
+        "description": "Tooltip used in the collected password form for any property of the password to inform the user that double clicking makes the text field editable"
+    },
+    "TitleEnterToExit": {
+        "message": "Prema Intro para gardar",
+        "description": "Tooltip used in the collected password form to tell the user that the property can be saved by clicking enter"
+    },
+    "NoSearchResults": {
+        "message": "Non foi atopado ningún contrasinal que coincida coa súa consulta",
+        "description": "Used in the search tab when no entries match the search query"
+    },
+    "NoSearchQuery": {
+        "message": "Escriba na caixa de busca para atopar contrasinais",
+        "description": "Used in the search tab when there is no search query"
+    },
+    "NoCollectedPasswords": {
+        "message": "Non se atoparon contrasinais novos",
+        "description": "Used in the collected tab when no new passwords have been found"
+    },
+    "AddPasswordForCurrentTab": {
+        "message": "Engadir credenciais para a lapela actual",
+        "description": "Used in the collected tab for the option to add a blank entry with just the url of the current tab"
+    },
+    "NoServerItems": {
+        "message": "Non se atopou ningún elemento",
+        "description": "Used in the browse tab when a server has no entries to list"
+    },
+    "BrowseNoServers": {
+        "message": "Non hai servidores dispoñíbeis",
+        "description": "Used in the browse tab when no accounts/servers are available"
+    },
+    "SearchPlaceholder": {
+        "message": "Atopar contrasinais",
+        "description": "Placeholder text of the search box"
+    },
+    "MiningItemIsNew": {
+        "message": "Este é un contrasinal novo",
+        "description": "Text shown in a collected password that is new to tell the user that it is a new passwor"
+    },
+    "LabelLabel": {
+        "message": "Nome",
+        "description": "Label for the name of a password entry"
+    },
+    "LabelPassword": {
+        "message": "Contrasinal",
+        "description": "Label for the password of a password entry"
+    },
+    "LabelUsername": {
+        "message": "Usuario",
+        "description": "Label for the username of a password entry"
+    },
+    "LabelHidden": {
+        "message": "Contrasinal privado",
+        "description": "Label for the checkbox to mark a password entry as private or hidden in the webapp"
+    },
+    "LabelUrl": {
+        "message": "URL",
+        "description": "Label for of a field that contains an url (used in collected password or server info)"
+    },
+    "LabelUser": {
+        "message": "Usuario",
+        "description": "Label for the username of in the server info in the browse tab"
+    },
+    "LabelPasswords": {
+        "message": "Contrasinais",
+        "description": "Label for the password count in the server info in the browse tab"
+    },
+    "LabelFolders": {
+        "message": "Cartafoles",
+        "description": "Label for the folder count in the server info in the browse tab"
+    },
+    "LabelFolder": {
+        "message": "Cartafol",
+        "description": "Label for the folder of this password."
+    },
+    "LabelCreated": {
+        "message": "Creado",
+        "description": "Label for the creation time of this password."
+    },
+    "LabelEdited": {
+        "message": "Modificado",
+        "description": "Label for the last edit time of this password."
+    },
+    "LabelNotes": {
+        "message": "Notas",
+        "description": "Label for the notes of this password."
+    },
+    "LabelServerVersion": {
+        "message": "Servidor",
+        "description": "Label for the nextcloud server version in the server info in the browse tab"
+    },
+    "LabelAppVersion": {
+        "message": "API",
+        "description": "Label for the passwords app version in the server info in the browse tab"
+    },
+    "AppLabelString": {
+        "message": "Contrasinais $VERSION$",
+        "description": "Value for the passwords app version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "PlaceholderPassword": {
+        "message": "Contrasinal",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
+    },
+    "PlaceholderToken": {
+        "message": "Testemuño de dous factores",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
+    },
+    "ButtonLogin": {
+        "message": "Acceso",
+        "description": "The text of the login button of the server authorization dialog"
+    },
+    "AuthorizationFailedTitle": {
+        "message": "Autorización fallada",
+        "description": "Title of the toast notification when the login attempt was unsuccessful"
+    },
+    "AuthorizationFailedText": {
+        "message": "Foi denegado o acceso á base de datos de contrasinais co acceso fornecido",
+        "description": "Text of the toast notification when the login attempt was unsuccessful"
+    },
+    "NotifyNewPasswordTitle": {
+        "message": "Foi detectado un novo contrasinal",
+        "description": "Title of the system notification when a new password was detected"
+    },
+    "NotifyNewPasswordText": {
+        "message": "Foi detectado un novo contrasinal para «$LABEL$».",
+        "description": "Text of the system notification when a new password was detected. Used in Chrome where the notification has buttons to save or view the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "ButtonSave": {
+        "message": "Gardar",
+        "description": "The save button of a password detection system notification"
+    },
+    "ButtonMore": {
+        "message": "Máis opcións",
+        "description": "The more options button of a password detection system notification which opens the popup with the form which shows all password details"
+    },
+    "ButtonClose": {
+        "message": "Pechar",
+        "description": "The title of the close button of a toast notification"
+    },
+    "ToastServerCheckTitle": {
+        "message": "É necesario actualizar $SERVER$",
+        "description": "Title of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "PropertyPassword": {
+        "message": "Contrasinal",
+        "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
+    },
+    "PropertyUrl": {
+        "message": "Sitio web",
+        "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
+    },
+    "SettingsThemeId": {
+        "message": "Tema activo",
+        "description": "Label of the option to choose the current theme in the extension settings"
+    },
+    "ThemeDark": {
+        "message": "Tema escuro",
+        "description": "Label of the dark theme"
+    },
+    "ValidationToken": {
+        "message": "contrasinal da aplicación",
+        "description": "Name of the account token field in account validation message. This value is used when the user attempts to save an account with an invalid token"
+    },
+    "ValidationInvalidTimeout": {
+        "message": "O tempo de peche debe ser unha das opcións indicadas.",
+        "description": "Validation message when the user attempts to save an account but the timeout is not within the predefined range"
+    },
+    "ValidationConnectionError": {
+        "message": "Ao tentar conectarse a $URL$ produciuse o erro $ERROR$.",
+        "description": "Validation message when the user attempts to save an account but the connection attempt resulted in any kind of error (including internal extension errors)",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "Undefined variable example in file"
+            }
+        }
+    },
+    "LabelCustomFields": {
+        "message": "Campos personalizados",
+        "description": "Label for the custom fields of this password"
+    },
+    "LabelTags": {
+        "message": "Etiquetas",
+        "description": "Label for the tag count in the server info in the browse tab"
+    },
+    "ServerLabelString": {
+        "message": "Nextcloud $VERSION$",
+        "description": "Value for the nextcloud server version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "PropertyUsername": {
+        "message": "Nome de usuario",
+        "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
+    },
+    "MiningItemIsUpdate": {
+        "message": "Esta semella ser unha actualización de «$PASSWORD$»",
+        "description": "Text shown in a collected password that is an update of an existing password",
+        "placeholders": {
+            "password": {
+                "content": "$1",
+                "example": "My Password"
+            }
+        }
+    },
+    "TokenRequestFailed": {
+        "message": "Produciuse un fallo na solicitude de testemuño",
+        "description": "Title of the toast notification when the request for a two factor auth token failed. The text will be the error message."
     }
 }
