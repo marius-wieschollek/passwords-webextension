@@ -981,5 +981,145 @@
     "CustomDefaultElement": {
         "message": "Elemento predeterminado",
         "description": "Headline for the default element styling settings in the custom theme settings"
+    },
+    "CustomButtons": {
+        "message": "Botóns",
+        "description": "Headline for the button styling settings in the custom theme settings"
+    },
+    "CustomSliderElement": {
+        "message": "Interruptores",
+        "description": "Headline for the switch styling settings in the custom theme settings"
+    },
+    "CustomBadge": {
+        "message": "Icona do navegador",
+        "description": "Headline for the browser toolbar icon styling settings in the custom theme settings"
+    },
+    "BackgroundColorLabel": {
+        "message": "Cor do fondo",
+        "description": "Label of background color options in the custom theme settings"
+    },
+    "ForegroundColorLabel": {
+        "message": "Cor do primeiro plano",
+        "description": "Label of foreground / text color options in the custom theme settings"
+    },
+    "BorderColorLabel": {
+        "message": "Cor do Bordo",
+        "description": "Label of border color options in the custom theme settings"
+    },
+    "BackgroundInheritLabel": {
+        "message": "Herdar o fondo",
+        "description": "Label of options to inherit the background color in the custom theme settings"
+    },
+    "ForegroundInheritLabel": {
+        "message": "Herdar primeiro plano",
+        "description": "Label of options to inherit the foreground / text color in the custom theme settings"
+    },
+    "BackgroundColorBaseTitle": {
+        "message": "Esta cor adoita usarse para o fondo",
+        "description": "Tooltip of the color input field in the custom theme settings for the default background color for an element"
+    },
+    "CustomToasts": {
+        "message": "Notificacións emerxentes",
+        "description": "Headline for the toast notification styling settings in the custom theme settings"
+    },
+    "FontDefault": {
+        "message": "Predeterminada",
+        "description": "Label of the default font option in the custom theme settings"
+    },
+    "FontMono": {
+        "message": "Monoespazada",
+        "description": "Label of the monospaced font option in the custom theme settings"
+    },
+    "FontSerif": {
+        "message": "Serifas",
+        "description": "Label of the serif style (like Times New Roman) font option in the custom theme settings"
+    },
+    "FontSans": {
+        "message": "Sen serifas",
+        "description": "Label of the sans serif (like Arial) font option in the custom theme settings"
+    },
+    "FontLight": {
+        "message": "Lixeira",
+        "description": "Label of the thin font option in the custom theme settings"
+    },
+    "FontNextcloud": {
+        "message": "Nextcloud",
+        "description": "Label of the Nextcloud font option in the custom theme settings"
+    },
+    "FontOpenDyslexic": {
+        "message": "Dislexica aberta",
+        "description": "Label of the open dyslexic font option in the custom theme settings. This font is good for users with dyslexia"
+    },
+    "FontCustom": {
+        "message": "Personalizada",
+        "description": "Label for unrecognized fonts in the custom theme settings. This option is usually not shown"
+    },
+    "SettingsCustomFontSize": {
+        "message": "Tamaño da letra",
+        "description": "Label of the font size setting in the custom theme settings"
+    },
+    "FontSizeVerySmall": {
+        "message": "Moi pequeno",
+        "description": "Label for the very small font size in the custom theme settings"
+    },
+    "FontSizeSmall": {
+        "message": "Pequeno",
+        "description": "Label for the small font size in the custom theme settings"
+    },
+    "FontSizeMedium": {
+        "message": "Medio",
+        "description": "Label for the medium font size in the custom theme settings"
+    },
+    "FontSizeLarge": {
+        "message": "Grande",
+        "description": "Label for the large font size in the custom theme settings"
+    },
+    "FontSizeVeryLarge": {
+        "message": "Moi grande",
+        "description": "Label for the very large font size in the custom theme settings"
+    },
+    "ToastWarningColors": {
+        "message": "Mensaxe emerxente de advertencia",
+        "description": "Label of the setting in the custom theme settings to choose the colors of warning toast notifications"
+    },
+    "ToastInfoColors": {
+        "message": "Información emerxente",
+        "description": "Label of the setting in the custom theme settings to choose the colors of informational toast notifications"
+    },
+    "ToastErrorColors": {
+        "message": "Mensaxe emerxente de erro",
+        "description": "Label of the setting in the custom theme settings to choose the colors of error toast notifications"
+    },
+    "ToastForegroundTitle": {
+        "message": "Cor para o texto e os fondos dos botóns da notificación emerxente",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification foreground / text color"
+    },
+    "ToastBackgroundTitle": {
+        "message": "Cor de fondo para a notificación emerxente",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification background color"
+    },
+    "SettingsBadgeIcon": {
+        "message": "Icona da barra de ferramentas",
+        "description": "Label of the setting to choose the toolbar icon in the custom theme settings"
+    },
+    "ForegroundColorBaseTitle": {
+        "message": "Esta cor adoita usarse para textos e bordos",
+        "description": "Tooltip of the color input field in the custom theme settings for the default foreground / text color for an element"
+    },
+    "SettingsCustomFont": {
+        "message": "Familia tipográfica",
+        "description": "Label of the font option in the custom theme settings"
+    },
+    "FontSizeDefault": {
+        "message": "Predeterminado",
+        "description": "Label for the default font size in the custom theme settings"
+    },
+    "ToastSuccessColors": {
+        "message": "Mensaxe emerxente de éxito",
+        "description": "Label of the setting in the custom theme settings to choose the colors of success toast notifications"
+    },
+    "BorderColorBaseTitle": {
+        "message": "Esta cor adoita usarse para bordos",
+        "description": "Tooltip of the color input field in the custom theme settings for the default border color for an element"
     }
 }
