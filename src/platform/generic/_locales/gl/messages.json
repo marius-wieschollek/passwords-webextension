@@ -696,5 +696,59 @@
     "TokenRequestFailed": {
         "message": "Produciuse un fallo na solicitude de testemuño",
         "description": "Title of the toast notification when the request for a two factor auth token failed. The text will be the error message."
+    },
+    "NotifyNewPasswordTextFF": {
+        "message": "Foi detectado un novo contrasinal para «$LABEL$». Prema na icona de contrasinais na barra de ferramentas para velo e gardalo.",
+        "description": "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyNewPasswordTextQS": {
+        "message": "Foi detectado un novo contrasinal para «$LABEL$». Prema aquí para gardalo.",
+        "description": "Text of the system notification when a new password was detected. Clicking the notification will save the password.",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordText": {
+        "message": "Foi detectada unha actualización para «$LABEL$».",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Chrome where the notification has buttons to save or view the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTextQS": {
+        "message": "Foi detectada unha actualización para «$LABEL$». Prema aquí para gardala.",
+        "description": "Text of the system notification when an update for an existing password was detected. Clicking the notification will update the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTextFF": {
+        "message": "Foi detectada unha actualización para «$LABEL$». Prema na icona de contrasinais na barra de ferramentas para vela e gardala.",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTitle": {
+        "message": "Foi detectado un contrasinal actualizado",
+        "description": "Title of the system notification when an update for an existing password has been detected"
     }
 }
