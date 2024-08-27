@@ -750,5 +750,236 @@
     "NotifyUpdatePasswordTitle": {
         "message": "Foi detectado un contrasinal actualizado",
         "description": "Title of the system notification when an update for an existing password has been detected"
+    },
+    "ToastServerCheckMessage": {
+        "message": "A conta «$SERVER$» usa contrasinais $SERVERVERSION$, mais esta extensión precisa de polo menos $MINVERSION$. A aplicación debe actualizarse antes de poder activar de novo a conta nos axustes.",
+        "description": "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
+    },
+    "ToastServerCheckWarning": {
+        "message": "Esta extensión precisará en breve de contrasinais $MINVERSION$, mais «$SERVER$» usa contrasinais $SERVERVERSION$. Actualice a aplicación para seguir a usar a conta.",
+        "description": "Text of the toast notification when an account uses a server which will soon be no longer supported because it uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
+    },
+    "ToastErrorMessage": {
+        "message": "Produciuse un erro no cliente de contrasinais. Comprobe o rexistro de erros nas opcións de depuración para obter máis detalles.",
+        "description": "Text of the toast notification for error messages from the passwords client. The error message is the title"
+    },
+    "ToastPasswordTrashed": {
+        "message": "$LABEL$ foi movido cara ao lixo. Pode eliminalo definitivamente na aplicación ou restauralo",
+        "description": "Text of the toast notification after a password was moved to the trash",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "ToastPasswordTrashedRestore": {
+        "message": "Restaurar",
+        "description": "Text of the toast notification option to restore a password from the trash"
+    },
+    "ToastPasswordDeleteFailed": {
+        "message": "Produciuse un fallo ao eliminar o contrasinal",
+        "description": "Text of the toast notification when deleting the password failed"
+    },
+    "ToastPasswordRestored": {
+        "message": "$LABEL$ foi restaurado dende o lixo. Volverá aparecer após volver abrir a xanela emerxente",
+        "description": "Text of the toast notification after a password was restored from the trash",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "PasswordPastedSuccess": {
+        "message": "$LABEL$ foi pegado correctamente",
+        "description": "Text of the toast notification when a password entry was pasted successfully into the current tab",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "ToastPasswordUpdated": {
+        "message": "Contrasinal actualizado",
+        "description": "Text of the toast notification when password was updated"
+    },
+    "ToastPasswordUpdateFailed": {
+        "message": "Produciuse un fallo na actualización do contrasinal",
+        "description": "Text of the toast notification when password update failed"
+    },
+    "PasswordPastedError": {
+        "message": "Non foi posíbel pegar $LABEL$",
+        "description": "Text of the toast notification when a password could not be pasted into the current tab",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "PasswordPropertyCopied": {
+        "message": "Copiouse $PROPERTY$",
+        "description": "Text of the toast notification when a password property was copied successfully via one of the buttons",
+        "placeholders": {
+            "property": {
+                "content": "$1",
+                "example": "Username"
+            }
+        }
+    },
+    "ServerConnectionErrorTitle": {
+        "message": "Non é posíbel conectar con $SERVER$",
+        "description": "Title of the toast notification when the connection to the server failed",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "ServerCredentialsRejected": {
+        "message": "Foron rexeitadas as credenciais do servidor. Actualice os datos de acceso nos axustes.",
+        "description": "Text of the toast notification when the server has rejected the login credentials"
+    },
+    "ServerHttpError": {
+        "message": "Produciuse un erro de conexión HTTP: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with a HTTP error",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "ServerNetworkErrorReload": {
+        "message": "Volver cargar o servidor",
+        "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
+    },
+    "ServerUnknownError": {
+        "message": "Produciuse un erro descoñecido.",
+        "description": "Text of the toast notification when the connection to the server failed with an unknown error and no error message is present"
+    },
+    "ServerGenericError": {
+        "message": "Produciuse un erro: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with an error",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "description": "The error message",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "DemoText": {
+        "message": "Demostración",
+        "description": "Demo text used in the theme preview"
+    },
+    "DemoInfoNotification": {
+        "message": "Notificación de información",
+        "description": "Text and title of the info notification in the theme preview"
+    },
+    "DemoSuccessNotification": {
+        "message": "Notificación de éxito",
+        "description": "Text and title of the success notification in the theme preview"
+    },
+    "DemoWarningNotification": {
+        "message": "Notificación de advertencia",
+        "description": "Text and title of the warning notification in the theme preview"
+    },
+    "DemoErrorNotification": {
+        "message": "Notificación de erro",
+        "description": "Text and title of the error notification in the theme preview"
+    },
+    "ThemeAdaptaLight": {
+        "message": "Adapta",
+        "description": "Label of the theme with the Adapta color scheme"
+    },
+    "ThemeAdaptaTeal": {
+        "message": "Adapta verde azulado",
+        "description": "Label of the theme with the Adapta teal color scheme"
+    },
+    "ThemeLight": {
+        "message": "Predeterminado",
+        "description": "Label of the default light theme"
+    },
+    "ThemeOledDark": {
+        "message": "OLED escuro",
+        "description": "Label of the dark theme optimized for OLED-Displays"
+    },
+    "ThemeArcDark": {
+        "message": "Arco escuro",
+        "description": "Label of the theme with the Arc dark scheme"
+    },
+    "ThemeArcLight": {
+        "message": "Arco",
+        "description": "Label of the theme with the Arc color scheme"
+    },
+    "ThemeHacker": {
+        "message": "Hacker",
+        "description": "Label of the hacker style theme"
+    },
+    "ThemeRGB": {
+        "message": "RGB para xogos",
+        "description": "Label of the gaming rgb animated theme"
+    },
+    "ThemeCustom": {
+        "message": "Tema personalizado",
+        "description": "Label for the custom theme option"
+    },
+    "CustomFont": {
+        "message": "Tipo de letra",
+        "description": "Headline for the font settings in the custom theme settings"
+    },
+    "CustomActiveElement": {
+        "message": "Elemento activo",
+        "description": "Headline for the active element styling settings in the custom theme settings"
+    },
+    "ToastPasswordHiddenTrashed": {
+        "message": "$LABEL$ foi eliminado. Se isto foi un accidente, aínda pode restauralo a seguir antes de que se elimine definitivamente",
+        "description": "Text of the toast notification after a hidden password was moved to the trash. Users can restore it within the notification but afterwards the password is lost for good",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "ServerNetworkError": {
+        "message": "Produciuse un erro de rede. Comprobe se está conectado e se pode acceder ao servidor.",
+        "description": "Text of the toast notification when the connection to the server failed with a network error"
+    },
+    "CustomDefaultElement": {
+        "message": "Elemento predeterminado",
+        "description": "Headline for the default element styling settings in the custom theme settings"
     }
 }
