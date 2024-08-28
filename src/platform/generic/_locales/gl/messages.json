@@ -1027,7 +1027,7 @@
         "description": "Label of the default font option in the custom theme settings"
     },
     "FontMono": {
-        "message": "Monoespazada",
+        "message": "Caixa fixa (Monoespazada)",
         "description": "Label of the monospaced font option in the custom theme settings"
     },
     "FontSerif": {
@@ -1121,5 +1121,103 @@
     "BorderColorBaseTitle": {
         "message": "Esta cor adoita usarse para bordos",
         "description": "Tooltip of the color input field in the custom theme settings for the default border color for an element"
+    },
+    "BackgroundColorHoverTitle": {
+        "message": "Esta cor úsase para o fondo se o elemento está activo. Tamén é posíbel usalo para o bordo dun elemento inactivo",
+        "description": "Tooltip of the color input field in the custom theme settings for the mouse hover / active background color for an element"
+    },
+    "ForegroundColorHoverTitle": {
+        "message": "Esta cor úsase para textos e bordos se o elemento está activo",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active foreground / text color for an element"
+    },
+    "BorderColorHoverTitle": {
+        "message": "Esta cor úsase para os bordos se o elemento está activo",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active border color for an element"
+    },
+    "BackgroundInheritTitle": {
+        "message": "Se está activado, o valor herdarase do elemento principal",
+        "description": "Tooltip for the checkbox to inherit the background color (from the parent element in the html) in the custom theme settings"
+    },
+    "ForegroundInheritTitle": {
+        "message": "Se está activado, o valor herdarase do elemento principal",
+        "description": "Tooltip for the checkbox to inherit the foreground / text color (from the parent element in the html) in the custom theme settings"
+    },
+    "BadgeIconAuto": {
+        "message": "Automático",
+        "description": "Label of the automatic icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconLight": {
+        "message": "Icona clara",
+        "description": "Label of the light icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconDark": {
+        "message": "Icona escura",
+        "description": "Label of the dark icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewMedium": {
+        "message": "Icona gris moderna",
+        "description": "Label of the grey modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewDark": {
+        "message": "Icona escura moderna",
+        "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconOutlineLight": {
+        "message": "Icona de contorno clara",
+        "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconOutlineDark": {
+        "message": "Icona de contorno escura",
+        "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "CustomBadgeColors": {
+        "message": "Cores das insignias",
+        "description": "Label of the settings for the toolbar icon badge colors in the custom theme settings"
+    },
+    "BadgeBackgroundTitle": {
+        "message": "Cor de fondo da insignia",
+        "description": "Tooltip for the color input for the background color of the toolbar icon badge in the custom theme settings"
+    },
+    "BadgeForegroundTitle": {
+        "message": "Cor do texto da insignia",
+        "description": "Tooltip for the color input for the text color of the toolbar icon badge in the custom theme settings"
+    },
+    "PasslinkNoLinkProvided": {
+        "message": "Non falta ningunha ligazón ou acción",
+        "description": "Error message shown in the PassLink popup window when the window was opened but no action or link to process was provided"
+    },
+    "PasslinkErrorClose": {
+        "message": "Pechar",
+        "description": "Text of the close button in the PassLink error window"
+    },
+    "PasslinkNoActiveAction": {
+        "message": "Non hai ningunha acción de PassLink activa deste tipo",
+        "description": "Error message when an active PassLink action is required for a request but no active action can be found. (Example: Request to view the second step of the PassLink connect step, but no PassLink connect was started at all)"
+    },
+    "PasslinkConnectServer": {
+        "message": "A nova conta foi gardada como «$LABEL$»",
+        "description": "Confirmation message in the PassLink Connect action when a new account has been created successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "BadgeIconMedium": {
+        "message": "Icona gris",
+        "description": "Label of the grey icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewLight": {
+        "message": "Icona clara moderna",
+        "description": "Label of the light modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "PasslinkErrorNoMessage": {
+        "message": "Produciuse un erro mais non se proporcionou ningunha mensaxe de erro",
+        "description": "Error message shown in the PassLink popup window when and error happened but no error message was provided"
+    },
+    "PasslinkConnectCheckCodes": {
+        "message": "Comprobe se os códigos de embaixo coinciden cos que ve na aplicación. Se o fan, confirme a conexión na aplicación e listo.",
+        "description": "Message during the PassLink Connect action telling the user to check if the codes below match the ones shown in the Nextcloud Passwords App. If so, the user just needs to confirm the connection in the Nextcloud app to add the account to the extension."
     }
 }
