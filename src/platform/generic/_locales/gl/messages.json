@@ -284,7 +284,7 @@
         "description": "Title of the toast notification in the extension settings after an account could not be updated or saved. The message will be the specific error message"
     },
     "ServerDisabledWarning": {
-        "message": "Esta conta está desactivada. Activarase após que se garde correctamente.",
+        "message": "Esta conta está desactivada. Activarase após que sexa gardada correctamente.",
         "description": "Warning message which appears above the account details if the server was disabled. Usual reasons are invalid login data, unsupported extension version or permanent connection issues."
     },
     "ServerLabel": {
@@ -1219,5 +1219,338 @@
     "PasslinkConnectCheckCodes": {
         "message": "Comprobe se os códigos de embaixo coinciden cos que ve na aplicación. Se o fan, confirme a conexión na aplicación e listo.",
         "description": "Message during the PassLink Connect action telling the user to check if the codes below match the ones shown in the Nextcloud Passwords App. If so, the user just needs to confirm the connection in the Nextcloud app to add the account to the extension."
+    },
+    "PasslinkConnectServerUpdated": {
+        "message": "As credenciais de «$LABEL$» foron actualizadas",
+        "description": "Confirmation message in the PassLink Connect action when an existing account has been updated successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "PasslinkConnectNotFound": {
+        "message": "Esta ligazón non é válida. É posíbel que xa se teña usado ou estea caducado.",
+        "description": "Error message in PassLink when the link used has expired or was already used."
+    },
+    "PasslinkConnectRejected": {
+        "message": "A solicitude de conexión foi rexeitada polo servidor.",
+        "description": "Error message when the server rejected the PassLink connect action was not confirmed by the server"
+    },
+    "PasslinkConnectNetworkError": {
+        "message": "Produciuse un fallo ao conectar co servidor. Comprobe a súa rede.",
+        "description": "Error message in PassLink when the connection to the Nextcloud server failed with a networking error"
+    },
+    "PasslinkConnectSuccess": {
+        "message": "Conexión satisfactoria",
+        "description": "Message in the PassLink window when the PassLink Connect action was successful"
+    },
+    "PasslinkConnectFailed": {
+        "message": "Conexión fallada",
+        "description": "Message in the PassLink window when the PassLink Connect action failed"
+    },
+    "PasslinkConnectSettings": {
+        "message": "Abrir os axustes",
+        "description": "Text of the button to open the extension settings in the PassLink result window"
+    },
+    "PasslinkConnectClose": {
+        "message": "Pechar a xanela",
+        "description": "Text of the button  in the PassLink result window to close the window"
+    },
+    "PasslinkScanInstructions": {
+        "message": "Apunte a súa cámara ao código QR e agarde a que sexa recoñecido e escaneado.",
+        "description": "Instructions shown above the PassLink QR scanner telling the use to point his camera at the qr code he wants to scan"
+    },
+    "PasslinkScanScanning": {
+        "message": "Buscando un código QR",
+        "description": "Message used by the PassLink QR scanner while the camera feed is scanned for a qr code"
+    },
+    "PasslinkScanProcessingLink": {
+        "message": "Procesando o código QR",
+        "description": "Message used by the PassLink QR scanner when a valid code was found and is now being analyzed"
+    },
+    "PasslinkScanInvalidQrCode": {
+        "message": "Este código QR non é compatíbel",
+        "description": "Message used by the PassLink QR scanner when the user scans a code that does not contain a valid and supported uri of Passlink"
+    },
+    "QrNotAllowedError": {
+        "message": "Non se permitiu o acceso á cámara",
+        "description": "Message used by the PassLink QR scanner when the user did not allow camera access"
+    },
+    "QrNotFoundError": {
+        "message": "Non se atopou ningunha cámara neste dispositivo",
+        "description": "Message used by the PassLink QR scanner when the device has no cameras"
+    },
+    "QrNotSupportedError": {
+        "message": "Contexto inseguro",
+        "description": "Message used by the PassLink QR scanner when the page was opened in an insecure context (http://). This should never happen"
+    },
+    "QrNotReadableError": {
+        "message": "Non é posíbel acceder á cámara. Quizais xa estea en uso?",
+        "description": "Message used by the PassLink QR scanner when the camera stream can not be read"
+    },
+    "QrOverconstrainedError": {
+        "message": "Cámara non apta para ser usada",
+        "description": "Message used by the PassLink QR scanner when the camera is faulty"
+    },
+    "QrStreamApiNotSupportedError": {
+        "message": "A API de Stream non é compatíbel con este navegador",
+        "description": "Message used by the PassLink QR scanner when the browser does not support the required streaming api. This should never happen"
+    },
+    "FirstRunConnectTitle": {
+        "message": "Conectarse a Nextcloud",
+        "description": "Title of the first run wizard page that helps the user to connect to their Nextcloud"
+    },
+    "FirstRunConnectLink1": {
+        "message": "Abra a aplicación Contrasinais, prema en «Máis» e abra «Aplicacións e extensións».",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink2": {
+        "message": "Escolla o seu navegador e prema en «Conectar con PassLink»",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunConnectScanQR": {
+        "message": "Escanear o código PassLink",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Ver a guía en vídeo",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsText": {
+        "message": "O comportamento da extensión sempre pode ser personalizado nos axustes da extensión.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "OpenSettings": {
+        "message": "Abrir os axustes da extensión",
+        "description": "Label of the button to open the extension settings in the tools tab of the popup"
+    },
+    "GeneratedPasswordTitle": {
+        "message": "Palabras do contrasinal: $WORDS$",
+        "description": "Title of the input field for the generated password in the tools tab of the popup. It shows the words used to generate the password",
+        "placeholders": {
+            "words": {
+                "content": "$1",
+                "description": "The words used for the password",
+                "example": "First Second Third"
+            }
+        }
+    },
+    "PasswordGenerateError": {
+        "message": "Produciuse un fallo ao xerar un contrasinal: $ERROR$",
+        "description": "Notification shown when the generation of a password fails",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "Unexpected data type"
+            }
+        }
+    },
+    "DebugHighlightLoginForms": {
+        "message": "Resaltar os campos do formulario de acceso",
+        "description": "Label of the button in the popup which triggers the option to highlight all login form fields in the current tab"
+    },
+    "PasteBadPasswordWarning": {
+        "message": "Este contrasinal está comprometido e debe ser cambiado inmediatamente",
+        "description": "Notification shown after the user pasted a password with the security status breached/compromised"
+    },
+    "DebugInternalStats": {
+        "message": "Estado interno",
+        "description": "Headline above the internal status section in the extension settings in the debug tab"
+    },
+    "DebugInfoExtensionVersion": {
+        "message": "Versión da extensión",
+        "description": "Description of the extension version in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionBuild": {
+        "message": "Plataforma de destino",
+        "description": "Description of the extension build target (firefox or chrome) in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionPlatform": {
+        "message": "Axente de usuario",
+        "description": "Description of the browser user agent in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionEnvironment": {
+        "message": "Modo de extensión",
+        "description": "Description of the extension mode (production or development) in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoHiddenFolderId": {
+        "message": "ID do cartafol de contrasinais agochados",
+        "description": "Description of the id of the folder used to store hidden/private passwords in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugSettings": {
+        "message": "Axustes da depuración",
+        "description": "Headline above the debugging settings section in the extension settings in the debug tab"
+    },
+    "DebugLanguageTagsEnabled": {
+        "message": "Amosar as claves de idioma",
+        "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
+    },
+    "DebugResetTitle": {
+        "message": "Limpar os datos da extensión",
+        "description": "Headline above the section for to clear specific extension data in the debug tab in the extension settings"
+    },
+    "DebugResetStatistics": {
+        "message": "Restabelecer os datos de recomendación",
+        "description": "Label of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtension": {
+        "message": "Restablecer a extensión",
+        "description": "Label of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugBuild": {
+        "message": "Información da compilación",
+        "description": "Headline above the section for the build instructions in the debug tab in the extension settings"
+    },
+    "DebugSourceAndBuild": {
+        "message": "Instrucións de compilación e descarga do código fonte",
+        "description": "Label of the link to open the page with build instructions and links to the source code in the debug tab in the extension settings"
+    },
+    "DebugErrorLog": {
+        "message": "Rexistro de erros",
+        "description": "Headline above the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorNoMessage": {
+        "message": "Non hai ningún mensaxe de erro",
+        "description": "Used as error message for errors with no error message (but have a timestamp) in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorNoDetails": {
+        "message": "Non hai ningún detalle do erro",
+        "description": "Used as error message for errors with no details at all in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorDataCopied": {
+        "message": "Os detalles do erro foron copiados no portapapeis",
+        "description": "Success notification when you copy an error report to the clipboard in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugNoErrors": {
+        "message": "Non hai ningún erro no rexistro",
+        "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
+    },
+    "RecommendationSettings": {
+        "message": "Recomendación de credenciais",
+        "description": "Label of the section password recommendations in the extension settings."
+    },
+    "LabelSearchRecommendationDomain": {
+        "message": "mesmo dominio",
+        "description": "Find password recommendations by domain. So on page mail.example.com you will see all passwords for the domain and sumdomains of example.com."
+    },
+    "LabelSearchRecommendationHost": {
+        "message": "mesma máquina/servidor",
+        "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
+    },
+    "LabelSearchRecommendationExact": {
+        "message": "mesmo URL exacto",
+        "description": "Find only passwords where th url matches exact to the current browser url."
+    },
+    "SettingsSearchRecommendationMaxRows": {
+        "message": "Número máximo de recomendacións",
+        "description": "Label of the setting in the extension settings to define the maximum number of results for the password recommendation."
+    },
+    "SearchRecommendationMaxRowsNumber": {
+        "message": "$ROW$",
+        "description": "Number of results that should be displayed for password recommendations.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 1, 5, 10, 15 or 20"
+            }
+        }
+    },
+    "UiSettings": {
+        "message": "Interface de usuario",
+        "description": "Label of the user interface section in the extension settings."
+    },
+    "SettingsShowUsernameInList": {
+        "message": "Amosar o nome de usuario a carón do título",
+        "description": "Label of the setting in the extension settings to show the username next to the title in password lists."
+    },
+    "InputSliderOff": {
+        "message": "Actualmente apagado",
+        "description": "Tooltip of any slider input element that is currently in the inactive/disabled state"
+    },
+    "InputSliderOn": {
+        "message": "Actualmente activado",
+        "description": "Tooltip of any slider input element that is currently in the active/enabled state"
+    },
+    "PasswordCustomFieldsTypeText": {
+        "message": "Texto",
+        "description": "Label of the password custom setting type 'text'."
+    },
+    "PasswordCustomFieldsTypeSecret": {
+        "message": "Segredo",
+        "description": "Label of the password custom setting type 'secret'."
+    },
+    "PasswordCustomFieldsTypeEmail": {
+        "message": "Correo-e",
+        "description": "Label of the password custom setting type 'email'."
+    },
+    "PasswordCustomFieldsTypeUrl": {
+        "message": "Ligazón",
+        "description": "Label of the password custom setting type 'url'."
+    },
+    "PasswordCustomFieldsTypeFormField": {
+        "message": "Campo de formulario",
+        "description": "Label of the password custom setting form field to insert custom values to a web page."
+    },
+    "PasswordEditValidationInvalidValue": {
+        "message": "Valor incorrecto",
+        "description": "The validation error message in the password edit form if the value is invalid"
+    },
+    "PasswordEditValidationMaxLength": {
+        "message": "Só se permiten $CHARACTERS$ caracteres",
+        "description": "The validation error message in the password edit form if the value is longer than allowed",
+        "placeholders": {
+            "characters": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
+    },
+    "PasswordEditValidationRequired": {
+        "message": "Este campo é obrigatorio",
+        "description": "The validation error message in the password edit form if a required field is empty"
+    },
+    "MiningPasswordDiscarded": {
+        "message": "O contrasinal foi rexeitado",
+        "description": "The toast notification after the user has successfully discarded a mined password"
+    },
+    "MiningPasswordCreated": {
+        "message": "O contrasinal foi gardado",
+        "description": "The toast notification after the password was successfully saved"
+    },
+    "MiningPasswordUpdated": {
+        "message": "O contrasinal foi actualizado",
+        "description": "The toast notification after the password was successfully saved"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "Valor do campo personalizado",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "Etiqueta de campo personalizado",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "ExtensionInitFailure": {
+        "message": "Produciuse un erro no inicio da extensión: $ERROR$",
+        "description": "Notification message when the start sequence of the extension failed",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
+    },
+    "FirstRunConnectLink3": {
+        "message": "Prema en «Conectar mediante ligazón», compare os códigos e confirme a conexión.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "DebugResetExtensionTitle": {
+        "message": "Elimina todos os axustes, contas e datos de recomendación e comeza de novo",
+        "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "SettingsSearchRecommendationOption": {
+        "message": "Buscar credenciais co",
+        "description": "Label of the setting in the extension settings to define how password recommendations are searched."
     }
 }
