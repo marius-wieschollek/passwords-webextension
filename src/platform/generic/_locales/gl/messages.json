@@ -1135,11 +1135,11 @@
         "description": "Tooltip of the color input field in the custom theme settings for the hover / active border color for an element"
     },
     "BackgroundInheritTitle": {
-        "message": "Se está activado, o valor herdarase do elemento principal",
+        "message": "Se está activado, o valor herdarase do elemento superior",
         "description": "Tooltip for the checkbox to inherit the background color (from the parent element in the html) in the custom theme settings"
     },
     "ForegroundInheritTitle": {
-        "message": "Se está activado, o valor herdarase do elemento principal",
+        "message": "Se está activado, o valor herdarase do elemento superior",
         "description": "Tooltip for the checkbox to inherit the foreground / text color (from the parent element in the html) in the custom theme settings"
     },
     "BadgeIconAuto": {
