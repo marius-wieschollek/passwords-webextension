@@ -170,7 +170,7 @@ export default class FormService {
             let match = attributes.find(
                 (text) => text.indexOf(include) !== -1
             );
-            if(match) return false;
+            if(match) return true;
         }
 
         return false;
