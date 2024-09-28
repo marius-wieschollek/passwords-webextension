@@ -1,0 +1,1556 @@
+{
+    "extensionName": {
+        "message": "Extensión de navegador de Contrasinais para Nextcloud",
+        "description": "Name of the extension."
+    },
+    "SettingsAutofillIgnoredDomains": {
+        "message": "Ignorar estes dominios (un por liña, tamén se ignoran os subdominios)",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not autofill passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "extensionDescription": {
+        "message": "A extensión de navegador oficial de Contrasinais para Nextcloud",
+        "description": "Description of the extension."
+    },
+    "locale": {
+        "message": "gl",
+        "description": "The language tag of this translation. Same as the folder name"
+    },
+    "browserActionTitle": {
+        "message": "Contrasinais",
+        "description": "Title of the button in the browser bar"
+    },
+    "contextMenuTitle": {
+        "message": "Contrasinais",
+        "description": "Title of the context menu item"
+    },
+    "BrowserActionTitleCounter": {
+        "message": "Contrasinais ($COUNTER$)",
+        "description": "Title of the button in the browser bar with suggestion counter",
+        "placeholders": {
+            "counter": {
+                "content": "$1",
+                "example": "2"
+            }
+        }
+    },
+    "MigrationAccountName": {
+        "message": "Conta de Nextcloud",
+        "description": "Label assigned to the account used by the v1.x migration"
+    },
+    "PrivatePasswordsFolderLabel": {
+        "message": "Contrasinais privados",
+        "description": "Label assigned to the hidden folder for private passwords. (folder is only visible when browsing in private mode)"
+    },
+    "SettingsTabAccounts": {
+        "message": "Contas",
+        "description": "Label of the user accounts tab in the extension settings"
+    },
+    "SettingsTabTheming": {
+        "message": "Temas",
+        "description": "Label of the themes tab in the extension settings"
+    },
+    "SettingsTabOther": {
+        "message": "Outros axustes",
+        "description": "Label of the general settings tab in the extension settings"
+    },
+    "SettingsTabDebug": {
+        "message": "Depuración",
+        "description": "Label of the extension debugging tab in the extension settings"
+    },
+    "SettingsAccountsMain": {
+        "message": "Conta predeterminada para contrasinais novos",
+        "description": "Label of the option to choose the main account in the extension settings. This account will be used to synchronize settings accross apps, store new passwords and so on"
+    },
+    "AutofillSettings": {
+        "message": "Pegado de credenciais",
+        "description": "Headline above the password autofill section in the other settings tab in the extension settings"
+    },
+    "SettingsPastePopupClose": {
+        "message": "Pechar a xanela emerxente após pegar as credenciais",
+        "description": "Label of the setting in the extension settings to automatically close the extension popup after successful pasting"
+    },
+    "SettingsPasteWarnCompromised": {
+        "message": "Advertir cando se empreguen credenciais comprometidas",
+        "description": "Label of the setting in the extension settings to show a warning after pasting a compromised password"
+    },
+    "SettingsPasteAutofillEnabled": {
+        "message": "Encher automaticamente os datos de acceso que correspondan",
+        "description": "Label of the setting in the extension settings to automatically paste the first recommended credential into login forms"
+    },
+    "SettingsPasteBasicAuth": {
+        "message": "Responder automaticamente ás solicitudes de autenticación básica HTTP",
+        "description": "Label of the setting in the extension settings to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "HelpPasteBasicAuth": {
+        "message": "Responde automaticamente ás solicitudes de autenticación básica http coa primeira credencial suxerida. Teña en conta que isto pode expoñer as credenciais a servidores pouco fiábeis.",
+        "description": "Help text in the extension settings for the setting to automatically respond with the first recommended credential to any http basic authentication request"
+    },
+    "SettingsClearClipboardPasswords": {
+        "message": "Eliminar automaticamente os contrasinais do portapapeis",
+        "description": "Label of the setting in the extension settings to automatically clear passwords from clipboard after a certain time."
+    },
+    "SettingsClearClipboardDelay": {
+        "message": "Baleirar o portapapeis após",
+        "description": "Label of the setting in the extension settings to define the time when the clipboard content will be removed."
+    },
+    "SettingsClipboardClearDelayOptions": {
+        "message": "$ROW$ segundos",
+        "description": "Time in seconds until clipboard will get empty.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 15, 30, 45, 60, 90"
+            }
+        }
+    },
+    "SettingsNotifyPasswordNew": {
+        "message": "Notificación de contrasinais novos",
+        "description": "Label of the setting in the extension settings to enable or disable the notification for new detected passwords"
+    },
+    "SettingsNotifyPasswordQuicksave": {
+        "message": "Gardar ou actualizar os contrasinais directamente cando se preme na notificación",
+        "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"
+    },
+    "SearchSettings": {
+        "message": "Buscar",
+        "description": "Headline above the search section in the other settings tab in the extension settings"
+    },
+    "SettingsMiningIgnoredDomainsPlaceholder": {
+        "message": "p. ex. example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "SettingsAutofillIgnoredDomainsPlaceholder": {
+        "message": "p. ex. example.com",
+        "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "PasswordMiningSettings": {
+        "message": "Contrasinais novos e modificados",
+        "description": "Headline above the password mining section in the other settings tab in the extension settings"
+    },
+    "SettingsMiningIgnoredDomains": {
+        "message": "Ignorar estes dominios (un por liña, tamén se ignoran os subdominios)",
+        "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not detect new or changed passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "TabRelated": {
+        "message": "Suxestións",
+        "description": "Label of the related passwords tab in the extension popup"
+    },
+    "SettingsMiningIncognitoHide": {
+        "message": "Almacenar os contrasinais recompilados en Incógnito como contrasinais privados",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "AccountList": {
+        "message": "Contas de usuario",
+        "description": "Headline above the user accounts section in the accounts tab in the extension settings"
+    },
+    "NoAccounts": {
+        "message": "Aínda non hai contas. Prema aquí para crear unha.",
+        "description": "Message in place of the user accounts list in the extension settings if there are no user accounts yet. The user can click the message to create an account"
+    },
+    "FirstRunServerCheckTitle": {
+        "message": "Comprobando o servidor",
+        "description": "Title of the first run wizard settings page while data is loaded from the server"
+    },
+    "FirstRunSettingsTitle": {
+        "message": "Personalizar a extensión",
+        "description": "Title of the first run wizard page that allows the user to change some common settings"
+    },
+    "LabelGeneratorStrengthUltra": {
+        "message": "Máxima",
+        "description": "Label of the very high (4) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthLow": {
+        "message": "Baixa",
+        "description": "Label of the low (0) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthStandard": {
+        "message": "Estándar",
+        "description": "Label of the default (1) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthMedium": {
+        "message": "Media",
+        "description": "Label of the medium (2) strength option for the password generator in the tools tab"
+    },
+    "LabelGeneratorStrengthHigh": {
+        "message": "Alta",
+        "description": "Label of the high (3) strength option for the password generator in the tools tab"
+    },
+    "LabelGenerateAddSpecial": {
+        "message": "Símbolos",
+        "description": "Label of the option to include special characters in the password generator in the tools tab"
+    },
+    "LabelGenerateStrength": {
+        "message": "Fortaleza",
+        "description": "Label of the option to set the strength in the password generator in the tools tab"
+    },
+    "LabelGenerateAddNumbers": {
+        "message": "Números",
+        "description": "Label of the option to include numbers in the password generator in the tools tab"
+    },
+    "GeneratedPasswordPlaceholder": {
+        "message": "Contrasinal xerado",
+        "description": "Placeholder of the field for the generated password in the tools tab of the popup"
+    },
+    "ToolsTabGeneratePassword": {
+        "message": "Xerar contrasinal",
+        "description": "Label of the generate password section in the tools tab of the popup"
+    },
+    "ToolsTabDebugTools": {
+        "message": "Ferramentas de depuración",
+        "description": "Label of the debugging tools section in the tools tab of the popup"
+    },
+    "FirstRunSettingsSave": {
+        "message": "Gardar",
+        "description": "Text of the button in the first run wizard to save the settings and close the wizard"
+    },
+    "SettingsPasteFormSubmit": {
+        "message": "Enviar formularios de acceso cando se peguen as credenciais dende a xanela emerxente",
+        "description": "Label of the setting in the extension settings to automatically submit login forms after pasting"
+    },
+    "NotificationSettings": {
+        "message": "Notificacións",
+        "description": "Headline above the notification section in the other settings tab in the extension settings (!Currently Unused)"
+    },
+    "DebugResetStatisticsTitle": {
+        "message": "Restabelece as estatísticas de uso recompiladas utilizadas para recomendar credenciais na lapela relacionada",
+        "description": "Help title text of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "UserAgent": {
+        "message": "Cliente oficial de Contrasinais para $BROWSER$ en $OS$",
+        "description": "The user agent used for api requests. Only ASCII characters allowed: 0-9, A-Z, a-z. No special characters or non latin characters like ä,á,ã or ß",
+        "placeholders": {
+            "browser": {
+                "content": "$1",
+                "example": "Firefox"
+            },
+            "os": {
+                "content": "$2",
+                "example": "Linux"
+            }
+        }
+    },
+    "SettingsNotifyPasswordUpdate": {
+        "message": "Notificación de contrasinais actualizados",
+        "description": "Label of the setting in the extension settings to enable or disable the notification for detected password updates"
+    },
+    "SettingsPopupRelatedSearch": {
+        "message": "Comezar a busca cando escriba en «Relacionado»",
+        "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
+    },
+    "ServerTimeoutOptionMinutes": {
+        "message": "Após $MINUTES$ minutos",
+        "description": "Label of the option for the server timeout to expire after a given amount of minutes",
+        "placeholders": {
+            "minutes": {
+                "content": "$1",
+                "example": "One of 5, 10, 15 30 or 60"
+            }
+        }
+    },
+    "HelpPasteAutofill": {
+        "message": "Pega automaticamente a primeira credencial suxerida en calquera formulario de acceso da lapela. Teña en conta que isto fai que sexa accesíbel calquera script da lapela.",
+        "description": "Help text in the extension settings for the setting to automatically paste credentials into login forms"
+    },
+    "HelpClearClipboardPasswords": {
+        "message": "O portapapeis só se limpará se o navegador aínda está aberto. Se se concede o permiso opcional para ler o portapapeis, só se limpará se o contrasinal aínda está alí.",
+        "description": "Help text in the extension settings for the setting to automatically clean passwords from clipboard after a certain time."
+    },
+    "NoRelatedPasswords": {
+        "message": "Non atopou ningún contrasinal relacionado",
+        "description": "Used in the related tab when no entries match the current website"
+    },
+    "FirstRunSetupManually": {
+        "message": "Conectar manualmente",
+        "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
+    },
+    "NewAccountFormLabel": {
+        "message": "Crear conta",
+        "description": "Label of the new account form in the extension settings"
+    },
+    "ServerSaveTitle": {
+        "message": "Conta gardada",
+        "description": "Title of the toast notification in the extension settings after an account was created or updated successfully"
+    },
+    "ServerSaveMessage": {
+        "message": "Todos os cambios aplicáronse correctamente",
+        "description": "Message of the toast notification in the extension settings after an account was created successfully"
+    },
+    "ServerCreatedMessage": {
+        "message": "Foi creada a conta e está lista para ser usada",
+        "description": "Message of the toast notification in the extension settings after an account was updated successfully"
+    },
+    "ServerSaveErrorTitle": {
+        "message": "Produciuse un fallo ao gardar",
+        "description": "Title of the toast notification in the extension settings after an account could not be updated or saved. The message will be the specific error message"
+    },
+    "ServerDisabledWarning": {
+        "message": "Esta conta está desactivada. Activarase após que sexa gardada correctamente.",
+        "description": "Warning message which appears above the account details if the server was disabled. Usual reasons are invalid login data, unsupported extension version or permanent connection issues."
+    },
+    "ServerLabel": {
+        "message": "Nome",
+        "description": "Label of the account name field in account details in the extension settings"
+    },
+    "ServerBaseUrl": {
+        "message": "URL",
+        "description": "Label of the server url field in account details in the extension settings"
+    },
+    "ServerUser": {
+        "message": "Usuario",
+        "description": "Label of the account login user field in account details in the extension settings"
+    },
+    "ServerToken": {
+        "message": "Contrasinal da aplicación",
+        "description": "Label of the account login token field in account details in the extension settings"
+    },
+    "ServerTokenChange": {
+        "message": "Cambiar o contrasinal da aplicación",
+        "description": "Label of the button to change the login token of an existing account in the account details in the extension settings"
+    },
+    "ServerTimeout": {
+        "message": "Pechar após",
+        "description": "Label of the option to change the automatic logout time of an existing account in the account details in the extension settings"
+    },
+    "ServerTimeoutOptionNever": {
+        "message": "Nunca",
+        "description": "Label of the option for the server timeout to never expire"
+    },
+    "TabSearch": {
+        "message": "Buscar",
+        "description": "Label of the search tab in the extension popup"
+    },
+    "TabBrowse": {
+        "message": "Navegar",
+        "description": "Label of the browse servers tab in the extension popup"
+    },
+    "TabCollected": {
+        "message": "Recompilado",
+        "description": "Label of the new collected passwords tab in the extension popup"
+    },
+    "TabTools": {
+        "message": "Ferramentas",
+        "description": "Label of the tools tab in the extension popup"
+    },
+    "PasswordItemTitle": {
+        "message": "Estado: $STATUS$, ID: #$ID$",
+        "description": "The tooltip of any password entry in the popup",
+        "placeholders": {
+            "id": {
+                "content": "$1",
+                "example": "1234-1234-1234-1234"
+            },
+            "status": {
+                "content": "$2",
+                "example": "DUPLICATE"
+            }
+        }
+    },
+    "PasswordItemOpenUrl": {
+        "message": "Abrir o sitio web",
+        "description": "Title of the menu option to open the password url in a new tab"
+    },
+    "PasswordItemToTrash": {
+        "message": "Mover ao lixo",
+        "description": "Title of the menu option to move a password to the trash"
+    },
+    "PasswordItemDetails": {
+        "message": "Ver detalles",
+        "description": "Title of the menu option to view and edit a password"
+    },
+    "ValidationLabel": {
+        "message": "etiqueta",
+        "description": "Name of the account label field in account validation message. This value is used when the user attempts to save an account with an invalid label"
+    },
+    "ValidationUser": {
+        "message": "usuario",
+        "description": "Name of the account username field in account validation message. This value is used when the user attempts to save an account with an invalid username"
+    },
+    "ValidationBaseUrl": {
+        "message": "url base",
+        "description": "Name of the account base url field in account validation message. This value is used when the user attempts to save an account with an invalid base url"
+    },
+    "ValidationNotEmpty": {
+        "message": "O campo $FIELD$ non pode estar baleiro.",
+        "description": "Validation message when the user attempts to save something (like an account) but a required field is empty.",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            }
+        }
+    },
+    "ValidationMinLength": {
+        "message": "O campo $FIELD$ debe ter polo menos $MIN$ caracteres.",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is shorter than required",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "min": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationMaxLength": {
+        "message": "O campo $FIELD$ debe ter menos de $MAX$ caracteres.",
+        "description": "Validation message when the user attempts to save something (like an account) but a field is longer than allowed",
+        "placeholders": {
+            "field": {
+                "content": "$1",
+                "example": "user"
+            },
+            "max": {
+                "content": "$2",
+                "example": "29"
+            }
+        }
+    },
+    "ValidationFailed": {
+        "message": "Validación fallada.",
+        "description": "Validation message when the user attempts to save something (like an account) but there were validation errors"
+    },
+    "ValidationNotAnUrl": {
+        "message": "O URL base debe ser un URL válido.",
+        "description": "Validation message when the user attempts to save an account but the server url is not a valid url"
+    },
+    "ValidationNotAToken": {
+        "message": "O contrasinal da aplicación debe ser un contrasinal de aplicación Nextcloud válido.",
+        "description": "Validation message when the user attempts to save an account but the token does not match the Nextcloud token schema"
+    },
+    "ValidationDuplicate": {
+        "message": "Xa hai unha conta para este usuario neste Nextcloud.",
+        "description": "Validation message when the user attempts to save a new account, but a similar account with the same server and same user name already exists"
+    },
+    "ValidationUnauthorizedError": {
+        "message": "O servidor en $URL$ non aceptou os datos de acceso.",
+        "description": "Validation message when the user attempts to save an account but the server did not accept the user name and token",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationHttpError": {
+        "message": "Ao tentar conectarse a $URL$ produciuse o erro $ERROR$.",
+        "description": "Validation message when the user attempts to save an account but the server responded with an unexpected HTTP status code",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "HTTP 401 - Forbidden"
+            }
+        }
+    },
+    "ValidationNoConnection": {
+        "message": "Non foi posíbel conectarse a $URL$.",
+        "description": "Validation message when the user attempts to save an account but it is not possible to connect to this server with the given url",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            }
+        }
+    },
+    "ValidationServerVersion": {
+        "message": "A versión da aplicación instalada no servidor está desactualizada.",
+        "description": "Validation message when the user attempts to save an account but the version of the passwords app installed on the server is outdated"
+    },
+    "TitleClickToEdit": {
+        "message": "Prema dúas veces para editar",
+        "description": "Tooltip used in the collected password form for any property of the password to inform the user that double clicking makes the text field editable"
+    },
+    "TitleEnterToExit": {
+        "message": "Prema Intro para gardar",
+        "description": "Tooltip used in the collected password form to tell the user that the property can be saved by clicking enter"
+    },
+    "NoSearchResults": {
+        "message": "Non foi atopado ningún contrasinal que coincida coa súa consulta",
+        "description": "Used in the search tab when no entries match the search query"
+    },
+    "NoSearchQuery": {
+        "message": "Escriba na caixa de busca para atopar contrasinais",
+        "description": "Used in the search tab when there is no search query"
+    },
+    "NoCollectedPasswords": {
+        "message": "Non se atoparon contrasinais novos",
+        "description": "Used in the collected tab when no new passwords have been found"
+    },
+    "AddPasswordForCurrentTab": {
+        "message": "Engadir credenciais para a lapela actual",
+        "description": "Used in the collected tab for the option to add a blank entry with just the url of the current tab"
+    },
+    "NoServerItems": {
+        "message": "Non se atopou ningún elemento",
+        "description": "Used in the browse tab when a server has no entries to list"
+    },
+    "BrowseNoServers": {
+        "message": "Non hai servidores dispoñíbeis",
+        "description": "Used in the browse tab when no accounts/servers are available"
+    },
+    "SearchPlaceholder": {
+        "message": "Atopar contrasinais",
+        "description": "Placeholder text of the search box"
+    },
+    "MiningItemIsNew": {
+        "message": "Este é un contrasinal novo",
+        "description": "Text shown in a collected password that is new to tell the user that it is a new passwor"
+    },
+    "LabelLabel": {
+        "message": "Nome",
+        "description": "Label for the name of a password entry"
+    },
+    "LabelPassword": {
+        "message": "Contrasinal",
+        "description": "Label for the password of a password entry"
+    },
+    "LabelUsername": {
+        "message": "Usuario",
+        "description": "Label for the username of a password entry"
+    },
+    "LabelHidden": {
+        "message": "Contrasinal privado",
+        "description": "Label for the checkbox to mark a password entry as private or hidden in the webapp"
+    },
+    "LabelUrl": {
+        "message": "URL",
+        "description": "Label for of a field that contains an url (used in collected password or server info)"
+    },
+    "LabelUser": {
+        "message": "Usuario",
+        "description": "Label for the username of in the server info in the browse tab"
+    },
+    "LabelPasswords": {
+        "message": "Contrasinais",
+        "description": "Label for the password count in the server info in the browse tab"
+    },
+    "LabelFolders": {
+        "message": "Cartafoles",
+        "description": "Label for the folder count in the server info in the browse tab"
+    },
+    "LabelFolder": {
+        "message": "Cartafol",
+        "description": "Label for the folder of this password."
+    },
+    "LabelCreated": {
+        "message": "Creado",
+        "description": "Label for the creation time of this password."
+    },
+    "LabelEdited": {
+        "message": "Modificado",
+        "description": "Label for the last edit time of this password."
+    },
+    "LabelNotes": {
+        "message": "Notas",
+        "description": "Label for the notes of this password."
+    },
+    "LabelServerVersion": {
+        "message": "Servidor",
+        "description": "Label for the nextcloud server version in the server info in the browse tab"
+    },
+    "LabelAppVersion": {
+        "message": "API",
+        "description": "Label for the passwords app version in the server info in the browse tab"
+    },
+    "AppLabelString": {
+        "message": "Contrasinais $VERSION$",
+        "description": "Value for the passwords app version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "PlaceholderPassword": {
+        "message": "Contrasinal",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
+    },
+    "PlaceholderToken": {
+        "message": "Testemuño de dous factores",
+        "description": "Placeholder text in the master password field of the server authorization dialog"
+    },
+    "ButtonLogin": {
+        "message": "Acceso",
+        "description": "The text of the login button of the server authorization dialog"
+    },
+    "AuthorizationFailedTitle": {
+        "message": "Autorización fallada",
+        "description": "Title of the toast notification when the login attempt was unsuccessful"
+    },
+    "AuthorizationFailedText": {
+        "message": "Foi denegado o acceso á base de datos de contrasinais co acceso fornecido",
+        "description": "Text of the toast notification when the login attempt was unsuccessful"
+    },
+    "NotifyNewPasswordTitle": {
+        "message": "Foi detectado un novo contrasinal",
+        "description": "Title of the system notification when a new password was detected"
+    },
+    "NotifyNewPasswordText": {
+        "message": "Foi detectado un novo contrasinal para «$LABEL$».",
+        "description": "Text of the system notification when a new password was detected. Used in Chrome where the notification has buttons to save or view the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "ButtonSave": {
+        "message": "Gardar",
+        "description": "The save button of a password detection system notification"
+    },
+    "ButtonMore": {
+        "message": "Máis opcións",
+        "description": "The more options button of a password detection system notification which opens the popup with the form which shows all password details"
+    },
+    "ButtonClose": {
+        "message": "Pechar",
+        "description": "The title of the close button of a toast notification"
+    },
+    "ToastServerCheckTitle": {
+        "message": "É necesario actualizar $SERVER$",
+        "description": "Title of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "PropertyPassword": {
+        "message": "Contrasinal",
+        "description": "Label of the property password of the password entry used in PasswordPropertyCopied"
+    },
+    "PropertyUrl": {
+        "message": "Sitio web",
+        "description": "Label of the property url of the password entry used in PasswordPropertyCopied"
+    },
+    "SettingsThemeId": {
+        "message": "Tema activo",
+        "description": "Label of the option to choose the current theme in the extension settings"
+    },
+    "ThemeDark": {
+        "message": "Tema escuro",
+        "description": "Label of the dark theme"
+    },
+    "ValidationToken": {
+        "message": "contrasinal da aplicación",
+        "description": "Name of the account token field in account validation message. This value is used when the user attempts to save an account with an invalid token"
+    },
+    "ValidationInvalidTimeout": {
+        "message": "O tempo de peche debe ser unha das opcións indicadas.",
+        "description": "Validation message when the user attempts to save an account but the timeout is not within the predefined range"
+    },
+    "ValidationConnectionError": {
+        "message": "Ao tentar conectarse a $URL$ produciuse o erro $ERROR$.",
+        "description": "Validation message when the user attempts to save an account but the connection attempt resulted in any kind of error (including internal extension errors)",
+        "placeholders": {
+            "url": {
+                "content": "$1",
+                "example": "https://cloud.example.com/"
+            },
+            "error": {
+                "content": "$2",
+                "example": "Undefined variable example in file"
+            }
+        }
+    },
+    "LabelCustomFields": {
+        "message": "Campos personalizados",
+        "description": "Label for the custom fields of this password"
+    },
+    "LabelTags": {
+        "message": "Etiquetas",
+        "description": "Label for the tag count in the server info in the browse tab"
+    },
+    "ServerLabelString": {
+        "message": "Nextcloud $VERSION$",
+        "description": "Value for the nextcloud server version in the server info in the browse tab",
+        "placeholders": {
+            "version": {
+                "content": "$1",
+                "example": "20"
+            }
+        }
+    },
+    "PropertyUsername": {
+        "message": "Nome de usuario",
+        "description": "Label of the property username of the password entry used in PasswordPropertyCopied"
+    },
+    "MiningItemIsUpdate": {
+        "message": "Esta semella ser unha actualización de «$PASSWORD$»",
+        "description": "Text shown in a collected password that is an update of an existing password",
+        "placeholders": {
+            "password": {
+                "content": "$1",
+                "example": "My Password"
+            }
+        }
+    },
+    "TokenRequestFailed": {
+        "message": "Produciuse un fallo na solicitude de testemuño",
+        "description": "Title of the toast notification when the request for a two factor auth token failed. The text will be the error message."
+    },
+    "NotifyNewPasswordTextFF": {
+        "message": "Foi detectado un novo contrasinal para «$LABEL$». Prema na icona de contrasinais na barra de ferramentas para velo e gardalo.",
+        "description": "Text of the system notification when a new password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyNewPasswordTextQS": {
+        "message": "Foi detectado un novo contrasinal para «$LABEL$». Prema aquí para gardalo.",
+        "description": "Text of the system notification when a new password was detected. Clicking the notification will save the password.",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordText": {
+        "message": "Foi detectada unha actualización para «$LABEL$».",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Chrome where the notification has buttons to save or view the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTextQS": {
+        "message": "Foi detectada unha actualización para «$LABEL$». Prema aquí para gardala.",
+        "description": "Text of the system notification when an update for an existing password was detected. Clicking the notification will update the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTextFF": {
+        "message": "Foi detectada unha actualización para «$LABEL$». Prema na icona de contrasinais na barra de ferramentas para vela e gardala.",
+        "description": "Text of the system notification when an update for an existing password was detected. Used in Firefox where the notification is purely informational and the user must open the popup to save the password",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud Community Forum"
+            }
+        }
+    },
+    "NotifyUpdatePasswordTitle": {
+        "message": "Foi detectado un contrasinal actualizado",
+        "description": "Title of the system notification when an update for an existing password has been detected"
+    },
+    "ToastServerCheckMessage": {
+        "message": "A conta «$SERVER$» usa contrasinais $SERVERVERSION$, mais esta extensión precisa de polo menos $MINVERSION$. A aplicación debe actualizarse antes de poder activar de novo a conta nos axustes.",
+        "description": "Text of the toast notification when an account was disabled because the server uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
+    },
+    "ToastServerCheckWarning": {
+        "message": "Esta extensión precisará en breve de contrasinais $MINVERSION$, mais «$SERVER$» usa contrasinais $SERVERVERSION$. Actualice a aplicación para seguir a usar a conta.",
+        "description": "Text of the toast notification when an account uses a server which will soon be no longer supported because it uses an outdated and unsupported version of the passwords app",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            },
+            "minversion": {
+                "content": "$2",
+                "example": "2021.12"
+            },
+            "serverversion": {
+                "content": "$3",
+                "example": "2021.11"
+            }
+        }
+    },
+    "ToastErrorMessage": {
+        "message": "Produciuse un erro no cliente de contrasinais. Comprobe o rexistro de erros nas opcións de depuración para obter máis detalles.",
+        "description": "Text of the toast notification for error messages from the passwords client. The error message is the title"
+    },
+    "ToastPasswordTrashed": {
+        "message": "$LABEL$ foi movido cara ao lixo. Pode eliminalo definitivamente na aplicación ou restauralo",
+        "description": "Text of the toast notification after a password was moved to the trash",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "ToastPasswordTrashedRestore": {
+        "message": "Restaurar",
+        "description": "Text of the toast notification option to restore a password from the trash"
+    },
+    "ToastPasswordDeleteFailed": {
+        "message": "Produciuse un fallo ao eliminar o contrasinal",
+        "description": "Text of the toast notification when deleting the password failed"
+    },
+    "ToastPasswordRestored": {
+        "message": "$LABEL$ foi restaurado dende o lixo. Volverá aparecer após volver abrir a xanela emerxente",
+        "description": "Text of the toast notification after a password was restored from the trash",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "PasswordPastedSuccess": {
+        "message": "$LABEL$ foi pegado correctamente",
+        "description": "Text of the toast notification when a password entry was pasted successfully into the current tab",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "ToastPasswordUpdated": {
+        "message": "Contrasinal actualizado",
+        "description": "Text of the toast notification when password was updated"
+    },
+    "ToastPasswordUpdateFailed": {
+        "message": "Produciuse un fallo na actualización do contrasinal",
+        "description": "Text of the toast notification when password update failed"
+    },
+    "PasswordPastedError": {
+        "message": "Non foi posíbel pegar $LABEL$",
+        "description": "Text of the toast notification when a password could not be pasted into the current tab",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nextcloud account"
+            }
+        }
+    },
+    "PasswordPropertyCopied": {
+        "message": "Copiouse $PROPERTY$",
+        "description": "Text of the toast notification when a password property was copied successfully via one of the buttons",
+        "placeholders": {
+            "property": {
+                "content": "$1",
+                "example": "Username"
+            }
+        }
+    },
+    "ServerConnectionErrorTitle": {
+        "message": "Non é posíbel conectar con $SERVER$",
+        "description": "Title of the toast notification when the connection to the server failed",
+        "placeholders": {
+            "server": {
+                "content": "$1",
+                "example": "My Nextcloud"
+            }
+        }
+    },
+    "ServerCredentialsRejected": {
+        "message": "Foron rexeitadas as credenciais do servidor. Actualice os datos de acceso nos axustes.",
+        "description": "Text of the toast notification when the server has rejected the login credentials"
+    },
+    "ServerHttpError": {
+        "message": "Produciuse un erro de conexión HTTP: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with a HTTP error",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "ServerNetworkErrorReload": {
+        "message": "Volver cargar o servidor",
+        "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
+    },
+    "ServerUnknownError": {
+        "message": "Produciuse un erro descoñecido.",
+        "description": "Text of the toast notification when the connection to the server failed with an unknown error and no error message is present"
+    },
+    "ServerGenericError": {
+        "message": "Produciuse un erro: $ERROR$",
+        "description": "Text of the toast notification when the connection to the server failed with an error",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "description": "The error message",
+                "example": "500 - Internal Server Error"
+            }
+        }
+    },
+    "DemoText": {
+        "message": "Demostración",
+        "description": "Demo text used in the theme preview"
+    },
+    "DemoInfoNotification": {
+        "message": "Notificación de información",
+        "description": "Text and title of the info notification in the theme preview"
+    },
+    "DemoSuccessNotification": {
+        "message": "Notificación de éxito",
+        "description": "Text and title of the success notification in the theme preview"
+    },
+    "DemoWarningNotification": {
+        "message": "Notificación de advertencia",
+        "description": "Text and title of the warning notification in the theme preview"
+    },
+    "DemoErrorNotification": {
+        "message": "Notificación de erro",
+        "description": "Text and title of the error notification in the theme preview"
+    },
+    "ThemeAdaptaLight": {
+        "message": "Adapta",
+        "description": "Label of the theme with the Adapta color scheme"
+    },
+    "ThemeAdaptaTeal": {
+        "message": "Adapta verde azulado",
+        "description": "Label of the theme with the Adapta teal color scheme"
+    },
+    "ThemeLight": {
+        "message": "Predeterminado",
+        "description": "Label of the default light theme"
+    },
+    "ThemeOledDark": {
+        "message": "OLED escuro",
+        "description": "Label of the dark theme optimized for OLED-Displays"
+    },
+    "ThemeArcDark": {
+        "message": "Arco escuro",
+        "description": "Label of the theme with the Arc dark scheme"
+    },
+    "ThemeArcLight": {
+        "message": "Arco",
+        "description": "Label of the theme with the Arc color scheme"
+    },
+    "ThemeHacker": {
+        "message": "Hacker",
+        "description": "Label of the hacker style theme"
+    },
+    "ThemeRGB": {
+        "message": "RGB para xogos",
+        "description": "Label of the gaming rgb animated theme"
+    },
+    "ThemeCustom": {
+        "message": "Tema personalizado",
+        "description": "Label for the custom theme option"
+    },
+    "CustomFont": {
+        "message": "Tipo de letra",
+        "description": "Headline for the font settings in the custom theme settings"
+    },
+    "CustomActiveElement": {
+        "message": "Elemento activo",
+        "description": "Headline for the active element styling settings in the custom theme settings"
+    },
+    "ToastPasswordHiddenTrashed": {
+        "message": "$LABEL$ foi eliminado. Se isto foi un accidente, aínda pode restauralo a seguir antes de que se elimine definitivamente",
+        "description": "Text of the toast notification after a hidden password was moved to the trash. Users can restore it within the notification but afterwards the password is lost for good",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Example Password"
+            }
+        }
+    },
+    "ServerNetworkError": {
+        "message": "Produciuse un erro de rede. Comprobe se está conectado e se pode acceder ao servidor.",
+        "description": "Text of the toast notification when the connection to the server failed with a network error"
+    },
+    "CustomDefaultElement": {
+        "message": "Elemento predeterminado",
+        "description": "Headline for the default element styling settings in the custom theme settings"
+    },
+    "CustomButtons": {
+        "message": "Botóns",
+        "description": "Headline for the button styling settings in the custom theme settings"
+    },
+    "CustomSliderElement": {
+        "message": "Interruptores",
+        "description": "Headline for the switch styling settings in the custom theme settings"
+    },
+    "CustomBadge": {
+        "message": "Icona do navegador",
+        "description": "Headline for the browser toolbar icon styling settings in the custom theme settings"
+    },
+    "BackgroundColorLabel": {
+        "message": "Cor do fondo",
+        "description": "Label of background color options in the custom theme settings"
+    },
+    "ForegroundColorLabel": {
+        "message": "Cor do primeiro plano",
+        "description": "Label of foreground / text color options in the custom theme settings"
+    },
+    "BorderColorLabel": {
+        "message": "Cor do Bordo",
+        "description": "Label of border color options in the custom theme settings"
+    },
+    "BackgroundInheritLabel": {
+        "message": "Herdar o fondo",
+        "description": "Label of options to inherit the background color in the custom theme settings"
+    },
+    "ForegroundInheritLabel": {
+        "message": "Herdar primeiro plano",
+        "description": "Label of options to inherit the foreground / text color in the custom theme settings"
+    },
+    "BackgroundColorBaseTitle": {
+        "message": "Esta cor adoita usarse para o fondo",
+        "description": "Tooltip of the color input field in the custom theme settings for the default background color for an element"
+    },
+    "CustomToasts": {
+        "message": "Notificacións emerxentes",
+        "description": "Headline for the toast notification styling settings in the custom theme settings"
+    },
+    "FontDefault": {
+        "message": "Predeterminada",
+        "description": "Label of the default font option in the custom theme settings"
+    },
+    "FontMono": {
+        "message": "Caixa fixa (Monoespazada)",
+        "description": "Label of the monospaced font option in the custom theme settings"
+    },
+    "FontSerif": {
+        "message": "Serifas",
+        "description": "Label of the serif style (like Times New Roman) font option in the custom theme settings"
+    },
+    "FontSans": {
+        "message": "Sen serifas",
+        "description": "Label of the sans serif (like Arial) font option in the custom theme settings"
+    },
+    "FontLight": {
+        "message": "Lixeira",
+        "description": "Label of the thin font option in the custom theme settings"
+    },
+    "FontNextcloud": {
+        "message": "Nextcloud",
+        "description": "Label of the Nextcloud font option in the custom theme settings"
+    },
+    "FontOpenDyslexic": {
+        "message": "Dislexica aberta",
+        "description": "Label of the open dyslexic font option in the custom theme settings. This font is good for users with dyslexia"
+    },
+    "FontCustom": {
+        "message": "Personalizada",
+        "description": "Label for unrecognized fonts in the custom theme settings. This option is usually not shown"
+    },
+    "SettingsCustomFontSize": {
+        "message": "Tamaño da letra",
+        "description": "Label of the font size setting in the custom theme settings"
+    },
+    "FontSizeVerySmall": {
+        "message": "Moi pequeno",
+        "description": "Label for the very small font size in the custom theme settings"
+    },
+    "FontSizeSmall": {
+        "message": "Pequeno",
+        "description": "Label for the small font size in the custom theme settings"
+    },
+    "FontSizeMedium": {
+        "message": "Medio",
+        "description": "Label for the medium font size in the custom theme settings"
+    },
+    "FontSizeLarge": {
+        "message": "Grande",
+        "description": "Label for the large font size in the custom theme settings"
+    },
+    "FontSizeVeryLarge": {
+        "message": "Moi grande",
+        "description": "Label for the very large font size in the custom theme settings"
+    },
+    "ToastWarningColors": {
+        "message": "Mensaxe emerxente de advertencia",
+        "description": "Label of the setting in the custom theme settings to choose the colors of warning toast notifications"
+    },
+    "ToastInfoColors": {
+        "message": "Información emerxente",
+        "description": "Label of the setting in the custom theme settings to choose the colors of informational toast notifications"
+    },
+    "ToastErrorColors": {
+        "message": "Mensaxe emerxente de erro",
+        "description": "Label of the setting in the custom theme settings to choose the colors of error toast notifications"
+    },
+    "ToastForegroundTitle": {
+        "message": "Cor para o texto e os fondos dos botóns da notificación emerxente",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification foreground / text color"
+    },
+    "ToastBackgroundTitle": {
+        "message": "Cor de fondo para a notificación emerxente",
+        "description": "Tooltip of the color input in the custom theme settings for a toast notification background color"
+    },
+    "SettingsBadgeIcon": {
+        "message": "Icona da barra de ferramentas",
+        "description": "Label of the setting to choose the toolbar icon in the custom theme settings"
+    },
+    "ForegroundColorBaseTitle": {
+        "message": "Esta cor adoita usarse para textos e bordos",
+        "description": "Tooltip of the color input field in the custom theme settings for the default foreground / text color for an element"
+    },
+    "SettingsCustomFont": {
+        "message": "Familia tipográfica",
+        "description": "Label of the font option in the custom theme settings"
+    },
+    "FontSizeDefault": {
+        "message": "Predeterminado",
+        "description": "Label for the default font size in the custom theme settings"
+    },
+    "ToastSuccessColors": {
+        "message": "Mensaxe emerxente de éxito",
+        "description": "Label of the setting in the custom theme settings to choose the colors of success toast notifications"
+    },
+    "BorderColorBaseTitle": {
+        "message": "Esta cor adoita usarse para bordos",
+        "description": "Tooltip of the color input field in the custom theme settings for the default border color for an element"
+    },
+    "BackgroundColorHoverTitle": {
+        "message": "Esta cor úsase para o fondo se o elemento está activo. Tamén é posíbel usalo para o bordo dun elemento inactivo",
+        "description": "Tooltip of the color input field in the custom theme settings for the mouse hover / active background color for an element"
+    },
+    "ForegroundColorHoverTitle": {
+        "message": "Esta cor úsase para textos e bordos se o elemento está activo",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active foreground / text color for an element"
+    },
+    "BorderColorHoverTitle": {
+        "message": "Esta cor úsase para os bordos se o elemento está activo",
+        "description": "Tooltip of the color input field in the custom theme settings for the hover / active border color for an element"
+    },
+    "BackgroundInheritTitle": {
+        "message": "Se está activado, o valor herdarase do elemento superior",
+        "description": "Tooltip for the checkbox to inherit the background color (from the parent element in the html) in the custom theme settings"
+    },
+    "ForegroundInheritTitle": {
+        "message": "Se está activado, o valor herdarase do elemento superior",
+        "description": "Tooltip for the checkbox to inherit the foreground / text color (from the parent element in the html) in the custom theme settings"
+    },
+    "BadgeIconAuto": {
+        "message": "Automático",
+        "description": "Label of the automatic icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconLight": {
+        "message": "Icona clara",
+        "description": "Label of the light icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconDark": {
+        "message": "Icona escura",
+        "description": "Label of the dark icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewMedium": {
+        "message": "Icona gris moderna",
+        "description": "Label of the grey modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewDark": {
+        "message": "Icona escura moderna",
+        "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconOutlineLight": {
+        "message": "Icona de contorno clara",
+        "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconOutlineDark": {
+        "message": "Icona de contorno escura",
+        "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
+    },
+    "CustomBadgeColors": {
+        "message": "Cores das insignias",
+        "description": "Label of the settings for the toolbar icon badge colors in the custom theme settings"
+    },
+    "BadgeBackgroundTitle": {
+        "message": "Cor de fondo da insignia",
+        "description": "Tooltip for the color input for the background color of the toolbar icon badge in the custom theme settings"
+    },
+    "BadgeForegroundTitle": {
+        "message": "Cor do texto da insignia",
+        "description": "Tooltip for the color input for the text color of the toolbar icon badge in the custom theme settings"
+    },
+    "PasslinkNoLinkProvided": {
+        "message": "Non falta ningunha ligazón ou acción",
+        "description": "Error message shown in the PassLink popup window when the window was opened but no action or link to process was provided"
+    },
+    "PasslinkErrorClose": {
+        "message": "Pechar",
+        "description": "Text of the close button in the PassLink error window"
+    },
+    "PasslinkNoActiveAction": {
+        "message": "Non hai ningunha acción de PassLink activa deste tipo",
+        "description": "Error message when an active PassLink action is required for a request but no active action can be found. (Example: Request to view the second step of the PassLink connect step, but no PassLink connect was started at all)"
+    },
+    "PasslinkConnectServer": {
+        "message": "A nova conta foi gardada como «$LABEL$»",
+        "description": "Confirmation message in the PassLink Connect action when a new account has been created successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "BadgeIconMedium": {
+        "message": "Icona gris",
+        "description": "Label of the grey icon option for the toolbar icon in the custom theme settings"
+    },
+    "BadgeIconNewLight": {
+        "message": "Icona clara moderna",
+        "description": "Label of the light modern icon option for the toolbar icon in the custom theme settings"
+    },
+    "PasslinkErrorNoMessage": {
+        "message": "Produciuse un erro mais non se proporcionou ningunha mensaxe de erro",
+        "description": "Error message shown in the PassLink popup window when and error happened but no error message was provided"
+    },
+    "PasslinkConnectCheckCodes": {
+        "message": "Comprobe se os códigos de embaixo coinciden cos que ve na aplicación. Se o fan, confirme a conexión na aplicación e listo.",
+        "description": "Message during the PassLink Connect action telling the user to check if the codes below match the ones shown in the Nextcloud Passwords App. If so, the user just needs to confirm the connection in the Nextcloud app to add the account to the extension."
+    },
+    "PasslinkConnectServerUpdated": {
+        "message": "As credenciais de «$LABEL$» foron actualizadas",
+        "description": "Confirmation message in the PassLink Connect action when an existing account has been updated successfully",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "Nexcloud - admin"
+            }
+        }
+    },
+    "PasslinkConnectNotFound": {
+        "message": "Esta ligazón non é válida. É posíbel que xa se teña usado ou estea caducado.",
+        "description": "Error message in PassLink when the link used has expired or was already used."
+    },
+    "PasslinkConnectRejected": {
+        "message": "A solicitude de conexión foi rexeitada polo servidor.",
+        "description": "Error message when the server rejected the PassLink connect action was not confirmed by the server"
+    },
+    "PasslinkConnectNetworkError": {
+        "message": "Produciuse un fallo ao conectar co servidor. Comprobe a súa rede.",
+        "description": "Error message in PassLink when the connection to the Nextcloud server failed with a networking error"
+    },
+    "PasslinkConnectSuccess": {
+        "message": "Conexión satisfactoria",
+        "description": "Message in the PassLink window when the PassLink Connect action was successful"
+    },
+    "PasslinkConnectFailed": {
+        "message": "Conexión fallada",
+        "description": "Message in the PassLink window when the PassLink Connect action failed"
+    },
+    "PasslinkConnectSettings": {
+        "message": "Abrir os axustes",
+        "description": "Text of the button to open the extension settings in the PassLink result window"
+    },
+    "PasslinkConnectClose": {
+        "message": "Pechar a xanela",
+        "description": "Text of the button  in the PassLink result window to close the window"
+    },
+    "PasslinkScanInstructions": {
+        "message": "Apunte a súa cámara ao código QR e agarde a que sexa recoñecido e escaneado.",
+        "description": "Instructions shown above the PassLink QR scanner telling the use to point his camera at the qr code he wants to scan"
+    },
+    "PasslinkScanScanning": {
+        "message": "Buscando un código QR",
+        "description": "Message used by the PassLink QR scanner while the camera feed is scanned for a qr code"
+    },
+    "PasslinkScanProcessingLink": {
+        "message": "Procesando o código QR",
+        "description": "Message used by the PassLink QR scanner when a valid code was found and is now being analyzed"
+    },
+    "PasslinkScanInvalidQrCode": {
+        "message": "Este código QR non é compatíbel",
+        "description": "Message used by the PassLink QR scanner when the user scans a code that does not contain a valid and supported uri of Passlink"
+    },
+    "QrNotAllowedError": {
+        "message": "Non se permitiu o acceso á cámara",
+        "description": "Message used by the PassLink QR scanner when the user did not allow camera access"
+    },
+    "QrNotFoundError": {
+        "message": "Non se atopou ningunha cámara neste dispositivo",
+        "description": "Message used by the PassLink QR scanner when the device has no cameras"
+    },
+    "QrNotSupportedError": {
+        "message": "Contexto inseguro",
+        "description": "Message used by the PassLink QR scanner when the page was opened in an insecure context (http://). This should never happen"
+    },
+    "QrNotReadableError": {
+        "message": "Non é posíbel acceder á cámara. Quizais xa estea en uso?",
+        "description": "Message used by the PassLink QR scanner when the camera stream can not be read"
+    },
+    "QrOverconstrainedError": {
+        "message": "Cámara non apta para ser usada",
+        "description": "Message used by the PassLink QR scanner when the camera is faulty"
+    },
+    "QrStreamApiNotSupportedError": {
+        "message": "A API de Stream non é compatíbel con este navegador",
+        "description": "Message used by the PassLink QR scanner when the browser does not support the required streaming api. This should never happen"
+    },
+    "FirstRunConnectTitle": {
+        "message": "Conectarse a Nextcloud",
+        "description": "Title of the first run wizard page that helps the user to connect to their Nextcloud"
+    },
+    "FirstRunConnectLink1": {
+        "message": "Abra a aplicación Contrasinais, prema en «Máis» e abra «Aplicacións e extensións».",
+        "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
+    },
+    "FirstRunConnectLink2": {
+        "message": "Escolla o seu navegador e prema en «Conectar con PassLink»",
+        "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
+    },
+    "FirstRunConnectScanQR": {
+        "message": "Escanear o código PassLink",
+        "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
+    },
+    "FirstRunSetupVideo": {
+        "message": "Ver a guía en vídeo",
+        "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
+    },
+    "FirstRunSettingsText": {
+        "message": "O comportamento da extensión sempre pode ser personalizado nos axustes da extensión.",
+        "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
+    },
+    "OpenSettings": {
+        "message": "Abrir os axustes da extensión",
+        "description": "Label of the button to open the extension settings in the tools tab of the popup"
+    },
+    "GeneratedPasswordTitle": {
+        "message": "Palabras do contrasinal: $WORDS$",
+        "description": "Title of the input field for the generated password in the tools tab of the popup. It shows the words used to generate the password",
+        "placeholders": {
+            "words": {
+                "content": "$1",
+                "description": "The words used for the password",
+                "example": "First Second Third"
+            }
+        }
+    },
+    "PasswordGenerateError": {
+        "message": "Produciuse un fallo ao xerar un contrasinal: $ERROR$",
+        "description": "Notification shown when the generation of a password fails",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "Unexpected data type"
+            }
+        }
+    },
+    "DebugHighlightLoginForms": {
+        "message": "Resaltar os campos do formulario de acceso",
+        "description": "Label of the button in the popup which triggers the option to highlight all login form fields in the current tab"
+    },
+    "PasteBadPasswordWarning": {
+        "message": "Este contrasinal está comprometido e debe ser cambiado inmediatamente",
+        "description": "Notification shown after the user pasted a password with the security status breached/compromised"
+    },
+    "DebugInternalStats": {
+        "message": "Estado interno",
+        "description": "Headline above the internal status section in the extension settings in the debug tab"
+    },
+    "DebugInfoExtensionVersion": {
+        "message": "Versión da extensión",
+        "description": "Description of the extension version in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionBuild": {
+        "message": "Plataforma de destino",
+        "description": "Description of the extension build target (firefox or chrome) in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionPlatform": {
+        "message": "Axente de usuario",
+        "description": "Description of the browser user agent in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoExtensionEnvironment": {
+        "message": "Modo de extensión",
+        "description": "Description of the extension mode (production or development) in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugInfoHiddenFolderId": {
+        "message": "ID do cartafol de contrasinais agochados",
+        "description": "Description of the id of the folder used to store hidden/private passwords in the internal status section in the debug tab in the extension settings"
+    },
+    "DebugSettings": {
+        "message": "Axustes da depuración",
+        "description": "Headline above the debugging settings section in the extension settings in the debug tab"
+    },
+    "DebugLanguageTagsEnabled": {
+        "message": "Amosar as claves de idioma",
+        "description": "Label of the setting to disable translation of language keys in the debug settings section in the debug tab in the extension settings"
+    },
+    "DebugResetTitle": {
+        "message": "Limpar os datos da extensión",
+        "description": "Headline above the section for to clear specific extension data in the debug tab in the extension settings"
+    },
+    "DebugResetStatistics": {
+        "message": "Restabelecer os datos de recomendación",
+        "description": "Label of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugResetExtension": {
+        "message": "Restablecer a extensión",
+        "description": "Label of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "DebugBuild": {
+        "message": "Información da compilación",
+        "description": "Headline above the section for the build instructions in the debug tab in the extension settings"
+    },
+    "DebugSourceAndBuild": {
+        "message": "Instrucións de compilación e descarga do código fonte",
+        "description": "Label of the link to open the page with build instructions and links to the source code in the debug tab in the extension settings"
+    },
+    "DebugErrorLog": {
+        "message": "Rexistro de erros",
+        "description": "Headline above the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorNoMessage": {
+        "message": "Non hai ningún mensaxe de erro",
+        "description": "Used as error message for errors with no error message (but have a timestamp) in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorNoDetails": {
+        "message": "Non hai ningún detalle do erro",
+        "description": "Used as error message for errors with no details at all in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugErrorDataCopied": {
+        "message": "Os detalles do erro foron copiados no portapapeis",
+        "description": "Success notification when you copy an error report to the clipboard in the error logs section in the extension settings in the debug tab"
+    },
+    "DebugNoErrors": {
+        "message": "Non hai ningún erro no rexistro",
+        "description": "Message shown when no error reports exist instead of the error logs in the error logs section in the extension settings in the debug tab"
+    },
+    "RecommendationSettings": {
+        "message": "Recomendación de credenciais",
+        "description": "Label of the section password recommendations in the extension settings."
+    },
+    "LabelSearchRecommendationDomain": {
+        "message": "mesmo dominio",
+        "description": "Find password recommendations by domain. So on page mail.example.com you will see all passwords for the domain and sumdomains of example.com."
+    },
+    "LabelSearchRecommendationHost": {
+        "message": "mesma máquina/servidor",
+        "description": "Find password recommendations by host. So on page mail.example.com you will see all passwords for the sumdomain mail e.g. (mail.example.com or mail.example.com:8443)."
+    },
+    "LabelSearchRecommendationExact": {
+        "message": "mesmo URL exacto",
+        "description": "Find only passwords where th url matches exact to the current browser url."
+    },
+    "SettingsSearchRecommendationMaxRows": {
+        "message": "Número máximo de recomendacións",
+        "description": "Label of the setting in the extension settings to define the maximum number of results for the password recommendation."
+    },
+    "SearchRecommendationMaxRowsNumber": {
+        "message": "$ROW$",
+        "description": "Number of results that should be displayed for password recommendations.",
+        "placeholders": {
+            "row": {
+                "content": "$1",
+                "example": "One of 1, 5, 10, 15 or 20"
+            }
+        }
+    },
+    "UiSettings": {
+        "message": "Interface de usuario",
+        "description": "Label of the user interface section in the extension settings."
+    },
+    "SettingsShowUsernameInList": {
+        "message": "Amosar o nome de usuario a carón do título",
+        "description": "Label of the setting in the extension settings to show the username next to the title in password lists."
+    },
+    "InputSliderOff": {
+        "message": "Actualmente apagado",
+        "description": "Tooltip of any slider input element that is currently in the inactive/disabled state"
+    },
+    "InputSliderOn": {
+        "message": "Actualmente activado",
+        "description": "Tooltip of any slider input element that is currently in the active/enabled state"
+    },
+    "PasswordCustomFieldsTypeText": {
+        "message": "Texto",
+        "description": "Label of the password custom setting type 'text'."
+    },
+    "PasswordCustomFieldsTypeSecret": {
+        "message": "Segredo",
+        "description": "Label of the password custom setting type 'secret'."
+    },
+    "PasswordCustomFieldsTypeEmail": {
+        "message": "Correo-e",
+        "description": "Label of the password custom setting type 'email'."
+    },
+    "PasswordCustomFieldsTypeUrl": {
+        "message": "Ligazón",
+        "description": "Label of the password custom setting type 'url'."
+    },
+    "PasswordCustomFieldsTypeFormField": {
+        "message": "Campo de formulario",
+        "description": "Label of the password custom setting form field to insert custom values to a web page."
+    },
+    "PasswordEditValidationInvalidValue": {
+        "message": "Valor incorrecto",
+        "description": "The validation error message in the password edit form if the value is invalid"
+    },
+    "PasswordEditValidationMaxLength": {
+        "message": "Só se permiten $CHARACTERS$ caracteres",
+        "description": "The validation error message in the password edit form if the value is longer than allowed",
+        "placeholders": {
+            "characters": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
+    },
+    "PasswordEditValidationRequired": {
+        "message": "Este campo é obrigatorio",
+        "description": "The validation error message in the password edit form if a required field is empty"
+    },
+    "MiningPasswordDiscarded": {
+        "message": "O contrasinal foi rexeitado",
+        "description": "The toast notification after the user has successfully discarded a mined password"
+    },
+    "MiningPasswordCreated": {
+        "message": "O contrasinal foi gardado",
+        "description": "The toast notification after the password was successfully saved"
+    },
+    "MiningPasswordUpdated": {
+        "message": "O contrasinal foi actualizado",
+        "description": "The toast notification after the password was successfully saved"
+    },
+    "CustomFieldValuePlaceholder": {
+        "message": "Valor do campo personalizado",
+        "description": "Placeholder text of the value for a custom field entry in the password details"
+    },
+    "CustomFieldLabelPlaceholder": {
+        "message": "Etiqueta de campo personalizado",
+        "description": "Placeholder text of the label for a custom field entry in the password details"
+    },
+    "ExtensionInitFailure": {
+        "message": "Produciuse un erro no inicio da extensión: $ERROR$",
+        "description": "Notification message when the start sequence of the extension failed",
+        "placeholders": {
+            "error": {
+                "content": "$1",
+                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+            }
+        }
+    },
+    "FirstRunConnectLink3": {
+        "message": "Prema en «Conectar mediante ligazón», compare os códigos e confirme a conexión.",
+        "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
+    },
+    "DebugResetExtensionTitle": {
+        "message": "Elimina todos os axustes, contas e datos de recomendación e comeza de novo",
+        "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
+    },
+    "SettingsSearchRecommendationOption": {
+        "message": "Buscar credenciais co",
+        "description": "Label of the setting in the extension settings to define how password recommendations are searched."
+    }
+}
