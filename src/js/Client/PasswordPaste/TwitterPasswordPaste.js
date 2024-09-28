@@ -9,11 +9,15 @@ export default class TwitterPasswordPaste extends AbstractPasswordPaste {
                        !this._passwordPasteRequest.isAutofill() &&
                        document.querySelector('a[href="/login"]') !== null
                    ) ||
-                   document.querySelector('input[autocomplete="username"]') !== null
+                   (
+                       document.querySelector('input[autocomplete="username"]') !== null ||
+                       document.querySelector('input[name="password"]') !== null
+                   )
                );
     }
 
     async handle() {
+        debugger;
         if(document.querySelector('input[name="password"]') === null) {
             let userInput;
             try {
