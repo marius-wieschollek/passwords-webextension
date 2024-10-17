@@ -53,8 +53,7 @@
         "clipboardWrite",
         "contextMenus",
         "notifications",
-        "webRequest",
-        "declarativeNetRequestWithHostAccess"
+        "webRequest"
     ],
     "optional_permissions"   : [
         "clipboardRead"
