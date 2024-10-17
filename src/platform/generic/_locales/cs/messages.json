@@ -1406,7 +1406,7 @@
         }
     },
     "SettingsNotifyPasswordQuicksave": {
-        "message": "Uložit nebo aktualizovat přímo po kliknutí na oznámení",
+        "message": "Ukládat nebo aktualizovat hesla přímo při kliknutí na oznámení",
         "description": "Label of the setting in the extension settings to save or update a password directly when the related notification is clicked"
     },
     "NotifyNewPasswordTextQS": {
@@ -1442,7 +1442,7 @@
         "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
     },
     "PasswordMiningSettings": {
-        "message": "Nové a změněné heslo",
+        "message": "Nové a změněná hesla",
         "description": "Headline above the password mining section in the other settings tab in the extension settings"
     },
     "SettingsMiningIgnoredDomains": {

@@ -1,6 +1,7 @@
 ## 2.7.0 - Feature Release
 ### Added
 - Ignored domains list for password autofill
+- Translation for Galician
 ### Fixed
 - Crash when "always private browsing" enabled in FF
 - Issues after extension reset
