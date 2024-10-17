@@ -58,13 +58,6 @@
     "optional_permissions"   : [
         "clipboardRead"
     ],
-    "declarative_net_request" : {
-        "rule_resources" : [{
-            "id": "passlink-rules",
-            "enabled": true,
-            "path": "rulesets/passlink_rules.json"
-        }]
-    },
     "host_permissions": [
         "*://*/*"
     ],
