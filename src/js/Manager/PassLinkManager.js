@@ -14,7 +14,6 @@ export default new class PassLinkManager {
      *
      */
     init() {
-
         SystemService
             .hasPermissions({permissions: ['webRequestBlocking']})
             .then((result) => {
@@ -25,7 +24,6 @@ export default new class PassLinkManager {
                         ['blocking']
                     );
                 } else {
-
                     SystemService.getBrowserApi().webRequest.onBeforeRequest.addListener(
                         this._beforeRequestListener,
                         {urls: ['https://link.passwordsapp.org/open/*']},

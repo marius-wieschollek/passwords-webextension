@@ -55,11 +55,8 @@
         "notifications",
         "webRequest"
     ],
-    "optional_permissions"   : [
-        "clipboardRead"
-    ],
     "host_permissions": [
-        "*://*/*"
+        "https://link.passwordsapp.org/*"
     ],
     "commands": {
       "_execute_action": {
