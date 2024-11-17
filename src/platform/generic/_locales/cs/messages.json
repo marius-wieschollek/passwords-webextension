@@ -1438,7 +1438,7 @@
         "description": "Placeholder text of the value for a custom field entry in the password details"
     },
     "ServerNetworkErrorReload": {
-        "message": "Znovunačtení serveru",
+        "message": "Znovu načíst server",
         "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
     },
     "PasswordMiningSettings": {
@@ -1446,7 +1446,7 @@
         "description": "Headline above the password mining section in the other settings tab in the extension settings"
     },
     "SettingsMiningIgnoredDomains": {
-        "message": "Ignorovat tyto domény (jedna na řádek, subdomény jsou také ignorovány).",
+        "message": "Ignorovat tyto domény (jedna na řádek, subdomény jsou také ignorovány)",
         "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not detect new or changed passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
     },
     "SettingsMiningIgnoredDomainsPlaceholder": {
@@ -1454,15 +1454,15 @@
         "description": "Placeholder text for SettingsMiningIgnoredDomains"
     },
     "SettingsMiningIncognitoHide": {
-        "message": "Ukládání hesel shromážděných v aplikaci Inkognito jako soukromých hesel",
+        "message": "Ukládat hesla shromážděná Inkognito režimu jako soukromá hesla",
         "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
     },
     "BadgeIconOutlineLight": {
-        "message": "Ikona světelného obrysu",
+        "message": "Ikona se světlým obrysem",
         "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
     },
     "BadgeIconOutlineDark": {
-        "message": "Ikona tmavého obrysu",
+        "message": "Ikona s tmavým obrysem",
         "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
     },
     "FirstRunConnectLink1": {
@@ -1502,7 +1502,7 @@
         "description": "Text of the button in the first run wizard to save the settings and close the wizard"
     },
     "PasslinkConnectServerUpdated": {
-        "message": "Pověření pro \"$LABEL$\" byla aktualizována.",
+        "message": "Přihlašovací údaje pro „$LABEL$“ byla aktualizována",
         "description": "Confirmation message in the PassLink Connect action when an existing account has been updated successfully",
         "placeholders": {
             "label": {
@@ -1546,7 +1546,7 @@
         "description": "Title of the first run wizard settings page while data is loaded from the server"
     },
     "SettingsAutofillIgnoredDomains": {
-        "message": "Ignorovat tyto domény (jedna na řádek, subdomény jsou rovněž ignorovány).",
+        "message": "Ignorovat tyto domény (jedna na řádek, subdomény jsou rovněž ignorovány)",
         "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not autofill passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
     },
     "SettingsAutofillIgnoredDomainsPlaceholder": {
