@@ -1466,35 +1466,35 @@
         "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
     },
     "FirstRunConnectLink1": {
-        "message": "Otevřete aplikaci Hesla, klikněte na \"Více\" a otevřete \"Aplikace a rozšíření\".",
+        "message": "Otevřete aplikaci Hesla, klikněte na „Více\" a otevřete „Aplikace a rozšíření“.",
         "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
     },
     "FirstRunConnectLink2": {
-        "message": "Zvolte si prohlížeč a klikněte na \"Connect with PassLink\".",
+        "message": "Zvolte vámi využívaný prohlížeč a klikněte na „Propojit pomocí PassLink“",
         "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
     },
     "FirstRunConnectLink3": {
-        "message": "Klikněte na \"Připojit přes odkaz\", porovnejte kódy a potvrďte připojení.",
+        "message": "Klikněte na „Připojit přes odkaz“, porovnejte kódy a potvrďte připojení.",
         "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
     },
     "FirstRunSetupManually": {
-        "message": "Ruční připojení",
+        "message": "Připojit ručně",
         "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
     },
     "FirstRunConnectScanQR": {
-        "message": "Naskenování kódu PassLink",
+        "message": "Naskenování PassLink kódu",
         "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
     },
     "FirstRunSetupVideo": {
-        "message": "Sledujte videoprůvodce",
+        "message": "Shlédnout videoprůvodce",
         "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
     },
     "FirstRunSettingsTitle": {
-        "message": "Přizpůsobení rozšíření",
+        "message": "Přizpůsobit rozšíření",
         "description": "Title of the first run wizard page that allows the user to change some common settings"
     },
     "FirstRunSettingsText": {
-        "message": "Tyto a mnoho dalších věcí můžete kdykoli změnit v nastavení rozšíření.",
+        "message": "Chování rozšíření je kdykoli možné přizpůsobit v jeho nastavení.",
         "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
     },
     "FirstRunSettingsSave": {
@@ -1512,23 +1512,23 @@
         }
     },
     "DebugResetTitle": {
-        "message": "Vymazání dat rozšíření",
+        "message": "Vymazat data rozšíření",
         "description": "Headline above the section for to clear specific extension data in the debug tab in the extension settings"
     },
     "DebugResetStatistics": {
-        "message": "Obnovení dat doporučení",
+        "message": "Resetovat data doporučení",
         "description": "Label of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
     },
     "DebugResetStatisticsTitle": {
-        "message": "Obnovení shromážděných statistik o používání, které se používají k doporučování pověření na související kartě.",
+        "message": "Resetovat shromážděné statistiky používané k doporučován přihlašovacích údajů na související kartě",
         "description": "Help title text of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
     },
     "DebugResetExtension": {
-        "message": "Obnovení prodloužení",
+        "message": "Resetovat rozšíření",
         "description": "Label of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
     },
     "DebugResetExtensionTitle": {
-        "message": "Odstranění všech nastavení, účtů a doporučených dat a nový začátek.",
+        "message": "Odstranit všechna nastavení, účty a data doporučení a začít znovu",
         "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
     },
     "ExtensionInitFailure": {
