@@ -3,6 +3,7 @@ import ApiRepository from '@js/Repositories/ApiRepository';
 import ErrorManager from '@js/Manager/ErrorManager';
 import HiddenFolderHelper from "@js/Helper/HiddenFolderHelper";
 import SearchService from "@js/Services/SearchService";
+import BrowserApi from "@js/Platform/BrowserApi";
 
 class SearchManager {
 
@@ -38,7 +39,16 @@ class SearchManager {
     async _addServer(server) {
         let serverId = server.getId(),
             api      = await ApiRepository.findById(serverId);
-        this._refreshTimer[serverId] = setInterval(() => { this._reloadServer(api); }, 900000);
+
+        let alarmName = `passwords.server.refresh.${serverId}`,
+            listener  = (alarm) => {
+                if(alarm.name === alarmName) {
+                    this._reloadServer(api);
+                }
+            };
+        BrowserApi.getBrowserApi().alarms.create(alarmName, {delayInMinutes: 5, periodInMinutes: 15});
+        BrowserApi.getBrowserApi().alarms.onAlarm.addListener(listener);
+        this._refreshTimer[serverId] = listener;
 
         await this._reloadServer(api);
     }
@@ -52,11 +62,11 @@ class SearchManager {
     async _removeServer(server) {
         let serverId = server.getId(),
             items    = SearchService.find()
-                .where('server', '=', serverId)
-                .execute();
+                                    .where('server', '=', serverId)
+                                    .execute();
 
         SearchService.remove(items);
-        clearInterval(this._refreshTimer[serverId]);
+        BrowserApi.getBrowserApi().alarms.onAlarm.removeListener(this._refreshTimer[serverId]);
         delete this._refreshTimer[serverId];
     }
 
@@ -105,9 +115,9 @@ class SearchManager {
         let repository = api.getInstance(`repository.${type}`),
             models     = await repository.findAll(),
             items      = SearchService.find(type)
-                .where('server', '=', api.getServer().getId())
-                .withHidden(true)
-                .execute();
+                                      .where('server', '=', api.getServer().getId())
+                                      .withHidden(true)
+                                      .execute();
 
         SearchService.remove(items);
         SearchService.add(models.getClone());

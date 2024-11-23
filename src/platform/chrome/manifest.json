@@ -49,6 +49,7 @@
     ],
     "permissions"            : [
         "tabs",
+        "alarms",
         "storage",
         "clipboardWrite",
         "contextMenus",
