@@ -13,7 +13,7 @@ export default new class PasswordSettingsManager {
      *
      */
     async init() {
-        this._showUsernameInList = await SettingsService.get('password.list.show.user')
+        this._showUsernameInList = await SettingsService.get('password.list.show.user');
     }
 
     /**
@@ -22,4 +22,4 @@ export default new class PasswordSettingsManager {
     getShowUserInList() {
         return this._showUsernameInList.getValue();
     }
-}
+};

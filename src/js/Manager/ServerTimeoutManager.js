@@ -2,20 +2,25 @@ import ErrorManager from '@js/Manager/ErrorManager';
 import ApiRepository from '@js/Repositories/ApiRepository';
 import ServerManager from '@js/Manager/ServerManager';
 import MessageService from '@js/Services/MessageService';
+import BrowserApi from "@js/Platform/BrowserApi";
 
 export default new class ServerTimeoutManager {
 
     constructor() {
-        this._interval = null;
+        this._initialized = false;
         this._keepaliveTimers = {};
     }
 
     init() {
-        if(this._interval === null) {
-            this._interval = setInterval(() => {
-                this._checkAllClientTimeouts()
-                    .catch(ErrorManager.catch);
-            }, 60 * 1000);
+        if(this._initialized === false) {
+            BrowserApi.getBrowserApi().alarms.create('passwords.server.keepalive', {delayInMinutes: 1, periodInMinutes: 1});
+            BrowserApi.getBrowserApi().alarms.onAlarm.addListener((alarm) => {
+                if(alarm.name === 'passwords.server.keepalive') {
+                    this._checkAllClientTimeouts()
+                        .catch(ErrorManager.catch);
+                }
+            });
+
             this._lastInteraction = Date.now();
             this._setUpActivityTriggers();
         }
@@ -122,7 +127,7 @@ export default new class ServerTimeoutManager {
 
     _removeServerKeepaliveRequests(server) {
         if(this._keepaliveTimers.hasOwnProperty(server.getId())) {
-            clearInterval(this._keepaliveTimers[server.getId()]);
+            BrowserApi.getBrowserApi().alarms.onAlarm.removeListener(this._keepaliveTimers[server.getId()]);
             delete this._keepaliveTimers[server.getId()];
         }
     }
@@ -132,8 +137,16 @@ export default new class ServerTimeoutManager {
             settingsRepository = /** @type {SettingRepository} **/ api.getInstance('repository.setting'),
             settings           = await settingsRepository.findByName('user.session.lifetime'),
             serverLifetime     = settings.has('user.session.lifetime') ? settings.get('user.session.lifetime').getValue():600,
-            lifetime           = (serverLifetime * 1000) - 2000;
+            lifetime           = Math.max(1, (serverLifetime / 60) - 1);
 
-        this._keepaliveTimers[server.getId()] = setInterval(() => { this._keepalive(server); }, lifetime - 2000);
+
+        let alarmName = `passwords.server.keepalive.${server.getId()}`,
+            listener  = (alarm) => {
+                if(alarm.name === alarmName) {this._keepalive(server);}
+            };
+        BrowserApi.getBrowserApi().alarms.create(alarmName, {delayInMinutes: lifetime, periodInMinutes: lifetime});
+        BrowserApi.getBrowserApi().alarms.onAlarm.addListener(listener);
+
+        this._keepaliveTimers[server.getId()] = listener;
     }
 };

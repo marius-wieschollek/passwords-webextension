@@ -24,9 +24,11 @@ import BasicAuthAutofillManager from "@js/Manager/BasicAuthAutofillManager";
 import ServerTimeoutManager from "@js/Manager/ServerTimeoutManager";
 import StorageService from "@js/Services/StorageService";
 import ToastService from "@js/Services/ToastService";
+import BrowserApi from "@js/Platform/BrowserApi";
 
 class Background {
     async init() {
+        this._keepalive();
         SystemService.setArea('background');
         ErrorManager.init('server');
         try {
@@ -59,6 +61,10 @@ class Background {
             ToastService.error(['ExtensionInitFailure', e.message])
                         .catch(ErrorManager.catch);
         }
+    }
+
+    _keepalive() {
+        setInterval(BrowserApi.getBrowserApi().runtime.getPlatformInfo, 20e3);
     }
 }
 

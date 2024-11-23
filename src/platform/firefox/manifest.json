@@ -85,6 +85,7 @@
         "*://*/*",
         "tabs",
         "menus",
+        "alarms",
         "storage",
         "notifications",
         "clipboardWrite",
