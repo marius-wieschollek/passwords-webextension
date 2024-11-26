@@ -1,3 +1,14 @@
+## 3.0.1 - Bugfix Release
+### Fixed
+- Extension reset after 30 seconds
+
+## 3.0.0 - Feature Release
+### Added
+- Chrome Manifest V3 support
+### Removed
+- Autofill for HTTP basic auth
+- Clear clipboard after paste
+
 ## 2.7.0 - Feature Release
 ### Added
 - Ignored domains list for password autofill
