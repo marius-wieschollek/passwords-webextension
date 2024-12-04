@@ -1,6 +1,6 @@
 {
     "name": "passwords-webextension",
-    "version": "2.7.0",
+    "version": "2.7.1",
     "description": "The official browser client of the Passwords app for Nextcloud",
     "private": true,
     "scripts": {
