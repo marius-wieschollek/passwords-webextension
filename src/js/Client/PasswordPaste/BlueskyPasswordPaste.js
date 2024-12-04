@@ -33,13 +33,15 @@ export default class BlueskyPasswordPaste extends AbstractPasswordPaste {
      * @private
      */
     async _navigateChooseAccountForm() {
-        let chooseAccountForm = await this._waitForElement('div[data-testid="chooseAccountForm"]', 10000);
-        if(chooseAccountForm) {
-            let chooseAccountButton = document.querySelector('button[data-testid="chooseAddAccountBtn"]');
-            if(chooseAccountButton) {
-                this._simulateClick(chooseAccountButton);
+        try {
+            let chooseAccountForm = await this._waitForElement('div[data-testid="chooseAccountForm"]', 2000);
+            if(chooseAccountForm) {
+                let chooseAccountButton = document.querySelector('button[data-testid="chooseAddAccountBtn"]');
+                if(chooseAccountButton) {
+                    this._simulateClick(chooseAccountButton);
+                }
             }
-        }
+        } catch(e) {}
         await this._waitForElement('input[autocomplete="username"]', 1000);
     }
 
