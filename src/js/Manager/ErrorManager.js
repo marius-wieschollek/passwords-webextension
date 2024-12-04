@@ -173,6 +173,10 @@ class ErrorManager {
             errorObject = {details, error: errorData};
         console.error(details.message, error, errorObject, details.stack);
 
+        if(details.message === 'Could not establish connection. Receiving end does not exist.' && process.env.NODE_ENV === 'production') {
+            return;
+        }
+
         if(this._mode === 'server') {
             this._saveError(errorObject);
         } else {
