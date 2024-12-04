@@ -204,7 +204,7 @@
         "description": "Text of the button in the first run wizard to save the settings and close the wizard"
     },
     "SettingsPasteFormSubmit": {
-        "message": "Enviar formularios de acceso cando se peguen as credenciais dende a xanela emerxente",
+        "message": "Enviar formularios de acceso cando se peguen as credenciais desde a xanela emerxente",
         "description": "Label of the setting in the extension settings to automatically submit login forms after pasting"
     },
     "NotificationSettings": {
@@ -810,7 +810,7 @@
         "description": "Text of the toast notification when deleting the password failed"
     },
     "ToastPasswordRestored": {
-        "message": "$LABEL$ foi restaurado dende o lixo. Volverá aparecer após volver abrir a xanela emerxente",
+        "message": "$LABEL$ foi restaurado desde o lixo. Volverá aparecer após volver abrir a xanela emerxente",
         "description": "Text of the toast notification after a password was restored from the trash",
         "placeholders": {
             "label": {
