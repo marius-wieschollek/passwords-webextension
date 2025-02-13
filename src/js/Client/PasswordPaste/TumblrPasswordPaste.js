@@ -10,7 +10,7 @@ export default class TumblrPasswordPaste extends AbstractPasswordPaste {
     async handle() {
         let emailField = document.querySelector('input[name="email"]');
         if(!emailField) {
-            let loginButton = document.querySelector('button.TwoER, button.CxLjL');
+            let loginButton = document.querySelector('button.zn53i, button.CKAFB, [style="background-color: rgb(124, 92, 255); color: rgb(255, 255, 255);"] button:nth-child(2)');
             this._simulateClick(loginButton);
 
             try {
