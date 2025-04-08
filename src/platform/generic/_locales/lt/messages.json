@@ -1552,5 +1552,11 @@
     "SettingsAutofillIgnoredDomainsPlaceholder": {
         "message": "pvz., example.com",
         "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "ContextMenu": {
+        "message": "Kontekstinis meniu"
+    },
+    "ContextMenuEnabled": {
+        "message": "Įjungti kontekstinį meniu"
     }
 }

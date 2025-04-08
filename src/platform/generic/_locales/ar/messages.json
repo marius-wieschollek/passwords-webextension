@@ -1552,5 +1552,11 @@
     "PasswordCustomFieldsTypeSecret": {
         "message": "السرية",
         "description": "Label of the password custom setting type 'secret'."
+    },
+    "ContextMenu": {
+        "message": "قائمة السياق"
+    },
+    "ContextMenuEnabled": {
+        "message": "تمكين قائمة السياق"
     }
 }
