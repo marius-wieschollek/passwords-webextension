@@ -29,7 +29,8 @@ export default class Get extends AbstractController {
             'password.list.show.user',
             'mining.ignored-domains',
             'mining.incognito.hide',
-            'autofill.ignored-domains'
+            'autofill.ignored-domains',
+            'contextmenu.enabled'
         ];
     }
 

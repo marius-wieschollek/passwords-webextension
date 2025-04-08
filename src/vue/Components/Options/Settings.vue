@@ -80,6 +80,12 @@
             <translate tag="label" for="mining-ignored-domains" say="SettingsMiningIgnoredDomains"/>
             <input-field type="textarea" id="mining-ignored-domains" v-model="miningIgnoredDomains" placeholder="SettingsMiningIgnoredDomainsPlaceholder"/>
         </div>
+
+        <translate tag="h3" say="ContextMenu"/>
+        <div class="setting">
+            <slider-field id="context-menu-item-visibility" v-model="contextMenuEnabled"/>
+            <translate tag="label" for="context-menu-item-visibility" say="contextMenuEnabled"/>
+        </div>
     </div>
 </template>
 
@@ -115,7 +121,8 @@
                 showUserInList        : false,
                 miningIgnoredDomains  : '',
                 miningIncognitoHide   : true,
-                autofillIgnoredDomains: ''
+                autofillIgnoredDomains: '',
+                contextMenuEnabled    : true
             };
         },
 
@@ -177,6 +184,7 @@
                 this.getSetting('mining.ignored-domains', 'miningIgnoredDomains');
                 this.getSetting('mining.incognito.hide', 'miningIncognitoHide');
                 this.getSetting('autofill.ignored-domains', 'autofillIgnoredDomains');
+                this.getSetting('contextmenu.enabled', 'contextMenuEnabled');
             },
             async getSetting(name, variable) {
                 try {
@@ -283,6 +291,11 @@
             autofillIgnoredDomains(value, oldValue) {
                 if(oldValue !== null && value !== oldValue) {
                     this.setSetting('autofill.ignored-domains', value);
+                }
+            },
+            contextMenuEnabled(value, oldValue) {
+                if(oldValue !== null && value !== oldValue) {
+                    this.setSetting('contextmenu.enabled', value);
                 }
             }
         }
