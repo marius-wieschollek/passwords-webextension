@@ -1,4 +1,5 @@
 import SystemService         from '@js/Services/SystemService';
+import SettingsService       from "@js/Services/SettingsService";
 import LocalisationService   from '@js/Services/LocalisationService';
 import MessageService        from '@js/Services/MessageService';
 import TabManager            from '@js/Manager/TabManager';
@@ -21,7 +22,12 @@ class ContextMenuManager {
      */
     init() {
         if(!SystemService.hasContextMenu()) return;
-        subscribe('suggestions:updated', (e) => {this._updateContextMenu(e.suggestions).catch(ErrorManager.catch);});
+        const updateContextMenu = (recommended = []) => this._updateContextMenu(recommended).catch(ErrorManager.catch);
+        subscribe('suggestions:updated', (e) => updateContextMenu(e.suggestions));
+        MessageService.listen('setting.set', (message) => {
+            if (message.payload.setting !== 'contextmenu.enabled') return;
+            updateContextMenu();
+        });
         SystemService.getContextMenu().onClicked.addListener(
             (i,t) => { this._processContextMenuClick(i,t); }
         );
@@ -33,8 +39,11 @@ class ContextMenuManager {
      * @private
      */
     async _updateContextMenu(recommended) {
+        const contextMenuEnabled = await SettingsService.get('contextmenu.enabled');
         SystemService.getContextMenu().removeAll();
         this._activeMenus = [];
+
+        if (!contextMenuEnabled.getValue()) return;
 
         if(recommended.length === 0) {
             this._createBasicMenu();
