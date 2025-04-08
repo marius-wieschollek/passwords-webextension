@@ -7,6 +7,7 @@ import TumblrPasswordPaste from "@js/Client/PasswordPaste/TumblrPasswordPaste";
 import AliExpressPasswordPaste from "@js/Client/PasswordPaste/AliExpressPasswordPaste";
 import BooleanState from "passwords-client/boolean-state";
 import GrowattPasswordPaste from "@js/Client/PasswordPaste/GrowattPasswordPaste";
+import BlueskyPasswordPaste from "@js/Client/PasswordPaste/BlueskyPasswordPaste";
 
 export default class FillPassword extends AbstractController {
 
@@ -56,6 +57,7 @@ export default class FillPassword extends AbstractController {
      */
     _getPasswordPasteHelper(request) {
         return [
+            new BlueskyPasswordPaste(request),
             new TwitterPasswordPaste(request),
             new RedditPasswordPaste(request),
             new TumblrPasswordPaste(request),

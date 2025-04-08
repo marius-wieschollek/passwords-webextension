@@ -121,6 +121,10 @@ class MasterSettingsProvider {
             'autofill.ignored-domains'       : [
                 'sync.paste.autofill.ignored-domains',
                 'local.paste.autofill.ignored-domains'
+            ],
+            'contextmenu.enabled'            : [
+                'sync.contextmenu.enabled',
+                'local.contextmenu.enabled'
             ]
         };
         this._defaults = {
@@ -146,7 +150,8 @@ class MasterSettingsProvider {
             'mining.ignored-domains'         : '',
             'mining.incognito.hide'          : true,
             'setup.initialized'              : false,
-            'autofill.ignored-domains'       : ''
+            'autofill.ignored-domains'       : '',
+            'contextmenu.enabled'            : true
         };
     }
 

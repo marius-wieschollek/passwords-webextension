@@ -1438,7 +1438,7 @@
         "description": "Placeholder text of the value for a custom field entry in the password details"
     },
     "ServerNetworkErrorReload": {
-        "message": "Znovunačtení serveru",
+        "message": "Znovu načíst server",
         "description": "Text of the button to try and reload the server in toast notification when the connection to the server failed with a network error"
     },
     "PasswordMiningSettings": {
@@ -1446,7 +1446,7 @@
         "description": "Headline above the password mining section in the other settings tab in the extension settings"
     },
     "SettingsMiningIgnoredDomains": {
-        "message": "Ignorovat tyto domény (jedna na řádek, subdomény jsou také ignorovány).",
+        "message": "Ignorovat tyto domény (jedna na řádek, subdomény jsou také ignorovány)",
         "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not detect new or changed passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
     },
     "SettingsMiningIgnoredDomainsPlaceholder": {
@@ -1454,47 +1454,47 @@
         "description": "Placeholder text for SettingsMiningIgnoredDomains"
     },
     "SettingsMiningIncognitoHide": {
-        "message": "Ukládání hesel shromážděných v aplikaci Inkognito jako soukromých hesel",
+        "message": "Ukládat hesla shromážděná Inkognito režimu jako soukromá hesla",
         "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
     },
     "BadgeIconOutlineLight": {
-        "message": "Ikona světelného obrysu",
+        "message": "Ikona se světlým obrysem",
         "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
     },
     "BadgeIconOutlineDark": {
-        "message": "Ikona tmavého obrysu",
+        "message": "Ikona s tmavým obrysem",
         "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
     },
     "FirstRunConnectLink1": {
-        "message": "Otevřete aplikaci Hesla, klikněte na \"Více\" a otevřete \"Aplikace a rozšíření\".",
+        "message": "Otevřete aplikaci Hesla, klikněte na „Více\" a otevřete „Aplikace a rozšíření“.",
         "description": "First setup step in the first run wizard which tells the user to open the Nextcloud app and click on 'More' and then 'Apps & Extensions'."
     },
     "FirstRunConnectLink2": {
-        "message": "Zvolte si prohlížeč a klikněte na \"Connect with PassLink\".",
+        "message": "Zvolte vámi využívaný prohlížeč a klikněte na „Propojit pomocí PassLink“",
         "description": "Second setup step in the first run wizard which tells the user to select the 'Connect with Passlink' option for their browser"
     },
     "FirstRunConnectLink3": {
-        "message": "Klikněte na \"Připojit přes odkaz\", porovnejte kódy a potvrďte připojení.",
+        "message": "Klikněte na „Připojit přes odkaz“, porovnejte kódy a potvrďte připojení.",
         "description": "Last setup step in the first run wizard which tells the user to click 'Connect via Link' and then confirm the four codes shown on display."
     },
     "FirstRunSetupManually": {
-        "message": "Ruční připojení",
+        "message": "Připojit ručně",
         "description": "Text of the button or link in the first run wizard to open the settings and add an account manually"
     },
     "FirstRunConnectScanQR": {
-        "message": "Naskenování kódu PassLink",
+        "message": "Naskenování PassLink kódu",
         "description": "Text of the button or link in the first run wizard to scan a PassLink QR Code"
     },
     "FirstRunSetupVideo": {
-        "message": "Sledujte videoprůvodce",
+        "message": "Shlédnout videoprůvodce",
         "description": "Text of the button or link in the first run wizard to open the manual and watch a video for the process"
     },
     "FirstRunSettingsTitle": {
-        "message": "Přizpůsobení rozšíření",
+        "message": "Přizpůsobit rozšíření",
         "description": "Title of the first run wizard page that allows the user to change some common settings"
     },
     "FirstRunSettingsText": {
-        "message": "Tyto a mnoho dalších věcí můžete kdykoli změnit v nastavení rozšíření.",
+        "message": "Chování rozšíření je kdykoli možné přizpůsobit v jeho nastavení.",
         "description": "Text in the first run wizard which tells the user that they can change the settings shown anytime later"
     },
     "FirstRunSettingsSave": {
@@ -1502,7 +1502,7 @@
         "description": "Text of the button in the first run wizard to save the settings and close the wizard"
     },
     "PasslinkConnectServerUpdated": {
-        "message": "Pověření pro \"$LABEL$\" byla aktualizována.",
+        "message": "Přihlašovací údaje pro „$LABEL$“ byla aktualizována",
         "description": "Confirmation message in the PassLink Connect action when an existing account has been updated successfully",
         "placeholders": {
             "label": {
@@ -1512,23 +1512,23 @@
         }
     },
     "DebugResetTitle": {
-        "message": "Vymazání dat rozšíření",
+        "message": "Vymazat data rozšíření",
         "description": "Headline above the section for to clear specific extension data in the debug tab in the extension settings"
     },
     "DebugResetStatistics": {
-        "message": "Obnovení dat doporučení",
+        "message": "Resetovat data doporučení",
         "description": "Label of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
     },
     "DebugResetStatisticsTitle": {
-        "message": "Obnovení shromážděných statistik o používání, které se používají k doporučování pověření na související kartě.",
+        "message": "Resetovat shromážděné statistiky používané k doporučován přihlašovacích údajů na související kartě",
         "description": "Help title text of the button to reset the usage statistics for the password recommendations in the debug tab in the extension settings"
     },
     "DebugResetExtension": {
-        "message": "Obnovení prodloužení",
+        "message": "Resetovat rozšíření",
         "description": "Label of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
     },
     "DebugResetExtensionTitle": {
-        "message": "Odstranění všech nastavení, účtů a doporučených dat a nový začátek.",
+        "message": "Odstranit všechna nastavení, účty a data doporučení a začít znovu",
         "description": "Help title text of the button to reset the extension for the password recommendations in the debug tab in the extension settings"
     },
     "ExtensionInitFailure": {
@@ -1546,7 +1546,7 @@
         "description": "Title of the first run wizard settings page while data is loaded from the server"
     },
     "SettingsAutofillIgnoredDomains": {
-        "message": "Ignorovat tyto domény (jedna na řádek, subdomény jsou rovněž ignorovány).",
+        "message": "Ignorovat tyto domény (jedna na řádek, subdomény jsou rovněž ignorovány)",
         "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not autofill passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
     },
     "SettingsAutofillIgnoredDomainsPlaceholder": {
