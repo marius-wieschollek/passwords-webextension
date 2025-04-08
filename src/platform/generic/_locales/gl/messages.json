@@ -1552,5 +1552,11 @@
     "SettingsSearchRecommendationOption": {
         "message": "Buscar credenciais co",
         "description": "Label of the setting in the extension settings to define how password recommendations are searched."
+    },
+    "ContextMenu": {
+        "message": "Menú de contexto"
+    },
+    "ContextMenuEnabled": {
+        "message": "Activar o menú contextual"
     }
 }
