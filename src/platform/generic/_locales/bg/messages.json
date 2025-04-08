@@ -1552,5 +1552,11 @@
     "SettingsAutofillIgnoredDomains": {
         "message": "Игнориране на тези домейни (по един на ред, поддомейните също се игнорират)",
         "description": "Label of the setting in the extension settings to maintain a list of domains where the extension should not autofill passwords. The textarea should be filled with one domain per line, no spaces. Subdomains of the listed domains will also be ignored automatically."
+    },
+    "ContextMenu": {
+        "message": "Контекстно меню"
+    },
+    "ContextMenuEnabled": {
+        "message": "Активиране на контекстното меню"
     }
 }

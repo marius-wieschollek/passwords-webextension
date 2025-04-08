@@ -1552,5 +1552,11 @@
     "SettingsAutofillIgnoredDomainsPlaceholder": {
         "message": "f.eks. eksempel.com",
         "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "ContextMenu": {
+        "message": "Kontekstmenu"
+    },
+    "ContextMenuEnabled": {
+        "message": "Aktivér kontekstmenu"
     }
 }

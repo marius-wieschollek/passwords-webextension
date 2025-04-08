@@ -1552,5 +1552,11 @@
     "SettingsAutofillIgnoredDomainsPlaceholder": {
         "message": "např. example.com",
         "description": "Placeholder text for SettingsMiningIgnoredDomains"
+    },
+    "ContextMenu": {
+        "message": "Kontextová nabídka"
+    },
+    "ContextMenuEnabled": {
+        "message": "Povolení kontextové nabídky"
     }
 }
