@@ -14,6 +14,7 @@ class ContextMenuManager {
 
     constructor() {
         this._activeMenus = [];
+        this._contextMenuEnabled = null;
     }
 
     /**
@@ -23,9 +24,11 @@ class ContextMenuManager {
         if(!SystemService.hasContextMenu()) return;
         const updateContextMenu = (recommended = []) => this._updateContextMenu(recommended).catch(ErrorManager.catch);
         subscribe('suggestions:updated', (e) => updateContextMenu(e.suggestions));
-        MessageService.listen('setting.set', (message) => {
-            if (message.payload.setting !== 'contextmenu.enabled') return;
-            updateContextMenu();
+        SettingsService.get('contextmenu.enabled').then((setting) => {
+            this._contextMenuEnabled = setting;
+            this._contextMenuEnabled.change.on(() => {
+                updateContextMenu();
+            });
         });
     }
 
@@ -35,11 +38,10 @@ class ContextMenuManager {
      * @private
      */
     async _updateContextMenu(recommended) {
-        const contextMenuEnabled = await SettingsService.get('contextmenu.enabled');
         SystemService.getContextMenu().removeAll();
         this._activeMenus = [];
 
-        if (!contextMenuEnabled.getValue()) return;
+        if (!this._contextMenuEnabled.getValue()) return;
 
         if(recommended.length === 0) {
             this._createBasicMenu();
