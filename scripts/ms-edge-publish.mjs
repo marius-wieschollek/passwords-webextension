@@ -9,8 +9,7 @@ const client = new EdgeAddonsAPI(
     {
         productId     : process.env.EDGE_PRODUCT_ID,
         clientId      : process.env.EDGE_CLIENT_ID,
-        clientSecret  : process.env.EDGE_CLIENT_SECRET,
-        accessTokenUrl: process.env.EDGE_ACCESS_TOKEN_URL
+        apiKey        : process.env.EDGE_API_KEY,
     }
 );
 
