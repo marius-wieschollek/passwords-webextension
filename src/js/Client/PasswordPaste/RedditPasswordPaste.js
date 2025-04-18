@@ -2,37 +2,41 @@ import AbstractPasswordPaste from "@js/Client/PasswordPaste/AbstractPasswordPast
 
 export default class RedditPasswordPaste extends AbstractPasswordPaste {
 
+    #loginUsernameSelector = '#login-username';
+    #loginPasswordSelector = '#login-password';
+    #loginButtonSelector = '#login-button';
+
     canHandle() {
         return location.origin === 'https://www.reddit.com' &&
-            (
-                document.getElementById('login-button') !== null ||
-                document.getElementById('login-username') !== null
-            );
+               (
+                   document.querySelector(this.#loginButtonSelector) !== null ||
+                   document.querySelector(this.#loginUsernameSelector) !== null
+               );
     }
 
     async handle() {
-        let userInput = document.getElementById('login-username');
-        if (userInput === null) {
-            if (this._passwordPasteRequest.isAutofill()) {
+        let userInput = document.querySelector(this.#loginUsernameSelector);
+        if(userInput === null) {
+            if(this._passwordPasteRequest.isAutofill()) {
                 return false;
             }
 
-            let loginButton = document.getElementById('login-button');
-            if (loginButton === null) {
+            let loginButton = document.querySelector(this.#loginButtonSelector);
+            if(loginButton === null) {
                 return false;
             }
             this._simulateClick(loginButton);
             try {
-                userInput = await this._waitForElement('#login-username', 10000);
-            } catch (e) {
+                userInput = await this._waitForElement(this.#loginUsernameSelector, 10000);
+            } catch(e) {
                 return false;
             }
         }
 
-        this._insertTextIntoField(userInput, this._passwordPasteRequest.getUser());
-        let passwordInput = document.getElementById('login-password');
+        this._insertTextIntoField(userInput?.shadowRoot.querySelector('input'), this._passwordPasteRequest.getUser());
+        let passwordInput = document.querySelector(this.#loginPasswordSelector)?.shadowRoot.querySelector('input');
         this._insertTextIntoField(passwordInput, this._passwordPasteRequest.getPassword());
-        if (!this._passwordPasteRequest.isAutofill() && this._passwordPasteRequest.isSubmit()) {
+        if(!this._passwordPasteRequest.isAutofill() && this._passwordPasteRequest.isSubmit()) {
             await this._wait(500);
             // Something in reddits own code seems to reset the value of the field to a previous state in some cases
             this._insertTextIntoField(passwordInput, this._passwordPasteRequest.getPassword());
