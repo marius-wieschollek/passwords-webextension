@@ -45,7 +45,7 @@ class ContextMenuManager {
         SystemService.getContextMenu().removeAll();
         this._activeMenus = [];
 
-        if (!this._contextMenuEnabled.getValue()) return;
+        if (!this._contextMenuEnabled?.getValue()) return;
 
         if(recommended.length === 0) {
             this._createBasicMenu();
