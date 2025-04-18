@@ -1,3 +1,11 @@
+## 2.8.0 - Feature Release
+### Added
+- Option to disable context menu
+### Fixed
+- Reddit autologin
+- Bluesky autologin
+- Tumblr autologin
+
 ## 2.7.0 - Feature Release
 ### Added
 - Ignored domains list for password autofill
