@@ -1,3 +1,11 @@
+## 3.1.0 - Feature Release
+### Added
+- Option to disable context menu
+### Fixed
+- Reddit autologin
+- Bluesky autologin
+- Tumblr autologin
+
 ## 3.0.1 - Bugfix Release
 ### Fixed
 - Extension reset after 30 seconds
@@ -8,6 +16,14 @@
 ### Removed
 - Autofill for HTTP basic auth
 - Clear clipboard after paste
+
+## 2.8.0 - Feature Release
+### Added
+- Option to disable context menu
+### Fixed
+- Reddit autologin
+- Bluesky autologin
+- Tumblr autologin
 
 ## 2.7.0 - Feature Release
 ### Added
