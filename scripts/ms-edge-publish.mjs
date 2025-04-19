@@ -1,7 +1,7 @@
 import {EdgeAddonsAPI} from '@plasmohq/edge-addons-api';
 import json            from '../dist/chrome-extension/manifest.json' with {type: 'json'};
 
-if(!process.env.EDGE_PRODUCT_ID || !process.env.EDGE_CLIENT_ID || !process.env.EDGE_CLIENT_SECRET || !process.env.EDGE_ACCESS_TOKEN_URL) {
+if(!process.env.EDGE_PRODUCT_ID || !process.env.EDGE_CLIENT_ID || !process.env.EDGE_API_KEY) {
     throw new Error('Could not find environment variables');
 }
 
