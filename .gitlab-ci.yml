@@ -110,7 +110,7 @@ Publish Stable Firefox:
     - 'cd src'
     - 'zip -r -9 ../extension-source.zip ./*'
     - 'cd ..'
-    - 'web-ext sign --channel listed --amo-metadata=firefox/amo-metadata.json -upload-source-code=extension-source.zip'
+    - 'web-ext sign --channel listed --amo-metadata=firefox/amo-metadata.json --upload-source-code=extension-source.zip'
   environment:
     name: Stable
   only:
