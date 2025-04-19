@@ -107,9 +107,7 @@ Publish Stable Firefox:
   stage: publishing
   script:
     - 'rm dist/firefox-extension/updates.json'
-    - 'cd src'
-    - 'zip -r -9 ../extension-source.zip ./*'
-    - 'cd ..'
+    - 'zip -r -9 ./extension-source.zip ./* -x "node_modules/*" -x "build/*" -x "dist/*" -x "scripts/*" -x "firefox/*" -x ".git/*"'
     - 'web-ext sign --channel listed --amo-metadata=firefox/amo-metadata.json --upload-source-code=extension-source.zip'
   environment:
     name: Stable
