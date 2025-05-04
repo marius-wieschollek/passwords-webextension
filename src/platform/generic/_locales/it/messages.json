@@ -1564,5 +1564,44 @@
     },
     "ButtonNo": {
         "message": "no"
+    },
+    "ThemeExportButton": {
+        "message": "Tema di esportazione"
+    },
+    "ThemeExportTitle": {
+        "message": "Esportare il tema corrente come file JSON"
+    },
+    "ThemeImportButton": {
+        "message": "Importazione del tema"
+    },
+    "ThemeImportTitle": {
+        "message": "Importare un tema da un file JSON"
+    },
+    "ThemeImportSuccess": {
+        "message": "Tema importato"
+    },
+    "ThemeImportError": {
+        "message": "File del tema non valido: $ERRORS$",
+        "placeholders": {
+            "errors": {
+                "content": "$1",
+                "example": "id must be all lowercase"
+            }
+        }
+    },
+    "ThemeDeleteButton": {
+        "message": "Eliminare il tema"
+    },
+    "ThemeDeleteTitle": {
+        "message": "Eliminare il tema corrente"
+    },
+    "ThemeDeleteConfirm": {
+        "message": "Cancellare il tema \"$LABEL$\"?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My first theme"
+            }
+        }
     }
 }
