@@ -1558,5 +1558,11 @@
     },
     "ContextMenuEnabled": {
         "message": "Contextmenu inschakelen"
+    },
+    "ButtonYes": {
+        "message": "Ja"
+    },
+    "ButtonNo": {
+        "message": "nee"
     }
 }
