@@ -1558,5 +1558,11 @@
     },
     "ContextMenuEnabled": {
         "message": "启用上下文菜单"
+    },
+    "ButtonYes": {
+        "message": "是"
+    },
+    "ButtonNo": {
+        "message": "否"
     }
 }
