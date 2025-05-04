@@ -1564,5 +1564,44 @@
     },
     "ButtonNo": {
         "message": "否"
+    },
+    "ThemeExportButton": {
+        "message": "导出主题"
+    },
+    "ThemeExportTitle": {
+        "message": "将当前主题导出为 JSON 文件"
+    },
+    "ThemeImportButton": {
+        "message": "导入主题"
+    },
+    "ThemeImportTitle": {
+        "message": "从 JSON 文件导入主题"
+    },
+    "ThemeImportSuccess": {
+        "message": "进口主题"
+    },
+    "ThemeImportError": {
+        "message": "主题文件无效：$ERRORS$",
+        "placeholders": {
+            "errors": {
+                "content": "$1",
+                "example": "id must be all lowercase"
+            }
+        }
+    },
+    "ThemeDeleteButton": {
+        "message": "删除主题"
+    },
+    "ThemeDeleteTitle": {
+        "message": "删除当前主题"
+    },
+    "ThemeDeleteConfirm": {
+        "message": "删除主题 \"$LABEL$\"？",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My first theme"
+            }
+        }
     }
 }
