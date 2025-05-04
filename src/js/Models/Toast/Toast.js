@@ -189,4 +189,19 @@ export default class Toast extends AbstractModel {
     setTags(value) {
         return this.setProperty('tags', value);
     }
+
+    /**
+     * @return {Boolean}
+     */
+    getModal() {
+        return this.getProperty('modal');
+    }
+
+    /**
+     * @param {Boolean} value
+     * @return {Toast}
+     */
+    setModal(value) {
+        return this.setProperty('modal', value);
+    }
 }

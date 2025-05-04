@@ -1558,5 +1558,59 @@
     },
     "ContextMenuEnabled": {
         "message": "Kontextusmenü engedélyezése"
+    },
+    "ButtonYes": {
+        "message": "igen"
+    },
+    "ButtonNo": {
+        "message": "nincs"
+    },
+    "ThemeExportButton": {
+        "message": "Téma exportálása"
+    },
+    "ThemeExportTitle": {
+        "message": "Az aktuális téma exportálása JSON fájlként"
+    },
+    "ThemeDeleteButton": {
+        "message": "Téma törlése"
+    },
+    "ThemeImportButton": {
+        "message": "Téma importálása"
+    },
+    "ThemeImportTitle": {
+        "message": "A téma importálása JSON fájlból"
+    },
+    "ThemeImportSuccess": {
+        "message": "Importált téma"
+    },
+    "ThemeImportError": {
+        "message": "A témafájl érvénytelen: $ERRORS$",
+        "placeholders": {
+            "errors": {
+                "content": "$1",
+                "example": "id must be all lowercase"
+            }
+        }
+    },
+    "ThemeDeleteTitle": {
+        "message": "Az aktuális téma törlése"
+    },
+    "ThemeDeleteConfirm": {
+        "message": "Téma törlése \"$LABEL$\"?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My first theme"
+            }
+        }
+    },
+    "ServerDeleteConfirm": {
+        "message": "Tényleg törölni akarja a \"$LABEL$\" címet?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Nextcloud Server"
+            }
+        }
     }
 }

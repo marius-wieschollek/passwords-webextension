@@ -67,6 +67,22 @@ class ThemeRepository {
 
     /**
      *
+     * @param {String} themeId
+     */
+    async delete(themeId) {
+        let themes = await this._loadCustomThemes();
+
+        for(let i = 0; i < themes.length; i++) {
+            if(themes[i].getId() === themeId) {
+                themes.splice(i, 1);
+                await this._saveCustomThemeList(themes);
+                return;
+            }
+        }
+    }
+
+    /**
+     *
      * @return {Promise<Theme[]>}
      */
     async findAll() {
@@ -146,6 +162,7 @@ class ThemeRepository {
         }
 
         theme.id = 'custom';
+        theme.type = 'custom';
 
         return new Theme(theme);
     }
@@ -161,11 +178,13 @@ class ThemeRepository {
         }
 
         let themes = [];
-        if(await StorageService.has(this.STORAGE_KEY)) {
+        if(StorageService.has(this.STORAGE_KEY)) {
             let data = await StorageService.get(this.STORAGE_KEY);
 
             for(let element of data) {
-                themes.push(new Theme(element));
+                let theme = new Theme(element);
+                theme.setType('custom');
+                themes.push(theme);
             }
         }
 
@@ -186,8 +205,8 @@ class ThemeRepository {
             if(api.getServer().getEnabled()) {
                 promises.push(
                     ServerThemeHelper.create(api)
-                        .then((theme) => themes.push(theme))
-                        .catch(ErrorManager.catch)
+                                     .then((theme) => themes.push(theme))
+                                     .catch(ErrorManager.catch)
                 );
             }
         }
@@ -231,6 +250,7 @@ class ThemeRepository {
             objects.push(theme.getProperties());
         }
         await StorageService.set(this.STORAGE_KEY, objects);
+        this._customThemes = themes;
     }
 
     /**

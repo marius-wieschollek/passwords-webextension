@@ -257,6 +257,20 @@ class ControllerManager {
             }
         );
         MessageService.listen(
+            'theme.import',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "ThemeImport" */ '@js/Controller/Theme/Import');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
+            'theme.delete',
+            async (message, reply) => {
+                let module = await import(/* webpackChunkName: "ThemeDelete" */ '@js/Controller/Theme/Delete');
+                await this._executeController(module, message, reply);
+            }
+        );
+        MessageService.listen(
             'passlink.status',
             async (message, reply) => {
                 let module = await import(/* webpackChunkName: "PassLinkStatus" */ '@js/Controller/PassLink/Status');

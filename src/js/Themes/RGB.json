@@ -2,6 +2,7 @@
     "id"    : "rgb",
     "label" : "ThemeRGB",
     "style" : true,
+    "type"  : "system",
     "badge" : {
         "color-bg": "#0c63db",
         "color-fg": "#d8d8d8",
@@ -37,6 +38,7 @@
         "error-bg"               : "#e9322d",
         "error-fg"               : "#ffffff",
         "success-bg"             : "#46ba61",
-        "success-fg"             : "#ffffff"
+        "success-fg"             : "#ffffff",
+        "modal-bg"               : "#00000040"
     }
 }

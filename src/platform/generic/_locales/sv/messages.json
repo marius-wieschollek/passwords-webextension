@@ -1558,5 +1558,59 @@
     },
     "ContextMenuEnabled": {
         "message": "Aktivera snabbmeny"
+    },
+    "ButtonYes": {
+        "message": "ja"
+    },
+    "ButtonNo": {
+        "message": "nej"
+    },
+    "ThemeExportButton": {
+        "message": "Exportera tema"
+    },
+    "ThemeExportTitle": {
+        "message": "Exportera det aktuella temat som JSON-fil"
+    },
+    "ThemeImportButton": {
+        "message": "Importera tema"
+    },
+    "ThemeImportTitle": {
+        "message": "Importera ett tema från en JSON-fil"
+    },
+    "ThemeImportSuccess": {
+        "message": "Tema importerat"
+    },
+    "ThemeImportError": {
+        "message": "Theme-fil ogiltig: $ERRORS$",
+        "placeholders": {
+            "errors": {
+                "content": "$1",
+                "example": "id must be all lowercase"
+            }
+        }
+    },
+    "ThemeDeleteButton": {
+        "message": "Ta bort tema"
+    },
+    "ThemeDeleteTitle": {
+        "message": "Ta bort det aktuella temat"
+    },
+    "ThemeDeleteConfirm": {
+        "message": "Ta bort temat \"$LABEL$\"?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My first theme"
+            }
+        }
+    },
+    "ServerDeleteConfirm": {
+        "message": "Vill du verkligen ta bort \"$LABEL$\"?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Nextcloud Server"
+            }
+        }
     }
 }

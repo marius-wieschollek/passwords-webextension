@@ -1,6 +1,7 @@
 {
     "id"    : "light",
     "label" : "ThemeLight",
+    "type"  : "system",
     "badge" : {
         "color-bg": "#0652dd",
         "color-fg": "#ffffff",

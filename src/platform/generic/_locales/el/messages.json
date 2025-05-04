@@ -1558,5 +1558,59 @@
     },
     "ContextMenuEnabled": {
         "message": "Ενεργοποίηση του μενού περιβάλλοντος"
+    },
+    "ButtonYes": {
+        "message": "ναι"
+    },
+    "ButtonNo": {
+        "message": "όχι"
+    },
+    "ThemeExportButton": {
+        "message": "Θέμα εξαγωγής"
+    },
+    "ThemeExportTitle": {
+        "message": "Εξαγωγή του τρέχοντος θέματος ως αρχείο JSON"
+    },
+    "ThemeImportButton": {
+        "message": "Εισαγωγή θέματος"
+    },
+    "ThemeImportTitle": {
+        "message": "Εισαγωγή ενός θέματος από αρχείο JSON"
+    },
+    "ThemeImportSuccess": {
+        "message": "Θέμα εισαγόμενο"
+    },
+    "ThemeImportError": {
+        "message": "Μη έγκυρο αρχείο θέματος: $ERRORS$",
+        "placeholders": {
+            "errors": {
+                "content": "$1",
+                "example": "id must be all lowercase"
+            }
+        }
+    },
+    "ThemeDeleteButton": {
+        "message": "Διαγραφή θέματος"
+    },
+    "ThemeDeleteTitle": {
+        "message": "Διαγραφή του τρέχοντος θέματος"
+    },
+    "ThemeDeleteConfirm": {
+        "message": "Διαγραφή θέματος \"$LABEL$\"?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My first theme"
+            }
+        }
+    },
+    "ServerDeleteConfirm": {
+        "message": "Θέλετε πραγματικά να διαγράψετε το \"$LABEL$\";",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Nextcloud Server"
+            }
+        }
     }
 }

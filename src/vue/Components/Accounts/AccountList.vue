@@ -43,6 +43,7 @@
     import SystemService from '@js/Services/SystemService';
     import MessageService from '@js/Services/MessageService';
     import ErrorManager from '@js/Manager/ErrorManager';
+    import ToastService from "@js/Services/ToastService";
 
     export default {
         components: {Account, NewAccount, Foldout, Translate, Icon},
@@ -101,7 +102,7 @@
                 this.$refs[server.getId()][0].save();
             },
             async remove(server) {
-                if(SystemService.isCompatible(SystemService.PLATFORM_CHROME) || confirm(`Do you really want to delete ${server.getLabel()}?`)) {
+                if(await this.confirmDelete(server)) {
                     let message = await MessageService.send(
                         {
                             type   : 'server.delete',
@@ -126,6 +127,21 @@
             },
             onSave() {
                 this.$emit('change');
+            },
+            async confirmDelete(server) {
+                let confirm = await ToastService.create(
+                    {
+                        type     : 'info',
+                        title    : null,
+                        message  : ['ServerDeleteConfirm', [server.getLabel()]],
+                        closeable: false,
+                        ttl      : 0,
+                        options  : {yes: 'ButtonYes', no: 'ButtonNo'},
+                        modal    : true
+                    }
+                );
+
+                return confirm === 'yes';
             }
         }
     };

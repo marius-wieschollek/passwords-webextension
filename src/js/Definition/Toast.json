@@ -34,5 +34,8 @@
     },
     "tags": {
         "type": "array"
+    },
+    "modal": {
+        "type": "boolean"
     }
 }

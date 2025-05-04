@@ -2,6 +2,7 @@
     "id"       : "hacker",
     "label"    : "ThemeHacker",
     "style"    : true,
+    "type"  : "system",
     "badge"    : {
         "color-bg": "#00ff00",
         "color-fg": "#000000",
@@ -37,7 +38,8 @@
         "error-bg"               : "#ff0000",
         "error-fg"               : "#000000",
         "success-bg"             : "#00ff00",
-        "success-fg"             : "#000000"
+        "success-fg"             : "#000000",
+        "modal-bg"               : "#00000040"
     },
     "variables": {
         "tab-active-border": "var(--tab-border)"
