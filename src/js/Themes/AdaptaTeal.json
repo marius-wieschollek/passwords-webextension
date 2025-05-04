@@ -1,6 +1,7 @@
 {
     "id": "adapta-teal",
     "label": "ThemeAdaptaTeal",
+    "type"  : "system",
     "badge" : {
         "color-bg": "#37EE7C",
         "color-fg": "#F9F9FA",

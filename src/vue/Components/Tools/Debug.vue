@@ -20,8 +20,6 @@
 </script>
 
 <style lang="scss">
-
-
 button.debug-highlight {
     background-color : var(--element-active-bg-color);
     color            : var(--element-active-fg-color);

@@ -1,6 +1,7 @@
 {
     "id": "arc-darker",
     "label": "ThemeArcDark",
+    "type"  : "system",
     "badge" : {
         "color-bg": "#5296E5",
         "color-fg": "#D3DAE3",

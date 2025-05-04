@@ -12,13 +12,10 @@
 
     export default {
         components: {Toast},
-        props     : {
-            toasts: {
-                type     : Array,
-                'default': () => {
-                    return [];
-                }
-            }
+        data() {
+            return {
+                toasts: []
+            };
         },
 
         methods: {
@@ -28,55 +25,84 @@
              */
             onChoose(toast, $event) {
                 ToastService.choose(toast.getId(), $event);
+            },
+            updateToasts(toasts) {
+                this.toasts = toasts;
             }
         }
     };
 </script>
 
 <style lang="scss">
-    .toast-container {
-        position : absolute;
-        right    : 0;
-        bottom   : 0;
-        left     : 0;
-        overflow : hidden;
-        z-index  : 999;
+.toast-container {
+    position : absolute;
+    right    : 0;
+    bottom   : 0;
+    left     : 0;
+    overflow : hidden;
+    z-index  : 999;
 
-        .toast-leave-active {
-            animation : toast-leave .5s;
-        }
+    .toast-leave-active {
+        animation : toast-leave .5s;
 
-        .toast-enter-active {
-            animation : toast-enter .5s ease-in;
-        }
-
-        @keyframes toast-enter {
-            0% {
-                max-height : 0;
-            }
-            100% {
-                max-height : 100vh;
-            }
-        }
-
-        @keyframes toast-leave {
-            0% {
-                opacity    : 1;
-                max-height : 100vh;
-            }
-            100% {
-                opacity    : 0;
-                max-height : 0;
-            }
+        &.modal {
+            animation : toast-modal-leave .25s;
         }
     }
 
-    @media (min-width : 361px) {
-        #options {
-            .toast-container {
-                left  : auto;
-                width : 50vw;
-            }
+    .toast-enter-active {
+        animation : toast-enter .5s ease-in;
+
+        &.modal {
+            animation : toast-modal-enter .25s ease-in;
         }
     }
+
+    @keyframes toast-enter {
+        0% {
+            max-height : 0;
+        }
+        100% {
+            max-height : 100vh;
+        }
+    }
+
+    @keyframes toast-leave {
+        0% {
+            opacity    : 1;
+            max-height : 100vh;
+        }
+        100% {
+            opacity    : 0;
+            max-height : 0;
+        }
+    }
+
+    @keyframes toast-modal-enter {
+        0% {
+            opacity : 0;
+        }
+        100% {
+            opacity : 1;
+        }
+    }
+
+    @keyframes toast-modal-leave {
+        0% {
+            opacity : 1;
+        }
+        100% {
+            opacity : 0;
+        }
+    }
+}
+
+@media (min-width : 361px) {
+    #options {
+        .toast-container {
+            left  : auto;
+            width : 50vw;
+        }
+    }
+}
 </style>

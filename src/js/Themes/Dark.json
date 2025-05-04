@@ -1,6 +1,7 @@
 {
     "id"    : "dark",
     "label" : "ThemeDark",
+    "type"  : "system",
     "badge" : {
         "color-bg": "#0c63db",
         "color-fg": "#d8d8d8",

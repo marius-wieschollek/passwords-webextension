@@ -33,7 +33,7 @@ class ToastService {
         let Toasts          = await import(/* webpackChunkName: "ToastsComponents" */ '@vue/Components/Toasts'),
             ToastsContainer = Vue.extend(Toasts.default);
 
-        this._container = new ToastsContainer({el: '#toasts', propsData: {toasts: this._activeToasts}});
+        this._container = new ToastsContainer({el: '#toasts'});
 
         if(SystemService.getArea() === SystemService.AREA_POPUP) {
             this._consumer = new QueueClient('toasts', (item) => { return this._processQueueItem(item); });
@@ -124,6 +124,7 @@ class ToastService {
         for(let i = 0; i < this._activeToasts.length; i++) {
             if(this._activeToasts[i].getId() === id) {
                 this._activeToasts.splice(i, 1);
+                this._updateActiveToasts();
                 break;
             }
         }
@@ -207,6 +208,10 @@ class ToastService {
             data.message = message;
         }
 
+        if(!data.hasOwnProperty('modal')) {
+            data.modal = false;
+        }
+
         return new Toast(data);
     }
 
@@ -272,6 +277,7 @@ class ToastService {
     _activateToast(toast) {
         toast.setVisible(true);
         this._activeToasts.push(toast);
+        this._updateActiveToasts();
 
         if(toast.getTtl() > 0) {
             let timeout = toast.getTtl() * 1000;
@@ -309,6 +315,12 @@ class ToastService {
             for(let item of items) {
                 if(item.getTask().getId() === id) queue.remove(item);
             }
+        }
+    }
+
+    _updateActiveToasts() {
+        if(this._container) {
+            this._container.updateToasts(this._activeToasts);
         }
     }
 }

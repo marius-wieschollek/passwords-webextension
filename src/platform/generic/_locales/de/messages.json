@@ -1019,7 +1019,7 @@
         "description": "Label of the grey modern icon option for the toolbar icon in the custom theme settings"
     },
     "BadgeIconNewDark": {
-        "message": "Dunkles Kontursymbol",
+        "message": "Dunkles modernes Symbol",
         "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
     },
     "BadgeIconOutlineLight": {
@@ -1027,7 +1027,7 @@
         "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
     },
     "BadgeIconOutlineDark": {
-        "message": "Dunkles outline Symbol",
+        "message": "Dunkles Kontursymbol",
         "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
     },
     "CustomBadgeColors": {
