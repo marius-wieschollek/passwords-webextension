@@ -15,3 +15,4 @@ rm ./build/updates.json
 ```
 
 After this, the files in the "build" folder should match the uploaded extension.
+The manifest.json file is reformatted by the AMO release process which can cause differences in spacing in the file.

@@ -91,14 +91,14 @@
         "webRequest",
         "webRequestBlocking"
     ],
-    "optional_permissions"   : [
+    "optional_permissions"     : [
         "clipboardRead"
     ],
-    "commands": {
-      "_execute_browser_action": {
-        "suggested_key": {
-          "default": "Alt+Shift+0"
+    "commands"                 : {
+        "_execute_browser_action": {
+            "suggested_key": {
+                "default": "Alt+Shift+0"
+            }
         }
-      }
     }
 }
