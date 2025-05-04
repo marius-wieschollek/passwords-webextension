@@ -1,3 +1,9 @@
+## [Unreleased]
+### Added
+- Theme import/export
+### Fixed
+- Notifications not working
+
 ## 2.8.0 - Feature Release
 ### Added
 - Option to disable context menu
@@ -242,7 +248,7 @@
 - Issues in search and autodetection
 
 ## 1.4.1 - Bugfix Release
-## Changed
+### Changed
 - Improved polish translation (thanks to [Pafcioooo](https://github.com/pafcioooo))
 ### Fixed
 - Fixed account suggestion not working if no url specified
@@ -255,7 +261,7 @@
 - Fixed duplicate on update bug
 
 ## 1.3.1 - Bugfix Release
-## Changed
+### Changed
 - Do not automatically close search
 - Improved API error handling
 - Misleading search texts
@@ -268,7 +274,7 @@
 - Chromium compatibility
 - Context menu
 - Related password counter
-## Changed
+### Changed
 - Improved UI animation
 - Improved related passwords detection
 
@@ -276,9 +282,9 @@
 ### Added
 - Localisations
 - Password miner
-## Changed
+### Changed
 - Improved mobile ui
-## Fixed
+### Fixed
 - Fixed Nextcloud Logout
 - Fixed request Loop
 
@@ -286,7 +292,7 @@
 ### Added
 - Search tab
 - Localisation
-## Changed
+### Changed
 - Mobile design improved
 - Error handling improved
 
