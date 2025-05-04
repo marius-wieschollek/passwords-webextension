@@ -164,6 +164,10 @@
                 "success-fg"             : {
                     "type"   : "string",
                     "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "modal-bg"               : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6,8})|inherit"
                 }
             },
             "required"            : [

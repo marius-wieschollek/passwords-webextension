@@ -38,6 +38,7 @@
         "error-bg"               : "#e9322d",
         "error-fg"               : "#ffffff",
         "success-bg"             : "#46ba61",
-        "success-fg"             : "#ffffff"
+        "success-fg"             : "#ffffff",
+        "modal-bg"               : "#00000040"
     }
 }

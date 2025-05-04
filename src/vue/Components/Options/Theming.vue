@@ -61,7 +61,6 @@
             async reloadThemes() {
                 let reply = await MessageService.send('theme.list');
                 this.themes = reply.getPayload();
-                console.log(this.themes);
 
                 reply = await MessageService.send({type: 'setting.get', payload: 'theme.current'});
                 this.themeId = reply.getPayload().value;
