@@ -1558,5 +1558,50 @@
     },
     "ContextMenuEnabled": {
         "message": "Активиране на контекстното меню"
+    },
+    "ButtonYes": {
+        "message": "да"
+    },
+    "ButtonNo": {
+        "message": "не"
+    },
+    "ThemeExportButton": {
+        "message": "Тема за износ"
+    },
+    "ThemeExportTitle": {
+        "message": "Експортиране на текущата тема като JSON файл"
+    },
+    "ThemeImportButton": {
+        "message": "Импортиране на тема"
+    },
+    "ThemeImportTitle": {
+        "message": "Импортиране на темата от JSON файл"
+    },
+    "ThemeImportSuccess": {
+        "message": "Внесена тема"
+    },
+    "ThemeImportError": {
+        "message": "Файлът на темата е невалиден: $ERRORS$",
+        "placeholders": {
+            "errors": {
+                "content": "$1",
+                "example": "id must be all lowercase"
+            }
+        }
+    },
+    "ThemeDeleteButton": {
+        "message": "Изтриване на темата"
+    },
+    "ThemeDeleteTitle": {
+        "message": "Изтриване на текущата тема"
+    },
+    "ThemeDeleteConfirm": {
+        "message": "Изтриване на темата \"$LABEL$\"?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My first theme"
+            }
+        }
     }
 }
