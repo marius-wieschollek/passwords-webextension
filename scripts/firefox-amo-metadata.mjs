@@ -29,7 +29,7 @@ function getApprovalNotes() {
 async function main() {
     let changelog      = await getChangelog(),
         approval_notes = getApprovalNotes(),
-        release_notes  = {"en-US": changelog, "_default": "en-US"};
+        release_notes  = {"en-US": changelog};
 
     let filePath = path.resolve(`metadata.json`),
         data     = {version: {release_notes, approval_notes}};
