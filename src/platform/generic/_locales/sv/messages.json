@@ -1558,5 +1558,11 @@
     },
     "ContextMenuEnabled": {
         "message": "Aktivera snabbmeny"
+    },
+    "ButtonYes": {
+        "message": "ja"
+    },
+    "ButtonNo": {
+        "message": "nej"
     }
 }
