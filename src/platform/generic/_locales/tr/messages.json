@@ -1564,5 +1564,44 @@
     },
     "ButtonNo": {
         "message": "Hayır"
+    },
+    "ThemeExportButton": {
+        "message": "Temayı dışa aktar"
+    },
+    "ThemeExportTitle": {
+        "message": "Geçerli temayı JSON dosyası olarak dışa aktarma"
+    },
+    "ThemeImportButton": {
+        "message": "Temayı içe aktar"
+    },
+    "ThemeImportTitle": {
+        "message": "JSON dosyasından bir temayı içe aktarma"
+    },
+    "ThemeImportSuccess": {
+        "message": "Tema ithal edildi"
+    },
+    "ThemeImportError": {
+        "message": "Tema dosyası geçersiz: $ERRORS$",
+        "placeholders": {
+            "errors": {
+                "content": "$1",
+                "example": "id must be all lowercase"
+            }
+        }
+    },
+    "ThemeDeleteButton": {
+        "message": "Temayı sil"
+    },
+    "ThemeDeleteTitle": {
+        "message": "Geçerli temayı silme"
+    },
+    "ThemeDeleteConfirm": {
+        "message": "\"$LABEL$\" temasını silelim mi?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My first theme"
+            }
+        }
     }
 }
