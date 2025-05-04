@@ -1558,5 +1558,59 @@
     },
     "ContextMenuEnabled": {
         "message": "Povolenie kontextovej ponuky"
+    },
+    "ButtonYes": {
+        "message": "áno"
+    },
+    "ButtonNo": {
+        "message": "nie"
+    },
+    "ThemeExportButton": {
+        "message": "Téma exportu"
+    },
+    "ThemeExportTitle": {
+        "message": "Exportovať aktuálnu tému ako súbor JSON"
+    },
+    "ThemeImportButton": {
+        "message": "Import témy"
+    },
+    "ThemeImportTitle": {
+        "message": "Import témy zo súboru JSON"
+    },
+    "ThemeImportSuccess": {
+        "message": "Importovaná téma"
+    },
+    "ThemeImportError": {
+        "message": "Súbor témy je neplatný: $ERRORS$",
+        "placeholders": {
+            "errors": {
+                "content": "$1",
+                "example": "id must be all lowercase"
+            }
+        }
+    },
+    "ThemeDeleteButton": {
+        "message": "Odstrániť tému"
+    },
+    "ThemeDeleteTitle": {
+        "message": "Odstránenie aktuálnej témy"
+    },
+    "ThemeDeleteConfirm": {
+        "message": "Odstrániť tému \"$LABEL$\"?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My first theme"
+            }
+        }
+    },
+    "ServerDeleteConfirm": {
+        "message": "Naozaj chcete vymazať \"$LABEL$\"?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Nextcloud Server"
+            }
+        }
     }
 }

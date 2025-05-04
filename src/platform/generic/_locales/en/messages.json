@@ -1549,7 +1549,7 @@
         "placeholders": {
             "error": {
                 "content": "$1",
-                "example": "One of 1, 48, 320, 370, 2048 or 8192"
+                "example": "Exception unexpected error"
             }
         }
     },
@@ -1560,5 +1560,71 @@
     "ContextMenuEnabled": {
         "message": "Enable context menu",
         "description": "Label of the enable context menu setting"
+    },
+    "ButtonYes": {
+        "message": "yes",
+        "description": "Generic text for yes"
+    },
+    "ButtonNo": {
+        "message": "no",
+        "description": "Generic text for no"
+    },
+    "ThemeExportButton": {
+        "message": "Export theme",
+        "description": "Label of the button to export a theme"
+    },
+    "ThemeExportTitle": {
+        "message": "Export the current theme as JSON file",
+        "description": "Title of the button to export a theme"
+    },
+    "ThemeImportButton": {
+        "message": "Import theme",
+        "description": "Label of the button to import a theme"
+    },
+    "ThemeImportTitle": {
+        "message": "Import the a theme from JSON file",
+        "description": "Title of the button to import a theme"
+    },
+    "ThemeImportSuccess": {
+        "message": "Theme imported",
+        "description": "Toast message when a theme was imported successfully"
+    },
+    "ThemeImportError": {
+        "message": "Theme file invalid: $ERRORS$",
+        "description": "Toast message when the uploaded theme file is not valid",
+        "placeholders": {
+            "errors": {
+                "content": "$1",
+                "example": "id must be all lowercase"
+            }
+        }
+    },
+    "ThemeDeleteButton": {
+        "message": "Delete theme",
+        "description": "Label of the button to delete a theme"
+    },
+    "ThemeDeleteTitle": {
+        "message": "Delete the current theme",
+        "description": "Title of the button to delete a theme"
+    },
+    "ThemeDeleteConfirm": {
+        "message": "Delete theme \"$LABEL$\"?",
+        "description": "Confirmation when deleting a theme",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My first theme"
+            }
+        }
+    },
+    "ServerDeleteConfirm": {
+        "message": "Do you really want to delete \"$LABEL$\"?",
+        "description": "Confirmation when deleting a server",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Nextcloud Server"
+            }
+        }
     }
 }

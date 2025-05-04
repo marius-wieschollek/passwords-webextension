@@ -1,6 +1,7 @@
 {
     "id": "arc-light",
     "label": "ThemeArcLight",
+    "type"  : "system",
     "badge" : {
         "color-bg": "#5294E2",
         "color-fg": "#F5F6F7",

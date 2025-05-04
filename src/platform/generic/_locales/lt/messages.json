@@ -1558,5 +1558,59 @@
     },
     "ContextMenuEnabled": {
         "message": "Įjungti kontekstinį meniu"
+    },
+    "ButtonYes": {
+        "message": "taip"
+    },
+    "ButtonNo": {
+        "message": "ne"
+    },
+    "ThemeExportButton": {
+        "message": "Eksporto tema"
+    },
+    "ThemeExportTitle": {
+        "message": "Eksportuoti dabartinę temą kaip JSON failą"
+    },
+    "ThemeImportButton": {
+        "message": "Importo tema"
+    },
+    "ThemeImportTitle": {
+        "message": "Importuoti temą iš JSON failo"
+    },
+    "ThemeImportSuccess": {
+        "message": "Importuota tema"
+    },
+    "ThemeImportError": {
+        "message": "Temos failas negalioja: $ERRORS$",
+        "placeholders": {
+            "errors": {
+                "content": "$1",
+                "example": "id must be all lowercase"
+            }
+        }
+    },
+    "ThemeDeleteButton": {
+        "message": "Ištrinti temą"
+    },
+    "ThemeDeleteTitle": {
+        "message": "Ištrinti dabartinę temą"
+    },
+    "ThemeDeleteConfirm": {
+        "message": "Ištrinti temą \"$LABEL$\"?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My first theme"
+            }
+        }
+    },
+    "ServerDeleteConfirm": {
+        "message": "Ar tikrai norite ištrinti \"$LABEL$\"?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Nextcloud Server"
+            }
+        }
     }
 }

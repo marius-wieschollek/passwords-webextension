@@ -1558,5 +1558,59 @@
     },
     "ContextMenuEnabled": {
         "message": "Увімкнути контекстне меню"
+    },
+    "ButtonYes": {
+        "message": "Так."
+    },
+    "ButtonNo": {
+        "message": "Ні."
+    },
+    "ThemeExportButton": {
+        "message": "Тема експорту"
+    },
+    "ThemeExportTitle": {
+        "message": "Експортуйте поточну тему у вигляді JSON-файлу"
+    },
+    "ThemeImportButton": {
+        "message": "Тема імпорту"
+    },
+    "ThemeImportTitle": {
+        "message": "Імпортуйте тему з JSON-файлу"
+    },
+    "ThemeImportSuccess": {
+        "message": "Тема імпортована"
+    },
+    "ThemeImportError": {
+        "message": "Файл теми недійсний: $ERRORS$",
+        "placeholders": {
+            "errors": {
+                "content": "$1",
+                "example": "id must be all lowercase"
+            }
+        }
+    },
+    "ThemeDeleteButton": {
+        "message": "Видалити тему"
+    },
+    "ThemeDeleteTitle": {
+        "message": "Видалити поточну тему"
+    },
+    "ThemeDeleteConfirm": {
+        "message": "Видалити тему \"$LABEL$\"?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My first theme"
+            }
+        }
+    },
+    "ServerDeleteConfirm": {
+        "message": "Ви дійсно хочете видалити \"$LABEL$\"?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Nextcloud Server"
+            }
+        }
     }
 }

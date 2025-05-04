@@ -1,0 +1,200 @@
+{
+    "$id"                 : "https://git.mdns.eu/nextcloud/passwords-webextension/-/raw/master/src/js/Schema/Theme.schema.json",
+    "$schema"             : "https://json-schema.org/draft/2020-12/schema",
+    "title"               : "Passwords Webapp Schema",
+    "type"                : "object",
+    "properties"          : {
+        "id"       : {
+            "type"   : "string",
+            "pattern": "[a-z][a-z-]+"
+        },
+        "label"    : {
+            "type": "string"
+        },
+        "style"    : {
+            "type": "boolean"
+        },
+        "type"     : {
+            "type": "string",
+            "enum": [ "server", "custom", "system" ]
+        },
+        "badge"    : {
+            "type"                : "object",
+            "properties"          : {
+                "color-bg": {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "color-fg": {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "icon"    : {
+                    "type": [ "string", "null" ],
+                    "enum": [ null, "passwords-new", "passwords-new-dark", "passwords-new-light", "passwords", "passwords-dark", "passwords-light", "passwords-outline-dark", "passwords-outline-light" ]
+                }
+            },
+            "required"            : [
+                "color-bg",
+                "color-fg"
+            ],
+            "additionalProperties": false
+        },
+        "font"     : {
+            "type"                : "object",
+            "properties"          : {
+                "family": {
+                    "type": "string",
+                    "enum": [ "default", "mono", "sans", "serif", "light", "nextcloud", "dyslexic" ]
+                },
+                "size"  : {
+                    "type": "string",
+                    "enum": [ "xs", "s", "d", "m", "l", "xl" ]
+                }
+            },
+            "required"            : [
+                "family",
+                "size"
+            ],
+            "additionalProperties": false
+        },
+        "colors"   : {
+            "type"                : "object",
+            "properties"          : {
+                "element-bg"             : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "element-fg"             : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "element-hover-bg"       : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "element-hover-fg"       : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "element-active-bg"      : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "element-active-fg"      : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "element-active-hover-bg": {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "element-active-hover-fg": {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "button-bg"              : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "button-fg"              : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "button-hover-bg"        : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "button-hover-fg"        : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "slider-bg"              : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "slider-fg"              : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "slider-br"              : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "slider-active-bg"       : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "slider-active-fg"       : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "slider-active-br"       : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "info-bg"                : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "info-fg"                : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "warning-bg"             : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "warning-fg"             : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "error-bg"               : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "error-fg"               : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "success-bg"             : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "success-fg"             : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6})|inherit"
+                },
+                "modal-bg"               : {
+                    "type"   : "string",
+                    "pattern": "(#[0-9a-f]{6,8})|inherit"
+                }
+            },
+            "required"            : [
+                "info-fg",
+                "success-fg",
+                "warning-fg",
+                "error-fg"
+            ],
+            "additionalProperties": false
+        },
+        "variables": {
+            "type"                : "object",
+            "patternProperties"   : {
+                "[a-z][a-z-]+": {
+                    "type": [ "string", "number" ]
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "required"            : [
+        "id",
+        "label",
+        "type",
+        "badge",
+        "font",
+        "colors"
+    ],
+    "additionalProperties": false
+}

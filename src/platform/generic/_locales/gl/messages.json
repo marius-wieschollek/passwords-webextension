@@ -1558,5 +1558,50 @@
     },
     "ContextMenuEnabled": {
         "message": "Activar o menú contextual"
+    },
+    "ButtonYes": {
+        "message": "si"
+    },
+    "ButtonNo": {
+        "message": "non"
+    },
+    "ThemeExportButton": {
+        "message": "Tema de exportación"
+    },
+    "ThemeExportTitle": {
+        "message": "Exportar o tema actual como ficheiro JSON"
+    },
+    "ThemeImportButton": {
+        "message": "Temas de importación"
+    },
+    "ThemeImportTitle": {
+        "message": "Importar un tema do ficheiro JSON"
+    },
+    "ThemeImportSuccess": {
+        "message": "Temas importados"
+    },
+    "ThemeImportError": {
+        "message": "Ficheiro de tema non válido: $ERRORS$",
+        "placeholders": {
+            "errors": {
+                "content": "$1",
+                "example": "id must be all lowercase"
+            }
+        }
+    },
+    "ThemeDeleteButton": {
+        "message": "Eliminar o tema"
+    },
+    "ThemeDeleteTitle": {
+        "message": "Eliminar o tema actual"
+    },
+    "ThemeDeleteConfirm": {
+        "message": "Eliminar o tema \"X14X\"?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My first theme"
+            }
+        }
     }
 }

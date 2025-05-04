@@ -1019,7 +1019,7 @@
         "description": "Label of the grey modern icon option for the toolbar icon in the custom theme settings"
     },
     "BadgeIconNewDark": {
-        "message": "Dunkles Kontursymbol",
+        "message": "Dunkles modernes Symbol",
         "description": "Label of the dark modern icon option for the toolbar icon in the custom theme settings"
     },
     "BadgeIconOutlineLight": {
@@ -1027,7 +1027,7 @@
         "description": "Label of the light outline icon option for the toolbar icon in the custom theme settings"
     },
     "BadgeIconOutlineDark": {
-        "message": "Dunkles outline Symbol",
+        "message": "Dunkles Kontursymbol",
         "description": "Label of the dark outline icon option for the toolbar icon in the custom theme settings"
     },
     "CustomBadgeColors": {
@@ -1558,5 +1558,59 @@
     },
     "ContextMenuEnabled": {
         "message": "Kontextmenü einschalten"
+    },
+    "ButtonYes": {
+        "message": "Ja"
+    },
+    "ButtonNo": {
+        "message": "Nein"
+    },
+    "ThemeExportButton": {
+        "message": "Thema exportieren"
+    },
+    "ThemeExportTitle": {
+        "message": "Das aktuelle Thema als JSON-Datei exportieren"
+    },
+    "ThemeImportButton": {
+        "message": "Thema importieren"
+    },
+    "ThemeImportTitle": {
+        "message": "Ein Thema aus einer JSON-Datei importieren"
+    },
+    "ThemeImportSuccess": {
+        "message": "Thema importiert"
+    },
+    "ThemeImportError": {
+        "message": "Theme-Datei ungültig: $ERRORS$",
+        "placeholders": {
+            "errors": {
+                "content": "$1",
+                "example": "id must be all lowercase"
+            }
+        }
+    },
+    "ThemeDeleteButton": {
+        "message": "Thema löschen"
+    },
+    "ThemeDeleteTitle": {
+        "message": "Das aktuelle Thema löschen"
+    },
+    "ThemeDeleteConfirm": {
+        "message": "Thema \"$LABEL$\" löschen?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My first theme"
+            }
+        }
+    },
+    "ServerDeleteConfirm": {
+        "message": "Wollen Sie \"$LABEL$\" wirklich löschen?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Nextcloud Server"
+            }
+        }
     }
 }

@@ -1558,5 +1558,59 @@
     },
     "ContextMenuEnabled": {
         "message": "Omogočanje kontekstnega menija"
+    },
+    "ButtonYes": {
+        "message": "da"
+    },
+    "ButtonNo": {
+        "message": "ne"
+    },
+    "ThemeExportButton": {
+        "message": "Tema izvoza"
+    },
+    "ThemeExportTitle": {
+        "message": "Izvozite trenutno temo kot datoteko JSON"
+    },
+    "ThemeImportButton": {
+        "message": "Uvozite temo"
+    },
+    "ThemeImportTitle": {
+        "message": "Uvozite temo iz datoteke JSON"
+    },
+    "ThemeImportSuccess": {
+        "message": "Uvožena tema"
+    },
+    "ThemeImportError": {
+        "message": "Datoteka teme je neveljavna: $ERRORS$",
+        "placeholders": {
+            "errors": {
+                "content": "$1",
+                "example": "id must be all lowercase"
+            }
+        }
+    },
+    "ThemeDeleteButton": {
+        "message": "Brisanje teme"
+    },
+    "ThemeDeleteTitle": {
+        "message": "Brisanje trenutne teme"
+    },
+    "ThemeDeleteConfirm": {
+        "message": "Brisanje teme \"$LABEL$\"?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My first theme"
+            }
+        }
+    },
+    "ServerDeleteConfirm": {
+        "message": "Ali res želite izbrisati \"$LABEL$\"?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Nextcloud Server"
+            }
+        }
     }
 }

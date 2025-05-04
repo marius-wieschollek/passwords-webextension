@@ -1,6 +1,6 @@
 {
     "name": "passwords-webextension",
-    "version": "3.1.0",
+    "version": "3.2.0",
     "description": "The official browser client of the Passwords app for Nextcloud",
     "private": true,
     "scripts": {
@@ -14,7 +14,8 @@
         "adb:firefox:beta": "which web-ext||sudo npm i -g web-ext;a=$(adb devices|tr -d '\\n');b=${a##*ed};c=${b%dev*};web-ext run -t firefox-android -s build --adb-device=${c} --firefox-apk=org.mozilla.firefox_beta",
         "adb:firefox:nightly": "which web-ext||sudo npm i -g web-ext;a=$(adb devices|tr -d '\\n');b=${a##*ed};c=${b%dev*};web-ext run -t firefox-android -s build --adb-device=${c} --firefox-apk=org.mozilla.fenix",
         "msg:desc:sync": "node --no-warnings --experimental-json-modules scripts/message-description-sync.mjs",
-        "edge:publish": "node --no-warnings --experimental-json-modules scripts/ms-edge-publish.mjs"
+        "edge:publish": "node --no-warnings --experimental-json-modules scripts/ms-edge-publish.mjs",
+        "ajv:compile": "ajv compile --spec=draft2020 -s src/js/Schema/Theme.schema.json -o src/js/Schema/ThemeSchema.js"
     },
     "devDependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
@@ -54,5 +55,9 @@
         "security"
     ],
     "author": "Marius Wieschollek",
-    "license": "GPL"
+    "license": "GPL",
+    "dependencies": {
+        "ajv": "^8.17.1",
+        "ajv-cli": "^5.0.0"
+    }
 }
