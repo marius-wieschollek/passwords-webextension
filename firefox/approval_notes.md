@@ -11,4 +11,7 @@ To build this version from the supplied source, run the following commands:
 ```bash
 npm ci
 npm run build:firefox
+rm ./build/updates.json
 ```
+
+After this, the files in the "build" folder should match the uploaded extension.

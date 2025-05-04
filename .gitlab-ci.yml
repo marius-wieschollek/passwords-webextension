@@ -20,9 +20,8 @@ Compile Firefox:
     - sed -i -e "s|CI_PIPELINE_ID|${CI_PIPELINE_ID}|g" ./build/html/build.html
     - sed -i -e "s|CI_COMMIT_SHA|${CI_COMMIT_SHA}|g" ./build/html/build.html
     - sed -i -e "s|CI__|CI_|g" ./build/html/build.html
-    - cp build/html/build.html src/platform/generic/html/build.html
-    - npm run firefox:amo-metadata
     - mv build dist/firefox-extension
+    - npm run firefox:amo-metadata
   artifacts:
     expire_in: 1 week
     paths:
@@ -64,6 +63,8 @@ Publish Nightly Firefox:
     - 'UPDATE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/passwords-webextension-nightly/latest/updates.json"'
     - 'sed -i -e "s|\"gecko\": {|\"gecko\":{\"update_url\":\"UPDATE_URL\",|g" ./dist/firefox-extension/manifest.json'
     - 'sed -i -e "s|UPDATE_URL|${UPDATE_URL}|g" ./dist/firefox-extension/manifest.json'
+    - 'cp dist/firefox-extension/html/build.html src/platform/generic/html/build.html'
+    - 'cp dist/firefox-extension/manifest src/platform/firefox/manifest.json'
     - 'zip -r -9 ./source.zip ./* -x "node_modules/*" -x "dist/*" -x "scripts/*" -x "firefox/*" -x ".git/*" -x "metadata.json"'
     - 'web-ext sign --channel unlisted --amo-metadata=metadata.json --upload-source-code=source.zip --ignore-files updates.json'
     - 'sed -i -e "s|VERSION|${EXT_VERSION}|g" ./dist/firefox-extension/updates.json'
@@ -111,6 +112,8 @@ Publish Stable Firefox:
   stage: publishing
   script:
     - 'rm dist/firefox-extension/updates.json'
+    - 'cp dist/firefox-extension/html/build.html src/platform/generic/html/build.html'
+    - 'cp dist/firefox-extension/manifest src/platform/firefox/manifest.json'
     - 'zip -r -9 ./source.zip ./* -x "node_modules/*" -x "dist/*" -x "scripts/*" -x "firefox/*" -x ".git/*" -x "metadata.json"'
     - 'web-ext sign --channel listed --amo-metadata=metadata.json --upload-source-code=source.zip'
   environment:
