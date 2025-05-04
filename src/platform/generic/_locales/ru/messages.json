@@ -1558,5 +1558,11 @@
     },
     "ContextMenuEnabled": {
         "message": "Включить контекстное меню"
+    },
+    "ButtonYes": {
+        "message": "да"
+    },
+    "ButtonNo": {
+        "message": "нет"
     }
 }
