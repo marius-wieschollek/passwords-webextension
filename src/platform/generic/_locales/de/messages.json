@@ -1603,5 +1603,14 @@
                 "example": "My first theme"
             }
         }
+    },
+    "ServerDeleteConfirm": {
+        "message": "Wollen Sie \"$LABEL$\" wirklich löschen?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Nextcloud Server"
+            }
+        }
     }
 }
