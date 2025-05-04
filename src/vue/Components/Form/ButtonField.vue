@@ -82,10 +82,17 @@
 
     &.alignment-center {
         text-align : center;
+
+        .icon {
+            margin-left : 0;
+        }
     }
 
     &.alignment-right {
-        text-align : right;
+
+        .icon {
+            margin-left : 0;
+        }
     }
 
     &.button-secondary {
@@ -103,6 +110,7 @@
         }
 
         .icon {
+            margin-left  : .5rem;
             margin-right : .5rem;
         }
     }
