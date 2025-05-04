@@ -1558,5 +1558,11 @@
     },
     "ContextMenuEnabled": {
         "message": "Activar o menú contextual"
+    },
+    "ButtonYes": {
+        "message": "si"
+    },
+    "ButtonNo": {
+        "message": "non"
     }
 }
