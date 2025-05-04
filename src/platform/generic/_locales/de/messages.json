@@ -1560,22 +1560,22 @@
         "message": "Kontextmenü einschalten"
     },
     "ButtonYes": {
-        "message": "ja"
+        "message": "Ja"
     },
     "ButtonNo": {
-        "message": "keine"
+        "message": "Nein"
     },
     "ThemeExportButton": {
         "message": "Thema exportieren"
     },
     "ThemeExportTitle": {
-        "message": "Exportieren Sie das aktuelle Thema als JSON-Datei"
+        "message": "Das aktuelle Thema als JSON-Datei exportieren"
     },
     "ThemeImportButton": {
         "message": "Thema importieren"
     },
     "ThemeImportTitle": {
-        "message": "Importieren Sie ein Thema aus einer JSON-Datei"
+        "message": "Ein Thema aus einer JSON-Datei importieren"
     },
     "ThemeImportSuccess": {
         "message": "Thema importiert"
