@@ -1558,5 +1558,11 @@
     },
     "ContextMenuEnabled": {
         "message": "Povolení kontextové nabídky"
+    },
+    "ButtonYes": {
+        "message": "ano"
+    },
+    "ButtonNo": {
+        "message": "ne"
     }
 }
