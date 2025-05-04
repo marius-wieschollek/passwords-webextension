@@ -1558,5 +1558,50 @@
     },
     "ContextMenuEnabled": {
         "message": "Включить контекстное меню"
+    },
+    "ButtonYes": {
+        "message": "да"
+    },
+    "ButtonNo": {
+        "message": "нет"
+    },
+    "ThemeExportButton": {
+        "message": "Тема экспорта"
+    },
+    "ThemeExportTitle": {
+        "message": "Экспортируйте текущую тему в файл JSON"
+    },
+    "ThemeImportButton": {
+        "message": "Импортная тема"
+    },
+    "ThemeImportTitle": {
+        "message": "Импорт темы из файла JSON"
+    },
+    "ThemeImportSuccess": {
+        "message": "Тема импортная"
+    },
+    "ThemeImportError": {
+        "message": "Неверный файл темы: $ERRORS$",
+        "placeholders": {
+            "errors": {
+                "content": "$1",
+                "example": "id must be all lowercase"
+            }
+        }
+    },
+    "ThemeDeleteButton": {
+        "message": "Удалить тему"
+    },
+    "ThemeDeleteTitle": {
+        "message": "Удалить текущую тему"
+    },
+    "ThemeDeleteConfirm": {
+        "message": "Удалить тему \"$LABEL$\"?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My first theme"
+            }
+        }
     }
 }

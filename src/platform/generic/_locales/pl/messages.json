@@ -1558,5 +1558,50 @@
     },
     "ContextMenuEnabled": {
         "message": "Włącz menu kontekstowe"
+    },
+    "ButtonYes": {
+        "message": "tak"
+    },
+    "ButtonNo": {
+        "message": "nie"
+    },
+    "ThemeExportButton": {
+        "message": "Motyw eksportu"
+    },
+    "ThemeExportTitle": {
+        "message": "Eksport bieżącego motywu do pliku JSON"
+    },
+    "ThemeImportButton": {
+        "message": "Importuj motyw"
+    },
+    "ThemeImportTitle": {
+        "message": "Import motywu z pliku JSON"
+    },
+    "ThemeImportSuccess": {
+        "message": "Temat importowany"
+    },
+    "ThemeImportError": {
+        "message": "Nieprawidłowy plik motywu: $ERRORS$",
+        "placeholders": {
+            "errors": {
+                "content": "$1",
+                "example": "id must be all lowercase"
+            }
+        }
+    },
+    "ThemeDeleteButton": {
+        "message": "Usuń motyw"
+    },
+    "ThemeDeleteTitle": {
+        "message": "Usuń bieżący motyw"
+    },
+    "ThemeDeleteConfirm": {
+        "message": "Usunąć motyw \"$LABEL$\"?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My first theme"
+            }
+        }
     }
 }

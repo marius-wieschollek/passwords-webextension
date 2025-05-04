@@ -1558,5 +1558,50 @@
     },
     "ContextMenuEnabled": {
         "message": "Ota käyttöön kontekstivalikko"
+    },
+    "ButtonYes": {
+        "message": "kyllä"
+    },
+    "ButtonNo": {
+        "message": "ei"
+    },
+    "ThemeExportButton": {
+        "message": "Vie teema"
+    },
+    "ThemeExportTitle": {
+        "message": "Vie nykyinen teema JSON-tiedostona"
+    },
+    "ThemeImportButton": {
+        "message": "Tuo teema"
+    },
+    "ThemeImportTitle": {
+        "message": "Tuo teema JSON-tiedostosta"
+    },
+    "ThemeImportSuccess": {
+        "message": "Aihe tuotu maahan"
+    },
+    "ThemeImportError": {
+        "message": "Teematiedosto on virheellinen: $ERRORS$",
+        "placeholders": {
+            "errors": {
+                "content": "$1",
+                "example": "id must be all lowercase"
+            }
+        }
+    },
+    "ThemeDeleteButton": {
+        "message": "Poista teema"
+    },
+    "ThemeDeleteTitle": {
+        "message": "Poista nykyinen teema"
+    },
+    "ThemeDeleteConfirm": {
+        "message": "Poista teema \"$LABEL$\"?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My first theme"
+            }
+        }
     }
 }

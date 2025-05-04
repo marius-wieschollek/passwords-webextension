@@ -1558,5 +1558,50 @@
     },
     "ContextMenuEnabled": {
         "message": "Contextmenu inschakelen"
+    },
+    "ButtonYes": {
+        "message": "Ja"
+    },
+    "ButtonNo": {
+        "message": "nee"
+    },
+    "ThemeExportButton": {
+        "message": "Thema exporteren"
+    },
+    "ThemeExportTitle": {
+        "message": "Exporteer het huidige thema als JSON-bestand"
+    },
+    "ThemeImportButton": {
+        "message": "Thema importeren"
+    },
+    "ThemeImportTitle": {
+        "message": "Thema importeren uit JSON-bestand"
+    },
+    "ThemeImportSuccess": {
+        "message": "Thema geïmporteerd"
+    },
+    "ThemeImportError": {
+        "message": "Themabestand ongeldig: $ERRORS$",
+        "placeholders": {
+            "errors": {
+                "content": "$1",
+                "example": "id must be all lowercase"
+            }
+        }
+    },
+    "ThemeDeleteButton": {
+        "message": "Thema verwijderen"
+    },
+    "ThemeDeleteTitle": {
+        "message": "Het huidige thema verwijderen"
+    },
+    "ThemeDeleteConfirm": {
+        "message": "Thema \"$LABEL$\" verwijderen?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My first theme"
+            }
+        }
     }
 }

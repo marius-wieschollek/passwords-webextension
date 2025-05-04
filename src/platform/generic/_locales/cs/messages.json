@@ -1558,5 +1558,50 @@
     },
     "ContextMenuEnabled": {
         "message": "Povolení kontextové nabídky"
+    },
+    "ButtonYes": {
+        "message": "ano"
+    },
+    "ButtonNo": {
+        "message": "ne"
+    },
+    "ThemeExportButton": {
+        "message": "Téma exportu"
+    },
+    "ThemeExportTitle": {
+        "message": "Exportovat aktuální téma jako soubor JSON"
+    },
+    "ThemeImportButton": {
+        "message": "Téma importu"
+    },
+    "ThemeImportTitle": {
+        "message": "Import tématu ze souboru JSON"
+    },
+    "ThemeImportSuccess": {
+        "message": "Importované téma"
+    },
+    "ThemeImportError": {
+        "message": "Soubor tématu je neplatný: $ERRORS$",
+        "placeholders": {
+            "errors": {
+                "content": "$1",
+                "example": "id must be all lowercase"
+            }
+        }
+    },
+    "ThemeDeleteButton": {
+        "message": "Odstranit téma"
+    },
+    "ThemeDeleteTitle": {
+        "message": "Odstranění aktuálního motivu"
+    },
+    "ThemeDeleteConfirm": {
+        "message": "Odstranit téma \"$LABEL$\"?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My first theme"
+            }
+        }
     }
 }

@@ -1558,5 +1558,50 @@
     },
     "ContextMenuEnabled": {
         "message": "تمكين قائمة السياق"
+    },
+    "ButtonYes": {
+        "message": "نعم"
+    },
+    "ButtonNo": {
+        "message": "لا يوجد"
+    },
+    "ThemeExportButton": {
+        "message": "سمة التصدير"
+    },
+    "ThemeExportTitle": {
+        "message": "تصدير السمة الحالية كملف JSON"
+    },
+    "ThemeImportButton": {
+        "message": "سمة الاستيراد"
+    },
+    "ThemeImportTitle": {
+        "message": "استيراد سمة من ملف JSON"
+    },
+    "ThemeImportSuccess": {
+        "message": "موضوع مستورد"
+    },
+    "ThemeImportError": {
+        "message": "ملف السمة غير صالح: $ERRORS$",
+        "placeholders": {
+            "errors": {
+                "content": "$1",
+                "example": "id must be all lowercase"
+            }
+        }
+    },
+    "ThemeDeleteButton": {
+        "message": "حذف السمة"
+    },
+    "ThemeDeleteTitle": {
+        "message": "حذف السمة الحالية"
+    },
+    "ThemeDeleteConfirm": {
+        "message": "حذف الموضوع \"$LABEL$\"؟",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My first theme"
+            }
+        }
     }
 }
