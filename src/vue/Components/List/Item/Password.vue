@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="options">
-                <icon icon="user" hover-icon="clipboard" @click="copy('username')" draggable="true" @dragstart="drag($event, 'username')"/>
+                <icon icon="user" hover-icon="clipboard" @click="copy('username')" draggable="true" @dragstart="drag($event, 'username')" v-if="hasUsername"/>
                 <icon icon="key" font="solid" hover-icon="clipboard" hover-font="regular" @click="copy('password')" draggable="true" @dragstart="drag($event, 'password')"/>
                 <icon icon="ellipsis-h" font="solid" @click="toggleMenu()"/>
             </div>
@@ -79,6 +79,9 @@
             },
             titleVars() {
                 return `--overflow-size:-${this.overflow}px`;
+            },
+            hasUsername() {
+                return this.password.getUserName().length > 0;
             }
         },
 

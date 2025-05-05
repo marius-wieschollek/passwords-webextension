@@ -9,7 +9,7 @@
             <icon slot="before" icon="file-import" font="solid"/>
         </button-field>
         <button-field variant="secondary" :wide="true" title="ThemeDeleteTitle" value="ThemeDeleteButton" @click="deleteTheme" v-if="canDelete">
-            <icon slot="before" icon="trash" font="solid"/>
+            <icon slot="before" icon="trash-alt" font="solid"/>
         </button-field>
         <input class="file-upload" type="file" ref="upload" accept="application/json" @change="uploadTheme"/>
     </div>
