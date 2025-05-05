@@ -1,5 +1,0 @@
-{
-    "version": {
-        "approval_notes": "A test server is provided at https://test.passwordsapp.org/ with the login data user \"firefox\" and password \"PasswordsApp\". A guide to build this version can be found in the file html/build.html or in the extension settings under \"build information\"."
-    }
-}

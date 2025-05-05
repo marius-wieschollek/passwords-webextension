@@ -2,3 +2,5 @@
 node_modules
 build
 dist
+metadata.json
+source.zip

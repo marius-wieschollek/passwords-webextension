@@ -1566,19 +1566,19 @@
         "message": "non"
     },
     "ThemeExportButton": {
-        "message": "Tema de exportación"
+        "message": "Exportar o tema"
     },
     "ThemeExportTitle": {
         "message": "Exportar o tema actual como ficheiro JSON"
     },
     "ThemeImportButton": {
-        "message": "Temas de importación"
+        "message": "Importar o tema"
     },
     "ThemeImportTitle": {
         "message": "Importar un tema do ficheiro JSON"
     },
     "ThemeImportSuccess": {
-        "message": "Temas importados"
+        "message": "Tema importado"
     },
     "ThemeImportError": {
         "message": "Ficheiro de tema non válido: $ERRORS$",
@@ -1596,11 +1596,20 @@
         "message": "Eliminar o tema actual"
     },
     "ThemeDeleteConfirm": {
-        "message": "Eliminar o tema \"X14X\"?",
+        "message": "Eliminar o tema «$LABEL$»?",
         "placeholders": {
             "label": {
                 "content": "$1",
                 "example": "My first theme"
+            }
+        }
+    },
+    "ServerDeleteConfirm": {
+        "message": "Confirma que quere eliminar «$LABEL$»?",
+        "placeholders": {
+            "label": {
+                "content": "$1",
+                "example": "My Nextcloud Server"
             }
         }
     }
