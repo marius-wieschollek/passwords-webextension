@@ -29,10 +29,14 @@
 
         <translate tag="h3" say="DebugResetTitle"/>
         <div class="debug-info">
-            <button-field title="DebugResetStatisticsTitle" value="DebugResetStatistics" @click="resetStatistics"/>
+            <button-field variant="secondary" :wide="true" title="DebugResetStatisticsTitle" value="DebugResetStatistics" @click="resetStatistics">
+                <icon slot="before" icon="trash-alt" font="solid"/>
+            </button-field>
         </div>
         <div class="debug-info">
-            <button-field title="DebugResetExtensionTitle" value="DebugResetExtension" @click="resetExtension"/>
+            <button-field variant="secondary" :wide="true" title="DebugResetExtensionTitle" value="DebugResetExtension" @click="resetExtension">
+                <icon slot="before" icon="trash-alt" font="solid"/>
+            </button-field>
         </div>
 
         <translate tag="h3" say="DebugSettings"/>

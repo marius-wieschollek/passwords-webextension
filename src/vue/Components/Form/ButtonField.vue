@@ -101,7 +101,7 @@
         line-height      : 3rem;
         border-radius    : var(--button-border-radius);
         border           : none;
-        margin           : .5rem;
+        margin           : .5rem 0;
         cursor           : pointer;
 
         &:hover {
