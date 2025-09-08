@@ -2,6 +2,7 @@ import ErrorManager from '@js/Manager/ErrorManager';
 import ApiRepository from '@js/Repositories/ApiRepository';
 import ServerManager from '@js/Manager/ServerManager';
 import MessageService from '@js/Services/MessageService';
+import {subscribe} from "@js/Event/Events";
 
 export default new class ServerTimeoutManager {
 
@@ -31,6 +32,11 @@ export default new class ServerTimeoutManager {
         ServerManager.onDeleteServer.on(async (server) => {
             this._removeServerKeepaliveRequests(server);
         });
+
+        subscribe('energy:suspend:resume', () => {
+            this._checkAllClientTimeouts()
+                .catch(ErrorManager.catch);
+        })
     }
 
     trigger() {
