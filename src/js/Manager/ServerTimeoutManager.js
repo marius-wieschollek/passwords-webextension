@@ -21,17 +21,9 @@ export default new class ServerTimeoutManager {
             this._setUpActivityTriggers();
         }
 
-        ServerManager.onAddServer.on(async (server) => {
-            await this._addServerKeepaliveRequests(server);
-        });
-
-        ServerManager.onRemoveServer.on(async (server) => {
-            this._removeServerKeepaliveRequests(server);
-        });
-
-        ServerManager.onDeleteServer.on(async (server) => {
-            this._removeServerKeepaliveRequests(server);
-        });
+        subscribe('server:added', async (s) => { await this._addServerKeepaliveRequests(s); });
+        subscribe('server:removed', async (s) => { await this._removeServerKeepaliveRequests(s); });
+        subscribe('server:deleted', async (s) => { await this._removeServerKeepaliveRequests(s); });
 
         subscribe('energy:suspend:resume', () => {
             this._checkAllClientTimeouts()

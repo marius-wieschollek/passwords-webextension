@@ -4,11 +4,10 @@ import AuthorisationItem from '@js/Models/Queue/AuthorisationItem';
 import ErrorManager from '@js/Manager/ErrorManager';
 import ApiRepository from '@js/Repositories/ApiRepository';
 import BooleanState from 'passwords-client/boolean-state';
-import EventQueue from '@js/Event/EventQueue';
 import SettingsService from '@js/Services/SettingsService';
 import SessionAuthorizationHelper from '@js/Helper/SessionAuthorizationHelper';
 import ServerRequirementCheck from '@js/Helper/ServerRequirementCheck';
-import {subscribe} from "@js/Event/Events";
+import {emitAsync, subscribe} from "@js/Event/Events";
 import ToastService from "@js/Services/ToastService";
 
 class ServerManager {
@@ -21,36 +20,12 @@ class ServerManager {
     }
 
     /**
-     * @returns {EventQueue}
-     */
-    get onAddServer() {
-        return this._addServer;
-    }
-
-    /**
-     * @returns {EventQueue}
-     */
-    get onRemoveServer() {
-        return this._removeServer;
-    }
-
-    /**
-     * @returns {EventQueue}
-     */
-    get onDeleteServer() {
-        return this._deleteServer;
-    }
-
-    /**
      *
      */
     constructor() {
         /** @type {(FeedbackQueue|null)} **/
         this._authQueue = null;
         this._authState = new BooleanState(true);
-        this._addServer = new EventQueue();
-        this._removeServer = new EventQueue();
-        this._deleteServer = new EventQueue();
         this._servers = {};
         subscribe('servers:sync', (d) => {this._syncServers(d);});
     }
@@ -115,7 +90,7 @@ class ServerManager {
             await SettingsService.reload();
         }
 
-        await this._addServer.emit(server);
+        await emitAsync('server:added', server);
     }
 
     /**
@@ -133,6 +108,7 @@ class ServerManager {
         } catch(e) {}
 
         if(!this._servers.hasOwnProperty(serverId)) return;
+        await emitAsync('server:removed', server);
         await this._removeServer.emit(server);
         delete this._servers[serverId];
     }
@@ -183,6 +159,7 @@ class ServerManager {
             }
         }
 
+        await emitAsync('server:deleted', server);
         await this._deleteServer.emit(server);
     }
 
@@ -256,7 +233,7 @@ class ServerManager {
         Promise.all(promises)
                .catch(ErrorManager.catch)
                .then(() => {
-                   console.log('Reloaded servers after browser sync', server);
+                   console.log('Reloaded servers after browser sync', d);
                });
     }
 }

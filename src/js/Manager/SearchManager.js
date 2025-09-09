@@ -3,19 +3,14 @@ import ApiRepository from '@js/Repositories/ApiRepository';
 import ErrorManager from '@js/Manager/ErrorManager';
 import HiddenFolderHelper from "@js/Helper/HiddenFolderHelper";
 import SearchService from "@js/Services/SearchService";
+import {subscribe} from "@js/Event/Events";
 
 class SearchManager {
 
     init() {
-        ServerManager.onAddServer.on(
-            async (s) => { await this._addServer(s); }
-        );
-        ServerManager.onRemoveServer.on(
-            async (s) => { await this._removeServer(s); }
-        );
-        ServerManager.onDeleteServer.on(
-            async (s) => { await this._removeServer(s); }
-        );
+        subscribe('server:added', async (s) => { await this._addServer(s); });
+        subscribe('server:removed', async (s) => { await this._removeServer(s); });
+        subscribe('server:deleted', async (s) => { await this._removeServer(s); });
         this._refreshTimer = {};
     }
 
@@ -52,8 +47,8 @@ class SearchManager {
     async _removeServer(server) {
         let serverId = server.getId(),
             items    = SearchService.find()
-                .where('server', '=', serverId)
-                .execute();
+                                    .where('server', '=', serverId)
+                                    .execute();
 
         SearchService.remove(items);
         clearInterval(this._refreshTimer[serverId]);
@@ -105,9 +100,9 @@ class SearchManager {
         let repository = api.getInstance(`repository.${type}`),
             models     = await repository.findAll(),
             items      = SearchService.find(type)
-                .where('server', '=', api.getServer().getId())
-                .withHidden(true)
-                .execute();
+                                      .where('server', '=', api.getServer().getId())
+                                      .withHidden(true)
+                                      .execute();
 
         SearchService.remove(items);
         SearchService.add(models.getClone());

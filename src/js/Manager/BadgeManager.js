@@ -16,27 +16,17 @@ class BadgeManager {
 
     init() {
         this._api = SystemService.getBrowserApi();
+        const updateEvent = async () => {
+            let r = RecommendationManager.getSuggestions();
+            await this._updateBrowserAction(r);
+        };
 
         subscribe('suggestions:updated', (e) => {this._updateBrowserAction(e.suggestions).catch(ErrorManager.catch);});
-        TabManager.tabUpdated.on(
-            async () => {
-                let r = RecommendationManager.getSuggestions();
-                await this._updateBrowserAction(r);
-            }
-        );
+        subscribe('tab:updated', updateEvent);
+        subscribe('mining:item:added', updateEvent);
+        subscribe('mining:item:solved', updateEvent);
+
         ServerManager.isAuthorized.onChange(
-            async (d) => {
-                let r = RecommendationManager.getSuggestions();
-                await this._updateBrowserAction(r);
-            }
-        );
-        MiningManager.addItem.on(
-            async (d) => {
-                let r = RecommendationManager.getSuggestions();
-                await this._updateBrowserAction(r);
-            }
-        );
-        MiningManager.solveItem.on(
             async (d) => {
                 let r = RecommendationManager.getSuggestions();
                 await this._updateBrowserAction(r);
