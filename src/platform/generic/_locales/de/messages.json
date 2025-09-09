@@ -1612,5 +1612,11 @@
                 "example": "My Nextcloud Server"
             }
         }
+    },
+    "SettingsPasteAutofillWhitelist": {
+        "message": "Autofill auf zuvor verwendete Anmeldedaten beschränken"
+    },
+    "HelpPasteAutofillWhitelist": {
+        "message": "Lassen Sie das automatische Ausfüllen von Anmeldedaten nur dann zu, wenn diese zuvor auf der betreffenden Website manuell ausgefüllt wurden."
     }
 }
