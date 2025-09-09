@@ -1612,5 +1612,11 @@
                 "example": "My Nextcloud Server"
             }
         }
+    },
+    "SettingsPasteAutofillWhitelist": {
+        "message": "Otomatik doldurmayı daha önce kullanılan oturum açma verileriyle kısıtlayın"
+    },
+    "HelpPasteAutofillWhitelist": {
+        "message": "Oturum açma verilerinin otomatik olarak doldurulmasına yalnızca bu web sitesinde daha önce manuel olarak doldurulmuşsa izin verin."
     }
 }
