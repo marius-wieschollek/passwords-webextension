@@ -1612,5 +1612,11 @@
                 "example": "My Nextcloud Server"
             }
         }
+    },
+    "SettingsPasteAutofillWhitelist": {
+        "message": "Korlátozza az automatikus kitöltést a korábban használt bejelentkezési adatokra"
+    },
+    "HelpPasteAutofillWhitelist": {
+        "message": "Csak akkor engedje meg a bejelentkezési adatok automatikus kitöltését, ha azokat korábban már kézzel kitöltötte az adott weboldalon."
     }
 }
