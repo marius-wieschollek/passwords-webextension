@@ -1612,5 +1612,11 @@
                 "example": "My Nextcloud Server"
             }
         }
+    },
+    "SettingsPasteAutofillWhitelist": {
+        "message": "Apriboti automatinį užpildymą anksčiau naudotais prisijungimo duomenimis"
+    },
+    "HelpPasteAutofillWhitelist": {
+        "message": "leisti automatiškai užpildyti prisijungimo duomenis tik tuo atveju, jei jie anksčiau toje svetainėje buvo užpildyti rankiniu būdu."
     }
 }
