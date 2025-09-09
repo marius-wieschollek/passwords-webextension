@@ -1612,5 +1612,11 @@
                 "example": "My Nextcloud Server"
             }
         }
+    },
+    "SettingsPasteAutofillWhitelist": {
+        "message": "限制自动填写以前使用过的登录数据"
+    },
+    "HelpPasteAutofillWhitelist": {
+        "message": "只允许自动填写之前在该网站上手动填写过的登录数据。"
     }
 }
