@@ -1626,5 +1626,13 @@
                 "example": "My Nextcloud Server"
             }
         }
+    },
+    "SettingsPasteAutofillWhitelist": {
+        "message": "Restrict autofill to previously used login data",
+        "description": "Label of the setting in the extension settings to enable autofill only for previously used login data"
+    },
+    "HelpPasteAutofillWhitelist": {
+        "message": "Only allow login data to be automatically filled in if it has previously been filled in manually on that website.",
+        "description": "Help text in the extension settings for the setting to enable autofill only for previously used login data"
     }
 }
