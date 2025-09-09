@@ -1,89 +1,94 @@
 <template>
-    <div class="settings-general">
+    <div class="settings-general" v-if="initialized">
         <translate tag="h3" say="AutofillSettings"/>
         <div class="setting">
-            <slider-field id="paste-autoclose" v-model="autoclose"/>
+            <slider-field id="paste-autoclose" v-model="settings['paste.popup.close']"/>
             <translate tag="label" for="paste-autoclose" say="SettingsPastePopupClose"/>
         </div>
         <div class="setting">
-            <slider-field id="paste-autosubmit" v-model="autosubmit"/>
+            <slider-field id="paste-autosubmit" v-model="settings['paste.form.submit']"/>
             <translate tag="label" for="paste-autosubmit" say="SettingsPasteFormSubmit"/>
         </div>
         <div class="setting">
-            <slider-field id="paste-compromised" v-model="compromised"/>
+            <slider-field id="paste-compromised" v-model="settings['paste.compromised.warning']"/>
             <translate tag="label" for="paste-compromised" say="SettingsPasteWarnCompromised"/>
         </div>
         <div class="setting">
-            <slider-field id="paste-autofill" v-model="autofill"/>
+            <slider-field id="paste-autofill" v-model="settings['paste.autofill']"/>
             <translate tag="label" for="paste-autofill" say="SettingsPasteAutofillEnabled"/>
             <help-text type="warning" text="HelpPasteAutofill"/>
         </div>
         <div class="setting">
-            <slider-field id="paste-basic-auth" v-model="basicAuth"/>
+            <slider-field id="paste-autofill-whitelist" v-model="settings['paste.autofill.whitelist']"/>
+            <translate tag="label" for="paste-autofill-whitelist" say="SettingsPasteAutofillWhitelist"/>
+            <help-text type="info" text="HelpPasteAutofillWhitelist"/>
+        </div>
+        <div class="setting">
+            <slider-field id="paste-basic-auth" v-model="settings['paste.basic-auth']"/>
             <translate tag="label" for="paste-basic-auth" say="SettingsPasteBasicAuth"/>
             <help-text type="warning" text="HelpPasteBasicAuth"/>
         </div>
         <div class="setting">
-            <slider-field id="clipboard-clear-passwords" v-model="clearClipboard" @change="requestClipboardReadPermission(clearClipboard)"/>
+            <slider-field id="clipboard-clear-passwords" v-model="settings['clipboard.clear.passwords']" @change="requestClipboardReadPermission(clearClipboard)"/>
             <translate tag="label" for="clipboard-clear-passwords" say="SettingsClearClipboardPasswords"/>
             <help-text type="info" text="HelpClearClipboardPasswords"/>
         </div>
         <div class="setting">
             <translate tag="label" for="clipboard-clear-delay" say="SettingsClearClipboardDelay"/>
-            <select-field id="clipboard-clear-delay" :options="clearClipboardDelayOptions" v-model="clearClipboardDelay" :disabled="!clearClipboard"/>
+            <select-field id="clipboard-clear-delay" :options="clearClipboardDelayOptions" v-model="settings['clipboard.clear.delay']" :disabled="!settings['clipboard.clear.passwords']"/>
         </div>
         <div class="setting setting-textarea">
             <translate tag="label" for="mining-autofill-domains" say="SettingsAutofillIgnoredDomains"/>
-            <input-field type="textarea" id="mining-autofill-domains" v-model="autofillIgnoredDomains" placeholder="SettingsAutofillIgnoredDomainsPlaceholder"/>
+            <input-field type="textarea" id="mining-autofill-domains" v-model="settings['autofill.ignored-domains']" placeholder="SettingsAutofillIgnoredDomainsPlaceholder"/>
         </div>
 
         <translate tag="h3" say="RecommendationSettings"/>
         <div class="setting">
             <translate tag="label" for="search-recommendation-option" say="SettingsSearchRecommendationOption"/>
-            <select-field id="search-recommendation-option" :options="recommendationOptions" v-model="recSearchMode"/>
+            <select-field id="search-recommendation-option" :options="recommendationOptions" v-model="settings['search.recommendation.mode']"/>
         </div>
         <div class="setting">
             <translate tag="label" for="search-recommendation-maxRows" say="SettingsSearchRecommendationMaxRows"/>
-            <select-field id="search-recommendation-maxRows" :options="recommendationMaxRows" v-model="recSearchRows"/>
+            <select-field id="search-recommendation-maxRows" :options="recommendationMaxRows" v-model="settings['search.recommendation.maxRows']"/>
         </div>
 
         <translate tag="h3" say="UiSettings"/>
         <div class="setting">
-            <slider-field id="show-username-in-list" v-model="showUserInList"/>
+            <slider-field id="show-username-in-list" v-model="settings['password.list.show.user']"/>
             <translate tag="label" for="show-username-in-list" say="SettingsShowUsernameInList"/>
         </div>
 
         <translate tag="h3" say="SearchSettings"/>
         <div class="setting">
-            <slider-field id="popup-related-search" v-model="relatedSearch"/>
+            <slider-field id="popup-related-search" v-model="settings['popup.related.search']"/>
             <translate tag="label" for="popup-related-search" say="SettingsPopupRelatedSearch"/>
         </div>
 
         <translate tag="h3" say="PasswordMiningSettings"/>
         <div class="setting">
-            <slider-field id="notification-password-new" v-model="notifyPwNew"/>
+            <slider-field id="notification-password-new" v-model="settings['notification.password.new']"/>
             <translate tag="label" for="notification-password-new" say="SettingsNotifyPasswordNew"/>
         </div>
         <div class="setting">
-            <slider-field id="notification-password-update" v-model="notifyPwUpdate"/>
+            <slider-field id="notification-password-update" v-model="settings['notification.password.update']"/>
             <translate tag="label" for="notification-password-update" say="SettingsNotifyPasswordUpdate"/>
         </div>
         <div class="setting">
-            <slider-field id="notification-password-quicksave" v-model="notificationQuickSave"/>
+            <slider-field id="notification-password-quicksave" v-model="settings['notification.password.quicksave']"/>
             <translate tag="label" for="notification-password-quicksave" say="SettingsNotifyPasswordQuicksave"/>
         </div>
         <div class="setting">
-            <slider-field id="mining-incognito-hide" v-model="miningIncognitoHide"/>
+            <slider-field id="mining-incognito-hide" v-model="settings['mining.incognito.hide']"/>
             <translate tag="label" for="mining-incognito-hide" say="SettingsMiningIncognitoHide"/>
         </div>
         <div class="setting setting-textarea">
             <translate tag="label" for="mining-ignored-domains" say="SettingsMiningIgnoredDomains"/>
-            <input-field type="textarea" id="mining-ignored-domains" v-model="miningIgnoredDomains" placeholder="SettingsMiningIgnoredDomainsPlaceholder"/>
+            <input-field type="textarea" id="mining-ignored-domains" v-model="settings['mining.ignored-domains']" placeholder="SettingsMiningIgnoredDomainsPlaceholder"/>
         </div>
 
         <translate tag="h3" say="ContextMenu"/>
         <div class="setting">
-            <slider-field id="context-menu-item-visibility" v-model="contextMenuEnabled"/>
+            <slider-field id="context-menu-item-visibility" v-model="settings['contextmenu.enabled']"/>
             <translate tag="label" for="context-menu-item-visibility" say="contextMenuEnabled"/>
         </div>
     </div>
@@ -100,30 +105,40 @@
     import ClipboardManager from '@js/Manager/ClipboardManager';
     import InputField from "@vue/Components/Form/InputField.vue";
 
+    const SETTINGS_LIST = [
+        'paste.popup.close',
+        'paste.form.submit',
+        'paste.compromised.warning',
+        'paste.autofill',
+        'paste.autofill.whitelisted',
+        'paste.basic-auth',
+        'popup.related.search',
+        'notification.password.new',
+        'notification.password.update',
+        'notification.password.quicksave',
+        'search.recommendation.mode',
+        'search.recommendation.maxRows',
+        'clipboard.clear.passwords',
+        'clipboard.clear.delay',
+        'password.list.show.user',
+        'mining.ignored-domains',
+        'mining.incognito.hide',
+        'autofill.ignored-domains',
+        'contextmenu.enabled'
+    ];
+
+    let settingValues = {};
 
     export default {
         components: {InputField, HelpText, SliderField, SelectField, Translate},
         data() {
-            return {
-                autoclose             : false,
-                autosubmit            : false,
-                autofill              : false,
-                basicAuth             : false,
-                compromised           : false,
-                notifyPwNew           : false,
-                relatedSearch         : false,
-                notifyPwUpdate        : false,
-                notificationQuickSave : false,
-                recSearchMode         : 'host',
-                recSearchRows         : 8,
-                clearClipboard        : false,
-                clearClipboardDelay   : 60,
-                showUserInList        : false,
-                miningIgnoredDomains  : '',
-                miningIncognitoHide   : true,
-                autofillIgnoredDomains: '',
-                contextMenuEnabled    : true
-            };
+            let data = {initialized: false, settings: {}};
+
+            for(let key of SETTINGS_LIST) {
+                data.settings[key] = null;
+            }
+
+            return data;
         },
 
         created() {
@@ -167,28 +182,20 @@
 
         methods: {
             loadData() {
-                this.getSetting('paste.popup.close', 'autoclose');
-                this.getSetting('paste.form.submit', 'autosubmit');
-                this.getSetting('paste.compromised.warning', 'compromised');
-                this.getSetting('paste.autofill', 'autofill');
-                this.getSetting('paste.basic-auth', 'basicAuth');
-                this.getSetting('popup.related.search', 'relatedSearch');
-                this.getSetting('notification.password.new', 'notifyPwNew');
-                this.getSetting('notification.password.update', 'notifyPwUpdate');
-                this.getSetting('notification.password.quicksave', 'notificationQuickSave');
-                this.getSetting('search.recommendation.mode', 'recSearchMode');
-                this.getSetting('search.recommendation.maxRows', 'recSearchRows');
-                this.getSetting('clipboard.clear.passwords', 'clearClipboard');
-                this.getSetting('clipboard.clear.delay', 'clearClipboardDelay');
-                this.getSetting('password.list.show.user', 'showUserInList');
-                this.getSetting('mining.ignored-domains', 'miningIgnoredDomains');
-                this.getSetting('mining.incognito.hide', 'miningIncognitoHide');
-                this.getSetting('autofill.ignored-domains', 'autofillIgnoredDomains');
-                this.getSetting('contextmenu.enabled', 'contextMenuEnabled');
+                let promises = [];
+                for(let key of SETTINGS_LIST) {
+                    promises.push(this.getSetting(key));
+                }
+
+                Promise.all(promises).then(() => {
+                    this.initialized = true;
+                });
             },
-            async getSetting(name, variable) {
+            async getSetting(name) {
                 try {
-                    this[variable] = await SettingsService.getValue(name);
+                    let value = await SettingsService.getValue(name);
+                    settingValues[name] = value;
+                    this.settings[name] = value;
                 } catch(e) {
                     ErrorManager.logError(e);
                     ToastService.error(e.message).catch(ErrorManager.catch);
@@ -196,7 +203,10 @@
             },
             async setSetting(name, value) {
                 try {
-                    await SettingsService.set(name, value);
+                    if(this.initialized && settingValues[name] !== value) {
+                        await SettingsService.set(name, value);
+                        settingValues[name] = value;
+                    }
                 } catch(e) {
                     ErrorManager.logError(e);
                     ToastService.error(e.message).catch(ErrorManager.catch);
@@ -208,94 +218,12 @@
         },
 
         watch: {
-            autosubmit(value, oldValue) {
-                if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('paste.form.submit', value);
-                }
-            },
-            autoclose(value, oldValue) {
-                if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('paste.popup.close', value);
-                }
-            },
-            compromised(value, oldValue) {
-                if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('paste.compromised.warning', value);
-                }
-            },
-            autofill(value, oldValue) {
-                if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('paste.autofill', value);
-                }
-            },
-            basicAuth(value, oldValue) {
-                if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('paste.basic-auth', value);
-                }
-            },
-            clearClipboard(value, oldValue) {
-                if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('clipboard.clear.passwords', value);
-                }
-            },
-            clearClipboardDelay(value, oldValue) {
-                if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('clipboard.clear.delay', value);
-                }
-            },
-            relatedSearch(value, oldValue) {
-                if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('popup.related.search', value);
-                }
-            },
-            notifyPwNew(value, oldValue) {
-                if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('notification.password.new', value);
-                }
-            },
-            notifyPwUpdate(value, oldValue) {
-                if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('notification.password.update', value);
-                }
-            },
-            notificationQuickSave(value, oldValue) {
-                if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('notification.password.quicksave', value);
-                }
-            },
-            recSearchMode(value, oldValue) {
-                if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('search.recommendation.mode', value);
-                }
-            },
-            recSearchRows(value, oldValue) {
-                if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('search.recommendation.maxRows', value);
-                }
-            },
-            showUserInList(value, oldValue) {
-                if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('password.list.show.user', value);
-                }
-            },
-            miningIgnoredDomains(value, oldValue) {
-                if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('mining.ignored-domains', value);
-                }
-            },
-            miningIncognitoHide(value, oldValue) {
-                if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('mining.incognito.hide', value);
-                }
-            },
-            autofillIgnoredDomains(value, oldValue) {
-                if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('autofill.ignored-domains', value);
-                }
-            },
-            contextMenuEnabled(value, oldValue) {
-                if(oldValue !== null && value !== oldValue) {
-                    this.setSetting('contextmenu.enabled', value);
+            settings: {
+                deep   : true,
+                handler: function(value) {
+                    for(let name of SETTINGS_LIST) {
+                        this.setSetting(name, value[name]);
+                    }
                 }
             }
         }
