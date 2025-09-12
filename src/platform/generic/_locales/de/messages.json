@@ -1617,6 +1617,6 @@
         "message": "Autofill auf zuvor verwendete Anmeldedaten beschränken"
     },
     "HelpPasteAutofillWhitelist": {
-        "message": "Lassen Sie das automatische Ausfüllen von Anmeldedaten nur dann zu, wenn diese zuvor auf der betreffenden Website manuell ausgefüllt wurden."
+        "message": "Das automatische Ausfüllen von Anmeldedaten nur dann zulassen, wenn diese zuvor bereits einmal manuell auf der Webseite verwendet wurden."
     }
 }
