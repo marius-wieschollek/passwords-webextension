@@ -1614,9 +1614,9 @@
         }
     },
     "SettingsPasteAutofillWhitelist": {
-        "message": "Restrinxir o autofillo para os datos de inicio de sesión previamente utilizados"
+        "message": "Restrinxir o recheo automático aos datos de acceso usados anteriormente"
     },
     "HelpPasteAutofillWhitelist": {
-        "message": "Só permita que os datos de inicio de sesión sexan automaticamente cubertos se previamente foi cuberto manualmente nese sitio web."
+        "message": "Só permite que os datos de inicio de sesión sexan cubertos automaticamente se previamente foron cubertos manualmente nese sitio web."
     }
 }
