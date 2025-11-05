@@ -241,6 +241,9 @@ class StorageService {
             }
 
             if(!changes[key].hasOwnProperty('newValue') || !changes[key].newValue) {
+                if(changes[key].oldValue && changes[key].oldValue.instance === this._instance) {
+                    continue;
+                }
                 if(this._storageHas(key, area)) {
                     delete this._storage[area][key];
                     this._keys[area].splice(this._keys[area].indexOf(key), 1);
@@ -251,6 +254,10 @@ class StorageService {
             }
 
             let data = changes[key].newValue;
+            // Skip storage events that originated from the current instance to prevent unnecessary reloads.
+            if(data && data.instance === this._instance) {
+                continue;
+            }
             if(!this._storageHas(key, area)) {
                 this._storage[area][key] = data;
                 this._keys[area].push(key);
