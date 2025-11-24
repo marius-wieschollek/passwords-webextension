@@ -1612,5 +1612,11 @@
                 "example": "My Nextcloud Server"
             }
         }
+    },
+    "SettingsPasteAutofillWhitelist": {
+        "message": "Restringir o preenchimento automático a dados de início de sessão utilizados anteriormente"
+    },
+    "HelpPasteAutofillWhitelist": {
+        "message": "Só permitir que os dados de início de sessão sejam preenchidos automaticamente se tiverem sido previamente preenchidos manualmente nesse sítio Web."
     }
 }

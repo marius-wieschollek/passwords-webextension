@@ -1612,5 +1612,11 @@
                 "example": "My Nextcloud Server"
             }
         }
+    },
+    "SettingsPasteAutofillWhitelist": {
+        "message": "Ograniczenie autouzupełniania do wcześniej używanych danych logowania"
+    },
+    "HelpPasteAutofillWhitelist": {
+        "message": "Zezwalaj na automatyczne wprowadzanie danych logowania tylko wtedy, gdy zostały one wcześniej wprowadzone ręcznie na tej stronie."
     }
 }

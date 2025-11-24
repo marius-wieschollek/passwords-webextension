@@ -1612,5 +1612,11 @@
                 "example": "My Nextcloud Server"
             }
         }
+    },
+    "SettingsPasteAutofillWhitelist": {
+        "message": "تقييد الملء التلقائي لبيانات تسجيل الدخول المستخدمة سابقاً"
+    },
+    "HelpPasteAutofillWhitelist": {
+        "message": "لا تسمح بتعبئة بيانات تسجيل الدخول تلقائيًا إلا إذا تم تعبئتها يدويًا على هذا الموقع الإلكتروني."
     }
 }

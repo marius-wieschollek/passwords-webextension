@@ -16,6 +16,7 @@ import ServerThemeHelper from '@js/Helper/ServerThemeHelper';
 import ErrorManager from '@js/Manager/ErrorManager';
 import ServerManager from '@js/Manager/ServerManager';
 import UuidHelper from "@js/Helper/UuidHelper";
+import {subscribe} from "@js/Event/Events";
 
 class ThemeRepository {
 
@@ -27,12 +28,9 @@ class ThemeRepository {
         this._themes = null;
         this._customThemes = null;
         this._loading = new BooleanState(false);
-        ServerManager.onAddServer.on(
-            (server) => { this._addServer(server).catch(ErrorManager.catch); }
-        );
-        ServerManager.onRemoveServer.on(
-            (server) => { this._removeServer(server).catch(ErrorManager.catch); }
-        );
+        subscribe('server:added', (s) => { this._addServer(s).catch(ErrorManager.catch); });
+        subscribe('server:removed', (s) => { this._removeServer(s).catch(ErrorManager.catch); });
+        subscribe('server:deleted', (s) => { this._removeServer(s).catch(ErrorManager.catch); });
     }
 
     /**

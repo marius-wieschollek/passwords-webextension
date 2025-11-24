@@ -5,6 +5,7 @@ import SettingsService from "@js/Services/SettingsService";
 import AutofillRequestHelper from "@js/Helper/AutofillRequestHelper";
 import {subscribe} from "@js/Event/Events";
 import Url from "url-parse";
+import PasswordStatisticsService from "@js/Services/PasswordStatisticsService";
 
 export default new class AutofillManager {
 
@@ -13,6 +14,7 @@ export default new class AutofillManager {
         this.currentURL = null;
         this._enabled = false;
         this._autofillEnabled = null;
+        this._autofillOnlyWhitelisted = null;
         this._ingoredDomainsSetting = null;
         subscribe('suggestions:updated', (event) => {
             this.recommendations = event.suggestions;
@@ -46,7 +48,13 @@ export default new class AutofillManager {
         SettingsService.get('paste.autofill').then(
             (s) => {
                 this._autofillEnabled = s;
-                this._enabled = true;
+                this._enabled = this._autofillOnlyWhitelisted !== null;
+            }
+        );
+        SettingsService.get('paste.autofill.whitelisted').then(
+            (s) => {
+                this._autofillEnabled = s;
+                this._enabled = this._autofillEnabled !== null;
             }
         );
     }
@@ -59,7 +67,10 @@ export default new class AutofillManager {
      */
     _sendAutofillPassword(recommendations, url) {
         if(!this._enabled || recommendations.length === 0 || !this._autofillEnabled?.getValue() || this._isIgnoredDomain(url)) return;
-        let password = recommendations[0];
+        let password = this._getFirstWhitelistedPassword(recommendations, url);
+        if(!password) {
+            return;
+        }
 
         let ids = TabManager.get('autofill.ids', []);
         if(ids.indexOf(password.getId()) === -1) {
@@ -89,6 +100,12 @@ export default new class AutofillManager {
         ).catch(ErrorManager.catch);
     }
 
+    /**
+     *
+     * @param url
+     * @return {boolean}
+     * @private
+     */
     _isIgnoredDomain(url) {
         url = Url(url);
 
@@ -103,5 +120,29 @@ export default new class AutofillManager {
         }
 
         return false;
+    }
+
+    /**
+     *
+     * @param {Password[]} recommendations
+     * @param {String} url
+     * @return {Password}
+     * @private
+     */
+    _getFirstWhitelistedPassword(recommendations, url) {
+        if(!this._autofillOnlyWhitelisted?.getValue()) {
+            return recommendations[0];
+        }
+
+        url = Url(url);
+        for(let password of recommendations) {
+            let uses = PasswordStatisticsService.getPasswordUses(password.getId());
+
+            if(uses.domains.hasOwnProperty(url.host)) {
+                return password;
+            }
+        }
+
+        return null;
     }
 };

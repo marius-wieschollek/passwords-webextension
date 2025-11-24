@@ -22,6 +22,7 @@
     import Authorisation from '@vue/Components/Popup/Authorisation';
     import Collected from '@vue/Components/Popup/Collected';
     import PopupStateService from "@js/Services/PopupStateService";
+    import {subscribe} from "@js/Event/Events";
 
     export default {
         el        : '#app',
@@ -48,9 +49,9 @@
         },
 
         data() {
-            PopupStateService.status.on((data) => {
+            subscribe('popup.status', (data) => {
                 if(data.key === 'authorized') this.authorized = data.value;
-            });
+            })
 
             return {
                 authorized: PopupStateService.getStatus('authorized'),

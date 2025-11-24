@@ -24,6 +24,7 @@
     import ErrorManager from '@js/Manager/ErrorManager';
     import PopupStateService from "@js/Services/PopupStateService";
     import ToastService from "@js/Services/ToastService";
+    import {subscribe, unsubscribe} from "@js/Event/Events";
 
     export default {
         components: {Translate, Foldout, Icon, PasswordMining},
@@ -37,11 +38,11 @@
         },
 
         created() {
-            MiningClient.update.on(this.listener);
+            subscribe('mining:client:item', this.listener);
         },
 
         destroyed() {
-            MiningClient.update.off(this.listener);
+            unsubscribe('mining:client:item', this.listener);
         },
 
         async mounted() {

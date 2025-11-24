@@ -25,6 +25,7 @@ import ServerTimeoutManager from "@js/Manager/ServerTimeoutManager";
 import StorageService from "@js/Services/StorageService";
 import ToastService from "@js/Services/ToastService";
 import BrowserApi from "@js/Platform/BrowserApi";
+import SuspendManager from "@js/Manager/SuspendManager";
 
 class Background {
     async init() {
@@ -54,6 +55,7 @@ class Background {
             await ServerManager.init();
             await BasicAuthAutofillManager.init();
             await LocalisationService.init();
+            SuspendManager.init()
             console.info('Extension initialized');
         } catch(e) {
             ErrorManager.logError(e);

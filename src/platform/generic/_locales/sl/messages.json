@@ -1612,5 +1612,11 @@
                 "example": "My Nextcloud Server"
             }
         }
+    },
+    "SettingsPasteAutofillWhitelist": {
+        "message": "Omejitev samodejnega izpolnjevanja na predhodno uporabljene podatke za prijavo"
+    },
+    "HelpPasteAutofillWhitelist": {
+        "message": "samodejno izpolnjevanje prijavnih podatkov dovolite le, če so bili predhodno ročno izpolnjeni na tem spletnem mestu."
     }
 }

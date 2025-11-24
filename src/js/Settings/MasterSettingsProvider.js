@@ -33,6 +33,11 @@ class MasterSettingsProvider {
                 'local.paste.autofill',
                 'client.ext.paste.autofill'
             ],
+            'paste.autofill.whitelisted'     : [
+                'sync.paste.autofill.whitelisted',
+                'local.paste.autofill.whitelisted',
+                'client.ext.paste.autofill.whitelisted'
+            ],
             'paste.basic-auth'               : [
                 'sync.paste.basic-auth',
                 'local.paste.basic-auth',
@@ -135,6 +140,7 @@ class MasterSettingsProvider {
             'paste.form.submit'              : true,
             'paste.compromised.warning'      : true,
             'paste.autofill'                 : false,
+            'paste.autofill.whitelisted'     : true,
             'paste.basic-auth'               : false,
             'popup.related.search'           : true,
             'password.folder.private'        : null,

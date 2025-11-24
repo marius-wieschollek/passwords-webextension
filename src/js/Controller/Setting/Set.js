@@ -12,6 +12,7 @@ export default class Set extends AbstractController {
             'paste.form.submit',
             'paste.compromised.warning',
             'paste.autofill',
+            'paste.autofill.whitelisted',
             'paste.basic-auth',
             'popup.related.search',
             'notification.password.new',

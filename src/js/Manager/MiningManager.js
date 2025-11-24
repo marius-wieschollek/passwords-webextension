@@ -7,11 +7,11 @@ import RecommendationManager from '@js/Manager/RecommendationManager';
 import NotificationService from '@js/Services/NotificationService';
 import HiddenFolderHelper from "@js/Helper/HiddenFolderHelper";
 import Url from "url-parse";
-import EventQueue from "@js/Event/EventQueue";
 import SystemService from "@js/Services/SystemService";
 import QueueClient from "@js/Queue/Client/QueueClient";
 import SettingsService from "@js/Services/SettingsService";
 import SearchService from "@js/Services/SearchService";
+import {emitAsync} from "@js/Event/Events";
 
 class MiningManager {
 
@@ -24,27 +24,11 @@ class MiningManager {
     }
 
     /**
-     * @returns {EventQueue}
-     */
-    get addItem() {
-        return this._addItem;
-    }
-
-    /**
-     * @returns {EventQueue}
-     */
-    get solveItem() {
-        return this._solveItem;
-    }
-
-    /**
      *
      */
     constructor() {
         /** @type {FeedbackQueue} **/
         this._miningQueue = null;
-        this._addItem = new EventQueue();
-        this._solveItem = new EventQueue();
         this._processingQueue = null;
         this._ingoredDomainsSetting = null;
     }
@@ -117,7 +101,7 @@ class MiningManager {
             }
         }
 
-        await this._addItem.emit(task);
+        await emitAsync('mining:item:added', task);
 
         await this.processTask(task);
     }
@@ -140,8 +124,7 @@ class MiningManager {
                 await this.updatePassword(task);
             }
 
-            await this._solveItem.emit(task);
-            await this._miningQueue.push(task);
+            await emitAsync('mining:item:solved', task);
         } catch(e) {
             ErrorManager.logError(e);
             task

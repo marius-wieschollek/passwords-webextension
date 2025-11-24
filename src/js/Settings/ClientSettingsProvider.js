@@ -1,5 +1,4 @@
 import MessageService from '@js/Services/MessageService';
-import Error from "@vue/Components/Passlink/Action/Error.vue";
 
 class ClientSettingsProvider {
 
