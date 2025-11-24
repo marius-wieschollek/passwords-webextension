@@ -1612,5 +1612,11 @@
                 "example": "My Nextcloud Server"
             }
         }
+    },
+    "SettingsPasteAutofillWhitelist": {
+        "message": "Begränsa autofyll till tidigare använda inloggningsuppgifter"
+    },
+    "HelpPasteAutofillWhitelist": {
+        "message": "Tillåt endast att inloggningsuppgifter fylls i automatiskt om de tidigare har fyllts i manuellt på den webbplatsen."
     }
 }

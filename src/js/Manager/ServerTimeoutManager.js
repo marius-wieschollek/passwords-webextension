@@ -3,6 +3,7 @@ import ApiRepository from '@js/Repositories/ApiRepository';
 import ServerManager from '@js/Manager/ServerManager';
 import MessageService from '@js/Services/MessageService';
 import BrowserApi from "@js/Platform/BrowserApi";
+import {subscribe} from "@js/Event/Events";
 
 export default new class ServerTimeoutManager {
 
@@ -25,17 +26,14 @@ export default new class ServerTimeoutManager {
             this._setUpActivityTriggers();
         }
 
-        ServerManager.onAddServer.on(async (server) => {
-            await this._addServerKeepaliveRequests(server);
-        });
+        subscribe('server:added', async (s) => { await this._addServerKeepaliveRequests(s); });
+        subscribe('server:removed', async (s) => { await this._removeServerKeepaliveRequests(s); });
+        subscribe('server:deleted', async (s) => { await this._removeServerKeepaliveRequests(s); });
 
-        ServerManager.onRemoveServer.on(async (server) => {
-            this._removeServerKeepaliveRequests(server);
-        });
-
-        ServerManager.onDeleteServer.on(async (server) => {
-            this._removeServerKeepaliveRequests(server);
-        });
+        subscribe('energy:suspend:resume', () => {
+            this._checkAllClientTimeouts()
+                .catch(ErrorManager.catch);
+        })
     }
 
     trigger() {

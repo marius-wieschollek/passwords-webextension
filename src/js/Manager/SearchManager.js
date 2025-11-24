@@ -4,19 +4,14 @@ import ErrorManager from '@js/Manager/ErrorManager';
 import HiddenFolderHelper from "@js/Helper/HiddenFolderHelper";
 import SearchService from "@js/Services/SearchService";
 import BrowserApi from "@js/Platform/BrowserApi";
+import {subscribe} from "@js/Event/Events";
 
 class SearchManager {
 
     init() {
-        ServerManager.onAddServer.on(
-            async (s) => { await this._addServer(s); }
-        );
-        ServerManager.onRemoveServer.on(
-            async (s) => { await this._removeServer(s); }
-        );
-        ServerManager.onDeleteServer.on(
-            async (s) => { await this._removeServer(s); }
-        );
+        subscribe('server:added', async (s) => { await this._addServer(s); });
+        subscribe('server:removed', async (s) => { await this._removeServer(s); });
+        subscribe('server:deleted', async (s) => { await this._removeServer(s); });
         this._refreshTimer = {};
     }
 

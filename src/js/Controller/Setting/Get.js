@@ -13,6 +13,7 @@ export default class Get extends AbstractController {
             'paste.popup.close',
             'paste.compromised.warning',
             'paste.autofill',
+            'paste.autofill.whitelisted',
             'paste.basic-auth',
             'popup.related.search',
             'notification.password.new',
