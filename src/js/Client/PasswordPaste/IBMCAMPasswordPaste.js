@@ -10,7 +10,7 @@ export default class IBMCAMPasswordPaste extends AbstractPasswordPaste {
 
     async handle() {
         let userField = document.querySelector(this.#loginUsernameSelector);
-        // don't fill any non-visible fields
+        // don't fill non-visible fields, userField is not null at this point because canHandle() checks that already
         if(!userField.checkVisibility()) {
             return false;
         }
