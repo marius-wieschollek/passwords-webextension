@@ -8,6 +8,8 @@ import AliExpressPasswordPaste from "@js/Client/PasswordPaste/AliExpressPassword
 import BooleanState from "passwords-client/boolean-state";
 import GrowattPasswordPaste from "@js/Client/PasswordPaste/GrowattPasswordPaste";
 import BlueskyPasswordPaste from "@js/Client/PasswordPaste/BlueskyPasswordPaste";
+import IBMPasswordPaste from "@js/Client/PasswordPaste/IBMPasswordPaste";
+import IBMCAMPasswordPaste from "@js/Client/PasswordPaste/IBMCAMPasswordPaste";
 
 export default class FillPassword extends AbstractController {
 
@@ -63,6 +65,8 @@ export default class FillPassword extends AbstractController {
             new TumblrPasswordPaste(request),
             new AliExpressPasswordPaste(request),
             new GrowattPasswordPaste(request),
+            new IBMPasswordPaste(request),
+            new IBMCAMPasswordPaste(request),
             new GenericPasswordPaste(request)
         ];
     }

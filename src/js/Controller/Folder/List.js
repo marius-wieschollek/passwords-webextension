@@ -32,7 +32,7 @@ export default class List extends AbstractController {
                 }, {passwords: [], folders: []});
             });
 
-        if(TabManager.get().tab.incognito) {
+        if(TabManager.get()?.tab.incognito) {
             query.withHidden(true);
         }
 
