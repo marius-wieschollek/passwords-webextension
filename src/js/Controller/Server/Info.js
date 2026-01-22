@@ -38,7 +38,7 @@ export default class Info extends AbstractController {
                 }, info);
             });
 
-        if(TabManager.get().tab.incognito) {
+        if(TabManager.get()?.tab.incognito) {
             query.withHidden(true);
         }
 

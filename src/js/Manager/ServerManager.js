@@ -109,7 +109,6 @@ class ServerManager {
 
         if(!this._servers.hasOwnProperty(serverId)) return;
         await emitAsync('server:removed', server);
-        await this._removeServer.emit(server);
         delete this._servers[serverId];
     }
 
