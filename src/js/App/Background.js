@@ -2,6 +2,7 @@ import ErrorManager from '@js/Manager/ErrorManager';
 import SearchManager from '@js/Manager/SearchManager';
 import ServerManager from '@js/Manager/ServerManager';
 import SystemService from '@js/Services/SystemService';
+import TimerService from '@js/Services/TimerService';
 import MigrationManager from '@js/Manager/MigrationManager';
 import ConverterManager from '@js/Manager/ConverterManager';
 import ControllerManager from '@js/Manager/ControllerManager';
@@ -24,12 +25,11 @@ import BasicAuthAutofillManager from "@js/Manager/BasicAuthAutofillManager";
 import ServerTimeoutManager from "@js/Manager/ServerTimeoutManager";
 import StorageService from "@js/Services/StorageService";
 import ToastService from "@js/Services/ToastService";
-import BrowserApi from "@js/Platform/BrowserApi";
 import SuspendManager from "@js/Manager/SuspendManager";
 
 class Background {
     async init() {
-        this._keepalive();
+        TimerService.init();
         SystemService.setArea('background');
         ErrorManager.init('server');
         try {
@@ -55,7 +55,7 @@ class Background {
             await ServerManager.init();
             await BasicAuthAutofillManager.init();
             await LocalisationService.init();
-            SuspendManager.init()
+            SuspendManager.init();
             console.info('Extension initialized');
         } catch(e) {
             ErrorManager.logError(e);
@@ -63,10 +63,6 @@ class Background {
             ToastService.error(['ExtensionInitFailure', e.message])
                         .catch(ErrorManager.catch);
         }
-    }
-
-    _keepalive() {
-        setInterval(BrowserApi.getBrowserApi().runtime.getPlatformInfo, 20e3);
     }
 }
 

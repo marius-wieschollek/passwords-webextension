@@ -3,10 +3,16 @@ import ApiRepository from '@js/Repositories/ApiRepository';
 import ErrorManager from '@js/Manager/ErrorManager';
 import HiddenFolderHelper from "@js/Helper/HiddenFolderHelper";
 import SearchService from "@js/Services/SearchService";
-import BrowserApi from "@js/Platform/BrowserApi";
 import {subscribe} from "@js/Event/Events";
+import ConnectionErrorHelper from "@js/Helper/ConnectionErrorHelper";
+import TimerService from "@js/Services/TimerService";
 
 class SearchManager {
+
+    constructor() {
+        this._refreshTimer = {};
+        this._connectionError = new ConnectionErrorHelper();
+    }
 
     init() {
         subscribe('server:added', async (s) => { await this._addServer(s); });
@@ -33,16 +39,10 @@ class SearchManager {
      */
     async _addServer(server) {
         let serverId = server.getId(),
-            api      = await ApiRepository.findById(serverId);
+            api      = await ApiRepository.findById(serverId),
+            listener  = () => {this._reloadServer(api);};
 
-        let alarmName = `passwords.server.refresh.${serverId}`,
-            listener  = (alarm) => {
-                if(alarm.name === alarmName) {
-                    this._reloadServer(api);
-                }
-            };
-        BrowserApi.getBrowserApi().alarms.create(alarmName, {delayInMinutes: 5, periodInMinutes: 15});
-        BrowserApi.getBrowserApi().alarms.onAlarm.addListener(listener);
+        TimerService.addInterval(listener, 900);
         this._refreshTimer[serverId] = listener;
 
         await this._reloadServer(api);
@@ -61,7 +61,7 @@ class SearchManager {
                                     .execute();
 
         SearchService.remove(items);
-        BrowserApi.getBrowserApi().alarms.onAlarm.removeListener(this._refreshTimer[serverId]);
+        TimerService.removeInterval(this._refreshTimer[serverId]);
         delete this._refreshTimer[serverId];
     }
 
@@ -88,11 +88,16 @@ class SearchManager {
         } catch(e) {
             if(e.name === 'EncryptionNotEnabledError' || e.name === 'MissingEncryptionKeyError' || e.name === 'PreconditionFailedError') {
                 try {
+                    ErrorManager.log('Server not authenticated during reindex');
                     await ServerManager.restartSession(api.getServer());
                 } catch(e2) {
                     ErrorManager.logError(e);
                     ErrorManager.logError(e2);
                 }
+            } else if(e.name === 'UnauthorizedError') {
+                this._connectionError
+                    .processError(e, api.getServer())
+                    .catch(ErrorManager.catch);
             } else {
                 ErrorManager.logError(e);
             }

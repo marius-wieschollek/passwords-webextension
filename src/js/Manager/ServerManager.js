@@ -128,6 +128,10 @@ class ServerManager {
      * @returns {Promise<void>}
      */
     async restartSession(server) {
+        if(server.getStatus() === server.STATUS_UNAUTHORIZED) {
+            return;
+        }
+
         await this.removeServer(server);
         let api = await ApiRepository.findById(server.getId());
         api.renewSession();
