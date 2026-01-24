@@ -39,16 +39,10 @@ class SearchManager {
      */
     async _addServer(server) {
         let serverId = server.getId(),
-            api      = await ApiRepository.findById(serverId);
+            api      = await ApiRepository.findById(serverId),
+            listener  = () => {this._reloadServer(api);};
 
-        let alarmName = `passwords.server.refresh.${serverId}`,
-            listener  = (alarm) => {
-                if(alarm.name === alarmName) {
-                    this._reloadServer(api);
-                }
-            };
-        BrowserApi.getBrowserApi().alarms.create(alarmName, {delayInMinutes: 5, periodInMinutes: 15});
-        BrowserApi.getBrowserApi().alarms.onAlarm.addListener(listener);
+        TimerService.addInterval(listener, 900);
         this._refreshTimer[serverId] = listener;
 
         await this._reloadServer(api);
@@ -67,7 +61,7 @@ class SearchManager {
                                     .execute();
 
         SearchService.remove(items);
-        BrowserApi.getBrowserApi().alarms.onAlarm.removeListener(this._refreshTimer[serverId]);
+        TimerService.removeInterval(this._refreshTimer[serverId]);
         delete this._refreshTimer[serverId];
     }
 
