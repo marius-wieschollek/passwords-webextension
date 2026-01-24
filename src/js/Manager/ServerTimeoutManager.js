@@ -3,12 +3,14 @@ import ApiRepository from '@js/Repositories/ApiRepository';
 import ServerManager from '@js/Manager/ServerManager';
 import MessageService from '@js/Services/MessageService';
 import {subscribe} from "@js/Event/Events";
+import ConnectionErrorHelper from "@js/Helper/ConnectionErrorHelper";
 
 export default new class ServerTimeoutManager {
 
     constructor() {
         this._interval = null;
         this._keepaliveTimers = {};
+        this._connectionError = new ConnectionErrorHelper();
     }
 
     init() {
@@ -22,13 +24,13 @@ export default new class ServerTimeoutManager {
         }
 
         subscribe('server:added', async (s) => { await this._addServerKeepaliveRequests(s); });
-        subscribe('server:removed', async (s) => { await this._removeServerKeepaliveRequests(s); });
-        subscribe('server:deleted', async (s) => { await this._removeServerKeepaliveRequests(s); });
+        subscribe('server:removed', (s) => { this._removeServerKeepaliveRequests(s); });
+        subscribe('server:deleted', (s) => { this._removeServerKeepaliveRequests(s); });
 
         subscribe('energy:suspend:resume', () => {
             this._checkAllClientTimeouts()
                 .catch(ErrorManager.catch);
-        })
+        });
     }
 
     trigger() {
@@ -110,9 +112,13 @@ export default new class ServerTimeoutManager {
             .catch(
                 (e) => {
                     ErrorManager.logError(e);
-                    if(e.type === 'PreconditionFailedError') {
+                    if(e.name === 'PreconditionFailedError' || e.name === 'TooManyRequestsError') {
                         ServerManager
                             .restartSession(server)
+                            .catch(ErrorManager.catch);
+                    } else if(e.name === 'UnauthorizedError') {
+                        this._connectionError
+                            .processError(e, server)
                             .catch(ErrorManager.catch);
                     }
                 });

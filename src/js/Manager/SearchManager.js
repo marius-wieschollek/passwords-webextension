@@ -4,8 +4,15 @@ import ErrorManager from '@js/Manager/ErrorManager';
 import HiddenFolderHelper from "@js/Helper/HiddenFolderHelper";
 import SearchService from "@js/Services/SearchService";
 import {subscribe} from "@js/Event/Events";
+import ConnectionErrorHelper from "@js/Helper/ConnectionErrorHelper";
+import TimerService from "@js/Services/TimerService";
 
 class SearchManager {
+
+    constructor() {
+        this._refreshTimer = {};
+        this._connectionError = new ConnectionErrorHelper();
+    }
 
     init() {
         subscribe('server:added', async (s) => { await this._addServer(s); });
@@ -78,11 +85,16 @@ class SearchManager {
         } catch(e) {
             if(e.name === 'EncryptionNotEnabledError' || e.name === 'MissingEncryptionKeyError' || e.name === 'PreconditionFailedError') {
                 try {
+                    ErrorManager.log('Server not authenticated during reindex');
                     await ServerManager.restartSession(api.getServer());
                 } catch(e2) {
                     ErrorManager.logError(e);
                     ErrorManager.logError(e2);
                 }
+            } else if(e.name === 'UnauthorizedError') {
+                this._connectionError
+                    .processError(e, api.getServer())
+                    .catch(ErrorManager.catch);
             } else {
                 ErrorManager.logError(e);
             }

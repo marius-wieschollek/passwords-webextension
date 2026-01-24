@@ -13,7 +13,6 @@ export default class ConnectionErrorHelper {
      * @param {Error} error
      * @param {Server} server
      * @return {Promise<void>}
-     * @private
      */
     async processError(error, server) {
         ErrorManager.logError(error);
