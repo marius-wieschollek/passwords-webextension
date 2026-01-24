@@ -7,7 +7,6 @@ import ServerManager from "@js/Manager/ServerManager";
 
 export default class ConnectionErrorHelper {
 
-
     /**
      *
      * @param {Error} error
@@ -25,10 +24,10 @@ export default class ConnectionErrorHelper {
                 await this._disableServer(server);
 
                 ToastService.create({message: 'ServerCredentialsRejected', title, tags, ttl: 0, type: 'error'})
-                    .then((c) => {
-                        if(c) SSystemService.getBrowserApi().runtime.openOptionsPage();
-                    })
-                    .catch(ErrorManager.catch);
+                            .then((c) => {
+                                if(c) SystemService.getBrowserApi().runtime.openOptionsPage();
+                            })
+                            .catch(ErrorManager.catch);
             } catch(e) {
                 ErrorManager.logError(e);
             }
@@ -39,14 +38,14 @@ export default class ConnectionErrorHelper {
             let options = {reload: 'ServerNetworkErrorReload'};
 
             ToastService.create({message: 'ServerNetworkError', title, tags, options, default: true, ttl: 0, type: 'error'})
-                .then((c) => {
-                    if(c === 'reload') {
-                        this._reloadServer(server.getId()).catch(ErrorManager.catch);
-                    } else if(c) {
-                        SystemService.getBrowserApi().tabs.create({active: true, url: server.getBaseUrl()});
-                    }
-                })
-                .catch(ErrorManager.catch);
+                        .then((c) => {
+                            if(c === 'reload') {
+                                this._reloadServer(server.getId()).catch(ErrorManager.catch);
+                            } else if(c) {
+                                SystemService.getBrowserApi().tabs.create({active: true, url: server.getBaseUrl()});
+                            }
+                        })
+                        .catch(ErrorManager.catch);
 
             return;
         } else if(error instanceof Error) {

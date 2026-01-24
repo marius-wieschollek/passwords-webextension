@@ -5,7 +5,6 @@ import HiddenFolderHelper from "@js/Helper/HiddenFolderHelper";
 import SearchService from "@js/Services/SearchService";
 import {subscribe} from "@js/Event/Events";
 import ConnectionErrorHelper from "@js/Helper/ConnectionErrorHelper";
-import TimerService from "@js/Services/TimerService";
 
 class SearchManager {
 
