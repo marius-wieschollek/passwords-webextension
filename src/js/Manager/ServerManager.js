@@ -129,7 +129,7 @@ class ServerManager {
      */
     async restartSession(server) {
         if(server.getStatus() === server.STATUS_UNAUTHORIZED) {
-            return ;
+            return;
         }
 
         await this.removeServer(server);
