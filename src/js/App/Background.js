@@ -54,7 +54,7 @@ class Background {
             await PasswordStatisticsService.init();
             await ServerManager.init();
             await BasicAuthAutofillManager.init();
-            await LocalisationService.init();
+            LocalisationService.init();
             SuspendManager.init();
             console.info('Extension initialized');
         } catch(e) {
