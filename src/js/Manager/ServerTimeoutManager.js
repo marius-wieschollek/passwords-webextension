@@ -91,7 +91,7 @@ export default new class ServerTimeoutManager {
             return;
         }
 
-        if(api.getServer().getStatus() !== server.STATUS_AUTHORIZED) {
+        if(!api.isAuthorized() || api.getServer().getStatus() !== server.STATUS_AUTHORIZED) {
             this._removeServerKeepaliveRequests(server);
             ErrorManager.info('Server not authorized when keepalive action called', server);
             return;
@@ -124,6 +124,11 @@ export default new class ServerTimeoutManager {
                 });
     }
 
+    /**
+     *
+     * @param {Server} server
+     * @private
+     */
     _removeServerKeepaliveRequests(server) {
         if(this._keepaliveTimers.hasOwnProperty(server.getId())) {
             clearInterval(this._keepaliveTimers[server.getId()]);
@@ -131,6 +136,12 @@ export default new class ServerTimeoutManager {
         }
     }
 
+    /**
+     *
+     * @param {Server} server
+     * @return {Promise<void>}
+     * @private
+     */
     async _addServerKeepaliveRequests(server) {
         let api                = await ApiRepository.findById(server.getId()),
             settingsRepository = /** @type {SettingRepository} **/ api.getInstance('repository.setting'),
