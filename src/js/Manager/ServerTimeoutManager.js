@@ -22,7 +22,7 @@ export default new class ServerTimeoutManager {
                         .catch(ErrorManager.catch);
                 },
                 60
-            )
+            );
 
             this._lastInteraction = Date.now();
             this._setUpActivityTriggers();
@@ -96,7 +96,7 @@ export default new class ServerTimeoutManager {
             return;
         }
 
-        if(api.getServer().getStatus() !== server.STATUS_AUTHORIZED) {
+        if(!api.isAuthorized() || api.getServer().getStatus() !== server.STATUS_AUTHORIZED) {
             this._removeServerKeepaliveRequests(server);
             ErrorManager.info('Server not authorized when keepalive action called', server);
             return;
@@ -129,6 +129,11 @@ export default new class ServerTimeoutManager {
                 });
     }
 
+    /**
+     *
+     * @param {Server} server
+     * @private
+     */
     _removeServerKeepaliveRequests(server) {
         if(this._keepaliveTimers.hasOwnProperty(server.getId())) {
             TimerService.removeInterval(this._keepaliveTimers[server.getId()]);
@@ -136,14 +141,20 @@ export default new class ServerTimeoutManager {
         }
     }
 
+    /**
+     *
+     * @param {Server} server
+     * @return {Promise<void>}
+     * @private
+     */
     async _addServerKeepaliveRequests(server) {
         let api                = await ApiRepository.findById(server.getId()),
             settingsRepository = /** @type {SettingRepository} **/ api.getInstance('repository.setting'),
             settings           = await settingsRepository.findByName('user.session.lifetime'),
             serverLifetime     = settings.has('user.session.lifetime') ? settings.get('user.session.lifetime').getValue():600,
-            listener           = () => {this._keepalive(server);};
+            listener           = (s) => {this._keepalive(s);};
 
-        TimerService.addInterval(listener, serverLifetime - 5);
+        TimerService.addInterval(listener, serverLifetime - 5, server);
         this._keepaliveTimers[server.getId()] = listener;
     }
 };

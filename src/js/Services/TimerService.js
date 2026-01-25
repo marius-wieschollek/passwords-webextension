@@ -1,19 +1,16 @@
 import ErrorManager from "@js/Manager/ErrorManager";
+import UuidHelper from "@js/Helper/UuidHelper";
+import BrowserApi from "@js/Platform/BrowserApi";
 
 export default new class TimerService {
-    #intervals = [];
-    #interval = null;
+    #intervals = {};
 
     init() {
-        if(this.#interval) {
-            clearInterval(this.#interval);
-        }
-
-        this.#interval = setInterval(
+        this.addInterval(
             () => {
-                this.#run(10);
+                BrowserApi.getBrowserApi().runtime.getPlatformInfo();
             },
-            10e3
+            20
         );
     }
 
@@ -21,17 +18,18 @@ export default new class TimerService {
      *
      * @param {Function} listener
      * @param {Number} interval
+     * @param {(Object|null)} data
      */
-    addInterval(listener, interval) {
-        this.#intervals.push(
-            {
-                listener,
-                interval,
-                expired: 0,
-                active : false,
-                once   : false
-            }
-        );
+    addInterval(listener, interval, data = null) {
+        let uuid = UuidHelper.generate(),
+            id   = setInterval(() => {this.#run(uuid);}, interval * 1000);
+
+        this.#intervals[uuid] = {
+            listener,
+            data,
+            id,
+            once: false
+        };
     }
 
     /**
@@ -40,7 +38,10 @@ export default new class TimerService {
      */
     removeInterval(listener) {
         for(let index in this.#intervals) {
-            if(!this.#intervals[index].once && this.#intervals[index].listener === listener) {
+            let interval = this.#intervals[index];
+            if(!interval.once && interval.listener === listener) {
+                clearInterval(interval.id);
+
                 delete this.#intervals[index];
             }
         }
@@ -50,17 +51,18 @@ export default new class TimerService {
      *
      * @param {Function} listener
      * @param {Number} interval
+     * @param {(Object|null)} data
      */
-    addTimeout(listener, interval) {
-        this.#intervals.push(
-            {
-                listener,
-                interval,
-                expired: 0,
-                active : false,
-                once   : true
-            }
-        );
+    addTimeout(listener, interval, data= null) {
+        let uuid = UuidHelper.generate(),
+            id   = setInterval(() => {this.#run(uuid);}, interval * 1000);
+
+        this.#intervals[uuid] = {
+            listener,
+            data,
+            id,
+            once: true
+        };
     }
 
     /**
@@ -69,32 +71,28 @@ export default new class TimerService {
      */
     removeTimeout(listener) {
         for(let index in this.#intervals) {
-            if(this.#intervals[index].once && this.#intervals[index].listener === listener) {
+            let interval = this.#intervals[index];
+            if(interval.once && interval.listener === listener) {
+                clearTimeout(interval.id);
+
                 delete this.#intervals[index];
             }
         }
     }
 
-    async #run(timeInSeconds) {
-        for(let index in this.#intervals) {
-            let item = this.#intervals[index];
+    async #run(id) {
+        if(!this.#intervals.hasOwnProperty(id)) {
+            return;
+        }
+        let interval = this.#intervals[id];
+        try {
+            await interval.listener(interval.data);
+        } catch(e) {
+            ErrorManager.logError(e);
+        }
 
-            item.expired += timeInSeconds;
-            if(item.expired >= item.interval) {
-                item.active = true;
-                try {
-                    await item.listener();
-                } catch(e) {
-                    ErrorManager.logError(e);
-                }
-
-                if(item.once) {
-                    delete this.#intervals[index];
-                } else {
-                    item.expired = 0;
-                    item.active = false;
-                }
-            }
+        if(interval.once) {
+            delete this.#intervals[id];
         }
     }
 };

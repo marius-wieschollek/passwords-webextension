@@ -4,6 +4,7 @@ import {HttpError, UnauthorizedError} from 'passwords-client/errors';
 import ToastService from '@js/Services/ToastService';
 import SystemService from '@js/Services/SystemService';
 import ServerManager from "@js/Manager/ServerManager";
+import ApiRepository from "@js/Repositories/ApiRepository";
 
 export default class ConnectionErrorHelper {
 
@@ -61,6 +62,10 @@ export default class ConnectionErrorHelper {
      * @private
      */
     async _disableServer(server) {
+        let api = await ApiRepository.findById(server.getId());
+        api.getSession().setAuthorized(false);
+        api.renewSession();
+
         server.setEnabled(false);
         server.setStatus(server.STATUS_DISABLED);
         await ServerRepository.update(server);
