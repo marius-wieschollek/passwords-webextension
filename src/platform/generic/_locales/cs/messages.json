@@ -1618,5 +1618,8 @@
     },
     "HelpPasteAutofillWhitelist": {
         "message": "Automatické vyplnění přihlašovacích údajů povolte pouze v případě, že byly na dané webové stránce dříve vyplněny ručně."
+    },
+    "SettingsMiningEnabled": {
+        "message": "Detekujte nová nebo změněná hesla"
     }
 }

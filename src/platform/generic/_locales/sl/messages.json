@@ -1618,5 +1618,8 @@
     },
     "HelpPasteAutofillWhitelist": {
         "message": "samodejno izpolnjevanje prijavnih podatkov dovolite le, če so bili predhodno ročno izpolnjeni na tem spletnem mestu."
+    },
+    "SettingsMiningEnabled": {
+        "message": "Zaznajte nova ali spremenjena gesla"
     }
 }

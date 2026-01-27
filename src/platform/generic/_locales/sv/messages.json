@@ -1618,5 +1618,8 @@
     },
     "HelpPasteAutofillWhitelist": {
         "message": "Tillåt endast att inloggningsuppgifter fylls i automatiskt om de tidigare har fyllts i manuellt på den webbplatsen."
+    },
+    "SettingsMiningEnabled": {
+        "message": "Upptäck nya eller ändrade lösenord"
     }
 }

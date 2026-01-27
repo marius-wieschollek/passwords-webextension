@@ -1618,5 +1618,8 @@
     },
     "HelpPasteAutofillWhitelist": {
         "message": "leisti automatiškai užpildyti prisijungimo duomenis tik tuo atveju, jei jie anksčiau toje svetainėje buvo užpildyti rankiniu būdu."
+    },
+    "SettingsMiningEnabled": {
+        "message": "Aptikti naujus arba pakeistus slaptažodžius"
     }
 }

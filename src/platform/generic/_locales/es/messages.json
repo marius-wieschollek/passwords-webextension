@@ -1618,5 +1618,8 @@
     },
     "HelpPasteAutofillWhitelist": {
         "message": "Sólo permita que se rellenen automáticamente los datos de acceso si previamente se han rellenado manualmente en ese sitio web."
+    },
+    "SettingsMiningEnabled": {
+        "message": "Detectar contraseñas nuevas o modificadas"
     }
 }
