@@ -173,6 +173,10 @@
         "message": "Store passwords collected in Incognito as private passwords",
         "description": "Label of the setting in the extension settings to enable or disable switching to the search tab in the popup if the user types in the related passwords tab"
     },
+    "SettingsMiningEnabled": {
+        "message": "Detect new or changed passwords",
+        "description": "Label of the setting in the extension settings to enable or disable password mining"
+    },
     "AccountList": {
         "message": "User accounts",
         "description": "Headline above the user accounts section in the accounts tab in the extension settings"

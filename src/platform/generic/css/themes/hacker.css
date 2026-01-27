@@ -14,3 +14,5 @@
 .input-slider.on .input-slider-button {
     border-color : var(--slider-active-fg-color);
 }
+
+.password-details-view .password-details-fields input, .password-details-view .password-details-fields textarea

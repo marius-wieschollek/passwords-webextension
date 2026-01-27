@@ -66,6 +66,10 @@
 
         <translate tag="h3" say="PasswordMiningSettings"/>
         <div class="setting">
+            <slider-field id="mining-enabled" v-model="settings['mining.enabled']"/>
+            <translate tag="label" for="mining-enabled" say="SettingsMiningEnabled"/>
+        </div>
+        <div class="setting">
             <slider-field id="notification-password-new" v-model="settings['notification.password.new']"/>
             <translate tag="label" for="notification-password-new" say="SettingsNotifyPasswordNew"/>
         </div>
@@ -120,6 +124,7 @@
         'clipboard.clear.passwords',
         'clipboard.clear.delay',
         'password.list.show.user',
+        'mining.enabled',
         'mining.ignored-domains',
         'mining.incognito.hide',
         'autofill.ignored-domains',
