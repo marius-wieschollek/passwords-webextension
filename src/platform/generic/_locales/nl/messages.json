@@ -1618,5 +1618,8 @@
     },
     "HelpPasteAutofillWhitelist": {
         "message": "Sta alleen toe dat inloggegevens automatisch worden ingevuld als deze eerder handmatig zijn ingevuld op die website."
+    },
+    "SettingsMiningEnabled": {
+        "message": "Nieuwe of gewijzigde wachtwoorden detecteren"
     }
 }
