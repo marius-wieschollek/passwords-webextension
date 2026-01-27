@@ -21,6 +21,7 @@ export default class Set extends AbstractController {
             'debug.localisation.enabled',
             'clipboard.clear.passwords',
             'password.list.show.user',
+            'mining.enabled',
             'mining.incognito.hide',
             'contextmenu.enabled'
         ];

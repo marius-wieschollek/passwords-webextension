@@ -28,6 +28,7 @@ export default class Get extends AbstractController {
             'search.recommendation.mode',
             'search.recommendation.maxRows',
             'password.list.show.user',
+            'mining.enabled',
             'mining.ignored-domains',
             'mining.incognito.hide',
             'autofill.ignored-domains',
