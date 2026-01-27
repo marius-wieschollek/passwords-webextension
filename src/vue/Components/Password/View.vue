@@ -14,7 +14,7 @@
         </div>
         <div class="password-details-fields">
             <property :editable="isEditMode" :field="field" v-for="field in defaultFields" :key="field.name" v-on:updateField="updateField" v-on:error="handleValidationError"/>
-            <translate tag="label" say="LabelCustomFields" class="custom-fields" v-if="isEditMode" />
+            <translate tag="label" say="LabelCustomFields" class="custom-fields" v-if="isEditMode"/>
             <custom-property :field="field"
                              :editable="isEditMode"
                              v-for="field in customFields"
@@ -28,14 +28,14 @@
 </template>
 
 <script>
-    import Icon           from '@vue/Components/Icon';
-    import {Password}     from 'passwords-client/models';
-    import Property       from '@vue/Components/Password/Property';
+    import Icon from '@vue/Components/Icon';
+    import {Password} from 'passwords-client/models';
+    import Property from '@vue/Components/Password/Property';
     import CustomProperty from '@vue/Components/Password/CustomProperty';
     import MessageService from '@js/Services/MessageService';
-    import ToastService   from "@js/Services/ToastService";
-    import ErrorManager   from "@js/Manager/ErrorManager";
-    import Translate      from '@vue/Components/Translate.vue';
+    import ToastService from "@js/Services/ToastService";
+    import ErrorManager from "@js/Manager/ErrorManager";
+    import Translate from '@vue/Components/Translate.vue';
 
     export default {
         components: {Translate, Icon, Property, CustomProperty},
@@ -366,7 +366,7 @@
             border           : none;
             line-height      : 2rem;
             background-color : var(--element-hover-bg-color);
-            color            : var(--element-fg-color);
+            color            : var(--element-hover-fg-color);
             scrollbar-width  : thin;
         }
 
@@ -378,11 +378,12 @@
         }
 
         a {
-            width            : 100%;
+            min-width        : calc(100% - .5rem);
             padding          : .25rem;
             line-height      : 2rem;
             background-color : var(--element-hover-bg-color);
             color            : var(--element-active-fg-color);
+            border-radius    : var(--element-border-radius);
         }
     }
 }
