@@ -1618,5 +1618,8 @@
     },
     "HelpPasteAutofillWhitelist": {
         "message": "Csak akkor engedje meg a bejelentkezési adatok automatikus kitöltését, ha azokat korábban már kézzel kitöltötte az adott weboldalon."
+    },
+    "SettingsMiningEnabled": {
+        "message": "Új vagy megváltozott jelszavak észlelése"
     }
 }
