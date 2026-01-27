@@ -1618,5 +1618,8 @@
     },
     "HelpPasteAutofillWhitelist": {
         "message": "Salli kirjautumistietojen automaattinen täyttäminen vain, jos ne on aiemmin täytetty manuaalisesti kyseisellä verkkosivustolla."
+    },
+    "SettingsMiningEnabled": {
+        "message": "Havaita uudet tai muutetut salasanat"
     }
 }

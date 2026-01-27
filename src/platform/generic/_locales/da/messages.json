@@ -1618,5 +1618,8 @@
     },
     "HelpPasteAutofillWhitelist": {
         "message": "Lad kun login-data blive udfyldt automatisk, hvis de tidligere er blevet udfyldt manuelt på den pågældende hjemmeside."
+    },
+    "SettingsMiningEnabled": {
+        "message": "Registrer nye eller ændrede adgangskoder"
     }
 }

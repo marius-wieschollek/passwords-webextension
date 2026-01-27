@@ -1618,5 +1618,8 @@
     },
     "HelpPasteAutofillWhitelist": {
         "message": "Oturum açma verilerinin otomatik olarak doldurulmasına yalnızca bu web sitesinde daha önce manuel olarak doldurulmuşsa izin verin."
+    },
+    "SettingsMiningEnabled": {
+        "message": "Yeni veya değiştirilen şifreleri algılama"
     }
 }
