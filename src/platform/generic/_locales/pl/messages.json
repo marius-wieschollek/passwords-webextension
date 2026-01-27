@@ -1618,5 +1618,8 @@
     },
     "HelpPasteAutofillWhitelist": {
         "message": "Zezwalaj na automatyczne wprowadzanie danych logowania tylko wtedy, gdy zostały one wcześniej wprowadzone ręcznie na tej stronie."
+    },
+    "SettingsMiningEnabled": {
+        "message": "Wykrywanie nowych lub zmienionych haseł"
     }
 }
