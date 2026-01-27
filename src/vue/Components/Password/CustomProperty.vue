@@ -279,6 +279,7 @@
         display        : flex;
         flex-direction : row;
         position       : relative;
+        overflow       : auto;
     }
 
     .password-eye {

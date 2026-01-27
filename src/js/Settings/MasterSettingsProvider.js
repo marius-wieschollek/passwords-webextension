@@ -111,6 +111,10 @@ class MasterSettingsProvider {
                 'sync.password.list.show.user',
                 'local.password.list.show.user'
             ],
+            'mining.enabled'         : [
+                'sync.mining.enabled',
+                'local.mining.enabled'
+            ],
             'mining.ignored-domains'         : [
                 'sync.mining.ignored-domains',
                 'local.mining.ignored-domains'
@@ -153,6 +157,7 @@ class MasterSettingsProvider {
             'clipboard.clear.passwords'      : false,
             'clipboard.clear.delay'          : 60,
             'password.list.show.user'        : false,
+            'mining.enabled'                 : true,
             'mining.ignored-domains'         : '',
             'mining.incognito.hide'          : true,
             'setup.initialized'              : false,
