@@ -1618,5 +1618,8 @@
     },
     "HelpPasteAutofillWhitelist": {
         "message": "Só permitir que os dados de início de sessão sejam preenchidos automaticamente se tiverem sido previamente preenchidos manualmente nesse sítio Web."
+    },
+    "SettingsMiningEnabled": {
+        "message": "Detectar palavras-passe novas ou alteradas"
     }
 }
