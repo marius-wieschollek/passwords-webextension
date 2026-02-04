@@ -53,7 +53,7 @@ export default new class AutofillManager {
         );
         SettingsService.get('paste.autofill.whitelisted').then(
             (s) => {
-                this._autofillEnabled = s;
+                this._autofillOnlyWhitelisted = s;
                 this._enabled = this._autofillEnabled !== null;
             }
         );
@@ -87,7 +87,6 @@ export default new class AutofillManager {
      * @private
      */
     _sendPwdToMessageService(password) {
-        let time = Date.now();
         MessageService.send(
             {
                 type    : 'autofill.password',

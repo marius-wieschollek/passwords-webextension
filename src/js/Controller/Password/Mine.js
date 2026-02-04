@@ -6,7 +6,7 @@ import SettingsService from "@js/Services/SettingsService";
 export default class Mine extends AbstractController {
 
     async execute(message, reply) {
-        let enabled = await SettingsService.getValue('mining.mining.enabled');
+        let enabled = await SettingsService.getValue('mining.enabled');
 
         if(enabled) {
             MiningManager
