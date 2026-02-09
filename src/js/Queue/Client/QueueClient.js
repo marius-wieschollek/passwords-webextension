@@ -1,6 +1,7 @@
 import MessageService from '@js/Services/MessageService';
 import QueueItem from '@js/Models/Queue/QueueItem';
 import ErrorManager from '@js/Manager/ErrorManager';
+import SystemService from "@js/Services/SystemService";
 
 export default class QueueClient {
 
@@ -73,7 +74,7 @@ export default class QueueClient {
                 payload : {
                     name: this._name
                 },
-                receiver: 'background'
+                receiver: SystemService.AREA_BACKGROUND
             }
         ).then((m) => {
             this._processItemMessage(m);
@@ -96,7 +97,7 @@ export default class QueueClient {
      * @protected
      */
     _processItemMessage(message, reply = null) {
-        if(message.getPayload().name !== this._name || reply && reply.getPayload() !== null) return;
+        if(this._queue || message.getPayload().name !== this._name || reply && reply.getPayload() !== null) return;
 
         let items = message.getPayload().items;
         for(let data of items) {
