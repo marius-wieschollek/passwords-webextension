@@ -29,7 +29,9 @@ class MiningManager {
     constructor() {
         /** @type {FeedbackQueue} **/
         this._miningQueue = null;
+        /** @type {Queue} **/
         this._processingQueue = null;
+        /** @type {Setting} **/
         this._ingoredDomainsSetting = null;
     }
 
@@ -125,13 +127,14 @@ class MiningManager {
             }
 
             await emitAsync('mining:item:solved', task);
+            await this._miningQueue.push(task);
         } catch(e) {
             ErrorManager.logError(e);
             task
                 .setFeedback(e.message)
                 .setAccepted(false);
 
-            return await this.processTask(task);
+            await this.processTask(task);
         }
     }
 
