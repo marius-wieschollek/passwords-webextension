@@ -1,6 +1,10 @@
 ## [Unreleased]
+## 2.9.0 - Feature Release
 ### Added
 - Theme import/export
+- Option to only autofill previously used passwords
+- Disable Password mining option
+- Login helpers for login.ibm.com and CAM-based IBM login
 ### Fixed
 - Notifications not working
 
