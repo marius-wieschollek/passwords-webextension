@@ -280,7 +280,7 @@ class MessageService {
             firefoxURL = `moz-extension://${SystemService.getExtensionId()}/html/`;
 
         return sender !== null &&
-               sender.hasOwnProperty('tab') &&
+               sender.hasOwnProperty('tab') && sender.tab.hasOwnProperty('url') &&
                (sender.tab.url.substr(0, chromeURL.length) !== chromeURL && sender.tab.url.substr(0, firefoxURL.length) !== firefoxURL) &&
                (!sender.hasOwnProperty('envType') || sender.envType !== 'addon_child');
     }
