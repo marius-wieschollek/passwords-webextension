@@ -178,6 +178,7 @@
         overflow         : hidden;
         transition       : var(--element-transition);
         position         : relative;
+        max-width        : 100vw;
 
         > * {
             flex-grow   : 0;
@@ -188,12 +189,12 @@
             flex-grow     : 1;
             display       : flex;
             padding       : 0 .25rem 0 .5rem;
-            min-width     : calc(100vw - 3rem);
-            max-width     : calc(100vw - 3rem);
+            min-width     : calc(100% - 3rem);
+            max-width     : calc(100% - 3rem);
             white-space   : nowrap;
             overflow      : hidden;
             text-overflow : ellipsis;
-            transition    : min-width .25s ease-in-out;
+            transition    : min-width .25s linear;
 
             span {
                 display : block;
@@ -210,7 +211,7 @@
 
                     &.scroll-on-hover {
                         transform  : translateX(0);
-                        transition : 2s;
+                        transition : transform 2s linear;
                     }
                 }
 

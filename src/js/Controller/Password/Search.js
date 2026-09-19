@@ -25,7 +25,7 @@ export default class Search extends AbstractController {
                                   .paginate('limit', 16)
                                   .boost('multiply', 'favorite', 2.0);
 
-        if(TabManager.get().tab.incognito) {
+        if(TabManager.get()?.tab?.incognito) {
             query.withHidden(true);
         }
 
