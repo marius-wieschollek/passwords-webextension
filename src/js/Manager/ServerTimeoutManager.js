@@ -111,12 +111,12 @@ export default new class ServerTimeoutManager {
             .send()
             .catch(
                 (e) => {
-                    ErrorManager.logError(e);
                     if(e.name === 'PreconditionFailedError' || e.name === 'TooManyRequestsError') {
+                        ErrorManager.logError(e);
                         ServerManager
                             .restartSession(server)
                             .catch(ErrorManager.catch);
-                    } else if(e.name === 'UnauthorizedError') {
+                    } else {
                         this._connectionError
                             .processError(e, server)
                             .catch(ErrorManager.catch);

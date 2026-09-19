@@ -36,6 +36,7 @@ export default class ConnectionErrorHelper {
         } else if(error instanceof HttpError) {
             message = ['ServerHttpError', error.message];
         } else if(error instanceof TypeError && (error.message.substr(0, 12) === 'NetworkError' || error.message === 'Failed to fetch')) {
+            await ServerManager.removeServer(server);
             let options = {reload: 'ServerNetworkErrorReload'};
 
             ToastService.create({message: 'ServerNetworkError', title, tags, options, default: true, ttl: 0, type: 'error'})
