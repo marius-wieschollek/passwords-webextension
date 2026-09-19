@@ -58,6 +58,7 @@ class SearchManager {
         let serverId = server.getId(),
             items    = SearchService.find()
                                     .where('server', '=', serverId)
+                                    .withHidden(true)
                                     .execute();
 
         SearchService.remove(items);
@@ -94,12 +95,10 @@ class SearchManager {
                     ErrorManager.logError(e);
                     ErrorManager.logError(e2);
                 }
-            } else if(e.name === 'UnauthorizedError') {
+            } else {
                 this._connectionError
                     .processError(e, api.getServer())
                     .catch(ErrorManager.catch);
-            } else {
-                ErrorManager.logError(e);
             }
         }
     }
