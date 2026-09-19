@@ -17,6 +17,10 @@ async function getChangelog() {
         }
     }
 
+    if(!unreleasedText || unreleasedText.length === 0) {
+        return  'Minor bugfixes'
+    }
+
     return unreleasedText;
 }
 
