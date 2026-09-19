@@ -117,6 +117,7 @@
             color            : var(--element-fg-color);
             box-shadow       : var(--tab-border);
             transition       : var(--element-transition);
+            max-width        : 100vw;
 
             &:hover {
                 background-color : var(--element-hover-bg-color);
@@ -133,7 +134,7 @@
                 flex-grow     : 1;
                 min-width     : 100vw;
                 padding       : 1rem;
-                transition    : min-width .15s ease-in-out;
+                transition    : min-width .15s linear;
                 white-space   : nowrap;
                 text-overflow : ellipsis;
                 overflow      : hidden;

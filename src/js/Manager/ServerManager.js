@@ -163,7 +163,6 @@ class ServerManager {
         }
 
         await emitAsync('server:deleted', server);
-        await this._deleteServer.emit(server);
     }
 
     /**
