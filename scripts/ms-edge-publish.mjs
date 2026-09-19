@@ -16,7 +16,12 @@ const client = new EdgeAddonsAPI(
 let response = await client.submit(
     {
         filePath: './edge-extension.zip',
-        notes   : `Passwords for Nextcloud Browser Extension ${json.version}`
+        notes   : `Passwords for Nextcloud Browser Extension ${json.version}. 
+        A test server is provided at https://test.passwordsapp.org/info.html.
+        Log in with the "edge" account and listed password. 
+        After login, navigate to https://test.passwordsapp.org/apps/passwords/#/apps or click on the puzzle icon on the bottom left.
+        Click on "Connect with PassLink" in the "Edge Extension" listing.
+        Click on "Connect via Link" in the popup and confirm the codes with "Looks good" to finish the account setup.`
     }
 );
 
