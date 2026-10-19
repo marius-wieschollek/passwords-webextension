@@ -1,5 +1,14 @@
 ## [Unreleased]
-## 2.9.0 - Feature Release
+## 3.2.2 - Feature Release
+### Fixed
+- Edge related release issues
+
+## 3.2.1 - Feature Release
+### Fixed
+- Database not flushed on server connection issue
+- Slow button effects in chrome browsers
+
+## 3.2.0 - Feature Release
 ### Added
 - Theme import/export
 - Option to only autofill previously used passwords
@@ -7,6 +16,7 @@
 - Login helpers for login.ibm.com and CAM-based IBM login
 ### Fixed
 - Notifications not working
+
 
 ## 3.1.0 - Feature Release
 ### Added
@@ -26,6 +36,15 @@
 ### Removed
 - Autofill for HTTP basic auth
 - Clear clipboard after paste
+
+## 2.9.0 - Feature Release
+### Added
+- Theme import/export
+- Option to only autofill previously used passwords
+- Disable Password mining option
+- Login helpers for login.ibm.com and CAM-based IBM login
+### Fixed
+- Notifications not working
 
 ## 2.8.0 - Feature Release
 ### Added
