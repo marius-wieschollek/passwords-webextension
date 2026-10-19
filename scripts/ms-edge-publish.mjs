@@ -13,7 +13,9 @@ const client = new EdgeAddonsAPI(
     }
 );
 
-let response = await client.submit(
+let response;
+try {
+    response = await client.submit(
     {
         filePath: './edge-extension.zip',
         // The notes are inserted unescaped into the request body, so they must not contain double quotes or line breaks
@@ -29,6 +31,17 @@ let response = await client.submit(
             `Clicking a credential will paste it into the current tab (if possible). Please note that all credentials are demo only and do not actually work.`
         ].join(' ')
     }
-);
+    );
+} catch(e) {
+    // Don't rethrow: the full got error dumps the request options including the auth headers
+    if(e.response) {
+        console.error(`Edge API request failed: ${e.options?.method} ${e.options?.url?.pathname}`);
+        console.error(`Status: ${e.response.statusCode} ${e.response.statusMessage}`);
+        console.error('Body:', e.response.body);
+    } else {
+        console.error(`Edge publish failed: ${e.message}`);
+    }
+    process.exit(1);
+}
 
 console.log('Update pushed', response);
