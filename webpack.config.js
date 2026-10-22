@@ -141,6 +141,9 @@ module.exports = (env, argv) => {
                 }
             ]
         },
-        plugins
+        plugins,
+        ignoreWarnings: [
+            {message: /export 'default' \(imported as 'style\d+'\) was not found in '[^']+\.vue\?vue&type=style&/}
+        ]
     };
 };
