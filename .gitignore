@@ -4,3 +4,4 @@ build
 dist
 metadata.json
 source.zip
+.env
