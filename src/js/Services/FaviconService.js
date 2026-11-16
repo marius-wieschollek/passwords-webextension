@@ -17,7 +17,7 @@ export default new class FaviconService {
      * @param {(String|EnhancedPassword)} password
      * @param {Number} size
      * @param {Boolean} withDefault
-     * @returns {Promise<String>}
+     * @returns {Promise<(String|null)>}
      */
     async getFaviconForPassword(password, size, withDefault = true) {
         /** @type {(EnhancedPassword|null)} **/
@@ -37,8 +37,12 @@ export default new class FaviconService {
 
         this._queue[key] = new Promise(async (resolve) => {
             try {
-                let blob = await model.getFavicon(size),
-                    icon = await BlobToBase64Helper.convert(blob);
+                let blob = await model.fetchFavicon(size);
+                if(blob === null) {
+                    return withDefault ? await this._getDefaultIcon():null;
+                }
+
+                let icon = await BlobToBase64Helper.convert(blob);
 
                 this._putIntoCache(key, icon);
 

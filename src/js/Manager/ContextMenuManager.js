@@ -174,17 +174,16 @@ class ContextMenuManager {
         let icon16 = await FaviconService.getFaviconForPassword(password, 16, false),
             icon32 = await FaviconService.getFaviconForPassword(password, 32, false);
 
-        if(this._activeMenus.indexOf(password.getId()) === -1) return;
+        if(this._activeMenus.indexOf(password.getId()) === -1 || icon16 === null && icon32 === null) return;
+
+        let icons = {};
+        if(icon16) icons[16] = icon16;
+        if(icon32) icons[32] = icon32;
 
         let menu = SystemService.getContextMenu();
         menu.update(
             password.getId(),
-            {
-                icons: {
-                    16: icon16,
-                    32: icon32
-                }
-            }
+            {icons}
         );
     }
 }
