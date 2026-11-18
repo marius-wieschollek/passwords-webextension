@@ -59,7 +59,7 @@ Publish Nightly Firefox:
   stage: publishing
   script:
     - 'export EXT_VERSION=$(node -p "require(\"./dist/firefox-extension/manifest.json\").version")'
-    - 'PACKAGE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/passwords-webextension-nightly/latest/firefox-webextension-${EXT_VERSION}.xpi"'
+    - 'PACKAGE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/passwords-webextension-nightly/${EXT_VERSION}/firefox-webextension-${EXT_VERSION}.xpi"'
     - 'UPDATE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/passwords-webextension-nightly/latest/updates.json"'
     - 'sed -i -e "s|\"gecko\": {|\"gecko\":{\"update_url\":\"UPDATE_URL\",|g" ./dist/firefox-extension/manifest.json'
     - 'sed -i -e "s|UPDATE_URL|${UPDATE_URL}|g" ./dist/firefox-extension/manifest.json'
@@ -74,8 +74,8 @@ Publish Nightly Firefox:
     - 'sed -i -e "s|SHA_512|${SHA_512}|g" ./dist/firefox-extension/updates.json'
     - 'export CHANGELOG_URL=${CI_PROJECT_URL}/raw/${CI_COMMIT_SHA}/Changelog.md'
     - 'sed -i -e "s|CHANGELOG_URL|${CHANGELOG_URL}|g" ./dist/firefox-extension/updates.json'
-    - 'curl --retry 5 --retry-all-errors --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./dist/firefox-extension/${EXT_FILENAME} "${PACKAGE_URL}"'
-    - 'curl --retry 5 --retry-all-errors --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./dist/firefox-extension/updates.json "${UPDATE_URL}"'
+    - 'curl -f --retry 5 --retry-all-errors --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./dist/firefox-extension/${EXT_FILENAME} "${PACKAGE_URL}"'
+    - 'curl -f --retry 5 --retry-all-errors --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./dist/firefox-extension/updates.json "${UPDATE_URL}"'
     - 'echo "Firefox Extension package available at ${PACKAGE_URL}"'
   environment:
     name: Testing
@@ -101,7 +101,7 @@ Publish Nightly Edge:
     - 'cd dist/chrome-extension'
     - 'zip -r -9 ../../edge-extension.zip ./*'
     - 'cd ../../'
-    - 'curl --retry 5 --retry-all-errors --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./edge-extension.zip "${PACKAGE_URL}"'
+    - 'curl -f --retry 5 --retry-all-errors --header "JOB-TOKEN: ${CI_JOB_TOKEN}" --upload-file ./edge-extension.zip "${PACKAGE_URL}"'
     - 'echo "Edge Extension package available at ${PACKAGE_URL}"'
   environment:
     name: Testing
